@@ -1,0 +1,12 @@
+Installare git:
+	(ubuntu) Dare da terminale il comando: sudo apt-get install git
+
+Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
+
+Creare una cartella, dove volete, di nome "appunti-condivisi".
+Aprire un terminale nel percorso di quella cartella.
+Dare i seguenti comandi:
+	git init
+	git remote add --track master origin https://giorgio@github.com/dario2994/appunti-condivisi.git
+	git pull
+	git push --set-upstream origin master
