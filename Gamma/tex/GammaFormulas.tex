@@ -6,3 +6,24 @@ Dimostro che $\forall 0<x<1$ (in realtà vale per ogni $x$ complesso tranne gli 
 \end{equation}
 
 \end{theorem}
+
+\begin{proof}
+Uso l'identità \ref{GaussFormula} per ottenere:
+\begin{equation}
+\label{MezzaRiflessione}
+\begin{split}
+\Gamma(x)\Gamma(1-x) & = \lim_{n\to\infty} \dfrac{n^xn!}{x(x+1)\cdots (x+n)} \cdot \dfrac{n^{1-x}n!}{(1-x)(1-x+1)\cdots (1-x+n)}\\
+ & =\lim_{n\to\infty} \frac{n}{n+1-x} \cdot \frac{1}{x} \cdot \prod_{k=1}^{n}\dfrac{k^2}{k^2-x^2} = \\
+  & =\left(\lim_{n\to\infty} \frac{n}{n+1-x} \right) \cdot \left( \lim_{n\to\infty} x \prod_{k=1}^{n}\left(1-\frac{x^2}{k^2}\right) \right)^{-1}
+\end{split}
+\end{equation}
+
+Ed ora ricordando la formula come prodotto infinito del seno:
+\begin{equation}
+	\sin(\pi x)=\pi x \prod_{k=0} \left(1-\frac{x^2}{k^2}\right)
+\end{equation}
+
+Ottengo che l'ultimo membro della \eqref{MezzaRiflessione} risulta $\frac{\pi}{\sin(\pi x)}$, che è la tesi del teorema.
+
+
+\end{proof}
