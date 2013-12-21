@@ -7,6 +7,16 @@
 \usepackage{amsmath}
 \usepackage{subfiles}
 
+\newcommand\esercizio[3]{
+  \section{#1}
+  \subsection{Testo}
+  #2
+  \subsection{Soluzione}
+  #3
+  
+  \clearpage
+}
+
 \title{Appunti di fisica}
 \author{Classe di scienze della SNS}
 
@@ -16,5 +26,5 @@
 \clearpage
 
 \input{elencoesercizi.tex}
- 
+
 \end{document}
