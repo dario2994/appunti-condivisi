@@ -4,7 +4,7 @@ Installare git:
 	(ubuntu) 
 		Dare da terminale il comando: sudo apt-get install git
 	
-	(windows)
+	(windows) (guida creata grazie all'aiuto di luca)
 		Aprire col browser questo link
 			http://git-scm.com/download/win
 		Partirà automaticamente un download. 
