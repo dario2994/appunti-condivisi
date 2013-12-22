@@ -5,12 +5,17 @@
 \usepackage[a4paper,twoside,top=0.7in, bottom=1in, left=0.5in, right=0.5in]{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue}
+}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage{array}
 \usepackage{hhline}
+\usepackage[nameinlink]{cleveref}
 
 \newtheorem{theorem}{Teorema}
 
@@ -24,3 +29,9 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definizione}
+
+\crefname{theorem}{thm:}{Teorema}
+\crefname{lemma}{lem:}{Lemma}
+\crefname{corollary}{cor:}{Corollario}
+\crefname{remark}{nota:}{Nota}
+\crefname{definition}{def:}{Definizione}

@@ -12,7 +12,7 @@
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Basta applicare la sostituzione $t'=1-t$ nell'integrale della definizione \ref{FunzioneBeta} 
+	Basta applicare la sostituzione $t'=1-t$ nell'integrale della definizione \cref{FunzioneBeta} 
 	per ottenere esattamente la simmetria della funzione Beta.
 \end{proof}
 
@@ -23,7 +23,7 @@
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Trasformo l'integrale della \ref{FunzioneBeta} con la sostituzione $t=\sin^2u$.\\
+	Trasformo l'integrale della \cref{FunzioneBeta} con la sostituzione $t=\sin^2u$.\\
 	Gli estremi d'integrazione diventano $0,\frac{\pi}2$ e risulta che $\mathrm{d}t=2\sin(u)\cos(u)du$. Unendo questi risultati ottengo:
 	\begin{equation*}\begin{split}
 		\mathrm{B}(x,y) & =\int_0^1 t^{x-1}(1-t)^{y-1} \mathrm{d}t = \int_0^{\frac\pi2} \sin(u)^{2(x-1)}\cos(u)^{2(y-1)}2\sin(u)\cos(u)\mathrm{d}u\\
@@ -38,7 +38,7 @@
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Basta applicare la definizione \ref{FunzioneBeta} ottenendo:
+	Basta applicare la definizione \cref{FunzioneBeta} ottenendo:
 	\begin{equation*}
 		\mathrm{B}(x+1,y)+\mathrm{B}(x,y+1)=\int_0^1 t^x(1-t)^{y-1}+t^{x-1}(1-t)^y\mathrm{d}t=
 		\int_0^1 t^{x-1}(1-t)^{y-1}(t+(1-t))\mathrm{d}t=\mathrm{B}(x,y)
@@ -58,7 +58,7 @@
 		\int_0^1 t^{x}(1-t)^{y-1}\mathrm{d}t=\left[\frac{-t^x(1-t)^y}y\right]_0^1-\int_0^1\frac{-xt^{x-1}(1-t)^y}{y}\mathrm{d}t=
 		\frac xy \int_0^1 t^{x-1}(1-t)^y\mathrm{d}t 
 	\end{equation}
-	Sostituendo la \ref{FunzioneBeta} nella \ref{QuasiFunzionaleBeta2} si ottiene:
+	Sostituendo la \cref{FunzioneBeta} nella \cref{QuasiFunzionaleBeta2} si ottiene:
 	\begin{equation*}
 		\mathrm{B}(x+1,y)=\frac xy \cdot \mathrm{B}(x,y+1)
 	\end{equation*}
@@ -73,7 +73,7 @@
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	I lemmi \ref{FunzionaleBeta1} e \ref{FunzionaleBeta2} implicano:
+	\Cref{FunzionaleBeta1,FunzionaleBeta2} implicano:
 	\begin{equation}
 		\left\{
 		\begin{aligned}
@@ -86,14 +86,11 @@
 	Risolvendo nella variabile $\mathrm{B}(x+1,y)$ si ottiene esattamente la tesi del corollario.
 \end{proof}
 
-
-
-
 \begin{lemma}\label{BetaLogConvessa} 
 	La funzione Beta è log-convessa in entrambi gli argomenti.
 \end{lemma}
 \begin{proof}
-	Basta dimostrarlo per un argomento (considerando l'altro fissato) e poi grazie alla simmetria mostrata in \ref{BetaSimmetrica}
+	Basta dimostrarlo per un argomento (considerando l'altro fissato) e poi grazie alla simmetria mostrata in \cref{BetaSimmetrica}
 	si ottiene la tesi anche per l'altro.\\
 	Resta quindi da dimostrare che per ogni $a,b,y\in\mathbb{R^+}$ e $\lambda,\mu\in\mathbb{R^+}$ che rispettano $\lambda+\mu=1$ vale la seguente:
 	\begin{equation}\begin{split}\label{QuasiBetaLogConvessa}
@@ -101,7 +98,7 @@
 		& \Updownarrow  \\
 		\mathrm{B}(\lambda a+\mu b, y ) & \le  \mathrm{B}(a,y)^{\lambda}\mathrm{B}(b, y )^{\mu}
 	\end{split}\end{equation}
-	Ora sostituisco nella \eqref{QuasiBetaLogConvessa} la definizione \ref{FunzioneBeta} ottenendo che devo dimostrare:
+	Ora sostituisco nella \cref{QuasiBetaLogConvessa} la definizione \cref{FunzioneBeta} ottenendo che devo dimostrare:
 	\begin{equation*}
 		\int_{0}^1 t^{\lambda a+\mu b}(1-t)^y\mathrm{d}y=\int_{0}^1 \left(t^a(1-t)^y\right)^{\lambda}\left(t^b(1-t)^y\right)^{\mu}\mathrm{d}t \le
 		\left(\int_{0}^1 t^a(1-t)^y\right)^{\lambda}\left(\int_{0}^1 t^b(1-t)^y\right)^{\mu}
@@ -121,41 +118,40 @@
 	\begin{equation}\label{QuasiGamma}
 		f_y(x)=\frac{\mathrm{B}(x,y)\Gamma(x+y)}{\Gamma(y)}
 	\end{equation}
-	Dimostro che $f_y$ rispetta le ipotesi di \ref{BohrMollerup}.
+	Dimostro che $f_y$ rispetta le ipotesi di \cref{BohrMollerup}.
 	\begin{itemize}
 		\item $f_y(1)=1$\\
-			Vale, sfruttando la \eqref{QuasiGamma} e l'equazione funzionale che definisce la Gamma, che:
+			Vale, sfruttando la \cref{QuasiGamma} e l'equazione funzionale che definisce la Gamma, che:
 			\begin{equation}\label{QuasiGammaDiUno}
 				f_y(1)=\frac{\mathrm{B}(1,y)\Gamma(1+y)}{\Gamma(y)}=\mathrm{B}(1,y)y
 			\end{equation}
-			Però dalla definizione \ref{FunzioneBeta} e dalla simmetria \ref{BetaSimmetrica} ho anche:
+			Però dalla definizione \cref{FunzioneBeta} e dalla simmetria \cref{BetaSimmetrica} ho anche:
 			\begin{equation}\label{BetaDiUno}
 				\mathrm{B}(1,y)=\mathrm{B}(y,1)=\int_0^1 t^{y-1} \mathrm{d}t = \left[\frac{t^y}y\right]_0^1= \frac1y
 			\end{equation}
-			Sostituendo \eqref{BetaDiUno} nella \eqref{QuasiGammaDiUno} ottengo $f_y(1)=1$.
+			Sostituendo \cref{BetaDiUno} nella \cref{QuasiGammaDiUno} ottengo $f_y(1)=1$.
 		\item $f_y$ è log-convessa\\
-			Applicando la log convessità di Gamma e Beta (\ref{BetaLogConvessa}, \ref{GammaLogConvessa}) nella \ref{QuasiGamma} ho che $f_y$ è prodotto di 
+			Applicando la log convessità di Gamma e Beta (\cref{BetaLogConvessa,GammaLogConvessa}) nella \cref{QuasiGamma} ho che $f_y$ è prodotto di 
 			funzioni log-convesse, perciò è essa stessa log-convessa.
 		\item $f_y(x+1)=xf_y(x)$\\
-			Applicando l'equazione funzionale della Gamma nella \ref{QuasiGamma} si ha facilmente:
+			Applicando l'equazione funzionale della Gamma nella \cref{QuasiGamma} si ha facilmente:
 			\begin{equation}\label{QuasiFunzionaleBeta}
 				f_y(x+1)=\frac{\mathrm{B}(x+1,y)(x+y)\Gamma(x+y)}{\Gamma(y)}=(x+y) f_y(x) \frac{B(x+1,y)}{\mathrm{B}(x,y)}
 			\end{equation}
-			Ed ora applico \ref{FunzionaleBeta3} nella \eqref{QuasiFunzionaleBeta} ottenendo quando desiderato:
+			Ed ora applico \cref{FunzionaleBeta3} nella \cref{QuasiFunzionaleBeta} ottenendo quando desiderato:
 			\begin{equation*}
 				f_y(x+1)=(x+y) f_y(x) \frac{x}{x+y}=xf_y(x)
 			\end{equation*}
 	\end{itemize}
-	Poichè $f_y$ rispetta tutte le ipotesi di \ref{BohrMollerup}, lo applico ottenendo che $f_y=\Gamma$.
-	Di conseguenza, ricordando la definizione \eqref{QuasiGamma} ottengo:
+	Poichè $f_y$ rispetta tutte le ipotesi di \cref{BohrMollerup}, lo applico ottenendo che $f_y=\Gamma$.
+	Di conseguenza, ricordando la definizione \cref{QuasiGamma} ottengo:
 	\begin{equation*}
 		\frac{\mathrm{B}(x,y)\Gamma(x+y)}{\Gamma(y)}=f_y(x)=\Gamma(x) \Longrightarrow \mathrm{B}(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
 	\end{equation*}
-
 \end{proof}
 
 \begin{remark}[Valore di $\Gamma\left(\frac12\right)$]
-	Ponendo $x=y=1$ in \ref{GammaBeta} e sfruttando la \ref{BetaTrigonometrica} ottengo:
+	Ponendo $x=y=1$ in \cref{GammaBeta} e sfruttando \cref{BetaTrigonometrica} ottengo:
 	\begin{equation*}
 		\mathrm{B}\left(\frac12,\frac12\right)=\dfrac{\Gamma\left(\frac12\right)^2}{\Gamma(1)}\Rightarrow 
 		\Gamma\left(\frac12\right)^2=2\int_0^{\frac{\pi}2}\sin^0u\cos^0u\mathrm{d}u=\pi\Rightarrow \Gamma\left(\frac12\right)=\sqrt{\pi}
