@@ -1,52 +1,78 @@
 \begin{theorem}[Teorema di Bohr-Mollerup]
-Esiste un'unica funzione $\Gamma :\mathbb{R}^{+}\rightarrow\mathbb{R} $ che rispetta le 3 seguenti proprietà:
+Esiste un'unica funzione $f :\mathbb{R}^{+}\rightarrow\mathbb{R} $ che rispetta le 3 seguenti proprietà:
 \begin{itemize}
- \item $\Gamma(1)=1$
- \item $\Gamma(x+1)=\Gamma(x)$
- \item $\Gamma$ è log-convessa, cioè la funzione $\ln(\Gamma(x))$ è convessa
+ \item $f(1)=1$
+ \item $f(x+1)=xf(x)$
+ \item $f$ è log-convessa, cioè la funzione $\ln(f(x))$ è convessa
 \end{itemize}
 In particolare tale funzione è definita da $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$.
 \end{theorem}
 
 \begin{proof}
-Dimostro innanzitutto che la funzione $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$ rispetta le tre condizioni:
+Dimostro innanzitutto che se esiste una funzione che rispetta le 3 proprietà, allora è unica.\\
+Sia $f$ una funzione che rispetta tali proprietà, allora per la seconda proprietà vale banalmente che:
+\begin{equation}
+ \label{Ricorsione}
+ f(x+n)=(x+n-1)!f(x)\ \forall x\in \mathbb{R}^+, n\in\mathbb{N}
+\end{equation}
+dove $(x+n-1)!=(x+n-1)(x+n-2)\cdots(x+1)x$.\\
+In particolare, dato che $f(1)=1$, ottengo anche che:
+\begin{equation}
+ \label{Naturali}
+ f(n)=(n-1)!\ \forall n\in \mathbb{N}
+\end{equation}
+Sia ora $M(u,v)=\frac{\ln(f(u))-\ln(f(v))}{u-v}$ il rapporto incrementale
+di $\ln(f(x))$ fra $u$ e $v$. Poichè $f$ è log-convessa, deve valere che $M(u,v)$ è crescente sia in $u$ che in $v$.
+Quindi in particolare per ogni $0<x<1$ vale:
+\begin{equation*}
+ \begin{split}
+  M(n,n-1) & \le M(n,n+x) \le M(n,n+1) \\
+  \iff \ln(f(n))-\ln(f(n-1)) & \le \frac{\ln(f(n+x))-\ln(f(n))}{x} \le \ln(f(n+1))-\ln(f(n)) 
+  \end{split}
+\end{equation*}
+Da cui, utilizzando la \eqref{Ricorsione} e la \eqref{Naturali}, ottengo che:
+
+\begin{gather*}
+  x \ln(n-1) \le \ln \left( \frac{f(n+x)}{f(n)} \right) \le x\ln(n)\\
+  \iff (n-1)^x \le \left( \frac{f(n+x)}{f(n)} \right) \le n^x \\
+  \iff (n-1)^x \le \left( \frac{f(x)(n+x-1)!}{(n-1)!} \right) \le n^x \\
+  \iff \left(1-\frac{1}{n}\right)^x \le \left( \frac{f(x)(n+x-1)!}{n^x(n-1)!} \right) \le 1
+\end{gather*}
+E passando al limite:
+ \begin{gather*}
+  \lim_{n\rightarrow \infty} \left(1-\frac{1}{n}\right)^x \le \lim_{n\rightarrow \infty}  \frac{f(x)(n+x-1)!}{n^x(n-1)!} \le 1 \\
+  \Longrightarrow \lim_{n\rightarrow \infty} \frac{f(x)(n+x-1)!}{n^x(n-1)!}  = 1 \\
+  \Longrightarrow f(x) = \lim_{n\rightarrow \infty} \frac{n^x(n-1)!}{(n+x-1)!}=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+ \end{gather*}
+In particolare da quest'ultima equazione e dalla \eqref{Ricorsione} ottengo che per ogni $x\in\mathbb{R}^+$ vale:
+\begin{equation}
+\label{GaussFormula}
+ f(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+\end{equation}
+E di conseguenza se esiste una funzione $f$ che rispetta le 3 proprietà, essa deve essere un'unica, perchè ogni
+funzione di questo tipo deve rispettare la relazione \eqref{GaussFormula}.\\
+\\Dimostro ora che tale funzione esiste e in particolare è 
+$\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$. Verifico infatti che $\Gamma(x)$ rispetta tutte e tre le proprietà:
 \begin{itemize}
- \item \begin{equation}
+ \item \begin{equation*}
        \Gamma(1)=\int_0^{\infty}{e^{-t}dt}=\left[-e^{-t}\right]_0^{\infty}=1
-       \end{equation}
+       \end{equation*}
  \item Integrando per parti ottengo:
-       \begin{equation} 
+       \begin{equation*} 
        \Gamma(x+1)=\int_0^{\infty}{e^{-t}t^xdt}=\left[-e^{-t}t^x\right]_0^{\infty}+\int_0^{\infty}xe^{-t}t^{x-1}dt=x\Gamma(x)
-       \end{equation}
+       \end{equation*}
  \item $\Gamma$ è log-convessa se e solo se per ogni $0<\lambda < 1$ e per ogni $x,y \in \mathbb{R}^+$ vale 
        $\ln(\Gamma(\lambda x+(1-\lambda)y))\le \lambda \ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))$.
        Per la disuguaglianza di Holder vale però che:
-       \begin{equation}
-       \begin{split}
-       \int_0^{\infty}{(e^{-t}t^{x-1})^\lambda (e^{-t}t^{y-1})^{1-\lambda}dt} & \le 
+       \begin{gather*}
+       \int_0^{\infty}{(e^{-t}t^{x-1})^\lambda (e^{-t}t^{y-1})^{1-\lambda}dt} \le 
        \left(\int_0^{\infty}{e^{-t}t^{x-1}dt}\right)^\lambda \left(\int_0^{\infty}{e^{-t}t^{y-1}}\right)^{1-\lambda}\\
-       \Longrightarrow \int_0^{\infty}{e^{-t}t^{\lambda x +(1-\lambda)y}dt}  & \le 
+       \Longrightarrow \int_0^{\infty}{e^{-t}t^{\lambda x +(1-\lambda)y}dt} \le 
        \left(\int_0^{\infty}{e^{-t}t^{x-1}dt}\right)^\lambda \left(\int_0^{\infty}{e^{-t}t^{y-1}}\right)^{1-\lambda}\\
-       \Longrightarrow \Gamma(\lambda x+(1-\lambda)y) & \le \Gamma(x)^\lambda\Gamma(y)^{1-\lambda}\\
-       \Longrightarrow \ln(\Gamma(\lambda x+(1-\lambda)y)) & \le \lambda\ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))\\
-       \end{split}
-       \end{equation}
+       \Longrightarrow \Gamma(\lambda x+(1-\lambda)y) \le \Gamma(x)^\lambda\Gamma(y)^{1-\lambda}\\
+       \Longrightarrow \ln(\Gamma(\lambda x+(1-\lambda)y)) \le \lambda\ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))\\
+       \end{gather*}
 \end{itemize}
-Dimostro ora che questa è l'unica funzione che rispetta le ipotesi. Sia $f$ una funzione che rispetta le tre condizioni, allora 
-
-\begin{equation}
-\begin{split}
- & \ln(\Gamma(n))-\ln(\Gamma(n-1)) \le \frac{\ln(\Gamma(n+x))-\ln(\Gamma(n))}{x} \le \ln(\Gamma(n+1))-\ln(\Gamma(n)) \\
- & \iff x \ln(n-1) \le \ln \left( \frac{\Gamma(n+x)}{\Gamma(n)} \right) \le x\ln(n)\\
- & \iff (n-1)^x \le \left( \frac{\Gamma(n+x)}{\Gamma(n)} \right) \le n^x \\
- & \iff (n-1)^x \le \left( \frac{\Gamma(x)(n+x-1)!}{(n-1)!} \right) \le n^x \\
- & \iff \left(1-\frac{1}{n}\right)^x \le \left( \frac{\Gamma(x)(n+x-1)!}{n^x(n-1)!} \right) \le 1\\
- & \Longrightarrow \lim_{n\rightarrow \infty} \left(1-\frac{1}{n}\right)^x \le \lim_{n\rightarrow \infty}  \frac{\Gamma(x)(n+x-1)!}{n^x(n-1)!} \le 1 \\
- & \Longrightarrow \lim_{n\rightarrow \infty} \frac{\Gamma(x)(n+x-1)!}{n^x(n-1)!}  = 1 \\
- & \Longrightarrow \Gamma(x) = \lim_{n\rightarrow \infty} \frac{n^x(n-1)!}{(n+x-1)!}  = \lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
-\end{split}
-\end{equation}
-
 
 
 \end{proof}
