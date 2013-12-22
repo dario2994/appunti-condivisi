@@ -3,18 +3,35 @@ Registrarsi su github
 Installare git:
 	(ubuntu) 
 		Dare da terminale il comando: sudo apt-get install git
-		Una volta installato lanciare i comandi:
-			git config --global user.email "INDIRIZZO EMAIL"
-			git config --global user.name "NOME COGNOME"
-			git config --global push.default simple
-			git config --global color.ui auto
+	
+	(windows)
+		Aprire col browser questo link
+			http://git-scm.com/download/win
+		Partirà automaticamente un download. 
+		Finito il download eseguite quanto scaricato... è l'installer di git,
+		quando vi porrà delle domande la risposta giusta è sempre quella che suggerisce
+		lui, quindi ditegli sempre di sì.
+		Ora in start vi troverete la cartella git, che contiene il programma git-bash.
+		Lanciando git-bash avrete un terminale linux più o meno funzionante.
+		Purtroppo git-bash la prima volta che lo lanciate si apre in una cartella 
+		inaspettata, cioè 
+			C:\windows\system32
+		Voi chiudetelo e riapritelo... sembra bastare per farlo funzionare.
+		Per incollare in git bash (vi servirà per i prossimi comandi)
+		dovete usare il tasto insert (indicato con insert o ins sulle tastiere).
+	
+	Una volta installato lanciare i comandi:
+		git config --global user.email "INDIRIZZO EMAIL"
+		git config --global user.name "NOME COGNOME"
+		git config --global push.default simple
+		git config --global color.ui auto
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
 Mandare una mail a Federico o comunicargli in qualche modo il nome utente scelto e aspettare sua conferma prima di procedere
 (vi deve aggiungere al progetto).
 
 Creare una cartella, dove volete, di nome "appunti-condivisi".
-Aprire un terminale nel percorso di quella cartella.
+Aprire un terminale (o git-bash) nel percorso di quella cartella.
 Dare i seguenti comandi:
 	git init
 	git remote add --track master origin https://giorgio@github.com/dario2994/appunti-condivisi.git
