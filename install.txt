@@ -20,15 +20,16 @@ Installare git:
 		Per incollare in git bash (vi servirà per i prossimi comandi)
 		dovete usare il tasto insert (indicato con insert o ins sulle tastiere).
 	
-	Una volta installato lanciare i comandi:
+Configurare git:
+	Aprire un terminale (o git-bash) e lanciare i comandi:
 		git config --global user.email "INDIRIZZO EMAIL"
 		git config --global user.name "NOME COGNOME"
 		git config --global push.default simple
 		git config --global color.ui auto
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
-Mandare una mail a Federico o comunicargli in qualche modo il nome utente scelto e aspettare sua conferma prima di procedere
-(vi deve aggiungere al progetto).
+Mandare una mail a me (Federico Glaudo) o comunicargli in qualche modo il nome utente
+scelto e aspettare sua conferma prima di procedere (vi devo aggiungere al progetto).
 
 Creare una cartella, dove volete, di nome "appunti-condivisi".
 Aprire un terminale (o git-bash) nel percorso di quella cartella.
