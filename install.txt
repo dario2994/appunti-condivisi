@@ -1,5 +1,13 @@
+Registrarsi su github
+
 Installare git:
-	(ubuntu) Dare da terminale il comando: sudo apt-get install git
+	(ubuntu) 
+		Dare da terminale il comando: sudo apt-get install git
+		Una volta installato lanciare i comandi:
+			git config --global user.email "INDIRIZZO EMAIL"
+			git config --global user.name "NOME COGNOME"
+			git config --global push.default simple
+			git config --global color.ui auto
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
 Mandare una mail a Federico o comunicargli in qualche modo il nome utente scelto e aspettare sua conferma prima di procedere
