@@ -1,4 +1,5 @@
 \begin{theorem}[Teorema di Bohr-Mollerup]
+\label{BohrMollerup}
 Esiste un'unica funzione $f :\mathbb{R}^{+}\rightarrow\mathbb{R} $ che rispetta le 3 seguenti proprietà:
 \begin{itemize}
  \item $f(1)=1$
@@ -52,16 +53,32 @@ In particolare da quest'ultima equazione e dalla \eqref{Ricorsione} ottengo che 
 E di conseguenza se esiste una funzione $f$ che rispetta le 3 proprietà, essa deve essere un'unica, perchè ogni
 funzione di questo tipo deve rispettare la relazione \eqref{GaussFormula}.\\
 \\Dimostro ora che tale funzione esiste e in particolare è 
-$\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$. Verifico infatti che $\Gamma(x)$ rispetta tutte e tre le proprietà:
-\begin{itemize}
- \item \begin{equation*}
+$\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$. Verifico infatti che $\Gamma(x)$ rispetta tutte e tre le proprietà.
+\begin{lemma}
+ $\Gamma(1)=1$
+\end{lemma}
+\begin{proof}
+       \begin{equation*}
        \Gamma(1)=\int_0^{\infty}{e^{-t}dt}=\left[-e^{-t}\right]_0^{\infty}=1
        \end{equation*}
- \item Integrando per parti ottengo:
+\end{proof}
+
+\begin{lemma}
+ $\Gamma(x+1)=x\Gamma(x)$
+\end{lemma}
+\begin{proof}
+       Integrando per parti ottengo:
        \begin{equation*} 
        \Gamma(x+1)=\int_0^{\infty}{e^{-t}t^xdt}=\left[-e^{-t}t^x\right]_0^{\infty}+\int_0^{\infty}xe^{-t}t^{x-1}dt=x\Gamma(x)
        \end{equation*}
- \item $\Gamma$ è log-convessa se e solo se per ogni $0<\lambda < 1$ e per ogni $x,y \in \mathbb{R}^+$ vale 
+\end{proof}
+
+\begin{lemma}
+ \label{GammaLogConvessa}
+ $\Gamma(x)$ è log-convessa.
+\end{lemma}
+\begin{proof}
+       $\Gamma$ è log-convessa se e solo se per ogni $0<\lambda < 1$ e per ogni $x,y \in \mathbb{R}^+$ vale 
        $\ln(\Gamma(\lambda x+(1-\lambda)y))\le \lambda \ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))$.
        Per la disuguaglianza di Holder vale però che:
        \begin{gather*}
@@ -72,7 +89,7 @@ $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$. Verifico infatti che $\Gamma(x)$ r
        \Longrightarrow \Gamma(\lambda x+(1-\lambda)y) \le \Gamma(x)^\lambda\Gamma(y)^{1-\lambda}\\
        \Longrightarrow \ln(\Gamma(\lambda x+(1-\lambda)y)) \le \lambda\ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))\\
        \end{gather*}
-\end{itemize}
+\end{proof}
 
 
 \end{proof}
