@@ -26,6 +26,9 @@ Configurare git:
 		git config --global user.name "NOME COGNOME"
 		git config --global push.default simple
 		git config --global color.ui auto
+		
+	Se volete che git vi chieda la password una volta sola e mai più, date anche:
+		git config --global credential.helper store
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
 Mandare una mail a me (Federico Glaudo) o comunicargli in qualche modo il nome utente
