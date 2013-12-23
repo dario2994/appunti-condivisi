@@ -1,0 +1,28 @@
+Questa guida spiega le regole generali di utilizzo del repository.
+
+Voi avete il diritto di modificare tutto come vi pare, purchè la modifica sia in meglio.
+È ovvio però che se la modifica la fate ad un file che non vi appartiene (esempio attuale
+è la cartella GammaFunction) dovete pensarci molte volte. Avete il diritto di correggere
+errori, ma allo stesso tempo sarebbe meglio se piuttosto che correggerli esplicitamente
+vi limitiate a commentare su github l'ultimo commit al file dicendo l'errore.
+
+Questo repository è pensato per tenere degli appunti in latex. Perciò ha delle
+configurazioni adatte a questo.
+In particolare attualmente git ignora i file che finisco con .pdf o con altre estensioni
+collegate con il latex che non vogliamo finiscano online (ad esempio .aux .toc
+.log .backup).
+I file pesanti NON vanno committati a meno che non sia strettamente necessario.
+Per quanto riguarda le immagini ovviamente il discorso è a parte. Deciso che in
+un pdf volete aggiungere un'immagine, allora potete metterla nel repo. Anche in questo 
+caso pensate però che il peso dell'immagine graverà sul repo per sempre ;)
+
+La struttura generale del repository è:
+	Una cartella per ogni progetto latex.
+	Ogni progetto latex definisce il suo standard di latexazione.
+
+
+Non ci sono regole sul tipo di documenti che volete condividere. È importante solo
+che siano scritti da voi.
+Per quanto mi riguarda potete anche fare un progetto in tex che illustri il kamasutra
+in versione normalista (cosa che mi spaventa).
+
