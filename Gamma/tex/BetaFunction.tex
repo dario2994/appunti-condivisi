@@ -93,7 +93,8 @@
 \end{lemma}
 \begin{proof}
 	Basta dimostrarlo per un argomento (considerando l'altro fissato) e poi grazie alla simmetria mostrata in \cref{BetaSimmetrica}
-	si ottiene la tesi anche per l'altro.\\
+	si ottiene la tesi anche per l'altro.
+	
 	Resta quindi da dimostrare che per ogni $a,b,y\in\mathbb{R^+}$ e $\lambda,\mu\in\mathbb{R^+}$ che rispettano $\lambda+\mu=1$ vale la seguente:
 	\begin{equation}\begin{split}\label{QuasiBetaLogConvessa}
 		\log \mathrm{B}(\lambda a+\mu b, y )  & \le \lambda \log \mathrm{B}(a, y ) + \mu\log \mathrm{B}( b, y )\\
@@ -105,7 +106,7 @@
 		\int_{0}^1 t^{\lambda a+\mu b}(1-t)^y\mathrm{d}y=\int_{0}^1 \left(t^a(1-t)^y\right)^{\lambda}\left(t^b(1-t)^y\right)^{\mu}\mathrm{d}t \le
 		\left(\int_{0}^1 t^a(1-t)^y\right)^{\lambda}\left(\int_{0}^1 t^b(1-t)^y\right)^{\mu}
 	\end{equation*}
-	E questa è vera per la disuguaglianza di Holder in forma integrale.
+	e questa è vera per la disuguaglianza di Holder in forma integrale.
 
 \end{proof}
 
@@ -120,22 +121,28 @@
 	\begin{equation}\label{QuasiGamma}
 		f_y(x)=\frac{\mathrm{B}(x,y)\Gamma(x+y)}{\Gamma(y)}
 	\end{equation}
+	
 	Dimostro che $f_y$ rispetta le ipotesi di \cref{BohrMollerup}.
 	\begin{itemize}
-		\item $f_y(1)=1$\\
+		\item $f_y(1)=1$
+		
 			Vale, sfruttando la \cref{QuasiGamma} e l'equazione funzionale che definisce la Gamma, che:
 			\begin{equation}\label{QuasiGammaDiUno}
 				f_y(1)=\frac{\mathrm{B}(1,y)\Gamma(1+y)}{\Gamma(y)}=\mathrm{B}(1,y)y
 			\end{equation}
+			
 			Però dalla definizione \cref{FunzioneBeta} e dalla simmetria \cref{BetaSimmetrica} ho anche:
 			\begin{equation}\label{BetaDiUno}
 				\mathrm{B}(1,y)=\mathrm{B}(y,1)=\int_0^1 t^{y-1} \mathrm{d}t = \left[\frac{t^y}y\right]_0^1= \frac1y
 			\end{equation}
+			
 			Sostituendo \cref{BetaDiUno} nella \cref{QuasiGammaDiUno} ottengo $f_y(1)=1$.
-		\item $f_y$ è log-convessa\\
-			Applicando la log convessità di Gamma e Beta (\cref{BetaLogConvessa,GammaLogConvessa}) nella \cref{QuasiGamma} ho che $f_y$ è prodotto di 
-			funzioni log-convesse, perciò è essa stessa log-convessa.
-		\item $f_y(x+1)=xf_y(x)$\\
+		\item $f_y$ è log-convessa
+		
+			Applicando la log convessità di Gamma e Beta (\cref{BetaLogConvessa,GammaLogConvessa}) 
+			nella \cref{QuasiGamma} ho che $f_y$ è prodotto di funzioni log-convesse, perciò è essa stessa log-convessa.
+		\item $f_y(x+1)=xf_y(x)$
+		
 			Applicando l'equazione funzionale della Gamma nella \cref{QuasiGamma} si ha facilmente:
 			\begin{equation}\label{QuasiFunzionaleBeta}
 				f_y(x+1)=\frac{\mathrm{B}(x+1,y)(x+y)\Gamma(x+y)}{\Gamma(y)}=(x+y) f_y(x) \frac{B(x+1,y)}{\mathrm{B}(x,y)}
@@ -146,6 +153,7 @@
 			\end{equation*}
 	\end{itemize}
 	Poichè $f_y$ rispetta tutte le ipotesi di \cref{BohrMollerup}, lo applico ottenendo che $f_y=\Gamma$.
+	
 	Di conseguenza, ricordando la definizione \cref{QuasiGamma} ottengo:
 	\begin{equation*}
 		\frac{\mathrm{B}(x,y)\Gamma(x+y)}{\Gamma(y)}=f_y(x)=\Gamma(x) \Longrightarrow \mathrm{B}(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}

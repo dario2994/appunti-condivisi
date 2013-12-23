@@ -15,7 +15,8 @@ In particolare tale funzione è definita da :
 \end{equation}
 \end{theorem}
 \begin{proof}
-Dimostro innanzitutto che se esiste una funzione che rispetta le tre proprietà, allora è unica.\\
+Dimostro innanzitutto che se esiste una funzione che rispetta le tre proprietà, allora è unica.
+
 Sia $f$ una funzione che rispetta tali proprietà, allora per la seconda proprietà vale banalmente che:
 \begin{equation}
  \label{Ricorsione}
@@ -27,6 +28,7 @@ In particolare, dato che $f(1)=1$, ottengo anche che:
  \label{Naturali}
  f(n)=(n-1)!\ \forall n\in \mathbb{N}
 \end{equation}
+
 Sia ora $M(u,v)=\frac{\ln(f(u))-\ln(f(v))}{u-v}$ il rapporto incrementale
 di $\ln(f(x))$ fra $u$ e $v$. Poichè $f$ è log-convessa, deve valere che $M(u,v)$ è crescente sia in $u$ che in $v$.
 Quindi in particolare per ogni $0<x<1$ vale:
@@ -55,7 +57,8 @@ In particolare da quest'ultima equazione e dalla \cref{Ricorsione} ottengo che p
  f(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
 \end{equation}
 E di conseguenza se esiste una funzione $f$ che rispetta le tre proprietà, essa deve essere un'unica, perchè ogni
-funzione di questo tipo deve rispettare la relazione \cref{GaussFormula}.\\
+funzione di questo tipo deve rispettare la relazione \cref{GaussFormula}.
+
 Dimostro ora che tale funzione esiste e in particolare è 
 $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$.
 \begin{lemma}
@@ -92,5 +95,6 @@ $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$.
        \Longrightarrow \ln(\Gamma(\lambda x+(1-\lambda)y)) \le \lambda\ln(\Gamma(x))+(1-\lambda)\ln(\Gamma(y))\\
        \end{gather*}
 \end{proof}
+
 Quindi $\Gamma(x)$ per i tre lemmi precendenti è l'unica funzione che rispetta tutte e tre le proprietà richieste.
 \end{proof}
