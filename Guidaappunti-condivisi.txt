@@ -34,15 +34,21 @@ Per quanto riguarda la gestione di git suggerisco questa politica:
 		Una volta che avete finito di lavorare sul file committate di nuovo (dicendo che
 		avete finito per ora) e pushate.
 		
-		Mentre lavorate su un file sono molto apprezzati commit frequenti (non intendo
-		ogni riga, ma ogni tanto (diciamo 30 minuti) fare un commit e saggio).
-		Push frequenti (diciamo 30 minuti) sono anche apprezzati così che se più gente sta lavorando
-		non succede di lavorare sullo stesso file.
-		Queste 2 regole sono di massima e non obbligatorie.
+	Mentre lavorate su un file sono molto apprezzati commit frequenti (non intendo
+	ogni riga, ma ogni tanto (diciamo 30 minuti) fare un commit e saggio).
+	Push frequenti (diciamo 30 minuti) sono anche apprezzati così che se più gente sta lavorando
+	non succede di lavorare sullo stesso file.
+	Queste 2 regole sono di massima e non obbligatorie.
 		
-		Se la modifica è minima potete commentare il commit con "fix" e basta.
-		
-		Se non avete finito di modificare dei files, ma state per smettere di farla per
-		qualche motivo committate il cambiamento. Anche cose non finite
-		possono e devono stare sul repository ;) Fate però in modo che gli altri non
-		abbiano problemi di compilazione del latex a causa vostra. 
+	Se la modifica è minima potete commentare il commit con "fix" e basta.
+	
+	Se non avete finito di modificare dei files, ma state per smettere di farla per
+	qualche motivo committate il cambiamento. Anche cose non finite
+	possono e devono stare sul repository ;) Fate però in modo che gli altri non
+	abbiano problemi di compilazione del latex (warning sono accettati) a causa vostra. 
+
+In generale quando terminate di lavorare su un file assicuratevi sia
+che tutto quanto compili (cioè il tex diventi un pdf senza problemi), sia
+che non ci siano warning durante la compilazione. Questo lo dico perchè
+se si accumulano i warning poi diventa impossibile lavorare, e anche perchè
+se c'è un warning c'è un motivo.

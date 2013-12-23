@@ -116,6 +116,10 @@ cliccando in basso commit) viene resa effettiva. Mi raccomando che dovete commen
 i commit anche se li fate dal sito ;) Se proprio volete usare il sito vi suggerisco 
 di scaricarvi una copia del repository (in basso a destra trovate un bottone con scritto
 download zip) e lavorare in locale. Quando avete finito e siete soddisfatti allora
-piazzate le modifiche sul server tramite sito, in particolare dovrete copiaincollare
-le modifiche e non vi è possibile uppare direttamente file.
+piazzate le modifiche sul server tramite sito (l'interfaccia è facile da usare
+quindi non sto a spiegarvela), in particolare dovrete copiaincollare
+le modifiche perchè non è possibile uppare direttamente file.
 Sconsiglio vivamente di usare il sito, se non per modifiche piccole.
+Invece suggerisco vivamente di usare il sito per commentare codice altrui, se
+ad esempio trovate un errore che non sapete o non potete (il file non è vostro)
+risolvere.
