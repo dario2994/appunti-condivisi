@@ -59,7 +59,7 @@ git pull
 
 git commit FILE -m "Commento"
 	Questo comando serve a dire a git che una modifica che avete fatto ad un file
-	è una cosa che vorrete poi mandare sul server. Il commento è OBBLIGATORIO e
+	è una cosa che vorrete poi mandare sul server. Il commento è obbligatorio e
 	deve essere corto (meno di 50 caratteri). 
 	Se ad esempio avete scritto una soluzione a un problema che si chiama 
 	"Palla che rotola" il commento sarà una cosa tipo "Aggiunto soluzione a Palla 
@@ -78,8 +78,11 @@ git status
 	Suggerisco di dare questo comando ogni volta che volete fare git commit o 
 	git push o git add... vi dà l'idea di cosa dovete fare ;)
 	
-git checkout
-	Se ad un certo punto vi accorgete che in locale avete fatto un casino e volete
-	semplicemente tornare alla versione del repository che sta sul server allora
-	dovete lanciare questo comando. Attenzione, perchè una volta lanciato
-	NON si torna indietro.
+git checkout FILE
+	Se ad un certo punto vi accorgete che in locale avete fatto un casino su un file
+	e volete semplicemente tornare alla versione prima della vostra modifica
+	dovete lanciare questo comando. 
+	Se avete fatto un casino generale e volete riprendere la versione di tutto il repo
+	allora lancerete
+		git checkout .
+	Attenzione, perchè una volta lanciato NON si torna indietro.
