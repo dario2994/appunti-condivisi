@@ -1,3 +1,5 @@
+NOZIONI GENERALI
+
 Sappiate che se avete seguito install.txt ora avete quasi pieni poteri sul
 repository appunti-condivisi. Intendo che ora potete modificare tutti i file 
 (e intendo anche cancellarli) che si trovano sul repository e le vostre modifiche
@@ -26,10 +28,13 @@ di avere dei file "in comune" e di tenere una storia degli aggiornamenti che
 subiscono questi file. È molto comodo per tenere ad esempio degli appunti condi-
 visi (infatti non siamo i primi a pensarci).
 
-Ora passiamo ai fatti.
-
 Un repository è una cartella che però tiene una history di se stessa.
 In particolare la cartella appunti-condivisi È un repository.
+
+
+
+GUIDA TECNICA TERMINALE
+
 Ora vi insegnerò i comandi fondamentali per usare git e farlo funzionare. Io
 lo uso da terminale e mi trovo bene, quindi vi insegno a usarlo da terminale.
 
@@ -92,3 +97,21 @@ git reset --hard HEAD
 	Se avete anche pushato ci sono 2 soluzioni. O aggiustate voi tutto a mano e
 	fate un altro push in cui tutto viene aggiustato per benino, oppure dovete chiedere
 	a me di annullare il vostro push ;)
+
+
+
+GUIDA TECNICA SITO github
+
+Se proprio odiate il terminale potete fare tutto quello che vi serve anche dal
+sito:
+	https://github.com/dario2994/appunti-condivisi
+
+Potete aggiungere file, modificarli e committare.
+Attenzione perchè se modificate dal sito ogni singola modifica che fate (e committate
+cliccando in basso commit) viene resa effettiva. Mi raccomando che dovete commentare
+i commit anche se li fate dal sito ;) Se proprio volete usare il sito vi suggerisco 
+di scaricarvi una copia del repository (in basso a destra trovate un bottone con scritto
+download zip) e lavorare in locale. Quando avete finito e siete soddisfatti allora
+piazzate le modifiche sul server tramite sito, in particolare dovrete copiaincollare
+le modifiche e non vi è possibile uppare direttamente file.
+Sconsiglio vivamente di usare il sito, se non per modifiche piccole.
