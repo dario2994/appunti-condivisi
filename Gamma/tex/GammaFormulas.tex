@@ -72,22 +72,17 @@ Ponendo $x=\frac12$ nella formula di duplicazione appena ottenuta si giunge a
 \end{equation*}
 \end{remark}
 
-\begin{theorem}[Integrale di Gauss]
+\begin{remark}[Integrale di Gauss]
  \label{GaussIntegral}
- $\int_{-\infty}^{\infty}{e^{-s^2}ds}=\sqrt{\pi}$
-\end{theorem}
-\begin{proof}
- Sostituendo $t=s^2$ nella \cref{GammaDefinition}, ottengo la riscrittura della $\Gamma$ come:
+ Sostituendo $t=s^2$ nella \cref{GammaDefinition}, ottengo:
  \begin{equation}
   \Gamma(x)=2\int_0^{\infty}{s^{2x-1}e^{-s^2}ds}
  \end{equation}
  Da cui, ponendo $x=\frac{1}{2}$:
  \begin{equation*}
-  \sqrt{\pi}=\Gamma\left(\frac{1}{2}\right)=2\int_0^{\infty}{e^{-s^2}ds}=\int_{-\infty}^{\infty}{e^{-s^2}ds}=\sqrt{\pi}
+  \sqrt{\pi}=\Gamma\left(\frac{1}{2}\right)=2\int_0^{\infty}{e^{-s^2}ds}\to \int_{-\infty}^{\infty}{e^{-s^2}ds}=\sqrt{\pi}
  \end{equation*}
-
-
-\end{proof}
+\end{remark}
 
 
 
