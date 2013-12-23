@@ -1,11 +1,26 @@
 \documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,twoside,top=0.7in, bottom=1in, left=0.7in, right=0.7in]{geometry}
 
 \usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
 
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{amsmath}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue}
+}
 \usepackage{subfiles}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage[nameinlink]{cleveref}
+\newcommand{\crefpairconjunction}{ e }
+\newcommand{\crefrangepreconjunction}{da }
+\newcommand{\crefrangeconjunction}{ a }
 
 \newcommand\esercizio[3]{
   \section{#1}
