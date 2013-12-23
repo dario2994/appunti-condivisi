@@ -1,6 +1,8 @@
+\section{Teorema di Bohr-Mollerup}
+
 \begin{theorem}[Teorema di Bohr-Mollerup]
 \label{BohrMollerup}
-Esiste un'unica funzione $f :\mathbb{R}^{+}\rightarrow\mathbb{R} $ che rispetta le 3 seguenti proprietà:
+Esiste un'unica funzione $f :\mathbb{R}^{+}\rightarrow\mathbb{R} $ che rispetta le tre seguenti proprietà:
 \begin{itemize}
  \item $f(1)=1$
  \item $f(x+1)=xf(x)$
@@ -13,7 +15,7 @@ In particolare tale funzione è definita da :
 \end{equation}
 \end{theorem}
 \begin{proof}
-Dimostro innanzitutto che se esiste una funzione che rispetta le 3 proprietà, allora è unica.\\
+Dimostro innanzitutto che se esiste una funzione che rispetta le tre proprietà, allora è unica.\\
 Sia $f$ una funzione che rispetta tali proprietà, allora per la seconda proprietà vale banalmente che:
 \begin{equation}
  \label{Ricorsione}
@@ -52,7 +54,7 @@ In particolare da quest'ultima equazione e dalla \cref{Ricorsione} ottengo che p
 \label{GaussFormula}
  f(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
 \end{equation}
-E di conseguenza se esiste una funzione $f$ che rispetta le 3 proprietà, essa deve essere un'unica, perchè ogni
+E di conseguenza se esiste una funzione $f$ che rispetta le tre proprietà, essa deve essere un'unica, perchè ogni
 funzione di questo tipo deve rispettare la relazione \cref{GaussFormula}.\\
 Dimostro ora che tale funzione esiste e in particolare è 
 $\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dx}$.
