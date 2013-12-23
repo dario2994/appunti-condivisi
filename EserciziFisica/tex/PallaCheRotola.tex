@@ -1,0 +1,53 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\esercizio{Palla che rotola}
+{
+Un cilindro di massa $m$, raggio $r$ si muove in puro rotolamento su un piano inclinato
+ad un angolo $\alpha$ sotto l'effetto della forza di gravità.
+
+Assumendo che l'attrito statico sia sufficiente a mantenere il cilindro in rotolamento, e che il cilindro sia inizialmente
+fermo, determinare l'equazione del moto.
+}
+{
+Siano $v$ la velocità del centro di massa del cilindro, $\omega$ la sua velocità angolare,
+$h$ la distanza verticale che ha percorso, $I$ il suo momento di inerzia.
+
+Vale la conservazione dell'energia poichè l'attrito non compie lavoro, perciò risulta:
+\begin{equation}\label{ConservazioneEnergia}
+	0=-mgh+\frac12mv^2+\frac12 I \omega^2
+\end{equation}
+Poichè inizialmente il cilindro è fermo.
+
+Poichè il cilindro rotola di puro rotolamento risulta:
+\begin{equation}\label{omegaerre}
+	\omega r=v
+\end{equation}
+
+Inoltre per i cilindri è nota la formula:
+\begin{equation}\label{MomentoInerzia}
+	I=\frac{mr^2}2
+\end{equation}
+
+Infine, chiamando $x$ la distanza percorsa sul piano inclinato, per ovvie questioni di trigonometria, risulta:
+\begin{equation}\label{StupidaTrig}
+	x\sin{\alpha}=h
+\end{equation}
+
+Sostituendo \cref{omegaerre,MomentoInerzia,StupidaTrig} in \cref{ConservazioneEnergia} ottengo (sostituendo $v=\dot x$):
+\begin{equation}\label{Differenziale}
+	0=-mgx\sin{\alpha}+\frac12mv^2+\frac12 \frac{mr^2}2\left(\frac vr\right)^2 \Rightarrow x\left(g\sin{\alpha}\right)=v^2\left(\frac12+\frac14\right)
+	\Rightarrow \dot{x}=x^{\frac12}\sqrt{\frac{4g\sin{\alpha}}3}
+\end{equation}
+Quest'ultima equazione è una differenziale standard che si risolve portando tutto dalla stessa parte e poi integrando in 
+$\mathrm{d}t$:
+\begin{equation*}
+	\cref{Differenziale}\Rightarrow t_0\sqrt{\frac{4g\sin{\alpha}}3}=\int_0^{t_0}\sqrt{\frac{4g\sin{\alpha}}3}\mathrm{d}t=
+	\int_0^{x_0} \frac{dx}{ x^{\frac12} }=2\sqrt{x_0}\Rightarrow x_0=\frac{g\sin{\alpha}}3t_0^2
+\end{equation*}
+
+Ho così ottenuto l'equazione del moto $x=\frac{g\sin{\alpha}}3t^2$, che mostra come il moto del cilindro su un 
+piano inclinato sia, come prevedibile, un moto rettilineo accelerato.
+}
+
+\end{document}
