@@ -8,25 +8,43 @@ che li evitino, mantenendo le dimostrazioni le più elementari possibili.
 Dimostreremo che la Gamma è una funzione derivabile infinite volte ed espliciteremo le sue derivate.
 Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gamma).
 
-\begin{lemma}\label{dg:LagrangeApprox}
-	Fissati $t,h\in\mathbb{R^+}$ con $h\le1$ risulta vera la disuguaglianza:
+\begin{definition}
+	Sia $f_h:\mathbb{R}\to\mathbb{R}$, con $h\in\mathbb{R^+}$, la funzione definita come:
 	\begin{equation*}
-		\left\lvert\frac{t^h-1}h-\log{t}\right\rvert\le \left\lvert\log{t}\right\rvert\max(1,t)
+		f_h(t)=\frac{t^h-1}h
+	\end{equation*}
+
+\end{definition}
+
+\begin{lemma}\label{dg:LagrangeApprox}
+	Fissati $t,h\in\mathbb{R^+}$, esiste $0\le h'\le h$ tale che:
+	\begin{equation*}
+		f_h(t)=\log{t}\cdot t^{h'}
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Sia $f:\mathbb{R}\to\mathbb{R}$ la funzione definita come $f(x)=t^x$.
+	Sia $f:\mathbb{R}\to\mathbb{R}$ la funzione definita come $g(x)=t^x$.
 	
-	Applicando le regole standard di derivazione si ha $f'(x)=\log{t}\cdot t^x$.
+	Applicando le regole standard di derivazione si ha $g'(x)=\log{t}\cdot t^x$.
 	
-	Applico il teorema di lagrange con estremi $[0,h]$ alla funzione $f$:
-	\begin{equation}\label{dg:ContoLagrange}
-		\exists 0\le h'\le h\ :\ \frac{t^h-1}h=\frac{f(h)-f(0)}{h-0}=\log{t}\cdot t^{h'}
-	\end{equation}
-	
-	Applicando \cref{dg:ContoLagrange} ottengo che vale la catena di identità:
+	Applico il teorema di lagrange con estremi $[0,h]$ alla funzione $g$ ottenendo la tesi:
+	\begin{equation*}
+		\exists 0\le h'\le h\ :\ f_h(t)=\frac{g(h)-g(0)}{h-0}=g'(h')=\log{t}\cdot t^{h'}
+	\end{equation*}
+\end{proof}
+
+
+
+\begin{lemma}\label{dg:DisEstremale}
+	Fissati $t,h\in\mathbb{R^+}$ con $h\le1$ risulta vera la disuguaglianza:
+	\begin{equation*}
+		\left\lvert f_h(t)-\log{t}\right\rvert\le \left\lvert\log{t}\right\rvert\max(1,t)
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Applicando \cref{dg:LagrangeApprox} ottengo che vale la catena di identità (con $0<h'<h$):
 	\begin{equation}\label{dg:FurbaId}
-		\left\lvert\frac{t^h-1}h-\log{t}\right\rvert=\left\lvert\log{t}\right\rvert \cdot \left\lvert t^{h'}-1\right\rvert
+		\left\lvert f_h(t)-\log{t}\right\rvert=\left\lvert\log{t}\right\rvert \cdot \left\lvert t^{h'}-1\right\rvert
 	\end{equation}
 	
 	Per $t\ge 1$ ho che vale (sfruttando $h'\le h\le 1$ $0\le t^{h'}-1\le t-1<t$.\\
@@ -37,3 +55,19 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\end{equation}
 	Applicando \cref{dg:StupidaDis} in \cref{dg:FurbaId} ottengo la tesi del lemma.
 \end{proof}
+
+\begin{lemma}
+	Fissato un intervallo $[a,b]$ con $0<a<b$, per $h\to 0$ le funzioni $f_h$ convergono uniformemente alla funzione $\log$.
+\end{lemma}
+\begin{proof}
+	Questa è una facile conseguenza di \cref{dg:LagrangeApprox}.
+\end{proof}
+
+\begin{theorem}\label{dg:GammaDerivata}
+	La funzione Gamma è derivabile e la derivata rispetta:
+	\begin{equation}
+		\Gamma'(x)=\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+	\end{equation}
+\end{theorem}
+
+
