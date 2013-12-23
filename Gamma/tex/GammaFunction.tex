@@ -1,0 +1,134 @@
+\section{Funzione Gamma}
+
+\begin{definition}[Funzione Gamma]\label{FunzioneGamma} 
+	La funzione Gamma è definita da $\mathbb{R^+}$ in $\mathbb{R^+}$ come:
+	\begin{equation*}
+		\Gamma(x)=\int_0^{\infty}{e^{-t}t^{x-1}dt}
+	\end{equation*}
+\end{definition}
+
+\begin{remark}[Valore di $\Gamma(1)$]\label{ValoreGamma1}
+Vale in particolare che:
+ \begin{equation*}
+       \Gamma(1)=\int_0^{\infty}{e^{-t}dt}=\left[-e^{-t}\right]_0^{\infty}=1
+       \end{equation*}
+\end{remark}
+
+
+\begin{lemma}\label{FunzionaleGamma}
+ La funzione Gamma rispetta la seguente identità per ogni $x\in\mathbb{R^+}$:
+ \begin{equation*}
+  \Gamma(x+1)=x\Gamma(x)
+ \end{equation*}
+\end{lemma}
+\begin{proof}
+   Integrando per parti ottengo:
+       \begin{equation*} 
+       \Gamma(x+1)=\int_0^{\infty}{e^{-t}t^xdt}=\left[-e^{-t}t^x\right]_0^{\infty}+\int_0^{\infty}xe^{-t}t^{x-1}dt=x\Gamma(x)
+       \end{equation*}
+ \end{proof}
+ 
+  \begin{remark} \label{RicorsioneGamma}
+  Per ogni $x\in\mathbb{R^+}$ e per ogni $n\in\mathbb{N}$, sfruttando il \cref{FunzionaleGamma}, vale la seguente relazione:
+  \begin{equation}
+   \Gamma(x+n)=(x+n-1)!\Gamma(x)
+  \end{equation}
+ \end{remark}
+ 
+ \begin{remark} \label{ValoreGammaNaturali}
+  Ponendo $x=0$ in \cref{RicorsioneGamma} ed utilizzando \cref{ValoreGamma1}, ottengo in particolare che per ogni $n\in\mathbb{N}$ vale:
+  \begin{equation}
+   \Gamma(n)=(n-1)!
+  \end{equation}
+ \end{remark}
+
+
+ \begin{lemma}\label{GammaLogConvessa}
+  La funzione Gamma è log-convessa.
+ \end{lemma}
+ \begin{proof}
+  La funzione Gamma è log-convessa se e solo se per ogni $0<\lambda,\mu < 1$ tali che $\lambda+\mu=1$
+  e per ogni $x,y \in \mathbb{R}^+$ vale:
+  \begin{equation}\label{QuasiGammaLogConvessa}
+  \begin{split} 
+		\log \Gamma(\lambda x+\mu y )  & \le \lambda \log \Gamma(x) + \mu\log \Gamma( y )\\
+		& \Updownarrow  \\
+		\Gamma(\lambda x+\mu y ) & \le  \Gamma(x)^{\lambda}\Gamma( y )^{\mu}
+	\end{split}\end{equation}
+ Ora sostituendo la \cref{FunzioneGamma} nella \cref{QuasiGammaLogConvessa}, mi riconduco a dimostrare:
+ \begin{equation*}
+  \int_0^{\infty}{e^{-t}t^{\lambda x+\mu y-1}dx}=\int_0^{\infty}{(e^{-t}t^{x-1})^\lambda (e^{-t}t^{y-1})^{\mu}dt} \le 
+       \left(\int_0^{\infty}{e^{-t}t^{x-1}dt}\right)^\lambda \left(\int_0^{\infty}{e^{-t}t^{y-1}}\right)^{\mu}
+ \end{equation*}
+ che è vera per la disuguaglianza di Holder.
+ \end{proof}
+ 
+ \begin{theorem}[Teorema di Bohr-Mollerup]
+ \label{BohrMollerup}
+Esiste un'unica funzione $f :\mathbb{R}^{+}\to\mathbb{R} $ che rispetta le tre seguenti proprietà:
+\begin{itemize}
+ \item $f(1)=1$
+ \item $f(x+1)=xf(x)$
+ \item $f$ è log-convessa, cioè la funzione $\ln(f(x))$ è convessa
+\end{itemize}
+In particolare tale funzione è la funzione Gamma già definita in \cref{FunzioneGamma}.
+ \end{theorem}
+ \begin{proof}
+  La \cref{ValoreGamma1}, il \cref{FunzionaleGamma} e il \cref{GammaLogConvessa}, ci dicono già che la funzione
+  Gamma rispetta tutte e tre le proprietà elencate. Vogliamo dimostrare che non ne esistono altre.\\
+  Sia quindi $f:\mathbb{R^+}\to\mathbb{R}$ una funzione che rispetta le tre proprietà, allora analogamente a 
+  \cref{RicorsioneGamma} ho che per ogni $x\in \mathbb{R^+}$ e per ogni $n\in\mathbb{N}$ vale:
+  \begin{equation}\label{RicorsioneQuasiGamma}
+   f(x+n)=(x+n-1)!f(x)
+  \end{equation}
+  e di conseguenza, dato che $f(1)=1$, per ogni $n\in\mathbb{N}$:
+  \begin{equation}\label{ValoreQuasiGammaNaturali}
+   f(n)=(n-1)!
+  \end{equation}
+  Sia ora $M(u,v)=\frac{\log(f(u))-\log(f(v))}{u-v}$ il rapporto incrementale
+di $\log(f(x))$ fra $u$ e $v$. Poichè $f$ è log-convessa, deve valere che $M(u,v)$ è crescente sia in $u$ che in $v$.
+Quindi in particolare per ogni $0<x<1$ vale:
+\begin{gather*}
+  M(n,n-1) \le M(n,n+x) \le M(n,n+1) \\
+  \Updownarrow \\
+  \log(f(n))-\log(f(n-1)) \le \frac{\log(f(n+x))-\log(f(n))}{x} \le \log(f(n+1))-\log(f(n)) 
+  \end{gather*}
+Da cui, utilizzando la \cref{RicorsioneQuasiGamma} e la \cref{ValoreQuasiGammaNaturali}, ottengo che:
+\begin{gather*}
+  x \log(n-1) \le \log \left( \frac{f(n+x)}{f(n)} \right) \le x\log(n)\\
+  \iff (n-1)^x \le \frac{f(n+x)}{f(n)} \le n^x \\
+  \iff (n-1)^x \le  \frac{f(x)(n+x-1)!}{(n-1)!}  \le n^x \\
+  \iff \left(1-\frac{1}{n}\right)^x \le  \frac{f(x)(n+x-1)!}{n^x(n-1)!} \le 1
+\end{gather*}
+E passando al limite:
+ \begin{gather*}
+  \lim_{n\rightarrow \infty} \left(1-\frac{1}{n}\right)^x \le \lim_{n\rightarrow \infty}  \frac{f(x)(n+x-1)!}{n^x(n-1)!} \le 1 \\
+  \Longrightarrow \lim_{n\rightarrow \infty} \frac{f(x)(n+x-1)!}{n^x(n-1)!}  = 1 \\
+  \Longrightarrow f(x) = \lim_{n\rightarrow \infty} \frac{n^x(n-1)!}{(n+x-1)!}=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+ \end{gather*}
+In particolare da quest'ultima equazione e dalla \cref{RicorsioneQuasiGamma} ottengo che per ogni $x\in\mathbb{R}^+$ vale:
+\begin{equation}\label{QuasiGaussFormula}
+ f(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+\end{equation}
+E di conseguenza se esiste una funzione $f$ che rispetta le tre proprietà, essa deve essere un'unica, perchè ogni
+funzione di questo tipo deve rispettare la relazione \cref{QuasiGaussFormula}.
+ \end{proof}
+ 
+ \begin{corollary}[Formula di Gauss]\label{GaussFormula}
+ Per ogni $x\in\mathbb{R^+}$ vale la seguente formula per $\Gamma(x)$:
+ \begin{equation*}
+  \Gamma(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+ \end{equation*}
+ \end{corollary}
+ \begin{proof}
+  Abbiamo già dimostrato che se una funzione rispetta le ipotesi del \cref{BohrMollerup}, allora vale la 
+  \cref{QuasiGaussFormula}, ma la funzione Gamma rispetta tali ipotesi e quindi vale:
+  \begin{equation*}
+  \Gamma(x)=\lim_{n\rightarrow \infty} \frac{n^xn!}{(n+x)!}
+ \end{equation*}
+ \end{proof}
+
+
+
+
+
