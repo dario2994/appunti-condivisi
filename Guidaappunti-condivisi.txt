@@ -26,3 +26,23 @@ che siano scritti da voi.
 Per quanto mi riguarda potete anche fare un progetto in tex che illustri il kamasutra
 in versione normalista (cosa che mi spaventa).
 
+Per quanto riguarda la gestione di git suggerisco questa politica:
+	Ogni volta che create un nuovo file seguite questa procedura:
+		Create il file.
+		Addate il file, committate (dicendo che avete aggiunto il file e ci state lavorando)
+		e pushate.
+		Una volta che avete finito di lavorare sul file committate di nuovo (dicendo che
+		avete finito per ora) e pushate.
+		
+		Mentre lavorate su un file sono molto apprezzati commit frequenti (non intendo
+		ogni riga, ma ogni tanto (diciamo 30 minuti) fare un commit e saggio).
+		Push frequenti (diciamo 30 minuti) sono anche apprezzati così che se più gente sta lavorando
+		non succede di lavorare sullo stesso file.
+		Queste 2 regole sono di massima e non obbligatorie.
+		
+		Se la modifica è minima potete commentare il commit con "fix" e basta.
+		
+		Se non avete finito di modificare dei files, ma state per smettere di farla per
+		qualche motivo committate il cambiamento. Anche cose non finite
+		possono e devono stare sul repository ;) Fate però in modo che gli altri non
+		abbiano problemi di compilazione del latex a causa vostra. 
