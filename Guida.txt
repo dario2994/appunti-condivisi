@@ -78,11 +78,17 @@ git status
 	Suggerisco di dare questo comando ogni volta che volete fare git commit o 
 	git push o git add... vi dà l'idea di cosa dovete fare ;)
 	
-git checkout FILE
-	Se ad un certo punto vi accorgete che in locale avete fatto un casino su un file
-	e volete semplicemente tornare alla versione prima della vostra modifica
-	dovete lanciare questo comando. 
-	Se avete fatto un casino generale e volete riprendere la versione di tutto il repo
-	allora lancerete
-		git checkout .
-	Attenzione, perchè una volta lanciato NON si torna indietro.
+git reset --hard HEAD
+	ATTENZIONE: una volta lanciato NON si torna indietro... questi comandi
+	CANCELLANO le vostre modifiche.
+	Se ad un certo punto vi accorgete che in locale avete fatto un casino (che non
+	avete committato) e volete semplicemente tornare alla versione prima della 
+	vostra modifica dovete lanciare questo comando. 
+	
+	Se avete anche committato ma NON pushato allora darete:
+		git reset --hard HEAD^^..^^
+	Con tanti ^ quanti sono i commit che avete fatto sbagliati.
+	
+	Se avete anche pushato ci sono 2 soluzioni. O aggiustate voi tutto a mano e
+	fate un altro push in cui tutto viene aggiustato per benino, oppure dovete chiedere
+	a me di annullare il vostro push ;)
