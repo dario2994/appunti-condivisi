@@ -1,5 +1,5 @@
 Sappiate che se avete seguito install.txt ora avete quasi pieni poteri sul
-repository appunti condivisi. Intendo che ora potete modificare tutti i file 
+repository appunti-condivisi. Intendo che ora potete modificare tutti i file 
 (e intendo anche cancellarli) che si trovano sul repository e le vostre modifiche
 saranno effettive su tutte le copie locali dei repository. 
 Come sapete da grandi poteri derivano grandi responsabilità... state attenti e non
@@ -9,35 +9,77 @@ modifica voi facciate io (Federico Glaudo) posso annullarla. In particolare quin
 se cancellate un file per errore e non riuscite più a rimetterlo (cosa che comunque
 dovreste poter fare) non è un dramma... tutto si risolve.
 Ancora un paio di suggerimenti generali sull'uso di git e github:
+	
 	Qualsiasi cosa voi mettiate sul repository potete assumere che, per quanto
 	vi impegnerete, rimarrà per sempre nella history... quindi se per sbaglio ci
 	mettete una vostra password è un vero problema che neanche io (Federico Glaudo)
-	potrà risolvere in maniera facile. È una cosa che succede, per questo vi avverto.
+	potrò risolvere in maniera facile. È una cosa che succede, per questo vi avverto.
+	
+	Questa guida NON è completa... se avete problemi di qualche tipo, basta che chiedete
+	a me (Federico Glaudo) o a qualcuno che ne capisce di git (e ci tengo a dire che
+	io NON faccio parte di questa categoria di persone).
 	
 
-Git è un software di controllo di versione distribuito (wiki). 
+Git è un software di controllo di versione distribuito (citazione da wiki). 
 Questo vuol dire che fondamentalmente dà la possibilità ad un gruppo di persone
 di avere dei file "in comune" e di tenere una storia degli aggiornamenti che
 subiscono questi file. È molto comodo per tenere ad esempio degli appunti condi-
 visi (infatti non siamo i primi a pensarci).
 
 Ora passiamo ai fatti.
-Io (Federico Glaudo) non sono un esperto di git. Conosco solo 3-4 comandi di base
+
+Un repository è una cartella che però tiene una history di se stessa.
+In particolare la cartella appunti-condivisi È un repository.
+Ora vi insegnerò i comandi fondamentali per usare git e farlo funzionare. Io
+lo uso da terminale e mi trovo bene, quindi vi insegno a usarlo da terminale.
+
+Io non sono un esperto di git. Conosco solo 3-4 comandi di base
 per farlo funzionare quanto serve. Ma a voi va ancora meglio... visto che come ho 
 detto NON avete pieni poteri sul repository fondamentalmente quei 3-4 comandi che
 io conosco sono tutti quelli che vi servono.
 
 Tutti i comandi che seguono devono essere lanciati da dentro la cartella locale
 corrispondente al repository.
+	
+git add FILE
+	Quando create un file nella cartella appunti-condivisi, se volete che git inizi
+	a controllare anche questo file (in particolare a mandarlo sul server) dovete
+	dare questo comando. Se avete creato molti file e volete che vengano tutti
+	addati, date il comando 
+		git add .
+	Mi raccomando... NON aggiungete file grandi al repository (anche solo immagini
+	sarebbe da evitare, ma non è vietato)
 
 git pull
 	Questo comando serve a scaricare dal server l'ultima versione del repository
-	e sostituirla a quanto sta nella vostra cartella locale.
-	Lo dovete lanciare stando dentro la cartella di un repository. E aggiornerà
-	tutto il repo, non solo la subdirectory in cui eventualemente state.
+	e aggiornare così la vostra cartella locale.
 	Se avete fatto delle modifiche a dei file lui è furbo e non ve le cancella.
 	Suggerisco di lanciare sempre git pull prima di fare git commit o git push...
 	è una piccola accortezza in più per evitare problemi.
 
 git commit FILE -m "Commento"
-	Anche questo comando va lanciato da dentro una
+	Questo comando serve a dire a git che una modifica che avete fatto ad un file
+	è una cosa che vorrete poi mandare sul server. Il commento è OBBLIGATORIO e
+	deve essere corto (meno di 50 caratteri). 
+	Se ad esempio avete scritto una soluzione a un problema che si chiama 
+	"Palla che rotola" il commento sarà una cosa tipo "Aggiunto soluzione a Palla 
+	che rotola".
+	
+git push
+	Questo serve per mandare effettivamente i vostri commit sul server. Ciò che 
+	non avete committato non sarà mandato sul server.
+	Può dare errori se altre persone hanno modificato i vostri stessi file contemporaneamente.
+	
+git status
+	Questo comando vi dice l'attuale situazione della vostra cartella.
+	In particolare se avete modificato file e non committati, se avete 
+	committato modifiche e non le avete ancora pushate, se avete creato file e non
+	li avete ancora addati.
+	Suggerisco di dare questo comando ogni volta che volete fare git commit o 
+	git push o git add... vi dà l'idea di cosa dovete fare ;)
+	
+git checkout
+	Se ad un certo punto vi accorgete che in locale avete fatto un casino e volete
+	semplicemente tornare alla versione del repository che sta sul server allora
+	dovete lanciare questo comando. Attenzione, perchè una volta lanciato
+	NON si torna indietro.
