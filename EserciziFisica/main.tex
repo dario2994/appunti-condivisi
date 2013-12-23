@@ -5,11 +5,6 @@
 \usepackage[italian]{babel}
 
 \usepackage{graphicx}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks = true,
-    linkcolor = {blue}
-}
 \usepackage{subfiles}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -17,19 +12,50 @@
 \usepackage{color}
 \usepackage{array}
 \usepackage{hhline}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue}
+}
+
 \usepackage[nameinlink]{cleveref}
 \newcommand{\crefpairconjunction}{ e }
 \newcommand{\crefrangepreconjunction}{da }
 \newcommand{\crefrangeconjunction}{ a }
 
 \newcommand\esercizio[3]{
-  \section{#1}
-  \subsection{Testo}
-  #2
-  \subsection{Soluzione}
-  #3
-  
-  \clearpage
+	\section{#1}
+	\subsection{Testo}
+	#2
+	\subsection{Soluzione}
+	#3
+	
+	\clearpage
+}
+
+\setcounter{tocdepth}{3}
+
+\newcommand\exercise[1]
+{
+	\clearpage
+	\setcounter{equation}{0}
+	\renewcommand{\theequation}{\thesection.\arabic{equation}}
+	\section{#1}
+}
+
+\newcommand\textex
+{
+% 	\setcounter{equation}{0}
+	\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+	\subsection{Testo}
+}
+
+\newcommand\solution[1][]
+{
+% 	\setcounter{equation}{0}
+	\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+	\subsection{Soluzione #1}
 }
 
 \title{Appunti di fisica}
@@ -38,6 +64,8 @@
 \begin{document}
 
 \maketitle
+\clearpage
+\tableofcontents
 \clearpage
 
 \input{elencoesercizi.tex}
