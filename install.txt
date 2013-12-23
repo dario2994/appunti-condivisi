@@ -1,4 +1,3 @@
-
 Installare git:
 	(ubuntu) 
 		Dare da terminale il comando: sudo apt-get install git
@@ -30,8 +29,8 @@ Configurare git:
 		git config --global credential.helper store
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
-Mandare una mail a me (Federico Glaudo) o comunicargli in qualche modo il nome utente
-scelto e aspettare sua conferma prima di procedere (vi devo aggiungere al progetto).
+Mandare una mail a me (Federico Glaudo) o comunicarmi in qualche modo il nome utente
+scelto e aspettare mia conferma prima di procedere (vi devo aggiungere al progetto).
 
 Creare una cartella, dove volete, di nome "appunti-condivisi".
 Aprire un terminale (o git-bash) nel percorso di quella cartella.
