@@ -69,8 +69,11 @@ I file .tex nella cartella tex/
 	senza dover ogni volta compilare main.tex e questo è molto comodo... sfruttatelo ;)
 	Da notare che compilano benissimo anche se non sono inclusi in elencoesercizi.tex ;)
 	
-Se volete esempi di documenti basta che guardate nella cartella tex/ ;) (provate anche
-a compilarli e scoprite quanto è figo che si compilano da soli :) )
+	Se volete esempi di documenti basta che guardate nella cartella tex/ ;) (provate anche
+	a compilarli e scoprite quanto è figo che si compilano da soli :) )
+	
+Ovviamente tutti hanno il diritto di modificare, completare, correggere tutto quello
+che viene fatto (anche da altri).
 
 p.s.
 	Nell'aula pc del faedo (almeno per un altro mese, mi hanno detto che a breve
