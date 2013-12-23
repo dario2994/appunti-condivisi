@@ -1,0 +1,39 @@
+\section{Differenziazione della gamma}\label{dg}
+Questa sezione è la prima a dover usare esplicitamente ragionamenti del tipo \emph{epsilon, delta}.
+Per evitare di usare questi ragionamenti si dovrebbero applicare teoremi forti riguardo la possibilità
+di scambiare tra loro gli operatori di integrale, di derivata e di limite.
+Tuttavia questi teoremi prescindono dal programma di analisi I e perciò abbiamo deciso di trovare strade
+che li evitino, mantenendo le dimostrazioni le più elementari possibili.
+
+Dimostreremo che la Gamma è una funzione derivabile infinite volte ed espliciteremo le sue derivate.
+Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gamma).
+
+\begin{lemma}\label{dg:LagrangeApprox}
+	Fissati $t,h\in\mathbb{R^+}$ con $h\le1$ risulta vera la disuguaglianza:
+	\begin{equation*}
+		\left\lvert\frac{t^h-1}h-\log{t}\right\rvert\le \left\lvert\log{t}\right\rvert\max(1,t)
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Sia $f:\mathbb{R}\to\mathbb{R}$ la funzione definita come $f(x)=t^x$.
+	
+	Applicando le regole standard di derivazione si ha $f'(x)=\log{t}\cdot t^x$.
+	
+	Applico il teorema di lagrange con estremi $[0,h]$ alla funzione $f$:
+	\begin{equation}\label{dg:ContoLagrange}
+		\exists 0\le h'\le h\ :\ \frac{t^h-1}h=\frac{f(h)-f(0)}{h-0}=\log{t}\cdot t^{h'}
+	\end{equation}
+	
+	Applicando \cref{dg:ContoLagrange} ottengo che vale la catena di identità:
+	\begin{equation}\label{dg:FurbaId}
+		\left\lvert\frac{t^h-1}h-\log{t}\right\rvert=\left\lvert\log{t}\right\rvert \cdot \left\lvert t^{h'}-1\right\rvert
+	\end{equation}
+	
+	Per $t\ge 1$ ho che vale (sfruttando $h'\le h\le 1$ $0\le t^{h'}-1\le t-1<t$.\\
+	Per $0\le t<1$ ho che vale (sfruttando $h'\ge0$) $-1\le t^{h'}-1\le 0$.\\
+	Unendo questi due risultati ottengo facilmente:
+	\begin{equation}\label{dg:StupidaDis}
+		\left\lvert t^{h'}-1\right\rvert \le \max(1,t)
+	\end{equation}
+	Applicando \cref{dg:StupidaDis} in \cref{dg:FurbaId} ottengo la tesi del lemma.
+\end{proof}
