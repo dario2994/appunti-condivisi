@@ -1,3 +1,5 @@
+Questa guida spiega l'utilizzo generale di git.
+
 NOZIONI GENERALI
 
 Sappiate che se avete seguito install.txt ora avete quasi pieni poteri sul
@@ -9,18 +11,11 @@ fate cazzate.
 Allo stesso tempo sappiate che voi NON avete pieni poteri... nel senso che qualsiasi
 modifica voi facciate io (Federico Glaudo) posso annullarla. In particolare quindi
 se cancellate un file per errore e non riuscite più a rimetterlo (cosa che comunque
-dovreste poter fare) non è un dramma... tutto si risolve.
-Ancora un paio di suggerimenti generali sull'uso di git e github:
-	
-	Qualsiasi cosa voi mettiate sul repository potete assumere che, per quanto
-	vi impegnerete, rimarrà per sempre nella history... quindi se per sbaglio ci
-	mettete una vostra password è un vero problema che neanche io (Federico Glaudo)
-	potrò risolvere in maniera facile. È una cosa che succede, per questo vi avverto.
-	
-	Questa guida NON è completa... se avete problemi di qualche tipo, basta che chiedete
-	a me (Federico Glaudo) o a qualcuno che ne capisce di git (e ci tengo a dire che
-	io NON faccio parte di questa categoria di persone).
-	
+dovreste poter fare) non è un dramma... tutto si risolve. La cosa grave che potete
+fare è mettere un documento che non volete stia online (ad esempio una vostro foto
+nudi oppure una vostra password). In questo caso è *davvero* difficile togliere
+quello che avete messo dalla history. Meno grave, ma comunque da evitare, è mettere
+file pesante sul repo online, perchè appesantiscono tutto.
 
 Git è un software di controllo di versione distribuito (citazione da wiki). 
 Questo vuol dire che fondamentalmente dà la possibilità ad un gruppo di persone
@@ -29,7 +24,15 @@ subiscono questi file. È molto comodo per tenere ad esempio degli appunti condi
 visi (infatti non siamo i primi a pensarci).
 
 Un repository è una cartella che però tiene una history di se stessa.
-In particolare la cartella appunti-condivisi È un repository.
+In particolare la cartella appunti-condivisi è un repository. Inoltre è un
+repository che è sincronizzato con una versione online dello stesso. Questo vuol dire
+che quello che voi farete nella cartella appunti-condivisi, dando gli opportuni comandi
+verrà mandato al server e noi altri potremo vederlo. Allo stesso tempo, voi potrete
+aggiornare la vostra versione di appunti-condivisi dando gli opportuni comandi.
+Ci tengo a dire che quello che fate nella cartella appunti-condivisi resta sul vostro
+pc A MENO CHE voi non diate comandi opportuni che lo mandano sul server. E allo stesso
+tempo la versione che voi avete resta "vecchia" a meno che voi non diciate esplicitamente
+di aggiornarla.
 
 
 
@@ -53,7 +56,8 @@ git add FILE
 	addati, date il comando 
 		git add .
 	Mi raccomando... NON aggiungete file grandi al repository (anche solo immagini
-	sarebbe da evitare, ma non è vietato)
+	sarebbe da evitare, ma non è vietato). Da notare che sul vostro pc potete ovviamente
+	tenere tutti i file che volete (pure film) in appunti-condivisi basta che non li addiate.
 
 git pull
 	Questo comando serve a scaricare dal server l'ultima versione del repository
