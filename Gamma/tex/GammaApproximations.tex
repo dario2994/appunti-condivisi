@@ -1,0 +1,69 @@
+\section{Approssimazioni della funzione Gamma}
+\begin{lemma}
+Siano $f_n$, con $n\in\mathbb{N}$, e $g$ funzioni definite in $(0,\infty)$ e Riemann-integrabili su $[a,b]$ per ogni
+$0<a<b<\infty$. Se valgono le seguenti proprietà:
+\begin{itemize}
+ \item $|f_n|\le g$ per ogni $n\in\mathbb{N}$;
+ \item $f_n\to f$ uniformemente in ogni sottoinsieme compatto di $(0,\infty)$;
+ \item $\int_0^\infty{g(x)dx}<\infty$.
+\end{itemize}
+Allora vale che:
+\begin{equation*}
+ \lim_{x\to\infty}\int_0^\infty f_n(x)dx=\int_0^\infty f(x)dx
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+ Dimostro innanzitutto che per ogni $0<a<b<\infty$, ho che $f$ è integrabile su $[a,b]$ e in particolare vale:
+ \begin{equation*}
+  \int_a^b{f(x)dx}=\lim_{n->\infty}\int_a^b{f_n(x)dx}
+ \end{equation*}
+  Sia $\sigma_m$ la suddivisione equispaziata dell'intervallo $[a,b]$ di nodi $x_i=a+\frac{i}{m}(b-a)$,
+  allora $f$ è Riemann-integrabile su $[a,b]$ se per ogni $\varepsilon>0$ esiste $M$ tale che se $m\ge M$
+  allora $|S(f,\sigma_m)-s(f,\sigma_m)|<\varepsilon$.
+ Per la disuguaglianza triangolare vale però che:
+ \begin{equation*}
+  |S(f,\sigma_m)-s(f,\sigma_m)|\le  
+  |S(f,\sigma_m)-S(f_n,\sigma_m)|+ |s(f_n,\sigma_m)-s(f,\sigma_m)|+ |S(f_n,\sigma_m)-s(f_n,\sigma_m)|
+ \end{equation*}
+ Dato che $f_n\to f$ uniformemente su $[a,b]$, allora per ogni $\mu>0$ esiste $N$ tale che per ogni
+ $n\ge N$ e per ogni $x\in[a,b]$ vale $|f(x)-f_n(x)|<\mu$, quindi vale facilmente che per ogni $m\ge M$:
+ \begin{equation} \label{ViciniInIntervallo}
+ \begin{split}
+ |S(f,\sigma_m)-S(f_n,\sigma_m)| & <\mu(b-a) \\
+ |s(f,\sigma_m)-s(f_n,\sigma_m)| & <\mu(b-a)
+ \end{split}
+ \end{equation} 
+ E dato che $f_n$ è Riemann-integrabile
+ su $[a,b]$ per ogni $n$, allora per ogni $\mu>0$ esiste $M$ tale che per ogni $m\ge M$ vale:
+ \begin{equation}
+  |S(f_n,\sigma_m)-s(f_n,\sigma_m)|<\mu
+ \end{equation}
+ Ma allora per ogni $\mu>0$ esistono $N$ e $M$ tali che per ogni $n\ge N$ e $m\ge M$ vale:
+ \begin{gather*}
+  |S(f,\sigma_m)-S(f_n,\sigma_m)|+ |s(f_n,\sigma_m)-s(f,\sigma_m)|+ |S(f_n,\sigma_m)-s(f_n,\sigma_m)|<\mu(2b-2a+1) \\
+  \Longrightarrow |S(f,\sigma_m)-s(f,\sigma_m)|< \mu(2b-2a+1)
+ \end{gather*}
+ Quindi scegliendo $\mu=\varepsilon/(2b-2a+1)$ ottengo che per ogni $m\ge M$ vale:
+ \begin{equation*}
+  |S(f,\sigma_m)-s(f,\sigma_m)|< \varepsilon
+ \end{equation*}
+ Quindi $f$ è Riemann-integrabile su $[a,b]$, e in particolare dalla \cref{ViciniInIntervallo} si ottiene facilmente
+ anche che
+ \begin{equation}\label{IntegraleInIntervallo}
+  \int_a^b{f(x)dx}=\lim_{n->\infty}\int_a^b{f_n(x)dx}
+ \end{equation}
+ Da quest'ultima relazione ottengo anche che $|f|$ è Riemann-integrabile in $[a,b]$, poichè in generale se
+ $h$ è una funzione Riemann-integrabile in $[a,b]$ lo è anche $|h|$.\\
+ Ora, dato che $|f_n|\le g$ per ogni $n\in\mathbb{N}$, passando al limite ottengo che $|f(x)|\le g(x)$ per ogni $x\in(0,\infty)$.
+ Di conseguenza, dato che per quanto già detto $|f|$ è Riemann-integrabile in $[a,b]$, $|f|$ è Riemann-integrabile
+ anche in $(0,\infty)$ perchè è non negativa.\\
+ Ma dato che esiste l'integrale improprio di $|f|$ su $(0,\infty)$, allora esiste anche l'integrale improprio di $f$ su 
+ $(0,\infty)$, e analogamente a quanto detto prima su un intervallo, vale proprio:
+ \begin{equation*}
+  \int_0^\infty{f(x)dx}=\lim_{n->\infty}\int_0^\infty{f_n(x)dx}
+ \end{equation*}
+
+
+\end{proof}
+
