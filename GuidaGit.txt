@@ -78,6 +78,7 @@ git push
 	Questo serve per mandare effettivamente i vostri commit sul server. Ciò che 
 	non avete committato non sarà mandato sul server.
 	Può dare errori se altre persone hanno modificato i vostri stessi file contemporaneamente.
+	Questo comando vi chiede la password.
 	
 git status
 	Questo comando vi dice l'attuale situazione della vostra cartella.
