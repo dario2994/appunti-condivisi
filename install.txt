@@ -29,8 +29,8 @@ Configurare git:
 		git config --global credential.helper store
 
 Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovrete cambiare con il vostro nome utente).
-Mandare una mail a me (Federico Glaudo) o comunicarmi in qualche modo il nome utente
-scelto e aspettare mia conferma prima di procedere (vi devo aggiungere al progetto).
+Mandare una mail a me (Federico Glaudo) o comunicarmi in qualche modo il nome utente che avete scelto
+(ovviamente facendomi capire chi siete) e aspettare mia conferma prima di procedere (vi devo aggiungere al progetto).
 
 Creare una cartella, dove volete, di nome "appunti-condivisi".
 Aprire un terminale (o git-bash) nel percorso di quella cartella.
@@ -39,3 +39,5 @@ Dare i seguenti comandi:
 	git remote add --track master origin https://giorgio@github.com/dario2994/appunti-condivisi.git
 	git pull
 	git push --set-upstream origin master
+		(quest'ultimo comando vi chiederà una password, dovete ovviametne dargli quella con cui
+		vi siete registrati su github)
