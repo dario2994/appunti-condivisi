@@ -65,9 +65,79 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 
 \begin{theorem}\label{dg:GammaDerivata}
 	La funzione Gamma è derivabile e la derivata rispetta:
-	\begin{equation}
+	\begin{equation*}
 		\Gamma'(x)=\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
-	\end{equation}
+	\end{equation*}
 \end{theorem}
+\begin{proof}
+	Come per la dimostrazione di \cref{GammaConverge}, l'integrale, che devo dimostrare
+	essere la derivata della Gamma, esiste finito.
+	
+	Assunto che l'integrale esiste, la tesi del teorema è equivalente (per definizione di derivata) a dimostrare
+	che per ogni $\varepsilon>0$ esiste $\delta$ (che scelgo minore di 1) tale che $\forall\ 0<h<\delta$ risulta:
+	\begin{equation}\label{dg:EpsDeltaDerivata}
+		\left\lvert 
+		\frac{\Gamma(x+h)-\Gamma(x)}{h}-
+		\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+		\right\rvert \le \varepsilon
+		\Longleftrightarrow
+		\left\lvert
+		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t
+		\right\rvert \le \varepsilon
+	\end{equation}
+	
+	Sia $0<a<1$ tale che:
+	\begin{equation}\label{dg:ApproxIn0}
+		\int_0^a \left\lvert \log(t)t^{x-1}e^{-t} \right\rvert \mathrm{d}t \le \frac{\varepsilon}3
+	\end{equation}
+	Tale $a$ esiste poichè l'integrale della \cref{dg:ApproxIn0} in 0 converge.
+	
+	Sia $b>\max(a,1)$ tale che:
+	\begin{equation}\label{dg:ApproxInInf}
+		\int_b^{\infty} \left\lvert (\log{t}\cdot t)t^{x-1}e^{-t}\right\rvert \mathrm{d}t \le \frac{\varepsilon}3
+	\end{equation}
+	Analogamente a prima, la $b$ esiste poichè l'integrale della \cref{dg:ApproxInInf} converge.
+	
+	Applicando i risultati \cref{dg:DisEstremale,dg:ApproxIn0,dg:ApproxInInf} ottengo le seguenti due identità:
+	\begin{equation}\label{dg:IntIn0}
+		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert
+		\le
+		\int_0^a \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\le
+		\int_0^a \left\lvert \log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\le
+		\frac{\varepsilon}3
+	\end{equation}
+	\begin{equation}\label{dg:IntInInf}
+		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert
+		\le
+		\int_b^{\infty} \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\le
+		\int_b^{\infty} \left\lvert \log{t}\cdot t\right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\le
+		\frac{\varepsilon}3
+	\end{equation}
+	
+	Ora considero le funzioni $f_h$ ridotte all'intervallo $[a,b]$.
+	Si dimostra facilmente che questo convergono uniformemente alla funzione $\log$ su tale intervallo (l'uniforme convergenza
+	diventa falsa se si considerano le funzioni su tutta la retta dei reali positiv).
+	L'uniforme continuità e la limitatezza su $[a,b]$ di $t^{x-1}e^{-t}$ mi assicurano che esiste $\delta>0$ tale che:
+	\begin{equation}\label{dg:IntMiddle}
+		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert \le \frac{\varepsilon}3
+	\end{equation}
+	Questo $\delta$ esiste poichè l'integrale converge a 0 per $h\to 0$.
+	
+	Unendo i risultati \cref{dg:IntIn0,dg:IntInInf,dg:IntMiddle}, con $h\le\delta$ ottengo
+	proprio la \cref{dg:EpsDeltaDerivata} e quindi la tesi:
+	\begin{multline}
+		\left\lvert
+		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t
+		\right\rvert \le \\
+		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert +
+		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert +
+		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert \\
+		\le \varepsilon
+	\end{multline}
+\end{proof}
 
 
