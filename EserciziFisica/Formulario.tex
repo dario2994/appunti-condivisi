@@ -1,0 +1,54 @@
+\documentclass[main.tex]{subfiles} 
+\begin{document}
+\section{Formulario}
+\subsection{Sistemi di riferimento non inerziali}
+Sia $K$ un sistema di riferimento non inerziale di centro $O'$, rispetto ad un sistema di riferimento
+inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\overrightarrow{F}=m\overrightarrow{a}$
+vale solo in sistemi di riferimento inerziali, vogliamo scoprire cosa si può dire del rapporto fra la forza
+che agisce su un corpo e la sua accelerazione rispetto al sistema $K$.
+
+Calcoliamo innanzitutto la relazione fra le accelerazioni nei due sistemi di riferimento. Poichè vale la
+relazione $\overrightarrow{OP}=\overrightarrow{OO'}+\overrightarrow{O'P}$ per un qualsiasi punto $P$, derivando 
+rispetto al tempo e chiamando $\overrightarrow{O'P}=\overrightarrow{r}$, ottengo:
+\begin{equation}\label{VelNonInerziale}
+\begin{split}
+	\overrightarrow{v}=\dot{\overrightarrow{OP}}	& =\dot{\overrightarrow{OO'}}+\dot{\overrightarrow{r}}\\
+													& =\overrightarrow{v_{tr}}+\dot{r}\hat{r}+\overrightarrow{\omega}\times\overrightarrow{r}\\
+													& =\overrightarrow{v_{tr}}+\overrightarrow{v_r}+\overrightarrow{\omega}\times\overrightarrow{r}
+\end{split}
+\end{equation}
+dove $v_{tr}$ (velocità di trascinamento) è la velocità di $O'$ rispetto ad $O$ e $v_r$ è la velocità relativa
+a $K$ di $P$.
+
+Derivando nuovamente ottengo invece:
+\begin{equation}\label{AccNonInerziale}
+\begin{split}
+	\overrightarrow{a}=\overrightarrow{v}	& =\dot{\overrightarrow{v_{tr}}}+\dot{\overrightarrow{v_r}}+\left(\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times\dot{\overrightarrow{r}}\right)\\
+											& =\overrightarrow{a_{tr}}+\left(\overrightarrow{a_r}+\overrightarrow{\omega}\times\overrightarrow{v_r}\right)+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\left[\overrightarrow{\omega}\times\overrightarrow{v_r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]\\
+											& =\overrightarrow{a_{tr}}+\overrightarrow{a_r}+2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\\
+\end{split}
+\end{equation}
+dove analogamente a prima $a_{tr}$ (accelerazione di trascinamento) è l'accelerazione di $O'$ rispetto a $O$ e $a_r$ e 
+$v_r$ sono rispettivamente l'accelerazione e la velocità relative a $K$ di $P$.
+
+Quindi dall'equazione di Newton ottengo:
+\begin{equation*}
+\begin{split}
+	\overrightarrow{F}=m\overrightarrow{a}	& =m\left[\overrightarrow{a_{tr}}+\overrightarrow{a_r}+2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]\\
+											& =m\overrightarrow{a_r}+\underline{m\overrightarrow{a_{tr}}}+\underline{2m\overrightarrow{\omega}\times\overrightarrow{v_r}}+\underline{m\dot{\overrightarrow{\omega}}\times\overrightarrow{r}}+\underline{m\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})}
+\end{split}
+\end{equation*}
+I termini sottolineati sono forze apparenti; in particolare $2m\overrightarrow{\omega}\times\overrightarrow{v_r}$
+è chiamata forza di Coriolis, mentre $m\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})$
+è la forza centrifuga.
+
+In un sistema non inerziale si può quindi riscrivere l'equazione di Newton come:
+\begin{equation}\label{ForzaNonInerziale}
+	m\overrightarrow{a_r}=\overrightarrow{F_r}=\overrightarrow{F}-m\overrightarrow{a_{tr}}-m\left[\overrightarrow{a_r}+2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]
+\end{equation}
+
+
+
+
+
+\end{document}
