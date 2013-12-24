@@ -56,7 +56,7 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	Applicando \cref{dg:StupidaDis} in \cref{dg:FurbaId} ottengo la tesi del lemma.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{dg:UnifConv}
 	Fissato un intervallo $[a,b]$ con $0<a<b$, per $h\to 0$ le funzioni $f_h$ convergono uniformemente alla funzione $\log$.
 \end{lemma}
 \begin{proof}
@@ -119,9 +119,8 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\end{equation}
 	
 	Ora considero le funzioni $f_h$ ridotte all'intervallo $[a,b]$.
-	Si dimostra facilmente che questo convergono uniformemente alla funzione $\log$ su tale intervallo (l'uniforme convergenza
-	diventa falsa se si considerano le funzioni su tutta la retta dei reali positiv).
-	L'uniforme continuità e la limitatezza su $[a,b]$ di $t^{x-1}e^{-t}$ mi assicurano che esiste $\delta>0$ tale che:
+	L'uniforme convergenza mostrata in \cref{dg:UnifConv} e la limitatezza su $[a,b]$ di $t^{x-1}e^{-t}$ mi assicurano
+	l'esistenza di $\delta>0$ tale che:
 	\begin{equation}\label{dg:IntMiddle}
 		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert \le \frac{\varepsilon}3
 	\end{equation}
@@ -139,5 +138,18 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 		\le \varepsilon
 	\end{multline}
 \end{proof}
+\begin{corollary}\label{dg:GammaDerivataN}
+	La derivata $n$-esima della Gamma rispetta:
+	\begin{equation*}
+		\Gamma^{(n)}(x)=\int_0^{\infty} \log^{n}{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Si dimostra agevolmente per induzione su $n$. In particolare il passo induttivo si svolge
+	ripetendo pedissequamente la dimostrazione di \cref{dg:GammaDerivataN}, solo sostituendo ovunque $t^{x-1}e^{-x}$
+	con $\log^{n-1}{t}\cdot t^{x-1}e^{-x}$.
+\end{proof}
+
+
 
 
