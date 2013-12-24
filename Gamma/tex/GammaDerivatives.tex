@@ -126,7 +126,7 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\end{equation}
 	Questo $\delta$ esiste poichè l'integrale converge a 0 per $h\to 0$.
 	
-	Unendo i risultati \cref{dg:IntIn0,dg:IntInInf,dg:IntMiddle}, con $h\le\delta$ ottengo
+	Unendo i risultati \cref{dg:IntIn0,dg:IntInInf,dg:IntMiddle}, con $h<\delta$ ottengo
 	proprio la \cref{dg:EpsDeltaDerivata} e quindi la tesi:
 	\begin{multline}
 		\left\lvert
@@ -146,7 +146,7 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 \end{corollary}
 \begin{proof}
 	Si dimostra agevolmente per induzione su $n$. In particolare il passo induttivo si svolge
-	ripetendo pedissequamente la dimostrazione di \cref{dg:GammaDerivataN}, solo sostituendo ovunque $t^{x-1}e^{-x}$
+	ripetendo pedissequamente la dimostrazione di \cref{dg:GammaDerivata}, solo sostituendo ovunque $t^{x-1}e^{-x}$
 	con $\log^{n-1}{t}\cdot t^{x-1}e^{-x}$.
 \end{proof}
 
