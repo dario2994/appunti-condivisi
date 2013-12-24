@@ -10,6 +10,45 @@ la forza di gravità.
 Determinare le posizioni di equilibrio stabile ed instabile in funzione di $\omega$ del punto materiale e studiare la
 frequenza delle piccoli oscillazioni attorno ai punti di equilibrio stabile.
 \solution
+Mi pongo nel sistema di riferimento non inerziale che si muove solidalmente all'anello. Grazie all'equazione 
+(AGGIUNGERE ELENCO FORMULE)
+ho che:
+\begin{equation*}
+	\overrightarrow{a}=\overrightarrow{a_{O'}}+\overrightarrow{a_r}+2\overrightarrow{\omega}\times \overrightarrow{v_r} 
+	+ \dot{\overrightarrow{\omega}}\times \overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}
+	\times\overrightarrow{r})
+\end{equation*}
+In questo caso particolare però, $O'$ (il centro del sistema di riferimento non inerziale) coincide con il centro
+dell'anello, quindi $\overrightarrow{a_{O'}}=0$; inoltre $\overrightarrow{\omega}=\omega \hat{z}$, perciò
+$\dot{\overrightarrow{\omega}}=0$. Mi riconduco quindi a:
+\begin{equation*}
+	\overrightarrow{a}=\overrightarrow{a_r}+2\omega\hat{z}\times \overrightarrow{v_r} 
+	+\omega\hat{z}\times(\omega\hat{z}\times\overrightarrow{r})
+\end{equation*}
+Voglio trovare ora la componente di $\overrightarrow{a}$ diretta lungo $\hat{\theta}$, considero quindi ogni singolo
+addendo:
+\begin{itemize}
+	\item	$\overrightarrow{a_r}=(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}$
+			per l'equazione..., quindi la sua componente diretta lungo $\theta$ è uguale a $
+			2\dot{r}\dot{\theta}+r\ddot{\theta}=r\ddot{\theta}$, in quanto $r$ è costante.
+	\item	$\hat{z}$ e $v_r$ giacciono sul piano contenente l'anello, quindi $\omega\hat{z}\times v_r$ ne è perpendicolare
+			e perciò non ha componente lungo $\hat{\theta}$.
+	\item	Infine $\omega\hat{z}\times(\omega\hat{z}\times\overrightarrow{r})=
+			(-r\omega^2\sin\theta,0,0)=-r\omega^2\sin\theta^2\hat{r}-r\omega^2\sin\theta\cos\theta\hat{\theta}$,
+			quindi il valore della componente diretta lungo $\hat\theta$ è $-r\omega^2\sin\theta\cos\theta$.
+\end{itemize}
+Ottengo quindi che $a_\theta=r\ddot{\theta}-r\omega^2\sin\theta\cos\theta$.
+Inoltre so che $F_\theta=m a_\theta$ e che $F_\theta=-g\sin\theta$, da cui:
+\begin{equation}\label{acr:EquazioneDifferenziale}
+	r\ddot{\theta}=r\omega^2\sin\theta\cos\theta-g\sin\theta
+\end{equation}
+Le posizioni di equilibrio si hanno quando $\ddot\theta=0$ in \cref{acr:EquazioneDifferenziale}, cioè
+$\sin\theta=0$ (cioè $\theta=0$ o $\theta=\pi$) o $\cos\theta=\frac{g}{\omega^2r}$. Distinguiamo quindi tre casi:
+\begin{itemize}
+	\item $\theta=0$.
+\end{itemize}
+
+
 
 \solution[2]
 
