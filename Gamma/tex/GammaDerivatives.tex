@@ -232,7 +232,37 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	La dimostrazione usa la formula di Weierstrass ed il risultato sulla derivata di una somma.
+	Sfruttando \cref{WeierstrassFormula} e le proprietà di base del logaritmo si ha:
+	\begin{equation}\label{dg:DigammaQuasi}
+		\log\Gamma(x)=-\gamma x- \log{x} +\sum_{i=1}^{\infty}\left(\frac xi -\log\left(1+\frac xi\right)\right)
+	\end{equation}
+	
+	Definisco ora $f_i:\mathbb{R^+}\to\mathbb{R}$ come $f_i(x)=\frac xi -\log\left(1+\frac xi\right)$.
+	
+	Verifico che le $f_i$ rispettino tutte le ipotesi di \cref{dg:SommaDer}:
+	\begin{itemize}
+		\item $f_i\in C^2$ e questo è ovvio vista la definizione delle $f_i$.
+		\item $\sum_{i=1}^{\infty}f_i(x)$ converge sempre, ma anche questo è ovvio per la \cref{dg:DigammaQuasi}, visto che
+		il membro di sinistra esiste finito e nel membro di destra compare questa sommatoria infinita (con un numero finito
+		di altri addendi).
+		\item Per verificare l'ultima ipotesi derivo due volte le $f_i$:
+		\begin{equation}\label{dg:Der1Fi}
+			f_i'(x)=\frac 1i -\frac{\frac 1i}{1+\frac xi}=\frac{x}{i(i+x)}
+		\end{equation}
+		\begin{equation}\label{dg:Der2Fi}
+			f_i''(x)=\frac 1{i(i+x)} - \frac{x}{i(i+x)^2}=\frac 1{i(i+x)}\left(1-\frac x{i+x}\right)\le \frac 1{i(i+x)}\le \frac 1{i^2}
+		\end{equation}
+		Ma allora (notando la facile positività di $f_i''$) ho che $||f_i''||\le \frac 1{i^2}$ e questo implica facilmente 
+		l'ultima ipotesi di \cref{dg:SommaDer}.
+	\end{itemize}
+	
+	Derivo entrambi i membri di \cref{dg:DigammaQuasi} e applico \cref{dg:SommaDer,dg:Der1Fi} (di cui ho appena verificato che siano rispettate
+	le ipotesi):
+	\begin{equation*}
+		\psi(x)=\frac{\de \log\Gamma(x)}{\de x}=-\gamma-\frac 1x + \sum_{i=1}^{\infty}\frac{x}{i(i+x)}
+	\end{equation*}
+	che è la tesi.
+
 \end{proof}
 
 
