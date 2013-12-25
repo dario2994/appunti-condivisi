@@ -43,11 +43,53 @@ Inoltre so che $F_\theta=m a_\theta$ e che $F_\theta=-g\sin\theta$, da cui:
 	r\ddot{\theta}=r\omega^2\sin\theta\cos\theta-g\sin\theta
 \end{equation}
 Le posizioni di equilibrio si hanno quando $\ddot\theta=0$ in \cref{acr:EquazioneDifferenziale}, cioè
-$\sin\theta=0$ (cioè $\theta=0$ o $\theta=\pi$) o $\cos\theta=\frac{g}{\omega^2r}$. Distinguiamo quindi tre casi:
+$\sin\theta=0$ (cioè $\theta=0$ o $\theta=\pi$) o $\cos\theta=\frac{g}{\omega^2r}$. 
+
+Consideriamo quindi ora un angolo $\theta$ molto vicino ad un angolo $\theta_0$ di equilibrio e sviluppiamo il seno ed 
+il coseno rispetto a quel punto:
+\begin{equation}\label{acr:SviluppoSeno}
+	\sin\theta=\sin\theta_0+\cos\theta_0(\theta-\theta_0)+\mathcal{O}((\theta-\theta_0)^2)
+\end{equation}
+\begin{equation}\label{acr:SviluppoCoseno}
+	\cos\theta=\cos\theta_0-\sin\theta_0(\theta-\theta_0)+\mathcal{O}((\theta-\theta_0)^2)
+\end{equation}
+Sostituendo nella \cref{acr:EquazioneDifferenziale} e utilizzando che $r\omega^2\sin\theta_0\cos\theta_0-g\sin\theta_0$, 
+otteniamo:
+\begin{equation*}
+\begin{split}
+	r\ddot{\theta}	=& r\omega^2\left[\sin\theta_0\cos\theta_0+\left(\cos^2\theta_0-\sin^2\theta_0\right)
+					(\theta-\theta_0)+\mathcal{O}((\theta-\theta_0)^2)\right]\\
+					& -g\left(\sin\theta_0+\cos\theta_0(\theta-\theta_0)+\mathcal{O}((\theta-\theta_0)^2)\right)\\
+					=& \left[ r\omega^2\left(2\cos^2\theta_0-1\right)-g\cos\theta_0 \right](\theta-\theta_0)
+					+\mathcal{O}((\theta-\theta_0)^2)
+\end{split}
+\end{equation*}
+Quindi $\theta_0$ è un punto di equilibrio stabile se e solo se $r\omega^2\left(2\cos^2\theta_0-1\right)-g\cos\theta_0<0$,
+cioè se vicino a $\theta_0$ il moto si può approssimare ad un moto armonico.
+
+Distinguiamo ora tre casi:
 \begin{itemize}
-	\item $\theta=0$.
+	\item 	Se $\theta_0=0$, allora $r\omega^2\left(2\cos^2\theta_0-1\right)-g\cos\theta_0=r\omega^2-g$,
+			che è minore di 0 se e solo se $r\omega^2<g$. In particolare in tal caso il periodo delle piccole
+			oscillazioni attorno a $\theta_0=0$ è:
+			\begin{equation*}
+				T=\frac{2\pi}{\sqrt{g-r\omega^2}}
+			\end{equation*}
+	\item	Se invece $\theta_0=\pi$, vale che 
+			$r\omega^2\left(2\cos^2\theta_0-1\right)-g\cos\theta_0=r\omega^2+g$ e quindi $\pi$
+			non è mai un punto di equilibrio stabile.
+	\item	Infine se $\cos\theta_0=\frac{g}{r\omega^2}$, si ha che
+			$r\omega^2\left(2\cos^2\theta_0-1\right)-g\cos\theta_0=\frac{g^2}{r\omega^2}-r\omega^2$, che
+			è minore di 0 se è solo se $g<r\omega^2$ e in quel quaso il periodo delle piccole oscillazioni
+			attorno a $\theta_0$ è:
+			\begin{equation*}
+				T=\frac{2\pi}{\sqrt{r\omega^2-g^2/(r\omega^2)}}
+			\end{equation*}
 \end{itemize}
 
+Nella soluzione non sono stati trattati i casi in cui $g=r\omega^2$ 
+(sia con $\theta_0=0$ che con $\cos\theta_0=\frac{g}{r\omega^2}$) che richiedono semplicemente
+sviluppi del seno e del coseno ad ordini via via successivi.
 
 
 \solution[2]
