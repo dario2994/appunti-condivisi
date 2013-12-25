@@ -4,23 +4,39 @@
 \setcounter{equation}{0}
 \renewcommand{\theequation}{F.\arabic{equation}}
 \subsection{Coordinate polari} 
-\begin{equation}\label{VelCooPolari}
-\begin{split}
-	\overrightarrow{v}	& =\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\overrightarrow{w}\times\hat{r}\\
-						& =\dot{r}\hat{r}+r\dot{\theta}\hat{z}\times\hat{r}\\
-						& =\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
-\end{split}
+In coordinate polari si ha che per ogni versore $\hat{i}$ vale $\dot{\hat{i}}=\overrightarrow{\omega}\times\hat{i}$,
+dove
+\begin{equation}\label{OmegaPolari}
+	\overrightarrow{w}=\dot{\theta}\hat{z}
 \end{equation}
+Derivando l'equazione $\overrightarrow{r}=r\hat{r}$ rispetto al tempo, ottengo quindi
+\begin{equation}\label{VelCooPolari}
+	\overrightarrow{v}=\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
+\end{equation}
+Derivando una seconda volta ottengo invece:
 \begin{equation}\label{AccCooPolari}
-\begin{split}
-	\overrightarrow{a}	& =\dot{\overrightarrow{v}}=\ddot{r}\hat{r}+\dot{r}\dot{\theta}\hat{\theta}+\dot{r}\dot{\theta}\hat{\theta}+r\ddot{\theta}\hat{\theta}+r\dot{\theta}\hat{\theta} \\
-						& =\dot{r}\hat{r}+r\dot{\theta}\hat{z}\times\hat{r}\\
-						& =\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
-\end{split}
+	\overrightarrow{a}=\dot{\overrightarrow{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
 \end{equation}
 
 \subsection{Coordinate sferiche}
-sadf
+Ponendosi in un sistema di coordinate sferiche, vale $\dot{\hat{i}}=\overrightarrow{\omega}\times\hat{i}$
+per ogni versore $\hat{i}$, dove
+\begin{equation}\label{OmegaSferiche}
+	\overrightarrow{\omega}=\dot{\theta}\hat{\varphi}+\dot{\varphi}\hat{z}
+\end{equation}
+Quindi derivando l'equazione $\overrightarrow{r}=\dot{r}\hat{r}$, ottengo
+\begin{equation}\label{VelCooSferiche}
+	\overrightarrow{v} =\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}+r\hat{\varphi}\sin{\theta}\hat{\varphi}
+\end{equation}
+E derivando nuovamente rispetto al tempo ho che:
+\begin{equation}\label{AccCooSferiche}
+\begin{split}
+	\overrightarrow{a}=	\dot{\overrightarrow{v}}=	&\left(\ddot{r}-r\dot{\theta}^2-r\dot{\varphi}^2\sin^2\theta \right)\hat{r}+\\
+													&	+\left( r\ddot{\theta}+2\dot{r}\dot{\theta}-r\dot{\varphi}\sin\theta\cos\theta \right)\hat{\theta}+\\
+													&	+\left( 2\dot{r}\dot{\varphi}\sin\theta+2r\dot{\varphi}\dot{\theta}\cos\theta+r\ddot{\varphi}\sin\theta \right)\hat{\varphi}
+\end{split}
+\end{equation}
+
 \subsection{Sistemi di riferimento non inerziali}
 Sia $K$ un sistema di riferimento non inerziale di centro $O'$, rispetto ad un sistema di riferimento
 inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\overrightarrow{F}=m\overrightarrow{a}$
