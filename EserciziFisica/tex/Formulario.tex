@@ -1,8 +1,26 @@
-\documentclass[main.tex]{subfiles} 
+\documentclass[../main.tex]{subfiles} 
 \begin{document}
 \section{Formulario}
 \setcounter{equation}{0}
 \renewcommand{\theequation}{F.\arabic{equation}}
+\subsection{Coordinate polari} 
+\begin{equation}\label{VelCooPolari}
+\begin{split}
+	\overrightarrow{v}	& =\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\overrightarrow{w}\times\hat{r}\\
+						& =\dot{r}\hat{r}+r\dot{\theta}\hat{z}\times\hat{r}\\
+						& =\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
+\end{split}
+\end{equation}
+\begin{equation}\label{AccCooPolari}
+\begin{split}
+	\overrightarrow{a}	& =\dot{\overrightarrow{v}}=\ddot{r}\hat{r}+\dot{r}\dot{\theta}\hat{\theta}+\dot{r}\dot{\theta}\hat{\theta}+r\ddot{\theta}\hat{\theta}+r\dot{\theta}\hat{\theta} \\
+						& =\dot{r}\hat{r}+r\dot{\theta}\hat{z}\times\hat{r}\\
+						& =\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
+\end{split}
+\end{equation}
+
+\subsection{Coordinate sferiche}
+sadf
 \subsection{Sistemi di riferimento non inerziali}
 Sia $K$ un sistema di riferimento non inerziale di centro $O'$, rispetto ad un sistema di riferimento
 inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\overrightarrow{F}=m\overrightarrow{a}$
