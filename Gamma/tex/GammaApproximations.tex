@@ -82,7 +82,7 @@
 					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s^2\left(\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)\right)} ds}
 	\end{split}
 	\end{equation*}
-	Ora definisco per comodità $h(x,s)=\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ 
+	Ora definisco per comodità $h_x(s)=\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ 
 	e mi concentro su quest'ultimo integrale, in particolare esso è uguale a:
 	\begin{equation*}
 		\int_{-\infty}^\infty{ f_x(s) ds}
@@ -90,12 +90,14 @@
 	dove 
 	\begin{equation*}
 		f_x(s)=\begin{cases}
-				e^{-s^2h(x,s)}, & \mbox{se } -\sqrt{x/2}<s<\infty \\
+				e^{-s^2h_x(s)}, & \mbox{se } -\sqrt{x/2}<s<\infty \\
 							 0, & \mbox{se } s\le -\sqrt{x/2}
 	\end{cases}
 	\end{equation*}
+	
 	Dimostro innanzitutto che $f_x(s)\to e^{-s^2}$ uniformemente su $[a,b]$ per $x\to\infty$, con 
-	$-\infty<a<b<\infty$. Ciò equivale a dimostrare che $h(x,s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
+	$-\infty<a<b<\infty$. Ciò equivale a dimostrare che $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
+	
 	
 \end{proof}
 
