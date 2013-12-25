@@ -66,7 +66,7 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 \begin{theorem}\label{dg:GammaDerivata}
 	La funzione Gamma è derivabile e la derivata rispetta:
 	\begin{equation*}
-		\Gamma'(x)=\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+		\Gamma'(x)=\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\de t
 	\end{equation*}
 \end{theorem}
 \begin{proof}
@@ -78,42 +78,42 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\begin{equation}\label{dg:EpsDeltaDerivata}
 		\left\lvert 
 		\frac{\Gamma(x+h)-\Gamma(x)}{h}-
-		\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+		\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\de t
 		\right\rvert \le \varepsilon
 		\Longleftrightarrow
 		\left\lvert
-		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t
+		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t
 		\right\rvert \le \varepsilon
 	\end{equation}
 	
 	Sia $0<a<1$ tale che:
 	\begin{equation}\label{dg:ApproxIn0}
-		\int_0^a \left\lvert \log(t)t^{x-1}e^{-t} \right\rvert \mathrm{d}t \le \frac{\varepsilon}3
+		\int_0^a \left\lvert \log(t)t^{x-1}e^{-t} \right\rvert \de t \le \frac{\varepsilon}3
 	\end{equation}
 	Tale $a$ esiste poichè l'integrale della \cref{dg:ApproxIn0} in 0 converge.
 	
 	Sia $b>\max(a,1)$ tale che:
 	\begin{equation}\label{dg:ApproxInInf}
-		\int_b^{\infty} \left\lvert (\log{t}\cdot t)t^{x-1}e^{-t}\right\rvert \mathrm{d}t \le \frac{\varepsilon}3
+		\int_b^{\infty} \left\lvert (\log{t}\cdot t)t^{x-1}e^{-t}\right\rvert \de t \le \frac{\varepsilon}3
 	\end{equation}
 	Analogamente a prima, la $b$ esiste poichè l'integrale della \cref{dg:ApproxInInf} converge.
 	
 	Applicando i risultati \cref{dg:DisEstremale,dg:ApproxIn0,dg:ApproxInInf} ottengo le seguenti due identità:
 	\begin{equation}\label{dg:IntIn0}
-		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert
+		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert
 		\le
-		\int_0^a \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\int_0^a \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\de t
 		\le
-		\int_0^a \left\lvert \log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\int_0^a \left\lvert \log{t} \right\rvert t^{x-1}e^{-t}\de t
 		\le
 		\frac{\varepsilon}3
 	\end{equation}
 	\begin{equation}\label{dg:IntInInf}
-		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert
+		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert
 		\le
-		\int_b^{\infty} \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\int_b^{\infty} \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\de t
 		\le
-		\int_b^{\infty} \left\lvert \log{t}\cdot t\right\rvert t^{x-1}e^{-t}\mathrm{d}t
+		\int_b^{\infty} \left\lvert \log{t}\cdot t\right\rvert t^{x-1}e^{-t}\de t
 		\le
 		\frac{\varepsilon}3
 	\end{equation}
@@ -122,7 +122,7 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	L'uniforme convergenza mostrata in \cref{dg:UnifConv} e la limitatezza su $[a,b]$ di $t^{x-1}e^{-t}$ mi assicurano
 	l'esistenza di $\delta>0$ tale che $\forall 0<h<\delta$ vale:
 	\begin{equation}\label{dg:IntMiddle}
-		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert \le \frac{\varepsilon}3
+		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert \le \frac{\varepsilon}3
 	\end{equation}
 	Questo $\delta$ esiste poichè l'integrale converge a 0 per $h\to 0$.
 	
@@ -130,18 +130,18 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	proprio la \cref{dg:EpsDeltaDerivata} e quindi la tesi:
 	\begin{multline}
 		\left\lvert
-		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t
+		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t
 		\right\rvert \le \\
-		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert +
-		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert +
-		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\mathrm{d}t\right\rvert \\
+		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert +
+		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert +
+		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert \\
 		\le \varepsilon
 	\end{multline}
 \end{proof}
 \begin{corollary}\label{dg:GammaDerivataN}
 	La derivata $n$-esima della Gamma rispetta:
 	\begin{equation*}
-		\Gamma^{(n)}(x)=\int_0^{\infty} \log^{n}{t}\cdot t^{x-1}e^{-t}\mathrm{d}t
+		\Gamma^{(n)}(x)=\int_0^{\infty} \log^{n}{t}\cdot t^{x-1}e^{-t}\de t
 	\end{equation*}
 \end{corollary}
 \begin{proof}
@@ -149,6 +149,93 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	ripetendo pedissequamente la dimostrazione di \cref{dg:GammaDerivata}, solo sostituendo ovunque $t^{x-1}e^{-x}$
 	con $\log^{n-1}{t}\cdot t^{x-1}e^{-x}$.
 \end{proof}
+\begin{lemma}\label{dg:SommaDer}
+	Siano $f_i:\mathbb{R^+}\to\mathbb R$ (con $i=1,2,\dots$) funzioni tali che:
+	\begin{itemize}
+		\item $\forall\ i\in\mathbb{N} :\ f_i\in C^2$
+		\item $\forall x\in D$ la sommatoria $\sum_{i=1}^{\infty}f_i(x)$ converge.
+		\item La sommatoria $\sum_{i=1}^{\infty} ||f_i''||$ converge.
+	\end{itemize}
+	
+	Allora vale la seguente identità tra derivate:
+	\begin{equation*}
+		\frac{\de \sum_{i=1}^{\infty}f_i(x)}{\de x}=\sum_{i=1}^{\infty}f_i'(x)
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Applicando 2 volte il teorema di Lagrange ho che fissati $x,h\in\mathbb{R^+}$ e $i\in\mathbb{N}$
+	esistono $0<h''\le h'\le h$ tali che valgano le identità che uso per ottenere la disuguaglianza:
+	\begin{equation}\label{dg:DisFond}
+		\left\lvert\frac{f_i(x+h)-f_i(x)}h - f_i'(x)\right\rvert=\left\lvert f_i'(x+h') - f_i'(x)\right\rvert
+		=\left\lvert h'\cdot f''(x+h') \right\rvert\le h||f_i''||
+	\end{equation}
+	
+	Sia ora $C=\sum_{i=1}^{\infty} ||f_i''||$ (che esiste per ipotesi).
+	
+	Risulta vera, sfruttando \cref{dg:DisFond}, che:
+	\begin{equation}\label{dg:DerFond}
+		hC\ge \sum_{i=1}^{\infty}\left\lvert\frac{f_i(x+h)-f_i(x)}h - f_i'(x)\right\rvert \ge
+		\left\lvert\sum_{i=1}^{\infty}\frac{f_i(x+h)-f_i(x)}h - f_i'(x)\right\rvert
+	\end{equation}
+	Dove l'ultima disuguaglianza ha senso poichè la serie converge assolutamente, quindi converge.
+	
+	Vale però che una somma di serie equivale alla serie della somma e perciò
+	(essendo furbi, portando le cose dalla parte giusta e applicando 2 volte tale risultato nell'ordine giusto)
+	si dimostra che:
+	\begin{equation}\label{dg:IdStupida}
+		\sum_{i=1}^{\infty}\frac{f_i(x+h)-f_i(x)}h - f_i'(x)=
+		\frac{\sum_{i=1}^{\infty} f_i(x+h)- \sum_{i=1}^{\infty}f_i(x)}h -\sum_{i=1}^{\infty}f_i'(x)
+	\end{equation}
+
+	Unendo \cref{dg:DerFond,dg:IdStupida} ottengo, per definizione di derivata, proprio la tesi.
+\end{proof}
+
+\begin{definition}\label{dg:Digamma}
+	Sia $\psi:\mathbb{R^+}\to\mathbb{R}$ la funzione Digamma, cioè la derivata logaritmica della funzione Gamma:
+	\begin{equation*}
+		\psi(x)=\frac{\de \log\Gamma(x)}{\de x}=\frac{\Gamma'(x)}{\Gamma(x)}
+	\end{equation*}
+\end{definition}
+
+\begin{lemma}\label{dg:DigammaCresc}
+	La funzione Digamma è crescente.
+\end{lemma}
+\begin{proof}
+	La \cref{GammaLogConvessa} mi assicura che la funzione $\log\Gamma$ è convessa, ma questa è per \cref{dg:GammaDerivata}
+	anche derivabile. Ma una funzione derivabile e convessa ha derivata crescente, per la definizione stessa della Digamma
+	questo implica la sua crescenza.
+\end{proof}
+
+\begin{lemma}\label{dg:DigammaFunzionale}
+	La funzione Digamma rispetta la seguente equazione funzionale per ogni $x>0$:
+	\begin{equation*}
+		\psi(x+1)=\psi(x)+\frac 1x
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Sfruttando \cref{dg:GammaDerivata} derivo entrambi i membri di \cref{FunzionaleGamma}:
+	\begin{equation}\label{dg:FunzionaleDer}
+		\Gamma'(x+1)=x\Gamma'(x)+\Gamma(x)
+	\end{equation}
+	
+	Ora unisco \cref{FunzionaleGamma,dg:FunzionaleDer,dg:Digamma} ottenendo la tesi:
+	\begin{equation*}
+		\psi(x+1)=\frac{\Gamma'(x+1)}{\Gamma(x+1)}=\frac{x\Gamma'(x)+\Gamma(x)}{x\Gamma(x)}=
+		\frac{\Gamma'(x)}{\Gamma(x)}+\frac 1x=\psi(x)+\frac 1x
+	\end{equation*}
+\end{proof}
+
+\begin{lemma}\label{dg:DigammaId}
+	La funzione Digamma rispetta la seguente identità per ogni $x>0$:
+	\begin{equation*}
+		\psi(x)=-\gamma-\frac 1x +\sum_{i=1}^{\infty} \frac x{i(i+x)}
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	La dimostrazione usa la formula di Weierstrass ed il risultato sulla derivata di una somma.
+\end{proof}
+
+
 
 
 
