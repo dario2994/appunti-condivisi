@@ -206,12 +206,12 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	questo implica la sua crescenza.
 \end{proof}
 
-\begin{lemma}\label{dg:DigammaFunzionale}
+\begin{theorem}\label{dg:DigammaFunzionale}
 	La funzione Digamma rispetta la seguente equazione funzionale per ogni $x>0$:
 	\begin{equation*}
 		\psi(x+1)=\psi(x)+\frac 1x
 	\end{equation*}
-\end{lemma}
+\end{theorem}
 \begin{proof}
 	Sfruttando \cref{dg:GammaDerivata} derivo entrambi i membri di \cref{FunzionaleGamma}:
 	\begin{equation}\label{dg:FunzionaleDer}
@@ -225,12 +225,12 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	\end{equation*}
 \end{proof}
 
-\begin{lemma}\label{dg:DigammaId}
+\begin{theorem}\label{dg:DigammaId}
 	La funzione Digamma rispetta la seguente identità per ogni $x>0$:
 	\begin{equation*}
 		\psi(x)=-\gamma-\frac 1x +\sum_{i=1}^{\infty} \frac x{i(i+x)}
 	\end{equation*}
-\end{lemma}
+\end{theorem}
 \begin{proof}
 	Sfruttando \cref{WeierstrassFormula} e le proprietà di base del logaritmo si ha:
 	\begin{equation}\label{dg:DigammaQuasi}
@@ -249,9 +249,9 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 		\begin{equation}\label{dg:Der1Fi}
 			f_i'(x)=\frac 1i -\frac{\frac 1i}{1+\frac xi}=\frac{x}{i(i+x)}
 		\end{equation}
-		\begin{equation}\label{dg:Der2Fi}
+		\begin{equation*}
 			f_i''(x)=\frac 1{i(i+x)} - \frac{x}{i(i+x)^2}=\frac 1{i(i+x)}\left(1-\frac x{i+x}\right)\le \frac 1{i(i+x)}\le \frac 1{i^2}
-		\end{equation}
+		\end{equation*}
 		Ma allora (notando la facile positività di $f_i''$) ho che $||f_i''||\le \frac 1{i^2}$ e questo implica facilmente 
 		l'ultima ipotesi di \cref{dg:SommaDer}.
 	\end{itemize}
@@ -262,8 +262,63 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 		\psi(x)=\frac{\de \log\Gamma(x)}{\de x}=-\gamma-\frac 1x + \sum_{i=1}^{\infty}\frac{x}{i(i+x)}
 	\end{equation*}
 	che è la tesi.
-
 \end{proof}
+
+\begin{corollary}\label{dg:psi(1)}
+	Risulta:
+	\begin{equation*}
+		\psi(1)=-\gamma
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Ponendo $x=1$ in \cref{dg:DigammaId} ottengo:
+	\begin{equation*}
+		\psi(1)=-\gamma-1+\sum_{i=1}^{\infty}\frac 1{i{i+1}}
+	\end{equation*}
+	Ma la sommatoria infinita è, per antonomasia, telescopica e risulta valere $1$. Sostistuendo il valore della sommatoria
+	ottengo proprio il risultato.
+\end{proof}
+
+\begin{theorem}\label{dg:psiApprox}
+	Vale la seguente stima asintotica della funzione Digamma:
+	\begin{equation*}
+		\psi(x)=\log{x}+\mathcal{O}\left(\frac 1x\right)
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Dato $n\in\mathbb{N}$ applicando ripetutamente la \cref{dg:DigammaFunzionale} e sostituendo \cref{dg:psi(1)}
+	ho che vale:
+	\begin{equation}\label{dg:PsiIntera}
+		\psi(n)=\psi(1)+\sum_{i=1}^{n-1}\frac 1i = -\gamma+\sum_{i=1}^{n}\frac 1i + \mathcal{O}(\frac 1n)
+	\end{equation}
+	Ora però si può applicare il fatto noto riguardo la convergenza a $\gamma$ della differenza tra logaritmo e numeri armonici, 
+	così si ottiene:
+	\begin{equation}\label{dg:EuMaschConv}
+		\sum_{i=1}^{n}\frac 1i - \log n = \gamma +\mathcal{O}\left(\frac 1n\right)
+	\end{equation}
+	
+	Sostituisco ora \cref{dg:EuMaschConv} in \cref{dg:PsiIntera} ottenendo:
+	\begin{equation}\label{dg:PsiIntera2}
+		\psi(n)=\log n +\mathcal{O}\left(\frac 1n\right)
+	\end{equation}
+
+	Fissato $x>1$ reale, sfruttando \cref{dg:DigammaCresc,dg:DigammaFunzionale} ottengo la seguente catena di
+	disuguaglianze (definendo per precisione $\lceil x\rceil$ come il più piccolo intero \emph{strettamente} maggiore di $x$):
+	\begin{equation}\label{dg:PsiReale}
+		\psi(\lfloor x\rfloor)\le \psi(x) \le \psi(\lceil x\rceil)=\psi(\lfloor x\rfloor)+\frac 1{\lfloor x\rfloor} \Rightarrow
+		\psi(x)=\psi(\lfloor x\rfloor)+\mathcal{O}\left(\frac 1x\right)
+	\end{equation}
+
+	Applico ora \cref{dg:PsiIntera2} nella \cref{dg:PsiReale} ottenendo la tesi:
+	\begin{equation*}
+		\psi(x)=\psi(\lfloor x\rfloor)+\mathcal{O}\left(\frac 1x\right)=
+		\log{\lfloor x\rfloor }+\mathcal{O}\left(\frac 1{\lfloor x\rfloor}\right)+\mathcal{O}\left(\frac 1x\right)=
+		\log{x}+\mathcal{O}\left(\frac 1x\right)
+	\end{equation*}
+\end{proof}
+
+
+
 
 
 
