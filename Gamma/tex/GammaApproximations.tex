@@ -105,10 +105,15 @@
 				& =1+\bigO\left( \frac{s}{\sqrt{x}} \right)
 	\end{split}
 	\end{equation*}
-	Quindi per $x$ abbastanza grande esiste $K$ tale che $|h_x(s)-1|<K\frac{|s|}{\sqrt{x}}$ per ogni $s\in [a,b]$.
-	In particolare $|h_x(s)-1|<K\frac{M}{\sqrt{x}}$, dove $M=\max_{s\in[a,b]}\{|s|\}$.
-	Perciò banalmente, per ogni $\varepsilon$ esiste $x_\varepsilon$ tale che $|h_x(s)-1|<\varepsilon$ per ogni
-	$s\in[a,b]$, che equivale proprio a dire che $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
+	Quindi esistono $H,K$ tali che, se $\left\lvert\frac s{\sqrt x}\right\rvert<H$ allora vale 
+	$|h_x(s)-1|<K\frac{|s|}{\sqrt{x}}$ per ogni $s\in [a,b]$.
+	
+	Allora in particolare, ponendo $M=\max_{s\in[a,b]}\{|s|\}$, risulta che, se $\left\lvert\frac M{\sqrt x}\right\rvert<H$,
+	allora $|h_x(s)-1|<K\frac{M}{\sqrt{x}}$. Ma questo equivale a dire:
+	\begin{equation*}
+		h_x(s)=1+\bigO\left( \frac{1}{\sqrt{x}} \right)
+	\end{equation*}
+	Che implica facilmente $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
 	
 	Ora distinguo due casi:
 	\begin{itemize}
