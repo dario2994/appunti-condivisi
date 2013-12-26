@@ -1,5 +1,5 @@
 \section{Approssimazioni della funzione Gamma}
-\begin{lemma}
+\begin{lemma}\label{ga:LimiteIntegrali}
 	Siano $f_n$, con $n\in\mathbb{N}$, e $g$ funzioni definite in $(0,\infty)$ e Riemann-integrabili su $[a,b]$ per ogni
 	$0<a<b<\infty$. Se valgono le seguenti proprietà:
 	\begin{itemize}
@@ -9,7 +9,7 @@
 	\end{itemize}
 	Allora vale che:
 	\begin{equation*}
-		\lim_{x\to\infty}\int_0^\infty f_n(x)dx=\int_0^\infty f(x)dx
+		\lim_{n\to\infty}\int_0^\infty f_n(x)dx=\int_0^\infty f(x)dx
 	\end{equation*}
 \end{lemma}
 
@@ -73,7 +73,7 @@
 \end{theorem}
 \begin{proof}
 	Sostituendo $t=x(1+s\sqrt{2/x})$ nella definizione della funzione Gamma \cref{FunzioneGamma} ottengo:
-	\begin{equation*}
+	\begin{equation} \label{ga:QuasiStirling}
 	\begin{split}
 		\Gamma(x+1) & = \int_0^\infty{e^{-t}t^{x}dt}\\
 					& = \int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-x(1+s\sqrt{2/x})} x^x\left(1+s\sqrt{\frac{2}{x}}\right)^x \sqrt{2x} ds}\\
@@ -81,7 +81,7 @@
 					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s\sqrt{2x}+x\ln\left(1+s\sqrt{\frac{2}{x}}\right)} ds}\\
 					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s^2\left(\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)\right)} ds}
 	\end{split}
-	\end{equation*}
+	\end{equation}
 	Ora definisco per comodità $h_x(s)=\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ 
 	e mi concentro su quest'ultimo integrale, in particolare esso è uguale a:
 	\begin{equation*}
@@ -97,6 +97,52 @@
 	
 	Dimostro innanzitutto che $f_x(s)\to e^{-s^2}$ uniformemente su $[a,b]$ per $x\to\infty$, con 
 	$-\infty<a<b<\infty$. Ciò equivale a dimostrare che $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
+	Sostituendo a $\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ il suo sviluppo di Taylor ottengo la seguente identità:
+	\begin{equation*}
+	\begin{split}
+		h_x(s)	& =\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)\\
+				& =\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\left(s\sqrt{\frac{2}{x}}-\frac{s^2}{x}+\bigO\left(\frac{s^3}{x\sqrt{x}}\right) \right)\\
+				& =1+\bigO\left( \frac{s}{\sqrt{x}} \right)
+	\end{split}
+	\end{equation*}
+	Quindi per $x$ abbastanza grande esiste $K$ tale che $|h_x(s)-1|<K\frac{|s|}{\sqrt{x}}$ per ogni $s\in [a,b]$.
+	In particolare $|h_x(s)-1|<K\frac{M}{\sqrt{x}}$, dove $M=\max_{s\in[a,b]}\{|s|\}$.
+	Perciò banalmente, per ogni $\varepsilon$ esiste $x_\varepsilon$ tale che $|h_x(s)-1|<\varepsilon$ per ogni
+	$s\in[a,b]$, che equivale proprio a dire che $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
+	
+	Ora distinguo due casi:
+	\begin{itemize}
+		\item	Se $s<0$ ho che $0\le f_x(s) \le e^{-s^2}$, utilizzando l'uniforme convergenza di $f_x(s)$ in ogni
+				intervallo e \cref{GaussIntegral}, posso applicare \cref{ga:LimiteIntegrali} alle funzioni $f_x(s)$ 
+				e ottengo:
+				\begin{equation}\label{ga:PartialIntegralNeg}
+					\lim_{x\to\infty} \int_{-\infty}^0{f_x(s)ds}=\int_{-\infty}^0{\left(\lim_{x\to\infty}f_x(s)\right)ds}
+					=\int_{-\infty}^0{e^{-s^2}ds}=\frac{\sqrt{\pi}}{2}
+				\end{equation}
+		\item	Se $s>0$ ho che $0\le f_x(s) \le f_1(s)$, in quanto $h_x(s)\ge h_1(s)$. Inoltre, grazie
+				alla \cref{FunzioneGamma}, vale che:
+				\begin{equation*}
+				\begin{split}
+					\int_0^{\infty}{f_1(s)ds}	&=\int_0^\infty{e^{-\sqrt{2}s}\left(1+\sqrt{2}s \right)ds}\\
+												&=\frac{e}{\sqrt{2}}\int_0^\infty{e^{-t}t dt}\\
+												&=\frac{e}{\sqrt{2}}\Gamma(2)<\infty
+				\end{split}
+				\end{equation*}
+				Quindi, utilizzando la convergenza uniforme di $f_x(s)$ a $e^{-s^2}$ in ogni intervallo
+				$[a,b]$, posso nuovamente applicare \cref{ga:LimiteIntegrali}, da cui ottengo:
+				\begin{equation}\label{ga:PartialIntegralPos}
+					\lim_{x\to\infty} \int_0^\infty{f_x(s)ds}=\int_0^\infty{\left(\lim_{x\to\infty}f_x(s)\right)ds}
+					=\int_0^\infty{e^{-s^2}ds}=\frac{\sqrt{\pi}}{2}
+				\end{equation}
+	\end{itemize}
+	
+	Infine, unendo \cref{ga:PartialIntegralNeg} e \cref{ga:PartialIntegralPos}, ottengo:
+	\begin{equation*}
+		\lim_{x\to\infty}\int_{-\infty}^\infty{ f_x(s) ds}=\sqrt{\pi}
+	\end{equation*}
+	da cui passando al limite nella \cref{ga:QuasiStirling} ottengo la tesi.
+
+
 \end{proof}
 
 \begin{lemma}\label{ga:ApproxReali}
