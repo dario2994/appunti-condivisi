@@ -282,41 +282,65 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 \begin{theorem}\label{dg:psiApprox}
 	Vale la seguente stima asintotica della funzione Digamma:
 	\begin{equation*}
-		\psi(x)=\log{x}+\mathcal{O}\left(\frac 1x\right)
+		\psi(x)=\log{x}+\bigO\left(\frac 1x\right)
 	\end{equation*}
 \end{theorem}
 \begin{proof}
 	Dato $n\in\mathbb{N}$ applicando ripetutamente la \cref{dg:DigammaFunzionale} e sostituendo \cref{dg:psi(1)}
 	ho che vale:
 	\begin{equation}\label{dg:PsiIntera}
-		\psi(n)=\psi(1)+\sum_{i=1}^{n-1}\frac 1i = -\gamma+\sum_{i=1}^{n}\frac 1i + \mathcal{O}(\frac 1n)
+		\psi(n)=\psi(1)+\sum_{i=1}^{n-1}\frac 1i = -\gamma+\sum_{i=1}^{n}\frac 1i + \bigO(\frac 1n)
 	\end{equation}
 	Ora però si può applicare il fatto noto riguardo la convergenza a $\gamma$ della differenza tra logaritmo e numeri armonici, 
 	così si ottiene:
 	\begin{equation}\label{dg:EuMaschConv}
-		\sum_{i=1}^{n}\frac 1i - \log n = \gamma +\mathcal{O}\left(\frac 1n\right)
+		\sum_{i=1}^{n}\frac 1i - \log n = \gamma +\bigO\left(\frac 1n\right)
 	\end{equation}
 	
 	Sostituisco ora \cref{dg:EuMaschConv} in \cref{dg:PsiIntera} ottenendo:
 	\begin{equation}\label{dg:PsiIntera2}
-		\psi(n)=\log n +\mathcal{O}\left(\frac 1n\right)
+		\psi(n)=\log n +\bigO\left(\frac 1n\right)
 	\end{equation}
 
 	Fissato $x>1$ reale, sfruttando \cref{dg:DigammaCresc,dg:DigammaFunzionale} ottengo la seguente catena di
 	disuguaglianze (definendo per precisione $\lceil x\rceil$ come il più piccolo intero \emph{strettamente} maggiore di $x$):
 	\begin{equation}\label{dg:PsiReale}
-		\psi(\lfloor x\rfloor)\le \psi(x) \le \psi(\lceil x\rceil)=\psi(\lfloor x\rfloor)+\frac 1{\lfloor x\rfloor} \Rightarrow
-		\psi(x)=\psi(\lfloor x\rfloor)+\mathcal{O}\left(\frac 1x\right)
+		\psi(\partint{x})\le \psi(x) \le \psi(\lceil x\rceil)=\psi(\partint{x})+\frac 1{\partint{x}} \Rightarrow
+		\psi(x)=\psi(\partint{x})+\bigO\left(\frac 1x\right)
 	\end{equation}
 
 	Applico ora \cref{dg:PsiIntera2} nella \cref{dg:PsiReale} ottenendo la tesi:
 	\begin{equation*}
-		\psi(x)=\psi(\lfloor x\rfloor)+\mathcal{O}\left(\frac 1x\right)=
-		\log{\lfloor x\rfloor }+\mathcal{O}\left(\frac 1{\lfloor x\rfloor}\right)+\mathcal{O}\left(\frac 1x\right)=
-		\log{x}+\mathcal{O}\left(\frac 1x\right)
+		\psi(x)=\psi(\partint{x})+\bigO\left(\frac 1x\right)=
+		\log{\partint{x} }+\bigO\left(\frac 1{\partint{x}}\right)+\bigO\left(\frac 1x\right)=
+		\log{x}+\bigO\left(\frac 1x\right)
 	\end{equation*}
 \end{proof}
 
+
+\begin{corollary}\label{dg:RapportoAsint}
+	Fissato $c\in\mathbb{R}$, vale la seguente formula asintotica:
+	\begin{equation}
+		\frac{\Gamma(x+c)}{\Gamma(x)}\sim x^c
+	\end{equation}
+\end{corollary}
+\begin{proof}
+	Estraendo il logaritmo, la tesi equivale a dimostrare:
+	\begin{equation}\label{dg:LogTesi}
+		\lim_{x\to\infty} \log\Gamma(x+c)-\log\Gamma(x)-c\log x =0
+	\end{equation}
+	
+	Applicando il teorema di Lagrange e \cref{dg:psiApprox} si ha che, per ogni $x>0$, esiste $0<c'<c$ (assumendo senza
+	perdità di generalità $c>0$) tale che valgano le seguenti uguaglianze:
+	\begin{equation}\label{dg:psiLagrange}
+		\log\Gamma(x+c)-\log\Gamma(x)=c\cdot\psi(x+c')=c\log{x}+c\cdot\bigO\left(\frac{1+c'}{x}\right)=
+		c\cdot \log{x}+\bigO\left(\frac 1x\right)
+	\end{equation}
+	dove nell'ultimo passaggio ho usato il fatto che $c$ è costante, e nell'identità centrale ho implicitamente 
+	applicato Lagrange alla funzione logaritmo.
+	
+	Applicando la \cref{dg:psiLagrange} si dimostra facilmente \cref{dg:LogTesi} e quindi la tesi.
+\end{proof}
 
 
 
