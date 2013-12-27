@@ -1,90 +1,92 @@
 \section{Alcune formule sulla Gamma}
 
-\begin{theorem}[Formula di riflessione]
-\label{Riflessione}
-Per $0<x<1$ reale vale:
-\begin{equation*}
-	\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin(\pi x)}
-\end{equation*}
-
+\begin{theorem}[Formula di riflessione] \label{Riflessione}
+	Per $0<x<1$ reale vale:
+	\begin{equation*}
+		\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin(\pi x)}
+	\end{equation*}
 \end{theorem}
-
 \begin{proof}
-Uso l'identità \cref{GaussFormula} per ottenere:
-\begin{equation}
-\label{MezzaRiflessione}
-\begin{split}
-\Gamma(x)\Gamma(1-x) & = \lim_{n\to\infty} \dfrac{n^xn!}{x(x+1)\cdots (x+n)} \cdot \dfrac{n^{1-x}n!}{(1-x)(1-x+1)\cdots (1-x+n)}\\
- & =\lim_{n\to\infty} \frac{n}{n+1-x} \cdot \frac{1}{x} \cdot \prod_{k=1}^{n}\dfrac{k^2}{k^2-x^2} \\
-  & =\left(\lim_{n\to\infty} \frac{n}{n+1-x} \right) \cdot \left( \lim_{n\to\infty} x \prod_{k=1}^{n}\left(1-\frac{x^2}{k^2}\right) \right)^{-1}
-\end{split}
-\end{equation}
+	Uso l'identità \cref{GaussFormula} per ottenere:
+	\begin{equation}\begin{split} \label{MezzaRiflessione}
+		\Gamma(x)\Gamma(1-x) & = \lim_{n\to\infty} \dfrac{n^xn!}{x(x+1)\cdots (x+n)} \cdot 
+		\dfrac{n^{1-x}n!}{(1-x)(1-x+1)\cdots (1-x+n)}\\
+		& =\lim_{n\to\infty} \frac{n}{n+1-x} \cdot \frac{1}{x} \cdot \prod_{k=1}^{n}\dfrac{k^2}{k^2-x^2} \\
+		& =\left(\lim_{n\to\infty} \frac{n}{n+1-x} \right) \cdot 
+		\left( \lim_{n\to\infty} x \prod_{k=1}^{n}\left(1-\frac{x^2}{k^2}\right) \right)^{-1}
+	\end{split}\end{equation}
 
-Ed ora ricordando la formula come prodotto infinito del seno:
-\begin{equation*}
-	\sin(\pi x)=\pi x \prod_{k=0}^{\infty} \left(1-\frac{x^2}{k^2}\right)
-\end{equation*}
-
-Ottengo che l'ultimo membro della \cref{MezzaRiflessione} risulta $\frac{\pi}{\sin(\pi x)}$, che è la tesi del teorema.
-
-
+	Ed ora ricordando la formula come prodotto infinito del seno:
+	\begin{equation*}
+		\sin(\pi x)=\pi x \prod_{k=0}^{\infty} \left(1-\frac{x^2}{k^2}\right)
+	\end{equation*}
+	ottengo che l'ultimo membro della \cref{MezzaRiflessione} risulta $\frac{\pi}{\sin(\pi x)}$, che è la tesi del teorema.
 \end{proof}
 
 \begin{remark}[Valore di $\Gamma\left(\frac12\right)$]
-Ponendo $x=1$ nella formula di riflessione appena ottenuta si giunge a $\Gamma\left(\frac12\right)^2=\pi$. 
-Ricordando che la $\Gamma$ è sempre positiva sui reali positivi, ne deduco $\Gamma\left(\frac12\right)=\sqrt\pi$.
+	Ponendo $x=1$ nella formula di riflessione appena ottenuta si giunge a $\Gamma\left(\frac12\right)^2=\pi$. 
+	Ricordando che la $\Gamma$ è sempre positiva sui reali positivi, ne deduco $\Gamma\left(\frac12\right)=\sqrt\pi$.
 \end{remark}
 
 
-\begin{theorem}[Formula di duplicazione]
-\label{Duplicazione}
-Per $0<x$ reale vale:
-\begin{equation*}
-	\Gamma(x)\Gamma\left(x+\frac12\right)=2^{1-2x}\sqrt{\pi}\Gamma(2x)
-\end{equation*}
-
+\begin{theorem}\label{gf:Moltiplicazione}
+	Fissato $m\in\mathbb{N}$ e $x\in\mathbb{R^+}$ vale:
+	\begin{equation*}
+		\Gamma(x)\Gamma\left(x+\frac 1m\right)\Gamma\left(x+\frac 2m\right)\cdots \Gamma\left(x+\frac {m-1}m\right)=
+		(2\pi)^{\frac{m-1}2}\cdot m^{\frac12-mx}\cdot\Gamma(mx)
+	\end{equation*}
 \end{theorem}
-
 \begin{proof}
-Uso l'identità \cref{GaussFormula} per ottenere:
-\begin{equation}
-\label{MezzaDuplicazione}
-\begin{split}
-\Gamma(x)\Gamma\left(x+\frac12\right) = \lim_{n\to\infty} 
-\dfrac{n^xn!}{x(x+1)\cdots (x+n)} \cdot \dfrac{n^{x+\frac12} n!}{\left(x+\frac12\right)\left(x+\frac32\right)\cdots \left(x+\frac{2n+1}2\right)}\\
- =\lim_{n\to\infty} \dfrac{(2n)^{2x}}{2^{2x}}\sqrt{n}\cdot (2n)!\cdot\binom{2n}{n}^{-1}\cdot \dfrac{2^{2n+1}}{(2x)(2x+1)\cdots(2x+2n)}\cdot \dfrac{1}{x+\frac12+n} \\
- =2^{1-2x} \left(\lim_{n\to\infty} \dfrac{ (2n)^{2x}(2n)! }{ (2x)(2x+1)\cdots(2x+2n) }\right) 
-  \left( \lim_{n\to\infty} \frac{2^{2n}\sqrt{n}}{x+\frac12+n} \binom{2n}{n}^{-1}\right)
-\end{split}
-\end{equation}
-
-Ricordando ancora la \cref{GaussFormula} si nota che il primo dei due limiti vale $\Gamma(2x)$.\\
-Mentre per il secondo basta sfruttare la stima asintotica:
-\begin{equation*}
-	\binom{2n}{n}\sim \frac{4^n}{\sqrt{\pi n }}
-\end{equation*}
-per avere che è uguale a $\sqrt{\pi}$.
-
-Sostituendo i risultati ottenuti nella \cref{MezzaDuplicazione} si ottiene la formula di duplicazione.
+	Sfruttando \cref{GaussFormula} e manipolando algebricamente l'espressione ottengo:
+	\begin{equation}\begin{split}\label{gf:ContMolt}
+		&\Gamma(x)\Gamma\left(x+\frac 1m\right)\Gamma\left(x+\frac 2m\right)\cdots \Gamma\left(x+\frac {m-1}m\right) =\\
+		&=\lim_{n\to\infty} \prod_{i=0}^{m-1}\frac{n^{x+\frac im}n!}
+		{\left(x+\frac im\right)\left(x+\frac im\right)\cdots \left(x+n+\frac im\right)}\\
+		&=\lim_{n\to\infty}\frac{n^{mx}n^{\frac{m-1}2}(n!)^m}{\frac 1{m^{mn+1}}\cdot mx(mx+1)(mx+2)\cdots (mx+mn)}\cdot 
+		\frac1 {\left(x+\frac 1m+n\right)\cdots \left(x+\frac {m-1}m+n\right)}\\
+		&=\lim_{n\to\infty}\left(\frac{(mn)^{mx}mn!}{mx(mx+1)\cdots(mx+mn)}\right)m^{\frac12-mx}
+		\left(\frac{n!^m}{(mn)!}\cdot\frac{m^{mn+\frac12}n^{\frac{m-1}2}}
+		{\left(x+\frac 1m+n\right)\cdots \left(x+\frac {m-1}m+n\right)}\right)\\
+		&=\Gamma(mx)m^{\frac12-mx} \cdot \lim_{n\to\infty} \left( \frac{n!^m}{(mn)!}\cdot 
+		\frac{m^{mn+\frac12}}{n^{\frac{m-1}2}}\right)\cdot 
+		\lim_{n\to\infty}\left( \left( 1+\frac{x+\frac{1}m}{n}\right)^{-1}
+		\cdots \left( 1+\frac{x+\frac{m-1}m}{n}\right)^{-1}\right) \\
+		&=\Gamma(mx)m^{\frac12-mx} \cdot \lim_{n\to\infty}\frac{n!^m}{(mn)!}\cdot \frac{m^{mn+\frac12}}{n^{\frac{m-1}2}}
+	\end{split}\end{equation}
+	
+	Inoltre, applicando la formula di Stirling per il fattoriale, ho che (assumendo $m$ costante):
+	\begin{equation}\label{gf:StirlingApplic}
+		\frac{n!^m}{(mn)!}\sim\frac{\left(\sqrt{2\pi n}\right)^m\left(\frac ne\right)^{mn}}{\sqrt{2\pi mn}\left(\frac{mn}e\right)^{mn}}
+		=\frac{(2\pi n)^{\frac{m-1}2}}{m^{mn+\frac12}}\Rightarrow 
+		\lim_{n\to\infty}\frac{n!^m}{(mn)!}\cdot \frac{m^{mn+\frac12}}{n^{\frac{m-1}2}}=(2\pi)^{\frac{m-1}2}
+	\end{equation}
+	
+	Sostituendo \cref{gf:StirlingApplic} in \cref{gf:ContMolt} ottengo la tesi del teorema.
 \end{proof}
 
+\begin{corollary}[Formula di duplicazione] \label{Duplicazione}
+	Ponendo $m=0$ in \cref{gf:Moltiplicazione} ottengo che per $x>0$ reale vale:
+	\begin{equation*}
+		\Gamma(x)\Gamma\left(x+\frac12\right)=2^{1-2x}\sqrt{\pi}\Gamma(2x)
+	\end{equation*}
+\end{corollary}
+
 \begin{remark}[Valore di $\Gamma\left(\frac12\right)$]
-Ponendo $x=\frac12$ nella formula di duplicazione appena ottenuta si giunge a 
-\begin{equation*}
-  \Gamma\left(\frac12\right)\Gamma(1)=\sqrt{\pi}\Gamma(1) \to \Gamma\left(\frac12\right)=\sqrt{\pi}
-\end{equation*}
+	Ponendo $x=\frac12$ nella formula di duplicazione appena ottenuta si giunge a 
+	\begin{equation*}
+		\Gamma\left(\frac12\right)\Gamma(1)=\sqrt{\pi}\Gamma(1) \to \Gamma\left(\frac12\right)=\sqrt{\pi}
+	\end{equation*}
 \end{remark}
 
-\begin{remark}[Integrale di Gauss]
- \label{GaussIntegral}
- Sostituendo $t=s^2$ nella \cref{FunzioneGamma}, ottengo:
- \begin{equation}
-  \Gamma(x)=2\int_0^{\infty}{s^{2x-1}e^{-s^2}ds}
- \end{equation}
- Da cui, ponendo $x=\frac{1}{2}$:
- \begin{equation*}
-  \sqrt{\pi}=\Gamma\left(\frac{1}{2}\right)=2\int_0^{\infty}{e^{-s^2}ds}\to \int_{-\infty}^{\infty}{e^{-s^2}ds}=\sqrt{\pi}
- \end{equation*}
+\begin{remark}[Integrale di Gauss] \label{GaussIntegral}
+	Sostituendo $t=s^2$ nella \cref{FunzioneGamma}, ottengo:
+	\begin{equation}
+		\Gamma(x)=2\int_0^{\infty}{s^{2x-1}e^{-s^2}ds}
+	\end{equation}
+	Da cui, ponendo $x=\frac{1}{2}$:
+	\begin{equation*}
+		\sqrt{\pi}=\Gamma\left(\frac{1}{2}\right)=2\int_0^{\infty}{e^{-s^2}ds}\to \int_{-\infty}^{\infty}{e^{-s^2}ds}=\sqrt{\pi}
+	\end{equation*}
 \end{remark}
 
 
