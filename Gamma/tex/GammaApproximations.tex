@@ -146,9 +146,49 @@
 		\lim_{x\to\infty}\int_{-\infty}^\infty{ f_x(s) ds}=\sqrt{\pi}
 	\end{equation*}
 	da cui passando al limite nella \cref{ga:QuasiStirling} ottengo la tesi.
+\end{proof}
 
+\begin{theorem}[Approssimazione di Stirling per i numeri naturali]\label{ga:ApproxStirlingNaturali}
+	Riportiamo un'altra dimostrazione dell'approssimazione di Stirling sui numeri naturali (che è una caso
+	particolare di \cref{StirlingGamma})
+	\begin{equation*}
+		\lim_{n->\infty}{\frac{n!}{(n/e)^n\sqrt{2\pi n}}}=1
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Dimostriamo innanzitutto che esiste finito il seguente limite:
+	\begin{equation*}
+		\lim_{n->\infty}{\frac{n!}{(n/e)^n\sqrt{n}}}
+	\end{equation*}
+	cioè, passando al logaritmo, che esiste il limite:
+	\begin{equation}\label{ga:EsisteLimiteLogaritmo}
+		\lim_{n->\infty}{\sum_{k=1}^{n}\ln k-n\ln n+n-\frac{1}{2}\ln n}
+	\end{equation}
+	
+	Vale la seguente identità:
+	\begin{equation*}
+		\sum_{k=1}^{n}\ln k=n\ln n-\sum_{k=1}^{n-1}{k\left(\ln(k+1)-\ln k \right)}=n\ln n-\sum_{k=1}^{n-1}{k\ln\left(1+\frac{1}{k}\right)}
+	\end{equation*}
+	da cui, sostituendo il logaritmo con il suo sviluppo di Taylor, ottengo:
+	\begin{equation*}
+	\begin{split}
+		\sum_{k=1}^{n}\ln k	& =n\ln n-\sum_{k=1}^{n-1}{k\left(\frac{1}{k}-\frac{1}{2k^2}+\bigO\left(\frac{1}{k^3}\right) \right)}\\
+							& =n\ln n-\sum_{k=1}^{n-1}\left(1-\frac{1}{2k}+\bigO\left(\frac{1}{k^2}\right)  \right)\\
+							& =n\ln n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
+	\end{split}
+	\end{equation*}
+	e utilizzando che $\sum_{k=1}^{n-1}\frac{1}{n}=\ln n+\bigO(1)$ e 
+	$\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)=\bigO(1)$, concludo:
+	\begin{equation}\label{ga:QuasiStirlingNaturali}
+		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + \bigO(1)
+	\end{equation}
+	Che passando al limite è proprio equivalente a \cref{ga:EsisteLimiteLogaritmo}.
+	
+	
 
 \end{proof}
+
+
 
 \begin{lemma}\label{ga:ApproxReali}
 	Vale la seguente stima
