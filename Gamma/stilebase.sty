@@ -31,12 +31,11 @@
 
 \newtheorem{corollary}{Corollario}[section]
 
-
 \theoremstyle{remark}
-\newtheorem{remark}{Nota}
+\newtheorem{remark}{Nota}[section]
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definizione}
+\newtheorem{definition}{Definizione}[section]
 
 \crefname{theorem}{thm:}{Teorema}
 \crefname{lemma}{lem:}{Lemma}
@@ -44,4 +43,4 @@
 \crefname{remark}{nota:}{Nota}
 \crefname{definition}{def:}{Definizione}
 
-\setcounter{tocdepth}{5}
+\numberwithin{equation}{section}

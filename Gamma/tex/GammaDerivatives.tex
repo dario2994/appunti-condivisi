@@ -60,7 +60,13 @@ Inoltre studieremo alcune proprieta della digamma (derivata logartmica della gam
 	Fissato un intervallo $[a,b]$ con $0<a<b$, per $h\to 0$ le funzioni $f_h$ convergono uniformemente alla funzione $\log$.
 \end{lemma}
 \begin{proof}
-	Questa è una facile conseguenza di \cref{dg:LagrangeApprox}.
+	Espandendo in serie di Taylor $e^{h\log{t}}$ e applicando il risultato per stimare le $f_h$ ottengo:
+	\begin{equation*}
+		f_h(t)=\frac{e^{h\log{t}}-1}h=\frac{1+h\log{t}+\bigO(h^2\log^2{t})-1}{h}=\log{t}+\bigO(h\log^2{t})=\log{t}+\bigO(h)
+	\end{equation*}
+	dove nell'ultimo passaggio ho sfruttato il fatto che siamo in $[a,b]$ e perciò $\log{t}$ risulta limitato.
+	Questa equazione implica ovviamente l'uniforme convergenza enunciata nella tesi.
+
 \end{proof}
 
 \begin{theorem}\label{dg:GammaDerivata}

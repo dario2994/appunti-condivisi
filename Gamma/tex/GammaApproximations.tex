@@ -1,4 +1,10 @@
-\section{Approssimazioni della funzione Gamma}
+\section{Approssimazione della funzione Gamma}
+Concludiamo queste dispense proponendo due dimostrazioni intrinsecamente distinte dell'approssimazione di Stirling per
+la funzione Gamma. 
+
+È importante notare che la prima dimostrazione è interamente autocontenuta (a parte il primo risultato, che è un fatto
+noto di analisi) mentre la seconda usa pesantemente vari fatti dimostrati nelle sezioni precedenti.
+
 \begin{lemma}\label{ga:LimiteIntegrali}
 	Siano $f_n$, con $n\in\mathbb{N}$, e $g$ funzioni definite in $(0,\infty)$ e Riemann-integrabili su $[a,b]$ per ogni
 	$0<a<b<\infty$. Se valgono le seguenti proprietà:
@@ -148,110 +154,6 @@
 	da cui passando al limite nella \cref{ga:QuasiStirling} ottengo la tesi.
 \end{proof}
 
-\begin{lemma}[Prodotto di Wallis]\label{ga:WallisProduct}
-	Vale la seguente identità:
-	\begin{equation*}
-		\frac{\pi}{2}=\prod_{n=1}^\infty\frac{(2n)^2}{(2n-1)(2n+1)}
-	\end{equation*}
-\end{lemma}
-\begin{proof}
-	Definisco
-	\begin{equation*}
-		I_n=\int_0^\pi \sin^n{x} dx
-	\end{equation*}
-	Integrando per parti ottengo che
-	\begin{equation*}
-		I_n=\frac{n-1}{n}\cdot I_{n-2}
-	\end{equation*}
-	In particolare ho che $I_0=\pi$ e $I_1=2$, da cui:
-	\begin{gather*}
-		I_{2n}=\frac{(2n-1)!!}{(2n)!!}\cdot\pi\\
-		I_{2n+1}=\frac{(2n)!!}{(2n+1)!!}\cdot 2
-	\end{gather*}
-	Dato che $\sin^{n+1}x\le \sin^n x\le \sin^{n-1} x$ per ogni $x\in\mathbb{R}$, ho che $I_{n+1}\le I_n\le I_{n-1}$,
-	da cui dividendo per $I_{n+1}$:
-	\begin{gather*}
-		1\le \frac{I_n}{I_{n+1}}\le \frac{I_{n-1}}{I_{n+1}}=1+\frac{1}{n}\\
-		\Longrightarrow \lim_{n\to\infty}\frac{I_n}{I_{n+1}}=1\\
-		\Longrightarrow \lim_{n\to\infty}\frac{(2n-1)!!}{(2n)!!}\cdot\frac{(2n+1)!!}{(2n)!!}\cdot\frac{\pi}{2}=1\\
-		\Longrightarrow \frac{\pi}{2}=\lim_{n\to\infty}\frac{\left[(2n)!!\right]^2}{(2n-1)!!(2n+1)!!}=\prod_{n=1}^\infty\frac{(2n)^2}{(2n-1)(2n+1)}
-	\end{gather*}
-\end{proof}
-
-
-
-\begin{theorem}[Approssimazione di Stirling per i numeri naturali]\label{ga:ApproxStirlingNaturali}
-	Riportiamo un'altra dimostrazione dell'approssimazione di Stirling sui numeri naturali (che è una caso
-	particolare di \cref{StirlingGamma})
-	\begin{equation*}
-		\lim_{n\to\infty}{\frac{n!}{(n/e)^n\sqrt{2\pi n}}}=1
-	\end{equation*}
-\end{theorem}
-\begin{proof}
-	Dimostriamo innanzitutto che esiste finito il seguente limite:
-	\begin{equation}\label{ga:EsisteLimite}
-		\lim_{n\to\infty}{\frac{n!}{(n/e)^n\sqrt{n}}}
-	\end{equation}
-	cioè, passando al logaritmo, che esiste il limite:
-	\begin{equation}\label{ga:EsisteLimiteLogaritmo}
-		\lim_{n\to\infty}{\sum_{k=1}^{n}\ln k-n\ln n+n-\frac{1}{2}\ln n}
-	\end{equation}
-	
-	Vale la seguente identità:
-	\begin{equation*}
-		\sum_{k=1}^{n}\ln k=n\ln n-\sum_{k=1}^{n-1}{k\left(\ln(k+1)-\ln k \right)}=n\ln n-\sum_{k=1}^{n-1}{k\ln\left(1+\frac{1}{k}\right)}
-	\end{equation*}
-	da cui, sostituendo il logaritmo con il suo sviluppo di Taylor, ottengo:
-	\begin{equation*}
-	\begin{split}
-		\sum_{k=1}^{n}\ln k	& =n\ln n-\sum_{k=1}^{n-1}{k\left(\frac{1}{k}-\frac{1}{2k^2}+\bigO\left(\frac{1}{k^3}\right) \right)}\\
-							& =n\ln n-\sum_{k=1}^{n-1}\left(1-\frac{1}{2k}+\bigO\left(\frac{1}{k^2}\right)  \right)\\
-							& =n\ln n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
-	\end{split}
-	\end{equation*}
-	e utilizzando che $\sum_{k=1}^{n-1}\frac{1}{n}=\ln n+\bigO(1)$ e 
-	$\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)=\bigO(1)$, concludo:
-	\begin{equation}\label{ga:QuasiStirlingNaturali}
-		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + \bigO(1)
-	\end{equation}
-	Che passando al limite è proprio equivalente a \cref{ga:EsisteLimiteLogaritmo}.
-	
-	Dimostriamo ora che il valore del limite di \cref{ga:EsisteLimite} è proprio $\sqrt{2\pi}$.
-	Grazie a \cref{ga:WallisProduct} ho che:
-	\begin{equation}\label{ga:PiFactorial}
-	\begin{split}
-		\sqrt{\pi}	& =\sqrt{2}\prod_{n=1}^\infty\frac{2n}{\sqrt{(2n-1)(2n+1)}}\\
-					& =\lim_{n\to\infty}\frac{(2n)!!}{(2n-1)!!\sqrt{n}}\\
-					& =\lim_{n\to\infty}\frac{\left[(2n)!\right]^2}{(2n)!\sqrt{n}}=\lim_{n\to\infty}\frac{2^{2n}\left(n!\right)^2}{(2n)!\sqrt{n}}\\
-	\end{split}
-	\end{equation}
-	Definisco ora:
-	\begin{equation*}
-		a_n=\frac{n!}{(n/e)^n\sqrt{n}}
-	\end{equation*}
-	Poichè $\lim_{n\to\infty}{a_n}$ esiste vale facilmente che $\lim_{n\to\infty}a_n/a_{2n}=1$, quindi:
-	\begin{equation*}
-		\lim_{n\to\infty}{\frac{n!}{(n/e)^n\sqrt{n}}}=\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{\frac{a_n^2}{a_{2n}}}
-	\end{equation*}
-	Grazie alla \cref{ga:PiFactorial}, ho però che:
-	\begin{equation*}
-	\begin{split}
-		\lim_{n\to\infty}{\frac{a_n^2}{a_{2n}}}
-		&=\lim_{n\to\infty}{\frac{\left(n!\right)^2}{(n/e)^{2n}n}\cdot \frac{(2n/e)^{2n}\sqrt{2n}}{(2n)!} }\\
-		&=\lim_{n\to\infty}{\sqrt{2}\cdot\frac{2^{2n} \left(n!\right)^2}{(2n)!\sqrt{n}} }=\sqrt{2\pi}
-	\end{split}
-	\end{equation*}
-	da cui la tesi.
-
-
-
-
-	
-
-\end{proof}
-
-
-
 \begin{lemma}\label{ga:ApproxReali}
 	Vale la seguente stima
 	\begin{equation*}
@@ -294,7 +196,7 @@
 
 
 \begin{proof}[Seconda dimostrazione di Stirling]
-	Applicando \cref{ga:ApproxReali,ga:StupidaApprox} e assumendo Stirling sui numeri naturali ho:
+	Applicando \cref{ga:ApproxReali,ga:StupidaApprox,f:StirlingNaturali} ho:
 	\begin{equation*}\begin{split}
 		\log{\Gamma(x+1)}&=\log\Gamma(\partint{x}+1)+\{x\}\log{x}+\bigO\left(\frac 1x\right)\\
 		&=\partint{x}\left(\log{x}-1\right)+\log{\sqrt{2\pi\partint{x}}}+\{x\}\log{x}+\bigO\left(\frac 1x\right)\\

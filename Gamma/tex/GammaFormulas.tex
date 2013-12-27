@@ -1,4 +1,6 @@
 \section{Alcune formule sulla Gamma}
+Proponiamo ora alcune formule rispettate dalla funzione Gamma. Queste risultano utili sia per dimostrari ulteriori proprietà della
+funzione qui studiata, sia per il calcolo di molti integrali definiti.
 
 \begin{theorem}[Formula di riflessione] \label{Riflessione}
 	Per $0<x<1$ reale vale:
@@ -54,7 +56,7 @@
 		&=\Gamma(mx)m^{\frac12-mx} \cdot \lim_{n\to\infty}\frac{n!^m}{(mn)!}\cdot \frac{m^{mn+\frac12}}{n^{\frac{m-1}2}}
 	\end{split}\end{equation}
 	
-	Inoltre, applicando la formula di Stirling per il fattoriale, ho che (assumendo $m$ costante):
+	Inoltre, applicando \cref{f:StirlingNaturali}, ho che (assumendo $m$ costante):
 	\begin{equation}\label{gf:StirlingApplic}
 		\frac{n!^m}{(mn)!}\sim\frac{\left(\sqrt{2\pi n}\right)^m\left(\frac ne\right)^{mn}}{\sqrt{2\pi mn}\left(\frac{mn}e\right)^{mn}}
 		=\frac{(2\pi n)^{\frac{m-1}2}}{m^{mn+\frac12}}\Rightarrow 
