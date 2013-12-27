@@ -154,6 +154,35 @@
 		\frac{\pi}{2}=\prod_{n=1}^\infty\frac{(2n)^2}{(2n-1)(2n+1)}
 	\end{equation*}
 \end{lemma}
+\begin{proof}
+	Definisco
+	\begin{equation*}
+		I_n=\int_0^\pi \sin^n{x} dx
+	\end{equation*}
+	Integrando per parti ottengo che
+	\begin{equation*}
+		I_n=\frac{n-1}{n}\cdot I_{n-2}
+	\end{equation*}
+	In particolare ho che $I_0=\pi$ e $I_1=2$, da cui:
+	\begin{gather*}
+		I_{2n}=\frac{(2n-1)!!}{(2n)!!}\cdot\pi\\
+		I_{2n+1}=\frac{(2n)!!}{(2n+1)!!}\cdot 2
+	\end{gather*}
+	Dato che $\sin^{n+1}x\le \sin^n x\le \sin^{n-1} x$ per ogni $x\in\mathbb{R}$, ho che $I_{n+1}\le I_n\le I_{n-1}$,
+	da cui dividendo per $I_{n+1}$:
+	\begin{gather*}
+		1\le \frac{I_n}{I_{n+1}}\le \frac{I_{n-1}}{I_{n+1}}=1+\frac{1}{n}\\
+		\Longrightarrow \lim_{n\to\infty}\frac{I_n}{I_{n+1}}=1\\
+		\Longrightarrow \lim_{n\to\infty}\frac{(2n-1)!!}{(2n)!!}\cdot\frac{(2n+1)!!}{(2n)!!}\cdot\frac{\pi}{2}=1\\
+		\Longrightarrow \frac{\pi}{2}=\lim_{n\to\infty}\frac{\left[(2n)!!\right]^2}{(2n-1)!!(2n+1)!!}=\prod_{n=1}^\infty\frac{(2n)^2}{(2n-1)(2n+1)}
+	\end{gather*}
+
+
+
+
+
+\end{proof}
+
 
 
 \begin{theorem}[Approssimazione di Stirling per i numeri naturali]\label{ga:ApproxStirlingNaturali}
