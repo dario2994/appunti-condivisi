@@ -37,6 +37,52 @@ E derivando nuovamente rispetto al tempo ho che:
 \end{split}
 \end{equation}
 
+\subsection{Moto in campo centrale}
+Consideriamo un campo di forze centrali descritto da $\overrightarrow{F}=f(r)\hat{r}$. 
+Innanzitutto abbiamo che tale campo è un campo conservativo, in quanto ammette un potenziale della forma:
+\begin{equation*}
+	U(r)=-\int_r^\infty{f(r) dr}
+\end{equation*}
+Inoltre in un campo di forze centrali si conserva il momento angolare, poichè il momento delle forze è uguale a 0,
+e in particolare vale, grazie alle \cref{VelCooPolari}:
+\begin{equation*}
+	M_0=m\overrightarrow{r}\cdot \overrightarrow{v}=mr^2\dot{\theta}
+\end{equation*}
+
+Mi concentro in particolare sul campo gravitazionale generato da un corpo di massa $M$, che è proprio un campo 
+centrale caratterizzato dalla forza:
+\begin{equation*}
+	\overrightarrow{F}=-\frac{GMm}{r^2}\hat{r}
+\end{equation*}
+e che genera quindi il potenziale:
+\begin{equation*}
+	U(r)=-\frac{GMm}{r}
+\end{equation*}
+
+Si dimostra che l'orbita che descrive un corpo in tale campo centrale è ellittica se l'energia di tale corpo è
+minore di 0, parabolica se la sua energia è uguale a 0 e iberbolica se invece ha energia maggiore di 0.
+In particolare se l'orbita è ellittica di semiasse maggiore $a$, il corpo ha energia:
+\begin{equation*}
+	E=-\frac{GMm}{2a}
+\end{equation*}
+e il periodo dell'orbita è:
+\begin{equation*}
+	T=\frac{2\pi}{\sqrt{GM}}a^{\frac{3}{2}}
+\end{equation*}
+
+Vale inoltre il teorema del viriale, che afferma che in un moto limitato si ha:
+\begin{equation*}
+	<K>=-\frac{1}{2}<U>
+\end{equation*}
+dove $<K>$ è l'energia cinetica media del corpo in moto e $<U>$ è la sua energia potenziale media.
+
+
+
+
+
+
+
+
 \subsection{Sistemi di riferimento non inerziali}
 Sia $K$ un sistema di riferimento non inerziale di centro $O'$, rispetto ad un sistema di riferimento
 inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\overrightarrow{F}=m\overrightarrow{a}$
