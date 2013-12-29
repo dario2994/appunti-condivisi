@@ -65,10 +65,10 @@ all'idea che la Gamma nasce come estensione ``esatta'' del fattoriale a tutti i 
 							& =n\ln n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
 	\end{split}
 	\end{equation*}
-	e utilizzando che $\sum_{k=1}^{n-1}\frac{1}{n}=\ln n+\bigO(1)$ e 
-	$\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)=\bigO(1)$, concludo:
+	Ora sfruttando che $\sum_{k=1}^{n-1}\frac{1}{n}-\ln n\to \gamma$ e che $\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)\to L$
+	dato che converge assolutamente, ottengo:
 	\begin{equation}\label{f:QuasiStirlingNaturali}
-		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + \bigO(1)
+		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + (\frac{\gamma}2 + L)
 	\end{equation}
 	Che passando al limite è proprio equivalente a \cref{f:EsisteLimiteLogaritmo}.
 	
