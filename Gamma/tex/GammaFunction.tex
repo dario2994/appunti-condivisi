@@ -26,7 +26,7 @@ Infine dimostreremo alcune definizioni equivalenti della funzione Gamma.
 	e questo implica facilmente la convergenza a $+\infty$.
 	
 	Unendo le 2 convergenze dimostrate si ottiene proprio la convergenza dell'integrale su tutta la semiretta dei reali positivi (e quindi la 
-	definizione della gamma è coerente su tutto $\mathbb{R^+}$.
+	definizione della gamma è coerente su tutto $\mathbb{R^+})$.
 \end{proof}
 
 
@@ -56,6 +56,7 @@ Infine dimostreremo alcune definizioni equivalenti della funzione Gamma.
 	\begin{equation}
 		\Gamma(x+n)=(x+n-1)!\Gamma(x)
 	\end{equation}
+	dove $(x+n-1)!=(x+n-1)(x+n-2)\dots(x+1)x$.
 \end{remark}
 
 \begin{remark} \label{ValoreGammaNaturali}
@@ -83,7 +84,7 @@ Infine dimostreremo alcune definizioni equivalenti della funzione Gamma.
 		\int_0^{\infty}{e^{-t}t^{\lambda x+\mu y-1}dx}=\int_0^{\infty}{(e^{-t}t^{x-1})^\lambda (e^{-t}t^{y-1})^{\mu}dt} \le 
 		\left(\int_0^{\infty}{e^{-t}t^{x-1}dt}\right)^\lambda \left(\int_0^{\infty}{e^{-t}t^{y-1}}\right)^{\mu}
 	\end{equation*}
-	che è vera per la disuguaglianza di Holder.
+	che è vera per la disuguaglianza di Hölder.
 \end{proof}
  
 \begin{theorem}[Teorema di Bohr-Mollerup] \label{BohrMollerup}
@@ -109,7 +110,7 @@ Infine dimostreremo alcune definizioni equivalenti della funzione Gamma.
 	\end{equation}
 	Sia ora $M(u,v)=\frac{\log(f(u))-\log(f(v))}{u-v}$ il rapporto incrementale
 	di $\log(f(x))$ fra $u$ e $v$. Poichè $f$ è log-convessa, deve valere che $M(u,v)$ è crescente sia in $u$ che in $v$.
-	Quindi in particolare per ogni $0<x<1$ vale:
+	Quindi in particolare per ogni $0<x\le 1$ vale:
 	\begin{gather*}
 		M(n,n-1) \le M(n,n+x) \le M(n,n+1) \\
 		\Updownarrow \\
@@ -126,38 +127,48 @@ Infine dimostreremo alcune definizioni equivalenti della funzione Gamma.
 	\begin{gather*}
 		\lim_{n\to \infty} \left(1-\frac{1}{n}\right)^x \le \lim_{n\to \infty}  \frac{f(x)(n+x-1)!}{n^x(n-1)!} \le 1 \\
 		\Longrightarrow \lim_{n\to \infty} \frac{f(x)(n+x-1)!}{n^x(n-1)!}  = 1 \\
-		\Longrightarrow f(x) = \lim_{n\to \infty} \frac{n^x(n-1)!}{(n+x-1)!}=\lim_{n\to \infty} \frac{n^xn!}{(n+x)!}
+		\Longrightarrow f(x) = \lim_{n\to \infty} \frac{n^x(n-1)!}{(n+x-1)!}
 	\end{gather*}
-	In particolare da quest'ultima equazione e dalla \cref{RicorsioneQuasiGamma} ottengo che per ogni $x\in\mathbb{R}^+$ vale:
+	Quindi per $0<x\le 1$ vale:
+	\begin{equation}\label{QuasiGaussFormulaPiccoli}
+		f(x)=\lim_{n\to \infty} \frac{n^x(n-1)!}{(n+x-1)!}=\lim_{n\to \infty} \frac{n^xn!}{(n+x)!}
+	\end{equation}
+	
+	Dimostro ora che l'equazione \cref{QuasiGaussFormulaPiccoli} vale in realtà per ogni $x\in\mathbb{R^+}$. 
+	Dimostro in particolare che se vale la \cref{QuasiGaussFormulaPiccoli} per $x\in\mathbb{R^+}$ allora 
+	vale anche per $x+1$, e visto che ho già che vale
+	su tutto l'intervallo $(0,1]$ questo implica (per facile induzione) che \cref{QuasiGaussFormulaPiccoli} vale 
+	per ogni $x$ reale positivo.
+	
+	Sotto l'ipotesi che la formula valga per $x$ e sfruttando \cref{FunzionaleGamma} risulta vera la seguente 
+	catena di uguaglianze:
+	\begin{equation*}
+	\begin{split}
+		f(x+1) & =xf(x)=x\lim_{n\to \infty} \frac{n^xn!}{x(x+1)\cdots(x+n)}\\
+		& = \lim_{n\to \infty} \frac{n^{x+1}n!}{(x+1)\cdots(x+n)(x+n+1)}\cdot\frac{x+n+1}{n}\\
+		& = \lim_{n\to \infty} \frac{n^{x+1}n!}{(x+1)\cdots(x+n)(x+n+1)}
+	\end{split}
+	\end{equation*}
+	e questo è proprio quello che serviva per concludere che per ogni $x\in\mathbb{R^+}$ vale:
 	\begin{equation}\label{QuasiGaussFormula}
 		f(x)=\lim_{n\to \infty} \frac{n^xn!}{(n+x)!}
 	\end{equation}
-	E di conseguenza se esiste una funzione $f$ che rispetta le tre proprietà, essa deve essere un'unica, perchè ogni
+	
+	Di conseguenza se esiste una funzione $f$ che rispetta le tre proprietà, essa deve essere un'unica, perchè ogni
 	funzione di questo tipo deve rispettare la relazione \cref{QuasiGaussFormula}.
 \end{proof}
  
 \begin{corollary}[Formula di Gauss]\label{GaussFormula}
 	Per ogni $x\in\mathbb{R^+}$ vale la seguente formula per la $\Gamma$:
-\begin{equation}\label{GaussRealFormula}
+\begin{equation*}
 	\Gamma(x)=\lim_{n\to \infty} \frac{n^xn!}{x(x+1)\cdots(x+n)}
-\end{equation}
+\end{equation*}
 \end{corollary}
 \begin{proof}
 	Abbiamo già dimostrato che se una funzione rispetta le ipotesi del \cref{BohrMollerup}, allora vale la 
-	\cref{QuasiGaussFormula} con $0<x\le 1$, ma la funzione Gamma rispetta tali ipotesi e quindi vale \cref{GaussRealFormula}
-	per $0<x\le 1$.
-	Resta da espandere tale risultato ad $x>1$.
+	\cref{QuasiGaussFormula}, ma la funzione Gamma rispetta tali ipotesi e quindi vale 
+	\cref{QuasiGaussFormula}, che è proprio equivalente alla tesi.
 	
-	Dimostro che se vale la \cref{GaussRealFormula} per $x\in\mathbb{R^+}$ allora vale anche per $x+1$, visto che ho già che vale
-	su tutto l'intervallo $(0,1]$ questo implica (per facile induzione) che \cref{GaussRealFormula} vale per ogni $x$ reale positivo.
-	
-	Sotto l'ipotesi che la formula valga per $x$ e sfruttando \cref{FunzionaleGamma} risulta vera la seguente catena di uguaglianze:
-	\begin{equation*}\begin{split}
-		\Gamma(x+1) & =x\Gamma(x)=x\lim_{n\to \infty} \frac{n^xn!}{x(x+1)\cdots(x+n)} = 
-		\lim_{n\to \infty} \frac{n^{x+1}n!}{(x+1)\cdots(x+n)(x+n+1)}\cdot\frac{x+n+1}{n}\\
-		& = \lim_{n\to \infty} \frac{n^{x+1}n!}{(x+1)\cdots(x+n)(x+n+1)}
-	\end{split}\end{equation*}
-	e questo è proprio quello che serviva per concludere la dimostrazione.
 \end{proof}
 
 \begin{corollary}[Formula di Weierstrass]\label{WeierstrassFormula}
