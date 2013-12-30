@@ -1,5 +1,7 @@
 Questa guida spiega come modificare correttamente il progetto EserciziFisica.
 
+Per prenotarsi per un problema esiste l'apposito file PrenotazioneProblemi.txt
+
 La struttura è questa:
 main.tex
 	Questo file è il tex fondamentale, che contiene tutto il progetto.
