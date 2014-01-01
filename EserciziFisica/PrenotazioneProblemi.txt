@@ -10,7 +10,7 @@ Pendolo isocrono
 Vettore di Lenz, direzione modulo ecc
 Pallina vincolata su una circonferenza verticale, con molla
 Due satelliti attorno alla Terra (quando restano attaccati ecc)
-Pallina che scivola su una spirale
+Pallina che scivola su una spirale | Alice
 Palla con filo che si arrotola su un perno
 Date equazioni di F, dire quando il campo e' conservativo/centrale
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
