@@ -109,10 +109,14 @@ il panorama di integrali calcolabili usando la Gamma.
 	\end{split}\end{equation}
 	Ora sostituisco nella \cref{QuasiBetaLogConvessa} la definizione \cref{FunzioneBeta} ottenendo che devo dimostrare:
 	\begin{equation*}
-		\int_{0}^1 t^{\lambda a+\mu b}(1-t)^y\mathrm{d}y=\int_{0}^1 \left(t^a(1-t)^y\right)^{\lambda}\left(t^b(1-t)^y\right)^{\mu}\mathrm{d}t \le
-		\left(\int_{0}^1 t^a(1-t)^y\right)^{\lambda}\left(\int_{0}^1 t^b(1-t)^y\right)^{\mu}
+	\begin{split}
+		\int_{0}^1 t^{\lambda a+\mu b-1}(1-t)^{y-1}\mathrm{d}y &=
+		\int_{0}^1 \left(t^{a-1}(1-t)^{y-1}\right)^{\lambda}\left(t^{b-1}(1-t)^{y-1}\right)^{\mu}\mathrm{d}t\\
+		& \le
+		\left(\int_{0}^1 t^{a-1}(1-t)^{y-1}\right)^{\lambda}\left(\int_{0}^1 t^{b-1}(1-t)^{y-1}\right)^{\mu}
+	\end{split}
 	\end{equation*}
-	e questa è vera per la disuguaglianza di Holder in forma integrale.
+	e questa è vera per la disuguaglianza di Hölder in forma integrale.
 
 \end{proof}
 
