@@ -1,0 +1,60 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Caduta di un grave sulla terra} %cgt
+
+\textex
+Trascurando l'attrito dell'aria, trovare lo spostamento orizzontale (nel sistema non inerziale della terra che gira) che subisce un
+grave in caduta libera da un'altezza $h$.
+
+
+\solution
+Pongo i 3 assi cartesiani $\hat{x}, \hat{y}, \hat{z}$ ponendo $\hat{x}$ sul meridiano del luogo, $\hat{y}$ sul parallelo del luogo
+e $\hat{z}$ rivolto verso il centro della terra.
+
+Siano inoltre $\theta$ l'angolo che si forma tra piano equatoriale e congiungente con il luogo, $\vec{\omega}$
+l'asse di rotazione terrestre ed $R$ il raggio della terra.
+
+Inizialmente il grave si trova in $(0,0,0)$ con velocità $(0,0,0)$.
+
+Calcolo le forze agenti sul corpo, sfruttando implicitamente \cref{AccNonInerziale}.
+
+L'accelerazione di gravità vale $g\hat{z}$ e l'accelerazione di trascinamento (che equivale
+alla forza centrifuga agente nel luogo) risulta essere 
+$w^2R\cos\theta\left(-\cos\theta\hat{z}+\sin\theta\hat{x}\right)$. (dove ho assunto trascurabile lo spostamento relativo del corpo
+rispetto al raggio terrestre: $h\ll R$)
+
+L'effetto complessivo di queste due accelerazioni (costanti) porta a definire la $\vec{g_e}$ cioè l'accelerazione di gravità
+del luogo:
+\begin{equation}\label{cgt:geff}
+	\vec{g_e}=g\hat{z}-w^2R\cos\theta\left(-\cos\theta\hat{z}+\sin\theta\hat{x}\right)
+\end{equation}
+e porta anche a considerare l'angolo $\theta_0$ cioè l'angolo che forma $g_e$ con il piano equatoriale.
+
+Ora calcolo la forza centrifuga, assumendo di poter trascurare, per calcolare lo spostamento relativo del grave,
+la forza centrifuga e di Coriolis. Risulta allora che la norma della forza centrifuga vale
+\begin{equation}\label{cgt:centrifuga}
+	|\vec{a_c}|=|\vec{\omega}\times(\vec{\omega}\times \vec r) | \approx \omega^2\frac 12|g_e|t^2\cos \theta_0
+\end{equation}
+Ho calcolato solo la norma, perchè mostrerò che è del tutto trascurabile rispetto alle altre forze.
+
+E infine per calcolare l'accelerazione di Coriolis assumo, con ottima approssimazione, che la velocità 
+del grave sia esattamente come se non fossero presenti le forze di Coriolis e Centrifuga. Di conseguenza ottengo
+$\vec{v}=\vec{g_e}t$ e ciò implica che l'accelerazione di Coriolis risulta:
+\begin{equation}\label{cgt:Coriolis}
+	\vec {a_{cor}}=2\vec \omega \times \vec{g_e} t
+\end{equation}
+Da quest'ultima ricavo anche subito una buona approssimazione per la forza di Coriolis:
+\begin{equation}\label{cgt:CoriolisApprox}
+	|\vec {a_{cor}}| =2\omega|g_e| t\cos \theta_0 
+\end{equation}
+
+Ora sfruttando \cref{cgt:centrifuga,cgt:CoriolisApprox} ottengo che l'accelerazione centrifuga è trascurabile rispetto
+a quella di Coriolis:
+\begin{equation*}
+	|a_c|\ll|a_cor| \iff \omega^2\frac 12|g_e|t^2\cos \theta_0\ll 2\omega|g_e| t\cos \theta_0 \iff
+	\omega t\ll 4
+\end{equation*}
+Ma l'ultima disuguaglianza è verissima, poichè $\omega=\frac{2\pi}{3600\cdot 24}\approx 10^{-4}$
+
+\end{document}
