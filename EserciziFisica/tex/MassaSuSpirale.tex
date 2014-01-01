@@ -1,0 +1,37 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Massa su spirale} %spi
+
+\textex
+
+Determinare le equazioni del moto di una particella di massa $m$ vincolata a muoversi su una spirale senza attrito di equazioni 
+
+$$\begin{cases}
+x=\rho\cos\varphi \\
+y=\rho\sin\varphi \\
+z=\frac{h}{2\pi}\varphi \\
+\end{cases}$$
+
+
+\solution
+
+Le forze a cui è soggetta la particella sono la forza gravitazionale $\overrightarrow{F_{gr}}$ e la reazione vincolare $\overrightarrow{R}$. Dunque $m\overrightarrow{a} = \overrightarrow{F_{gr}} + \overrightarrow{R}$.\\
+
+Lavoro con le coordinate cilindriche (con asse $z$ verso l'alto). La massa $m$ ha un solo grado di libertà dunque dovrò riuscire a scrivere tutto in funzione del solo angolo $\varphi$. In particolare ho che $$ \overrightarrow{r} = \rho\hat r + \frac{h}{2\pi}\varphi\hat z$$
+Calcolo velocità e accelerazione della particella (ricordandomi che $\hat z$ è fisso ma $\hat r$ e $\hat \varphi$ no): $$ \overrightarrow{v} = \dot {\overrightarrow{r}} = \rho\dot\varphi\hat\varphi + \frac{h}{2\pi}\dot\varphi\hat z$$
+$$\overrightarrow{a} = \ddot{\overrightarrow{r}} = -\rho{\dot\varphi}^2\hat r +  \rho \ddot\varphi\hat\varphi + \frac{h}{2\pi}\ddot\varphi\hat z$$
+
+So che $\overrightarrow{F_{gr}} = -mg\hat z$ dunque l'equazione $\overrightarrow{F} = m\overrightarrow{a}$ diventa $$-mg\hat z + \overrightarrow{R} = m\left ( -\rho{\dot\varphi}^2\hat r +  \rho \ddot\varphi\hat\varphi + \frac{h}{2\pi}\ddot\varphi\hat z\right )$$
+
+L'unica cosa che so di $\overrightarrow R$ è che, siccome la spirale è senza attrito, la reazione vincolare è perpendicolare alla guida, e quindi perpendicolare alla velocità. Ciò vuol dire che $\overrightarrow R \cdot \overrightarrow v = 0$. Allora per ricavare informazioni utili faccio il prodotto scalare di entrambi i membri di $\overrightarrow{F} = m\overrightarrow{a}$ con la velocità $\overrightarrow v$ (usando il fatto che i versori $\hat z, \hat\varphi, \hat r$ sono perpendicolari tra loro).
+
+$$\left (-mg\hat z + \overrightarrow R\right )\cdot \left ( \rho\dot\varphi\hat\varphi + \frac{h}{2\pi}\dot\varphi\hat z\right ) = m\left (  -\rho{\dot\varphi}^2\hat r +  \rho \ddot\varphi\hat\varphi + \frac{h}{2\pi}\ddot\varphi\hat z\right )\cdot   \left ( \rho\dot\varphi\hat\varphi + \frac{h}{2\pi}\dot\varphi\hat z\right )   $$
+$$-\frac{mgh}{2\pi}\dot\varphi = m\left ( \rho^2\dot\varphi\ddot\varphi + \frac{h^2}{4\pi^2}\dot\varphi\ddot\varphi\right ) \Leftrightarrow -\frac{gh}{2\pi} = \ddot\varphi\left ( \rho^2+\frac{h^2}{4\pi^2}\right ) $$
+Ponendo $K = \frac{gh}{2\pi\left ( \rho^2 + \frac{h^2}{4\pi^2}\right ) }$ ho $\ddot\varphi =- K$, cioè
+
+$$\varphi\left ( t \right ) =- \frac{1}{2}Kt^2 + At + B$$
+dove $A$ e $B$ sono determinate in base alle condizioni iniziali e in particolare sono rispettivamente i valori di $\varphi$ e $\dot\varphi$ all'istante iniziale.
+
+
+\end{document}
