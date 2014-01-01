@@ -8,9 +8,9 @@ Asta che ruota con massetta vincolata sopra | Davide
 Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r)
 Pendolo isocrono
 Vettore di Lenz, direzione modulo ecc
-Pallina vincolata su una circonferenza verticale, con molla
+Pallina vincolata su una circonferenza verticale, con molla | Alice
 Due satelliti attorno alla Terra (quando restano attaccati ecc)
-Pallina che scivola su una spirale | Alice
+Pallina che scivola su una spirale | Alice | Fatto
 Palla con filo che si arrotola su un perno
 Date equazioni di F, dire quando il campo e' conservativo/centrale
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
