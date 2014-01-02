@@ -68,7 +68,9 @@ I file .tex nella cartella tex/
 	ma il primo la fa meglio.
 	
 	Questi file .tex potranno essere compilati (cioè trasformati in pdf) da soli,
-	senza dover ogni volta compilare main.tex e questo è molto comodo... sfruttatelo ;)
+	senza dover ogni volta compilare main.tex (attenzione perchè le reference daranno
+	warning, non ve ne preoccupate, quei warning spariranno quando compilerete il 
+	main.tex) e questo è molto comodo... sfruttatelo ;)
 	Da notare che compilano benissimo anche se non sono inclusi in elencoesercizi.tex ;)
 	
 	Se volete esempi di documenti basta che guardate nella cartella tex/ ;) (provate anche
