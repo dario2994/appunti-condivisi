@@ -9,7 +9,7 @@ grave in caduta libera da un'altezza $h$.
 
 
 \solution
-Pongo i 3 assi cartesiani $\hat{x}, \hat{y}, \hat{z}$ ponendo $\hat{x}$ sul meridiano del luogo, $\hat{y}$ sul parallelo del luogo
+Pongo i 3 assi cartesiani $\hat{x}, \hat{y}, \hat{z}$ in modo che $\hat{x}$ sia sul meridiano del luogo, $\hat{y}$ sul parallelo del luogo
 e $\hat{z}$ rivolto verso il centro della terra.
 
 Siano inoltre $\theta$ l'angolo che si forma tra piano equatoriale e congiungente con il luogo, $\vec{\omega}$
@@ -21,20 +21,20 @@ Calcolo le forze agenti sul corpo, sfruttando implicitamente \cref{AccNonInerzia
 
 L'accelerazione di gravità vale $g\hat{z}$ e l'accelerazione di trascinamento (che equivale
 alla forza centrifuga agente nel luogo) risulta essere 
-$w^2R\cos\theta\left(-\cos\theta\hat{z}+\sin\theta\hat{x}\right)$. (dove ho assunto trascurabile lo spostamento relativo del corpo
+$w^2R\cos\theta\left(\cos\theta\hat{z}+\sin\theta\hat{x}\right)$. (dove ho assunto trascurabile lo spostamento relativo del corpo
 rispetto al raggio terrestre: $h\ll R$)
 
 L'effetto complessivo di queste due accelerazioni (costanti) porta a definire la $\vec{g_e}$ cioè l'accelerazione di gravità
 del luogo:
 \begin{equation}\label{cgt:geff}
-	\vec{g_e}=g\hat{z}-w^2R\cos\theta\left(-\cos\theta\hat{z}+\sin\theta\hat{x}\right)
+	\vec g_e=g\hat{z}-w^2R\cos\theta\left(\cos\theta\hat{z}+\sin\theta\hat{x}\right)
 \end{equation}
 e porta anche a considerare l'angolo $\theta_0$ cioè l'angolo che forma $g_e$ con il piano equatoriale.
 
 Ora calcolo la forza centrifuga, assumendo di poter trascurare, per calcolare lo spostamento relativo del grave,
 la forza centrifuga e di Coriolis. Risulta allora che la norma della forza centrifuga vale
 \begin{equation}\label{cgt:centrifuga}
-	|\vec{a_c}|=|\vec{\omega}\times(\vec{\omega}\times \vec r) | \approx \omega^2\frac 12|g_e|t^2\cos \theta_0
+	|\vec a_c|=|\vec{\omega}\times(\vec{\omega}\times \vec r) | \approx \omega^2\frac 12|g_e|t^2\cos \theta_0
 \end{equation}
 Ho calcolato solo la norma, perchè mostrerò che è del tutto trascurabile rispetto alle altre forze.
 
@@ -42,11 +42,11 @@ E infine per calcolare l'accelerazione di Coriolis assumo, con ottima approssima
 del grave sia esattamente come se non fossero presenti le forze di Coriolis e Centrifuga. Di conseguenza ottengo
 $\vec{v}=\vec{g_e}t$ e ciò implica che l'accelerazione di Coriolis risulta:
 \begin{equation}\label{cgt:Coriolis}
-	\vec {a_{cor}}=2\vec \omega \times \vec{g_e} t
+	\vec  a_{cor}=2\vec \omega \times \vec{g_e} t
 \end{equation}
 Da quest'ultima ricavo anche subito una buona approssimazione per la forza di Coriolis:
 \begin{equation}\label{cgt:CoriolisApprox}
-	|\vec {a_{cor}}| =2\omega|g_e| t\cos \theta_0 
+	|\vec a_{cor}| =2\omega|g_e| t\cos \theta_0 
 \end{equation}
 
 Ora sfruttando \cref{cgt:centrifuga,cgt:CoriolisApprox} ottengo che l'accelerazione centrifuga è trascurabile rispetto
@@ -56,5 +56,34 @@ a quella di Coriolis:
 	\omega t\ll 4
 \end{equation*}
 Ma l'ultima disuguaglianza è verissima, poichè $\omega=\frac{2\pi}{3600\cdot 24}\approx 10^{-4}$
+
+Ora sfrutto \cref{cgt:Coriolis} per ottenere che l'accelerazione di Coriolis rispetta la:
+\begin{equation*}
+	\vec a_{cor}=-2\omega |\vec g_e| t \cos \theta_0 \hat y
+\end{equation*}
+
+Quindi l'accelerazione complessiva a cui è soggetto il grave è:
+\begin{equation*}
+	\vec a = \vec g_e + 2\omega |\vec g_e| t \cos \theta_0 \hat y
+\end{equation*}
+
+Ed integrando due volte ne ottengo:
+\begin{equation*}
+	\vec r = \frac 12 \vec g_e t^2 + \frac 13\omega |\vec g_e| t^3 \cos \theta_0 \hat y
+\end{equation*}
+Il primo addendo del secondo membro è quello che ci si aspetterebbe se il grave seguisse la traiettoria indicata da 
+un filo a piombo, mentre il secondo addendo è lo spostamento dovuto alla forza di Coriolis.
+
+In particolare ora impongo che il primo addendo valga $h$ (cioè l'altezza da cui cade l'oggetto), da cui 
+$h=\frac 12 |\vec g_e| t^2$ e perciò $t=\sqrt{\frac{2h}{|\vec g_e|}}$.
+
+Sostituisco questo valore nello spostamento dovuto a Coriolis ottenendo che lo spostamento vale:
+\begin{equation}
+	\Delta r = \frac 23\omega h \sqrt{\frac{2h}{|\vec g_e|}} \cos \theta_0 \approx
+	\left(\frac {2\sqrt 2}{3\sqrt g} \omega \cos\theta\right) h^{\frac 32}
+\end{equation}
+
+In particolare se il corpo cade dalla cima del Pirellone ($\theta\approx 45^{\circ}$ e $h\approx 130m$) si ha
+uno spostamento $\Delta r \approx 2cm$.
 
 \end{document}
