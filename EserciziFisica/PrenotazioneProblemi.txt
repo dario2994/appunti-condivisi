@@ -5,7 +5,7 @@ Se vi ricordate un problema che non e' in questa lista, aggiungetelo grazie!
 Circonferenza Rotante con pallina dentro | Giada | Fatto
 Pendolo sferico | Luigi 
 Asta che ruota con massetta vincolata sopra | Davide
-Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r)
+Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r) | Marco
 Pendolo isocrono
 Vettore di Lenz, direzione modulo ecc
 Pallina vincolata su una circonferenza verticale, con molla | Alice
@@ -16,7 +16,7 @@ Date equazioni di F, dire quando il campo e' conservativo/centrale
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
 Buco nel tavolo, due palline legate da un filo
 Pendolo di torsione (forse in effetti non va considerato come un esercizio)
-Pendolo sferico con approssimazione e velocità iniziale perpendicolare (ellisse)
+Pendolo sferico con approssimazione e velocitï¿½ iniziale perpendicolare (ellisse)
 Effetto fionda
 Pendolo di Foucault
 Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico
