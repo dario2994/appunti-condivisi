@@ -8,8 +8,32 @@ Un'asta vincolata in un punto si muove con velocit\'{a} $\omega$ costante. Studi
 2) Studiare lo stesso sistema se l'asta \'{e} disposta in verticale e quindi interviene la forza di gravit\'{a}.
 
 \solution
-Studiamo il problema in coordinate cartesiane prendendo come origine il vincolo dell'asta. \\
+Studiamo il problema in coordinate cartesiane prendendo come origine il vincolo dell'asta, e chiamando $\theta$ l'angolo tra l'asta e l'asse polare. \\
 So che in coordinate polari l'accelerazione vale: 
+\begin{equation}\label{AV1}
+	\overrightarrow{a}=\dot{\overrightarrow{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
+\end{equation}
+
+In questo problema in particolare ho che poich\'{e} l'asta si muove di velocit\'{a} angolare costante lungo  $\hat{\theta}$ allora
+ $\dot{\theta}=\omega$ e $\ddot{\theta}=0$. Inoltre, poich\'{e} per ipotesi possiamo supporre che non siano presenti forze d'attrito e che la reazione vincolare sia 
+ perpendicolare all'asta (vincolo liscio) abbiamo che la forza lungo $\hat{r}$ deve essere nulla, quindi:
+ \begin{equation}\label{AV2}
+  \ddot{r}=\omega^2r
+ \end{equation}
+La soluzione della differenziale \'{e} chiaramente un'esponenziale, ovvero:
+\begin{equation}\label{AV3}
+ r=Ae^{\omega t}+Be^{-\omega t}
+\end{equation}
+Dove A e B sono univocamente determinate dalle condizioni iniziali ovvero da $r_0$ e $v_0$, intendendo con $r_0$ la distanza della mia massa dall'origine
+e con $v_0$ la sua velocit\'{a} iniziale lungo $\hat{r}$. \\
+\'{E} sufficiente infatti risolvere le due equazioni al tempo $t=0$ con r e con $\dot{r}$ ovvero $A+B=r_0$ e $\omega(A-b)=v_0$ per ottenere $A={(\omega r_0 +
+v_0)}/{2\omega}$ e $B={(\omega r_0 -v_0)}/{2\omega}$.\\
+Per concludere quindi l'equazione del moto della mia massa m sar\'{a}:
+\begin{equation}
+ \overrightarrow{r}=(\frac{(\omega r_0 +v_0)}{2\omega}e^{\omega t}+\frac{(\omega r_0 -v_0)}{2\omega}e^{-\omega t})\hat{r}
+\end{equation}
+
+
 
 
 Un po' di boiate a parole, poi qualche formuletta:
@@ -23,15 +47,6 @@ Poi un'equazione senza numerino:
 
 E poi, tutto soddifatto, richiamo la \cref{ndp:gamma}.
 
-Fine Soluzione del problema.
 
-\solution[2]
-Questa è la seconda soluzione del problema...
-\begin{equation}
-	1+2+\dots+n=\frac{n(n+1)}2
-\end{equation}
-
-\solution[3]
-E per esagerare questa è la terza.
 
 \end{document}
