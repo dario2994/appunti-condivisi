@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles} 
 \begin{document}
 
-\exercise{Asta Vincolata Rotante} %ndp
+\exercise{Asta Vincolata Rotante} %avr
 
 \textex
 Un'asta vincolata in un punto si muove con velocit\'{a} $\omega$ costante. Studiare il moto di un corpo di massa $m$ che si muove liberamente lungo l'asta. \\
@@ -10,18 +10,18 @@ Un'asta vincolata in un punto si muove con velocit\'{a} $\omega$ costante. Studi
 \solution
 Studiamo il problema in coordinate cartesiane prendendo come origine il vincolo dell'asta, e chiamando $\theta$ l'angolo tra l'asta e l'asse polare. \\
 So che in coordinate polari l'accelerazione vale: 
-\begin{equation}\label{AV1}
+\begin{equation}\label{avr:1}
 	\overrightarrow{a}=\dot{\overrightarrow{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
 \end{equation}
 
 In questo problema in particolare ho che poich\'{e} l'asta si muove di velocit\'{a} angolare costante lungo  $\hat{\theta}$ allora
  $\dot{\theta}=\omega$ e $\ddot{\theta}=0$. Inoltre, poich\'{e} per ipotesi possiamo supporre che non siano presenti forze d'attrito e che la reazione vincolare sia 
  perpendicolare all'asta (vincolo liscio) abbiamo che la forza lungo $\hat{r}$ deve essere nulla, quindi:
- \begin{equation}\label{AV2}
+ \begin{equation}\label{avr:2}
   \ddot{r}=\omega^2r
  \end{equation}
 La soluzione della differenziale \'{e} chiaramente un'esponenziale, ovvero:
-\begin{equation}\label{AV3}
+\begin{equation}\label{avr:3}
  r=Ae^{\omega t}+Be^{-\omega t}
 \end{equation}
 Dove A e B sono univocamente determinate dalle condizioni iniziali ovvero da $r_0$ e $v_0$, intendendo con $r_0$ la distanza della mia massa dall'origine
@@ -34,13 +34,13 @@ Per concludere quindi l'equazione del moto della mia massa m sar\'{a}:
 \end{equation}
 
 2) Come prima mi riduco a studiare la forza lungo $\hat{r}$ che per\'{o} stavolta non sar\'{a} nulla ma:
-\begin{equation}\label{AV4}
+\begin{equation}\label{avr:4}
   \ddot{r}-\omega^2r=-g \sin{\omega t}
  \end{equation}
 Si tratta di un'equazione differenziale non omogenea, quindi le sue soluzioni saranno date da una sua soluzione particolare pi\'{u} tutte le soluzioni dell'omogenea associata,
 che sono gi\'{a} state trovate nel punto precedente. Quindi poiche una soluzione particolare \'{e} ad esmpio quella con $r$ costante ed uguale a 
 $(g \sin{\omega t})/2\omega^2$ allora la soluzione generale sar\'{a} data da:
-\begin{equation}\label{AV5}
+\begin{equation}\label{avr:5}
  r=Ae^{\omega t}+Be^{-\omega t}+\frac{g \sin{\omega t}}{2\omega^2}
 \end{equation}
 
