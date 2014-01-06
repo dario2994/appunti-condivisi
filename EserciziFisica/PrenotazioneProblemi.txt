@@ -4,7 +4,7 @@ Se vi ricordate un problema che non e' in questa lista, aggiungetelo grazie!
 
 Circonferenza Rotante con pallina dentro | Giada | Fatto
 Pendolo sferico | Luigi 
-Asta che ruota con massetta vincolata sopra | Davide
+Asta che ruota con massetta vincolata sopra | Davide | Fatto
 Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r) | Marco
 Pendolo isocrono
 Vettore di Lenz, direzione modulo ecc
