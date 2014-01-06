@@ -14,7 +14,7 @@ Pallina che scivola su una spirale | Alice | Fatto
 Palla con filo che si arrotola su un perno
 Date equazioni di F, dire quando il campo e' conservativo/centrale
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
-Buco nel tavolo, due palline legate da un filo
+Buco nel tavolo, due palline legate da un filo |Francesco
 Pendolo di torsione (forse in effetti non va considerato come un esercizio)
 Pendolo sferico con approssimazione e velocit� iniziale perpendicolare (ellisse)
 Effetto fionda
