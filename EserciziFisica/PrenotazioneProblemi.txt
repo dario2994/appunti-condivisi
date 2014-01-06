@@ -19,4 +19,5 @@ Pendolo di torsione (forse in effetti non va considerato come un esercizio)
 Pendolo sferico con approssimazione e velocit� iniziale perpendicolare (ellisse)
 Effetto fionda
 Pendolo di Foucault
+Orbite ellittiche che precedono
 Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico
