@@ -1,0 +1,77 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+
+\exercise{Pallina su un filo che si arrotola su un perno} %pa
+
+\textex
+Una massa \`e attaccata all'estremit\`a di un filo di lunghezza $l_0$ che si avvolge intorno ad un perno di raggio $R$ senza attrito, con velocit\`a iniziale $v$. Determinare il moto della massa.
+
+\solution
+\begin{enumerate}
+\item Sistema di riferimento: inerziale, origine nel punto di contatto, coordinate: lunghezza $l$ del filo e spostamento angolare $\theta $ .
+\item Forze: tensione del filo.
+\item Condizioni iniziali: $R,\dot \theta$ oppure $R,v$.
+\item Relazioni varie: si conserva l'energia cinetica perch\'e non viene svolto lavoro sulla massa, dunque la velocit\`a $v$ \`e costante.
+\end{enumerate}
+
+Se inizialmente $v$ \`e perpendicolare al filo e questo \`e teso, queste condizioni saranno valide anche in seguito: il filo non pu\`o svolgere lavoro, (perch\'e non ci sono attriti e non c'\`e apporto di energia dall'esterno),e la tensione \`e esercitata lungo la direzione del filo. Se la velocit\`a non fosse perpendicolare, ci sarebbe una componente della forza parallela alla velocit\`a, che svolgerebbe lavoro; infine ci deve essere una tensione del filo, perch\'e inizialmente era teso e quindi \`e necessaria una forza centripeta.
+
+Sotto queste condizioni posso in ogni istante considerare il moto come un rotazione attorno al punto di contatto. Quindi pongo $\theta(0)=0$ e ottengo
+\begin{equation}
+\label{pa:speed}
+v=l \dot \theta
+\end{equation}
+dove $v$ \`e costante, e
+\begin{equation}
+\label{pa:lung}
+l=l_0 - R \theta
+\end{equation}
+che, se derivo entrambi i membri diventa:
+
+\begin{equation}
+\label{pa:dlung}
+\dot l= -R \dot \theta
+\end{equation}
+Posso allora impostare un'equazione differenziale sostituendo nella \cref{pa:dlung} $\dot \theta$ dalla \cref{pa:speed} :
+
+\begin{equation}
+\label{pa:diff}
+\dot l = -R \frac{v}{l}
+\end{equation}
+
+\begin{equation}
+\label{pa:sol}
+l \dot l = -R v
+\end{equation}
+Ora posso integrare i due membri, ottenendo
+
+\begin{equation}
+\label{pa:lq}
+\frac{l^2}{2}= -Rvt + \frac{c}{2}
+\end{equation}
+dove $c$ \`e la costante di integrazione, che si ricava ponendo $l=l_0$ a $t=0$.
+
+\begin{equation}
+\label{pa:t0}
+l_0^2 = c
+\end{equation}
+e quindi risolvendo in $l$ la \cref{pa:lq}
+
+\begin{equation}
+\label{pa:l}
+l= \sqrt{l_0^2 - 2Rvt}
+\end{equation}
+che in effetti soddisfa l'equazione differenziale; quindi per la \cref{pa:lung}
+
+\begin{equation}
+\theta = \frac{l_0 - l}{R}
+\end{equation}
+
+Se vogliamo la posizione $\vec r$ rispetto al centro del perno, questa si ricava, in coordinate polari, da $l$, dato che $r^2=R^2+l^2$:
+
+\begin{equation}
+\vec r = \hat r \sqrt{R^2 +l_0^2 -2Rvt}
+\end{equation}
+\end{document}
