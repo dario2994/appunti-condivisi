@@ -1,0 +1,60 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Forza centrale} %foc
+
+\textex
+In un piano, dato un sistema di riferimento polare di centro $O$ con versori $\hat{r},\hat{\theta}$, una particella di massa $m$ si muove lungo una traiettoria descritta da
+\begin{equation}
+	\label{foc:traiettoria}
+	\theta=\frac{k}{r^\alpha},
+\end{equation}
+dove $k, \alpha$ sono costanti fissate. Sapendo che la particella \`e soggetta ad una forza centrale $\vec{F}=f(r)\hat{r}$, determinare $f(r)$.
+
+\solution
+
+Ricordiamo che l'accelerazione in coordinate polari \`e data da
+\[
+	\ddot{\vec{r}}=(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta},
+\]
+
+che unita con la seconda legge della dinamica porta a
+\begin{eqnarray}
+	&f(r)=m(\ddot{r}-r\dot{\theta}^2),&	
+	\label{foc:rcomp}\\
+	&0=m(2\dot{r}\dot{\theta}+r\ddot{\theta}).&
+\end{eqnarray}
+
+La seconda \`e equivalente a
+\begin{equation}
+	\label{foc:momangolare}	
+	r^2\dot{\theta}=c
+\end{equation}
+con $c$ costante, infatti, derivandola  rispetto il tempo si ottiene
+\[
+	0=\frac{d(r^2\dot{\theta})}{dt}=2r\dot{r}\dot{\theta}+r^2\ddot{\theta}=r(2\dot{r}\dot{\theta}+r\ddot{\theta}),
+\]
+ma $r\neq 0$ dalla \cref{foc:traiettoria}.
+
+Ora, confrontando $\dot{\theta}$ nella \cref{foc:momangolare} e nella \cref{foc:traiettoria}	abbiamo
+\[
+	\frac{c}{r^2}=\frac{d\left(\frac{k}{r^{\alpha}}\right)}{dt}=\frac{-k\alpha}{r^{\alpha+1}}\dot{r}
+\]
+da cui
+\[
+	\dot{r}=-\frac{c}{k\alpha}r^{\alpha-1}
+\]
+e
+\begin{equation}
+	\label{foc:r2punti}
+	\ddot{r}=-\frac{c(\alpha-1)}{k\alpha}r^{\alpha-2}\dot{r}=\frac{c^2(\alpha-1)}{k^2\alpha^2}r^{2\alpha-3}.
+\end{equation}
+
+Infine nella eq. (\ref{foc:rcomp}) sostituiamo $\ddot{r}$ dato dalla \cref{foc:r2punti} e $\dot{\theta}$ dato dalla \cref{foc:momangolare}:
+
+\[
+	f(r)=m\left(\frac{c^2(\alpha-1)}{k^2\alpha^2}r^{2\alpha-3}-\frac{c^2}{r^3}\right)
+	=\frac{mc^2}{r^3}\left(\frac{\alpha-1}{k^2\alpha^2}r^{2\alpha}-1\right).
+\]
+
+\end{document}
