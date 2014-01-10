@@ -3,7 +3,7 @@ Scrivete accanto al problema il vostro nome, e scrivete fatto quando avete finit
 Se vi ricordate un problema che non e' in questa lista, aggiungetelo grazie!
 
 Circonferenza Rotante con pallina dentro | Giada | Fatto
-Pendolo sferico | Luigi 
+Pendolo sferico | Luigi | Fatto
 Asta che ruota con massetta vincolata sopra | Davide | Fatto
 Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r) | Marco
 Pendolo isocrono
