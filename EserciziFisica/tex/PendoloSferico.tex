@@ -1,30 +1,25 @@
-\documentclass[12pt]{article}
-\usepackage[italian]{babel}
-\usepackage[a4paper]{geometry}
-\usepackage{amssymb}
-\usepackage{graphicx}
-
+\documentclass[../main.tex]{subfiles} 
 \begin{document}
 
-\exercise{Il pendolo sferico}\\
+\exercise{Il pendolo sferico}
 
 \textex
 
-Vogliamo studiare il moto di un punto materiale vincolato sull'estremità di un asta di lunghezza $l$ libera di muoversi nello spazio purché l'altra estremità resti incernierata ad un punto $O$.\\
-In particolare, dato un sistema di coordinate polari tridimensionali centrato nel punto $O$ vogliamo determinare:\\
+Vogliamo studiare il moto di un punto materiale vincolato sull'estremità di un asta di lunghezza $l$ libera di muoversi nello spazio purché l'altra estremità resti incernierata ad un punto $O$.
+In particolare, dato un sistema di coordinate polari tridimensionali centrato nel punto $O$ vogliamo determinare:
 \begin{enumerate}
-\item L'equazione del moto nella coordinata $\theta$, rappresentante la distanza angolare dal punto di minimo.\\
-\item Quali condizioni iniziali sono necessarie affinché il moto del pendolo sia conico, ossia la coordinata $\theta$ risulti costante nel tempo.\\
-\item La frequenza con cui l'angolo $\theta$\\
+\item L'equazione del moto nella coordinata $\theta$, rappresentante la distanza angolare dal punto di minimo.
+\item Quali condizioni iniziali sono necessarie affinché il moto del pendolo sia conico, ossia la coordinata $\theta$ risulti costante nel tempo.
+\item La frequenza con cui l'angolo $\theta$.
 \end{enumerate}
 
 \solution
-Le uniche forze agenti sul punto materiale sono il suo peso $m\vec{g}$ e la rezione vincolare dell'asta $-N\hat{r}$ (parallela alla direzione dell'asta perch\'e questa \`e da considerarsi priva di massa).\\
-La somma $F$ di queste forze, proiettata sui tre versori ortogonali $\hat{r}, \hat{\theta}, \hat{phi}$, sar\`a:
+Le uniche forze agenti sul punto materiale sono il suo peso $m\vec{g}$ e la rezione vincolare dell'asta $-N\hat{r}$ (parallela alla direzione dell'asta perch\'e questa \`e da considerarsi priva di massa).
+La somma $F$ di queste forze, proiettata sui tre versori ortogonali $\hat{r}, \hat{\theta}, \hat{\phi}$, sar\`a:
 \begin{itemize}
- \item $\vec{F}\cdot\hat{r}=m\vec{g}\cdot\hat{r}-N\hat{r}\cdot\hat{r}=mg\cos\theta -N$.\\
- \item $\vec{F}\cdot\hat{\theta}=m\vec{g}\cdot\hat{\theta}-N\hat{r}\cdot\hat{theta}=-mg\sin\theta$.\\
- \item $\vec{F}\cdot\hat{r}=m\vec{g}\cdot\hat{\phi}-N\hat{r}\cdot\hat{\phi}=0$.\\
+ \item $\vec{F}\cdot\hat{r}=m\vec{g}\cdot\hat{r}-N\hat{r}\cdot\hat{r}=mg\cos\theta -N$.
+ \item $\vec{F}\cdot\hat{\theta}=m\vec{g}\cdot\hat{\theta}-N\hat{r}\cdot\hat{\theta}=-mg\sin\theta$.
+ \item $\vec{F}\cdot\hat{r}=m\vec{g}\cdot\hat{\phi}-N\hat{r}\cdot\hat{\phi}=0$.
 \end{itemize}
 
 Ricordiamo il valore dell'accelerazione di un punto materiale in termini delle sue coordinate:
@@ -37,14 +32,16 @@ $$\vec{a}=(-l\dot{\theta}^2-l\sin^2{\theta}\dot{\phi}^2)\hat{r}+(l\ddot{\theta}-
 
 Confrontando questo risultato con le tre componenti della forza $F$ si ottengono le tre equazioni:
 \begin{enumerate}
- \item $mg\cos\theta -N=-m(l\dot{\theta}^2+l\sin^2\theta\dot{\phi}^2)$.\\
- \item $-mg\sin\theta=m(l\ddot{\theta}-l\sin\theta\cos\theta\dot{\phi}^2)$.\\
- \item $0=2l\dot{\theta}\dot{\phi}\cos\theta+l\ddot{\phi}\sin\theta$.\\
+ \item $mg\cos\theta -N=-m(l\dot{\theta}^2+l\sin^2\theta\dot{\phi}^2)$.
+ \item $-mg\sin\theta=m(l\ddot{\theta}-l\sin\theta\cos\theta\dot{\phi}^2)$.
+ \item $0=2l\dot{\theta}\dot{\phi}\cos\theta+l\ddot{\phi}\sin\theta$.
 \end{enumerate}
-Si noti che la terza equazione \`e equivalente alla conservazione del momento angolare lungo l'asse $z$ parallelo alla direzione della gravit\`a.\\
+Si noti che la terza equazione \`e equivalente alla conservazione del momento angolare lungo l'asse $z$ parallelo alla direzione della gravit\`a.
+
 Infatti $L=m\vec{r}\wedge\vec{v}=ml\hat{r}\wedge(l\dot{\theta}\hat{\theta}+l\dot{\phi}\sin\theta\hat{\phi})=ml^2\dot{\theta}\hat{r}\wedge\hat{\theta}+ml^2\dot{\phi}\sin\theta\hat{r}\wedge\hat{\phi}$, ora, essendo $\hat{r}\wedge\hat{\theta}=-\hat{\phi}\perp\hat{z}$ e $\hat{r}\wedge\hat{\phi}=\hat{\theta}$, si ha che
-$L\cdot\hat{z}=ml^2\dot{\phi}\sin^2\theta$, pertanto $\displaystyle \frac{(dL\cdot\hat{z})}{dt}=2ml^2\dot{\theta}\dot{\phi}\sin\theta\cos\theta+ml^2\ddot{\phi}\sin^2\theta$.\\
-Uguagliando a 0 questa espressione si ottiene la terza equazione.\\
+$L\cdot\hat{z}=ml^2\dot{\phi}\sin^2\theta$, pertanto $\displaystyle \frac{(dL\cdot\hat{z})}{dt}=2ml^2\dot{\theta}\dot{\phi}\sin\theta\cos\theta+ml^2\ddot{\phi}\sin^2\theta$.
+
+Uguagliando a 0 questa espressione si ottiene la terza equazione.
 
 Dalla conservazione del momento angolare, infatti, otteniamo la relazione $\displaystyle \dot{\phi}=\frac{L_z}{ml^2\sin^2\theta}$ che, una volta sostituita nella seconda equazione ci restituisce un'equazione differenziale nella variabile $\theta$.
 \begin{equation}
@@ -54,9 +51,10 @@ g\sin\theta+l\ddot{\theta}-\frac{L_z^2\cos\theta}{m^2l^3\sin^3\theta}=0
 Affinch\`e il moto sia conico le derivate temporali dell'angolo $\theta$ saranno entrambe nulle e dunque il suo valore sar\`a una costante $\theta_0$ che risolve l'equazione seguente (ottenuta dalla (1)).
 \begin{equation}
 m^2l^3g\sin^4\theta_0=L_z^2\cos\theta_0
-\end{equation}\\
+\end{equation}
 
-Studiamo ora le piccole oscillazioni.\\
+Studiamo ora le piccole oscillazioni.
+
 Poniamo $\theta=\theta_0+\alpha$ nell'equazione (1), otteniamo, dunque
 $$ g\sin(\theta_0+\alpha)+l\ddot{\alpha}-\frac{L_z^2\cos(\theta_0+\alpha)}{m^2l^3\sin^3(\theta_0+\alpha)}=0 $$
 che sviluppata secondo Taylor fino al primo ordine diviene
@@ -68,15 +66,17 @@ Per l'equazione (2), la (3) viene semplificata come
 \ddot{\alpha}=\alpha\left({\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^4\sin^4(\theta_0)}-\frac{g\cos\theta_0}{l}}\right)
 \end{equation}
 
-Da cui si ricava facilmente che il pendolo oscilla armonicamente con frequenza $$\sqrt{\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^4\sin^4(\theta_0)}-\frac{g\cos\theta_0}{l}}$$ "attorno alla traiettoria conica".\\
+Da cui si ricava facilmente che il pendolo oscilla armonicamente con frequenza $$\sqrt{\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^4\sin^4(\theta_0)}-\frac{g\cos\theta_0}{l}}$$ "attorno alla traiettoria conica".
 
-\solution[2]\\
-Si giunger\`a all'equazione (1) attraverso la conservazione dell'energia e quella del momento angolare lungo l'asse $z$ senza passare dalle considerazioni cinematiche svolte in precedenza.\\
-La velocit\`a del punto materiale \`e $\vec{v}=\dot{\vec{r}}=l\dot{\theta}\hat{\theta}+l\dot{\phi}\sin\theta\hat{\phi}$, per cui la sua energia cinetica \`e $K=l^2\dot{\theta}^2+l^2\dot{\phi}^2\sin^2\theta$.\\
+\solution[2]
+Si giunger\`a all'equazione (1) attraverso la conservazione dell'energia e quella del momento angolare lungo l'asse $z$ senza passare dalle considerazioni cinematiche svolte in precedenza.
+
+La velocit\`a del punto materiale \`e $\vec{v}=\dot{\vec{r}}=l\dot{\theta}\hat{\theta}+l\dot{\phi}\sin\theta\hat{\phi}$, per cui la sua energia cinetica \`e $K=l^2\dot{\theta}^2+l^2\dot{\phi}^2\sin^2\theta$.
+
 La sua energia potenziale \`e $U=-mgl(1-\cos\theta)$, quindi l'energia meccanica del punto \`e $E=l^2\dot{\theta}^2+l^2\dot{\phi}^2\sin^2\theta-mgl(1-\cos\theta)$, ci\`o vuol dire che esiste una costante $c$ per cui vale
 \begin{equation}
 c=l^2\dot{\theta}^2+l^2\dot{\phi}^2\sin^2\theta+mgl\cos\theta
-\end{equation}.\\
+\end{equation}
 Essendo $\displaystyle \dot{\phi}=\frac{L_z}{ml^2\sin^2\theta}$, si ottiene l'equazione desidetata direttamente dalla (5). 
 
 
