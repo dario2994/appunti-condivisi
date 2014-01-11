@@ -94,37 +94,4 @@ Nella soluzione non sono stati trattati i casi in cui $g=r\omega^2$
 (sia con $\theta_0=0$ che con $\cos\theta_0=\frac{g}{r\omega^2}$) che richiedono semplicemente
 sviluppi del seno e del coseno ad ordini via via successivi.
 
-
-\solution[2]
-Si può risolvere il problema anche rimanendo in un sistema di riferimento inerziale, in particolare vedendo
-il moto come un moto unidimensionale.
-
-L'energia $E$ è una costante del moto, poichè agiscono solo forse conservative, e quindi posso scrivere:
-\begin{equation*}
-	E=\frac{1}{2}m\overrightarrow{v}^2-mgr\cos\theta
-\end{equation*}
-Da cui, utilizzando l'equazione \cref{VelCooSferiche}, ottengo:
-\begin{equation*}
-	E=\frac{1}{2}mr^2\dot{\theta}^2+\frac{1}{2}mr^2\omega^2\sin^2\theta-mgr\cos\theta
-\end{equation*}
-Che può essere studiato come un moto unidimensionale con variabile $\theta$, in cui il potenziale
-efficace è:
-\begin{equation}\label{acr:PotenzialeEfficace}
-	\frac{1}{2}mr^2\omega^2\sin^2\theta-mgr\cos\theta
-\end{equation}
-
-Un punto di equilibrio stabile si ha quando il potenziale efficace è in un punto di minimo locale, cioè
-quando la derivata prima è uguale a 0 e la derivata seconda è positiva; in formule derivando la
-\cref{acr:PotenzialeEfficace}:
-\begin{equation}
-	mr\left( r\omega^2\sin\theta\cos\theta+g\sin\theta \right)=0
-\end{equation}
-\begin{equation}
-	mr\left( 2r\omega^2\cos^2\theta-r\omega^2+g\cos\theta \right)>0
-\end{equation}
-
-
-
-
-
 \end{document}
