@@ -1,0 +1,113 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+
+\exercise{Palline legate da un filo} %bt
+
+\textex
+Due palline sono legate da un filo lungo $l$ (inestensibile e di massa trascurabile). La prima (massa  $m_1$) \`e appoggiata su un tavolo (liscio) con un buco, la seconda (massa  $m_2$) \`e sotto il buco (attacata al filo). Determinare cosa succede (posizione nel tempo delle due palline o equazioni del moto).
+
+\solution
+\begin{enumerate}
+  \item Sistema di riferimento: inerziale, origine nel buco, coordinate cilindriche, ossia polari ($r,\theta $) per la pallina sul tavolo, l'asse z ($h=r-l$) per l'altra. La gravit\`a \`e verso il basso in direzione z.
+  \item Forze esterne: gravit\`a (entrambe le palline), reazione del piano (verticale, verso l'alto, solo la prima pallina, bilancia la gravit\`a). Sono tutte conservative.
+  \item Forze interne: tensione del filo; verticale (verso l'alto) per la seconda pallina, radiale (verso il centro) per la prima.
+  \item Cosa si conserva:
+  \begin{itemize}
+    \item somma delle energie meccaniche delle due palline;
+    \item momento angolare della prima pallina.
+  \end{itemize}
+  \item Condizioni iniziali: $r,\dot{\theta }$.
+  \item Relazioni varie: la velocit\`a della seconda pallina ($\dot h=v_2$) e la velocit\`a radiale della prima ($\dot r=v_{1,r}$) sono uguali:
+  \begin{equation}
+    \label{bt:rdot}
+    \dot r=v_{1,r}=v_2
+  \end{equation}
+\end{enumerate}
+
+Pongo  $\frac{m_2}{m_1+m_2}=\mu $. Quindi elimino la tensione (grazie a  $F=ma$ ):
+\begin{equation}
+  \left\{ \begin{matrix}
+    m_1\ddot r=-T \\
+    m_2\ddot r=T-m_2g
+  \end{matrix} \right .
+\end{equation}
+che mi da
+\begin{equation}
+  m_2\ddot r=-m_1\ddot r-m_2g
+\end{equation}
+ossia
+\begin{equation}
+  \ddot r=-g\frac{m_2}{m_1+m_2}=-\mu g
+\end{equation}
+
+Conservazione del momento angolare:
+$L=m_1\dot \theta r^2$ \`e costante. \ Esplicito $ \dot \theta $
+\begin{equation}
+  \label{bt:torque}
+  \dot \theta =\frac L{m_1r^2}
+\end{equation}
+
+Conservazione \ dell'energia:
+\begin{equation}
+  E
+  =m_2 g h +      \frac{m_1}{2} v_1^2 +\frac{m_2}{2} v_2^2= \\
+  =m_2 g (r-l)+   \frac{m_2+m_1}{2} \dot r^2+ \frac{m_1}{2} (r\dot\theta)^2
+\end{equation}
+e, usando la \cref{bt:torque}
+\begin{equation}
+  E=m_2 g (r-l)+   \frac{m_2+m_1}{2} \dot r^2+ \frac{L^2}{2 m_1 r^2}
+\end{equation}
+o, poich\'e l'energia
+potenziale \`e definita a meno di una costante
+
+\begin{equation}
+  \label{bt:energy}
+  E=m_2gr+\frac{m_2+m_1} 2\dot r^2+\frac{L^2}{2m_1r^2}
+\end{equation}
+Quindi
+
+\begin{equation}
+  \label{bt:denergy}
+  \frac{dE}{dt}=m_2 g \dot r+(m_1+m_2) \dot r \ddot r - \dot r \frac{L^2}{m_1r^3}=0
+\end{equation}
+
+Esamino a parte il caso  $\dot r=0$ (moto circolare). In generale si ha
+\begin{equation}
+  \ddot{\vec r}=\hat r(\ddot r- r \dot \theta^2)+ \hat \theta ( 2 \dot r \dot \theta +r \ddot \theta)
+\end{equation}
+Semplificando  $\dot r=0$ (e $\ddot r=0$ ), e usando ancora $F=ma$ si ottiene 
+
+\begin{equation}
+  \ddot{ \vec r }= -r \dot \theta ^2 \hat r + r \ddot \theta \hat \theta =\mu g \hat r
+\end{equation}
+perch\'e la forza sulla massa 1 \`e radiale; quindi, eguagliando le componenti $\ddot \theta =0$ e
+
+\begin{equation}
+  \dot{\theta }=\sqrt{\frac{\mu g} r}
+\end{equation}
+
+Quest'ultima equazione esrime la relazione tra le condizioni iniziali affinch\'e il moto sia circolare. Quindi, poich\'e 
+$r$ \`e costante, posso integrare nel tempo, ottenendo 
+\begin{equation}
+\theta(t)=\sqrt{\frac{\mu g}{r}}t
+\end{equation}
+
+Caso  $\dot r \neq 0$ :
+Dalla \cref{bt:denergy} si ottiene
+\begin{equation}
+\dot r\ddot r=\dot r\frac{L^2}{m_1(m_1+m_2)r^3}-\mu g\dot r
+\end{equation}
+e, integrando nel tempo
+\begin{equation}
+2\dot r^2=-\frac{L^2}{2m_1(m_1+m_2)r^2}-\mu gr+2c
+\end{equation}
+che \`e un'equazione differenziale a variabili separabili:
+
+\begin{equation}
+dt=\frac{dr}{\sqrt{-\frac{L^2}{4m_1(m_1+m_2)r^2}-\frac{\mu gr} 2+c}}
+\end{equation}
+Questa equzione fornisce la posizione $r$ della particella in funzione del tempo. $c$ \`e una costante che si determina (dopo aver risolto l'equazione) a partire dalle condizioni iniziali.
+
+\end{document}
