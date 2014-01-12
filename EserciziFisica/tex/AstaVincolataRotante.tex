@@ -4,8 +4,8 @@
 \exercise{Asta Vincolata Rotante} %avr
 
 \textex
-Un'asta vincolata in un punto si muove con velocit\'{a} $\omega$ costante. Studiare il moto di un corpo di massa $m$ che si muove liberamente lungo l'asta. \\
-2) Studiare lo stesso sistema se l'asta \'{e} disposta in verticale e quindi interviene la forza di gravit\'{a}.
+Un'asta vincolata in un punto si muove con velocità $\omega$ costante. Studiare il moto di un corpo di massa $m$ che si muove liberamente lungo l'asta. \\
+2) Studiare lo stesso sistema se l'asta è disposta in verticale e quindi interviene la forza di gravità.
 
 \solution
 Studiamo il problema in coordinate cartesiane prendendo come origine il vincolo dell'asta, e chiamando $\theta$ l'angolo tra l'asta e l'asse polare. \\
@@ -14,32 +14,32 @@ So che in coordinate polari l'accelerazione vale:
 	\overrightarrow{a}=\dot{\overrightarrow{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
 \end{equation}
 
-In questo problema in particolare ho che poich\'{e} l'asta si muove di velocit\'{a} angolare costante lungo  $\hat{\theta}$ allora
- $\dot{\theta}=\omega$ e $\ddot{\theta}=0$. Inoltre, poich\'{e} per ipotesi possiamo supporre che non siano presenti forze d'attrito e che la reazione vincolare sia 
+In questo problema in particolare ho che poiché l'asta si muove di velocità angolare costante lungo  $\hat{\theta}$ allora
+ $\dot{\theta}=\omega$ e $\ddot{\theta}=0$. Inoltre, poiché per ipotesi possiamo supporre che non siano presenti forze d'attrito e che la reazione vincolare sia 
  perpendicolare all'asta (vincolo liscio) abbiamo che la forza lungo $\hat{r}$ deve essere nulla, quindi:
  \begin{equation}\label{avr:2}
   \ddot{r}=\omega^2r
  \end{equation}
-La soluzione della differenziale \'{e} chiaramente un'esponenziale, ovvero:
+La soluzione della differenziale è chiaramente un'esponenziale, ovvero:
 \begin{equation}\label{avr:3}
  r=Ae^{\omega t}+Be^{-\omega t}
 \end{equation}
 Dove A e B sono univocamente determinate dalle condizioni iniziali ovvero da $r_0$ e $v_0$, intendendo con $r_0$ la distanza della mia massa dall'origine
-e con $v_0$ la sua velocit\'{a} iniziale lungo $\hat{r}$. \\
-\'{E} sufficiente infatti risolvere le due equazioni al tempo $t=0$ con r e con $\dot{r}$ ovvero $A+B=r_0$ e $\omega(A-b)=v_0$ per ottenere $A={(\omega r_0 +
+e con $v_0$ la sua velocità iniziale lungo $\hat{r}$. \\
+\`{E} sufficiente infatti risolvere le due equazioni al tempo $t=0$ con r e con $\dot{r}$ ovvero $A+B=r_0$ e $\omega(A-b)=v_0$ per ottenere $A={(\omega r_0 +
 v_0)}/{2\omega}$ e $B={(\omega r_0 -v_0)}/{2\omega}$.\\
-Per concludere quindi l'equazione del moto della mia massa m sar\'{a}:
+Per concludere quindi l'equazione del moto della mia massa m sarà:
 \begin{equation}
  \overrightarrow{r}=\left(\frac{(\omega r_0 +v_0)}{2\omega}e^{\omega t}+\frac{(\omega r_0 -v_0)}{2\omega}e^{-\omega t}\right)\hat{r}
 \end{equation}
 
-2) Come prima mi riduco a studiare la forza lungo $\hat{r}$ che per\'{o} stavolta non sar\'{a} nulla ma:
+2) Come prima mi riduco a studiare la forza lungo $\hat{r}$ che però stavolta non sarà nulla ma:
 \begin{equation}\label{avr:4}
   \ddot{r}-\omega^2r=-g \sin{\omega t}
  \end{equation}
-Si tratta di un'equazione differenziale non omogenea, quindi le sue soluzioni saranno date da una sua soluzione particolare pi\'{u} tutte le soluzioni dell'omogenea associata,
-che sono gi\'{a} state trovate nel punto precedente. Quindi poiche una soluzione particolare \'{e} ad esempio quella con $r$ costante ed uguale a 
-$(g \sin{\omega t})/2\omega^2$ allora la soluzione generale sar\'{a} data da:
+Si tratta di un'equazione differenziale non omogenea, quindi le sue soluzioni saranno date da una sua soluzione particolare più tutte le soluzioni dell'omogenea associata,
+che sono già state trovate nel punto precedente. Quindi poiche una soluzione particolare è ad esempio quella con $r$ costante ed uguale a 
+$(g \sin{\omega t})/2\omega^2$ allora la soluzione generale sarà data da:
 \begin{equation}\label{avr:5}
  r=Ae^{\omega t}+Be^{-\omega t}+\frac{g \sin{\omega t}}{2\omega^2}
 \end{equation}
