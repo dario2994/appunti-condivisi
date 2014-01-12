@@ -20,4 +20,4 @@ Pendolo sferico con approssimazione e velocit� iniziale perpendicolare (elliss
 Effetto fionda
 Pendolo di Foucault
 Orbite ellittiche che precedono | Marco
-Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico
+Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico | Fatto
