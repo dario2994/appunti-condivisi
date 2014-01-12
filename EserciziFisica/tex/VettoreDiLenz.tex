@@ -1,17 +1,47 @@
-\documentclass[../main.tex]{subfiles} 
+\documentclass[../main.tex]{subfiles}
 \begin{document}
 
 \exercise{Vettore di Lenz} %vl
 
 \textex
-Dimostrare che in un campo di forze centrale di tipo Coulombiano, quindi con $\vec{F}=m\vec{a}$, il vettore:
+Dimostrare che in un campo di forze centrale di tipo Coulombiano, quindi con $\vec{F}=\dfrac{\alpha}{r^2}\hat r$, il vettore:
 \begin{equation} \label{vl:Definizione}
 	\vec{A}=-\alpha \hat r + \vec v\times \vec L
 \end{equation}
-è una costante del moto e calcolare $|\vec A|, \vec A\dot \vec r$
+è una costante del moto e calcolare $|\vec A|,\ \vec{A} \cdot \vec{r}$.
 
 
 \solution
-Asd
+Per mostrare che il vettore di Lenz è una costante del moto dimostro che la sua derivata rispetto al tempo è nulla.
+
+Sfrutto il fatto che $\vec L$ è a sua volta una costante del moto:
+\begin{equation}\label{vl:Derivata}
+	0=\frac{\de \vec A}{\de t}=\frac{\de \left(-\alpha\hat r + \vec v\times \vec L\right) }{\de t} \iff \alpha\dot{\hat r} = \vec a\times \vec L
+\end{equation}
+
+Ma usando l'espressione della forza in un campo Coulombiano, la definizione del momento angolare, le proprietà del prodotto vettore 
+e la formula della velocità in polari \cref{VelCooPolari} vale la seguente catene di identità:
+\begin{equation}\label{vl:Uguaglianze}
+	\vec a\times \vec L=\left(\dfrac{\alpha}{mr^2}\right)\times\left(m\vec r\times \vec v\right)=\frac{\alpha}{r} \left(\hat r\times \left(\hat r\times \vec v\right)\right)
+        =\frac{\alpha}{r} \left(\hat r\left(\hat r \cdot \vec v\right)-\vec v\left(\hat r\cdot \hat r\right)\right)
+	=\frac{\alpha}{r} \left(\hat r\dot{r}-\vec v\right)=\frac{\alpha}{r}\left(r\dot{\hat r}\right)=\alpha \dot{\hat r}
+\end{equation}
+Sfruttando le \cref{vl:Definizione,vl:Uguaglianze} ottengo che il vettore $\vec A$ è una costante del moto.
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
