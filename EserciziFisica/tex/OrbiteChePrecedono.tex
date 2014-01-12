@@ -1,0 +1,109 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Orbite che precedono} %ocp
+
+\textex
+
+Fissato un sistema di riferimento nel piano con centro $O$ è data una forza centrale con potenziale
+\begin{equation}
+  \label{ocp:potenziale}
+  U(r)=-\frac{\alpha}{r}+\frac{\varepsilon}{r^2},
+\end{equation}
+con $\varepsilon$ piccolo e positivo, ossia una piccola perturbazione ad un campo gravitazionale.
+
+Dire come cambia l'orbita ellittica, ossia studiare $r(\theta)$ nel caso di un moto limitato.
+
+\solution
+
+Scriviamo l'equzione dell'energia
+
+\begin{equation}
+  \label{ocp:energia}
+  E=K+U=\frac{1}{2}m{\dot{\overrightarrow r}^2}-\frac{\alpha}{r}+\frac{\varepsilon}{r^2};
+\end{equation}
+
+ora la velocità in coordinate polari si scrive
+
+\[
+ \dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
+\]
+che porta a
+\begin{equation}
+ \label{ocp:vel}
+ {\dot{\overrightarrow{r}}}^2={\dot{r}}^2+r^2{\dot{\theta}}^2;
+\end{equation}
+
+la conservazione del momento angolare dà
+
+\begin{equation}
+ \label{ocp:mom}
+ L=mr^2\dot{\theta}.
+\end{equation}
+
+Inoltre vogliamo esprimere $r(\theta)$, quindi usiamo la regola della derivata di funzioni composte:
+
+\begin{equation}
+  \label{ocp:rtheta}
+ \dot{r}=\frac{dr}{dt}=\frac{dr}{d\theta}\frac{d\theta}{dt}=\frac{dr}{d\theta}\dot{\theta}.
+\end{equation}
+
+Sostituiamo quindi nella conservazione dell'energia \cref{ocp:energia} $\dot{\overrightarrow{r}}$ della \cref{ocp:vel},
+$\dot{\theta}$ della \cref{ocp:mom}, $\dot{r}$ della \cref{ocp:rtheta}:
+
+\begin{align*}
+ E&=\frac{1}{2}m({\dot{r}}^2+r^2{\dot{\theta}}^2)-\frac{\alpha}{r}+\frac{\varepsilon}{r^2} \\
+ &=\frac{1}{2}m\left(\frac{dr}{d\theta}\dot{\theta}\right)^2+\frac{1}{2}mr^2\left(\frac{L}{mr^2}\right)^2-\frac{\alpha}{r}+\frac{\varepsilon}{r^2} \\
+ &=\frac{1}{2}m\left(\frac{dr}{d\theta}\right)^2\left(\frac{L}{mr^2}\right)^2+\frac{L^2}{2mr^2}-\frac{\alpha}{r}+\frac{\varepsilon}{r^2} \\
+ \frac{2mE}{L^2}&=\left(\frac{dr}{d\theta}\right)^2\frac{1}{r^4}+\frac{1}{r^2}\left(1+\frac{2m\varepsilon}{L^2}\right)-\frac{2m\alpha}{L^2r}
+\end{align*}
+
+Sostituiamo ora $u=\frac{1}{r}$, si ha $\frac{du}{dr}=-\frac{1}{r^2}$ e
+
+\[
+ \frac{2mE}{L^2}=\left(\frac{du}{d\theta}\right)^2+u^2\left(1+\frac{2m\varepsilon}{L^2}\right)-u\frac{2m\alpha}{L^2}
+\]
+
+ora deriviamo rispetto a $\theta$
+
+\begin{align*}
+ 0&=2\frac{du}{d\theta}\frac{d^2u}{d\theta^2}+2u\frac{du}{d\theta}\left(1+\frac{2m\varepsilon}{L^2}\right)-\frac{du}{d\theta}\frac{2m\alpha}{L^2}\\
+ 0&=\frac{du}{d\theta}\left(\frac{d^2u}{d\theta^2}+u\left(1+\frac{2m\varepsilon}{L^2}\right)-\frac{m\alpha}{L^2}\right).
+\end{align*}
+
+Quindi abbiamo 2 possibilità:
+
+\[
+ \frac{du}{d\theta}=0 \Rightarrow u = C \Rightarrow r = C^{-1}
+\]
+
+cioè una circonferenza (raggio costante attorno a $O$), oppure
+\begin{equation}
+  \label{ocp:diff}
+ \frac{d^2u}{d\theta^2}+u\left(1+\frac{2m\varepsilon}{L^2}\right)-\frac{m\alpha}{L^2}=0
+\end{equation}
+la quale, posto $\omega^2=\left(1+\frac{2m\varepsilon}{L^2}\right)$, ha una soluzione della forma
+
+\[
+ u = A\cos(\omega\theta+\phi) + C
+\]
+
+dove $A$ e $\phi$ sono arbitrarie (che però dipendono da $E$ e da $L$) e $C$ è da determinare in modo che soddisfi la \cref{ocp:diff}:
+
+\begin{align}
+  &-A\omega^2\cos(\omega\theta+\phi)+(A\cos(\omega\theta+\phi) + C)\omega^2-\frac{m\alpha}{L^2}=0 \\
+  &C\omega^2-\frac{m\alpha}{L^2}=0 \\
+  &C=\frac{m\alpha}{L^2\omega^2}
+\end{align}
+
+Risostituendo $r=\frac{1}{u}$, la traiettoria ottenuta risulta:
+
+\[
+ r=\frac{1}{A\cos(\omega\theta+\phi) + \frac{m\alpha}{L^2\omega^2}}
+\]
+
+Sappiamo che in assenza di perturbazione ($\varepsilon=0$, ossia $\omega=1$), se la traiettoria è limitata allora è un ellisse.
+In questo caso, come si vede, la traiettoria rimane molto simile: l'unica rilevante differenza è la presenza di $\omega$ nell'argomento del coseno.
+Poiché $\omega>1$ risulta che il periodo $T=\frac{2\pi}{\omega}$ è più piccolo, cioè si osserva la precessione dell'orbita ellittica.
+
+\end{document}
