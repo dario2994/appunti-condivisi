@@ -32,17 +32,10 @@ Registrarsi su github (in questa guida verrà usato l'utente "giorgio", che dovr
 Mandare una mail a me (Federico Glaudo) o comunicarmi in qualche modo il nome utente che avete scelto
 (ovviamente facendomi capire chi siete) e aspettare mia conferma prima di procedere (vi devo aggiungere al progetto).
 
-Aprire un terminale (o git-bash) nel percorso in cui volete salvare il repository
-Date il seguente comandi
+Aprire un terminale (o git-bash) nel percorso in cui volete salvare il repository.
+Date il seguente comando
 	git clone https://giorgio@github.com/dario2994/appunti-condivisi.git
 
-Questo creerà una cartella appunit-condivisi dove troverete la vostra copia del repo.
-
-Se avete una chiave ssh (e l'avete configurata su github) potete usare 
-(per clonare il repository) questo comando:
-	git clone git@github.com:dario2994/appunti-condivisi.git
-
-La differenza col metodo precedente è che ora git è configurato per usare la vostra
-chiave ssh per l'autenticazione e non dovrete inserire la password ogni volta
+Questo creerà una cartella appunti-condivisi dove troverete la vostra copia del repo.
 	
 
