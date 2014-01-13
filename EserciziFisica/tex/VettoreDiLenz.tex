@@ -28,6 +28,36 @@ e la formula della velocità in polari \cref{VelCooPolari} vale la seguente cate
 \end{equation}
 Sfruttando le \cref{vl:Definizione,vl:Uguaglianze} ottengo che il vettore $\vec A$ è una costante del moto.
 
+Ora scrivo alcune identità vettoriali per poi usarle nel calcolo di $\vec A\cdot \vec r$.
+
+Vale la seguente formula per il momento angolare:
+\begin{equation*}
+	\vec L=m\vec r\times \vec v=mr\left(\hat r\times (r\dot{ \hat r })+\hat r\times(\dot r \hat r)\right)
+	= mr^2\hat r\times\dot{\hat r}
+\end{equation*}
+e applicando questa, sfruttando le proprietà del prodotto vettore e scalare ottengo:
+\begin{equation}\label{vl:VperL}
+	\vec v\times \vec L=(\dot r \hat r \times \vec L)+r\left(\dot{\hat r}\times \vec L\right)
+	=(\dot r \hat r \times \vec L)+mr^3\left(\hat r(\dot{\hat r}\cdot \dot{\hat r})-\dot{\hat r}(\dot{\hat r}\cdot \hat r) \right)
+	=(\dot r \hat r \times \vec L)+mr^3 \hat r \dot{\hat r}^2
+\end{equation}
+
+Inoltre, sfruttando la formula per la derivata dei versori \cref{OmegaPolari} e la definizione di $L$ come scalare ottengo:
+\begin{equation*}
+	\dot{\hat r}^2=\dot{\theta}^2=\frac{L^2}{m^2r^4}
+\end{equation*}
+e sostituendo nella \cref{vl:VperL} arrivo a:
+\begin{equation}\label{vl:fineConto}
+	\vec v\times \vec L=(\dot r \hat r \times \vec L)+\frac{L^2}{mr}\hat r
+\end{equation}
+
+Finalmente calcolo $\vec A\cdot \vec r$ applicando \cref{vl:VperL}:
+\begin{equation*}
+	\vec A\cdot \vec r=-\alpha\hat r\cdot \vec r+(\vec v\times L)\cdot \vec r=
+	-\alpha+\left((\dot r \hat r \times \vec L)+\frac{L^2}{mr}\hat r\right)\cdot \vec r=
+	-\alpha r+\frac{L^2}{m}
+\end{equation*}
+
 \end{document}
 
 
