@@ -52,11 +52,30 @@ e sostituendo nella \cref{vl:VperL} arrivo a:
 \end{equation}
 
 Finalmente calcolo $\vec A\cdot \vec r$ applicando \cref{vl:VperL}:
-\begin{equation*}
+\begin{equation}\label{vl:ScalareL}
 	\vec A\cdot \vec r=-\alpha\hat r\cdot \vec r+(\vec v\times L)\cdot \vec r=
 	-\alpha+\left((\dot r \hat r \times \vec L)+\frac{L^2}{mr}\hat r\right)\cdot \vec r=
 	-\alpha r+\frac{L^2}{m}
+\end{equation}
+Alternativamente posso arrivare a questo risultato usando direttamente le proprietà del prodotto vettoriale:
+\begin{equation*}
+	\vec A\cdot \vec r=-\alpha\hat r\cdot \vec r+(\vec v\times L)\cdot \vec r=
+	-\alpha r+(\vec r\times \vec v)\cdot \vec L=-\alpha r + \left(\frac{\vec L}{m}\right)\cdot \vec L=
+	-\alpha r+\frac{L^2}m
 \end{equation*}
+
+Ora calcolo $|\vec A|$ sfruttando $\vec v\perp \vec L$ :
+\begin{equation}\label{vl:Norma}
+	\vec{A} ^{\,2}=\alpha^2-2\alpha\hat r\cdot\left(\vec v\times \vec L\right)+(\vec v\times \vec L)^2=
+	\alpha^2-\frac{2\alpha L^2}{mr}+v^2L^2=\alpha^2+\frac{2L^2}m\left(-\frac{\alpha}{r}+\frac12mv^2\right)=\alpha^2+\frac{2L^2E}m
+\end{equation}
+
+Ed ora unendo i risultati \cref{vl:ScalareL,vl:Norma} ottengo la formula polare delle orbite Kepleriane:
+\begin{equation}\label{vl:OrbiteKepleriane}
+	|\vec A|r\cos \theta=-\alpha r+\frac{L^2}m\Rightarrow r=\frac{\frac{L^2}m}{\alpha +|\vec A|\cos \theta}=
+	\frac{\frac{L^2}{\alpha m}}{1+\left(\sqrt{1+\frac{2L^2E}{\alpha^2m}}\right)\cos \theta}
+\end{equation}
+
 
 \end{document}
 
