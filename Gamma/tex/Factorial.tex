@@ -65,7 +65,7 @@ all'idea che la Gamma nasce come estensione ``esatta'' del fattoriale a tutti i 
 							& =n\ln n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
 	\end{split}
 	\end{equation*}
-	Ora sfruttando che $\sum_{k=1}^{n-1}\frac{1}{n}-\ln n\to \gamma$ e che $\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)\to L$
+	Ora sfruttando che $\displaystyle \sum_{k=1}^{n-1}\frac{1}{n}-\ln n\to \gamma$ e che $\displaystyle \sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)\to L$
 	dato che converge assolutamente, ottengo:
 	\begin{equation}\label{f:QuasiStirlingNaturali}
 		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + \left(\frac{\gamma}2 + L\right)
@@ -81,11 +81,12 @@ all'idea che la Gamma nasce come estensione ``esatta'' del fattoriale a tutti i 
 					& =\lim_{n\to\infty}\frac{\left[(2n)!!\right]^2}{(2n)!\sqrt{n}}=\lim_{n\to\infty}\frac{2^{2n}\left(n!\right)^2}{(2n)!\sqrt{n}}\\
 	\end{split}
 	\end{equation}
+	
 	Definisco ora:
 	\begin{equation*}
 		a_n=\frac{n!}{(n/e)^n\sqrt{n}}
 	\end{equation*}
-	Poichè $\lim_{n\to\infty}{a_n}$ esiste vale facilmente che $\lim_{n\to\infty}a_n/a_{2n}=1$, quindi:
+	Poichè $\lim_{n\to\infty}{a_n}$ esiste, vale facilmente che $\lim_{n\to\infty}a_n/a_{2n}=1$, quindi:
 	\begin{equation*}
 		\lim_{n\to\infty}{\frac{n!}{(n/e)^n\sqrt{n}}}=\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{\frac{a_n^2}{a_{2n}}}
 	\end{equation*}
