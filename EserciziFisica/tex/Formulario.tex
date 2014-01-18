@@ -4,41 +4,41 @@
 \setcounter{equation}{0}
 \renewcommand{\theequation}{F.\arabic{equation}}
 \subsection{Coordinate polari} 
-In coordinate polari si ha che per ogni versore $\hat{\iota}$ vale $\dot{\hat{\iota}}=\overrightarrow{\omega}\times\hat{\iota}$,
+In coordinate polari si ha che per ogni versore $\hat{\iota}$ vale $\dot{\hat{\iota}}=\vec{\omega}\times\hat{\iota}$,
 dove
 \begin{equation}\label{OmegaPolari}
-	\overrightarrow{w}=\dot{\theta}\hat{z}
+	\vec{\omega}=\dot{\theta}\hat{z}
 \end{equation}
-Derivando l'equazione $\overrightarrow{r}=r\hat{r}$ rispetto al tempo, ottengo quindi
+Derivando l'equazione $\vec{r}=r\hat{r}$ rispetto al tempo, ottengo quindi
 \begin{equation}\label{VelCooPolari}
-	\overrightarrow{v}=\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
+	\vec{v}=\dot{\vec{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}
 \end{equation}
 Derivando una seconda volta ottengo invece:
 \begin{equation}\label{AccCooPolari}
-	\overrightarrow{a}=\dot{\overrightarrow{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
+	\vec{a}=\dot{\vec{v}} =(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
 \end{equation}
 
 \subsection{Coordinate sferiche}
-Ponendosi in un sistema di coordinate sferiche, vale $\dot{\hat{\iota}}=\overrightarrow{\omega}\times\hat{\iota}$
+Ponendosi in un sistema di coordinate sferiche, vale $\dot{\hat{\iota}}=\vec{\omega}\times\hat{\iota}$
 per ogni versore $\hat{\iota}$, dove
 \begin{equation}\label{OmegaSferiche}
-	\overrightarrow{\omega}=\dot{\theta}\hat{\varphi}+\dot{\varphi}\hat{z}
+	\vec{\omega}=\dot{\theta}\hat{\varphi}+\dot{\varphi}\hat{z}
 \end{equation}
-Quindi derivando l'equazione $\overrightarrow{r}=\dot{r}\hat{r}$, ottengo
+Quindi derivando l'equazione $\vec{r}=\dot{r}\hat{r}$, ottengo
 \begin{equation}\label{VelCooSferiche}
-	\overrightarrow{v} =\dot{\overrightarrow{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}+r\hat{\varphi}\sin{\theta}\hat{\varphi}
+	\vec{v} =\dot{\vec{r}}=\dot{r}\hat{r}+r\dot{\theta}\hat{\theta}+r\hat{\varphi}\sin{\theta}\hat{\varphi}
 \end{equation}
 E derivando nuovamente rispetto al tempo ho che:
 \begin{equation}\label{AccCooSferiche}
 \begin{split}
-	\overrightarrow{a}=	\dot{\overrightarrow{v}}=	&\left(\ddot{r}-r\dot{\theta}^2-r\dot{\varphi}^2\sin^2\theta \right)\hat{r}+\\
+	\vec{a}=	\dot{\vec{v}}=	&\left(\ddot{r}-r\dot{\theta}^2-r\dot{\varphi}^2\sin^2\theta \right)\hat{r}+\\
 													&	+\left( r\ddot{\theta}+2\dot{r}\dot{\theta}-r\dot{\varphi}^2\sin\theta\cos\theta \right)\hat{\theta}+\\
 													&	+\left( 2\dot{r}\dot{\varphi}\sin\theta+2r\dot{\varphi}\dot{\theta}\cos\theta+r\ddot{\varphi}\sin\theta \right)\hat{\varphi}
 \end{split}
 \end{equation}
 
 \subsection{Moto in campo centrale}
-Consideriamo un campo di forze centrali descritto da $\overrightarrow{F}=f(r)\hat{r}$. 
+Consideriamo un campo di forze centrali descritto da $\vec{F}=f(r)\hat{r}$. 
 Innanzitutto abbiamo che tale campo è un campo conservativo, in quanto ammette un potenziale della forma:
 \begin{equation*}
 	U(r)=-\int_r^\infty{f(r) dr}
@@ -46,13 +46,13 @@ Innanzitutto abbiamo che tale campo è un campo conservativo, in quanto ammette 
 Inoltre in un campo di forze centrali si conserva il momento angolare, poichè il momento delle forze è uguale a 0,
 e in particolare vale, grazie alle \cref{VelCooPolari}:
 \begin{equation*}
-	\overrightarrow{L}=m\overrightarrow{r}\times\overrightarrow{v}=mr^2\dot{\theta}\hat{z}
+	\vec{L}=m\vec{r}\times\vec{v}=mr^2\dot{\theta}\hat{z}
 \end{equation*}
 
 Mi concentro in particolare sul campo gravitazionale generato da un corpo di massa $M$, che è proprio un campo 
 centrale caratterizzato dalla forza:
 \begin{equation*}
-	\overrightarrow{F}=-\frac{GMm}{r^2}\hat{r}
+	\vec{F}=-\frac{GMm}{r^2}\hat{r}
 \end{equation*}
 e che genera quindi il potenziale:
 \begin{equation*}
@@ -91,18 +91,18 @@ mentre invece la velocità di fuga (ottenibile usando \cref{VelocitaMotoCircolar
 
 \subsection{Sistemi di riferimento non inerziali}
 Sia $K$ un sistema di riferimento non inerziale di centro $O'$, rispetto ad un sistema di riferimento
-inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\overrightarrow{F}=m\overrightarrow{a}$
+inerziale $K^I$ di centro $O$. Poichè sabbiamo che l'equazione di Newton $\vec{F}=m\vec{a}$
 vale solo in sistemi di riferimento inerziali, vogliamo scoprire cosa si può dire del rapporto fra la forza
 che agisce su un corpo e la sua accelerazione rispetto al sistema $K$.
 
 Calcoliamo innanzitutto la relazione fra le accelerazioni nei due sistemi di riferimento. Poichè vale la
 relazione $\overrightarrow{OP}=\overrightarrow{OO'}+\overrightarrow{O'P}$ per un qualsiasi punto $P$, derivando 
-rispetto al tempo e chiamando $\overrightarrow{O'P}=\overrightarrow{r}$, ottengo:
+rispetto al tempo e chiamando $\overrightarrow{O'P}=\vec{r}$, ottengo:
 \begin{equation}\label{VelNonInerziale}
 \begin{split}
-	\overrightarrow{v}=\dot{\overrightarrow{OP}}	& =\dot{\overrightarrow{OO'}}+\dot{\overrightarrow{r}}\\
-													& =\overrightarrow{v_{tr}}+\dot{r}\hat{r}+\overrightarrow{\omega}\times\overrightarrow{r}\\
-													& =\overrightarrow{v_{tr}}+\overrightarrow{v_r}+\overrightarrow{\omega}\times\overrightarrow{r}
+	\vec{v}=\dot{\overrightarrow{OP}}	& =\dot{\overrightarrow{OO'}}+\dot{\vec{r}}\\
+													& =\overrightarrow{v_{tr}}+\dot{r}\hat{r}+\vec{\omega}\times\vec{r}\\
+													& =\overrightarrow{v_{tr}}+\vec{v_r}+\vec{\omega}\times\vec{r}
 \end{split}
 \end{equation}
 dove $v_{tr}$ (velocità di trascinamento) è la velocità di $O'$ rispetto ad $O$ e $v_r$ è la velocità relativa
@@ -111,9 +111,9 @@ a $K$ di $P$.
 Derivando nuovamente ottengo invece:
 \begin{equation}\label{AccNonInerziale}
 \begin{split}
-	\overrightarrow{a}=\overrightarrow{v}	& =\dot{\overrightarrow{v_{tr}}}+\dot{\overrightarrow{v_r}}+\left(\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times\dot{\overrightarrow{r}}\right)\\
-											& =\overrightarrow{a_{tr}}+\left(\overrightarrow{a_r}+\overrightarrow{\omega}\times\overrightarrow{v_r}\right)+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\left[\overrightarrow{\omega}\times\overrightarrow{v_r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]\\
-											& =\overrightarrow{a_{tr}}+\overrightarrow{a_r}+2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\\
+	\vec{a}=\vec{v}	& =\dot{\overrightarrow{v_{tr}}}+\dot{\vec{v_r}}+\left(\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times\dot{\vec{r}}\right)\\
+											& =\overrightarrow{a_{tr}}+\left(\vec{a_r}+\vec{\omega}\times\vec{v_r}\right)+\dot{\vec{\omega}}\times\vec{r}+\left[\vec{\omega}\times\vec{v_r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\right]\\
+											& =\overrightarrow{a_{tr}}+\vec{a_r}+2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\\
 \end{split}
 \end{equation}
 dove analogamente a prima $a_{tr}$ (accelerazione di trascinamento) è l'accelerazione di $O'$ rispetto a $O$ e $a_r$ e 
@@ -122,17 +122,17 @@ $v_r$ sono rispettivamente l'accelerazione e la velocità relative a $K$ di $P$.
 Quindi dall'equazione di Newton ottengo:
 \begin{equation*}
 \begin{split}
-	\overrightarrow{F}=m\overrightarrow{a}	& =m\left[\overrightarrow{a_{tr}}+\overrightarrow{a_r}+2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]\\
-											& =m\overrightarrow{a_r}+\underline{m\overrightarrow{a_{tr}}}+\underline{2m\overrightarrow{\omega}\times\overrightarrow{v_r}}+\underline{m\dot{\overrightarrow{\omega}}\times\overrightarrow{r}}+\underline{m\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})}
+	\vec{F}=m\vec{a}	& =m\left[\overrightarrow{a_{tr}}+\vec{a_r}+2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\right]\\
+											& =m\vec{a_r}+\underline{m\overrightarrow{a_{tr}}}+\underline{2m\vec{\omega}\times\vec{v_r}}+\underline{m\dot{\vec{\omega}}\times\vec{r}}+\underline{m\vec{\omega}\times(\vec{\omega}\times\vec{r})}
 \end{split}
 \end{equation*}
-I termini sottolineati sono forze apparenti; in particolare $2m\overrightarrow{\omega}\times\overrightarrow{v_r}$
-è chiamata forza di Coriolis, mentre $m\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})$
+I termini sottolineati sono forze apparenti; in particolare $2m\vec{\omega}\times\vec{v_r}$
+è chiamata forza di Coriolis, mentre $m\vec{\omega}\times(\vec{\omega}\times\vec{r})$
 è la forza centrifuga.
 
 In un sistema non inerziale si può quindi riscrivere l'equazione di Newton come:
 \begin{equation}\label{ForzaNonInerziale}
-	m\overrightarrow{a_r}=\overrightarrow{F_r}=\overrightarrow{F}-m\overrightarrow{a_{tr}}-m\left[2\overrightarrow{\omega}\times\overrightarrow{v_r}+\dot{\overrightarrow{\omega}}\times\overrightarrow{r}+\overrightarrow{\omega}\times(\overrightarrow{\omega}\times\overrightarrow{r})\right]
+	m\vec{a_r}=\vec{F_r}=\vec{F}-m\overrightarrow{a_{tr}}-m\left[2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\right]
 \end{equation}
 
 
