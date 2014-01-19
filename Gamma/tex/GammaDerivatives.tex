@@ -169,7 +169,7 @@ Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Ga
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Applicando 2 volte il teorema di Lagrange ho che fissati $x,h\in\mathbb{R^+}$ e $i\in\mathbb{N}$
+	Applicando due volte il teorema di Lagrange ho che fissati $x,h\in\mathbb{R^+}$ e $i\in\mathbb{N}$
 	esistono $0<h''\le h'\le h$ tali che valgano le identità che uso per ottenere la disuguaglianza:
 	\begin{equation}\label{dg:DisFond}
 		\left\lvert\frac{f_i(x+h)-f_i(x)}h - f_i'(x)\right\rvert=\left\lvert f_i'(x+h') - f_i'(x)\right\rvert
@@ -186,7 +186,7 @@ Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Ga
 	Dove l'ultima disuguaglianza ha senso poichè la serie converge assolutamente, quindi converge.
 	
 	Vale però che una somma di serie equivale alla serie della somma e perciò
-	(essendo furbi, portando le cose dalla parte giusta e applicando 2 volte tale risultato nell'ordine giusto)
+	(essendo furbi, portando le cose dalla parte giusta e applicando due volte tale risultato nell'ordine giusto)
 	si dimostra che:
 	\begin{equation}\label{dg:IdStupida}
 		\sum_{i=1}^{\infty}\frac{f_i(x+h)-f_i(x)}h - f_i'(x)=
@@ -295,7 +295,7 @@ Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Ga
 	Dato $n\in\mathbb{N}$ applicando ripetutamente la \cref{dg:DigammaFunzionale} e sostituendo \cref{dg:psi(1)}
 	ho che vale:
 	\begin{equation}\label{dg:PsiIntera}
-		\psi(n)=\psi(1)+\sum_{i=1}^{n-1}\frac 1i = -\gamma+\sum_{i=1}^{n}\frac 1i + \bigO(\frac 1n)
+		\psi(n)=\psi(1)+\sum_{i=1}^{n-1}\frac 1i = -\gamma+\sum_{i=1}^{n}\frac 1i + \bigO\left(\frac 1n\right)
 	\end{equation}
 	Ora però si può applicare il fatto noto riguardo la convergenza a $\gamma$ della differenza tra logaritmo e numeri armonici, 
 	così si ottiene:
