@@ -43,20 +43,44 @@ Per la massa $m_2$, rispettivamente lungo $x$ e lungo $y$, ho invece:
 \end{gather*}
 
 Quindi mi sono ricondotta a risolvere il sistema
-\begin{equation*}
-\begin{cases}
-	m_1\ddot{y}=-ky-T\cos\theta-m_1g\\ %\label{mcp:eq1}
-	m_2(l\cos\theta \ddot\theta-l\sin\theta\dot\theta^2)=-T\sin\theta \\ %\label{mcp:eq2}
-	m_2(\ddot{y}+l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2)=T\cos\theta-m_2g \\ %\label{mcp:eq3}
-\end{cases}
-\end{equation*}
+% \begin{equation*}
+\begin{align}
+	m_1\ddot{y} &=-ky-T\cos\theta-m_1g \label{mcp:eq1} \\
+	m_2(l\cos\theta \ddot\theta-l\sin\theta\dot\theta^2) &=-T\sin\theta \label{mcp:eq2} \\
+	m_2(\ddot{y}+l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2) &=T\cos\theta-m_2g \label{mcp:eq3}
+\end{align}
+% \end{equation*}
 
 Innanzitutto osservo che, in regime di piccole oscillazioni, nella \cref{mcp:eq2} $l\sin\theta\dot\theta^2$, 
 che è al terz'ordine,
 è trascurabile rispetto a $l\cos\theta \ddot\theta$, che invece è al prim'ordine.
 Nella \cref{mcp:eq3}, invece, $l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2$ è trascurabile rispetto
-a $\ddot{y}$ in quanto ha un ordine maggiore.
+a $\ddot{y}$ in quanto ha un ordine maggiore (sto implicitamente assumendo che avvengano dei moti armonici).
 
+Riassumendo le semplificazioni e approssimando al prim'ordine $\sin\theta\approx\theta$ e $\cos\theta\approx 1$ ottengo:
+\begin{align}
+	m_1\ddot{y} &=-ky-T-m_1g \label{mcp:e1} \\
+	m_2l\ddot\theta &=-T\theta \label{mcp:e2} \\
+	m_2\ddot{y} &=T-m_2g \label{mcp:e3}
+\end{align}
+
+Ora noto che nelle \cref{mcp:e1,mcp:e3} non compare $\theta$, quindi risolvo in $y$ ottenendo:
+\begin{equation*}
+	\ddot y=-\frac k{m_1+m_2}\left(y-\frac{m_1+m_2}k g\right)
+\end{equation*}
+
+che è proprio lo stesso moto che assumerebbe la molla se il pendolo fosse fermo. Quindi la molla oscilla di
+moto armonico intorno alla posizione di equilibrio $\frac{m_1+m_2}k g$ con frequenza $\sqrt{\frac k{m_1+m_2}}$.
+
+Per quanto riguarda $\theta$, al prim'ordine ricavo da \cref{mcp:e3} che $T\approx m_2g$ e sostituendo questo in
+\cref{mcp:e2} ottengo:
+\begin{equation*}
+	\ddot \theta=-\frac gl \theta
+\end{equation*}
+che è l'equazione classica del pendolo.
+
+Quindi in conclusione il moto del pendolo e della molla avvengono in maniera disaccoppiata, con frequenze diverse e
+entrambi avvengono come se l'altro non ci fosse.
 
 
 
