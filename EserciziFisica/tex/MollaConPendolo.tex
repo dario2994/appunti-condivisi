@@ -1,0 +1,67 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Molla con pendolo} %mcp
+\textex
+Una massa $m_1$ è appesa al soffitto tramite una molla di costante elastica $k$ ed è vincolata a muoversi
+solo sulla verticale. A sua volta un pendolo di
+lunghezza $l$, alla cui estremità si trova una massa $m_2$, è appeso alla massa $m_1$.
+Su tutto il sistema agisce la forza di gravità. Calcolare la frequenza delle piccole oscillazioni della molla e
+del pendolo.
+
+\solution
+Mi pongo nel sistema di riferimento cartesiano che ha asse $y$ coincidente con la verticale della molla e diretto 
+verso l'alto e asse $x$ parallelo al soffitto e passante per il ``punto di equilibrio`` della molla, cioè il punto
+più basso che raggiungerebbe se non ci fosse appesa la massa $m_1$.
+
+Le posizioni delle due masse in questo sistema di riferimento sono rispettivamente:
+\begin{gather*}
+	\vec{r_1}=(0,y)\\
+	\vec{r_2}=(l\sin\theta,y-l\cos\theta)
+\end{gather*}
+dove $\theta$ è l'angolo che il pendolo forma con la verticale.
+
+Derivando due volte queste due espressioni ottengo le componenti delle accelerazioni delle due masse:
+\begin{gather*}
+	\vec{a_1}=(0,\ddot{y})\\
+	\vec{a_2}=(l\cos\theta \ddot\theta-l\sin\theta\dot\theta^2, \ddot{y}+l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2)
+\end{gather*}
+
+Sulla massa $m_1$, nella direzione dell'asse $y$ (l'unica in cui si può muovere), agisce la forza peso $m_2\vec{g}$,
+la forza della molla $-ky$ e la componente verticale della tensione del filo del pendolo.
+Sulla massa $m_2$ invece, agiscono solo la forza di gravità $m_1\vec{g}$ e la tensione del filo.
+Posso scrivere quindi $\vec{F}=m\vec{a}$ per le due masse. 
+
+Per la massa $m_1$ lungo la verticale ho:
+\begin{equation*}
+	m_1\ddot{y}=-ky-T\cos\theta-m_1g
+\end{equation*}
+Per la massa $m_2$, rispettivamente lungo $x$ e lungo $y$, ho invece:
+\begin{gather*}
+	m_2(l\cos\theta \ddot\theta-l\sin\theta\dot\theta^2)=-T\sin\theta \\
+	m_2(\ddot{y}+l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2)=T\cos\theta-m_2g
+\end{gather*}
+
+Quindi mi sono ricondotta a risolvere il sistema
+\begin{equation*}
+\begin{cases}
+	m_1\ddot{y}=-ky-T\cos\theta-m_1g\\ %\label{mcp:eq1}
+	m_2(l\cos\theta \ddot\theta-l\sin\theta\dot\theta^2)=-T\sin\theta \\ %\label{mcp:eq2}
+	m_2(\ddot{y}+l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2)=T\cos\theta-m_2g \\ %\label{mcp:eq3}
+\end{cases}
+\end{equation*}
+
+Innanzitutto osservo che, in regime di piccole oscillazioni, nella \cref{mcp:eq2} $l\sin\theta\dot\theta^2$, 
+che è al terz'ordine,
+è trascurabile rispetto a $l\cos\theta \ddot\theta$, che invece è al prim'ordine.
+Nella \cref{mcp:eq3}, invece, $l\sin\theta\ddot\theta+l\cos\theta\dot\theta^2$ è trascurabile rispetto
+a $\ddot{y}$ in quanto ha un ordine maggiore.
+
+
+
+
+
+
+
+
+\end{document}
