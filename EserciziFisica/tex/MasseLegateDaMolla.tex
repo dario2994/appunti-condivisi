@@ -1,0 +1,58 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Masse ruotano legate da una molla e urtano un'altra massa} %mlm
+\textex
+Due sfere di masse $m_1=m,m_2=2m$ sono collegate da una molla di costante elastica $k$ e lunghezza a riposo nulla che inizialmente è lunga $r_0$. Inizialmente ruotano entrambe di moto circolare, poi la sfera di massa $m_1$ urta in modo del tutto anelastico un'altra sfera di massa $m$ anch'essa che le resta appiccicata.
+
+Trovare la minima distanza a cui si troveranno le 2 sferette dopo l'urto.
+
+\solution
+Intanto il centro di massa del sistema delle due sferette che ruotano deve essere fermo, altrimenti è impossibile che le sferette compiano un movimento periodico. Quindi mettendomi nel centro di massa del sistema ricavo che entrambe le sfere ruotano intorno al centro di massa con raggi inversamente proporzionali alle loro masse e con lo stesso periodo affinche la molla sia tesa. Le uniche forze agenti sulle sferette sono quelle esercitate dalla molla, quindi questa deve controbilanciare esattamente la forza apparente centrifuga. In formule, chiamando $v_1,v_2$ le velocità delle sferette, questo implica:
+\begin{align}
+	m_1\frac{v_1^2}{\frac{2r_0}3}=kr_0\Rightarrow v_1=\sqrt{\frac{2k}{3m}}r_0 \label{mlm:Inizio1}\\
+	m_2\frac{v_2^2}{\frac{r_0}3}=kr_0 \Rightarrow v_2=\sqrt{\frac{k}{6m}}r_0 \label{mlm:Inizio2}
+\end{align}
+
+Essendo l'urto anelastico e dovendosi la quantità di moto conservare durante l'urto ottengo che dopo l'urto, dove prima si trovava la sferetta di massa $m_1$ a velocità $v_1$ è come se ci fosse una sferetta di massa $2m_1=2m$ con velocità $\frac{v_1}2=v_2$ ancora perpendicolare alla molla. Perciò conosco tutte le condizioni iniziali e mi sono ricondotto ad un moto di due corpi.
+
+La massa ridotta è $\mu=\frac{2m\cdot 2m}{2m+2m}=m$. Chiamando $\vec r$ la distanza relativa tra le sferette, e sfruttando la \cref{ForzaMassaRidotta} ricavo:
+\begin{equation*}
+	m\ddot{\vec{r}}=-k\vec r
+\end{equation*}
+
+Che è un classico esempio di forza centrale, e quindi applico \cref{CentraleUnidimensionale} e ottengo:
+\begin{equation}\label{mlm:Energia}
+	E=\frac12m\dot r^2+\left(\frac12kr^2+\frac{L^2}{2m r^2}\right)
+\end{equation}
+
+Nel momento in cui $r$ + minimo però la sua derivata sarà nulla $\dot r=0$ e di conseguenza il valore di $r$ che mi richiede il problema è la minima soluzione positiva della seguente equazione
+\begin{equation}\label{mlm:Equazione}
+	E=\frac12kr^2+\frac{L^2}{2mr^2}
+\end{equation}
+e in particolare, questa avrà 2 soluzioni positive, una sarà il minimo valore di $r$, l'altra il massimo. E perciò, risolvendo \cref{mlm:Equazione} ottengo che il valore richiesto dal problema è:
+\begin{equation}\label{mlm:Risultato}
+	r^2_{min}=\frac{E-\sqrt{E^2-\frac{L^2k}{2m}}}{k}
+\end{equation}
+
+Ora calcolo energia e momento iniziali sfruttando le \cref{mlm:Inizio1,mlm:Inizio2}.
+
+Valgono le seguenti formule per l'energia iniziale e per il momento angolare (sfruttando il fatto che il centro di massa è fermo):
+\begin{align}
+	E_0 &=\frac12(m_1+m)\left(\frac{v_1}2\right)^2+\frac12m_2v_2^2+\frac12kr_0^2=
+	2mv_2^2+\frac12kr_0^2=2m\frac{k}{6m}r_0^2+\frac12kr_0^2=\frac{5k}{6}r_0^2 \label{mlm:E0}\\
+	L_0 &=(m_1+m)\frac{r_0}2\frac{v_1}2+m_2\frac{r_0}2v_2=2mr_0v_2=
+	2mr_0^2\sqrt{\frac{k}{6m}}=\sqrt{\frac{2mk}3}r_0^2 \label{mlm:L0}
+\end{align}
+
+Sostituendo \cref{mlm:E0,mlm:L0} in \cref{mlm:Risultato} e svolgendo i conti si ottiene:
+\begin{equation*}
+	r_{min}=\sqrt{\frac{5-\sqrt{13}}6}r_0
+\end{equation*}
+
+
+
+
+
+
+\end{document}
