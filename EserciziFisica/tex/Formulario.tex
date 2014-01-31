@@ -135,8 +135,22 @@ In un sistema non inerziale si può quindi riscrivere l'equazione di Newton come
 	m\vec{a_r}=\vec{F_r}=\vec{F}-m\overrightarrow{a_{tr}}-m\left[2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\right]
 \end{equation}
 
+\subsection{Problema dei 2 corpi}
+Sono dati 2 corpi di masse $m_1,m_2$ che interagiscono attraverso una forza che dipende 
+solo dalla distanza $\vec F(\vec r)$.
+Detta $\mu=\frac{m_1m_2}{m_1+m_2}$ la massa ridotta, vale l'equazione:
+\begin{equation}\label{ForzaMassaRidotta}
+	\vec F(\vec r)=\mu \ddot {\vec{r}}
+\end{equation}
+Detta $\overrightarrow{ r_Q }$ la posizione del centro di massa del sistema, vale la seguente espressione per l'energia cinetica:
+\begin{equation}\label{Cinetica2Corpi}
+	K=\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2+\frac12\mu\dot{\vec{r}}^2
+\end{equation}
+e questa è la formula per il momento angolare:
+\begin{equation}\label{Momento2Corpi}
+	\vec L=(m_1+m_2)\overrightarrow{r_Q}\times \dot{\overrightarrow{r_Q}}+\mu \vec r\times\dot{\vec r}
+\end{equation}
 
-
-
-
+Quindi nel complesso un sistema con 2 corpi si può disaccoppiare completamente nel moto del centro di massa e nel
+moto relativo tra le 2 masse.
 \end{document}
