@@ -1,0 +1,55 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Campo di forze con resistenza} %cfr
+\textex 
+Un punto materiale di massa $m$ si muove lungo una retta soggetto ad una forza costante $F$ e ad una resistenza $F_r=-kv^2$, dove $v$ è la velocità del punto materiale.
+Calcolare la distanza $x(t)$ a partire da un istante in cui sia $x$ che $v$ sono nulli (può essere utile il seguente cambio di variabile $z=e^{\frac{2\sqrt{Fk}}{m}}t$). 
+Come si può calcolare la distanza $x(v)$ percorsa in funzione di $v$ senza mai passare attraverso il tempo?
+
+
+\solution
+La massa $m$ si muove lungo una retta, quindi nel corso di tutta la soluzione considererò solo le intensità dei vettori, poichè saranno tutti diretti lungo la retta del moto.
+
+Innanzitutto ho che la massa $m$ è soggetta alla forza $F+F_r=F-kv^2$, da cui:
+\begin{gather*}
+	m a=F-kv^2 \\
+	\iff m \frac{\de v}{\de t}= F-kv^2 \\
+	\iff \frac{m}{F-kv^2}\de v= \de t \\ 
+	\Longrightarrow \int_{v(0)}^{v(t)} \frac{m}{F-kv^2}\de v = t
+\end{gather*}
+da cui, sostituendo $V=\sqrt{\frac{F}{k}}$ e utilizzando che $v(0)=0$, ottengo
+\begin{gather*}
+	t=\frac{m}{k}\int_{0}^{v(t)} \frac{1}{V^2-v^2}\de v \\
+	\iff t=\frac{m}{2Vk}\int_{0}^{v(t)} \left(\frac{1}{V-v}+\frac{1}{V+v}\right)\de v \\
+	\Longrightarrow t=\frac{m}{2Vk}\ln{\left(\frac{V-v(t)}{V+v(t)}\right)}
+\end{gather*}
+dove non devo aggiungere nessun modulo all'argomento del logaritmo perchè ho sempre che $v(t)\le \sqrt{\frac{F}{k}}=V$.
+Quindi dall'ultima equazione, chiamando $\tau=\frac{m}{2\sqrt{Fk}}$, ottengo:
+\begin{gather*}
+	v(t)=V\cdot\frac{1-e^{\frac{t}{\tau}}}{1+e^{\frac{t}{\tau}}}\\
+	\Longrightarrow x(t)=\int_{0}^t V\cdot\frac{1-e^{\frac{u}{\tau}}}{1+e^{\frac{u}{\tau}}}\de u
+\end{gather*}
+da cui, sostituendo $z=e^{\frac{u}{\tau}}$ e utilizzando che $\de u=\frac{\tau}{z}\de z$, ho:
+\begin{gather*}
+	x(t)=V\tau\int_1^{e^{\frac{t}{\tau}}} \frac{1-z}{z(z+1)}\de z \\
+	\iff x(t)=\frac{m}{2k} \int_1^{e^{\frac{t}{\tau}}}\left( \frac{1}{z}- \frac{2}{z+1}\right)\de z \\
+	\Longrightarrow x(t)=\frac{m}{2k}\left( \ln(e^{\frac{t}{\tau}}) -2\ln(e^{\frac{t}{\tau}}+1) +2\ln 2\right) \\
+	\iff x(t)= Vt - \frac{m}{k} \ln \left( \frac{e^{\frac{t}{\tau}}+1}{2}\right)
+\end{gather*}
+
+Voglio calcolare ora $x(v)$ senza mai passare attraverso il tempo. Ho che:
+\begin{gather*}
+	m a=F-kv^2 \\
+	\iff m \frac{\de v}{\de t}= F-kv^2 \\
+	\iff m \frac{\de v}{\de x} v= F-kv^2 \\
+	\Longrightarrow x(v)= \int _0^v \frac{mu}{F-ku^2}\de u \\
+	\iff x(v)= -\frac{m}{2k}\int_0^v \frac{-2u}{V^2-u^2} \de u \\
+	\Longrightarrow x(v)= -\frac{m}{2k} \left( \ln(V^2-v^2)-\ln V^2 \right) \\
+	\Longleftrightarrow x(v)= -\frac{m}{2k}\ln\left (1-\frac{v^2}{V^2}\right)
+\end{gather*}
+
+
+
+
+\end{document}
