@@ -21,7 +21,18 @@ Effetto fionda
 Pendolo di Foucault
 Orbite ellittiche che precedono | Marco | Fatto
 Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico | Fatto
-Pendolo appeso ad una molla appesa al soffitto | Giada
+
+Compitino
+Eccentricità dell'orbita di Halley
+Massa che si muove lungo l'asse di una circonferenza
+Campo di forze F-kv² lungo una retta
+
+23/01/14
+Pendolo appeso ad una molla appesa al soffitto | Giada | Fatto
 Pendolo dentro un treno che si muove su un meridiano
-Massa appoggiata a due cunei 
+Massa appoggiata a due cunei
+
+30/01/14
+La gravità non si comporta come dovrebbe a lunghe distanze. Urti fra materia oscura e un nucleo
+Problema a due corpi attaccati da una molla | Federico | Fatto
 
