@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Orbita della cometa di Halley} %ch
+\textex
+L'orbita della cometa di Halley ha un periodo di $T=76$ anni e un perielio $r_p=9\cdot10^{10}\mathrm{m}$.
+Calcolare l'eccetricità $\epsilon$ dell'orbita, potendo dare per buona la formula (in coordinate polari centrate nel sole):
+\begin{equation*}
+	r=\frac l{1-\epsilon\cos\theta}
+\end{equation*}
+
+\solution
+Sia $r_a$ l'afelio e $a$ il semiasse maggiore. Vale ovviamente $2a=r_a+r_p$.
+
+Inoltre, poichè $r_a,r_p$ sono i valori massimi e minimi di distanza dal sole, devono corrispondere ai $\theta$ che rendono minima e massima l'espressione $1-\epsilon\cos\theta$ e quindi corrispondono a $\cos\theta=\pm 1$.
+In formule ricavo:
+\begin{align*}
+	r_p=\frac l{1+\epsilon}\\
+	r_a=\frac l{1-\epsilon}
+\end{align*}
+e facendo il rapporto tra le due arrivo a:
+\begin{equation}\label{ch:Epsilon}
+	\frac{r_p}{r_a}=\frac{1-\epsilon}{1+\epsilon} \Rightarrow \epsilon \left(1+\frac{r_p}{r_a}\right)=1-\frac{r_p}{r_a} \Rightarrow \epsilon=\frac{r_a-r_p}{r_a+r_p} = \frac{2a-r_p-r_p}{2a}=1-\frac{r_p}a
+\end{equation}
+
+Ora per ricavare $a$ sfrutto la terza legge di Keplero \cref{PeriodoOrbita}:
+\begin{equation}
+	T=\frac{2\pi}{\sqrt{GM_s}}a^{\frac{3}{2}}\Rightarrow a=\sqrt[3]{\frac{T^2GM_s}{4\pi^2}}
+\end{equation}
+
+e sostituisco \cref{ch:Epsilon} ottenendo:
+\begin{equation*}
+	\epsilon=1-\frac{r_p}{\sqrt[3]{\frac{T^2GM_s}{4\pi^2}}}\approx 0.967
+\end{equation*}
+dove per ottenere il valore numerico ho semplicemente sostituito i valori.
+
+
+
+\end{document}
