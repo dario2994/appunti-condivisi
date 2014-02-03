@@ -27,6 +27,9 @@ Eccentricità dell'orbita di Halley | Federico | Fatto
 Massa che si muove lungo l'asse di una circonferenza
 Campo di forze F-kv² lungo una retta | Giada | Fatto
 
+20/01/14
+Data una stella che ruota di moto circolare con periodo e raggio noto, scoprire la posizione e la massa dell'altro corpo del sistema
+
 23/01/14
 Pendolo appeso ad una molla appesa al soffitto | Giada | Fatto
 Pendolo dentro un treno che si muove su un meridiano
