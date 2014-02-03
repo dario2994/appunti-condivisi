@@ -1,0 +1,41 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Due stelle che ruotano l'una attorno all'altra} %dsr
+\textex
+Si osserva una stella di massa $m_1$ orbitare su un orbita circolare di raggio $r_1$ con pulsazione $\omega$. Ciò si può spiegare ammettendo la presenza di un altro corpo che forma un sistema con la stella.
+
+Trovare la massa e la distanza dell'altro corpo.
+
+\solution
+Mi pongo nel sistema del centro di massa, sia $m_2$ la massa e $r_2$ la distanza del secondo corpo dal centro di massa, e sia $\vec r$ la posizione relativa dei due corpi. 
+
+Il primo corpo ruota ovviamente intorno al centro di massa e così anche il secondo corpo. Di conseguenza $\vec r$ stesso compie un moto circolare, anch'esso di frequenza $\omega$ e perciò risulta come noto:
+\begin{equation}\label{dsr:Centrifuga}
+	\ddot{\vec r}=-\omega^2r\hat r
+\end{equation}
+
+Sfruttando la \cref{ForzaMassaRidotta} ottengo:
+\begin{equation}\label{dsr:Gravita}
+	-G\frac{m_1m_2}{r^2}\hat r = \mu \ddot{\vec r}
+\end{equation}
+
+Ora unisco le \cref{dsr:Centrifuga,dsr:Gravita} ottenendo:
+\begin{equation*}
+	-G\frac{m_1m_2}{r^2}\hat r=\frac{m_1m_2}{m_1+m_2}\left(-\omega^2r\hat r\right) \Rightarrow \frac G{r^2}=\frac{\omega^2r}{m_1+m_2}
+	\Rightarrow \frac{Gm_1\left(1+\frac{m_2}{m_1}\right)}{\omega^2}=(r_1+r_2)^3
+\end{equation*}
+Ma per definizione di baricentro vale che $\frac{m_2}{m_1}=\frac{r_1}{r_2}$ e sostituendo nell'ultima arrivo a:
+\begin{equation}\label{dsr:eq1}
+	\frac{Gm_1\left(1+\frac{r_1}{r_2}\right)}{\omega^2}=(r_1+r_2)^3\Rightarrow \frac{Gm_1}{\omega^2}=r_2(r_1+r_2)^2
+\end{equation}
+
+Ma quest'ultima è una cubica in $r_2$ e perciò risolvendola ne posso trovare il valore, per poi ottenere $m_2$ basta sfruttare $m_2=m_1\frac{r_1}{r_2}$.
+
+In particolare sotto l'assunzione $m_1\gg m_2$, ho che risulta $r_2\gg r_1$ e quindi ne ricavo che la \cref{dsr:eq1} diviene:
+\begin{equation*}
+	\frac{Gm_1}{\omega^2}\approx r_2^3 \Rightarrow r_2\approx\sqrt[3]{\frac{Gm_1}{\omega^2}}
+\end{equation*}
+e questa è proprio l'approssimazione corretta nel caso in cui il corpo che non si riesce ad individuare è un pianeta, che ha quindi massa molto minore a quella della stella che si osserva.
+
+\end{document}
