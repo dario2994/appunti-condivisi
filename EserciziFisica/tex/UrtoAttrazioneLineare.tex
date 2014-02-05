@@ -1,0 +1,93 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Urto fra corpi con attrazione lineare nella distanza} %ual
+\textex
+Due masse $m_1$ ed $m_2$ interagiscono fra loro con una forza $\vec F$, che dipende dalla distanza $\vec r$ fra le due masse e che è definita come segue:
+\begin{equation*}
+\begin{cases}
+	\vec F=-k\vec r, &\mbox{se } |\vec r|<r_*\\
+	\vec F=0, & \mbox{se } |\vec r|\ge r_*\\
+\end{cases}
+\end{equation*}
+
+Inizialmente la massa $m_1$ si muove con velocità $v_0$ e parametro d'impatto $b$ rispetto alla massa $m_2$.
+Trovare la minima distanza di avvicinamento nei casi:
+\begin{enumerate}
+	\item $m_2\gg m_1$
+	\item $m_1=m_2$
+\end{enumerate}
+
+\solution
+Innanzitutto ho che se $b\ge r_*$ la minima distanza di avvicinamento è banalmente $b$, poichè non c'è interazione fra le due masse.
+
+Considero quindi ora solo il caso in cui $b<r_*$. 
+Per la \cref{ForzaMassaRidotta} ho che vale:
+\begin{equation*}
+	\vec F=\mu \vec r
+\end{equation*}
+da cui, per la \cref{Cinetica2Corpi}, ottengo:
+\begin{equation}\label{ual:energia1}
+	E=\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2+\frac12\mu\dot{\vec{r}}^2+U(r)
+\end{equation}
+dove $U(r)=-\int_{0}^r F(x) dx$, cioè:
+\begin{equation*}
+	\begin{cases}
+		U(r)=\frac12kr^2 &\mbox{per } r<r_*\\
+		U(r)=\frac12kr_*^2 &\mbox{per } r\ge r_*
+	\end{cases}
+\end{equation*}
+
+Sul sistema non agiscono forze esterne, quindi la velocità del centro di massa è costante.
+Si ha quindi che $E'=E-\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2$ è una costante del moto e in particolare, utilizzando la \cref{ual:energia1}, vale:
+\begin{equation}\label{ual:energia2}
+	E'=\frac12\mu\dot{\vec{r}}^2+U(r)=\frac12\mu\dot r^2+\frac12\mu r^2\dot \theta^2+U(r)
+\end{equation}
+
+So però che il momento angolare rispetto al centro di massa è una costante del moto e vale 
+\begin{equation*}
+	\vec L=\mu \vec r \times \dot {\vec r}=\mu r^2\dot\theta \hat z
+\end{equation*}
+Quindi la \cref{ual:energia2} diventa:
+\begin{equation*}
+	E'=\frac12\mu\dot r^2+\frac{L^2}{2\mu r^2}+U(r)
+\end{equation*}
+
+Alla minima distanza di avvicinamento, cioè quando $r$ è minimo, $\dot{r}$ sarà zero; di conseguenza il valore di $r$ è la minima soluzione positiva dell'equazione:
+\begin{equation*}
+	E'=\frac{L^2}{2\mu r^2}+U(r)
+\end{equation*}
+
+In particolare sicuramente nel punto in cui $r$ è minimo il potenziale $U(r)$ sarà uguale a $\frac12kr^2$, poichè ho già escluso il caso in cui la massa $m_1$ si trova sempre a distanza maggiore di $r_*$ dalla massa $m_2$. Mi sono ricondotta quindi ha trovare la minima soluzione positiva dell'equazione:
+\begin{equation*}
+	E'=\frac{L^2}{2\mu r^2}-\frac12k(r_*^2-r^2)
+\end{equation*}
+che risulta essere:
+\begin{equation}\label{ual:sol}
+	r_{min}^2=\frac{E'+\frac12 kr_*^2-\sqrt{(E'+\frac12 kr_*^2)^2-\frac{kL^2}{\mu}}}{k}
+\end{equation}
+
+Calcolo ora i valori di $E'$ e di $L$ nel punto in cui la distanza fra $m_1$ ed $m_2$ è per la prima volta $r_*$ (suppongo che la massa $m_1$ arrivi da ``lontano''). In tale punto la velocità di $m_1$ è $v_0$, quella di $m_2$ è nulla e il potenziale vale $U(r)=0$. L'energia $E'$ vale quindi:
+\begin{equation}\label{ual:valEnergia}
+	E'=E-\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2=\frac12m_1v_0^2-\frac12 \frac{m_1^2}{m_1+m_2}v_0^2=\frac12 \mu v_0^2
+\end{equation}
+Il momento angolare rispetto al centro di massa risulta essere invece:
+\begin{equation}\label{ual:valMomento}
+	L=\frac{m_1m_2}{m_1+m_2}bv_0=\mu bv_0
+\end{equation}
+
+Sostituendo la \cref{ual:valEnergia} e la \cref{ual:valMomento} nella \cref{ual:sol}, ottengo infine:
+\begin{equation*}
+	r_{min}^2=\frac{\frac12\mu v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\mu v_0^2+\frac12 kr_*^2)^2-k\mu b^2v_0^2}}{k}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+\end{document}
