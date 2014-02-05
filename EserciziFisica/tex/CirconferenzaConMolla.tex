@@ -14,7 +14,7 @@ Le forze che agiscono sulla pallina sono:
 \item Reazione vincolare: è perpendicolare alla velocità perchè non c'è attrito, quindi non compie lavoro
 \item Forza di richiamo della molla: è conservativa
 \end{itemize}
-Di conseguenza, l'energia meccanica totale della pallina si conserva. \\
+Di conseguenza, l'energia meccanica totale della pallina si conserva.
 
 %Conservazione dell'energia
 Sia $\theta$ l'angolo che il raggio compreso tra il diametro verticale e il raggio che collega il centro della circonferenza con la pallina (per chiarire, quando la pallina è nel punto più basso ho $\theta = 0$, quando sta sul diametro orizzontale ho $\theta = \frac{\pi}{2}$). L'energia cinetica della pallina è $T=\frac{1}{2}mR^2\dot\theta^2$, mentre l'energia potenziale gravitazionale è data dalla somma dell'energia potenziale gravitazionale e dell'energia potenziale elastica: $U_{gr} = -mgR\cos\theta$ (considero $U_{gr}=0$ quando la pallina sta sul diametro orizzontale della circonferenza) e $U_{el} = \frac{1}{2}k\left ( 2R\cos\frac{\theta}{2} - l\right )^2$. Dunque
@@ -30,11 +30,11 @@ I punti di equilibrio si hanno quando l'energia potenziale è minima (equilibrio
 Gli zeri della funzione (cioè i massimi/minimi dell'energia potenziale) sono dati da $$\sin\frac{\theta_1}{2} = 0,\  \cos\frac{\theta_2}{2}=\frac{kl}{2\left ( Rk - mg\right )}$$
 Osservo in particolare che, poichè $\theta$ è compreso tra $0$ e $\frac{\pi}{2}$, la seconda soluzione ha senso solo se $0 \le \frac{kl}{2\left ( Rk - mg\right )} \le 1$ cioè solo quando $l\le2\left ( R - \frac{gm}{k}\right )$.
 Per capire se l'equilibrio è stabile o no, e per trovare la frequenza delle piccole oscillazioni attorno alla posizione di equilibrio, derivo la \cref{ccm:ConsEnergia} (rispetto al tempo) e sviluppo in un intorno di $\theta_1$ e poi $\theta_2$. Poiché l'energia è costante, la sua derivata è nulla, quindi 
-$$\frac{dE}{dt}=2 \frac{1}{2}mR^2\dot\theta\ddot\theta-mgR\left (-\dot\theta\sin\theta\right ) + \frac{1}{2}k\cdot 2\left (2R\cos\frac{\theta}{2}-l\right ) \left ( -\frac{1}{2}\cdot 2R\sin\frac{\theta}{2}\right )\dot\theta = 0$$
-$$mR^2\dot\theta\ddot\theta+mgR\dot\theta\sin\theta-2kR^2\dot\theta\sin\frac{\theta}{2}\cos\frac{\theta}{2}+klR\dot\theta\sin\frac{\theta}{2}$$
-\begin{equation}\label{ccm:EqMotoGiusta}
-	mR\ddot\theta = \left ( kR - mg \right )\sin\theta - kl\sin\frac{\theta}{2}
-\end{equation}
+\begin{gather}
+	\frac{dE}{dt}=2 \frac{1}{2}mR^2\dot\theta\ddot\theta-mgR\left (-\dot\theta\sin\theta\right ) + \frac{1}{2}k\cdot 2\left (2R\cos\frac{\theta}{2}-l\right ) \left ( -\frac{1}{2}\cdot 2R\sin\frac{\theta}{2}\right )\dot\theta = 0 \notag \\
+	\Longrightarrow mR^2\dot\theta\ddot\theta+mgR\dot\theta\sin\theta-2kR^2\dot\theta\sin\frac{\theta}{2}\cos\frac{\theta}{2}+klR\dot\theta\sin\frac{\theta}{2}=0 \notag\\
+	\Longrightarrow mR\ddot\theta = \left ( kR - mg \right )\sin\theta - kl\sin\frac{\theta}{2} \label{ccm:EqMotoGiusta}
+\end{gather}
 
 che, sviluppata al primo ordine in un intorno di $\theta_0$, diventa:
 \begin{equation}
@@ -47,13 +47,12 @@ Ponendo $C(\theta_0) = \left ( kR - mg \right ) \left ( \sin\theta_0 - \theta_0\
 \end{equation}
 
 
-
 % theta = 0
 Per $\theta_0 = \theta_1 = 0$ ottengo (sostituendo nella \cref{ccm:EqApprossimata})
 \begin{equation*}
 	mR\ddot\theta = \left ( -mg + kR -\frac{1}{2}kl\right )\theta + C(0)
 \end{equation*}
-Dunque l'equilibrio è stabile se il coefficiente di $\theta$ è negativo, cioè se $l> 2\left ( R - \frac{mg}{k} \right )$ e in questo caso la frequenza angolare $\omega_1$ è $$\omega_1 = \sqrt{\frac{2gm-2kR+kl}{2mR}}$$\\
+Dunque l'equilibrio è stabile se il coefficiente di $\theta$ è negativo, cioè se $l> 2\left ( R - \frac{mg}{k} \right )$ e in questo caso la frequenza angolare $\omega_1$ è $$\omega_1 = \sqrt{\frac{2gm-2kR+kl}{2mR}}$$
 
 %theta = schifo
 Per $\theta_0=\theta_2$ la \cref{ccm:EqApprossimata} diventa:
