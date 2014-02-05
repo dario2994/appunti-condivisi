@@ -53,23 +53,25 @@ Quindi la \cref{ual:energia2} diventa:
 	E'=\frac12\mu\dot r^2+\frac{L^2}{2\mu r^2}+U(r)
 \end{equation*}
 
-Alla minima distanza di avvicinamento, cioè quando $r$ è minimo, $\dot{r}$ sarà zero; di conseguenza il valore di $r$ è la minima soluzione positiva dell'equazione:
+Alla minima distanza di avvicinamento, cioè quando $r$ è minimo, $\dot{r}$ sarà zero; di conseguenza il valore di $r$ è una soluzione positiva dell'equazione:
 \begin{equation*}
 	E'=\frac{L^2}{2\mu r^2}+U(r)
 \end{equation*}
 
-In particolare sicuramente nel punto in cui $r$ è minimo il potenziale $U(r)$ sarà uguale a $\frac12kr^2$, poichè ho già escluso il caso in cui la massa $m_1$ si trova sempre a distanza maggiore di $r_*$ dalla massa $m_2$. Mi sono ricondotta quindi ha trovare la minima soluzione positiva dell'equazione:
+In particolare sicuramente nel punto in cui $r$ è minimo il potenziale $U(r)$ sarà uguale a $\frac12kr^2$, poichè ho già escluso il caso in cui la massa $m_1$ si trova sempre a distanza maggiore di $r_*$ dalla massa $m_2$. Mi sono ricondotta quindi a studiare le soluzioni positive dell'equazione:
 \begin{equation*}
-	E'=\frac{L^2}{2\mu r^2}-\frac12k(r_*^2-r^2)
+	E'=\frac{L^2}{2\mu r^2}+\frac12kr^2
 \end{equation*}
-che risulta essere:
+La funzione $f:\mathbb{R^+}\to\mathbb{R}$, definita da $f(x)=\frac{L^2}{2\mu x^2}+\frac12kx^2-E'$, è convessa e tende a $+\infty$ per $x\to 0$ e per $x\to +\infty$. Quindi $f(x)$ ha due radici, di cui ci interessa quella di modulo minore, poichè l'altra ha derivata positiva.
+ 
+La minima distanza di avvicinamento vale perciò:
 \begin{equation}\label{ual:sol}
-	r_{min}^2=\frac{E'+\frac12 kr_*^2-\sqrt{(E'+\frac12 kr_*^2)^2-\frac{kL^2}{\mu}}}{k}
+	r_{min}=\sqrt{ \frac{E'- \sqrt{E'^2-\frac{kL^2}{\mu}}}{k} }
 \end{equation}
 
-Calcolo ora i valori di $E'$ e di $L$ nel punto in cui la distanza fra $m_1$ ed $m_2$ è per la prima volta $r_*$ (suppongo che la massa $m_1$ arrivi da ``lontano''). In tale punto la velocità di $m_1$ è $v_0$, quella di $m_2$ è nulla e il potenziale vale $U(r)=0$. L'energia $E'$ vale quindi:
+Calcolo ora i valori di $E'$ e di $L$ nel punto in cui la distanza fra $m_1$ ed $m_2$ è per la prima volta $r_*$ (suppongo che la massa $m_1$ arrivi da ``lontano''). In tale punto la velocità di $m_1$ è $v_0$, quella di $m_2$ è nulla e il potenziale vale $U(r_*)=\frac12kr_*^2$. L'energia $E'$ vale quindi:
 \begin{equation}\label{ual:valEnergia}
-	E'=E-\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2=\frac12m_1v_0^2-\frac12 \frac{m_1^2}{m_1+m_2}v_0^2=\frac12 \mu v_0^2
+	E'=E-\frac12(m_1+m_2)\dot{\overrightarrow{r_Q}}^2=\frac12m_1v_0^2+\frac12kr_*^2-\frac12 \frac{m_1^2}{m_1+m_2}v_0^2=\frac12 \mu v_0^2+\frac12 kr_*^2
 \end{equation}
 Il momento angolare rispetto al centro di massa risulta essere invece:
 \begin{equation}\label{ual:valMomento}
@@ -77,9 +79,21 @@ Il momento angolare rispetto al centro di massa risulta essere invece:
 \end{equation}
 
 Sostituendo la \cref{ual:valEnergia} e la \cref{ual:valMomento} nella \cref{ual:sol}, ottengo infine:
-\begin{equation*}
-	r_{min}^2=\frac{\frac12\mu v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\mu v_0^2+\frac12 kr_*^2)^2-k\mu b^2v_0^2}}{k}
-\end{equation*}
+\begin{equation} \label{ual:solGenerale}
+	r_{min}=\sqrt{\frac{\frac12\mu v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\mu v_0^2+\frac12 kr_*^2)^2-k\mu b^2v_0^2}}{k}}
+\end{equation}
+
+Studio ora i casi in cui $m_2\gg m_1$ e $m_1=m_2$.
+\begin{enumerate}
+	\item Se $m_2\gg m_1$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}$ si può approssimare a $m_1$, quindi la \cref{ual:solGenerale} diventa:
+	\begin{equation*}
+		r_{min}=\sqrt{\frac{\frac12m_1 v_0^2+\frac12 kr_*^2-\sqrt{(\frac12m_1 v_0^2+\frac12 kr_*^2)^2-km_1 b^2v_0^2}}{k}}
+	\end{equation*}
+	\item Se invece $m_1=m_2=m$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}=\frac m2$, quindi dalla \cref{ual:solGenerale} ottengo:
+	\begin{equation*}
+		r_{min}=\sqrt{\frac{\frac12\frac m2 v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\frac m2 v_0^2+\frac12 kr_*^2)^2-k\frac m2 b^2v_0^2}}{k}}
+	\end{equation*}
+\end{enumerate}
 
 
 
