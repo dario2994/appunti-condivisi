@@ -8,7 +8,7 @@ Asta che ruota con massetta vincolata sopra | Davide | Fatto
 Campo di forza centrale, dato theta(t)=kr^(-a) trovare f(r) | Marco | Fatto
 Pendolo isocrono
 Vettore di Lenz, direzione modulo ecc | Federico | Fatto
-Pallina vincolata su una circonferenza verticale, con molla | Alice
+Pallina vincolata su una circonferenza verticale, con molla | Alice | Fatto
 Due satelliti attorno alla Terra (quando restano attaccati ecc)
 Pallina che scivola su una spirale | Alice | Fatto
 Palla con filo che si arrotola su un perno | Francesco |fatto
