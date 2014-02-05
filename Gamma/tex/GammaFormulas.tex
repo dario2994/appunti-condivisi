@@ -2,6 +2,57 @@
 Proponiamo ora alcune formule rispettate dalla funzione Gamma. Queste risultano utili sia per dimostrari ulteriori proprietà della
 funzione qui studiata, sia per il calcolo di molti integrali definiti.
 
+\begin{lemma}[Prodotto infinito del seno] \label{gf:ProdottoSeno}
+	Vale la seguente formula per il seno come prodotto infinito:
+	\begin{equation*}
+		\frac{\sin (\pi x)}{\pi x}=\prod_{k=0}^{\infty} \left(1-\frac{x^2}{ k^2}\right)
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Sia $I_n:\mathbb{R}\to\mathbb{R}$ una funzione definita come segue
+	\begin{equation} \label{gf:IntSenDefinition}
+		I_n(z)=\int_0^{\frac{\pi}2}{\cos{zt}\cos^nt \de t}
+	\end{equation}
+	
+	Innanzitutto ho che vale
+	\begin{equation}\label{gf:SenRis1}
+		\frac{I_0(z)}{I_0(0)}=\frac{\int_0^{\frac{\pi}2}{\cos{zt} \de t}}{\frac{\pi}2}=\frac{\sin(\frac {\pi z} 2)}{\frac {\pi z} 2}
+	\end{equation}
+	
+	Inoltre derivando due volte per parti la \cref{gf:IntSenDefinition} ottengo
+	\begin{align*}
+		z^2 I_n(z) 	& =z^2 \int_0^{\frac{\pi}2}{\cos{zt}\cos^nt \de t}=z\left[ \sin{zt}\cos^nt \right]_0^{\frac{\pi}2}+nz\int_0^{\frac{\pi}2}{\sin{zt}\sin t\cos^{n-1}t \de t} \\
+					& =n\left[ -\cos{zt}\sin t\cos^{n-1}t \right]_0^{\frac{\pi}2}+n\int_0^{\frac{\pi}2}{\cos{zt}(\cos^nt-(n-1)\sin^2t\cos^{n-2}t )\de t} \\
+					& =n^2 \int_0^{\frac{\pi}2}{\cos{zt}\cos^nt \de t} -n(n-1) \int_0^{\frac{\pi}2}{\cos{zt}\cos^{n-2}t \de t}=n^2 I_n(z)-n(n-1) I_{n-2}(z)
+	\end{align*}
+	da cui 
+	\begin{equation} \label{gf:SenRis2}
+		(n^2-z^2)I_n(z)=n(n-1)I_{n-2}(z) \Longrightarrow \frac{I_{n-2}(z)}{I_{n-2}(0)}=\left( 1-\frac{z^2}{n^2} \right) \frac{I_n(z)}{I_n(0)}
+	\end{equation}
+	
+	Infine, utilizzando la serie di disuguaglianze $\displaystyle 1-\cos t\le \frac{t^2}{2} \le \frac{t\tan t}{2}$, ho che
+	\begin{align*}
+		|I_n(0)-I_n(z)|	& \le \int_0^{\frac{\pi}2}{(1-\cos{zt})\cos^nt \de t}\le \frac{z^2}{2}\int_0^{\frac{\pi}2}{t\tan t \cos^nt \de t}\\
+						& =\frac{z^2}{2}\int_0^{\frac{\pi}2}{t\sin t \cos^{n-1}t \de t}=\frac{z^2}{2n}\left[ t\cos^nt \right]_0^{\frac{\pi}2}+\frac{z^2}{2n}\int_0^{\frac{\pi}2}{\cos^nt \de t}=\frac{z^2}{2n}I_n(0)
+	\end{align*}
+	quindi ottengo
+	\begin{equation} \label{gf:SenRis3}
+		\left| 1-\frac{I_n(z)}{I_n(0)} \right|\le \frac{z^2}{2n} \Longrightarrow \frac{I_n(z)}{I_n(0)}\to 1
+	\end{equation}
+	
+	Sfruttando la \cref{gf:SenRis1}, la \cref{gf:SenRis2} e la \cref{gf:SenRis3}, e ponendo $x=2z$, ottengo
+	\begin{gather*}
+		\frac{\sin(\pi x)}{\pi x}=\frac{I_0(2x)}{I_0(0)}=\frac{I_{2n}(2x)}{I_{2n}(0)}\prod_{k=1}^{n}\left( 1-\frac{x^2}{k^2} \right) \\
+		\Longrightarrow \frac{\sin(\pi x)}{\pi x}=\lim_{n\to\infty} \frac{I_{2n}(2x)}{I_{2n}(0)}\prod_{k=1}^{n}\left( 1-\frac{x^2}{k^2} \right) = \prod_{k=1}^{\infty}\left( 1-\frac{x^2}{k^2} \right)
+	\end{gather*}
+	che è proprio la tesi.
+
+
+
+\end{proof}
+
+
+
 \begin{theorem}[Formula di riflessione] \label{Riflessione}
 	Per $0<x<1$ reale vale:
 	\begin{equation*}
@@ -18,11 +69,7 @@ funzione qui studiata, sia per il calcolo di molti integrali definiti.
 		\left( \lim_{n\to\infty} x \prod_{k=1}^{n}\left(1-\frac{x^2}{k^2}\right) \right)^{-1}
 	\end{split}\end{equation}
 
-	Ed ora ricordando la formula del seno come prodotto infinito:
-	\begin{equation*}
-		\sin(\pi x)=\pi x \prod_{k=0}^{\infty} \left(1-\frac{x^2}{k^2}\right)
-	\end{equation*}
-	ottengo che l'ultimo membro della \cref{MezzaRiflessione} risulta $\frac{\pi}{\sin(\pi x)}$, che è la tesi del teorema.
+	Ora, grazie alle \cref{gf:ProdottoSeno}, ho che l'ultimo membro della \cref{MezzaRiflessione} risulta $\frac{\pi}{\sin(\pi x)}$, da cui la tesi del teorema.
 \end{proof}
 
 \begin{remark}[Valore di $\Gamma\left(\frac12\right)$]
