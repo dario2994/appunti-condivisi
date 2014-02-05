@@ -24,24 +24,15 @@
 \newcommand{\crefrangepreconjunction}{da }
 \newcommand{\crefrangeconjunction}{ a }
 
-\newcommand\esercizio[3]{
-	\section{#1}
-	\subsection{Testo}
-	#2
-	\subsection{Soluzione}
-	#3
-	
-	\clearpage
-}
 
 \setcounter{tocdepth}{3}
 
-\newcommand\exercise[1]
+\newcommand\exercise[2][]
 {
 	\clearpage
 	\setcounter{equation}{0}
 	\renewcommand{\theequation}{\thesection.\arabic{equation}}
-	\section{#1}
+	\section[#2]{#2 \hfill \normalsize{\textmd{#1}}}
 }
 
 \newcommand\textex
@@ -57,6 +48,8 @@
 	\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
 	\subsection{Soluzione #1}
 }
+
+% \newcommand\exComment
 
 \newcommand\de{\ensuremath{\mathrm{d}}}
 

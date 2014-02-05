@@ -33,7 +33,7 @@ I file .tex nella cartella tex/
 		\documentclass[../main.tex]{subfiles} 
 		\begin{document}
 		
-		\exercise[NOME PROBLEMA] %CODICE PROBLEMA
+		\exercise[Data]{NOME PROBLEMA} %CODICE PROBLEMA
 		
 		\textex
 		Testo del problema.
@@ -44,8 +44,9 @@ I file .tex nella cartella tex/
 		\sol[2]
 		Seconda soluzione
 		
-		end{document}
+		end{document}	
 	
+	La Data è opzionale, se messa deve essere in questa forma giorno/mese/anno (es. 13/01/2014)
 	Trovate degli esempi nella cartella tex/
 	In particolare è obbligatorio il commento %CODICE PROBLEMA.
 	Il codice del problema deve essere una stringa di 2-3 caratteri che identifica
