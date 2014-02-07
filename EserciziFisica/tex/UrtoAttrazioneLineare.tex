@@ -18,6 +18,8 @@ Trovare la minima distanza di avvicinamento nei casi:
 	\item $m_1=m_2$
 \end{enumerate}
 
+Si consideri ora solo il caso in cui $m_1=m_2=m$. Dato $\theta_1$ l'angolo di deflessione della massa $m_1$ rispetto alla direzione inziale, calcolare $v_1',v_2'$, le velocità delle due masse dopo l'interazione, e $\theta_2$, l'angolo di deflessione della massa $m_2$.
+
 \solution
 Innanzitutto ho che se $b\ge r_*$ la minima distanza di avvicinamento è banalmente $b$, poichè non c'è interazione fra le due masse.
 
@@ -94,6 +96,22 @@ Studio ora i casi in cui $m_2\gg m_1$ e $m_1=m_2$.
 		r_{min}=\sqrt{\frac{\frac12\frac m2 v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\frac m2 v_0^2+\frac12 kr_*^2)^2-k\frac m2 b^2v_0^2}}{k}}
 	\end{equation*}
 \end{enumerate}
+
+Mi pongo ora nel caso $m_1=m_2=m$ e calcolo i dati richiesti dal problema, $v_1',v_2'$ e $\theta_2$.
+
+Per la conservazione dell'energia ho che
+\begin{equation} \label{ual:consEn}
+	\frac 12 m_1v_1^2=\frac 12 m_1v_1'^2+\frac 12 m_2v_2'^2 \Longrightarrow v_1^2=v_1'^2+v_2'^2
+\end{equation}
+Per la conservazione della quantità di moto, scomposta lungo la direzione iniziale di $m_1$ e perpendicolarmente ad essa, ho invece:
+\begin{equation} \label{ual:consQM}
+	\begin{cases}
+		v_1=v_1'\cos\theta_1+v_2'\cos\theta_2 \\
+		0=v_1'\sin\theta_1-v_2'\sin\theta_2
+	\end{cases}
+\end{equation}
+
+
 
 
 
