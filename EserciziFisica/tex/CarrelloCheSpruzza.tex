@@ -1,0 +1,44 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[6/02/2014]{Carrello che spruzza acqua} %csa
+\textex
+Un carrello di massa $m$ contiene inizialmente dell'acqua di massa $m$. Il carrello inizia a spruzzare acqua a velocità $v_0$ (costante) e ad un angolo $\alpha$ rispetto all'orizzontale. Sapendo che la massa espulsa per unità di tempo è $\gamma$, scrivere le equazioni del moto per il carrello.
+
+\solution
+Sapendo che la massa espulsa per unità di tempo è $\gamma$ e ponendoci nella convenzione in cui $\de m$ è negativo, ricaviamo facilmente che:
+\begin{equation*}
+	\frac{\de m}{\de t}=-\gamma \Longrightarrow m(t)=2m-\gamma t
+\end{equation*}
+per ogni $0\le t \le \frac{m}{\gamma}$. Dopo tempo $t=\frac{m}{\gamma}$ il carrello ha espulso tutta l'acqua che aveva al suo interno e si muoverà quindi di moto rettilineo uniforme.
+
+L'unica componente del moto che mi interessa (l'unica che ha il carrello) è quella lungo il piano orizzontale. Mi pongo quindi nel sistema di riferimento che ha asse $x$ coincidente con l'asse orizzontale, origine nel punto da cui parte il carrello e verso uguale al verso del moto del carrello.
+In particolare lungo tale asse la risultante delle forze esterne è 0, quindi per l'equazione \cref{EqMassaVariabile}, vale:
+\begin{equation*}
+	0=\frac{\de}{\de t} (m\vec v)-\frac{\de m}{\de t}(\vec v+\vec{v}_{rel})
+\end{equation*}
+che corrisponde alla conservazione della quantità di moto lungo l'asse orizzontale.
+
+Ottengo quindi:
+\begin{equation*}
+	\frac{\de}{\de t} (m\vec v)=\frac{\de m}{\de t}(\vec v+\vec{v_{rel}}) \Longrightarrow m \frac{\de \vec v}{\de t}=\frac{\de m}{\de t}\vec{v}_{rel}\Longrightarrow m\de \vec v=\vec{v}_{rel}\de m
+\end{equation*}
+Poichè i vettori considerati sono tutti lungo l'asse $x$ posso considerarne solo l'intensità. Ho quindi $\vec v=v\hat x$, mentre $\vec v_{rel}=-(v_0\cos\alpha)\hat x=-v_r\hat x$, da cui:
+\begin{gather*}
+	m\de v=-v_r\de m \Longrightarrow \int_0^{v(t)}\de v=-v_r\int_{m(0)}^{m(t)}\frac{\de m}{m}\\
+	\Longrightarrow v(t)=-v_r \ln\left( \frac{m(t)}{m(0)} \right)=-v_r\ln\left( 1-\frac{\gamma t}{2m} \right) \\
+	\Longrightarrow x(t)=\int_0^{t} v(u) \de u=-v_r \int_0^{t} \ln\left( 1-\frac{\gamma u}{2m} \right) \de u\\
+							=c_r \frac{2m}{\gamma} \left[ u (\ln u-1) 	\right]_1^{1-\frac{\gamma t}{2m}}
+\end{gather*}
+E sostituendo $w= 1-\frac{\gamma u}{2m}$ ottengo infine:
+\begin{gather*}
+	x(t)=\frac{2m v_r}{\gamma}\int_{0}^{1-\frac{\gamma t}{2m}} \ln w \de w=\frac{2mv_r}{\gamma} \left[ w (\ln w-1) 	\right]_1^{1-\frac{\gamma t}{2m}}
+\end{gather*}
+
+
+
+
+
+
+
+\end{document}
