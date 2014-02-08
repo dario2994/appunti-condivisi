@@ -154,60 +154,22 @@ noto di analisi) mentre la seconda usa pesantemente vari fatti dimostrati nelle 
 	da cui passando al limite nella \cref{ga:QuasiStirling} ottengo la tesi.
 \end{proof}
 
-\begin{lemma}\label{ga:ApproxReali}
-	Vale la seguente stima
-	\begin{equation*}
-		\log{\Gamma(x+1)}=\log{\Gamma(\partint{x} +1)}+\{x\}\log(x)+\bigO\left(\frac 1x\right)
-	\end{equation*}
-\end{lemma}
-\begin{proof}
-	La dimostrazione segue le linee di quella di \cref{dg:RapportoAsint}.
-	
-	Applico il teorema di Lagrange sulla funzione $\log\Gamma$, sfruttando \cref{dg:psiApprox}, ottenendo che esiste
-	$\partint{x}\le x'\le x$ tale che:
-	\begin{equation}
-		\log{\Gamma(x+1)}-\log{\Gamma(\partint{x} +1)}=\{x\}\psi(x')=\{x\}\log(x')+\bigO\left(\frac 1{x'}\right)=
-		\{x\}\log(x)+\bigO\left(\frac 1x\right)
-	\end{equation}
-	che è la tesi.
-\end{proof}
-
-\begin{lemma}\label{ga:StupidaApprox}
-	Vale la seguente approssimazione:
-	\begin{equation*}
-		\partint{x}(\log(\partint{x})-1)=\partint{x} \log(x)-x+\smallO(1)
-	\end{equation*}
-\end{lemma}
-\begin{proof}
-	Applicando Lagrange (e implicitamente delle approssimazioni sull'inverso):
-	\begin{equation}\label{ga:NoiaApprox}
-		\log{x}=\log{\partint{x}} + \frac{\{x\}}{\partint{x}} +\smallO\left(\frac 1{\partint{x}}\right)
-	\end{equation}
-	
-	Applicando \cref{ga:NoiaApprox} vale la seguente catena di uguaglianze:
-	\begin{equation*}
-		\partint{x}(\log(\partint{x})-1)=\partint{x}\log{x}-\{x\}+
-		\partint{x}\smallO\left(\frac 1{\partint{x}}\right)-\partint{x}=
-		\partint{x}\log{x}-x+\smallO(1)
-	\end{equation*}
-	e questo è equivalente alla tesi.
-\end{proof}
-
-
-
 \begin{proof}[Seconda dimostrazione di Stirling]
-	Applicando \cref{ga:ApproxReali,ga:StupidaApprox,f:StirlingNaturali} ho:
-	\begin{equation*}\begin{split}
-		\log{\Gamma(x+1)}&=\log\Gamma(\partint{x}+1)+\{x\}\log{x}+\bigO\left(\frac 1x\right)\\
-		&=\partint{x}\left(\log{x}-1\right)+\log{\sqrt{2\pi\partint{x}}}+\{x\}\log{x}+\bigO\left(\frac 1x\right)\\
-		&=\partint{x} \log(x)-x+\smallO(1)+\log{\sqrt{2\pi x}}+\{x\}\log{x}+\bigO\left(\frac 1x\right)\\
-		&=x(\log{x}-1)+\log{\sqrt{2\pi x}}+\smallO(1)
-	\end{split}\end{equation*}
-	Che è proprio l'approssimazione di Stirling.
+	Applicando \cref{dg:RapportoAsint,f:StirlingNaturali} ottengo:
+	\begin{equation}\label{ga:QuasiStirling2}\begin{split}
+		\Gamma(x+1)&=\frac{\Gamma\left(\partint{x+1}+\{x\}\right)}{\Gamma\left(\partint{x+1}\right)}\cdot\Gamma\left(\partint{x+1}\right)\sim
+		\left(\partint{x+1}\right)^{\{x\}}\sqrt{2\pi\partint{x}}\left(\frac{\partint{x}}e\right)^{\partint{x}} \\
+		&\sim x^{\{x\}}\sqrt{2\pi x}\left(\frac{\partint{x}}e\right)^{\partint{x}}
+		=\sqrt{2\pi x}\left(\frac xe\right)^x \cdot\left[\left(\frac{\partint{x}}x\right)^{\partint{x}} e^{\{x\}}\right]
+	\end{split}\end{equation}
+
+	Allo stesso tempo espandendo il logaritmo al prim'ordine ho che vale:
+	\begin{equation}\label{ga:ContoLogaritmo}
+		\partint{x}\log\left(1+\frac{\{x\}}{\partint{x}}\right)=\partint{x}\left[\frac{\{x\}}{\partint{x}}+\smallO\left(\frac{\{x\}}{\partint{x}}\right)\right]=\{x\}+\smallO(1) \Longrightarrow \left(1+\frac{\{x\}}{\partint{x}}\right)^{\partint{x}}\sim e^{\{x\}}
+	\end{equation}
+	
+	Sostituendo \cref{ga:ContoLogaritmo} in \cref{ga:QuasiStirling2} ottengo proprio l'approssimazione di Stirling.
 \end{proof}
-
-
-
 
 
 
