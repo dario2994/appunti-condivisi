@@ -50,25 +50,25 @@ all'idea che la Gamma nasce come estensione ``esatta'' del fattoriale a tutti i 
 	\end{equation}
 	cioè, passando al logaritmo, che esiste il limite:
 	\begin{equation}\label{f:EsisteLimiteLogaritmo}
-		\lim_{n\to\infty}{\sum_{k=1}^{n}\ln k-n\ln n+n-\frac{1}{2}\ln n}
+		\lim_{n\to\infty}{\sum_{k=1}^{n}\log k-n\log n+n-\frac{1}{2}\log n}
 	\end{equation}
 	
 	Vale la seguente identità:
 	\begin{equation*}
-		\sum_{k=1}^{n}\ln k=n\ln n-\sum_{k=1}^{n-1}{k\left(\ln(k+1)-\ln k \right)}=n\ln n-\sum_{k=1}^{n-1}{k\ln\left(1+\frac{1}{k}\right)}
+		\sum_{k=1}^{n}\log k=n\log n-\sum_{k=1}^{n-1}{k\left(\log(k+1)-\log k \right)}=n\log n-\sum_{k=1}^{n-1}{k\log\left(1+\frac{1}{k}\right)}
 	\end{equation*}
 	da cui, sostituendo il logaritmo con il suo sviluppo di Taylor, ottengo:
 	\begin{equation*}
 	\begin{split}
-		\sum_{k=1}^{n}\ln k	& =n\ln n-\sum_{k=1}^{n-1}{k\left(\frac{1}{k}-\frac{1}{2k^2}+\bigO\left(\frac{1}{k^3}\right) \right)}\\
-							& =n\ln n-\sum_{k=1}^{n-1}\left(1-\frac{1}{2k}+\bigO\left(\frac{1}{k^2}\right)  \right)\\
-							& =n\ln n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
+		\sum_{k=1}^{n}\log k	& =n\log n-\sum_{k=1}^{n-1}{k\left(\frac{1}{k}-\frac{1}{2k^2}+\bigO\left(\frac{1}{k^3}\right) \right)}\\
+							& =n\log n-\sum_{k=1}^{n-1}\left(1-\frac{1}{2k}+\bigO\left(\frac{1}{k^2}\right)  \right)\\
+							& =n\log n-n+1+\frac{1}{2}\sum_{k=1}^{n-1}\frac{1}{k}+\sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)
 	\end{split}
 	\end{equation*}
-	Ora sfruttando che $\displaystyle \sum_{k=1}^{n-1}\frac{1}{n}-\ln n\to \gamma$ e che $\displaystyle \sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)\to L$
+	Ora sfruttando che $\displaystyle \sum_{k=1}^{n-1}\frac{1}{n}-\log n\to \gamma$ e che $\displaystyle \sum_{k=1}^{n-1}\bigO\left(\frac{1}{k^2}\right)\to L$
 	dato che converge assolutamente, ottengo:
 	\begin{equation}\label{f:QuasiStirlingNaturali}
-		\sum_{k=1}^{n}\ln k=n\ln n-n+\frac{1}{2}\ln n + \left(\frac{\gamma}2 + L\right)
+		\sum_{k=1}^{n}\log k=n\log n-n+\frac{1}{2}\log n + \left(\frac{\gamma}2 + L\right)
 	\end{equation}
 	Che passando al limite è proprio equivalente a \cref{f:EsisteLimiteLogaritmo}.
 	

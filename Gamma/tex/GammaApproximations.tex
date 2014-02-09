@@ -84,11 +84,11 @@ noto di analisi) mentre la seconda usa pesantemente vari fatti dimostrati nelle 
 		\Gamma(x+1) & = \int_0^\infty{e^{-t}t^{x}dt}\\
 					& = \int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-x(1+s\sqrt{2/x})} x^x\left(1+s\sqrt{\frac{2}{x}}\right)^x \sqrt{2x} ds}\\
 					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ \left[e^{-s\sqrt{2/x}} \left(1+s\sqrt{\frac{2}{x}}\right)\right]^x ds}\\
-					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s\sqrt{2x}+x\ln\left(1+s\sqrt{\frac{2}{x}}\right)} ds}\\
-					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s^2\left(\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)\right)} ds}
+					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s\sqrt{2x}+x\log\left(1+s\sqrt{\frac{2}{x}}\right)} ds}\\
+					& = e^{-x}x^x\sqrt{2x}\int_{-\sqrt{\frac{x}{2}}}^\infty{ e^{-s^2\left(\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\log\left(1+s\sqrt{\frac{2}{x}}\right)\right)} ds}
 	\end{split}
 	\end{equation}
-	Ora definisco per comodità $h_x(s)=\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ 
+	Ora definisco per comodità $h_x(s)=\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\log\left(1+s\sqrt{\frac{2}{x}}\right)$ 
 	e mi concentro su quest'ultimo integrale, in particolare esso è uguale a:
 	\begin{equation*}
 		\int_{-\infty}^\infty{ f_x(s) ds}
@@ -103,10 +103,10 @@ noto di analisi) mentre la seconda usa pesantemente vari fatti dimostrati nelle 
 	
 	Dimostro innanzitutto che $f_x(s)\to e^{-s^2}$ uniformemente su $[a,b]$ per $x\to\infty$, con 
 	$-\infty<a<b<\infty$. Ciò equivale a dimostrare che $h_x(s)\to 1$ uniformemente su $[a,b]$ per $x\to\infty$.
-	Sostituendo a $\ln\left(1+s\sqrt{\frac{2}{x}}\right)$ il suo sviluppo di Taylor ottengo la seguente identità:
+	Sostituendo a $\log\left(1+s\sqrt{\frac{2}{x}}\right)$ il suo sviluppo di Taylor ottengo la seguente identità:
 	\begin{equation*}
 	\begin{split}
-		h_x(s)	& =\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\ln\left(1+s\sqrt{\frac{2}{x}}\right)\\
+		h_x(s)	& =\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\log\left(1+s\sqrt{\frac{2}{x}}\right)\\
 				& =\frac{\sqrt{2x}}{s}-\frac{x}{s^2}\left(s\sqrt{\frac{2}{x}}-\frac{s^2}{x}+\bigO\left(\frac{s^3}{x\sqrt{x}}\right) \right)\\
 				& =1+\bigO\left( \frac{s}{\sqrt{x}} \right)
 	\end{split}
