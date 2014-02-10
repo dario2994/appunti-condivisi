@@ -162,4 +162,18 @@ e questa è la formula per il momento angolare:
 
 Quindi nel complesso un sistema con 2 corpi si può disaccoppiare completamente nel moto del centro di massa e nel
 moto relativo tra le 2 masse.
+
+\subsection{Problemi con massa variabile}
+Si tratta di problemi in cui la massa cambia nel tempo, ad esempio un razzo che espelle carburante oppure una goccia di pioggia che cade nel vapore e man mano aumenta la sua dimensione.
+Per risolverli, considero che al tempo $t$ avrò:
+massa = $m$, velocità = $\overrightarrow v$
+e al tempo $t+dt$ avrò una massa $m+dm$ che si muove a velocità $\overrightarrow v + d\overrightarrow v$ e una massa $-dm$ che si muove a velocità $\overrightarrow v + \overrightarrow{v_{rel}}$, dove $\overrightarrow{v_{rel}}$ è la velocità della massa espulsa/acquisita rispetto al corpo che sto considerando.
+Poichè so che $d\overrightarrow P = \overrightarrow{F_{est}} dt$, ho che
+$$ \left ( \left ( m + dm \right ) \cdot \left ( \overrightarrow v + d\overrightarrow v\right ) -dm\left ( \overrightarrow v + \overrightarrow{v_{rel}} \right ) \right ) - m\overrightarrow v = \overrightarrow {F_{est}}dt$$
+da cui ottengo l'equazione generale per risolvere un problema con massa variabile:
+\begin{equation}\label{MassaVariabile}
+	m d\overrightarrow v + dm \overrightarrow v = dm \left ( \overrightarrow v + \overrightarrow{v_{rel}} \right ) + \overrightarrow {F_{est}} dt
+\end{equation}
+
+
 \end{document}
