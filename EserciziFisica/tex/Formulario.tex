@@ -167,17 +167,17 @@ moto relativo tra le 2 masse.
 \subsection{Problemi con massa variabile}
 Si tratta di problemi in cui la massa cambia nel tempo, ad esempio un razzo che espelle carburante oppure una goccia di pioggia che cade nel vapore e man mano aumenta la sua dimensione.
 Per risolverli, considero che al tempo $t$ avrò:
-massa = $m$, velocità = $\overrightarrow v$
-e al tempo $t+dt$ avrò una massa $m+dm$ che si muove a velocità $\overrightarrow v + d\overrightarrow v$ e una massa $-dm$ che si muove a velocità $\overrightarrow v + \overrightarrow{v_{rel}}$, dove $\overrightarrow{v_{rel}}$ è la velocità della massa espulsa/acquisita rispetto al corpo che sto considerando.
-Poichè so che $d\overrightarrow P = \overrightarrow{F_{est}} dt$, ho che
-$$ \left ( \left ( m + dm \right ) \cdot \left ( \overrightarrow v + d\overrightarrow v\right ) -dm\left ( \overrightarrow v + \overrightarrow{v_{rel}} \right ) \right ) - m\overrightarrow v = \overrightarrow {F_{est}}dt$$
+massa = $m$, velocità = $\vec v$
+e al tempo $t+\de t$ avrò una massa $m+\de m$ che si muove a velocità $\vec v + \de \vec v$ e una massa $-\de m$ che si muove a velocità $\vec v + \vec v_{rel}$, dove $\vec v_{rel}$ è la velocità della massa espulsa/acquisita rispetto al corpo che sto considerando.
+Poichè so che $\de \vec P = \vec F_{est} \de t$, ho che
+$$ \left ( \left ( m + \de m \right ) \cdot \left ( \vec v + \de \vec v\right ) -\de m\left ( \vec v + \vec v_{rel} \right ) \right ) - m\vec v = \vec F_{est}\de t$$
 da cui ottengo l'equazione generale per risolvere un problema con massa variabile:
 \begin{equation}\label{MassaVariabile}
-	m d\overrightarrow v + dm \overrightarrow v = dm \left ( \overrightarrow v + \overrightarrow{v_{rel}} \right ) + \overrightarrow {F_{est}} dt
+	m \de \vec v + \de m \vec v = \de m \left ( \vec v + \vec v_{rel} \right ) + \vec F_{est} \de t
 \end{equation}
 o, equivalentemente,
 \begin{equation}
-	\frac{d}{dt} m\overrightarrow v = \frac{dm}{dt}\left ( \overrightarrow v + \overrightarrow{v_{rel}} \right ) + \overrightarrow F_{est}
+	\frac{\de }{\de t} m\vec v = \frac{\de m}{\de t}\left ( \vec v + \vec v_{rel} \right ) + \vec F_{est}
 \end{equation}
 
 
