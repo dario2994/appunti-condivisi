@@ -1,0 +1,28 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[Compitino 13/01/2014]{Massa sull'asse di una circonferenza} %mac
+
+\textex
+Si consideri una massa $M$ distribuita uniformemente su una circonferenza di raggio $R$ ed una massa puntiforme $m$ che si muove lungo l'asse della circonferenza.\\
+a) Calcolare in funzione della distanza $x$ dal centro della circonferenza la massima velocità che tiene la massa $m$ legata alla circonferenza.\\
+b) Calcolare la frequenza delle oscillazioni di $m$ intorno al centro della circonferenza per spostamenti piccoli rispetto a $R$.
+
+\solution
+Incomincio a trovare, in funzione di $x$, la forza che agisce sulla particella $m$.
+Per simmetria (la massa è distribuita uniformemente sulla circonferenza), mi interessa soltanto la proiezione sull'asse $x$ della forza esercitata da ciascun pezzo $dM$ di circonferenza.
+Ho che $dF = -\frac{Gm}{d^2}\cos\theta dM$ dove $d$ è la distanza tra $m$ e $dM$, e $\theta$ è l'angolo compreso tra l'asse $x$ e la congiungente di $m$ con $dM$. Ho che $d^2 = x^2 + R^2$ e $\cos\theta = \frac{x}{\sqrt{x^2+R^2}}$ da cui ricavo
+$$ dF = -\frac{xGm}{\left ( x^2+R^2\right )^{\frac{3}{2}}}dM$$
+Poichè la forza è la stessa per ogni pezzettino $dM$ di circonferenza, la forza totale che agisce sulla massa $m$, in funzione di $x$, è
+$$ F = -\frac{xGmM}{\left ( x^2+R^2\right )^{\frac{3}{2}}}$$
+Scrivo ora il potenziale della forza (ponendo come di consueto il potenziale nullo quando le due masse sono infinitamente lontane): $$U(x) = -\int_{\infty}^{x} F dx = -\frac{GMm}{\sqrt{x^2+R^2}} $$
+
+a) Scrivo l'espressione dell'energia meccanica totale della massa $m$:
+$$ E = \frac{1}{2} m v^2+U(x)$$
+Guardando il grafico del potenziale (che è sempre negativo, ha un minimo assoluto in $x=0$ ed è asintotico a 0 per $x\rightarrow \pm\infty$) trovo che il moto è limitato se $E\le 0$ cioè la massima velocità che la massa può avere, in funzione di $x$, è (in modulo)
+$$ {v_{max}} = \sqrt{\frac{GM}{\sqrt{x^2+R^2}}} $$
+
+b) L'equazione del moto $\overrightarrow F = m\overrightarrow a$ è: $$\ddot x = -\frac{GMx}{\left ( x^2+R^2\right )^{3/2}} = -\frac{GM}{R^2} \frac{\frac{x}{R}}{\left ( \frac{x^2}{R^2} + 1 \right ) ^{3/2}} $$
+Nell'approssimazione in cui gli spostamenti siano piccoli rispetto a $R$, posso approssimare al primo ordine in $\frac{x}{R}$, ottenendo così $$\ddot x = -\frac{GM}{R^3}x $$
+Dunque la frequenza angolare delle pulsazioni delle piccole oscillazioni attorno alla posizione di equilibrio è $$ \omega = \sqrt{\frac{GM}{R^3}} $$
+\end{document}

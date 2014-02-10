@@ -1,5 +1,5 @@
 \section{Differenziazione della gamma}\label{dg}
-Questa sezione è la prima a dover usare esplicitamente ragionamenti del tipo \emph{epsilon, delta}.
+Questa sezione è la prima a dover usare esplicitamente ragionamenti del tipo \emph{epsilon, delta} oppure comunque ragionamenti di ``basso livello''.
 Per evitare di usare questi ragionamenti si dovrebbero applicare teoremi forti riguardo la possibilità
 di scambiare tra loro gli operatori di integrale, di derivata e di limite.
 Tuttavia questi teoremi prescindono dal programma di analisi I e perciò abbiamo deciso di trovare strade
@@ -8,65 +8,23 @@ che li evitino, mantenendo le dimostrazioni le più elementari possibili.
 Dimostreremo che la Gamma è una funzione derivabile infinite volte ed espliciteremo le sue derivate.
 Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Gamma).
 
-\begin{definition}
-	Sia $f_h:\mathbb{R}\to\mathbb{R}$, con $h\in\mathbb{R^+}$, la funzione definita come:
+\begin{lemma}\label{dg:SenzaIntegrale}
+	Per ogni $t\in \mathbb{R}^+,\ x> -1$ e $h\in\mathbb{R}$ tale che $x+h>-1$ vale:
 	\begin{equation*}
-		f_h(t)=\frac{t^h-1}h
-	\end{equation*}
-
-\end{definition}
-
-\begin{lemma}\label{dg:LagrangeApprox}
-	Fissati $t,h\in\mathbb{R^+}$, esiste $0\le h'\le h$ tale che:
-	\begin{equation*}
-		f_h(t)=\log{t}\cdot t^{h'}
+		|t^{x+h}-t^x-h\log t\cdot t^x| \le h^2\log^2t\cdot\max\left(t^x,t^{x+h}\right)
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Sia $f:\mathbb{R}\to\mathbb{R}$ la funzione definita come $g(x)=t^x$.
-	
-	Applicando le regole standard di derivazione si ha $g'(x)=\log{t}\cdot t^x$.
-	
-	Applico il teorema di Lagrange con estremi $[0,h]$ alla funzione $g$ ottenendo la tesi:
-	\begin{equation*}
-		\exists 0\le h'\le h\ :\ f_h(t)=\frac{g(h)-g(0)}{h-0}=g'(h')=\log{t}\cdot t^{h'}
-	\end{equation*}
-\end{proof}
-
-
-
-\begin{lemma}\label{dg:DisEstremale}
-	Fissati $t,h\in\mathbb{R^+}$ con $h\le1$ risulta vera la disuguaglianza:
-	\begin{equation*}
-		\left\lvert f_h(t)-\log{t}\right\rvert\le \left\lvert\log{t}\right\rvert\max(1,t)
-	\end{equation*}
-\end{lemma}
-\begin{proof}
-	Applicando \cref{dg:LagrangeApprox} ottengo che vale la catena di identità (con $0<h'<h$):
-	\begin{equation}\label{dg:FurbaId}
-		\left\lvert f_h(t)-\log{t}\right\rvert=\left\lvert\log{t}\right\rvert \cdot \left\lvert t^{h'}-1\right\rvert
+	Applicando il teorema di Lagrange due volte, ottengo che esistono $\xi_1,\xi_2$ con valore assoluto minore di $|h|$ tali che:
+	\begin{equation}\label{dg:LagrangeApprox}
+		t^{x+h}-t^x-h\log t\cdot t^x=h\log t\cdot t^{x+\xi_1}-h\log t\cdot t^x=h\log t\left(t^{x+\xi_1}-t^x\right)=h\xi_1\log^2 t\cdot t^{x+\xi_2}
 	\end{equation}
-	
-	Per $t\ge 1$ ho che vale (sfruttando $h'\le h\le 1$) $0\le t^{h'}-1\le t-1<t$.\\
-	Per $0\le t<1$ ho che vale (sfruttando $h'\ge0$) $-1\le t^{h'}-1\le 0$.\\
-	Unendo questi due risultati ottengo facilmente:
-	\begin{equation}\label{dg:StupidaDis}
-		\left\lvert t^{h'}-1\right\rvert \le \max(1,t)
-	\end{equation}
-	Applicando \cref{dg:StupidaDis} in \cref{dg:FurbaId} ottengo la tesi del lemma.
-\end{proof}
-
-\begin{lemma}\label{dg:UnifConv}
-	Fissato un intervallo $[a,b]$ con $0<a<b$, per $h\to 0$ le funzioni $f_h$ convergono uniformemente alla funzione $\log$.
-\end{lemma}
-\begin{proof}
-	Espandendo in serie di Taylor $e^{h\log{t}}$ e applicando il risultato per stimare le $f_h$ ottengo:
+	Però $h,\xi_1$ devono avere lo stesso segno per Lagrange, e quindi $h\xi_1\le h^2$ ed inoltre vale per la convessità dell'esponenziale che $t^{x+\xi_2}\le\max\left(t^x,t^{x+h}\right)$.
+	Sostituendo questi risultati in \cref{dg:LagrangeApprox} e aggiungendo un valore assoluto ottengo:
 	\begin{equation*}
-		f_h(t)=\frac{e^{h\log{t}}-1}h=\frac{1+h\log{t}+\bigO(h^2\log^2{t})-1}{h}=\log{t}+\bigO(h\log^2{t})=\log{t}+\bigO(h)
+		|t^{x+h}-t^x-h\log t\cdot t^x|\le h^2\log^2 t\cdot \max\left(t^x,t^{x+h}\right)
 	\end{equation*}
-	dove nell'ultimo passaggio ho sfruttato il fatto che siamo in $[a,b]$ e perciò $\log{t}$ risulta limitato.
-	Questa equazione implica ovviamente l'uniforme convergenza enunciata nella tesi.
-
+	che è la tesi.
 \end{proof}
 
 \begin{theorem}\label{dg:GammaDerivata}
@@ -76,73 +34,19 @@ Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Ga
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	Come per la dimostrazione di \cref{GammaConverge}, l'integrale, che devo dimostrare
-	essere la derivata della Gamma, esiste finito.
-	
-	Assunto che l'integrale esiste, la tesi del teorema è equivalente (per definizione di derivata) a dimostrare
-	che per ogni $\varepsilon>0$ esiste $\delta$ (che scelgo minore di 1) tale che $\forall\ 0<h<\delta$ risulta:
-	\begin{equation}\label{dg:EpsDeltaDerivata}
-		\left\lvert 
-		\frac{\Gamma(x+h)-\Gamma(x)}{h}-
-		\int_0^{\infty} \log{t}\cdot t^{x-1}e^{-t}\de t
-		\right\rvert \le \varepsilon
-		\Longleftrightarrow
-		\left\lvert
-		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t
-		\right\rvert \le \varepsilon
-	\end{equation}
-	
-	Sia $0<a<1$ tale che:
-	\begin{equation}\label{dg:ApproxIn0}
-		\int_0^a \left\lvert \log(t)t^{x-1}e^{-t} \right\rvert \de t \le \frac{\varepsilon}3
-	\end{equation}
-	Tale $a$ esiste poichè l'integrale della \cref{dg:ApproxIn0} in 0 converge.
-	
-	Sia $b>\max(a,1)$ tale che:
-	\begin{equation}\label{dg:ApproxInInf}
-		\int_b^{\infty} \left\lvert (\log{t}\cdot t)t^{x-1}e^{-t}\right\rvert \de t \le \frac{\varepsilon}3
-	\end{equation}
-	Analogamente a prima, la $b$ esiste poichè l'integrale della \cref{dg:ApproxInInf} converge.
-	
-	Applicando i risultati \cref{dg:DisEstremale,dg:ApproxIn0,dg:ApproxInInf} ottengo le seguenti due identità:
-	\begin{equation}\label{dg:IntIn0}
-		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert
-		\le
-		\int_0^a \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\de t
-		\le
-		\int_0^a \left\lvert \log{t} \right\rvert t^{x-1}e^{-t}\de t
-		\le
-		\frac{\varepsilon}3
-	\end{equation}
-	\begin{equation}\label{dg:IntInInf}
-		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert
-		\le
-		\int_b^{\infty} \left\lvert f_h(t)-\log{t} \right\rvert t^{x-1}e^{-t}\de t
-		\le
-		\int_b^{\infty} \left\lvert \log{t}\cdot t\right\rvert t^{x-1}e^{-t}\de t
-		\le
-		\frac{\varepsilon}3
-	\end{equation}
-	
-	Ora considero le funzioni $f_h$ ridotte all'intervallo $[a,b]$.
-	L'uniforme convergenza mostrata in \cref{dg:UnifConv} e la limitatezza su $[a,b]$ di $t^{x-1}e^{-t}$ mi assicurano
-	l'esistenza di $\delta>0$ tale che $\forall 0<h<\delta$ vale:
-	\begin{equation}\label{dg:IntMiddle}
-		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert \le \frac{\varepsilon}3
-	\end{equation}
-	Questo $\delta$ esiste poichè l'integrale converge a 0 per $h\to 0$.
-	
-	Unendo i risultati \cref{dg:IntIn0,dg:IntInInf,dg:IntMiddle}, con $h<\delta$ ottengo
-	proprio la \cref{dg:EpsDeltaDerivata} e quindi la tesi:
-	\begin{multline}
-		\left\lvert
-		\int_0^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t
-		\right\rvert \le \\
-		\left\lvert \int_0^a \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert +
-		\left\lvert \int_a^b \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert +
-		\left\lvert \int_b^{\infty} \left(f_h(t)-\log{t}\right)t^{x-1}e^{-t}\de t\right\rvert \\
-		\le \varepsilon
-	\end{multline}
+	Definisco $\Gamma'$ esattamente come supposto nell'enunciato del teorema e dimostro che è la derivata.
+
+	Sfruttando la monotonia dell'operatore integrale e \cref{dg:SenzaIntegrale} ho, per $x-1,h$ come nelle ipotesi di \cref{dg:SenzaIntegrale}:
+	\begin{equation}\label{dg:ConIntegrale} \begin{split}
+		|\Gamma(x+h)-\Gamma(x)-h\Gamma'(x)|&\le \int_0^{\infty}e^{-t}|t^{x-1+h}-t^{x-1}-h\log t\cdot t^{x-1}| \\
+		&\le h^2\int_0^{\infty} e^{-t}\log^2 t\cdot \max\left(t^{x-1},t^{x-1+h}\right)
+	\end{split}\end{equation}
+
+	Ma ora è facile notare che, indifferentemente dal valore di $h$ (purchè sufficientemente piccolo), l'integrale $\int_0^{\infty} e^{-t}\log^2 t\cdot \max\left(t^{x-1},t^{x-1+h}\right)$ esiste finito e limitato, cioè è $\bigO(1)$ in $h$, e di conseguenza dalla \cref{dg:ConIntegrale} ottengo:
+	\begin{equation*}
+		|\Gamma(x+h)-\Gamma(x)-h\Gamma'(x)|=\bigO(h^2)
+	\end{equation*}
+	e questo dimostra che la derivata di $\Gamma$ è $\Gamma'$.
 \end{proof}
 \begin{corollary}\label{dg:GammaDerivataN}
 	La derivata $n$-esima della Gamma rispetta:
@@ -325,27 +229,20 @@ Inoltre studieremo alcune proprieta della Digamma (derivata logaritmica della Ga
 
 
 \begin{corollary}\label{dg:RapportoAsint}
-	Fissato $c\in\mathbb{R}$, vale la seguente formula asintotica:
+	Per $c$ in un intervallo limitato di $\mathbb{R}$, vale la seguente formula asintotica per $x\to\infty$:
 	\begin{equation}
 		\frac{\Gamma(x+c)}{\Gamma(x)}\sim x^c
 	\end{equation}
 \end{corollary}
 \begin{proof}
-	Estraendo il logaritmo, la tesi equivale a dimostrare:
-	\begin{equation}\label{dg:LogTesi}
-		\lim_{x\to\infty} \log\Gamma(x+c)-\log\Gamma(x)-c\log x =0
-	\end{equation}
-	
-	Applicando il teorema di Lagrange e \cref{dg:psiApprox} si ha che, per ogni $x>0$, esiste $0<c'<c$ (assumendo senza
-	perdità di generalità $c>0$) tale che valgano le seguenti uguaglianze:
-	\begin{equation}\label{dg:psiLagrange}
-		\log\Gamma(x+c)-\log\Gamma(x)=c\cdot\psi(x+c')=c\log{x}+c\cdot\bigO\left(\frac{1+c'}{x}\right)=
-		c\cdot \log{x}+\bigO\left(\frac 1x\right)
-	\end{equation}
-	dove nell'ultimo passaggio ho usato il fatto che $c$ è costante, e nell'identità centrale ho implicitamente 
-	applicato Lagrange alla funzione logaritmo.
-	
-	Applicando la \cref{dg:psiLagrange} si dimostra facilmente \cref{dg:LogTesi} e quindi la tesi.
+	Applicando due volte il teorema di Lagrange e sfruttando \cref{dg:psiApprox} ne ricavo che esistono $\xi_1,\xi_2$ tali che:
+	\begin{equation}\label{dg:LogaritmoAsintotico}\begin{split}
+		\log\Gamma(x+c)-\log\Gamma(x)&=c\cdot\psi(x+\xi_1)=c\left(\log(x+\xi_1)+\bigO\left(\frac 1{x+\xi_1}\right)\right)\\
+		&=c\left(\log x+\frac{\xi_1}{x+\xi_2}+\bigO\left(\frac 1{x+\xi}\right)\right)=c\log x+\bigO\left(\frac1{x}\right)
+	\end{split}\end{equation}
+	dove nell'ultimo passaggio ho sfruttato il fatto che $c$ è limitato e quindi anche $\xi_1,\xi_2$.
+
+	Ma ora facendo l'esponenziale a entrambi i membri di \cref{dg:LogaritmoAsintotico} ottengo proprio la tesi.
 \end{proof}
 
 

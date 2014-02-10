@@ -24,7 +24,7 @@ Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbier
 
 Compitino
 Eccentricità dell'orbita di Halley | Federico | Fatto
-Massa che si muove lungo l'asse di una circonferenza
+Massa che si muove lungo l'asse di una circonferenza | Alice | Fatto
 Campo di forze F-kv² lungo una retta | Giada | Fatto
 
 20/01/14
@@ -42,7 +42,7 @@ Problema a due corpi attaccati da una molla | Federico | Fatto
 Minimo avvicinamento per un urto con campo F=-kr e parametro d'impatto noto | Giada 
 
 6/02/14
-Carrello che spruzza acqua | Giada | Fatto
+Carrello che spruzza acqua | Alice
 Goccia che cade e raccoglie vapor acqueo
 Catena che cade dal tavolo
 
