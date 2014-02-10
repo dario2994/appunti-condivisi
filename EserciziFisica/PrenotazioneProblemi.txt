@@ -42,7 +42,7 @@ Problema a due corpi attaccati da una molla | Federico | Fatto
 Minimo avvicinamento per un urto con campo F=-kr e parametro d'impatto noto | Giada 
 
 6/02/14
-Carrello che spruzza acqua | Alice
+Carrello che spruzza acqua | Alice | Fatto
 Goccia che cade e raccoglie vapor acqueo
 Catena che cade dal tavolo
 
