@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[30/01/2014]{Urti con materia oscura} %uma
+
+\textex
+Si consideri una galassia sferica. Si supponga che la grande maggioranza delle stelle (massa totale $M$) sia contenuta entro un raggio $R$, con simmetria sferica.\\
+a) Calcolare, in questa approssimazione, la velocità di una stella che ruota su una circonferenza attorno alla galassia, posta a una distanza $r > R$ dal centro della galassia.\\
+b) Ciò che in realtà si verifica è che la velocità dipende da $r$ secondo la formula
+$$ v(r) = \sqrt{\frac{k}{1+\frac{r}{r_0}}}$$
+Ci sono allora due possibilità: o la gravità a grandi distanze non si comporta secondo la legge che conosciamo, oppure non era corretto supporre che la massa al di fuori della sfera di raggio $R$ fosse trascurabile.
+Assumendo che si verifichi questa seconda ipotesi, calcolare il potenziale della forza e la distribuzione di massa in funzione del raggio $r$.\\
+c) Si pensa che questa massa invisibile (materia oscura) sia costituita da particelle, dette neutralini, di massa circa 100 volte maggiore di quella del protone: $m_1 = 100 m_p$.
+Inoltre i neutralini hanno, rispetto alla Terra, una velocità $\overrightarrow{v_1}$ di circa $130$ km/s.
+Si vuole studiare, sulla Terra, l'urto tra un neutralino e un atomo campione di massa $m_2$. Determinare $m_2$ affinchè dopo l'urto l'energia dell'atomo usato sia massima (si suppone che l'urto sia elastico).
+
+\solution
+a) Devo semplicemente usare la formula $\overrightarrow F = m\overrightarrow a$, sapendo che sia la forza sia l'accelerazione (centripeta) sono in direzione radiale. Dunque
+\begin{equation}
+ m\frac{v(r)^2}{r} = \frac{GMm}{r^2} \Rightarrow v(r) = \sqrt{\frac{MG}{r}}
+\end{equation}
+b) So che $m\overrightarrow a = \overrightarrow F = -\frac{\de U}{\de r}$. Sostituendo il valore di $v$ trovo che
+\begin{equation}
+  \frac{mk}{r\left ( 1+\frac{r}{r_0}\right )} = -\frac{\de U}{\de r} \rightarrow 
+\frac{mkr_0}{r(r+r_0)} = -\frac{\de U}{\de r} \rightarrow mk\left ( \frac{1}{r} - \frac{1}{r+r_0}\right ) \de r = -\de U
+\end{equation}
+Calcolo dunque il potenziale, ponendolo nullo quando $r$ è infinito:
+\begin{equation}
+ \int_{\infty}^{r} mk\left ( -\frac{1}{r} + \frac{1}{r+r_0}\right ) \de r = \int_{\infty}^{U(r)} \de U \Rightarrow
+ U(r) = mk \ln \left ( 1 + \frac{r}{r_0}\right )
+\end{equation}
+Calcolo infine la massa in funzione di $r$: 
+\begin{equation}
+ \frac{GM(r)m}{r^2} = F(r) = -\frac{\de U}{\de r} = \frac{mkr_0}{r(r+r_0)} \Rightarrow 
+ M(r) = \frac{krr_0}{G(r+r_0)}
+\end{equation}
+
+
+\end{document}
