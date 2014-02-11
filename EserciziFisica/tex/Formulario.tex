@@ -163,6 +163,39 @@ e questa è la formula per il momento angolare:
 Quindi nel complesso un sistema con 2 corpi si può disaccoppiare completamente nel moto del centro di massa e nel
 moto relativo tra le 2 masse.
 
+\subsection{Urti}
+I problemi di urto in generale riguardano due particelle di massa $m_1$ e $m_2$ e velocità iniziali $\overrightarrow {v_1}$ e $\overrightarrow {v_2}$ e sono caratterizzati da:
+\begin{itemize}
+ \item interazione di corto raggio
+ \item terzo principio di Newton $\rightarrow$ la quantità di moto totale si conserva
+ \item conservazione (oppure no) dell'energia meccanica (ora supponiamo che si conservi)
+\end{itemize}
+
+Vogliamo trovare $\overrightarrow{{v_1}'}$ e $\overrightarrow{{v_2}'}$, le velocità dopo l'urto.
+Scomponiamo il problema nel moto del centro di massa e nel moto relativo: poniamo $\overrightarrow v = \overrightarrow {v_2} - \overrightarrow {v_1}$,
+$M = m_1+m_2$, $\mu = \frac{m_1+m_2}{M}$, $\overrightarrow {V_Q} = \frac{m_1\overrightarrow {v_1}+m_2\overrightarrow{v_2}}{M}$,
+$\overrightarrow P = M\overrightarrow {V_Q}$, $\overrightarrow p = \mu \overrightarrow v$ e abbiamo che
+\begin{equation}
+ E = \frac{P^2}{2M} + \frac{p^2}{2\mu}
+\end{equation}
+Poichè $\Delta E = 0$ e $\overrightarrow P$ è costante, anche $p$ è costante, e l'unica cosa che può cambiare dopo l'urto è la sua direzione.
+Dunque per risolvere completamente il problema è necessario anche conoscere l'angolo $\theta$ formato da $\overrightarrow p$ con $\overrightarrow {p'}$.
+Sia $\hat{v_f}$ il versore diretto lungo $\overrightarrow {p'}$. Le velocità della massa $m_1$ prima e dopo l'urto, calcolate rispetto al centro di massa, sono
+\begin{equation}
+ \overrightarrow{v_{1Q}} = -\frac{m_2}{M}v\hat v \qquad \qquad
+ \overrightarrow{{v_{1Q}}'} = -\frac{m_2}{M}v\hat{v_f}
+\end{equation}
+Nel sistema di riferimento del laboratorio, dunque, le velocità delle particelle dopo l'urto saranno
+\begin{equation}\label{UrtiElastici}
+ \overrightarrow {{v_1}'} = -\frac{m_2}{M}v\hat{v_f}+\overrightarrow {V_Q} \qquad \qquad
+ \overrightarrow {{v_2}'} = \frac{m_1}{M}v\hat{v_f}+\overrightarrow {V_Q}
+\end{equation}
+Osservo infine che, se $|\overrightarrow {V_Q}| > |\overrightarrow{v_{1Q}}|$ ci sono dei limiti sull'angolo di deflessione della prima particella;
+in particolare il massimo angolo di deflessione è $\theta_{max} = \arctan \frac{v_{1Q}}{V_Q}$.
+
+
+
+
 
 \subsection{Problemi con massa variabile}
 Si tratta di problemi in cui la massa cambia nel tempo, ad esempio un razzo che espelle carburante oppure una goccia di pioggia che cade nel vapore e man mano aumenta la sua dimensione.
