@@ -87,39 +87,40 @@ Sostituendo la \cref{ual:valEnergia} e la \cref{ual:valMomento} nella \cref{ual:
 
 Studio ora i casi in cui $m_2\gg m_1$ e $m_1=m_2$.
 \begin{enumerate}
-	\item Se $m_2\gg m_1$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}$ si può approssimare a $m_1$, quindi la \cref{ual:solGenerale} diventa:
-	\begin{equation*}
-		r_{min}=\sqrt{\frac{\frac12m_1 v_0^2+\frac12 kr_*^2-\sqrt{(\frac12m_1 v_0^2+\frac12 kr_*^2)^2-km_1 b^2v_0^2}}{k}}
-	\end{equation*}
-	\item Se invece $m_1=m_2=m$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}=\frac m2$, quindi dalla \cref{ual:solGenerale} ottengo:
-	\begin{equation*}
-		r_{min}=\sqrt{\frac{\frac12\frac m2 v_0^2+\frac12 kr_*^2-\sqrt{(\frac12\frac m2 v_0^2+\frac12 kr_*^2)^2-k\frac m2 b^2v_0^2}}{k}}
-	\end{equation*}
+	\item Se $m_2\gg m_1$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}$ si può approssimare a $m_1$, quindi sostituendo nella \cref{ual:solGenerale} ottengo il risultato. 
+	\item Se invece $m_1=m_2=m$, ho che $\mu=\frac{m_1m_2}{m_1+m_2}=\frac m2$, da cui analogamente ottengo il risultato sostituendo nella \cref{ual:solGenerale}.
 \end{enumerate}
 
-Mi pongo ora nel caso $m_1=m_2=m$ e calcolo i dati richiesti dal problema, $v_1',v_2'$ e $\theta_2$.
+Mi pongo ora nel caso $m_1=m_2=m$, che studierò mettendomi nel sistema del centro di massa.
 
-Per la conservazione dell'energia ho che
-\begin{equation} \label{ual:consEn}
-	\frac 12 m_1v_1^2=\frac 12 m_1v_1'^2+\frac 12 m_2v_2'^2 \Longrightarrow v_1^2=v_1'^2+v_2'^2
+La velocità del centro di massa è
+\begin{equation}\label{ual:VelCM}
+	\vec{v}_{cm}=\frac{m_1\vec v_1+m_2 \vec v_2}{m_1+m_2}=\frac{\vec v_1}{2}
 \end{equation}
-Per la conservazione della quantità di moto, scomposta lungo la direzione iniziale di $m_1$ e perpendicolarmente ad essa, ho invece:
-\begin{equation} \label{ual:consQM}
+
+Inotre chiamando $\vec v_{1cm},\vec v_{2cm},\vec v'_{1cm},\vec v'_{2cm}$ le velocità rispettivamente iniziale e finali delle due masse ho banalmente che $\vec v_{1cm} = \vec v_{2cm}$ e $\vec v'_{1cm}=\vec v'_{2cm}$ (perchè sono calcolate rispetto al centro di masse), e inoltre ho anche che $\vec v_{1cm}=\vec v'_{1cm}$ per la conservazione dell'energia.
+
+Sia ora $\theta_{cm}$ l'angolo di deflessione (visto nel sistema del centro di massa) delle due masse rispetto alla direzione iniziale. Utilizzando la \cref{ual:VelCM} e che $v'_{1cm}=\frac{v_1}{2}$, ho che;
+\begin{gather*}
+\begin{split}
+	v'_1(\cos\theta_1,\sin\theta_1)& =\vec v'_1 =\vec v_{cm}+\vec v'_{1cm}=\frac{\vec v_1}{2}+v'_{1cm}(\cos\theta_{cm},\sin\theta_{cm})\\
+	&=\frac{\vec v_1}{2}+\frac{v_1}{2}(\cos\theta_{cm},\sin\theta_{cm})=\frac{v_1}2(1+\cos\theta_{cm},\sin\theta_{cm})
+\end{split}\\
+\Longrightarrow \tan \theta_1=\frac{\sin\theta_{cm}}{\cos\theta_{cm}+1}=\frac{2\sin\frac{\theta_{cm}}2 \cos\frac{\theta_{cm}}2}{2\cos^2\frac{\theta_{cm}}2}=\tan \frac{\theta_{cm}}2
+\end{gather*}
+
+Ora sapendo che
+\begin{equation*}
 	\begin{cases}
-		v_1=v_1'\cos\theta_1+v_2'\cos\theta_2 \\
-		0=v_1'\sin\theta_1-v_2'\sin\theta_2
+		\vec v'_1 =\frac{v_1}2(1+\cos\theta_{cm},\sin\theta_{cm}) \\
+		\vec v'_2=\frac{v_1}2 (1-\cos\theta_{cm},-\sin\theta_{cm})
 	\end{cases}
-\end{equation}
-
-
-
-
-
-
-
-
-
-
+\end{equation*}
+e che 
+\begin{equation*}
+	v'_2(\cos\theta_2,\sin\theta_2)=\vec v'_2=\frac{v_1}2 (1-\cos\theta_{cm},-\sin\theta_{cm}) \Longrightarrow \tan\theta_2=\frac{-\sin\theta_{cm}}{1-\cos\theta_{cm}}
+\end{equation*}
+ottengo facilmente i dati richiesti dal problema, cioè $v_1',v_2'$ e $\theta_2$.
 
 
 \end{document}
