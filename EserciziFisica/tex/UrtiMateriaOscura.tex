@@ -27,13 +27,21 @@ b) So che $m\overrightarrow a = \overrightarrow F = -\frac{\de U}{\de r}$. Sosti
 Calcolo dunque il potenziale, ponendolo nullo quando $r$ è infinito:
 \begin{equation}
  \int_{\infty}^{r} mk\left ( -\frac{1}{r} + \frac{1}{r+r_0}\right ) \de r = \int_{\infty}^{U(r)} \de U \Rightarrow
- U(r) = mk \ln \left ( 1 + \frac{r}{r_0}\right )
+ U(r) = mk \ln \left ( 1 + \frac{r_0}{r}\right )
 \end{equation}
 Calcolo infine la massa in funzione di $r$: 
 \begin{equation}
  \frac{GM(r)m}{r^2} = F(r) = -\frac{\de U}{\de r} = \frac{mkr_0}{r(r+r_0)} \Rightarrow 
  M(r) = \frac{krr_0}{G(r+r_0)}
 \end{equation}
-
+c) Per l'equzione degli urti elastici \cref{UrtiElastici}, ho che la velocità dell'atomo di prova dopo l'urto sarà:
+\begin{equation*}
+ \overrightarrow {{v_2}'} = \frac{m_1}{M}v\hat{v_f}+\overrightarrow {V_Q}
+\end{equation*}
+A parità di massa $m_2$, vorrei che ${v_2}'$ sia il più grande possibile, e ciò avviene se i vettori $\hat{v_f}$ e $\overrightarrow {V_Q}$ sono nella stessa direzione, cioè se l'angolo di deviazione è nullo.
+Trovo le velocità $\overrightarrow {V_Q} = \frac{m_1\overrightarrow {v_1}}{m_1+m_2}$, $\overrightarrow v = \overrightarrow {v_2}-\overrightarrow {v_1} = -\overrightarrow {v_1}$. Calcolo dunque l'energia cinetica dell'atomo di prova dopo l'urto:
+$$ E = \frac{1}{2}m_2\left ( {v_2}'\right )^2 = \frac{1}{2} m_2 \left ( \frac{m_1}{m_2+m_1}v_1+\frac{m_1v_1}{m_1+m_2}\right )^2 = \frac{2{m_1}^2m_2{v_1}^2}{\left (m_1+m_2\right )^2} $$
+Se pongo $\frac{m_2}{m_1} = x$ l'equazione precedente si riscrive come:
+$$ E = 2m_1{v_1}^2\frac{x}{\left ( x+1\right )^2} $$ e questa ha il suo massimo quando $x = 1$ (si vede facilmente derivando), dunque affinchè l'energia cinetica dell'atomo usato sia massima dopo l'urto, la sua massa deve essere uguale a quella di un neutralino.
 
 \end{document}
