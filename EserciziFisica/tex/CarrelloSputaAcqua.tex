@@ -5,30 +5,30 @@
 
 \textex
 Un carrello di massa $m$ contiene inizialmente una quantità $m$ di acqua.
-Su un lato del carrello c'è un foro da cui viene fatta uscire acqua inclinata di un angolo $\alpha$ rispetto all'orizzontale, con una velocità $\overrightarrow {v_0}$ rispetto al carrello fissata, con $\frac{dm}{dt}=\lambda$.
+Su un lato del carrello c'è un foro da cui viene fatta uscire acqua inclinata di un angolo $\alpha$ rispetto all'orizzontale, con una velocità $\overrightarrow {v_0}$ rispetto al carrello fissata, con $\frac{\de m}{\de t}=\lambda$.
 Si chiede di calcolare il moto del carrello.
 
 
 \solution
 Determino la massa del carrello + acqua contenuta in funzione del tempo:
-\begin{equation}\label{csa:MassaTempo}
+\begin{equation*}\label{csa:MassaTempo}
 m(t) = 2m-\gamma t
-\end{equation}
+\end{equation*}
 
 Chiaramente ciò che mi interessa è la proiezione delle forze lungo l'asse $x$ (l'asse orizzontale lungo quale viene sparata l'acqua). Riscrivo e risolvo l'equazione \cref{MassaVariabile},  considerando che in questo caso ho $\overrightarrow{F_{est}}=0$,  $v_{rel} = -v_0\cos\alpha$ e posso considerare solo quantità scalari (con segno) perchè sono in una dimensione.
 L'equazione diventa allora:
-\begin{equation}
-m\cdot dv + dm \cdot v = dm\left ( v - v_{rel}\right )
-\end{equation}
-Dividendo entrambi i membri per $dt$ ho che 
-\begin{equation}
+\begin{equation*}
+m\cdot \de v + \de m \cdot v = \de m\left ( v - v_{rel}\right )
+\end{equation*}
+Dividendo entrambi i membri per $\de t$ ho che 
+\begin{equation*}
 \dot m v + m\dot v = \dot m v - \dot m v_{rel}\Rightarrow \dot v = - \frac{\dot m}{m}v_{rel} \Rightarrow 
-\frac{dv}{dt} = \frac{\gamma}{2m-\gamma t} \Rightarrow \int_{v_{iniz}}^{v} dv = \int_{0}^{t}\frac{\gamma}{2m-\gamma t}v_{rel}dt
-\end{equation}
+\frac{\de v}{\de t} = \frac{\gamma}{2m-\gamma t} \Rightarrow \int_{v_{iniz}}^{v} \de v = \int_{0}^{t}\frac{\gamma}{2m-\gamma t}v_{rel}\de t
+\end{equation*}
 da cui ottengo la velocità in funzione del tempo
-\begin{equation}
+\begin{equation*}
 v = v_{iniz} -v_{rel}\ln \left ( 1-\frac{\gamma t}{2m}\right )
-\end{equation}
+\end{equation*}
 
 \solution[2]
 Sapendo che la massa espulsa per unità di tempo è $\gamma$ e ponendoci nella convenzione in cui $\de m$ è negativo, ricaviamo facilmente che:
