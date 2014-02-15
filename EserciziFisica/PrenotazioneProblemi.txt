@@ -43,7 +43,7 @@ Minimo avvicinamento per un urto con campo F=-kr e parametro d'impatto noto | Gi
 
 6/02/14
 Carrello che spruzza acqua | Alice | Fatto
-Goccia che cade e raccoglie vapor acqueo
+Goccia che cade e raccoglie vapor acqueo | Davide
 Catena che cade dal tavolo
 
 13/02/14
