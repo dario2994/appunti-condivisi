@@ -1,0 +1,43 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[13/02/2014]{Rotazione del tensore d'inerzia} %rti
+
+\textex
+Come si trasforma il tensore d'inerzia dopo una rotazione del sistema di riferimento?
+
+\solution
+Chiamo $A$ il sistema di riferimento considerato e $A'$ il suo ruotato.
+
+Per l'equazione \cref{ten:MomentoAngolare} vale:
+\begin{equation} \label{rti:eqMomentoAngolarePrima}
+	L_i=I_{ij}\omega_j
+\end{equation}
+dove $L_i$ è il momento d'inerzia, $\omega_j$ è la velocità angola del corpo e $I_{ij}$ è il tensore d'inerzia definito dall'equazione \cref{ten:definition}, tutti calcolati nel sistema di riferimento $A$. Quindi definiti $L_i'$, $\omega_j'$ e $I_{ij}'$ rispettivamente il momento angolare, la velocità angolare e il tensore d'inerzia rispetto ad $A'$, vale analogamente che:
+\begin{equation}\label{rti:eqMomentoAngolareDopo}
+	L_i'=I_{ij}'\omega_j'
+\end{equation}
+
+Inoltre chiamata $R$ la matrice ortogonale che rappresenta la rotazione considerata, abbiamo che un qualsiasi vettore $v_i$ rispetto ad $A$, dopo la rotazione vale $v_i'=R_{ij}v_j$.
+
+$L_i$ e $\omega_j$ sono vettori, quindi per quanto appena detto nel sistema di riferimento $A'$ valgono
+\begin{equation}\label{rti:vettoriDopo}
+	L_i'=R_{ij}L_j, \quad \omega_j'=R_{jk}\omega_k
+\end{equation}
+
+Sostituendo ora la \cref{rti:vettoriDopo} e la \cref{rti:eqMomentoAngolarePrima} nella \cref{rti:eqMomentoAngolareDopo}, ottengo:
+\begin{gather*}
+	L_i'=I_{ij}'\omega_j' \Longrightarrow R_{ij}L_j=I_{ij}'R_{jk}\omega_k \Longrightarrow R_{ij}I_{jk}\omega_k=I_{ij}'R_{jk}\omega_k \\
+	\Longrightarrow RI\omega=I'R\omega
+\end{gather*}
+Poichè quest'ultima equazione deve valere per ogni velocità angolare $\omega$ (il tensore d'inerzia dipende solo dal corpo e dal sistema di riferimento), ottengo:
+\begin{gather*}
+	RI=I'R \Longrightarrow I'=RIR^{T}
+\end{gather*}
+che è proprio quello che volevo ottenere.
+
+
+
+
+
+\end{document}
