@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[13/02/2014]{Tensore di inerzia invariante per rotazione} %tir
+
+\textex
+Il tensore di inerzia di un corpo è invariante per rotazione. Dimostrare che il tensore è un multiplo dell'identità.
+
+\solution
+So che per rotazione un generico tensore $S$ si trasforma nel seguente modo: 
+\begin{equation}
+ S' = RSR^T
+\end{equation}
+Nel corso della soluzione userò $I$ per indicare la matrice identica, e $Q$ per indicare il tensore di inerzia del corpo considerato.
+Dunque $Q$ è tale per cui
+\begin{equation}\label{tir:Condizione}
+ Q = RQR^T
+\end{equation}
+Per dimostrare la tesi, mi basta dimostrare che se $R$ rappresenta una rotazione infinitesima, allora $Q$ deve essere della forma $Q=kI$ con $k$ costante.
+Sia allora $R$ la matrice di una qualsiasi rotazione infinitesima. So che un vettore generico $\overrightarrow v$ viene trasformato in 
+$ \overrightarrow{v'} = \overrightarrow v + \overrightarrow\omega \times \overrightarrow v $ o alternativamente  ${v_i}' = R_{ik}v_k$. Da ciò ricavo che
+$$ R =
+\begin{pmatrix}
+ 1 & -\omega_3 & \omega_2 \\
+ \omega_3 & 1 & -\omega_1 \\
+ -\omega_2 & \omega_1 & 1
+\end{pmatrix}
+$$
+In particolare avrò che $\Delta \overrightarrow v = M_{ik}v_k$ per una certa matrice $M$ tale che $M+I=R$.
+Affinchè $R$ sia una matrice di rotazione, deve essere ortogonale. Dunque devo avere che $RR^T=I$. Quindi
+\begin{equation}
+ (I+M)(I+M)^T = I \Leftrightarrow (I+M)(I+M^T)=I \Leftrightarrow M+M^T = 0
+\end{equation}
+cioè la matrice $M$ deve essere antisimmetrica. In particolare ho che 
+$$ M =
+\begin{pmatrix}
+ 0 & -\omega_3 & \omega_2 \\
+ \omega_3 & 0 & -\omega_1 \\
+ -\omega_2 & \omega_1 & 0
+\end{pmatrix}
+$$
+Impongo la condizione \cref{tir:Condizione} e ottengo (ricordando che $M$ è ``piccola'') che:
+\begin{equation}
+  Q=(I+M)Q(I+M^T) \Leftrightarrow Q=(Q+MQ)(I+M^T)=Q+QM^T+MQ\Leftrightarrow QM^T=-MQ
+\end{equation}
+Poichè $M$ è antisimmetrica ho che $M^T=-M$. Di conseguenza l'equazione che $Q$ deve rispettare è 
+\begin{equation}
+ MQ=QM
+\end{equation}
+per ogni possibile scelta di $\omega_1, \omega_2, \omega_3$. Nello svolgimento dei calcoli tengo presente che $Q$ è simmetrico, quindi ho sempre $Q_{ij}=Q_{ji}$.\\
+Impongo che $[MQ]_{11} = [QM]_{11}$ e ottengo che $M_{11}Q_{11}+M_{12}Q_{21}+M_{13}Q_{31} = M_{11}Q_{11}+M_{21}Q_{12}+M_{31}Q_{13}$ dunque devo avere che
+$-\omega_3Q_{21}+\omega_2Q_{31} = \omega_3Q_{21}-\omega_2Q_{31}$ da cui segue che $Q_{12}=Q_{13} = 0$. Analogamente si dimostra che deve essere $Q_{23}=0$.\\
+Impongo ora che $[MQ]_{12} = [QM]_{12}$: devo avere $M_{11}Q_{12}+M_{12}Q_{22}+M_{13}Q_{32} = M_{12}Q_{11}+M_{22}Q_{12}+M_{32}Q_{13}$, cioè
+$ -Q_{22}\omega_3 = -Q_{11}\omega_3 \Rightarrow Q_{11}=Q_{22}$. Analogamente si dimostra che $Q_{11}=Q_{33}$.\\
+Quindi abbiamo dimostrato che i numeri sulla diagonale devono essere tutti uguali, e dalle altre parti ci deve essere 0. Ciò significa che il tensore $Q$ è un multiplo dell'identità.
+
+
+
+\end{document}
