@@ -7,12 +7,13 @@
 Il tensore di inerzia di un corpo è invariante per rotazione. Dimostrare che il tensore è un multiplo dell'identità.
 
 \solution
-So che per rotazione un generico tensore $S$ si trasforma nel seguente modo: 
-\begin{equation}
- S' = RSR^T
-\end{equation}
 Nel corso della soluzione userò $I$ per indicare la matrice identica, e $Q$ per indicare il tensore di inerzia del corpo considerato.
-Dunque $Q$ è tale per cui
+
+Per l'esercizio \cref{ex:rti}, il tensore d'inerzia ruota secondo la formula:
+\begin{equation}
+ Q' = RQR^T
+\end{equation}
+Per ipotesi $Q$ è invariante per rotazione, dunque vale:
 \begin{equation}\label{tir:Condizione}
  Q = RQR^T
 \end{equation}
@@ -27,7 +28,7 @@ $$ R =
 \end{pmatrix}
 $$
 In particolare avrò che $\Delta \overrightarrow v = M_{ik}v_k$ per una certa matrice $M$ tale che $M+I=R$.
-Affinchè $R$ sia una matrice di rotazione, deve essere ortogonale. Dunque devo avere che $RR^T=I$. Quindi
+Affinchè $R$ sia una matrice di rotazione, deve essere ortogonale. Dunque devo avere che $RR^T=I$. Quindi, poichè $MM^T$ al prim'ordine è trascurabile, vale:
 \begin{equation}
  (I+M)(I+M)^T = I \Leftrightarrow (I+M)(I+M^T)=I \Leftrightarrow M+M^T = 0
 \end{equation}
