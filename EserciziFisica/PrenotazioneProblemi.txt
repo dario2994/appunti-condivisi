@@ -49,7 +49,7 @@ Catena che cade dal tavolo
 13/02/14
 Come si trasforma il tensore d'inerzia dopo rotazione | Giada | Fatto
 Tensore d'inerzia di un corpo rigido invariante per rotazione | Alice
-Sbarra che rotola senza strisciare su una semicirconferenza | Federico
+Sbarra che rotola senza strisciare su una semicirconferenza | Federico | Fatto
 
 18/02/14 Lezione
 Moto libero di una trottola simmetrica

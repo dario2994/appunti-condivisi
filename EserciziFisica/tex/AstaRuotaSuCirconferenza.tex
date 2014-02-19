@@ -1,0 +1,91 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[13/02/2014]{Asta che ruota su una semicirconferenza} %arc
+
+\textex
+Un'asta di lunghezza $l$ e massa $m$ distribuita omogeneamente ruota senza strisciare, sotto l'effetto della gravità, su una semicirconferenza fissa di raggio $r$.
+
+Trovare l'equazione differenziale che regola il moto dell'asta e trovare le piccole oscillazioni intorno al punto di equilibrio.
+\solution
+Sia $\vec T$ il punto di contatto tra l'asta e la semicirconferenza, sia $\vec Q$ la posizione del centro di massa della barra, sia $\vec O$ il centro fisso della semicirconferenza. Sia inoltre $x$ lo scalare che rappresenta la distanza tra $\vec T$ e $\vec Q$.
+
+Lavorerò in coordinate polari centrate in $\vec O$ e riferite a $\vec T$. Dove $\theta=0$ corrisponde alla posizione orizzontale dell'asta (quindi il punto di contatto coincide col punto più alto della semicirconferenza).
+
+La condizione di rotazione sena strisciamento è equivalente ad affermare:
+\begin{equation}\label{arc:NoStrisciamento}
+	\dot x + r\dot \theta = 0
+\end{equation}
+
+Inoltre discendono banalmente dalle definizioni del sistema di coordinate le tre seguenti identità:
+\begin{align}
+	\vec T &=r\hat r \label{arc:T}\\
+	\vec Q &=r\hat r+x\hat{\theta} \label{arc:Q}\\
+	\vec g &=g\left(-\cos\theta\hat r + \sin\theta \hat{\theta} \label{arc:g}\right)
+\end{align}
+
+Ora l'idea è applicare la seconda equazione cardinale della meccanica rispetto al punto di contatto, così da poter trascurare le forze vincolari della semicirconferena visto che tutte agiscono proprio su $\vec T$.
+Seguendo questa idea, ottengo la formula:
+\begin{equation}\label{arc:Cardine}
+	\dot{\overrightarrow{M_T}}=\vec N_T - \vec v_T\times \vec P
+\end{equation}
+dove $\vec v_T$ è la velocità di $\vec T$ nel sistema di $\vec O$ e $\vec P$ è la quantità di moto del centro di massa della sbarretta nel sistema di $\vec O$.
+
+Ora semplicemente calcolo tutti i termini di questa equazione in funzione di $\theta,x$.
+
+Per quanto riguarda $\vec N_T$ il conto è molto facile, visto che l'unica forza agente sulla barra che conta per il calcolo del momento delle forze rispetto a $\vec T$ è la forza di gravità, che agisce, dal punto di vista del momento, come se tutta la massa fosse concentrata nel centro di massa $\vec Q$, e perciò il momento risulta essere:
+\begin{equation} \label{arc:MomentoDelleForze}
+	\vec N_T = (\vec Q-\vec T)\times \vec g = x\hat{\theta}\times g\left( -\cos\theta\hat r+\sin\theta \hat\theta \right)
+	=-xg\cos\theta\hat z
+\end{equation}
+dove nei passaggi ho usato \cref{arc:T,arc:Q,arc:g}.
+
+Per quanto riguarda il termine di $\vec v_T\times \vec P$ si tratta solo di derivare \cref{arc:T,arc:Q}, usando le regole di derivazione delle coordinate polari \cref{OmegaPolari} ottenendo:
+\begin{equation}\label{arc:TermineBrutto}
+	\vec v_T\times \vec P = \dot{\vec{T}}\times m\dot{\vec{Q}}=
+	r\dot{\theta}\hat{\theta}\times m\left(r\dot{\theta}\hat{\theta}+\dot x\hat{\theta}-x\dot{\theta}\hat r\right)=
+	-mxr\dot{\theta}^2 \hat z
+\end{equation}
+
+Ora resta da calcolare il momento angolare della sbarretta rispetto a $\vec T$. Per farlo noto che l'unico movimento della sbarretta che conta per il calcolo del momento angolare è quello rotazionale, e ovviamente la sbarretta sta ruotando con velocità $\dot{\theta}$ intorno a $\vec T$. Allora posso calcolare il momento angolare se ricavo il momento d'inerzia della sbarretta rispetto a $\vec T$, ma ora viene in aiuto il teorema degli assi paralleli che mi assicura che tale momento di inerzia è $I+mx^2$ dove $I=\frac{ml^2}{24}$ è il momento d'inerzia della sbarretta rispetto al suo centro.
+Ora considerando i segni e unendo le considerazioni fatte ricavo:
+\begin{equation*}
+	\overrightarrow{M_T}=-\hat z\dot{\theta}\left(I+mx^2\right)
+\end{equation*}
+Quindi derivando quest'ultima ricavo:
+\begin{equation}\label{arc:DerivataMomento}
+	\dot{\overrightarrow{M_T}}=-\hat z\left( \ddot{\theta}\left(I+mx^2\right)+2m\dot{\theta}x\dot x\right)
+\end{equation}
+
+Ora sostituisco \cref{arc:MomentoDelleForze,arc:TermineBrutto,arc:DerivataMomento} nella \cref{arc:Cardine} ottenendo l'equazione fondamentale:
+\begin{equation*}
+	-\hat z\left( \ddot{\theta}\left(I+mx^2\right)+2m\dot{\theta}x\dot x\right)=
+	-xg\cos\theta\hat z + mxr\dot{\theta}^2 \hat z \iff 
+	\ddot{\theta}\left(\frac Im+x^2\right)=xg\cos\theta-x\dot{\theta}(r\dot{\theta}+2\dot x)
+\end{equation*}
+
+E ora sostituendo \cref{arc:NoStrisciamento} nell'ultimo addendo arrivo a:
+\begin{equation}\label{arc:Fondamentale}
+	\ddot{\theta}\left(\frac Im+x^2\right)=xg\cos\theta+xr\dot{\theta}^2
+\end{equation}
+e quest'ultima può facilmente diventare un'equazione del moto, visto che sempre dalla \cref{arc:NoStrisciamento} si ricava $x=x_0-\theta r$ e sostituendolo diviene un'equazione nel solo $\theta$.
+
+È chiaro che la condizione d'equilibrio accade quando $x=0$, cioè quando punto di contatto e centro di massa coincidono (se non risulta ovvio, basta porre $x=0$ in \cref{arc:Fondamentale} scoprendo che $\ddot{\theta}$ risulta nullo).
+Sia $\theta_0$ l'angolo per cui $x=0$. 
+
+Se $\theta=\theta_0+\de\theta$, applicando la \cref{arc:NoStrisciamento} ottengo $x=-r\de\theta$ e sostituendo nella \cref{arc:Fondamentale} ottengo:
+\begin{equation*}
+	\ddot{\theta}\left(\frac Im+r^2\de\theta^2\right)=-r\de\theta g\cos\theta+r^2\de\theta^2\dot{\theta}^2
+\end{equation*}
+e approssimandola al prim'ordine arrivo a:
+\begin{equation*}
+	\ddot{\theta}\left(\frac Im\right)=-rg\cos\theta_0\de\theta \Rightarrow 
+	\ddot{\theta}=-\frac{24gr\cos\theta_0}{l^2}\de\theta
+\end{equation*}
+che è l'equazione di un moto armonico in $\theta$ con pulsazione $\displaystyle\frac{\sqrt{24gr\cos\theta_0}}l$ (ricordo che $|\theta_0|<\pi/2$ visto che è una \emph{semi}circonferenza) intorno al punto di equilibrio stabile $\theta_0$. 
+
+
+
+
+
+\end{document}
