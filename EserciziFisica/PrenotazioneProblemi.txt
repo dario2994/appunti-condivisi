@@ -51,7 +51,12 @@ Come si trasforma il tensore d'inerzia dopo rotazione | Giada | Fatto
 Tensore d'inerzia di un corpo rigido invariante per rotazione | Alice
 Sbarra che rotola senza strisciare su una semicirconferenza | Federico | Fatto
 
-18/02/14 Lezione
+17/02/14 Lezione
 Moto libero di una trottola simmetrica
 Movimento rotazionali di un satellite in orbita geostazionaria intorno alla terra
+
+20/02/14
+Asta che scivola sul muro e si stacca
+Cilindro che rotola dentro un cilindro fisso grande, trovare equazione e piccole oscillazioni
+Due aste incernierate che ricevono un impulso ad un estremo, che velocità hanno inizialmente?
 
