@@ -216,24 +216,34 @@ o, equivalentemente,
 
 
 \subsection{Tensore d'inerzia}
-Per alleggerire la notazione, chiamerò $r_i, r_j, r_k$ le componenti lungo gli assi di un generico vettore $\vec r_{\alpha}$, invece di specificare che tali componenti si riferiscono al vettore posizione della particella $\alpha$.
+Per alleggerire la notazione, chiamerò $r_i, r_j, r_k$ le componenti lungo gli assi di un generico vettore $\vec r_{o\alpha}$, invece di specificare che tali componenti si riferiscono al vettore posizione della particella $\alpha$ rispetto al punto $O$.
 
-Il tensore d'inerzia è un tensore a due indici definito come segue:
+Il tensore d'inerzia di un corpo rigido è un tensore a due indici definito come segue:
 \begin{equation} \label{ten:definition}
-	I_{ij}=\sum_\alpha m_\alpha(\delta_{ij}\vec r_\alpha^2 -r_ir_j)
+	I_{ij}=\sum_\alpha m_\alpha(\delta_{ij}\vec r_{o\alpha}^2 -r_ir_j)
 \end{equation}
 
-Calcolo ora la relazione fra il momento angolare e il tensore d'inerzia di un corpo, calcolati rispetto allo stesso sistema di riferimento che si muove solidamente al corpo.
+Calcolo ora la relazione fra il momento angolare e il tensore d'inerzia di un corpo, calcolati rispetto allo stesso sistema di riferimento che si muove solidalmente al corpo, centrato in un punto $O$ tale che
+\begin{equation} \label{ten:PointCondition}
+	\vec{r}_{oG}\times \dot{\vec r}_o=0
+\end{equation}
+dove $G$ è il baricentro del corpo.
 
-Utilizzando la definizione di momento angolare e le relazione tra $\varepsilon_{ijk}$ e $\delta_{ij}$, ottengo:
-\begin{gather*}
-	\vec L=\sum_{\alpha} m_\alpha \vec r_{\alpha}\times \dot{\vec r}_{\alpha}=\sum_{\alpha} m_\alpha \vec r_{\alpha}\times (\vec\omega\times\vec r_{\alpha})\\
+
+Utilizzando la definizione di momento angolare e la \cref{ten:PointCondition}, ottengo:
+\begin{equation*}
 	\begin{split}
-		\Longrightarrow L_i & =\sum_\alpha m_\alpha \varepsilon_{ijk}r_j(\vec\omega\times\vec{r}_\alpha)_k = \sum_\alpha m_\alpha \varepsilon_{ijk} \varepsilon_{klm} r_j r_m\omega_l \\
-							& =\sum_\alpha m_\alpha (\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}) r_j r_m\omega_l \\
-							& =\sum_\alpha m_\alpha (\delta_{il}\omega_l\vec r_\alpha^2 -r_i\delta_{jl} r_j\omega_l)=\sum_\alpha m_\alpha \omega_l(\delta_{il}\vec r_\alpha^2 -r_ir_l)
+	\vec L	& =\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times \dot{\vec r}_{\alpha}=\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\dot{\vec r}_{o\alpha}+\dot{\vec r}_o)=\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\vec\omega\times\vec r_{o\alpha})+\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times \dot{\vec r}_o\\
+			& =\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\vec\omega\times\vec r_{o\alpha})+\vec r_{oG}\times \dot{\vec r}_o=\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\vec\omega\times\vec r_{o\alpha})
 	\end{split}
-\end{gather*}
+\end{equation*}
+da cui, sfruttando le relazioni fra $\varepsilon_{ijk}$ e $\delta_{ij}$, ottengo:
+\begin{equation*}
+	\begin{split}
+		L_i & =\sum_\alpha m_\alpha \varepsilon_{ijk}r_j(\vec\omega\times\vec{r}_{o\alpha})_k = \sum_\alpha m_\alpha \varepsilon_{ijk} \varepsilon_{klm} r_j r_m\omega_l =\sum_\alpha m_\alpha (\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}) r_j r_m\omega_l \\
+			& =\sum_\alpha m_\alpha (\delta_{il}\omega_l\vec r_{o\alpha}^2 -r_i\delta_{jl} r_j\omega_l)=\sum_\alpha m_\alpha \omega_l(\delta_{il}\vec r_{o\alpha}^2 -r_ir_l)
+	\end{split}
+\end{equation*}
 da cui, sfruttando la \cref{ten:definition}, ottengo proprio la relazione cercata:
 \begin{equation}\label{ten:MomentoAngolare}
 	L_i=I_{ij}\omega_j
