@@ -1,0 +1,63 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[17/02/2014]{Moto libero di una trottola simmetrica} %mlts
+
+\textex
+Una trottola simmetrica è un corpo rigido per cui valga $I_x=I_y$ dove $\hat x, \hat y, \hat z$ sono gli assi principali del corpo.
+Studiare il moto libero (cioè in assenza di forze esterne) di una trottola simmetrica.
+\solution
+Lavoro nel centro di massa del corpo (è chiaro che il moto traslatorio di questo non è interessante ai fini del problema).
+
+Chiamo $\overrightarrow M$ il momento angolare del corpo e $\vec{\omega}$ l'asse di rotazione istantaneo. Inoltre sfrutterò la notazione di Einstein per le sommatorie, e tutti gli indici varieranno su $x,y,z$.
+
+Per la seconda equazione cardinale della dinamica, poichè sul corpo non agiscono forze esterne, ho che vale:
+\begin{equation}\label{mlts:EqCardinale}
+	0=\dot{\overrightarrow M}
+\end{equation}
+
+Inoltre per la definizione di tensore di inerzia, rispetto agli assi principali, ho anche che vale:
+\begin{equation*}
+	\overrightarrow M = I_i\omega_i \hat\iota
+\end{equation*}
+e derivando quest'ultima rispetto al tempo, sfruttando \cref{OmegaSferiche} arrivo a:
+\begin{equation*}
+	\dot{\overrightarrow M}= I_i\left(\omega'_i\hat\iota + \omega_i\omega\times \hat\iota\right)
+\end{equation*}
+ora applico \cref{mlts:EqCardinale} e arrivo a
+\begin{equation}\label{mlts:Fondamentale}
+	0=I_i\left(\omega'_i\hat\iota + \omega_i\omega\times \hat\iota\right) =
+	\sum_{cyc} \left( I_x\omega'_x+\omega_y\omega_z(I_z-I_y) \right)\hat x
+\end{equation}
+dove nell'ultima uguaglianza ho semplicemente fatto i conti e raccolto per coordinata.
+
+Guardando la \cref{mlts:Fondamentale} rispetto alla coordinata $\hat z$ ottengo:
+\begin{equation*} 
+	0=I_z\omega'_z+\omega_x\omega_y(I_y-I_x)=I_z\omega'_z\Rightarrow \omega'_z=0
+\end{equation*}
+quindi ottengo $\omega_z$ costante.
+
+Chiamo $\alpha=\frac{I_z}{I_x}=\frac{I_z}{I_y}$ e $k=\omega_z(\alpha-1)$. Per quanto appena detto $k$ è una costante.
+
+Guardo la \cref{mlts:Fondamentale} rispetto alla coordinata $\hat x$ e ottengo:
+\begin{equation}\label{mlts:x}
+	0=I_x\omega'_x+\omega_y\omega_z(I_z-I_x)\Rightarrow 0=\omega'_x+k\omega_y
+\end{equation}
+e analogamente, solo guardando la coordinata $\hat y$ ottengo:
+\begin{equation}\label{mlts:y}
+	0=I_y\omega'_y+\omega_z\omega_x(I_x-I_z)\Rightarrow 0=\omega'_y-k\omega_x
+\end{equation}
+
+Ora sommo la \cref{mlts:x} alla \cref{mlts:y} moltiplicata per $i$ ottenendo:
+\begin{equation*}
+	0=\omega'_x+k\omega_y+i(\omega'_y-k\omega_x)=(\omega_x+i\omega_y)'-ik(\omega_x+i\omega_y)
+\end{equation*}
+e chiamando $z=\omega_x+i\omega_y$ arrivo ad una differenziale di variabile complessa facile da risolvere:
+\begin{equation}\label{mlts:complessa}
+	z'=ikz \Rightarrow z=A\cdot e^{ikt+\varphi}
+\end{equation}
+dove $A,\phi$ sono costanti che dipendono dai dati iniziali.
+
+
+
+\end{document}
