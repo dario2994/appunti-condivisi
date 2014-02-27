@@ -52,7 +52,7 @@ Tensore d'inerzia di un corpo rigido invariante per rotazione | Alice
 Sbarra che rotola senza strisciare su una semicirconferenza | Federico | Fatto
 
 17/02/14 Lezione
-Moto libero di una trottola simmetrica | Federico
+Moto libero di una trottola simmetrica | Federico | Fatto
 Movimenti rotazionali di un satellite in orbita geostazionaria intorno alla terra | Giada
 
 20/02/14
