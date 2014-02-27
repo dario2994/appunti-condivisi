@@ -219,18 +219,18 @@ o, equivalentemente,
 Per alleggerire la notazione, chiamerò $r_i, r_j, r_k$ le componenti lungo gli assi di un generico vettore $\vec r_{o\alpha}$, invece di specificare che tali componenti si riferiscono al vettore posizione della particella $\alpha$ rispetto al punto $O$.
 
 Il tensore d'inerzia di un corpo rigido è un tensore a due indici definito come segue:
-\begin{equation} \label{ten:definition}
+\begin{equation} \label{ten:definizione}
 	I_{ij}=\sum_\alpha m_\alpha(\delta_{ij}\vec r_{o\alpha}^2 -r_ir_j)
 \end{equation}
 
 Calcolo ora la relazione fra il momento angolare e il tensore d'inerzia di un corpo, calcolati rispetto allo stesso sistema di riferimento che si muove solidalmente al corpo, centrato in un punto $O$ tale che
-\begin{equation} \label{ten:PointCondition}
+\begin{equation} \label{ten:CondizioneSulCentro}
 	\vec{r}_{oG}\times \dot{\vec r}_o=0
 \end{equation}
 dove $G$ è il baricentro del corpo.
 
 
-Utilizzando la definizione di momento angolare e la \cref{ten:PointCondition}, ottengo:
+Utilizzando la definizione di momento angolare e la \cref{ten:CondizioneSulCentro}, ottengo:
 \begin{equation*}
 	\begin{split}
 	\vec L	& =\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times \dot{\vec r}_{\alpha}=\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\dot{\vec r}_{o\alpha}+\dot{\vec r}_o)=\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times (\vec\omega\times\vec r_{o\alpha})+\sum_{\alpha} m_\alpha \vec r_{o\alpha}\times \dot{\vec r}_o\\
@@ -244,13 +244,13 @@ da cui, sfruttando le relazioni fra $\varepsilon_{ijk}$ e $\delta_{ij}$, ottengo
 			& =\sum_\alpha m_\alpha (\delta_{il}\omega_l\vec r_{o\alpha}^2 -r_i\delta_{jl} r_j\omega_l)=\sum_\alpha m_\alpha \omega_l(\delta_{il}\vec r_{o\alpha}^2 -r_ir_l)
 	\end{split}
 \end{equation*}
-da cui, sfruttando la \cref{ten:definition}, ottengo proprio la relazione cercata:
+da cui, sfruttando la \cref{ten:definizione}, ottengo proprio la relazione cercata:
 \begin{equation}\label{ten:MomentoAngolare}
 	L_i=I_{ij}\omega_j
 \end{equation}
 
 Ora pongo $O$ nel centro di massa del corpo rigido. Ne ricavo che vale anche che l'energia cinetica rispetto al centro di massa si può calcolare come:
-\begin{equation} \label{ten:KineticEnergy}
+\begin{equation} \label{ten:EnergiaCinetica}
 	K=\frac 12 I_{ij}\omega_i\omega_j
 \end{equation}
 
