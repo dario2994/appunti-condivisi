@@ -10,11 +10,13 @@ Un satellita ruota intorno alla Terra su un'orbita circolare di raggio $r_Q$. Ca
 Inizialmente il satellite ha i tre assi principali rivolti uno radialmente, uno tangenzialmente e l'ultimo uscente dal piano dell'orbita. Dimostrare che l'orientamento degli assi rimane fisso nel sistema che ruota solidalmente al satellite. Calcolare inoltre il periodo delle piccole oscillazioni sul piano dell'orbita.
 
 \solution
+Nel corso della soluzione utilizzerò la notazione di Einstein come definita in \cref{ten}.
+
 Calcolo innanzitutto il momento dele forze rispetto al baricentro, dove considero come sistema fisso il sistema centrato nel centro della Terra.
 \begin{equation}\label{crc:MomentoForze1}
 \begin{split}
-	\vec N_Q	& =\sum_\alpha m_\alpha \vec r_{Q\alpha} \times \vec F_\alpha=-\sum_\alpha m_\alpha \vec r_{Q\alpha} \times \frac {G_N M}{r_\alpha^3}\vec r_\alpha \\
-				&= -G_NM\sum_\alpha \frac {m_\alpha}{r_\alpha^3} \vec r_{Q\alpha} \times (\vec r_Q+\vec r_{Q\alpha})=-G_NM\sum_\alpha \frac {m_\alpha}{r_\alpha^3} \vec r_{Q\alpha} \times \vec r_Q
+	\vec N_Q	&= \sum_\alpha\vec r_{Q\alpha} \times \vec F_\alpha=- \sum_\alpha \vec r_{Q\alpha} \times \frac {G_N M m_\alpha }{r_\alpha^3}\vec r_\alpha \\
+			&= -G_NM \sum_\alpha \frac {m_\alpha}{r_\alpha^3}\vec r_{Q\alpha} \times (\vec r_Q+\vec r_{Q\alpha})=-G_NM \sum_\alpha \frac {m_\alpha}{r_\alpha^3}(\vec r_{Q\alpha} \times \vec r_Q)
 \end{split}
 \end{equation}
 
@@ -23,13 +25,37 @@ Sapendo che $\vec r_\alpha=\vec r_Q+\vec r_{Q\alpha}$, ricavo per il teorema di 
 	r_\alpha^2=r_Q^2+r_{Q\alpha}^2+2\vec r_Q\cdot \vec r_{Q\alpha}\simeq r_Q^2 \left( 1+2\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right)
 	\Longrightarrow  r_\alpha \simeq r_Q \left( 1+\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right) \Longrightarrow  \frac{1}{r_\alpha^3} \simeq \frac{1}{r_Q^3} \left( 1-3\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right)
 \end{equation*}
-Sostituendo ora quest'ultima relazione nella \cref{crc:MomentoForze1}, ottengo:
-\begin{equation}
-\begin{split}
-	\vec N_Q & = -\frac{G_NM}{r_Q^3}\sum_\alpha m_\alpha   \left( 1-3\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right) \vec r_{Q\alpha} \times \vec r_Q = \frac{G_NM}{r_Q^3}\sum_\alpha 3 m_\alpha   \frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \vec r_{Q\alpha}\times \vec r_Q\\
-		&= \frac{3G_NM}{r_Q^5}\sum_\alpha m_\alpha   (\vec r_Q\cdot \vec r_{Q\alpha})( \vec r_{Q\alpha}\times \vec r_Q)
-\end{split}
+Sostituendo ora quest'ultima relazione nella \cref{crc:MomentoForze1} e utilizzando che $m_\alpha(\vec r_{Q\alpha} \times \vec r_Q)=0$, ottengo:
+\begin{gather*}
+	\vec N_Q = -\frac{G_NM}{r_Q^3} \sum_\alpha m_\alpha\left( 1-3\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right) (\vec r_{Q\alpha} \times \vec r_Q) =  \frac{3G_N M}{r_Q^5} \sum_\alpha m_\alpha(\vec r_Q\cdot \vec r_{Q\alpha})( \vec r_{Q\alpha}\times \vec r_Q)\\
+	\Longrightarrow N_Q^i =\frac{3G_N M}{r_Q^5} \sum_\alpha m_\alpha\varepsilon_{ijk}r_{Q\alpha}^jr_Q^k r_Q^lr_{Q\alpha}^l=\frac{3G_N M}{r_Q^5} \varepsilon_{ijk} r_Q^k r_Q^l\sum_\alpha m_\alpha (r_{Q\alpha}^jr_{Q\alpha}^l-\delta_{jl} r_{Q\alpha}^2)
+\end{gather*}
+dove $i,j,k,l$ all'apice indicano le componenti dei vettori su cui sono applicati, relative al sistema di assi fissi rispetto al corpo, e l'ultimo passaggio è vero perchè $\varepsilon_{ijk} r_Q^k r_Q^l \delta_{jl}=\varepsilon_{ijk} r_Q^k r_Q^j=\vec r_Q \times \vec r_Q =0$.
+
+Quindi ricordando la definizione di tensore d'inerzia data dalla \cref{ten:definition}, ottengo:
+\begin{equation}\label{crc:MomentoForze}
+	N_Q^i=\frac{3G_N M}{r_Q^5} \varepsilon_{ijk} I_{jl} r_Q^k r_Q^l
 \end{equation}
+che ponendosi nel sistema degli assi principali diventa:
+\begin{equation}\label{crc:MomentoForzeAssiPrincipali}
+	N_Q^i=\frac{3G_N M}{r_Q^5} \varepsilon_{ijk} I_{j} r_Q^k r_Q^j
+\end{equation}
+
+Mi pongo ora nel caso in cui inizialmente gli assi principali $\hat x, \hat y, \hat z$ siano rivolti rispettivamente tangenzialmente, radialmente e in direzione uscente dal piano dell'orbita (come nel testo).
+In questo caso ho che $\vec r_Q=(0,r_Q,0)$ e sostituendo tale valore di $\vec r_Q$ nella \cref{crc:MomentoForzeAssiPrincipali}, ho facilmente che $\vec N=0$. Ciò dimostra quindi che l'orientamento degli assi rimane fisso rispetto al sistema di riferimento che si muove solidalmente al satellite.
+
+Voglio calcolare ora il periodo delle piccole oscillazioni che si compiono sul piano dell'orbita (l'asse $\hat z$ rimane quindi sempre fisso rispetto al sistema che si muove con il satellite).
+
+Sia $\theta$ l'angolo che l'asse $\hat y$ forma con la direzione radiale. In questo caso, considerando $\theta$ ``piccolo'', la direzione del baricentro rispetto agli assi principali è espressa da $\vec r_Q=r_Q(\sin\theta,\cos\theta,0)\simeq r_Q(\theta,1,0)$.
+
+Sostituendo quindi nella \cref{crc:MomentoForzeAssiPrincipali}, ho che vale:
+\begin{equation*}
+\begin{cases}
+	N_Q^x=N_Q^y=0\\
+	N_Q^z=\frac{3G_N M}{r_Q^5} (\varepsilon_{zxy} I_{x}\theta +\varepsilon_{zyx} I_{y}\theta)=\frac{3G_N M}{r_Q^5}(I_x-I_y)\theta
+\end{cases}
+\end{equation*}
+
 
 
 

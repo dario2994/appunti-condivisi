@@ -215,7 +215,7 @@ o, equivalentemente,
 
 
 
-\subsection{Tensore d'inerzia}
+\subsection{Tensore d'inerzia} \label{ten}
 Userò la notazione di Einstein per le sommatorie contratte.
 Sia $\vec O$ un punto fisso rispetto al corpo rigido e $\hat x,\hat y,\hat z$ degli assi centrati in $\vec O$ fissi rispetto al corpo rigido.
 Inoltre $\alpha$ sarà un indice che si muoverà sui punti del corpo rigido e $m_\alpha,r_\alpha$ sono massa e posizione rispetto al punto O del punto $\alpha$. Invece gli indici $i,j$ varieranno su $x,y,z$.
@@ -228,7 +228,7 @@ Il tensore d'inerzia di un corpo rigido è un tensore a due indici definito come
 Fissato ora un riferimento inerziale, sia $\vec v_O$ la velocità di $\vec O$ in tale sistema. 
 Trovo la relazione fra il momento angolare calcolato rispetto ad $\vec O$ nel sistema di riferimento inerziale e il tensore d'inerzia di un corpo sotto l'ipotesi che valga
 \begin{equation} \label{ten:CondizioneSulCentro}
-	\vec r_Q\times v_O=0
+	\vec r_Q\times \vec v_O=0
 \end{equation}
 dove $\vec r_Q$ è il vettore che congiunge $\vec O,\vec Q$ dove $\vec Q$ è il baricentro del corpo.
 
@@ -238,14 +238,14 @@ Utilizzando la definizione di momento angolare e la \cref{ten:CondizioneSulCentr
 	\vec L	& = m_\alpha \vec r_{\alpha}\times \left(\dot{\vec r}_{\alpha}+\vec v_O\right)=
 	m_\alpha \vec r_\alpha\times\dot{\vec r}_{\alpha}+ m_\alpha\vec r_\alpha\times\vec v_O =
 	m_\alpha \vec r_\alpha\times\left(\vec\omega\times\vec r_\alpha\right)+m\vec r_Q\times \vec v_O =
-	m_a\left(\vec\omega\vec r^2_\alpha-\vec r_\alpha\left(\vec\omega\cdot\vec r_\alpha\right)\right)
+	m_\alpha\left(\vec\omega\vec r^2_\alpha-\vec r_\alpha\left(\vec\omega\cdot\vec r_\alpha\right)\right)
 	\end{split}
 \end{equation*}
 dove ho usato \cref{OmegaSferiche} per derivare $\vec r_\alpha$ e ho usato una nota identità coi prodotti vettoriali nell'ultima identità.
 Ora considero la componente $i$-esima dell'identità vettoriale trovata e ottengo:
 \begin{equation*}
 	L_i=m_\alpha\left(\delta_{ij}\omega_j\vec r^2_\alpha-r_{\alpha i}\omega_j r_{\alpha j}\right)=
-	\omega_j m_\alpha\left(\delta_{ij}\omega_j\vec r^2_\alpha-r_{\alpha i}\omega_j r_{\alpha j}\right)
+	\omega_j m_\alpha\left(\delta_{ij}\vec r^2_\alpha-r_{\alpha i} r_{\alpha j}\right)
 \end{equation*}
 da cui, sfruttando la \cref{ten:definizione}, ottengo proprio la relazione cercata:
 \begin{equation}\label{ten:MomentoAngolare}
