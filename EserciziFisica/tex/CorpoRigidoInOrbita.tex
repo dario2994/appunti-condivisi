@@ -1,0 +1,37 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[Lezione 13/02/2014]{Corpo rigido in orbita circolare intorno alla Terra} %crc
+\label{ex:crc}
+
+\textex
+Un satellita ruota intorno alla Terra su un'orbita circolare di raggio $r_Q$. Calcolare il momento delle forze rispetto al baricentro, noto $I$ il tensore d'inerzia del satellite. 
+
+Inizialmente il satellite ha i tre assi principali rivolti uno radialmente, uno tangenzialmente e l'ultimo uscente dal piano dell'orbita. Dimostrare che l'orientamento degli assi rimane fisso nel sistema che ruota solidalmente al satellite. Calcolare inoltre il periodo delle piccole oscillazioni sul piano dell'orbita.
+
+\solution
+Calcolo innanzitutto il momento dele forze rispetto al baricentro, dove considero come sistema fisso il sistema centrato nel centro della Terra.
+\begin{equation}\label{crc:MomentoForze1}
+\begin{split}
+	\vec N_Q	& =\sum_\alpha m_\alpha \vec r_{Q\alpha} \times \vec F_\alpha=-\sum_\alpha m_\alpha \vec r_{Q\alpha} \times \frac {G_N M}{r_\alpha^3}\vec r_\alpha \\
+				&= -G_NM\sum_\alpha \frac {m_\alpha}{r_\alpha^3} \vec r_{Q\alpha} \times (\vec r_Q+\vec r_{Q\alpha})=-G_NM\sum_\alpha \frac {m_\alpha}{r_\alpha^3} \vec r_{Q\alpha} \times \vec r_Q
+\end{split}
+\end{equation}
+
+Sapendo che $\vec r_\alpha=\vec r_Q+\vec r_{Q\alpha}$, ricavo per il teorema di Carnot e utilizzando che $r_{Q\alpha}\ll r_Q$:
+\begin{equation*}
+	r_\alpha^2=r_Q^2+r_{Q\alpha}^2+2\vec r_Q\cdot \vec r_{Q\alpha}\simeq r_Q^2 \left( 1+2\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right)
+	\Longrightarrow  r_\alpha \simeq r_Q \left( 1+\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right) \Longrightarrow  \frac{1}{r_\alpha^3} \simeq \frac{1}{r_Q^3} \left( 1-3\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right)
+\end{equation*}
+Sostituendo ora quest'ultima relazione nella \cref{crc:MomentoForze1}, ottengo:
+\begin{equation}
+\begin{split}
+	\vec N_Q & = -\frac{G_NM}{r_Q^3}\sum_\alpha m_\alpha   \left( 1-3\frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \right) \vec r_{Q\alpha} \times \vec r_Q = \frac{G_NM}{r_Q^3}\sum_\alpha 3 m_\alpha   \frac{\vec r_Q\cdot \vec r_{Q\alpha}}{r_Q^2} \vec r_{Q\alpha}\times \vec r_Q\\
+		&= \frac{3G_NM}{r_Q^5}\sum_\alpha m_\alpha   (\vec r_Q\cdot \vec r_{Q\alpha})( \vec r_{Q\alpha}\times \vec r_Q)
+\end{split}
+\end{equation}
+
+
+
+
+\end{document}
