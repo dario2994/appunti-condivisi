@@ -53,7 +53,7 @@ Sbarra che rotola senza strisciare su una semicirconferenza | Federico | Fatto
 
 17/02/14 Lezione
 Moto libero di una trottola simmetrica | Federico | Fatto
-Movimenti rotazionali di un satellite in orbita geostazionaria intorno alla terra | Giada
+Movimenti rotazionali di un satellite in orbita geostazionaria intorno alla terra | Giada | Fatto
 
 20/02/14
 Asta che scivola sul muro e si stacca
@@ -62,3 +62,7 @@ Due aste incernierate che ricevono un impulso ad un estremo, che velocità hanno
 
 24/02/14 Lezione
 Risoluzione della differenziale mx''+ax'+kx=f*sin(wt)
+
+27/02/14
+Corona circolare su cui è fissata una bandierina e su cui si muove un bambino
+Corona circolare fissata in un punto su cui si muove un bambino
