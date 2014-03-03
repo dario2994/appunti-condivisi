@@ -65,4 +65,4 @@ Risoluzione della differenziale mx''+ax'+kx=f*sin(wt)
 
 27/02/14
 Corona circolare su cui è fissata una bandierina e su cui si muove un bambino
-Corona circolare fissata in un punto su cui si muove un bambino | Giada
+Corona circolare fissata in un punto su cui si muove un bambino | Giada | Fatto

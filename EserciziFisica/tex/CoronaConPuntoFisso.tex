@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[27/02/2014]{Corona che ruota intorno ad un punto fisso} %crp
+\label{ex:crp}
+
+\textex
+Una corona circolare omogenea di massa $M$ e raggio $R$, è fissata al pavimento da un perno attorno al quale ruota senza attrito. Sulla corona si trova un punto materiale di massa $m$. All'inizio il sistema è a riposo. Il punto materiale inizia poi a muoversi sulla corona percorrendo un angolo $\Delta\theta$ rispetto al centro della corona. Che angolo $\Delta\varphi$ ha compiuto la corona attorno al perno? Si risolva il problema al prim'ordine in $\frac mM$.
+
+\solution
+Rispetto al punto (che chiamerò $P$) in cui la corona è fissata dal perno, il momento delle forze esterne è nullo, quindi per la seconda equazione cardinale vale $\dot {\vec L}=0$. Ho quindi che $\vec L$ è costante e in particolare è uguale a 0, poichè all'inizio il sistema è a riposo.
+
+Voglio quindi calcolarmi ora il momento angolare rispetto a $P$, che in particolare è uguale a $\vec L=\vec L_Q+\vec L_C$, dove $\vec L_Q$ è il momento angolare del punto materiale rispetto a $P$ e $\vec L_C$ è invece il momento angolare della corona, sempre rispetto a $P$.
+
+Il punto materiale $Q$ sta ruotando attorno a $P$ con una velocità angolare $\frac {\de}{\de t} (90-\frac{\theta}2+\varphi)$, perciò
+\begin{equation}\label{crp:MomentoAngolarePunto}
+	\vec L_Q=m |PQ|^2 \left(\dot\varphi-\frac{\dot\theta}2\right)\hat z=4mR^2\sin^2\frac{\theta}2\left(\dot\varphi-\frac{\dot\theta}2\right)\hat z
+\end{equation}
+
+La corona ruota invece attorno a $P$ con una velocità angolare $\dot\varphi$, quindi utilizzando il teorema degli assi paralleli e il fatto che il momento d'inerzia rispetto al centro è $I=MR^2$, vale:
+\begin{equation}\label{crp:MomentoAngolareCorona}
+	\vec L_C=(I+MR^2)\dot\varphi\hat z=2MR^2\dot\varphi\hat z
+\end{equation}
+
+Unendo la \cref{crp:MomentoAngolarePunto} e la \cref{crp:MomentoAngolareCorona}, ottengo quindi che
+\begin{gather*}
+	\vec L=0 \Longrightarrow \vec L_Q+\vec L_C=0 \Longrightarrow 4mR^2\sin^2\frac{\theta}2\left(\dot\varphi-\frac{\dot\theta}2\right)\hat z+2MR^2\dot\varphi\hat z=0\\
+	\Longrightarrow m\sin^2\frac{\theta}2\left(2\dot\varphi-\dot\theta\right)+M\dot\varphi=0 \Longrightarrow \left(\frac Mm+2\sin^2\frac{\theta}2\right) \dot\varphi=\sin^2\frac{\theta}2\dot\theta
+\end{gather*}
+da cui, chiamando $\mu=\frac Mm$ e integrando, ottengo
+\begin{equation*}
+	\Delta \varphi=\frac 1\mu \int_{\theta_0}^{\theta_0+\Delta\theta} \sin^2\frac\theta 2 \de \theta=\frac 2\mu \left[\frac{ t-\sin t\cos t}2\right]_{\frac{\theta_0}{2}}^{\frac{\theta_0+\Delta\theta}{2}}=\frac 1{2\mu} \left( \Delta\theta-\frac{\sin(\theta_0+\Delta\theta)-\sin\theta_0}2 \right)
+\end{equation*}
+che è proprio quello che stavo cercando.
+
+
+
+
+\end{document}
