@@ -58,7 +58,7 @@ Movimenti rotazionali di un satellite in orbita geostazionaria intorno alla terr
 20/02/14
 Asta che scivola sul muro e si stacca
 Cilindro che rotola dentro un cilindro fisso grande, trovare equazione e piccole oscillazioni
-Due aste incernierate che ricevono un impulso ad un estremo, che velocità hanno inizialmente?
+Due aste incernierate che ricevono un impulso ad un estremo, che velocità hanno inizialmente? | Davide
 
 24/02/14 Lezione
 Risoluzione della differenziale mx''+ax'+kx=f*sin(wt)
