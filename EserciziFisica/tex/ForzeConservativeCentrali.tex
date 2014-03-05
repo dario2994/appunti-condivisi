@@ -1,0 +1,37 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Forze conservative e centrali} %fcc
+
+\textex
+Data una forza nella forma:
+$$
+\left\{
+\begin{array}{rl}
+F_x & = ax+by \\
+F_y  & = cx+dy
+\end{array}
+\right.
+$$
+Dire quando essa è conservativa e quando centrale.
+
+
+\solution
+
+Una forza è conservativa se $\nabla \times F=0$ (vedere Morin pag. 150). In questo caso quindi pochè $F_z$ è nullo:
+\begin{equation}\label{fcc:1}
+ \frac{\partial F_y}{\partial x}- \frac{\partial F_x}{\partial y}=0
+\end{equation}
+cioè $b=c$.
+
+Affinchè $F$ invece sia centrale è necessario che, oltre ad essere conservativa, essa dipenda solo da $r=\sqrt{x^2+y^2}$. Che è equivalente a richiedere
+che il potenziale dipenda solo da $r$. Calcolo quindi il potenziale $U(x,y)$, sapendo che $F_x=-\frac{\partial U(x,y)}{ \partial x}$ e che
+$F_y=-\frac{\partial U(x,y)}{ \partial y}$ quindi:
+\begin{equation}\label{fcc:2}
+ -U(x,y)=\int{F_x \de x}=\int{F_y \de y}=\frac{a}{2}x^2+bxy+g(y)=bxy+\frac{d}{2}y^2+f(x)=\frac{a}{2}x^2+bxy+\frac{d}{2}y^2
+\end{equation}
+Ora sostituisco $x=\pm \sqrt{r^2-y^2}$ ed ottengo: $-U=\frac{a}{2}(r^2-y^2) \pm b \sqrt{r^2-y^2}y+\frac{d}{2}y^2$ poichè voglio che la $y$ sparisca
+ devo avere che $b=0$ e $a=d$ ottenendo così che $U(r)=\frac{a}{2}r^2$
+
+
+\end{document}
