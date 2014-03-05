@@ -12,7 +12,7 @@ Pallina vincolata su una circonferenza verticale, con molla | Alice | Fatto
 Due satelliti attorno alla Terra (quando restano attaccati ecc)
 Pallina che scivola su una spirale | Alice | Fatto
 Palla con filo che si arrotola su un perno | Francesco |fatto
-Date equazioni di F, dire quando il campo e' conservativo/centrale | Davide
+Date equazioni di F, dire quando il campo e' conservativo/centrale | Davide | Fatto
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
 Buco nel tavolo, due palline legate da un filo |Francesco |Fatto
 Pendolo di torsione (forse in effetti non va considerato come un esercizio)
