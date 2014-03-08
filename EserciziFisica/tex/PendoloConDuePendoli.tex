@@ -1,0 +1,99 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[6/03/2014]{Pendolo a cui sono appesi due pendoli} %pap
+\label{ex:pap}
+
+\textex
+Ad un pendolo matematico di massa $10m$ e lunghezza $2a$ sono appesi altri due pendoli matematici di massa $3m$ e lunghezza $a$ (che si muovono senza scontrarsi fra loro). Trovare le equazione del moto di tale sistema intorno alla posizione di equilibrio.
+
+\solution
+Mi pongo nel sistema cartesiano con asse $\hat x$ orizzontale e asse $\hat y$ rivolto verso l'alto. Chiamo $\theta,\theta_1$ e $\theta_2$ rispettivamente gli angoli che i tre pendoli formano con la verticale.
+
+L'idea della soluzione sarà trovare le due matrici $M,K\in M(3,\mathbb{R})$ tali che
+\begin{equation*}
+	\frac 12 \dot z^TM\dot z+\frac 12 z^TKz=E
+\end{equation*}
+dove $z=(\theta,\theta_1,\theta_2)$ ed $E$ è l'energia del sistema, che si conserva. Tale equazione infatti è equivalente a 
+\begin{equation*}
+	M\ddot z=-Kz
+\end{equation*}
+che è in realtà un sistema di equazioni lineari omogenee, che so quindi risolvere.
+
+Calcolo perciò l'energia del sistema in funzione dei dati del problema e di $\theta,\theta_1$ e $\theta_2$.
+Innanzitutto calcolo le posizioni $(x,y), (x_1,y_1), (x_2,y_2)$ dei tre pendoli:
+\begin{equation*}
+\begin{cases}
+	(x,y)=2a(\sin\theta,-\cos\theta)\\
+	(x_1,y_1)=(x,y)+a(\sin\theta_1,-\cos\theta_1)\\
+	(x_2,y_2)=(x,y)+a(\sin\theta_2,-\cos\theta_2)
+\end{cases}
+\end{equation*}
+da cui
+\begin{equation*}
+\begin{cases}
+	(\dot x,\dot y)=2a\dot \theta(\cos\theta,\sin\theta)\\
+	(\dot x_1,\dot y_1)=(\dot x,\dot y)+a\dot \theta_1(\cos\theta_1,\sin\theta_1)\\
+	(\dot x_2,\dot y_2)=(\dot x,\dot y)+a\dot \theta_2(\cos\theta_2,\sin\theta_2)
+\end{cases}
+\end{equation*}
+
+Da queste ultime equazioni ottengo facilmente che l'energia cinetica del sistema è
+\begin{equation*}
+	E_{cin}=\frac 12 16m (4a^2\dot\theta^2)+\frac 12 3m a^2(\dot\theta_1^2+\dot\theta_2) +\frac 12 3m [4a^2\dot\theta\dot\theta_1(\cos\theta\cos\theta_1+\sin\theta\sin\theta_1)+4a^2\dot\theta\dot\theta_2(\cos\theta\cos\theta_2+\sin\theta\sin\theta_2)]
+\end{equation*}
+e sviluppando al second'ordine ottengo quindi
+\begin{equation}\label{pap:EnergiaCinetica}
+\begin{split}
+	E_{cin} & =\frac 12 16m (4a^2\dot\theta^2)+\frac 12 3m a^2(\dot\theta_1^2+\dot\theta_2) +\frac 12 3m (4a^2\dot\theta\dot\theta_1+4a^2\dot\theta\dot\theta_2)\\
+	& = 32ma^2\dot\theta^2+\frac 32 ma^2(\dot\theta_1^2+\dot\theta_2^2)+6ma^2\dot\theta(\dot\theta_1+\dot\theta_2)
+\end{split}
+\end{equation}
+
+L'energia potenziale, sempre sviluppando al second'ordine e poi non considerando le costanti (poichè l'energia è definita a meno di costanti), vale invece
+\begin{equation}\label{pap:EnergiaPotenziale}
+	E_{pot}=-32mga\cos\theta-3mga(\cos\theta_1+\cos\theta_2)\Longrightarrow E_{pot}=16mga\theta^2+\frac 32 mga(\theta_1^2+\theta_2^2)
+\end{equation}
+
+Dall'equazione \cref{pap:EnergiaCinetica} ottengo quindi facilmente
+\begin{equation*}
+	M=ma^2
+	\begin{pmatrix}
+		64 & 6 & 6 \\
+		6  & 3 & 0 \\
+		6  & 0 & 3
+	\end{pmatrix}
+\end{equation*}
+e analogamente dall'equazione \cref{pap:EnergiaPotenziale} ottengo invece
+\begin{equation*}
+	K=mga
+	\begin{pmatrix}
+		32 & 0 & 0 \\
+		0  & 3 & 0 \\
+		0  & 0 & 3
+	\end{pmatrix}
+\end{equation*}
+
+Mi sono quindi ricondotta a risolvere l'equazione
+\begin{equation*}
+	M\ddot z=-K z
+\end{equation*}
+
+Cerco innanzitutto le soluzioni della forma $z_\alpha(t)=A_\alpha e^{-i\omega_\alpha t}$. In particolare deve valere
+\begin{equation*}
+	\omega_\alpha^2 M A_\alpha=KA_\alpha \iff (K-\omega_\alpha^2M)A_\alpha=0
+\end{equation*}
+
+Perchè esista una soluzione $A_\alpha\neq 0$ devo avere, chiamando $\omega_0^2=\frac ga$, che
+\begin{equation*}
+	\det (K-\omega_\alpha^2M) =0 \iff \omega_\alpha^2=\omega_0^2,\ 2\omega_0^2,\ \frac 25 \omega_0^2
+\end{equation*}
+
+
+
+
+
+
+
+
+\end{document}
