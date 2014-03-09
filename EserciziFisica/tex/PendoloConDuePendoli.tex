@@ -40,14 +40,14 @@ da cui
 
 Da queste ultime equazioni ottengo facilmente che l'energia cinetica del sistema è
 \begin{equation*}
-	E_{cin}=\frac 12 16m (4a^2\dot\theta^2)+\frac 12 3m a^2(\dot\theta_1^2+\dot\theta_2) +\frac 12 3m [4a^2\dot\theta\dot\theta_1(\cos\theta\cos\theta_1+\sin\theta\sin\theta_1)+4a^2\dot\theta\dot\theta_2(\cos\theta\cos\theta_2+\sin\theta\sin\theta_2)]
-\end{equation*}
-e sviluppando al second'ordine ottengo quindi
-\begin{equation}\label{pap:EnergiaCinetica}
 \begin{split}
-	E_{cin} & =\frac 12 16m (4a^2\dot\theta^2)+\frac 12 3m a^2(\dot\theta_1^2+\dot\theta_2) +\frac 12 3m (4a^2\dot\theta\dot\theta_1+4a^2\dot\theta\dot\theta_2)\\
-	& = 32ma^2\dot\theta^2+\frac 32 ma^2(\dot\theta_1^2+\dot\theta_2^2)+6ma^2\dot\theta(\dot\theta_1+\dot\theta_2)
+	E_{cin}& =\frac 12 10 m(\dot x^2+\dot y^2)+\frac 12 3m(\dot x_1^2+\dot y_1^2)+\frac 12 3m(\dot x_2^2+\dot y_2^2)\\
+	&=32ma^2\dot\theta^2+\frac 32 ma^2(\dot\theta_1^2+\dot\theta_2^2) +6ma^2\dot\theta [\dot\theta_1(\cos\theta\cos\theta_1+\sin\theta\sin\theta_1)+\dot\theta_2(\cos\theta\cos\theta_2+\sin\theta\sin\theta_2)]
 \end{split}
+\end{equation*}
+e sviluppando al second'ordine intorno al punto di minimo $(\theta,\theta_1,\theta_2)=(0,0,0)$, ottengo quindi
+\begin{equation}\label{pap:EnergiaCinetica}
+	E_{cin} = 32ma^2\dot\theta^2+\frac 32 ma^2(\dot\theta_1^2+\dot\theta_2^2)+6ma^2\dot\theta(\dot\theta_1+\dot\theta_2)
 \end{equation}
 
 L'energia potenziale, sempre sviluppando al second'ordine e poi non considerando le costanti (poichè l'energia è definita a meno di costanti), vale invece
@@ -78,22 +78,40 @@ Mi sono quindi ricondotta a risolvere l'equazione
 \begin{equation*}
 	M\ddot z=-K z
 \end{equation*}
-
 Cerco innanzitutto le soluzioni della forma $z_\alpha(t)=A_\alpha e^{-i\omega_\alpha t}$. In particolare deve valere
 \begin{equation*}
 	\omega_\alpha^2 M A_\alpha=KA_\alpha \iff (K-\omega_\alpha^2M)A_\alpha=0
 \end{equation*}
-
 Perchè esista una soluzione $A_\alpha\neq 0$ devo avere, chiamando $\omega_0^2=\frac ga$, che
 \begin{equation*}
 	\det (K-\omega_\alpha^2M) =0 \iff \omega_\alpha^2=\omega_0^2,\ 2\omega_0^2,\ \frac 25 \omega_0^2
 \end{equation*}
 
+Per ognuna delle soluzioni $\omega_1=\omega_0$, $\omega_1=\sqrt{2}\omega_0$ e $\omega_1=\sqrt{\frac 25}\omega_0$ ottengo i rispettivi valori di $A_\alpha\in \ker (K-\omega_\alpha^2M)$
+\begin{equation*}
+	A_1=\begin{pmatrix}
+	    	0\\
+	    	1\\
+	    	-1
+	    \end{pmatrix},
+	A_2=\begin{pmatrix}
+	    	1\\
+	    	-4\\
+	    	-4
+	    \end{pmatrix},
+	A_2=\begin{pmatrix}
+	    	3\\
+	    	4\\
+	    	4
+	    \end{pmatrix}
+\end{equation*}
 
+Le soluzioni $Q_\alpha(t)=\operatorname{Re}(c_\alpha z_\alpha(t))=\operatorname{Re}(c_\alpha A_\alpha e^{-i\omega_\alpha t})$ con $c_\alpha\in \mathbb{C}$ sono le soluzioni in cui tutte le componenti del sistema oscillano con la stessa frequenza e sono perciò detti modi normali.
 
-
-
-
-
+La soluzione generale del sistema è data infine da
+\begin{equation*}
+	z=\sum_{\alpha=1}^{3}\operatorname{Re}(c_\alpha A_\alpha e^{-i\omega_\alpha t})=\sum_{\alpha=1}^{3} A_\alpha \operatorname{Re}(c_\alpha e^{-i\omega_\alpha t})
+\end{equation*}
+che ha come previsto sei parametri liberi, cioè la parte reale e immaginaria di ognuno dei $c_\alpha$.
 
 \end{document}
