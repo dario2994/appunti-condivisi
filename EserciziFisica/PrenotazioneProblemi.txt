@@ -69,3 +69,7 @@ Corona circolare fissata in un punto su cui si muove un bambino | Giada | Fatto
 
 6/03/14
 Pendolo matematico con appesi altri due pendoli | Giada | Fatto
+
+10/03/14
+Cilindro che ruota attorno ad un perno, con un altro cilindro dentro. Studiare le piccole oscillazioni. | Federico
+Tre pendoli fissati al soffitto ma collegati da molle. Studiare le piccole oscillazioni.
