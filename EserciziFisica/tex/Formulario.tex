@@ -259,6 +259,58 @@ Ora pongo $O$ nel centro di massa del corpo rigido. Ne ricavo che vale anche che
 
 Infine è importante notare che, per il teorema spettrale, esistono 3 versori ortogonali, detti assi principali del corpo, tali che calcolando $I$ rispetto a loro ottengo che $I_{ij}=0$ se $i\not=j$.
 
+\subsection{Oscillazioni a più gradi di libertà}\label{opgl}
+Dato un sistema a più gradi di libertà considero il vettore di coordinate generalizzate:
+\begin{equation*}
+	\vec x=(x_1,\dots,x_n)
+\end{equation*}
+e assumo di riuscire a scrivere l'energia come:
+\begin{equation} \label{opgl:EnergiaBrutta}
+	E=T\left(\dot{\vec x}\right)+U\left(\vec x\right)
+\end{equation}
+dove $T,U$ sono ovviamente rispettivamente energia cinetica e potenziale.
+
+Sia $\vec x_0$ un punto di minimo del potenziale.
+
+Per ipotesi di regolarità (tutte da decidere...) si riesce a ricavare che, considerando per comodità $\vec y=\vec x-\vec x_0$, sia $T$ che $U$ sono (in approssimazione al second'ordine centrato in $\vec x_0$) delle forme quadratiche. 
+Allora, semplicemente scrivendo quanto appena detto in forma matriciale, esistono delle matrici, che chiamerò $K,M$ per analogia col caso unidimensionale, tali che valgono:
+\begin{align*}
+	T &= \frac 12\dot{\vec{y}}^T K \dot{\vec{y}} \\
+	U &= \frac 12\vec{y}^T M \vec y
+\end{align*}
+dove inoltre scelgo $K,M$ simmetriche (posso sceglierle simmetriche). Inoltre ancora per strani motivi $K,M$ risultano rispettivamente semidefinita e definita positiva.
+
+Sostituendo quest'ultime nella formula dell'energia \cref{opgl:EnergiaBrutta} ricavo:
+\begin{equation}\label{opgl:Energia}
+	E=\frac 12\dot{\vec{y}}^T K \dot{\vec{y}} + \frac 12\vec{y}^T M \vec y
+\end{equation}
+
+Da questa, sempre con qualche passaggio pindarico misterioso, si arriva alla differenziale lineare omogenea:
+\begin{equation}\label{opgl:Fondamentale}
+	M\ddot{\vec y}=-K\vec y
+\end{equation}
+e ora, basta mostrare $2n$ soluzioni indipendenti e dai teoremi di esistenza ed unicità discenderà che lo spazio delle soluzioni è formato da combinazioni lineari di queste soluzioni.
+
+Cerco soluzioni della forma $\vec y=\vec A e^{i\omega t}$, e sostituendo ottengo che deve valere:
+\begin{equation*}
+	(K-\omega^2M)\vec A=0 \iff M^{-1}K\vec A=\omega^2\vec A
+\end{equation*}
+quindi devo avere $\vec A$ autovettore relativo all'autovalore $\omega^2$ di $M^{-1}K$, ma quest'ultima matrice risulta essere diagonalizzabile e con autovalori positivi poichè le altre due sono simmetriche e positive. Di conseguenza ho la certezza di trovare un numero di autovettori $\vec A$ sufficiente.
+
+Per trovare gli autovalori $\omega^2$ e gli autovettori mi basta imporre le seguenti due condizioni:
+\begin{gather}\label{opgl:SistemaSoluzioni}
+	\det(K-\omega^2M)=0 \\
+	\vec A\in \ker(K-\omega^2M)
+\end{gather}
+e per ogni coppia $\omega^2,\vec A$ che si trova, è soluzione sia quella in cui $\omega>0$ sia quella per cui $\omega<0$.
+
+Siano quindi $\omega_i, \vec A_i$ le $n$ soluzioni con $\omega_i>0$.
+La soluzione generale della differenziale risulterà essere (proiettando le soluzioni sull'asse reale):
+\begin{equation}\label{opgl:Soluzioni}
+	\vec y = \sum_{i=1}^n \vec A_i\left( \lambda^+_i\cos\omega_i t + \lambda^-_i\sin \omega_i t \right)
+\end{equation}
+
+
 
 
 \end{document}
