@@ -1,0 +1,46 @@
+\ProvidesPackage{stilebase}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[a4paper,twoside,top=0.7in, bottom=1in, left=0.7in, right=0.7in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue}
+}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage[nameinlink]{cleveref}
+\newcommand{\crefpairconjunction}{ e }
+\newcommand{\crefrangepreconjunction}{da }
+\newcommand{\crefrangeconjunction}{ a }
+
+\newcommand{\de}{\mathrm{d}}
+\newcommand{\bigO}{\ensuremath{\mathcal{O}}}
+\newcommand{\smallO}{\ensuremath{\mathrm{o}}}
+\newcommand{\partint}[1]{\ensuremath{\left\lfloor #1 \right\rfloor}}
+
+\newtheorem{theorem}{Teorema}[section]
+
+\newtheorem{lemma}{Lemma}[section]
+
+\newtheorem{corollary}{Corollario}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Nota}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+
+\crefname{theorem}{thm:}{Teorema}
+\crefname{lemma}{lem:}{Lemma}
+\crefname{corollary}{cor:}{Corollario}
+\crefname{remark}{nota:}{Nota}
+\crefname{definition}{def:}{Definizione}
+
+\numberwithin{equation}{section}
