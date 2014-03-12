@@ -16,7 +16,7 @@ Date equazioni di F, dire quando il campo e' conservativo/centrale | Davide | Fa
 Satellite in orbita circolare che accende i motori in direzione perpendicolare/tangente
 Buco nel tavolo, due palline legate da un filo |Francesco |Fatto
 Pendolo di torsione (forse in effetti non va considerato come un esercizio)
-Pendolo sferico con approssimazione e velocit� iniziale perpendicolare (ellisse)
+Pendolo sferico con approssimazione e velocità iniziale perpendicolare (ellisse)
 Effetto fionda
 Pendolo di Foucault
 Orbite ellittiche che precedono | Marco | Fatto
@@ -48,7 +48,7 @@ Catena che cade dal tavolo
 
 13/02/14
 Come si trasforma il tensore d'inerzia dopo rotazione | Giada | Fatto
-Tensore d'inerzia di un corpo rigido invariante per rotazione | Alice
+Tensore d'inerzia di un corpo rigido invariante per rotazione | Alice | Fatto
 Sbarra che rotola senza strisciare su una semicirconferenza | Federico | Fatto
 
 17/02/14 Lezione
