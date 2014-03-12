@@ -1,0 +1,54 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[10/03/2014]{Due cilindri ruotano l'uno nell'altro} %dcr
+\textex
+È fissato un cilindro cavo di massa $m$ e raggio $2a$ con un perno sulla sua circonferenza, intorno al quale può ruotare.
+All'interno di questo cilindro ne è presente un altro, anch'esso cavo, di massa $m$ e raggio $a$ che di puro rotolamento sul bordo del cilindro grande.
+
+Studiare le piccole oscillazioni del sistema intorno alla posizione d'equilibrio sotto l'effetto della gravità.
+\solution
+Sia $\vec P$ il punto fisso corrispondente al perno che fissa il cilindro grande, sia $\vec Q$ il centro del primo cilindro e $\vec R$ il centro del secondo. Chiamo $\phi$ l'angolo tra $\overrightarrow{PX}$ e la verticale, e $\theta$ l'angolo tra $\overrightarrow{XY}$ e la verticale.
+
+Pongo un sistema di assi cartesiani in modo che l'origine sia $\vec P$ e l'asse $\hat y$ punti verso il basso.
+
+Nel sistema di coordinate descritto risultano valere:
+\begin{align}\label{dcr:Posizione}
+	\vec Q&=2a(\sin\phi,\cos\phi) \\
+	\vec R&=\vec Q + a(\sin\theta,\cos\theta)
+\end{align}
+e derivando ottengo anche:
+\begin{align}\label{dcr:Velocita}
+	\dot{\vec Q}&=2a\dot{\phi}(\cos\phi,-\sin\phi) \\
+	\dot{\vec R}&=\dot{\vec Q} + a\dot{\theta}(\cos\theta,-\sin\theta)
+\end{align}
+
+Voglio calcolare l'energia cinetica e potenziale del sistema.
+
+Per quanto riguarda l'energia potenziale è molto facile ricavarlo sfruttando \cref{dcr:Posizione}:
+\begin{equation}
+	U=-mgQ_y-mgR_y=-mga(4\cos\phi+\cos\theta)
+\end{equation}
+
+Per quanto riguarda l'energia cinetica del cilindro grande, è facile decomporla in cinetica di $\vec Q$ più rotazionale e poi calcolarla usando \cref{dcr:Velocita}:
+\begin{equation}
+	T_1=\frac 12 m {\dot{\vec Q}}^2+\frac 12I{\dot\phi}^2=4ma^2\dot\phi^2=4ma^2
+\end{equation}
+
+Anche per calcolare l'energia cinetica del cilindro piccolo la decompongo in cinetica più rotazionale, ma risulta più difficile capire la velocità angolare del cilindro.
+
+È arduo spiegare a parole come trovare l'angolo di cui ruota il cilindro piccolo in funzione di $\phi,\theta$ ma provo ora a descrivere il metodo.
+È chiaro che il termine $\phi$ è solo addittivo, quindi lo tengo costante, mentre noto che se l'angolo $\theta$ passa da $0$ a $\theta_0$ il cilindro risulta essere ruotato di $-\theta_0$ (questo va fatto guardando un po' gli angoli della figura).
+Ricomponendo ottengo che l'angolo di rotazione del cilindro (partendo a contare da quando è tutto nella posizione di equilibrio) risulta essere $\phi-\theta$.
+
+Perciò ora ho gli strumenti per calcolare l'energia cinetica del cilindro piccolo:
+\begin{equation}\begin{split}
+	T_2=\frac 12 m {\dot{\vec R}}^2+\frac 12 I \dot{(\phi-\theta)}^2&=
+	\frac12m\left(4a^2{\dot\phi}^2+a^2{\dot\theta}^2+2a^2\dot\theta\dot\phi(\cos\phi\cos\theta+\sin\phi\sin\theta)\right)
+	+\frac12ma^2\left(\dot\phi-\dot\theta\right)^2 \\
+	&= \frac 12ma^2\left(5{\dot\phi}^2+{\dot\theta}^2+2\dot\phi\dot\theta(\cos\phi\cos\theta+\sin\phi\sin\theta-1)\right)
+\end{split}\end{equation}
+
+
+
+\end{document}
