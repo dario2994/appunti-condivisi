@@ -1,39 +1,48 @@
-\section{completezza}
-bagonzo
+\section{Trasmissione della completezza}
 
-sdfs
 
-% Riga vuota a capo! (oppure \\ ma da evitare)
-Formula in mezzo al testo $2^3$
 
-Formulone importante
-\begin{equation}
-1^{2^3}
-\end{equation}
+In questa sezione dimostrerò che se $(X,d)$ è completo allora lo è anche $(\mathcal{K}(X),\delta ) $.
 
-Formulone importante non numerato
-\begin{equation*}
-3^{3^4}
-\end{equation*}
 
-\begin{theorem}\label{marameo}
-ciO
-\end{theorem}
+\begin{lemma} \label {dioladro}
+Sia $K_n$ una successione di compatti in $(X,d)$ tali che $K_{n+1}\subseteq K_n$ $ \forall n \in \mathbb{N}$. Allora la successione ammette limite in $(\mathcal{K}(X),\delta ) $ uguale a $ \bigcap_{n \in \mathbb{N}}K_n $.
+\end{lemma}
+
 \begin{proof}
-minchi
+Dimostro innanzitutto che l'intersezione dei compatti non è vuota. Considero una successione $(x_n) \subseteq X$ tale che $x_n \in K_n$ $ \forall n \in \mathbb{N}$. In particolare  $x_n \in K_1$ $ \forall n \in \mathbb{N}$ e dunque esiste una sottosuccessione  $(x_n(k))$ convergente a $x\in K_1$. Per ogni $n$  $x_{n(k)}\in K_n$ definitivamente, ergo $x\in K_n$ per la chiusura in $X$ di $K_n$. Di conseguenza $x \in K_n$ $ \forall n \in \mathbb{N}$, il che implica che l'intersezione dei compatti è non vuota.
+
+Dato che per ogni $n$ $K_n\supseteq K$ allora ovviamente $\delta (K_n,K)=\delta_{K}(K_n)$. Inoltre $\delta_{K}(K_n)$ è decrescente in $n$, quindi $ \forall n \in \mathbb{N}$ $\exists x_n \in K_n$ tale che $d_K(X_n)\geq r$ , dove $r=\lim_{n \to \infty}\delta_{K}(K_n)>0$.Dunque esiste una sottosuccessione $x_{n(k)}$ convergente a $x\in K_1$, ovvero, per lo stesso argomento precedente, a  $x\in K$. Ma allora $\lim_{n(k) \to \infty}d(x_{n(k)},x)=0$, contraddicendo il fatto che $r=\lim_{n(k) \to \infty}\delta_{K}(K_{n(k)})=r>0$.
 \end{proof}
 
-\begin{remark}
-staminchia
-\end{remark}
+\begin{theorem}
+Sia $(K_n)$ una successione di Cauchy in $(\mathcal{K}(X),\delta ) $, dove $(X, d)$ è uno spazio metrico completo. Allora $\forall k \in \mathbb{N}$ vale che
+\begin{equation*}
+B_k:=\overline{\bigcup_{n\geq k} K_n}
+\end{equation*}
+è compatto.
+\end{theorem}
 
-\begin{align}
-d(x,y)\\
-d_A(x)\\
-\delta_A(B)\\
-\delta(A,B)
-\end{align}
+\begin{proof}
+In uno spazio metrico la compattezza per successioni è equivalente a completezza e totale limitatezza. Dunque mi basta dimostrare quest'ultima proprietà. 
 
-E usando \cref{marameo} vale stocazzo.
+Dato che lo spazio metrico è completo e $B_k$ è chiuso, allora $B_k$ è anche completo.
 
-ciao
+Ora mi resta da dimostrare che, dato $\epsilon>0$, esiste un insieme finito di palle di raggio $\epsilon$ che ricopre tutto $B_k$. Dato che i compatti formano una successione di Cauchy, esiste $n_0$ tale che $\delta(K_{n_0}, K_n)< \frac{\epsilon}{4}$. Inoltre esiste un numero finito di palle di raggio $\frac{\epsilon}{4}$ che ricopre $K_{n_0}$. Ma allora se raddoppio il raggio delle palle considerate ricopro $\cup_{n\geq n_0} K_n$; infatti per ogni $x \in K_n$ ce un elemento di $K_{n_0}$ a distanza minore di $\frac{\epsilon}{4}$, il quale vede un centro $y$ di almeno una delle palle a distanza minore di $\frac{\epsilon}{4}$, da cui $d(x,y)<\frac{\epsilon}{2}$.
+
+Inoltre mi basta un numero finito di palle di raggio $\frac{\epsilon}{2}$ per ricoprire $\cup_{k \leq n< n_0} K_n$, visto che sono un numero finito di compatti. Ora se raddoppio il raggio di tutte le palle di sicuro mi vado a prendere anche la chiusura di $\cup_{n\geq k} K_n$, e dunque ho trovato un ricoprimento finito di palle di raggio $\epsilon$.
+\end{proof}
+
+Dato che per ogni $k\in \mathbb{N}$ $B_{k+1}\subseteq B_k$ per il teorema appena dimostrato e per il \cref{dioladro} esiste $B=\lim_(k \to \infty) B_k$.
+
+Adesso dimostro che la successione di compatti ha limite, mostrando che esso non è altro che $B$.
+
+\begin{theorem}
+Sia $(K_n)$ una successione di Cauchy in $(\mathcal{K}(X),\delta ) $, dove $(X, d)$ è uno spazio metrico completo. Allora $\lim_{n \to \infty}K_n=B$, ove $B$ è il compatto appena costruito.
+\end{theorem}
+
+\begin{proof}
+Dato $\epsilon$, esiste $n_0$ tale che $\delta (K_{n_0}, K_n)< \epsilon$ $\forall n\geq n_0$, il che implica $\delta _{K_{n_0}}, (K_n)<\epsilon$ $\forall n\geq n_0$. Ma allora vale anche che $\delta _{K_{n_0}}, (\cup_{n\geq n_0} K_n)<\epsilon$, e anche che $\delta _{K_{n_0}}, (\overline {\cup_{n\geq n_0} K_n)}\leq \epsilon$. Dunque, dato che per tutti gli $n$ $K_n \subseteq B_n$,  definitivamente $\delta (K_n, B_n) \leq \epsilon$. Ma allora accade anche che $\delta (K_n, B) \to 0$.
+\end{proof}
+
+Dunque in uno spazio metrico completo $(X,d)$ vale effettivamente che una successione di Cauchy di compatti converge ad un compatto, ovvero che $(\mathcal{K}(X),\delta ) $ è a sua volta completo.
