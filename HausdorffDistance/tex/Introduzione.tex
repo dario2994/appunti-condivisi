@@ -68,19 +68,32 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		
 		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ ho che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaChiusoAppartenenza}.
 		\item $\delta(A,C)\le \delta(A,B)+\delta(B,C)$ (disuguaglianza triangolare)
+
+		Senza perdita di generalità possiamo assumere che $\delta(A,C)=\delta_A(C)$. 
+
+		Per ogni $c\in C,\varepsilon>0$ per \cref{ApprossimazioneDistanzaAsimmetrica} esiste $b\in B$ tale che $d(b,c)\le \delta_B(C)+\varepsilon$ ed esiste $a\in A$ tale che $d(a,b)\le \delta_A(B)+\varepsilon$. Ho quindi che
+		\begin{equation*}
+			d_A(c)\le d(a,c)\le d(a,b)+d(b,c)\le \delta_A(B)+\delta_B(C)+2\varepsilon\le \delta(A,B)+\delta(B,C)+2\varepsilon
+		\end{equation*}
+		da cui, passando al $\sup$ su $c$ e al $\limsup$ per $\epsilon\to 0$, ottengo proprio
+		\begin{equation*}
+			\delta_A(C)\le \delta(A,B)+\delta(B,C) \Longrightarrow \delta(A,C)\le \delta(A,B)+\delta(B,C)
+		\end{equation*}
+
+
 		
-		Dimostro innanzitutto che per ogni $c\in C$ vale $d_A(c)\le \delta(A,B)+\delta(B,C)$.
-		
- 		Per \cref{DistanzaCompattoRealizzata} ho che esiste $a\in A$ tale che $d_A(c)=d(a,c)$ e che esiste $b\in B$ tale che $d_B(c)=d(b,c)$. Analogamente esiste $a'\in A$ tale che $d_A(b)=d(a',b)$. Utilizzando facili conseguenze delle definizioni date precedentemente, ho quindi che 
- 		\begin{equation*}
- 			d_A(c)=d(a,c)\le d(a',c) \le d(a',b)+d(b,c)=d_A(b)+d_B(c)\le \delta(A,B)+\delta(B,C)
- 		\end{equation*}
- 		
- 		Passando ora al $\sup$ su $c\in C$ in quest'ultima disuguaglianza ottengo che $\delta_A(C)\le \delta(A,B)+\delta(B,C)$, ma del tutto  analogamente vale $\delta_C(A)\le \delta(A,B)+\delta(B,C)$, quindi
- 		\begin{equation*}
- 			\delta(A,C)=\max\{ \delta_A(B),\delta_B(A) \}\le \delta(A,B)+\delta(B,C)
- 		\end{equation*}
-		che è proprio la disuguaglianza triangolare.
+% 		Dimostro innanzitutto che per ogni $c\in C$ vale $d_A(c)\le \delta(A,B)+\delta(B,C)$.
+% 		
+%  		Per \cref{DistanzaCompattoRealizzata} ho che esiste $a\in A$ tale che $d_A(c)=d(a,c)$ e che esiste $b\in B$ tale che $d_B(c)=d(b,c)$. Analogamente esiste $a'\in A$ tale che $d_A(b)=d(a',b)$. Utilizzando facili conseguenze delle definizioni date precedentemente, ho quindi che 
+%  		\begin{equation*}
+%  			d_A(c)=d(a,c)\le d(a',c) \le d(a',b)+d(b,c)=d_A(b)+d_B(c)\le \delta(A,B)+\delta(B,C)
+%  		\end{equation*}
+%  		
+%  		Passando ora al $\sup$ su $c\in C$ in quest'ultima disuguaglianza ottengo che $\delta_A(C)\le \delta(A,B)+\delta(B,C)$, ma del tutto  analogamente vale $\delta_C(A)\le \delta(A,B)+\delta(B,C)$, quindi
+%  		\begin{equation*}
+%  			\delta(A,C)=\max\{ \delta_A(B),\delta_B(A) \}\le \delta(A,B)+\delta(B,C)
+%  		\end{equation*}
+% 		che è proprio la disuguaglianza triangolare.
 	\end{itemize}
 	Inoltre $\delta$ ha valori in $[0,+\infty)$ poichè per ogni $A,B\in \mathcal{K}(X)$ $\delta(A,B)<\infty$, dato che $A$ e $B$ sono limitati.
 \end{proof}
@@ -93,7 +106,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Le definizioni \cref{HausdorffDefinizione} e \cref{HausdorffDefinizioneEquivalente} sono equivalenti.
 \end{theorem}
 \begin{proof}
-	Dimostro in particolare che $\delta_A(B)=\delta_A'(B)$, dove $\delta_A$ e $\delta_A'$ sono definite rispettivamente in \cref{DistanzaFraChiusi} e \cref{HausdorffDefinizioneEquivalente}, poichè da questo segue banalmente la tesi.
+	Dimostro in particolare che $\delta_A(B)=\delta_A'(B)$, dove $\delta_A$ e $\delta_A'$ sono definite rispettivamente in \cref{DistanzaAsimmetrica} e \cref{HausdorffDefinizioneEquivalente}, poichè da questo segue banalmente la tesi.
 	
 	Chiamo $P=\{ r : \exists b\in B \text{ tale che }d_A(b)=r \}$ e $Q=\{ r: \forall b\in B\text{ vale } d_A(b)\le r \}$, allora si nota facilmente che per ogni $p\in P$ e $q\in Q$ vale $p\le q$ e inoltre per ogni $x\in X$ ho che $x\in P$ o $x\in Q$. Da questo segue facilmente che $\sup\{ r: r\in P \}=\inf\{r: r\in Q \}$.
 	
