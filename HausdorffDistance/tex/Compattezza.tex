@@ -1,13 +1,15 @@
 \section{Trasmissione della compattezza}
-In questa sezione dimostreremo, sfruttando i risultati precedentemente ottenuti, che se $X$ è un compatto allora anche $\mathcal{K}(X)$ lo è.
+In questa sezione dimostreremo che se $X$ è un compatto allora anche $\CL(X)$ lo è. 
 
-\begin{lemma}\label{TotaleLimitatezzaKX}
+In particolare proveremo che la proprietà di totale limitatezza di $X$ viene ereditata da $\CL(X)$ e quindi, sfruttando \cref{CompletezzaCLX}, anche la compattezza viene ereditata.
+
+\begin{lemma}\label{TotaleLimitatezzaCLX}
 	Se $(X,d)$ è uno spazio metrico totalmente limitato, allora anche $(\CL(X),\delta)$ lo è.
 \end{lemma}
 \begin{proof}
-	Fissato $\varepsilon$, per l'ipotesi di totale limitatezza di $X$, esiste un insieme $S\subset X$ finito, tale che:
+	Fissato $\varepsilon>0$, per l'ipotesi di totale limitatezza di $X$, esiste un insieme $S\subset X$ finito, tale che:
 	\begin{equation}\label{TotaleLimitatezzaX}
-		X=\bigcup_{s\in S} B_{s}(\varepsilon) \Longrightarrow 
+		X=\bigcup_{s\in S} B_{\varepsilon}(s) \Longrightarrow 
 		\forall x\in X\ \exists s\in S:\ d(x,s)\le \varepsilon
 	\end{equation}
 
@@ -23,16 +25,14 @@ In questa sezione dimostreremo, sfruttando i risultati precedentemente ottenuti,
 		\delta_K(R)=\sup_{r\in R} d_K(r) \le \varepsilon
 	\end{equation}
 	
-	Fissato $x\in K$ per \cref{TotaleLimitatezzaX} ottengo esiste $s\in S$ tale che $d(s,x)\le \varepsilon$. Di conseguenza risulta:
+	Fissato $k\in K$ per \cref{TotaleLimitatezzaX} esiste $s\in S$ tale che $d(s,k)\le \varepsilon$. Di conseguenza risulta:
 	\begin{equation*}
-		d_K(s)\le d(s,x) \le \varepsilon \Longrightarrow s\in R
+		d_K(s)\le d(s,k) \le \varepsilon \Longrightarrow s\in R \Longrightarrow d_R(k)\le d(s,k)\le \varepsilon
 	\end{equation*}
-	dove nell'implicazione ho usato la definizione di $R$.
-	Perciò, ricordando che $x\in K$ era scelto arbitrariamente per ottenere quest'ultimo fatto, ho dimostrato che per ogni $k\in K$ esiste $r_k\in R$ tale che $d_K(r_k)\le \varepsilon$.
-	
-	Sfruttando quanto detto vale:
+	dove nella prima implicazione ho usato la definizione di $R$. 
+	Sfruttando l'ultima disuguaglianza mostrata è ovvio ottenere:
 	\begin{equation}\label{DeltaRK}
-		\delta_R(K)=\sup_{k\in K} d_R(k) \le \sup_{k\in K} d(r_k,k) \le \varepsilon
+		\delta_R(K)=\sup_{k\in K} d_R(k) \le  \varepsilon
 	\end{equation}
 	
 	Unendo \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ ottengo:
@@ -43,23 +43,23 @@ In questa sezione dimostreremo, sfruttando i risultati precedentemente ottenuti,
 \end{proof}
 
 \begin{remark}\label{TotaleLimitatezzaInverso}
-	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaKX}, cioè che se  $(\CL(X),\delta)$ è totalmente limitato, allora anche $X$ lo è.
+	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaCLX}, cioè che se  $(\CL(X),\delta)$ è totalmente limitato, allora anche $X$ lo è.
 \end{remark}
 \begin{proof}
-	Basta ricordare che esiste un'isometria tra $X$ e un sottinsieme di $\CL(X)$ e la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottinsieme.
+	Basta ricordare che esiste un'isometria tra $X$ e un sottinsieme di $\CL(X)$ e che la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottinsieme.
 \end{proof}
 
 
 
-\begin{theorem} \label{CompattezzaKX}
+\begin{theorem} \label{CompattezzaCLX}
 	Se $(X,d)$ è uno spazio metrico compatto, allora anche $(\CL(X),\delta)$ lo è.
 \end{theorem}
 \begin{proof}
-	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi dei \cref{CompletezzaKX,TotaleLimitatezzaKX}. Applicando tali risultati ottengo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
+	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi dei \cref{CompletezzaCLX,TotaleLimitatezzaCLX}. Applicando tali risultati ottengo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
 \end{proof}
 
 \begin{remark} \label{CompattezzaInverso}
-	Vale anche l'implicazione inversa di \cref{CompattezzaKX}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
+	Vale anche l'implicazione inversa di \cref{CompattezzaCLX}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
 	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi dei \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati ottengo che $X$ è completo e totalmente limitato, quindi è compatto.
