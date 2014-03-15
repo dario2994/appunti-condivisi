@@ -30,12 +30,25 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{proof}
 
 
-\begin{definition}\label{DistanzaFraChiusi}
+\begin{definition}\label{DistanzaAsimmetrica}
 	Sia $\delta_A:\CL(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
 \end{definition}
 \begin{remark}
 	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perchè $A\cup B$ è limitato.
 \end{remark}
+
+\begin{lemma}\label{ApprossimazioneDistanzaAsimmetrica}
+	Dati $A,B\in \CL(X)$, per ogni $\varepsilon>0, a\in A$ esiste $b\in B$ tale che $d(a,b)\le \delta_B(A)+\varepsilon$.
+\end{lemma}
+\begin{proof}
+	Poichè $d_B(a)=\inf_{b\in B}d(a,b)$, dato $\varepsilon$ esiste $b\in B$ tale che $d(a,b)\le d_B(a)+\varepsilon$, per la definizione di $\inf$. Quindi in particolare
+	\begin{equation*}
+		d(a,b)\le d_B(a)+\varepsilon\le \sup_{a\in A}d_B(a)+\varepsilon=\delta_B(A)+\varepsilon
+	\end{equation*}
+	che è quello che volevo dimostrare.
+\end{proof}
+
+
 
 \begin{definition}[Distanza di Hausdorff]\label{HausdorffDefinizione}
 	Definiamo infine $\delta:\CL(X)\times \CL(X) \to [0,+\infty)$ come $\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}$.
@@ -72,10 +85,6 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Inoltre $\delta$ ha valori in $[0,+\infty)$ poichè per ogni $A,B\in \mathcal{K}(X)$ $\delta(A,B)<\infty$, dato che $A$ e $B$ sono limitati.
 \end{proof}
 
-\begin{remark}
-	Del tutto analogamente si dimostra che la distanza di Hausdorff è una distanza anche sui chiusi e limitati, poichè anche in questo caso vale \cref{DistanzaChiusoAppartenenza}.
-\end{remark}
-
 \begin{definition}[Definizione equivalente della distanza di Hausdorff] \label{HausdorffDefinizioneEquivalente}
 	La distanza di Hausdorff si può definire in modo equivalente nel seguente modo. Sia $\delta_A'(B)=\inf\{r:B\subseteq U_r(A)\}$, dove $U_r(A)=\{x\in X : d_A(x)\le r \}$. Allora definisco $\delta'(A,B)=\max\{\delta_A'(B),\delta_B'(A)\}$
 \end{definition}
@@ -96,14 +105,18 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{proof}
 
 \begin{lemma}\label{IsometriaCanonica}
-	Esiste un'isometria canonica $\varphi: X\in \mathcal{K}(X)$, tale che $\varphi(X)$ è un chiuso in $\mathcal{K}(X)$.
+	Esiste un'isometria canonica $\varphi: X\in \CL(X)$, tale che $\varphi(X)$ è un chiuso in $\CL(X)$.
 \end{lemma}
 \begin{proof}
-	Definisco l'isometria $\varphi: X\in\mathcal{K}(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
+	Definisco l'isometria $\varphi: X\in\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
 	
 	Innanzitutto vale banalmente che questa è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	
-	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente in $\mathcal{K}(X)$, allora $(x_n)_{n\in \mathbb{N}}$ converge in $X$ ad un valore $x$ (poichè $\varphi$ è un isometria). Voglio mostrare che allora $(\{ x_n \})_{n\in \mathbb{N}}$ converge a $\{ x \}$, ma questo è ovvio perchè $\lim_{n\to\infty} \delta(\{ x_n \}, \{x\})=\lim_{n\to\infty} d(x,x')=0$. Questo conclude la dimostrazione per l'unicità del limite.
+	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente a $K\in CL(X)$, allora dato $x\in K$, vale che
+	\begin{equation*}
+		d(x,x_n)\le \sup_{k\in K} d(k,x_n)=d_K(x_n)=\delta_K(\{x_n\})\le \delta(K,\{x_n \})
+	\end{equation*}
+	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)$ converge in $X$ a $x$. Voglio mostrare che allora $(\{ x_n \})_{n\in \mathbb{N}}$ converge a $\{ x \}$, ma questo è ovvio perchè $\lim_{n\to\infty} \delta(\{ x_n \}, \{x\})=\lim_{n\to\infty} d(x,x')=0$. Questo conclude la dimostrazione per l'unicità del limite.
 \end{proof}
 
 
