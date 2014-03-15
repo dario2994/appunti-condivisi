@@ -1,0 +1,67 @@
+\section{Trasmissione della compattezza}
+In questa sezione dimostreremo, sfruttando i risultati precedentemente ottenuti, che se $X$ è un compatto allora anche $\mathcal{K}(X)$ lo è.
+
+\begin{lemma}\label{TotaleLimitatezzaKX}
+	Se $(X,d)$ è uno spazio metrico totalmente limitato, allora anche $(\mathcal{K}(X),\delta)$ lo è.
+\end{lemma}
+\begin{proof}
+	Fissato $\varepsilon$, per l'ipotesi di totale limitatezza di $X$, esiste un insieme $S\subset X$ finito, tale che:
+	\begin{equation}\label{TotaleLimitatezzaX}
+		X=\bigcup_{s\in S} B_{s}(\varepsilon) \Longrightarrow 
+		\forall x\in X\ \exists s\in S:\ d(x,s)\le \varepsilon
+	\end{equation}
+
+	Ora considero $\mathcal{R}=\mathcal{P}(S)$. Questo è un insieme finito di sottinsiemi finiti, quindi chiusi e limitati di $X$, perciò è un sottoinsieme finito di $\mathcal{K}(X)$. 
+	
+	Dimostro che fissato $K\in\mathcal{K}(X)$ esiste $R\in \mathcal{R}$ tale che $\delta(K,R)\le \varepsilon$, e questo è equivalente alla tesi di totale limitatezza di $\mathcal{K}(X)$. In particolare la scelta di $R$ è costruttiva, visto che pongo:
+	\begin{equation*}
+		R=\{s\in S\ |\ d_K(s)\le \varepsilon\}
+	\end{equation*}
+	
+	Sfruttando la sola definizione di $R$ ottengo che vale:
+	\begin{equation}\label{DeltaKR}
+		\delta_K(R)=\sup_{r\in R} d_K(r) \le \varepsilon
+	\end{equation}
+	
+	Fissato $x\in K$ per \cref{TotaleLimitatezzaX} ottengo esiste $s\in S$ tale che $d(s,x)\le \epsilon$. Di conseguenza risulta:
+	\begin{equation*}
+		d_K(s)\le d(s,x) \le \varepsilon \Longrightarrow s\in R
+	\end{equation*}
+	dove nell'implicazione ho usato la definizione di $R$.
+	Perciò, ricordando che $x\in K$ era scelto arbitrariamente per ottenere quest'ultimo fatto, ho dimostrato che per ogni $k\in K$ esiste $r_k\in R$ tale che $d_K(r_k)\le \varepsilon$.
+	
+	Sfruttando quanto detto vale:
+	\begin{equation}\label{DeltaRK}
+		\delta_R(K)=\sup_{k\in K} d_R(k) \le \sup_{k\in K} d(r_k,k) \le \varepsilon
+	\end{equation}
+	
+	Unendo \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ ottengo:
+	\begin{equation*}
+		\delta(K,R)=\max\left(\delta_K(R),\delta_R(K)\right)\le \varepsilon
+	\end{equation*}
+	che è quanto volevo e, come già annunciato, dimostra la totale limitatezza di $\mathcal{K}(X)$.
+\end{proof}
+
+\begin{remark}\label{TotaleLimitatezzaInverso}
+	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaKX}, cioè che se  $(\mathcal{K}(X),\delta)$ è totalmente limitato, allora anche $X$ lo è.
+\end{remark}
+\begin{proof}
+	Basta ricordare che esiste un'isometria tra $X$ e un sottinsieme di $\mathcal{K}(X)$ e la proprietà di totale limitatezza di $\mathcal{K}(X)$ si trasmette ad ogni suo sottinsieme.
+\end{proof}
+
+
+
+\begin{theorem} \label{CompattezzaKX}
+	Se $(X,d)$ è uno spazio metrico compatto, allora anche $(\mathcal{K}(X),\delta)$ lo è.
+\end{theorem}
+\begin{proof}
+	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi dei \cref{CompletezzaKX,TotaleLimitatezzaKX}. Applicando tali risultati ottengo che $\mathcal{K}(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
+\end{proof}
+
+\begin{remark} \label{CompattezzaInverso}
+	Vale anche l'implicazione inversa di \cref{CompattezzaKX}, cioè che se  $(\mathcal{K}(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
+\end{remark}
+\begin{proof}
+	Essendo $\mathcal{K}(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi dei \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati ottengo che $X$ è completo e totalmente limitato, quindi è compatto.
+\end{proof}
+
