@@ -1,10 +1,86 @@
 \section{Proprietà dei chiusi e \emph{totalmente} limitati}
-In questa parte conclusiva mostriamo che quanto già dimostrato per lo spazio $\CL(X)$ vale anche per lo spazio dei chiusi e totalmente limitati. Infine facciamo notare come le proprietà principali vengano ereditate anche dallo spazio dei compatti di $X$.
+In questa parte conclusiva mostriamo che quanto già dimostrato per lo spazio $\CL(X)$ vale anche per lo spazio dei chiusi e totalmente limitati. Infine facciamo notare come le proprietà principali vengano ereditate anche dallo spazio dei compatti di $X$. In particolare l'ultimo teorema appare in letteratura a volte con il nome di \emph{Teorema di selezione di Blaschke} (che però sembra riferirsi anche ad un altro risultato riguardante gli insiemi convessi).
+
+Il passaggio principale, da cui tutto discende come facile corollario, è che i totalmente limitati sono un chiuso nello spazio $\CL(X)$.
 
 \begin{definition}
-	Sia $\CTL(X)$ lo spazio dei chiusi e totalmente limitati di $X$.
+	Dato uno spazio metrico $(X,d)$, sia $\CTL(X)$ lo spazio dei chiusi e totalmente limitati non vuoti di $X$.
+\end{definition}
+\begin{remark}\label{SottinsiemeCTL}
+	Ovviamente risulta $\CTL(X)\subseteq \CL(X)$, visto che essere totalmente limitato implica essere limitato.
+\end{remark}
+
+\begin{lemma}\label{ChiusoCTL}
+	Lo spazio $\CTL(X)$ è un chiuso dello spazio $(\CL(X),\delta)$.
+\end{lemma}
+\begin{proof}
+	Poichè la \cref{SottinsiemeCTL} mi assicura che $\CTL(X)$ è un sottinsieme di $\CL(X)$, mi è sufficiente dimostrare che se una successione $(K_n) \subseteq \CTL(X)$ converge a $K\in\CL(X)$ allora $K\in\CTL(X)$.
+	
+	Fissato $\varepsilon$ la convergenza $K_n\to K$ mi assicura che:
+	\begin{equation*}
+		\exists n_0\in\mathbb{N}:\ \delta(K_{n_0},K)\le \frac{\varepsilon}3
+		\Longrightarrow \delta_{K_{n_0}}(K)\le \frac{\varepsilon}3
+	\end{equation*}
+	e perciò applicando \cref{ApprossimazioneDistanzaAsimmetrica} ottengo:
+	\begin{equation}\label{TL1}
+		\forall k\in K\ \exists x\in K_{n_0}:
+		\ d(k,x)\le \delta_{K_{n_0}}(K)+\frac{\varepsilon}3\le \frac{2\varepsilon}3
+	\end{equation}
+	
+	Inoltre poichè $K_{n_0}$ è totalmente limitato per ipotesi, esiste un insieme finito $S \subseteq X$ tale che:
+	\begin{equation}\label{TL2}
+		K_{n_0}\subseteq \bigcup_{s\in S} B_{\frac{\varepsilon}3}(s)
+		\Longrightarrow \forall x\in K_{n_0}\ \exists s\in S:\ d(x,s)\le \frac{\varepsilon}3
+	\end{equation}
+	
+	Unendo \cref{TL1,TL2} arrivo a dire:
+	\begin{equation}
+		\forall k\in K\ \exists x\in K_{n_0},s\in S: d(k,x)\le \frac{2\varepsilon}3 \wedge d(x,s)\le \frac{\varepsilon}3
+		\Longrightarrow d(k,s)\le d(k,x)+d(x,s) \le \varepsilon
+	\end{equation}
+	e questo è proprio equivalente a dire che $K$ è totalmente limitato, che è quanto si voleva, visto che ogni suo elemento dista meno di $\epsilon$ da un elemento dell'insieme finito $S$.
+\end{proof}
+
+\begin{corollary}\label{CompletezzaCTL}
+	Se lo spazio $(X,d)$ è completo anche $(\CTL(X),\delta)$ lo è.
+\end{corollary}
+\begin{proof}
+	Per il risultato \cref{CompletezzaCL} vale che $(\CL(X),\delta)$ è completo, ma per \cref{ChiusoCTL} so che $\CTL(X)$ è un chiuso in $\CL(X)$. Ma i chiusi di un completo sono a loro volta chiusi e perciò la tesi è dimostrata.
+\end{proof}
+
+\begin{corollary}\label{CompattezzaCTL}
+	Se lo spazio $(X,d)$ è compatto anche $(\CTL(X),\delta)$ lo è.
+\end{corollary}
+\begin{proof}
+	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottinsieme di $\CL(X)$ come osservato in \cref{SottinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottinsiemi, quindi $\CTL(X)$ è totalmente limitato.
+	
+	Unendo quanto detto ho che $(\CTL(X),\delta)$ è completo e totalmente limitato, quindi è un compatto.
+\end{proof}
+
+\begin{definition}
+	Dato uno spazio metrico $(X,d)$, sia $\K(X)$ lo spazio dei compatti non vuoti di $X$.
 \end{definition}
 \begin{remark}
-	Ovviamente risulta $\CTL(X)\subseteq \CL(X)$
+	Ovviamente risulta $\K(X)\subseteq \CTL(X)$ visto che è un compatto è di certo chiuso e totalmente limitato.
 \end{remark}
+
+\begin{corollary}
+	Se $(X,d)$ è uno spazio completo anche $(\K(X),\delta)$ lo è.
+\end{corollary}
+\begin{proof}
+	Essendo $X$ completo i compatti coincidono con i chiusi e totalmente limitati, perciò $\K(X)=\CTL(X)$ e allora basta applicare \cref{CompletezzaCTL} per avere la tesi.
+\end{proof}
+
+
+\begin{corollary}[Teorema di selezione di Blaschke]
+	Se $(X,d)$ è uno spazio compatto anche $(\K(X),\delta)$ lo è
+\end{corollary}
+\begin{proof}
+	Se $(X,d)$ è compatto allora è in particolare completo e perciò vale ancora $\K(X)=\CTL(X)$ e quindi applicando \cref{CompattezzaCTL} ho la tesi. 
+\end{proof}
+
+
+
+
+
 
