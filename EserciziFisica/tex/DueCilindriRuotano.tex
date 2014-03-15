@@ -8,7 +8,7 @@ All'interno di questo cilindro ne è presente un altro, anch'esso cavo, di massa
 
 Studiare le piccole oscillazioni del sistema intorno alla posizione d'equilibrio sotto l'effetto della gravità.
 \solution
-Sia $\vec P$ il punto fisso corrispondente al perno che fissa il cilindro grande, sia $\vec Q$ il centro del primo cilindro e $\vec R$ il centro del secondo. Chiamo $\varphi$ l'angolo tra $\overrightarrow{PX}$ e la verticale, e $\theta$ l'angolo tra $\overrightarrow{XY}$ e la verticale.
+Sia $\vec P$ il punto fisso corrispondente al perno che fissa il cilindro grande, sia $\vec Q$ il centro del primo cilindro e $\vec R$ il centro del secondo. Chiamo $\varphi$ l'angolo tra $\overrightarrow{PQ}$ e la verticale, e $\theta$ l'angolo tra $\overrightarrow{QR}$ e la verticale.
 
 Pongo un sistema di assi cartesiani in modo che l'origine sia $\vec P$ e l'asse $\hat y$ punti verso il basso.
 
@@ -30,7 +30,7 @@ Per quanto riguarda l'energia potenziale (che pongo nulla nella posizione d'equi
 	U=mg(2a)+mg(3a)-mgQ_y-mgR_y=mga\left(4(1-\cos\varphi)+(1-\cos\theta)\right)
 	\approx \frac{mga}2\left(4\varphi^2+\theta^2\right)
 \end{equation}
-dove nell'ultima identità ho approssima al second'ordine.
+dove nell'ultima identità ho approssimato al second'ordine.
 
 Per quanto riguarda l'energia cinetica del cilindro grande, è facile decomporla in cinetica di $\vec Q$ più rotazionale e poi calcolarla usando \cref{dcr:Velocita}:
 \begin{equation}\label{dcr:Cinetica1}
@@ -77,7 +77,7 @@ Noto che in questo caso le matrici da studiare $K,M$ sono già diagonali:
 \end{align*}
 e perciò ottengo che, detta $\omega$ la frequenza dei moti normali, vale:
 \begin{equation*}
-	0=\det M-\omega^2K=(16a-4g\omega^2)(4a-2g\omega^2) \Rightarrow \omega=\pm2,\pm\sqrt2
+	0=\det \left ( M-\omega^2K \right )=(16a-4g\omega^2)(4a-2g\omega^2) \Rightarrow \omega=\pm2,\pm\sqrt2
 \end{equation*}
 e l'autovalore relativo a $\omega^2=4$ è $\begin{psmallmatrix}1 \\ 0\end{psmallmatrix}$ mentre quello relativo a $\omega^2=2$ è $\begin{psmallmatrix}0 \\ 1\end{psmallmatrix}$. Perciò i moti armonici sono completamente disaccoppiati tra $\varphi$ e $\theta$.
 
