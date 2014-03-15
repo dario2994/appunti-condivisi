@@ -1,2 +1,59 @@
 \section{Definizioni e risultati introduttivi}
-Blablabla
+In questa sezione definiremo la distanza di Hausdorff fra i chiusi e limitati e mostreremo qualche risultato introduttivo.
+
+In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico generico.
+
+\begin{definition}
+	Sia $\mathcal{K}(X)=\{K\in \mathcal{P}(X) : K \text{ è compatto}\}$ l'insieme dei compatti di $X$.
+\end{definition}
+
+\begin{definition}
+	Dato $A\in \mathcal{K}(X)$, definiamo $d_A: X\to [0,+\infty)$ tale che $d_A(x)=\sup_{a\in A}d(a,x)$ per ogni $x\in X$.
+\end{definition}
+
+\begin{remark}
+	$d_A(x)$ è effettivamente una funzione a valori in $[0,+\infty)$ perchè vale $\sup_{a\in A}d(a,x)<\infty$, poichè $A$ essendo compatto è limitato.
+\end{remark}
+
+\begin{lemma}\label{DistanzaCompattoRealizzata}
+	Per ogni $x\in X$ e $A \in \mathcal{K}(X)$, esiste $a\in A$ tale che $d_A(x)=d(a,x)$.
+\end{lemma}
+\begin{proof}
+	Poichè $d_A(x)=\sup_{a\in A} d(a,x)$, esiste $(a_n)$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=d_A(x)$. Dato che $A$ è un compatto esiste una sottosuccessione $(a_{n_k})$ di $(a_n)$ convergente ad $a\in A$. Tale sottosuccessione rispetta quindi che $a_{n_k}\to a$ e $d(a_{n_k},x)\to d_A(x)$, da cui facilmente $d(a,x)=d_A(x)$, poichè $d(a_{n_k},x)\to d(a,x)$.
+\end{proof}
+\begin{remark}\label{DistanzaCompattoAppartenenza}
+	Dati $x\in X$ e $A \in \mathcal{K}(X)$, $d_A(x)=0$ se e solo se $x\in A$. Infatti per \cref{DistanzaCompattoRealizzata} esiste $a\in A$ tale che $d_A(x)=d(a,x)$, da cui $a=x$.
+\end{remark}
+
+\begin{definition}
+	Sia $\delta_A:\mathcal{K}(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
+\end{definition}
+\begin{remark}
+	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perchè $A\cup B$ è limitato.
+\end{remark}
+
+\begin{definition}
+	Definiamo infine la distanza di Hausdorff $\delta:\mathcal{K}(X)\times \mathcal{K}(X) \to [0,+\infty)$ come $\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}$.
+\end{definition}
+
+\begin{proof}
+	Dimostriamo che $\delta$ è veramente una distanza.
+	\begin{itemize}
+		\item $\delta(A,B)=\delta(B,A)$ (simmetria)
+		
+		$\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}=\delta(B,A)$.
+		\item $\delta(A,B)=0 \iff A=B$
+		
+		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ ho che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaCompattoAppartenenza}.
+		\item $\delta(A,C)\le \delta(A,B)+\delta(B,A)$ (disuguaglianza triangolare)
+		
+		Dimostro innanzitutto che per ogni $c\in C$ vale $d_A(c)\le \delta(A,B)+\delta(B,C)$, da cui passando al $\sup$ ottengo $d_A(C)\le \delta(A,B)+\delta(B,C)$, da cui a sua volta per simmetria ho la tesi.
+		
+% 		Per \cref{DistanzaCompattoRealizzata} ho che esiste $a\in A$ tale che $\d_A(c)=\delta(a,c)$ e che esiste $b\in B$ tale che $\d_B(c)=d(b,c)$. Analogamente esiste $a'\in A$ tale che $\delta_A(b)=d()$
+	\end{itemize}
+
+\end{proof}
+
+
+
+
