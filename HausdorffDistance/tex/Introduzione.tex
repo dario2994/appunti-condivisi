@@ -4,7 +4,7 @@ In questa sezione definiremo la distanza di Hausdorff fra i chiusi e limitati e 
 In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico generico.
 
 \begin{definition}
-	Sia $\CL(X)=\{A \in \mathcal{P}(X) : K \text{ è chiuso e limitato}\}$ l'insieme dei chiusi e limitati di $X$.
+	Sia $\CL(X)=\{K \in \mathcal{P}(X) : K \text{ è chiuso e limitato}\}$ l'insieme dei chiusi e limitati di $X$.
 \end{definition}
 
 \begin{definition}
@@ -15,33 +15,28 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	$d_A({}\cdot{})$ è effettivamente una funzione a valori in $[0,+\infty)$ perchè vale $\inf_{a\in A}d(a,x)<\infty$, poichè $A$ è limitato.
 \end{remark}
 
-% \begin{lemma}\label{DistanzaCompattoRealizzata}
-% 	Per ogni $x\in X$ e $A \in \mathcal{K}(X)$, esiste $a\in A$ tale che $d_A(x)=d(a,x)$.
-% \end{lemma}
-% \begin{proof}
-% 	Poichè $d_A(x)=\inf_{a\in A} d(a,x)$, esiste $(a_n)$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=d_A(x)$. Dato che $A$ è un compatto esiste una sottosuccessione $(a_{n_k})$ di $(a_n)$ convergente ad $a\in A$. Tale sottosuccessione rispetta quindi che $a_{n_k}\to a$ e $d(a_{n_k},x)\to d_A(x)$, da cui facilmente $d(a,x)=d_A(x)$, poichè $d(a_{n_k},x)\to d(a,x)$.
-% \end{proof}
-
 \begin{lemma}\label{DistanzaChiusoAppartenenza}
 	Dati $x\in X$ e $A \in \CL(X)$, $d_A(x)=0$ se e solo se $x\in A$.
 \end{lemma}
 \begin{proof}
-	Se $x\in A$ vale banalmente che $d_A(x)$. Supponiamo ora che $x\not\in A$ ma $d_A(x)=0$. Dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)_{n\in\mathbb{N}}$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso, ma questo è assurdo. 
+	Se $x\in A$ vale facilmente che $d_A(x)=\inf_{a\in A}d(a,x)=d(x,x)=0$. 
+
+	Supponiamo ora che $x\not\in A$ ma $d_A(x)=0$. Dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)_{n\in\mathbb{N}}$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso, ma questo è assurdo. 
 \end{proof}
 
 
 \begin{definition}\label{DistanzaAsimmetrica}
-	Sia $\delta_A:\CL(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
+	Dato $A\in\CL(X)$, sia $\delta_A:\CL(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
 \end{definition}
 \begin{remark}
 	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perchè $A\cup B$ è limitato.
 \end{remark}
 
 \begin{lemma}\label{ApprossimazioneDistanzaAsimmetrica}
-	Dati $A,B\in \CL(X)$, per ogni $\varepsilon>0, a\in A$ esiste $b\in B$ tale che $d(a,b)\le \delta_B(A)+\varepsilon$.
+	Dati $A,B\in \CL(X)$, per ogni $\varepsilon>0$ e per ogni $a\in A$ esiste $b\in B$ tale che $d(a,b)\le \delta_B(A)+\varepsilon$.
 \end{lemma}
 \begin{proof}
-	Poichè $d_B(a)=\inf_{b\in B}d(a,b)$, dato $\varepsilon$ esiste $b\in B$ tale che $d(a,b)\le d_B(a)+\varepsilon$, per la definizione di $\inf$. Quindi in particolare
+	Poichè $d_B(a)=\inf_{b\in B}d(a,b)$, dato $\varepsilon$ esiste $b\in B$ tale che $d(a,b)\le d_B(a)+\varepsilon$, per la definizione di estremo inferiore. Quindi in particolare
 	\begin{equation*}
 		d(a,b)\le d_B(a)+\varepsilon\le \sup_{a\in A}d_B(a)+\varepsilon=\delta_B(A)+\varepsilon
 	\end{equation*}
@@ -59,43 +54,33 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{theorem}
 
 \begin{proof}
-	Dimostriamo che $\delta({}\cdot{},{}\cdot{})$ è veramente una distanza.
+	Innanzitutto $\delta({}\cdot{},{}\cdot{})$ è veramente una funzione a valori in $[0,+\infty)$, perchè lo erano $\delta_A(B),\delta_B(A)$.
+
+	Dimostriamo ora che rispetta le proprietà di una distanza:
 	\begin{itemize}
-		\item $\delta(A,B)=\delta(B,A)$ (simmetria)
+		\item (simmetria) $\delta(A,B)=\delta(B,A)$
 		
 		$\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}=\delta(B,A)$.
-		\item $\delta(A,B)=0 \iff A=B$
+		\item (non degenerazione) $\delta(A,B)=0 \iff A=B$
 		
 		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ ho che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaChiusoAppartenenza}.
-		\item $\delta(A,C)\le \delta(A,B)+\delta(B,C)$ (disuguaglianza triangolare)
+		\item (disuguaglianza triangolare) $\delta(A,C)\le \delta(A,B)+\delta(B,C)$
 
 		Senza perdita di generalità possiamo assumere che $\delta(A,C)=\delta_A(C)$. 
 
-		Per ogni $c\in C,\varepsilon>0$ per \cref{ApprossimazioneDistanzaAsimmetrica} esiste $b\in B$ tale che $d(b,c)\le \delta_B(C)+\varepsilon$ ed esiste $a\in A$ tale che $d(a,b)\le \delta_A(B)+\varepsilon$. Ho quindi che
+		Per ogni $c\in C$ e per ogni $\varepsilon>0$ per \cref{ApprossimazioneDistanzaAsimmetrica} esiste $b\in B$ tale che $d(b,c)\le \delta_B(C)+\varepsilon$. A sua volta fissato tale $b$ esiste $a\in A$ tale che $d(a,b)\le \delta_A(B)+\varepsilon$. Ho quindi che
 		\begin{equation*}
 			d_A(c)\le d(a,c)\le d(a,b)+d(b,c)\le \delta_A(B)+\delta_B(C)+2\varepsilon\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
-		da cui, passando al $\sup$ su $c$ e al $\limsup$ per $\epsilon\to 0$, ottengo proprio
+		da cui passando all'estremo superiore su $c$ ottengo
 		\begin{equation*}
-			\delta_A(C)\le \delta(A,B)+\delta(B,C) \Longrightarrow \delta(A,C)\le \delta(A,B)+\delta(B,C)
+			\delta(A,C)=\delta_A(C)=\sup_{c\in C}d_A(c)\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
-
-
-		
-% 		Dimostro innanzitutto che per ogni $c\in C$ vale $d_A(c)\le \delta(A,B)+\delta(B,C)$.
-% 		
-%  		Per \cref{DistanzaCompattoRealizzata} ho che esiste $a\in A$ tale che $d_A(c)=d(a,c)$ e che esiste $b\in B$ tale che $d_B(c)=d(b,c)$. Analogamente esiste $a'\in A$ tale che $d_A(b)=d(a',b)$. Utilizzando facili conseguenze delle definizioni date precedentemente, ho quindi che 
-%  		\begin{equation*}
-%  			d_A(c)=d(a,c)\le d(a',c) \le d(a',b)+d(b,c)=d_A(b)+d_B(c)\le \delta(A,B)+\delta(B,C)
-%  		\end{equation*}
-%  		
-%  		Passando ora al $\sup$ su $c\in C$ in quest'ultima disuguaglianza ottengo che $\delta_A(C)\le \delta(A,B)+\delta(B,C)$, ma del tutto  analogamente vale $\delta_C(A)\le \delta(A,B)+\delta(B,C)$, quindi
-%  		\begin{equation*}
-%  			\delta(A,C)=\max\{ \delta_A(B),\delta_B(A) \}\le \delta(A,B)+\delta(B,C)
-%  		\end{equation*}
-% 		che è proprio la disuguaglianza triangolare.
+		Facendo infine il limite superiore per $\varepsilon\to 0$, ho proprio quello che volevo dimostrare
+		\begin{equation*}
+			\delta(A,C)\le \limsup_{\varepsilon\to 0}(\delta(A,B)+\delta(B,C)+2\varepsilon)=\delta(A,B)+\delta(B,C)
+		\end{equation*}
 	\end{itemize}
-	Inoltre $\delta$ ha valori in $[0,+\infty)$ poichè per ogni $A,B\in \mathcal{K}(X)$ $\delta(A,B)<\infty$, dato che $A$ e $B$ sono limitati.
 \end{proof}
 
 \begin{definition}[Definizione equivalente della distanza di Hausdorff] \label{HausdorffDefinizioneEquivalente}
@@ -123,13 +108,13 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Definisco l'isometria $\varphi: X\in\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
 	
-	Innanzitutto vale banalmente che questa è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
+	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	
 	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente a $K\in CL(X)$, allora dato $x\in K$, vale che
 	\begin{equation*}
 		d(x,x_n)\le \sup_{k\in K} d(k,x_n)=d_K(x_n)=\delta_K(\{x_n\})\le \delta(K,\{x_n \})
 	\end{equation*}
-	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)$ converge in $X$ a $x$. Voglio mostrare che allora $(\{ x_n \})_{n\in \mathbb{N}}$ converge a $\{ x \}$, ma questo è ovvio perchè $\lim_{n\to\infty} \delta(\{ x_n \}, \{x\})=\lim_{n\to\infty} d(x,x')=0$. Questo conclude la dimostrazione per l'unicità del limite.
+	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)$ converge in $X$ a $x$. Voglio mostrare che allora $(\{ x_n \})_{n\in \mathbb{N}}$ converge a $\{ x \}$, ma questo è ovvio perchè $\lim_{n\to\infty} \delta(\{x\}, \{ x_n \})=\lim_{n\to\infty} d(x,x_n)=0$. Questo conclude la dimostrazione per l'unicità del limite.
 \end{proof}
 
 
