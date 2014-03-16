@@ -38,21 +38,21 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 		\forall k\in K\ \exists x\in K_{n_0},s\in S: d(k,x)\le \frac{2\varepsilon}3 \wedge d(x,s)\le \frac{\varepsilon}3
 		\Longrightarrow d(k,s)\le d(k,x)+d(x,s) \le \varepsilon
 	\end{equation}
-	e questo è proprio equivalente a dire che $K$ è totalmente limitato, che è quanto si voleva, visto che ogni suo elemento dista meno di $\epsilon$ da un elemento dell'insieme finito $S$.
+	e questo è proprio equivalente a dire che $K$ è totalmente limitato, che è quanto si voleva, visto che ogni suo elemento dista meno di $\varepsilon$ da un elemento dell'insieme finito $S$.
 \end{proof}
 
 \begin{corollary}\label{CompletezzaCTL}
 	Se lo spazio $(X,d)$ è completo anche $(\CTL(X),\delta)$ lo è.
 \end{corollary}
 \begin{proof}
-	Per il risultato \cref{CompletezzaCL} vale che $(\CL(X),\delta)$ è completo, ma per \cref{ChiusoCTL} so che $\CTL(X)$ è un chiuso in $\CL(X)$. Ma i chiusi di un completo sono a loro volta chiusi e perciò la tesi è dimostrata.
+	Per il risultato \cref{CompletezzaCL} vale che $(\CL(X),\delta)$ è completo, ma per \cref{ChiusoCTL} so che $\CTL(X)$ è un chiuso in $\CL(X)$. Ma i chiusi di un completo sono a loro volta completi e perciò la tesi è dimostrata.
 \end{proof}
 
 \begin{corollary}\label{CompattezzaCTL}
 	Se lo spazio $(X,d)$ è compatto anche $(\CTL(X),\delta)$ lo è.
 \end{corollary}
 \begin{proof}
-	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottinsieme di $\CL(X)$ come osservato in \cref{SottinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottinsiemi, quindi $\CTL(X)$ è totalmente limitato.
+	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d)$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottinsieme di $\CL(X)$ come osservato in \cref{SottinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottinsiemi, quindi $\CTL(X)$ è totalmente limitato.
 	
 	Unendo quanto detto ho che $(\CTL(X),\delta)$ è completo e totalmente limitato, quindi è un compatto.
 \end{proof}
@@ -61,7 +61,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 	Dato uno spazio metrico $(X,d)$, sia $\K(X)$ lo spazio dei compatti non vuoti di $X$.
 \end{definition}
 \begin{remark}
-	Ovviamente risulta $\K(X)\subseteq \CTL(X)$ visto che è un compatto è di certo chiuso e totalmente limitato.
+	Ovviamente risulta $\K(X)\subseteq \CTL(X)$ visto che un compatto è di certo chiuso e totalmente limitato.
 \end{remark}
 
 \begin{corollary}
