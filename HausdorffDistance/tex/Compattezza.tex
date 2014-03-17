@@ -7,7 +7,7 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 	Se $(X,d)$ è uno spazio metrico totalmente limitato, allora anche $(\CL(X),\delta)$ lo è.
 \end{lemma}
 \begin{proof}
-	Fissato $\varepsilon>0$, per l'ipotesi di totale limitatezza di $X$, esiste un insieme $S\subset X$ finito, tale che:
+	Fissato $\varepsilon>0$, per l'ipotesi di totale limitatezza di $X$, esiste un insieme $S\subseteq X$ finito, tale che:
 	\begin{equation}\label{TotaleLimitatezzaX}
 		X=\bigcup_{s\in S} B_{\varepsilon}(s) \Longrightarrow 
 		\forall x\in X\ \exists s\in S:\ d(x,s)\le \varepsilon
@@ -43,10 +43,10 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 \end{proof}
 
 \begin{remark}\label{TotaleLimitatezzaInverso}
-	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaCL}, cioè che se  $(\CL(X),\delta)$ è totalmente limitato, allora anche $X$ lo è.
+	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaCL}, cioè che se  $(\CL(X),\delta)$ è totalmente limitato, allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
-	Basta ricordare che esiste un'isometria tra $X$ e un sottinsieme di $\CL(X)$ e che la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottinsieme.
+	Basta ricordare che per \cref{IsometriaCanonica} esiste un'isometria tra $X$ e un sottinsieme di $\CL(X)$ e che la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottinsieme.
 \end{proof}
 
 
@@ -55,13 +55,13 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 	Se $(X,d)$ è uno spazio metrico compatto, allora anche $(\CL(X),\delta)$ lo è.
 \end{theorem}
 \begin{proof}
-	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi dei \cref{CompletezzaCL,TotaleLimitatezzaCL}. Applicando tali risultati ottengo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
+	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi di \cref{CompletezzaCL,TotaleLimitatezzaCL}. Applicando tali risultati ottengo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
 \end{proof}
 
 \begin{remark} \label{CompattezzaInverso}
 	Vale anche l'implicazione inversa di \cref{CompattezzaCL}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
-	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi dei \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati ottengo che $X$ è completo e totalmente limitato, quindi è compatto.
+	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi di \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati ottengo che $X$ è completo e totalmente limitato, quindi è compatto.
 \end{proof}
 
