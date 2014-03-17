@@ -21,7 +21,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Se $x\in A$ vale facilmente che $d_A(x)=\inf_{a\in A}d(a,x)=d(x,x)=0$. 
 
-	Supponiamo ora che $x\not\in A$ ma $d_A(x)=0$. Dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)_{n\in\mathbb{N}}$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso, ma questo è assurdo. 
+	Se invece $d_A(x)=0$, dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)_{n\in\mathbb{N}}$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso. 
 \end{proof}
 
 
@@ -76,15 +76,15 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		\begin{equation*}
 			\delta(A,C)=\delta_A(C)=\sup_{c\in C}d_A(c)\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
-		Facendo infine il limite superiore per $\varepsilon\to 0$, ho proprio quello che volevo dimostrare
+		Facendo infine il limite per $\varepsilon\to 0$, ho proprio quello che volevo dimostrare
 		\begin{equation*}
-			\delta(A,C)\le \limsup_{\varepsilon\to 0}(\delta(A,B)+\delta(B,C)+2\varepsilon)=\delta(A,B)+\delta(B,C)
+			\delta(A,C)\le \lim_{\varepsilon\to 0}(\delta(A,B)+\delta(B,C)+2\varepsilon)=\delta(A,B)+\delta(B,C)
 		\end{equation*}
 	\end{itemize}
 \end{proof}
 
 \begin{definition}[Definizione equivalente della distanza di Hausdorff] \label{HausdorffDefinizioneEquivalente}
-	La distanza di Hausdorff si può definire in modo equivalente nel seguente modo. Sia $\delta_A'(B)=\inf\{r:B\subseteq U_r(A)\}$, dove $U_r(A)=\{x\in X : d_A(x)\le r \}$. Allora definisco $\delta'(A,B)=\max\{\delta_A'(B),\delta_B'(A)\}$
+	Sia $\delta_A'(B)=\inf\{r:B\subseteq U_r(A)\}$, dove $U_r(A)=\{x\in X : d_A(x)< r \}$. Allora definisco $\delta'(A,B)=\max\{\delta_A'(B),\delta_B'(A)\}$.
 \end{definition}
 
 \begin{theorem}
@@ -93,28 +93,34 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Dimostro in particolare che $\delta_A(B)=\delta_A'(B)$, dove $\delta_A$ e $\delta_A'$ sono definite rispettivamente in \cref{DistanzaAsimmetrica} e \cref{HausdorffDefinizioneEquivalente}, poichè da questo segue banalmente la tesi.
 	
-	Chiamo $P=\{ r : \exists b\in B \text{ tale che }d_A(b)=r \}$ e $Q=\{ r: \forall b\in B\text{ vale } d_A(b)\le r \}$, allora si nota facilmente che per ogni $p\in P$ e $q\in Q$ vale $p\le q$ e inoltre per ogni $x\in X$ ho che $x\in P$ o $x\in Q$. Da questo segue facilmente che $\sup\{ r: r\in P \}=\inf\{r: r\in Q \}$.
+	So che se $r$ è tale che $B\subseteq U_r(A)$, allora per ogni $b\in B$ vale $d_A(b)<r$, da cui
+	\begin{equation}\label{delta'>delta}
+		r\ge \sup_{b\in B} d_A(b)=\delta_A(B) \Longrightarrow \delta_A'(B)=\inf\{r:B\subseteq U_r(A) \}\ge \delta_A(B)
+	\end{equation}
 	
-	Vale quindi che
-	\begin{equation*}
-		\delta_A(B)=\sup_{b\in B} d_A(b)=\sup\{ r : r\in P \}=\inf\{ r : r\in Q \}= \inf\{ r : B\subseteq U_r(A) \}=\delta_A'(B)
-	\end{equation*}
-	che è quello che volevo dimostrare
+	D'altra parte se $r>\delta_A(B)$, per ogni $b\in B$ vale che $d_A(b)<r$, quindi $B\subseteq U_r(A)$ e perciò $r\ge \delta_A'(B)$. Passando all'estremo inferiore per $r>\delta_A(B)$ ottengo quindi
+	\begin{equation}\label{delta>delta'}
+		\delta_A(B)=\inf\{r:r>\delta_A(B)\}\ge \delta_A'(B)
+	\end{equation}
+	
+	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} ottengo quindi $\delta_A(B)=\delta_A'(B)$, che è quello che volevo dimostrare.
 \end{proof}
 
 \begin{lemma}\label{IsometriaCanonica}
-	Esiste un'isometria canonica $\varphi: X\in \CL(X)$, tale che $\varphi(X)$ è un chiuso in $\CL(X)$.
+	Esiste un'isometria canonica $\varphi: X\to \CL(X)$, tale che $\varphi(X)$ è un chiuso in $\CL(X)$.
 \end{lemma}
 \begin{proof}
 	Definisco l'isometria $\varphi: X\in\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
 	
 	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	
-	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente a $K\in CL(X)$, allora dato $x\in K$, vale che
+	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente a $K\in \CL(X)$, allora dato $x\in K$, vale che
 	\begin{equation*}
 		d(x,x_n)\le \sup_{k\in K} d(k,x_n)=d_K(x_n)=\delta_K(\{x_n\})\le \delta(K,\{x_n \})
 	\end{equation*}
-	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)$ converge in $X$ a $x$. Voglio mostrare che allora $(\{ x_n \})_{n\in \mathbb{N}}$ converge a $\{ x \}$, ma questo è ovvio perchè $\lim_{n\to\infty} \delta(\{x\}, \{ x_n \})=\lim_{n\to\infty} d(x,x_n)=0$. Questo conclude la dimostrazione per l'unicità del limite.
+	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)_{n\in\mathbb{N}}$ converge in $X$ a $x$. 
+	
+	Ma allora vale $\lim_{n\to\infty} \delta(\{x\}, \{ x_n \})=\lim_{n\to\infty} d(x,x_n)=0$, quindi per l'unicità del limite $K=\{x\}\in\varphi(X)$.
 \end{proof}
 
 
