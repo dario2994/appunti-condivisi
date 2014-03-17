@@ -10,10 +10,13 @@ Sia $\left (X,d\right )$ uno spazio metrico completo e $\left (K_n \right )$ una
 \end{lemma}
 
 \begin{proof}
-Dimostro innanzitutto che l'intersezione dei chiusi e limitati è non è vuota, costruendo una successione di Cauchy $\left (x_n\right ) \subseteq X$ tale che $x_n \in K_n$ $ \forall n \in \mathbb{N}$. Essendo la successione dei chiusi e limitati di Cauchy, per ogni $n$ esiste $\varepsilon_n$ tale che $\delta \left ( K_n, K_m \right )\leq \varepsilon_n$ $\forall m\geq n$ e
-\begin{equation*}
-\lim_{n \to \infty}\varepsilon_n =0;
-\end{equation*}
+Dimostro innanzitutto che l'intersezione dei chiusi e limitati non è vuota, costruendo una successione di Cauchy $\left (x_n\right ) \subseteq X$ tale che $x_n \in K_n$ $ \forall n \in \mathbb{N}$. 
+
+Essendo la successione $\left(K_n\right)$ di Cauchy, posso definire la successione $(\varepsilon_n)$ in modo che valgano:
+\begin{gather*}
+	\forall m\geq n:\ \delta \left ( K_n, K_m \right )\leq \varepsilon_n \\
+	\lim_{n \to \infty}\varepsilon_n =0
+\end{gather*}
 infatti basta prendere $n_k$ tale che $\delta \left ( K_m, K_l \right )\leq \frac{1}{2^k}$ $\forall m,l\geq n_k$ e ad ogni $n$ associo $\varepsilon_n=\frac{1}{2^j}$ in modo che $j=\max { \left \{ i:n_i \leq n \right \} }$. Per i primi termini della successione che voglio costruire faccio rispettare solo l'appartenenza sopra enunciata. Invece, a partire da $n=n_1$, una volta definiti tutti i termini fino a $x_n$ so che la palla di raggio $2\varepsilon_n$ centrata in $x_n$ interseca tutti i chiusi e limitati successivi, e dunque posso costruire induttivamente una successione di Cauchy. Dato che $\left (X,d\right )$ è completo, esiste il limite $x$ della successione. Per ogni $n$ la successione è contenuta definitivamente in $K_n$, ergo per chiusura il limite appartiene a $ \bigcap_{n \in \mathbb{N}}K_n $, che di conseguenza non è vuota (e chiaramente chiusa e limitata a sua volta).
 
 Dato che per ogni $n$ $K_n\supseteq K$ allora ovviamente $\delta\left  (K_n,K\right )=\delta_{K}\left (K_n\right )$. Inoltre $\delta_{K}\left (K_n\right )$ è decrescente in $n$, quindi esiste il limite $r$ della distanza di Haurdorff:
@@ -27,42 +30,58 @@ Considero la sottosuccessione $K_{n(k)}$, dove $n(k)$ è tale che $\delta \left 
 converge a $\frac{r}{2}$, allora la distanza del limite $x$ da $K$ è maggiore o uguale a $\frac{r}{2}$. Ma come prima il limite appartiene all'intersezione, dunque si ha un assurdo.
 \end{proof}
 
-\begin{theorem}
-Sia $(K_n)$ una successione di Cauchy di chiusi e limitati in $\left (\CL(X),\delta\right  ) $, dove $\left (X, d\right )$ è uno spazio metrico completo. Allora $\forall k \in \mathbb{N}$ vale che
+\begin{lemma} \label{UnioniDiCauchy}
+Sia $(K_n)$ una successione di Cauchy di chiusi e limitati in $\left (\CL(X),\delta\right  ) $. 
+Allora $\forall k \in \mathbb{N}$ vale che
 \begin{equation*}
-B_k:=\overline{\bigcup_{n\geq k} K_n}
+A_k:=\overline{\bigcup_{n\geq k} K_n}
 \end{equation*}
-è chiuso e limitato, ed inoltre i $B_k$ formano a loro volta una successione di Cauchy.
-\end{theorem}
+è chiuso e limitato, ed inoltre gli $A_k$ formano a loro volta una successione di Cauchy.
+\end{lemma}
 
 \begin{proof}
- Per definizione $B_k$ è chiuso per ogni $k$. Inoltre, dato $\varepsilon$, esiste $n_0$ tale che $\delta\left (K_{n_0}, K_n\right )< \varepsilon$ per ogni $n\geq n_0$. Quindi se $K_{n_0}$ è contenuto in una palla di raggio $R$, $\bigcup_{n\geq n_0} K_n$ è contenuta nella stessa palla di raggio $R+\varepsilon$. Inoltre aumentando ulteriormente il raggio posso sicuramente ricoprire anche i chiusi e limitati precedenti, che sono in numero finito. Infine raddoppiando il raggio finale sono sicuro di non perdermi la chiusura.
+Per definizione $A_k$ è chiuso per ogni $k$. 
 
-Inoltre se $\delta\left  (K_{n_0}, K_n\right )\leq \varepsilon$ $\forall n \geq n_0$  allora l'$\varepsilon$-intorno di $K_{n_0}$ comprende l'unione dei successivi, il che, considerando che le eventuali chiusure non influiscono (se non rendendo non strette le disuguaglianze), implica che anche i $B_k$ sono di Cauchy.
+Dato $\varepsilon$, esiste $n_0$ tale che $\delta(K_{n_0}, K_n)< \varepsilon$ per ogni $n\geq n_0$. 
+Inoltre siano $x_0\in X,r>0$, che esistono per la limitatezza di $K_{n_0}$, tali che $K_{n_0}\subseteq B_r(x_0)$. 
+Allora, con una facile applicazione della disuguaglianza triangolare ottengo:
+\begin{equation*}
+	\forall n\ge n_0:\ K_n\subseteq B_{r+\varepsilon}(x_0) \Rightarrow A_{n_0}\subseteq \overline{B_{r+\varepsilon}(x_0)}
+\end{equation*}
+Quindi $A_{n_0}$ è limitato, ma allora lo è anche $A_1$ visto che lo posso esprimere come $\bigcup_{n<n_0}K_n \bigcup A_{n_0}$ e unione finita di limitati è limitata. Da questo discende che $A_k$ è limitato per ogni $k$ visto che $A_k\subseteq A_1$.
+
+Unendo quanto detto ottengo che gli $A_k$ sono tutti chiusi e limitati.
+
+Se $\delta(K_n, K_m)\leq \varepsilon$ $\forall n,m \geq n_0$  allora vale:
+\begin{equation*}
+	\forall n,m\ge n_0:\ \delta_{A_n}(A_m)\le \delta_{K_n}\left(\overline{\bigcup_{i\ge m}K_i} \right)
+	=\sup_{i\ge m} \delta_{K_n}(K_i) \le \varepsilon
+\end{equation*}
+E questo dimostra che $(A_k)$ è una successione di Cauchy.
 \end{proof}
 
-Dato che per ogni $k\in \mathbb{N}$ $B_{k+1}\subseteq B_k$ per il teorema appena dimostrato e per il \cref{inglobati} esiste $B=\lim_{k \to \infty} B_k$.
-
-Adesso dimostro che la successione di chiusi e limitati ha limite, mostrando che esso non è altro che $B$.
-
-\begin{theorem}
-Sia $\left (K_n\right )$ una successione di Cauchy in $\left (\CL(X),\delta \right ) $, dove $\left (X, d\right )$ è uno spazio metrico completo. Allora $\lim_{n \to \infty}K_n=B$, ove
-\begin{equation*}
-B=\lim_{k \to \infty} \left(\overline{\bigcup_{n\geq k} K_n} \right).
-\end{equation*}
+\begin{theorem} \label{CompletezzaCL}
+	Se $(X,d)$ è uno spazio metrico completo allora anche $(\CL(X),\delta)$ lo è.
 \end{theorem}
-
 \begin{proof}
-Dato $\varepsilon$, esiste $n_0$ tale che $\delta\left  (K_{n_0}, K_n\right )< \varepsilon$ $\forall n\geq n_0$, il che implica $\delta _{K_{n_0}}\left  (K_n\right )<\varepsilon$ $\forall n\geq n_0$. Ma allora vale anche che $\delta _{K_{n_0}}\left  (\cup_{n\geq n_0} K_n\right )<\varepsilon$, e anche che $\delta _{K_{n_0}}\left  (\overline {\cup_{n\geq n_0} K_n} \right ) \leq \varepsilon$. Dunque, dato che per tutti gli $n$ $K_n \subseteq B_n$,  definitivamente $\delta\left  (K_n, B_n\right ) \leq \varepsilon$. Ma allora accade anche che $\delta\left  (K_n, B\right ) \to 0$.
+	Sia $(K_n)$ una successione di Cauchy in $(\CL(X),\delta)$.
+	Per \cref{UnioniDiCauchy} gli insiemi $A_n$ (definiti come nell'enunciato del lemma) formano una successione di Cauchy.
+	Inoltre vale ovviamente $A_{n+1}\subseteq A_n$ quindi posso applicare \cref{inglobati} e ottenere che la successione $(A_n)$ converge ad $A\in\CL(X)$.
+	
+	Vale però che $K_n\subseteq A_n$ e quindi $\delta_{A_n}(K_n)=0$.
+	
+	D'altra parte, fissato $\varepsilon > 0$, esiste $n_0$ tale che per ogni $n,m\ge n_0$ vale $\delta(K_n,K_m)\le \varepsilon$, e perciò ricavo:
+	\begin{equation*}
+		\forall n\ge n_0:\ \delta_{K_n}(A_n)=\delta_{K_n}\left(\overline{\bigcup_{i\ge n} K_i}\right)
+		=\sup_{i\ge n}\delta_{K_n}(K_i)\le \varepsilon
+	\end{equation*}
+	
+	Perciò unendo le ultime due affermazioni ottengo $\delta(K_n,A_n)\to 0$, e questo implica (come fatto generale riguardo le successioni in un metrico) che $\lim_{n\to\infty}K_n=\lim_{n\to\infty}A_n=A$ e quindi ho dimostrato che la generica successione di Cauchy $K_n$ converge, ottenendo la tesi.
 \end{proof}
 
-Dunque in uno spazio metrico completo $\left (X,d\right )$ vale effettivamente che una successione di Cauchy di chiusi e limitati converge ad un chiuso e limitato, ovvero che $\left (\CL(X),\delta \right ) $ è a sua volta completo.
-
-
-Si può dimostrare anche il viceversa:
-\begin{theorem}
-Sia  $\left (X,d\right )$ uno spazio metrico e $\left (\CL(X),\delta \right ) $ lo spazio metrico dei chiusi e limitati. Allora se $\left (\CL(X),\delta \right ) $ è completo lo è anche $\left (X,d\right )$.
-\end{theorem}
+\begin{remark}\label{CompletezzaInverso}
+Se $\left (\CL(X),\delta \right ) $ è completo lo è anche $(X,d)$.
+\end{remark}
 \begin{proof}
-Sia $\left( x_n \right)$ una successione di Cauchy di $\left (X,d\right )$. Dato che $\forall y,z \in X$ vale che $d\left( y,z\right)=\delta \left(\left \{y\right \},\left \{z \right \} \right)$, allora anche $\left(\left \{ x_n\right \} \right)\subseteq \mathcal{K}(X)$ è una successione di Cauchy in  $\left (\CL(X),\delta \right ) $. Allora per ipotesi la successione dei singoletti tende ad un chiuso e limitato, che può essere soltanto a sua volta un singoletto $\left \{x \right \}$. Ma allora, dato che $\delta \left ( \left \{ x_n\right \},\left \{x \right \} \right ) \to 0$, è anche vero che $d\left (  x_n,x  \right ) \to 0$.
+Per quanto dimostrato in \cref{IsometriaCanonica} $\varphi(X)$ è un chiuso di $\CL(X)$, che però è per ipotesi un completo, perciò $\varphi(X)$ è un completo. Ma ancora sfruttando quanto detto in \cref{IsometriaCanonica} so che $(\varphi(X),\delta)$ è isometrico a $(X,d)$ e quindi ne ricavo che anche $(X,d)$ è un completo.
 \end{proof}
