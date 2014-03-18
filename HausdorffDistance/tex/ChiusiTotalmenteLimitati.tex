@@ -6,7 +6,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 \begin{definition}
 	Dato uno spazio metrico $(X,d)$, sia $\CTL(X)$ lo spazio dei chiusi e totalmente limitati non vuoti di $X$.
 \end{definition}
-\begin{remark}\label{SottinsiemeCTL}
+\begin{remark}\label{SottoinsiemeCTL}
 	Ovviamente risulta $\CTL(X)\subseteq \CL(X)$, visto che essere totalmente limitato implica essere limitato.
 \end{remark}
 
@@ -14,7 +14,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 	Lo spazio $(\CTL(X),\delta)$ è un chiuso dello spazio $(\CL(X),\delta)$.
 \end{lemma}
 \begin{proof}
-	Poichè la \cref{SottinsiemeCTL} mi assicura che $\CTL(X)$ è un sottinsieme di $\CL(X)$, mi è sufficiente dimostrare che se una successione $(K_n) \subseteq \CTL(X)$ converge a $K\in\CL(X)$ allora $K\in\CTL(X)$.
+	Poichè la \cref{SottoinsiemeCTL} mi assicura che $\CTL(X)$ è un sottoinsieme di $\CL(X)$, mi è sufficiente dimostrare che se una successione $(K_n) \subseteq \CTL(X)$ converge a $K\in\CL(X)$ allora $K\in\CTL(X)$.
 	
 	Fissato $\varepsilon$ la convergenza $K_n\to K$ mi assicura che:
 	\begin{equation*}
@@ -52,7 +52,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 	Se lo spazio $(X,d)$ è compatto anche $(\CTL(X),\delta)$ lo è.
 \end{corollary}
 \begin{proof}
-	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d)$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottinsieme di $\CL(X)$ come osservato in \cref{SottinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottinsiemi, quindi $\CTL(X)$ è totalmente limitato.
+	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d)$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottoinsieme di $\CL(X)$ come osservato in \cref{SottoinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottoinsiemi, quindi $\CTL(X)$ è totalmente limitato.
 	
 	Unendo quanto detto ho che $(\CTL(X),\delta)$ è completo e totalmente limitato, quindi è un compatto.
 \end{proof}
