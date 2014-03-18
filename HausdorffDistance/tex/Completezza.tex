@@ -17,18 +17,17 @@ Sia $\left (X,d\right )$ uno spazio metrico completo e $\left (K_n \right )$ una
 	Non resta ora che dimostrare l'assunzione fatta. Sia $N$ tale che per ogni $n,m\ge N$ vale $\delta(K_n,K_m) < \frac{\varepsilon}2$, tale $N$ esiste poichè $(K_n)$ è di Cauchy. Fisso $\bar{n}\ge N$ e $\bar x\in K_{\bar n}$.
 	
 	Definisco la successione $(n_i)$ di modo che valgano le seguenti (anche questa esiste perchè $(K_n)$ è di Cauchy):
-	\begin{equation*}
-	\begin{cases}
+	\begin{flalign*} \hspace{150pt} \begin{cases}
 		n_1=\bar n\\
 		\forall i\ge 1:\ n_i<n_{i+1} \\
 		\forall n\ge n_i:\ \delta(K_n,K_{n_i}) < \frac{\varepsilon}{2^i}
-	\end{cases}\end{equation*}
+	\end{cases} & & \end{flalign*}
 	e definisco anche la successione $(x_n)_{n\ge \bar n}$ in modo che:
-	\begin{equation*}\begin{cases}
+	\begin{flalign*} \hspace{150pt} \begin{cases}
 		x_{\bar n}=\bar x\\
 		x_n\in K_n\\
 		n_i<n\le n_{i+1}\Longrightarrow d(x_{n_i},x_n)\le \frac{\varepsilon}{2^i}
-	\end{cases}\end{equation*}
+	\end{cases} & &\end{flalign*}
 	Riesco sempre a trovare $x_n$ come richiesto poichè la condizione $\delta(K_n,K_{n_i}) < \frac{\varepsilon}{2^i}$, sfruttando \cref{ApprossimazioneDistanzaAsimmetrica}, me ne assicura l'esistenza.
 	
 	Allora ora vale la seguente stima:
