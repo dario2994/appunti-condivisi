@@ -43,6 +43,30 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	che è quello che volevo dimostrare.
 \end{proof}
 
+\begin{lemma}
+	Dati $A,B\in \CL(X)$ vale:
+	\begin{equation*}
+		\delta_A(B)=\inf\{r\in\mathbb{R}:\ B\subseteq U_r(A)\}
+	\end{equation*}
+	dove $U_r(A)=\{x\in X :\ d_A(x)<r \}$.
+\end{lemma}
+\begin{proof}
+	Sia $r_0=\inf\{r\in\mathbb{R}:\ B\subseteq U_r(A)\}$.
+	
+	So che se $r$ è tale che $B\subseteq U_r(A)$, allora per ogni $b\in B$ vale $d_A(b)<r$, da cui
+	\begin{equation}\label{delta'>delta}
+		r\ge \sup_{b\in B} d_A(b)=\delta_A(B) \Longrightarrow r_0=\inf\{r:B\subseteq U_r(A) \}\ge \delta_A(B)
+	\end{equation}
+	
+	D'altra parte se $r>\delta_A(B)$, per ogni $b\in B$ vale che $r>d_A(b)$, quindi $B\subseteq U_r(A)$ e perciò $r\ge r_0$. Passando all'estremo inferiore per $r>\delta_A(B)$ ottengo quindi
+	\begin{equation}\label{delta>delta'}
+		\delta_A(B)=\inf\{r:r>\delta_A(B)\}\ge r_0
+	\end{equation}
+	
+	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} ottengo quindi $\delta_A(B)=r_0$, che è quello che volevo dimostrare.
+\end{proof}
+
+
 
 
 \begin{definition}[Distanza di Hausdorff]\label{HausdorffDefinizione}
@@ -81,29 +105,6 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 			\delta(A,C)\le \lim_{\varepsilon\to 0}(\delta(A,B)+\delta(B,C)+2\varepsilon)=\delta(A,B)+\delta(B,C)
 		\end{equation*}
 	\end{itemize}
-\end{proof}
-
-\begin{definition}[Definizione equivalente della distanza di Hausdorff] \label{HausdorffDefinizioneEquivalente}
-	Sia $\delta_A'(B)=\inf\{r:B\subseteq U_r(A)\}$, dove $U_r(A)=\{x\in X : d_A(x)< r \}$. Allora definisco $\delta'(A,B)=\max\{\delta_A'(B),\delta_B'(A)\}$.
-\end{definition}
-
-\begin{theorem}
-	Le definizioni \cref{HausdorffDefinizione} e \cref{HausdorffDefinizioneEquivalente} sono equivalenti.
-\end{theorem}
-\begin{proof}
-	Dimostro in particolare che $\delta_A(B)=\delta_A'(B)$, dove $\delta_A$ e $\delta_A'$ sono definite rispettivamente in \cref{DistanzaAsimmetrica} e \cref{HausdorffDefinizioneEquivalente}, poichè da questo segue banalmente la tesi.
-	
-	So che se $r$ è tale che $B\subseteq U_r(A)$, allora per ogni $b\in B$ vale $d_A(b)<r$, da cui
-	\begin{equation}\label{delta'>delta}
-		r\ge \sup_{b\in B} d_A(b)=\delta_A(B) \Longrightarrow \delta_A'(B)=\inf\{r:B\subseteq U_r(A) \}\ge \delta_A(B)
-	\end{equation}
-	
-	D'altra parte se $r>\delta_A(B)$, per ogni $b\in B$ vale che $d_A(b)<r$, quindi $B\subseteq U_r(A)$ e perciò $r\ge \delta_A'(B)$. Passando all'estremo inferiore per $r>\delta_A(B)$ ottengo quindi
-	\begin{equation}\label{delta>delta'}
-		\delta_A(B)=\inf\{r:r>\delta_A(B)\}\ge \delta_A'(B)
-	\end{equation}
-	
-	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} ottengo quindi $\delta_A(B)=\delta_A'(B)$, che è quello che volevo dimostrare.
 \end{proof}
 
 \begin{example}
