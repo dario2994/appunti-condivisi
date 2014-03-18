@@ -21,7 +21,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Se $x\in A$ vale facilmente che $d_A(x)=\inf_{a\in A}d(a,x)=d(x,x)=0$. 
 
-	Se invece $d_A(x)=0$, dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)_{n\in\mathbb{N}}$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso. 
+	Se invece $d_A(x)=0$, dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso. 
 \end{proof}
 
 
@@ -125,11 +125,11 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	
 	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	
-	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})_{n\in \mathbb{N}}$ una successione convergente a $K\in \CL(X)$, allora dato $x\in K$, vale che
+	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})$ una successione convergente a $K\in \CL(X)$, allora dato $x\in K$, vale che
 	\begin{equation*}
 		d(x,x_n)\le \sup_{k\in K} d(k,x_n)=d_K(x_n)=\delta_K(\{x_n\})\le \delta(K,\{x_n \})
 	\end{equation*}
-	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)_{n\in\mathbb{N}}$ converge in $X$ a $x$. 
+	Quindi, dato che $\delta(K,\{x_n \})$ va a 0, anche $d(x,x_n)$ va a 0, cioè $(x_n)$ converge in $X$ a $x$. 
 	
 	Ma allora vale $\lim_{n\to\infty} \delta(\{x\}, \{ x_n \})=\lim_{n\to\infty} d(x,x_n)=0$, quindi per l'unicità del limite $K=\{x\}\in\varphi(X)$.
 \end{proof}
