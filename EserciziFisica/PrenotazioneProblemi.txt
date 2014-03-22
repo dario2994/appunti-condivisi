@@ -64,12 +64,16 @@ Due aste incernierate che ricevono un impulso ad un estremo, che velocità hanno
 Risoluzione della differenziale mx''+ax'+kx=f*sin(wt)
 
 27/02/14
-Corona circolare su cui è fissata una bandierina e su cui si muove un bambino
-Corona circolare fissata in un punto su cui si muove un bambino | Giada | Fatto
+Corona circolare su cui è fissata una bandierina e su cui si muove un bambino.
+Corona circolare fissata in un punto su cui si muove un bambino. | Giada | Fatto
 
 6/03/14
-Pendolo matematico con appesi altri due pendoli | Giada | Fatto
+Pendolo matematico con appesi altri due pendoli. Studiare le piccole oscillazioni. | Giada | Fatto
 
 10/03/14
 Cilindro che ruota attorno ad un perno, con un altro cilindro dentro. Studiare le piccole oscillazioni. | Federico | Fatto
 Tre pendoli fissati al soffitto ma collegati da molle. Studiare le piccole oscillazioni.
+
+20/03/14
+Moto di precessione dell'asse di rotazione terrestre rispetto al sistema degli assi principali.
+Stella con tensore d'inerzia variante. Trovare \omega (asse di rotazione istantaneo) in funzione del tempo.
