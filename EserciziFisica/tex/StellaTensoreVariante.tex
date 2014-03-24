@@ -31,13 +31,48 @@ Svolgendo i conti, la \cref{stv:eqCardinale} diventa quindi:
 \end{cases}
 \end{equation*}
 da cui, chiamando $I_x=I_y=\bar I$, ottengo:
-\begin{equation*}
+\begin{equation}\label{stv:sistemaEq}
 \begin{cases}
 	\bar I\dot\omega_x+\dot {\bar I}\omega_x+\omega_y\omega_z(I_z-\bar I)=0\\
 	\bar I\dot\omega_y+\dot {\bar I} \omega_y+\omega_x\omega_z(\bar I-I_z)=0\\
 	I_z\dot\omega_z+\dot I_z\omega_z=0
 \end{cases}
+\end{equation}
+
+Risolvo innanzitutto la terza di queste equazioni. Deve valere:
+\begin{equation*}
+	I_z\dot\omega_z+\dot I_z\omega_z=0 \iff I(1+\varepsilon \cos\Omega t)\dot\omega_z=I\Omega\varepsilon\sin\Omega t \omega_z \iff 
+	\frac{\de \omega_z}{\omega_z}=\frac{\Omega\varepsilon\sin\Omega t}{1+\varepsilon \cos\Omega t}\de t
 \end{equation*}
+che nell'approssimazione al prim'ordine per $\varepsilon \ll 1$, diventa:
+\begin{gather*}
+	\frac{\de \omega_z}{\omega_z}=\Omega\varepsilon\sin\Omega t\de t \Longrightarrow 
+	\int_{\omega_z(0)}^{\omega_z(t)}\frac{\de \omega_z}{\omega_z}=\int_0^t \Omega\varepsilon\sin\Omega s\de s\\
+	\Longrightarrow \omega_z(t)=\omega_z(0)e^{\varepsilon(1-\cos\Omega t)}\simeq \omega_z(0)[1+\varepsilon(1-\cos\Omega t)]
+\end{gather*}
+
+Sostituendo quindi nella prima equazione (la seconda è analoga) di \cref{stv:sistemaEq} i valori di $\bar I$ e $I_z$ e il valore di $\omega_z$ appena trovato e approssimando al prim'ordine in $\varepsilon$, ottengo:
+\begin{gather*}
+	\bar I\dot\omega_x+\dot {\bar I}\omega_x+\omega_y\omega_z(I_z-\bar I)=0 \\
+	\Longrightarrow (1-\frac \varepsilon 2\cos\Omega t) \dot\omega_x+\frac{\varepsilon}2 \Omega \sin\Omega t \omega_x + \frac 32 \varepsilon\cos\Omega t \omega_z(0)[1+\varepsilon(1-\cos\Omega t)] \omega_y=0\\
+	\Longrightarrow \dot\omega_x+\frac{\varepsilon}2 \Omega \sin\Omega t \omega_x + \frac 32 \varepsilon\cos\Omega t \omega_z(0)\omega_y=0\\
+\end{gather*}
+Quindi mi sono ricondotta al sistema di due equazioni
+\begin{equation*}
+	\begin{cases}
+		\dot\omega_x+\frac{\varepsilon}2 \Omega \sin\Omega t \omega_x + \frac 32 \varepsilon\cos\Omega t \omega_z(0)\omega_y=0\\
+		\dot\omega_y+\frac{\varepsilon}2 \Omega \sin\Omega t \omega_y - \frac 32 \varepsilon\cos\Omega t \omega_z(0)\omega_x=0
+	\end{cases}
+\end{equation*}
+
+Chiamo ora $z=\omega_x+i \omega_y$, sommando alla prima equazione del sistema $i$ volte la seconda ottengo:
+\begin{gather*}
+	\dot z+\frac{\varepsilon}2 \Omega \sin\Omega t z - \frac 32 \varepsilon\cos\Omega t \omega_z(0)z=0\\
+	\Longrightarrow z=(\omega_x(0)+i(\omega_y(0)))e^{\frac\varepsilon 2 (3i\omega_z(0)\frac{\sin\Omega t}{\Omega}+\cos\Omega t -1)}
+\end{gather*}
+
+
+
 
 
 
