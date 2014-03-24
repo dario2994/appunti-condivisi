@@ -1,0 +1,45 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[20/03/2014]{Stella con tensore d'inerzia variante} %stv
+\textex
+Una stella ha i momenti d'inerzia lungo gli assi principali che variano nel tempo seconda le leggi
+\begin{align*}
+	I_x=I_y & =I\left(1-\frac \varepsilon 2\cos\Omega t\right)\\
+	I_z & = I\left(1+\varepsilon \cos\Omega t\right)
+\end{align*}
+Si determini la velocità angolare $\vec\omega$ della stella al prim'ordine in $\varepsilon\ll 1$, conoscendo il valore iniziale $\vec\omega_0$.
+
+\solution
+Non sono presenti forze esterne che agiscono sul sistema, quindi per la seconda equazione cardinale ottengo
+\begin{equation}\label{stv:eqCardinale}
+	\frac{\de \vec L}{\de t}=0
+\end{equation}
+
+So inoltre che per \cref{ten:MomentoAngolare}, vale
+\begin{gather*}
+	\vec L = (I_x\omega_x,I_y\omega_y,I_z\omega_z)\\
+	\Longrightarrow \frac{\de \vec L}{\de t}=\frac{\delta L}{\delta t}+\vec\omega\times \vec L = (I_x\dot\omega_x+\dot I_x\omega_x,I_y\dot \omega_y+\dot I_y\omega_y,I_z\dot\omega_z+\dot I_z\omega_z)+(\omega_x,\omega_y,\omega_z)\times (I_x\omega_x,I_y\omega_y,I_z\omega_z)
+\end{gather*}
+
+Svolgendo i conti, la \cref{stv:eqCardinale} diventa quindi:
+\begin{equation*}
+\begin{cases}
+	I_x\dot\omega_x+\dot I_x\omega_x+\omega_y\omega_z(I_z-I_y)=0\\
+	I_y\dot\omega_y+\dot I_y\omega_y+\omega_x\omega_z(I_x-I_z)=0\\
+	I_z\dot\omega_z+\dot I_z\omega_z+\omega_x\omega_y(I_y-I_x)=0
+\end{cases}
+\end{equation*}
+da cui, chiamando $I_x=I_y=\bar I$, ottengo:
+\begin{equation*}
+\begin{cases}
+	\bar I\dot\omega_x+\dot {\bar I}\omega_x+\omega_y\omega_z(I_z-\bar I)=0\\
+	\bar I\dot\omega_y+\dot {\bar I} \omega_y+\omega_x\omega_z(\bar I-I_z)=0\\
+	I_z\dot\omega_z+\dot I_z\omega_z=0
+\end{cases}
+\end{equation*}
+
+
+
+
+\end{document}
