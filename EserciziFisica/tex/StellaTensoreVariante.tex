@@ -68,9 +68,18 @@ Quindi mi sono ricondotta al sistema di due equazioni
 Chiamo ora $z=\omega_x+i \omega_y$, sommando alla prima equazione del sistema $i$ volte la seconda ottengo:
 \begin{gather*}
 	\dot z+\frac{\varepsilon}2 \Omega \sin\Omega t z - \frac 32 \varepsilon\cos\Omega t \omega_z(0)z=0\\
-	\Longrightarrow z=(\omega_x(0)+i(\omega_y(0)))e^{\frac\varepsilon 2 (3i\omega_z(0)\frac{\sin\Omega t}{\Omega}+\cos\Omega t -1)}
+	\begin{split}
+	\Longrightarrow z&=(\omega_x(0)+i\omega_y(0))\exp\left[\frac\varepsilon 2 \left(3i\omega_z(0)\frac{\sin\Omega t}{\Omega}+\cos\Omega t -1\right)\right]\\
+	&=(\omega_x(0)+i\omega_y(0))\left[1+\frac\varepsilon 2 \left(3i\omega_z(0)\frac{\sin\Omega t}{\Omega}+\cos\Omega t -1\right)\right]
+	\end{split}\\
+	\Longrightarrow 
+	\begin{cases}
+		\omega_x(t)=\omega_x(0)\left( 1+\frac \varepsilon 2 \cos\Omega t -\frac\varepsilon 2 \right) - \frac 32 \varepsilon \omega_y(0)\omega_z(0)\frac{\sin \Omega t}{\Omega}\\
+		\omega_y(t)=\omega_y(0)\left( 1+\frac \varepsilon 2 \cos\Omega t -\frac\varepsilon 2 \right) + \frac 32 \varepsilon \omega_x(0)\omega_z(0)\frac{\sin \Omega t}{\Omega}
+	\end{cases}
 \end{gather*}
 
+Quindi, poichè avevo già ricavato $\omega_z(t)$, ho trovato quindi il valore di $\vec\omega$ rispetto al tempo, che è quello che volevo.
 
 
 
