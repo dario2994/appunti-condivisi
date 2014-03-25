@@ -310,8 +310,28 @@ La soluzione generale della differenziale risulterà essere (proiettando le solu
 	\vec y = \sum_{i=1}^n \vec A_i\left( \lambda^+_i\cos\omega_i t + \lambda^-_i\sin \omega_i t \right)
 \end{equation}
 
+\subsection{Lagrangiana}\label{lag}
+Si consideri un sistema fisico, dipendente dalle coordinate generalizzate $q$, per cui sia possibile scrivere l'energia cinetica $K(q,\dot q)$ e l'energia potenziale $V(q)$.
+Si chiama Lagrangiana del sistema la quantità:
+\begin{equation}\label{lag:Definizione}
+	\mathcal L(q,\dot q)=K(q,\dot q)-V(q)
+\end{equation}
+cioè si assume implicitamente che il potenziale non dipende dalla velocità (cioè l'energia si mantiene) e che nulla dipende dal tempo. Queste assunzioni sono credibili quando non ci sono forze esterne agenti in modo periodico e le forze sono conservative.
 
+Allora, dette $q_i$ le singole coordinate, le equazioni del moto sono:
+\begin{equation}\label{Lag:EqEuleroLagrange}
+	\frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot q_i} = \frac{\delta \mathcal L}{\delta q_i}
+\end{equation}
+e queste si dicono equazioni di Eulero-Lagrange.
 
+È importante notare che le Lagrangiane ci danno le equazioni del moto \emph{indipendentemente} dalle coordinate usate (ammessa una certa regolarità di queste) e questo le rende più versatili di $\vec F=m\vec a$ che invece si poteva applicare solo nei casi di coordinate cartesiane.
 
+Inoltre dalle equazioni di Eulero-Lagrange si possono sempre ricavare le leggi di conservazione del sistema. Ad esempio il solo fatto che la Lagrangiana non dipende esplicitamente dal tempo implica la conservazione dell'energia.
+
+Se il potenziale non dipende dalla coordinata $q_i$ è ovvio ricavare da \cref{Lag:EqEuleroLagrange} che la quantità $\frac{\delta \mathcal L}{\delta \dot q_i}$ si conserva (tale quantità è chiamata quantità di moto generalizzata).
+
+In generale vale il Teorema di Noether, che afferma che per ogni simmetria della Lagrangiana si ha una relativa quantità conservata. Per simmetria si intende che se le coordinate vengono cambiate di una quantità piccole, la Lagrangiana rimane costante al prim'ordine in questo cambiamento.
+
+Appunto col formalismo Lagrangiano si riescono a dimostrare agevolmente i risultati enunciati nella sezione precedente \cref{opgl}, poichè discendono quasi banalmente dalle Equazioni di Eulero Lagrange.
 \end{document}
 
