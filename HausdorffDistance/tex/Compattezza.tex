@@ -13,14 +13,14 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 		\forall x\in X\ \exists s\in S:\ d(x,s)\le \varepsilon
 	\end{equation}
 
-	Ora considero $\mathcal{R}=\mathcal{P}(S)$. Questo è un insieme finito di sottoinsiemi finiti (quindi chiusi e limitati) di $X$, perciò è un sottoinsieme finito di $\CL(X)$. 
+	Ora consideriamo $\mathcal{R}=\mathcal{P}(S)$. Questo è un insieme finito di sottoinsiemi finiti (quindi chiusi e limitati) di $X$, perciò è un sottoinsieme finito di $\CL(X)$. 
 	
 	Dimostro che fissato $K\in\CL(X)$ esiste $R\in \mathcal{R}$ tale che $\delta(K,R)\le \varepsilon$, e questo è equivalente alla tesi di totale limitatezza di $\CL(X)$. In particolare la scelta di $R$ è costruttiva, visto che pongo:
 	\begin{equation*}
 		R=\{s\in S\ |\ d_K(s)\le \varepsilon\}
 	\end{equation*}
 	
-	Sfruttando la sola definizione di $R$ ottengo che vale:
+	Sfruttando la sola definizione di $R$ otteniamo che vale:
 	\begin{equation}\label{DeltaKR}
 		\delta_K(R)=\sup_{r\in R} d_K(r) \le \varepsilon
 	\end{equation}
@@ -29,17 +29,17 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 	\begin{equation*}
 		d_K(s)\le d(s,k) \le \varepsilon \Longrightarrow s\in R \Longrightarrow d_R(k)\le d(s,k)\le \varepsilon
 	\end{equation*}
-	dove nella prima implicazione ho usato la definizione di $R$. 
+	dove nella prima implicazione abbiamo usato la definizione di $R$. 
 	Sfruttando l'ultima disuguaglianza mostrata è ovvio ottenere:
 	\begin{equation}\label{DeltaRK}
 		\delta_R(K)=\sup_{k\in K} d_R(k) \le  \varepsilon
 	\end{equation}
 	
-	Unendo \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ ottengo:
+	Unendo \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ otteniamo:
 	\begin{equation*}
 		\delta(K,R)=\max\left(\delta_K(R),\delta_R(K)\right)\le \varepsilon
 	\end{equation*}
-	che è quanto volevo e, come già annunciato, dimostra la totale limitatezza di $\CL(X)$.
+	che è quanto volevamo e, come già annunciato, dimostra la totale limitatezza di $\CL(X)$.
 \end{proof}
 
 \begin{remark}\label{TotaleLimitatezzaInverso}
@@ -55,13 +55,13 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 	Se $(X,d)$ è uno spazio metrico compatto, allora anche $(\CL(X),\delta)$ lo è.
 \end{theorem}
 \begin{proof}
-	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi di \cref{CompletezzaCL,TotaleLimitatezzaCL}. Applicando tali risultati ottengo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
+	Se $X$ è compatto allora è in particolare anche completo e totalmente limitato, perciò risultano verificate le ipotesi di \cref{CompletezzaCL,TotaleLimitatezzaCL}. Applicando tali risultati otteniamo che $\CL(X)$ è completo e totalmente limitato, quindi è compatto e il teorema è dimostrato.
 \end{proof}
 
 \begin{remark} \label{CompattezzaInverso}
 	Vale anche l'implicazione inversa di \cref{CompattezzaCL}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
-	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi di \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati ottengo che $X$ è completo e totalmente limitato, quindi è compatto.
+	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi di \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati otteniamo che $X$ è completo e totalmente limitato, quindi è compatto.
 \end{proof}
 

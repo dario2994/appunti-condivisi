@@ -14,26 +14,26 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 	Lo spazio $(\CTL(X),\delta)$ è un chiuso dello spazio $(\CL(X),\delta)$.
 \end{lemma}
 \begin{proof}
-	Poichè la \cref{SottoinsiemeCTL} mi assicura che $\CTL(X)$ è un sottoinsieme di $\CL(X)$, mi è sufficiente dimostrare che se una successione $(K_n) \subseteq \CTL(X)$ converge a $K\in\CL(X)$ allora $K\in\CTL(X)$.
+	Poichè la \cref{SottoinsiemeCTL} ci assicura che $\CTL(X)$ è un sottoinsieme di $\CL(X)$, ci è sufficiente dimostrare che se una successione $(K_n) \subseteq \CTL(X)$ converge a $K\in\CL(X)$ allora $K\in\CTL(X)$.
 	
-	Fissato $\varepsilon$ la convergenza $K_n\to K$ mi assicura che:
+	Fissato $\varepsilon$ la convergenza $K_n\to K$ ci assicura che:
 	\begin{equation*}
 		\exists n_0\in\mathbb{N}:\ \delta(K_{n_0},K)\le \frac{\varepsilon}3
 		\Longrightarrow \delta_{K_{n_0}}(K)\le \frac{\varepsilon}3
 	\end{equation*}
-	e perciò applicando \cref{ApprossimazioneDistanzaAsimmetrica} ottengo:
+	e perciò applicando \cref{ApprossimazioneDistanzaAsimmetrica} otteniamo:
 	\begin{equation}\label{TL1}
 		\forall k\in K\ \exists x\in K_{n_0}:
 		\ d(k,x)\le \delta_{K_{n_0}}(K)+\frac{\varepsilon}3\le \frac{2\varepsilon}3
 	\end{equation}
 	
-	Inoltre poichè $K_{n_0}$ è totalmente limitato per ipotesi, esiste un insieme finito $S \subseteq X$ tale che:
+	Inoltre poiché $K_{n_0}$ è totalmente limitato per ipotesi, esiste un insieme finito $S \subseteq X$ tale che:
 	\begin{equation}\label{TL2}
 		K_{n_0}\subseteq \bigcup_{s\in S} B_{\frac{\varepsilon}3}(s)
 		\Longrightarrow \forall x\in K_{n_0}\ \exists s\in S:\ d(x,s)\le \frac{\varepsilon}3
 	\end{equation}
 	
-	Unendo \cref{TL1,TL2} arrivo a dire:
+	Unendo \cref{TL1,TL2} arriviamo a dire:
 	\begin{equation}
 		\forall k\in K\ \exists x\in K_{n_0},s\in S: d(k,x)\le \frac{2\varepsilon}3 \wedge d(x,s)\le \frac{\varepsilon}3
 		\Longrightarrow d(k,s)\le d(k,x)+d(x,s) \le \varepsilon
@@ -54,7 +54,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 \begin{proof}
 	Essendo $(X,d)$ compatto, è in particolare completo e perciò per quanto appena detto in \cref{CompletezzaCTL} anche $\CTL(X)$ è completo. Inoltre $(X,d)$ è per ipotesi anche totalmente limitato e perciò per \cref{CompattezzaCL} risulta $\CL(X)$ totalmente limitato. Ma $\CTL(X)$ è un sottoinsieme di $\CL(X)$ come osservato in \cref{SottoinsiemeCTL}, e la proprietà di totale limitatezza passa ai sottoinsiemi, quindi $\CTL(X)$ è totalmente limitato.
 	
-	Unendo quanto detto ho che $(\CTL(X),\delta)$ è completo e totalmente limitato, quindi è un compatto.
+	Unendo quanto detto abbiamo che $(\CTL(X),\delta)$ è completo e totalmente limitato, quindi è un compatto.
 \end{proof}
 
 \begin{definition}
@@ -76,7 +76,7 @@ Il passaggio principale, da cui tutto discende come facile corollario, è che i 
 	Se $(X,d)$ è uno spazio compatto anche $(\K(X),\delta)$ lo è.
 \end{corollary}
 \begin{proof}
-	Se $(X,d)$ è compatto allora è in particolare completo e perciò vale ancora $\K(X)=\CTL(X)$ e quindi applicando \cref{CompattezzaCTL} ho la tesi. 
+	Se $(X,d)$ è compatto allora è in particolare completo e perciò vale ancora $\K(X)=\CTL(X)$ e quindi applicando \cref{CompattezzaCTL} abbiamo la tesi. 
 \end{proof}
 
 

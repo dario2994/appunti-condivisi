@@ -12,7 +12,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{definition}
 
 \begin{remark}
-	$d_A({}\cdot{})$ è effettivamente una funzione a valori in $[0,+\infty)$ perchè vale $\inf_{a\in A}d(a,x)<\infty$, poichè $A$ è non vuoto.
+	$d_A({}\cdot{})$ è effettivamente una funzione a valori in $[0,+\infty)$ perché vale $\inf_{a\in A}d(a,x)<\infty$, poiché $A$ è non vuoto.
 \end{remark}
 
 \begin{lemma}\label{DistanzaChiusoAppartenenza}
@@ -21,7 +21,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Se $x\in A$ vale facilmente che $d_A(x)=\inf_{a\in A}d(a,x)=d(x,x)=0$. 
 
-	Se invece $d_A(x)=0$, dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perchè $A$ è chiuso. 
+	Se invece $d_A(x)=0$, dato che $\inf_{a\in A}d(a,x)=d_A(x)=0$, esiste una successione $(a_n)$ a valori in $A$ tale che $\lim_{n\to\infty}d(a_n,x)=0$, perciò $a_n\to x$. Di conseguenza $x$ appartiene ad $A$, perché $A$ è chiuso. 
 \end{proof}
 
 
@@ -29,7 +29,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Dato $A\in\CL(X)$, sia $\delta_A:\CL(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
 \end{definition}
 \begin{remark}
-	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perchè $A\cup B$ è limitato.
+	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perché $A\cup B$ è limitato.
 \end{remark}
 
 \begin{lemma}\label{ApprossimazioneDistanzaAsimmetrica}
@@ -40,7 +40,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	\begin{equation*}
 		d(a,b)\le d_B(a)+\varepsilon\le \sup_{a\in A}d_B(a)+\varepsilon=\delta_B(A)+\varepsilon
 	\end{equation*}
-	che è quello che volevo dimostrare.
+	che è quello che volevamo dimostrare.
 \end{proof}
 
 \begin{lemma}
@@ -58,12 +58,12 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		r\ge \sup_{b\in B} d_A(b)=\delta_A(B) \Longrightarrow r_0=\inf\{r:B\subseteq U_r(A) \}\ge \delta_A(B)
 	\end{equation}
 	
-	D'altra parte se $r>\delta_A(B)$, per ogni $b\in B$ vale che $r>d_A(b)$, quindi $B\subseteq U_r(A)$ e perciò $r\ge r_0$. Passando all'estremo inferiore per $r>\delta_A(B)$ ottengo quindi
+	D'altra parte se $r>\delta_A(B)$, per ogni $b\in B$ vale che $r>d_A(b)$, quindi $B\subseteq U_r(A)$ e perciò $r\ge r_0$. Passando all'estremo inferiore per $r>\delta_A(B)$ otteniamo quindi
 	\begin{equation}\label{delta>delta'}
 		\delta_A(B)=\inf\{r:r>\delta_A(B)\}\ge r_0
 	\end{equation}
 	
-	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} ottengo quindi $\delta_A(B)=r_0$, che è quello che volevo dimostrare.
+	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} otteniamo quindi $\delta_A(B)=r_0$, che è quello che volevamo dimostrare.
 \end{proof}
 
 
@@ -78,7 +78,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{theorem}
 
 \begin{proof}
-	Innanzitutto $\delta({}\cdot{},{}\cdot{})$ è veramente una funzione a valori in $[0,+\infty)$, perchè lo erano $\delta_A(B),\delta_B(A)$.
+	Innanzitutto $\delta({}\cdot{},{}\cdot{})$ è veramente una funzione a valori in $[0,+\infty)$, perché lo erano $\delta_A(B),\delta_B(A)$.
 
 	Dimostriamo ora che rispetta le proprietà di una distanza:
 	\begin{itemize}
@@ -87,7 +87,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		$\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}=\delta(B,A)$.
 		\item (non degenerazione) $\delta(A,B)=0 \iff A=B$
 		
-		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ ho che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaChiusoAppartenenza}.
+		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ abbiamo che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaChiusoAppartenenza}.
 		\item (disuguaglianza triangolare) $\delta(A,C)\le \delta(A,B)+\delta(B,C)$
 
 		Senza perdita di generalità possiamo assumere che $\delta(A,C)=\delta_A(C)$. 
@@ -96,11 +96,11 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		\begin{equation*}
 			d_A(c)\le d(a,c)\le d(a,b)+d(b,c)\le \delta_A(B)+\delta_B(C)+2\varepsilon\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
-		da cui passando all'estremo superiore su $c$ ottengo
+		da cui passando all'estremo superiore su $c$ otteniamo
 		\begin{equation*}
 			\delta(A,C)=\delta_A(C)=\sup_{c\in C}d_A(c)\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
-		Facendo infine il limite per $\varepsilon\to 0$, ho proprio quello che volevo dimostrare
+		Facendo infine il limite per $\varepsilon\to 0$, abbiamo proprio quello che volevamo dimostrare
 		\begin{equation*}
 			\delta(A,C)\le \lim_{\varepsilon\to 0}(\delta(A,B)+\delta(B,C)+2\varepsilon)=\delta(A,B)+\delta(B,C)
 		\end{equation*}
@@ -133,7 +133,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Definisco l'isometria $\varphi: X\to\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
 	
-	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perchè segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
+	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perché segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	
 	Dimostriamo ora che $\varphi(X)$ è un chiuso. Sia $(\{ x_n \})$ una successione convergente a $K\in \CL(X)$, allora dato $x\in K$, vale che
 	\begin{equation*}
