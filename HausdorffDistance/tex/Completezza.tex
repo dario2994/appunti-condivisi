@@ -14,21 +14,21 @@ Sia $\left (X,d\right )$ uno spazio metrico completo e $\left (K_n \right )$ una
 	\end{equation*}
 	perciò abbiamo proprio $K_n\to K$.
 	
-	Non resta ora che dimostrare l'assunzione fatta. Sia $N$ tale che per ogni $n,m\ge N$ vale $\delta(K_n,K_m) < \frac{\varepsilon}2$, tale $N$ esiste poiché $(K_n)$ è di Cauchy. Fisso $\bar{n}\ge N$ e $\bar x\in K_{\bar n}$.
+	Non resta ora che dimostrare l'assunzione fatta. Sia $N$ tale che per ogni $n,m\ge N$ vale $\delta(K_n,K_m) < \frac{\varepsilon}2$, tale $N$ esiste poiché $(K_n)$ è di Cauchy. Fissiamo $\bar{n}\ge N$ e $\bar x\in K_{\bar n}$.
 	
-	Definisco la successione $(n_i)$ di modo che valgano le seguenti (anche questa esiste perché $(K_n)$ è di Cauchy):
+	Definiamo la successione $(n_i)$ di modo che valgano le seguenti (anche questa esiste perché $(K_n)$ è di Cauchy):
 	\begin{flalign*} \hspace{150pt} \begin{cases}
 		n_1=\bar n\\
 		\forall i\ge 1:\ n_i<n_{i+1} \\
 		\forall n\ge n_i:\ \delta(K_n,K_{n_i}) < \frac{\varepsilon}{2^i}
 	\end{cases} & & \end{flalign*}
-	e definisco anche la successione $(x_n)_{n\ge \bar n}$ in modo che:
+	e definiamo anche la successione $(x_n)_{n\ge \bar n}$ in modo che:
 	\begin{flalign*} \hspace{150pt} \begin{cases}
 		x_{\bar n}=\bar x\\
 		x_n\in K_n\\
 		n_i<n\le n_{i+1}\Longrightarrow d(x_{n_i},x_n)\le \frac{\varepsilon}{2^i}
 	\end{cases} & &\end{flalign*}
-	Riesco sempre a trovare $x_n$ come richiesto poiché la condizione $\delta(K_n,K_{n_i}) < \frac{\varepsilon}{2^i}$, sfruttando \cref{ApprossimazioneDistanzaAsimmetrica}, me ne assicura l'esistenza.
+	Riusciamo sempre a trovare $x_n$ come richiesto poiché la condizione $\delta(K_n,K_{n_i}) < \frac{\varepsilon}{2^i}$, sfruttando il \cref{ApprossimazioneDistanzaAsimmetrica}, ce ne assicura l'esistenza.
 	
 	Allora ora vale la seguente stima:
 	\begin{align*}
@@ -40,7 +40,7 @@ Sia $\left (X,d\right )$ uno spazio metrico completo e $\left (K_n \right )$ una
 	e con un ragionamento del tutto analogo si ricava che la successione è definitivamente contenuta nella palla $B_{\frac{\varepsilon}{2^{i-1}}}(x_{n_i})$ e perciò è di Cauchy. 
 	Ma $X$ è completo per ipotesi, quindi $x_n\to x\in X$ e $x\in K_n$ per ogni $n$ poiché definitivamente $x_i\in K_i \subseteq K_n$ e $K_n$ è chiuso. Perciò $x\in K$.
 	
-	Inoltre, poiché $d(\bar x,x_n)\le \varepsilon$, risulta che $d(\bar x, x)\le \varepsilon$ e per quanto appena detto implica che abbiamo trovato, come cercavo, un punto in $K$ che dista meno di $\varepsilon$ da $\bar x$.
+	Inoltre, poiché $d(\bar x,x_n)\le \varepsilon$, risulta che $d(\bar x, x)\le \varepsilon$ e per quanto appena detto implica che abbiamo trovato, come cercavamo, un punto in $K$ che dista meno di $\varepsilon$ da $\bar x$.
 	
 \end{proof}
 
@@ -79,23 +79,23 @@ E questo dimostra che $(A_k)$ è una successione di Cauchy.
 \end{theorem}
 \begin{proof}
 	Sia $(K_n)$ una successione di Cauchy in $(\CL(X),\delta)$.
-	Per \cref{UnioniDiCauchy} gli insiemi $A_n$ (definiti come nell'enunciato del lemma) formano una successione di Cauchy.
-	Inoltre vale ovviamente $A_{n+1}\subseteq A_n$ quindi possiamo applicare \cref{inglobati} e ottenere che la successione $(A_n)$ converge ad $A\in\CL(X)$.
+	Per il \cref{UnioniDiCauchy} gli insiemi $A_n$ (definiti come nell'enunciato del lemma) formano una successione di Cauchy.
+	Inoltre vale ovviamente $A_{n+1}\subseteq A_n$ quindi possiamo applicare il \cref{inglobati} e ottenere che la successione $(A_n)$ converge ad $A\in\CL(X)$.
 	
 	Vale però che $K_n\subseteq A_n$ e quindi $\delta_{A_n}(K_n)=0$.
 	
-	D'altra parte, fissato $\varepsilon > 0$, esiste $n_0$ tale che per ogni $n,m\ge n_0$ vale $\delta(K_n,K_m)\le \varepsilon$, e perciò ricavo:
+	D'altra parte, fissato $\varepsilon > 0$, esiste $n_0$ tale che per ogni $n,m\ge n_0$ vale $\delta(K_n,K_m)\le \varepsilon$, e perciò ricaviamo:
 	\begin{equation*}
 		\forall n\ge n_0:\ \delta_{K_n}(A_n)=\delta_{K_n}\left(\overline{\bigcup_{i\ge n} K_i}\right)
 		=\sup_{i\ge n}\delta_{K_n}(K_i)\le \varepsilon
 	\end{equation*}
 	
-	Perciò unendo le ultime due affermazioni otteniamo $\delta(K_n,A_n)\to 0$, e questo implica (come fatto generale riguardo le successioni in un metrico) che $\lim_{n\to\infty}K_n=\lim_{n\to\infty}A_n=A$ e quindi abbiamo dimostrato che la generica successione di Cauchy $K_n$ converge, ottenendo la tesi.
+	Perciò unendo le ultime due affermazioni otteniamo $\delta(K_n,A_n)\to 0$, e questo implica (come fatto generale riguardo le successioni in uno spazio metrico) che $\lim_{n\to\infty}K_n=\lim_{n\to\infty}A_n=A$ e quindi abbiamo dimostrato che la generica successione di Cauchy $K_n$ converge, ottenendo la tesi.
 \end{proof}
 
 \begin{remark}\label{CompletezzaInverso}
 Se $\left (\CL(X),\delta \right ) $ è completo lo è anche $(X,d)$.
 \end{remark}
 \begin{proof}
-Per quanto dimostrato in \cref{IsometriaCanonica} $\varphi(X)$ è un chiuso di $\CL(X)$, che però è per ipotesi un completo, perciò $\varphi(X)$ è un completo. Ma ancora sfruttando quanto detto in \cref{IsometriaCanonica} so che $(\varphi(X),\delta)$ è isometrico a $(X,d)$ e quindi ne ricaviamo che anche $(X,d)$ è un completo.
+Per quanto dimostrato nel \cref{IsometriaCanonica} $\varphi(X)$ è un chiuso di $\CL(X)$, che però è per ipotesi completo, perciò $\varphi(X)$ è completo. Ma ancora sfruttando quanto detto nel \cref{IsometriaCanonica} sappiamo che $(\varphi(X),\delta)$ è isometrico a $(X,d)$ e quindi ne ricaviamo che anche $(X,d)$ è completo.
 \end{proof}

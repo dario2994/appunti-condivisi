@@ -11,10 +11,6 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Dato $A\in \CL(X)$, definiamo $d_A: X\to [0,+\infty)$ tale che $d_A(x)=\inf_{a\in A}d(a,x)$ per ogni $x\in X$.
 \end{definition}
 
-\begin{remark}
-	$d_A({}\cdot{})$ è effettivamente una funzione a valori in $[0,+\infty)$ perché vale $\inf_{a\in A}d(a,x)<\infty$, poiché $A$ è non vuoto.
-\end{remark}
-
 \begin{lemma}\label{DistanzaChiusoAppartenenza}
 	Dati $x\in X$ e $A \in \CL(X)$, $d_A(x)=0$ se e solo se $x\in A$.
 \end{lemma}
@@ -29,7 +25,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Dato $A\in\CL(X)$, sia $\delta_A:\CL(X)\to [0,+\infty)$ tale che $\delta_A(B)=\sup_{b\in B} d_A(b)$.
 \end{definition}
 \begin{remark}
-	Anche in questo caso $\delta_A(B)$ ha valori in $[0,+\infty)$ perché $A\cup B$ è limitato.
+	Si ha effettivamente che $\delta_A(B)$ ha valori in $[0,+\infty)$ perché $A\cup B$ è limitato.
 \end{remark}
 
 \begin{lemma}\label{ApprossimazioneDistanzaAsimmetrica}
@@ -53,7 +49,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \begin{proof}
 	Sia $r_0=\inf\{r\in\mathbb{R}:\ B\subseteq U_r(A)\}$.
 	
-	So che se $r$ è tale che $B\subseteq U_r(A)$, allora per ogni $b\in B$ vale $d_A(b)<r$, da cui
+	Sappiamo che se $r$ è tale che $B\subseteq U_r(A)$, allora per ogni $b\in B$ vale $d_A(b)<r$, da cui
 	\begin{equation}\label{delta'>delta}
 		r\ge \sup_{b\in B} d_A(b)=\delta_A(B) \Longrightarrow r_0=\inf\{r:B\subseteq U_r(A) \}\ge \delta_A(B)
 	\end{equation}
@@ -63,7 +59,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		\delta_A(B)=\inf\{r:r>\delta_A(B)\}\ge r_0
 	\end{equation}
 	
-	Unendo la \cref{delta'>delta} e la \cref{delta>delta'} otteniamo quindi $\delta_A(B)=r_0$, che è quello che volevamo dimostrare.
+	Unendo le \cref{delta'>delta,delta>delta'} otteniamo quindi $\delta_A(B)=r_0$, che è quello che volevamo dimostrare.
 \end{proof}
 
 
@@ -74,7 +70,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 \end{definition}
 
 \begin{theorem}
-	La funzione definita in \cref{HausdorffDefinizione} è una distanza chiamata distanza di Hausdorff.
+	La funzione definita nella \cref{HausdorffDefinizione} è una distanza chiamata distanza di Hausdorff.
 \end{theorem}
 
 \begin{proof}
@@ -87,12 +83,12 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 		$\delta(A,B)=\max\{ \delta_A(B),\delta_B(A) \}=\delta(B,A)$.
 		\item (non degenerazione) $\delta(A,B)=0 \iff A=B$
 		
-		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ abbiamo che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per \cref{DistanzaChiusoAppartenenza}.
+		Se $A=B$ vale banalmente $\delta(A,B)=0$; se invece esiste $a\in A$ tale che $a\not\in B$ abbiamo che $\delta(A,B)\ge \delta_B(A)\ge \delta_B(a)>0$, dove l'ultima disuguaglianza è vera per il \cref{DistanzaChiusoAppartenenza}.
 		\item (disuguaglianza triangolare) $\delta(A,C)\le \delta(A,B)+\delta(B,C)$
 
 		Senza perdita di generalità possiamo assumere che $\delta(A,C)=\delta_A(C)$. 
 
-		Per ogni $c\in C$ e per ogni $\varepsilon>0$ per \cref{ApprossimazioneDistanzaAsimmetrica} esiste $b\in B$ tale che $d(b,c)\le \delta_B(C)+\varepsilon$. A sua volta fissato tale $b$ esiste $a\in A$ tale che $d(a,b)\le \delta_A(B)+\varepsilon$. Ho quindi che
+		Per ogni $c\in C$ e per ogni $\varepsilon>0$ per il \cref{ApprossimazioneDistanzaAsimmetrica} esiste $b\in B$ tale che $d(b,c)\le \delta_B(C)+\varepsilon$. A sua volta fissato tale $b$ esiste $a\in A$ tale che $d(a,b)\le \delta_A(B)+\varepsilon$. Ho quindi che
 		\begin{equation*}
 			d_A(c)\le d(a,c)\le d(a,b)+d(b,c)\le \delta_A(B)+\delta_B(C)+2\varepsilon\le \delta(A,B)+\delta(B,C)+2\varepsilon
 		\end{equation*}
@@ -119,7 +115,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	\end{center}
 	\end{figure}
 	
-	Ho che $d_B((-1,-1))=2\sqrt{2}-1$, ma è facile verificare che per ogni altro punto $(x,y)\in A$ vale che $d_B((x,y))\le d_B((-1,-1))$, quindi $\delta_B(A)=2\sqrt{2}-1$.
+	Abbiamo che $d_B((-1,-1))=2\sqrt{2}-1$, ma è facile verificare che per ogni altro punto $(x,y)\in A$ vale che $d_B((x,y))\le d_B((-1,-1))$, quindi $\delta_B(A)=2\sqrt{2}-1$.
 	
 	Inoltre per ogni punto $(x,y)\in B$ vale che $d_A((x,y))\le d((x,y),(1,1))\le 1$ e $d_A((1,2))=1$, quindi $\delta_A(B)=1$.
 	
@@ -131,7 +127,7 @@ In tutto il corso della trattazione indicheremo con $(X,d)$ uno spazio metrico g
 	Esiste un'isometria canonica $\varphi: X\to \CL(X)$, tale che $\varphi(X)$ è un chiuso in $\CL(X)$.
 \end{lemma}
 \begin{proof}
-	Definisco l'isometria $\varphi: X\to\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
+	Definiamo l'isometria $\varphi: X\to\CL(X)$ tale che $\varphi(x)=\{x\}$ per ogni $x\in X$. 
 	
 	Innanzitutto $\varphi({}\cdot{})$ è un'isometria, perché segue facilmente dalle definizioni che $\delta(\{ x \}, \{ x' \})=d(x,x')$.
 	

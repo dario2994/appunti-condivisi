@@ -1,7 +1,7 @@
 \section{Trasmissione della compattezza}
 In questa sezione dimostreremo che se $X$ è un compatto allora anche $\CL(X)$ lo è. 
 
-In particolare proveremo che la proprietà di totale limitatezza di $X$ viene ereditata da $\CL(X)$ e quindi, sfruttando \cref{CompletezzaCL}, anche la compattezza viene ereditata.
+In particolare proveremo che la proprietà di totale limitatezza di $X$ viene ereditata da $\CL(X)$ e quindi, sfruttando il \cref{CompletezzaCL}, anche la compattezza viene ereditata.
 
 \begin{lemma}\label{TotaleLimitatezzaCL}
 	Se $(X,d)$ è uno spazio metrico totalmente limitato, allora anche $(\CL(X),\delta)$ lo è.
@@ -15,7 +15,7 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 
 	Ora consideriamo $\mathcal{R}=\mathcal{P}(S)$. Questo è un insieme finito di sottoinsiemi finiti (quindi chiusi e limitati) di $X$, perciò è un sottoinsieme finito di $\CL(X)$. 
 	
-	Dimostro che fissato $K\in\CL(X)$ esiste $R\in \mathcal{R}$ tale che $\delta(K,R)\le \varepsilon$, e questo è equivalente alla tesi di totale limitatezza di $\CL(X)$. In particolare la scelta di $R$ è costruttiva, visto che pongo:
+	Dimostriamo che fissato $K\in\CL(X)$ esiste $R\in \mathcal{R}$ tale che $\delta(K,R)\le \varepsilon$, e questo è equivalente alla tesi di totale limitatezza di $\CL(X)$. In particolare la scelta di $R$ è costruttiva, visto che poniamo:
 	\begin{equation*}
 		R=\{s\in S\ |\ d_K(s)\le \varepsilon\}
 	\end{equation*}
@@ -25,7 +25,7 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 		\delta_K(R)=\sup_{r\in R} d_K(r) \le \varepsilon
 	\end{equation}
 	
-	Fissato $k\in K$ per \cref{TotaleLimitatezzaX} esiste $s\in S$ tale che $d(s,k)\le \varepsilon$. Di conseguenza risulta:
+	Fissato $k\in K$ per l'\cref{TotaleLimitatezzaX} esiste $s\in S$ tale che $d(s,k)\le \varepsilon$. Di conseguenza risulta:
 	\begin{equation*}
 		d_K(s)\le d(s,k) \le \varepsilon \Longrightarrow s\in R \Longrightarrow d_R(k)\le d(s,k)\le \varepsilon
 	\end{equation*}
@@ -35,7 +35,7 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 		\delta_R(K)=\sup_{k\in K} d_R(k) \le  \varepsilon
 	\end{equation}
 	
-	Unendo \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ otteniamo:
+	Unendo le \cref{DeltaKR,DeltaRK} e applicando la definizione di $\delta({}\cdot{},{}\cdot{})$ otteniamo:
 	\begin{equation*}
 		\delta(K,R)=\max\left(\delta_K(R),\delta_R(K)\right)\le \varepsilon
 	\end{equation*}
@@ -46,7 +46,7 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 	Vale anche l'implicazione inversa di \cref{TotaleLimitatezzaCL}, cioè che se  $(\CL(X),\delta)$ è totalmente limitato, allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
-	Basta ricordare che per \cref{IsometriaCanonica} esiste un'isometria tra $X$ e un sottoinsieme di $\CL(X)$ e che la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottoinsieme.
+	Basta ricordare che per il \cref{IsometriaCanonica} esiste un'isometria tra $X$ e un sottoinsieme di $\CL(X)$ e che la proprietà di totale limitatezza di $\CL(X)$ si trasmette ad ogni suo sottoinsieme.
 \end{proof}
 
 
@@ -59,9 +59,9 @@ In particolare proveremo che la proprietà di totale limitatezza di $X$ viene er
 \end{proof}
 
 \begin{remark} \label{CompattezzaInverso}
-	Vale anche l'implicazione inversa di \cref{CompattezzaCL}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
+	Vale anche l'implicazione inversa del \cref{CompattezzaCL}, cioè che se  $(\CL(X),\delta)$ è compatto allora anche $(X,d)$ lo è.
 \end{remark}
 \begin{proof}
-	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi di \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati otteniamo che $X$ è completo e totalmente limitato, quindi è compatto.
+	Essendo $\CL(X)$ un compatto è in particolare completo e totalmente limitato, perciò sono verificate le ipotesi delle \cref{CompletezzaInverso,TotaleLimitatezzaInverso}. Applicando quindi tali risultati otteniamo che $X$ è completo e totalmente limitato, quindi è compatto.
 \end{proof}
 
