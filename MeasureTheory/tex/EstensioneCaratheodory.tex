@@ -1,0 +1,115 @@
+\section{Estendere una premisura ad una misura}
+
+\begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
+	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\mathcal A\subseteq \mathcal P(X)$ l'insieme così definito:
+	\begin{equation*}
+		\mathcal A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
+	\end{equation*}
+	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è \sigadd{}, cioè la terna $(X,\mathcal A,\mu|_{\mathcal A})$ è uno spazio di misura.
+\end{theorem}
+\begin{proof}
+	La dimostrazione procede in due passi, prima dimostro che $\mathcal A$ è un'algebra di insiemi e poi passo a dimostrare che è una \sigalg{} e che $\mu$ è \sigadd{} ridotta su di questa.
+	
+	Il fatto che $\mathcal A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
+	
+	Sia $A\in\mathcal P(X)$ generico ed $E,F\in\mathcal A$ applicando la sola definizione di $\mathcal A$ ed alcuni passaggi insiemistici ottengo:
+	\begin{align*}
+		\mu(A)\stackrel{F\in\mathcal A}{=}&\mu(A\cap F)+\mu(A\setminus F)\stackrel{E\in\mathcal A}{=}
+		\mu(A\cap F)+\mu\left((A\setminus F)\cap E\right)+\mu\left((A\setminus F)\setminus E\right)\\
+		=\hspace{0.4em}&\mu\left((A\cap (E\cup F))\cap F\right)+\mu\left((A\cap (E\cup F))\setminus F\right)+
+		\mu\left(A\setminus(E\cup F)\right)\\
+		\stackrel{F\in\mathcal A}{=}&\mu(A\cap (E\cup F))+\mu\left(A\setminus(E\cup F)\right)
+	\end{align*}
+	e visto che questo vale per ogni scelta di $A\in\mathcal P(X)$ ho appena dimostrato che $\mathcal A$ è stabile per unione.
+	
+	Unendo quanto detto si ha facilmente che $\mathcal A$ è un'algebra di insiemi.
+	
+	Ora sia $(E_n)_{n\in\mathbb N}\subseteq \mathcal A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottoinsieme di $X$.
+	
+	Per la \sigsubadd[ità] di $\mu$ vale:
+	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
+		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\mathbb N} E_n\right)
+	\end{equation}
+	Si vuole dimostrare che il $\le$ è in realtà un'identità. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\mathbb N}$ sono a due a due disgiunti e che appartengono a $\mathcal A$ poichè quest'ultima è un'algebra.
+	
+	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\mathcal A$ e $\mu(A)<+\infty$, che risulta:
+	\begin{equation}\label{IdentitaDifferenzaCaratheodory}
+		\mu\left(A\setminus \bigsqcup_{n\le m} F_n\right)=\mu(A)-\sum_{n\le m} \mu(A\cap F_n)
+	\end{equation}
+	e incidentalmente da questa formula si ha che la serie $\sum_{n\in\mathbb N}\mu(A\cap F_n)$ converge, visto che è a termini positivi e limitata (da $\mu(A)$).
+	
+	Per la \sigsubadd[ità] di $\mu$ vale:
+	\begin{equation}\label{IntersezioneStimaCaratheodory}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)=\mu\left(\bigsqcup_{n\in\mathbb N} A\cap F_n\right)\le
+		\sum_{n\in\mathbb N} \mu(A\cap F_n)
+	\end{equation}
+	mentre, grazie alla monotonia e a \cref{IdentitaDifferenzaCaratheodory} ottengo:
+	\begin{equation}\label{DifferenzaStimaCaratheodory}
+		\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\mathbb N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
+		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
+	\end{equation}
+	
+	Ora unendo \cref{IntersezioneStimaCaratheodory,DifferenzaStimaCaratheodory} arrivo ad avere che, per ogni $m\in\mathbb{N}$:
+	\begin{equation*}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) 
+	\end{equation*}
+	ma per la convergenza di $\sum_{n\in \mathbb N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arrivo a:
+	\begin{equation*}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu(A)
+	\end{equation*}
+	che unita a \cref{DisuguaglianzaFacileCaratheodory} mi assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$ implica che $\bigcup_{n\in\mathbb N}E_n\in\mathcal A$ che equivale a dire che $\mathcal A$ è una \sigalg{}.
+	
+	Dimostrare che $\mu$ è \sigadd{} su $\mathcal A$ è ora molto facile.
+	Considero $(E_n)_{n\in\mathbb N}\subset \mathcal A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
+	\begin{equation*}
+		\mu\left(\bigsqcup_{n\le m}E_n\right)=\sum_{n\le m} \mu(E_n)
+	\end{equation*}
+	e applicando questa e la monotonia di $\mu$ ottengo:
+	\begin{equation*}
+		\sum_{n\le m} \mu(E_n)=\mu\left(\bigsqcup_{n\le m}E_n\right)\le
+		\mu\left(\bigsqcup_{n\in\mathbb N}E_n\right)\le \sum_{n\in\mathbb N} \mu(E_n)
+	\end{equation*}
+	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, mi implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\mathcal A$ concludendo la dimostrazione.
+\end{proof}
+
+\begin{proposition}\label{MisuraEsternaDiPremisura}
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
+	\begin{equation*}
+		\mu^*(A)=\inf\left\{\sum_{n\in\mathbb N} A_n\ |\ (A_n)_{n\in\mathbb N}\subseteq\mathcal S\ \wedge
+		\ A\subseteq\bigcup_{n\in\mathbb N}A_n\right\}
+	\end{equation*}
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_{\mathcal S}=\mu$) ed inoltre $\mathcal S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{EstensioneCaratheodory}).
+\end{proposition}
+\begin{proof}
+	Per ottenere che $\mu^*$ è una misura esterna basta verificare le proprietà che deve rispettare.
+	Ovviamente, poichè $\mu(\emptyset)=0$, vale $\mu^*(\emptyset)=0$. 
+	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
+	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
+	
+	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poichè $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta considero $(S_n)_{n\in\mathbb N}\in \mathcal S$ un ricoprimento di $S$
+	
+	Ora perciò mi resta da dimostrare che se $E\subseteq \mathcal S$ allora per ogni $A\in\mathcal P(X)$ risulta:
+	\begin{equation}\label{MisuraEsternaDisDifficile}
+		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E)
+	\end{equation}
+	Questo è sufficiente ad avere che $\mathcal S$ è contenuto nella \sigalg{} di Caratheodory poichè l'altra disuguaglianza mi è assicurata dalla \sigsubadd[ità].
+	
+	Dato $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ un ricoprimento di $A$, considero $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\mathbb N},(C_n)_{n\in\mathbb N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poichè $\mathcal S$ è un \semiring{} riesco però a trovare $(B'^n_i)_{i\in\mathbb N},(C'^n_i)_{i\in\mathbb N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\mathbb N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\mathbb N}, (C'^n_i)_{n,i\in\mathbb N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
+	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludo:
+	\begin{align*}
+		\sum_{n\in\mathbb N}\mu(A_n)=\sum_{n\in\mathbb N} \mu(B_n)+\mu(C_n)&=
+		\sum_{n\in\mathbb N}\sum_{i\in\mathbb N}\mu(B'^n_i)+\mu(C'^n_i)\\
+		&=
+		\sum_{n,i\in\mathbb N}\mu(B'^n_i)+\sum_{n,i\in\mathbb N}\mu(C'^n_i)\ge \mu(A\cap E)+\mu(A\setminus E)
+	\end{align*}
+	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
+\end{proof}
+
+\begin{theorem}
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura.
+\end{theorem}
+\begin{proof}
+	Considero la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Questa, come dimostrato 
+\end{proof}
