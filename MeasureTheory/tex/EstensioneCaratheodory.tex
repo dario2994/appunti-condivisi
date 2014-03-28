@@ -1,11 +1,13 @@
 \section{Estendere una premisura ad una misura}
+L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello ad una misura su una \sigalg{}. Per fare questo il percorso sarà prima quello di estendere la premisura ad una misura esterna, per poi ridurre questa ad una misura canonica.
 
-\begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
+
+\begin{theorem}\label{RiduzionePreCaratheodory}
 	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\mathcal A\subseteq \mathcal P(X)$ l'insieme così definito:
 	\begin{equation*}
 		\mathcal A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
 	\end{equation*}
-	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è \sigadd{}, cioè la terna $(X,\mathcal A,\mu|_{\mathcal A})$ è uno spazio di misura.
+	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è una misura completa. TODO:completezza
 \end{theorem}
 \begin{proof}
 	La dimostrazione procede in due passi, prima dimostro che $\mathcal A$ è un'algebra di insiemi e poi passo a dimostrare che è una \sigalg{} e che $\mu$ è \sigadd{} ridotta su di questa.
@@ -80,7 +82,7 @@
 		\mu^*(A)=\inf\left\{\sum_{n\in\mathbb N} A_n\ |\ (A_n)_{n\in\mathbb N}\subseteq\mathcal S\ \wedge
 		\ A\subseteq\bigcup_{n\in\mathbb N}A_n\right\}
 	\end{equation*}
-	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_{\mathcal S}=\mu$) ed inoltre $\mathcal S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{EstensioneCaratheodory}).
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_{\mathcal S}=\mu$) ed inoltre $\mathcal S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{RiduzionePreCaratheodory}).
 \end{proposition}
 \begin{proof}
 	Per ottenere che $\mu^*$ è una misura esterna basta verificare le proprietà che deve rispettare.
@@ -107,9 +109,13 @@
 	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Estensione di Caratheodory]\label{EstensionexCaratheodory}
 	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura.
 \end{theorem}
 \begin{proof}
-	Considero la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Questa, come dimostrato 
+	Considero la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Questa è, come dall'enunciato, un'estensione di $\mu$.
+	
+	Posso ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura $\mu':\mathcal A\to\Rpiu$ dove $\mathcal A$ è la \sigalg{} di Caratheodory. 
+	
+	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\mathcal S\subseteq\mathcal A$ e inoltre vale $\mu'|_{\mathcal S}=\mu^*|_{\mathcal S}=\mu$, perciò lo spazio $(X,\mathcal A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}

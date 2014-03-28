@@ -1,4 +1,12 @@
 \section{Definizioni e fatti introduttivi}
+In questa sezione definiremo tutti gli oggetti necessari per fondare la teoria della misura e dimostreremo alcuni fatti, perlopiù di carattare insiemistico su di essi.
+
+In particolare definiremo alcune strutture insiemistiche (algebre, \sigalg[e], \semiring[i]) e ne dimostreremo alcune proprietà. Poi passeremo a trattare gli spazi di misura ed alcune loro \emph{versioni più deboli} come le misure esterne e le premisure.
+
+L'idea generale di queste pagine è dare gli strumenti necessari a comprendere il teorema di estensione di una premisura, nella cui dimostrazione ed enunciato convergono tutti i fatti qui trattati. 
+
+Da notare infine che la definizione di \semiring{} non è quella canonica (nè forse si può parlare di una definizione canonica in letteratura) ed anzi è più debole di quella tipicamente usata per enunciare il teorema di estensione. Questo rende più generale il risultato, ma allo stesso tempo rende più ostico dimostrare le prime proprietà della premisura che infatti necessiteranno di vari lemmi tecnici per essere dimostrate (e sarebbero banali se al posto di un \semiring{} ci fosse un anello).
+
 \begin{definition}[Algebra]
 	Dato un insieme $X$, una famiglia $\mathcal A\subseteq\mathcal P(X)$ è un'algebra se valgono:
 	\begin{itemize}
@@ -101,7 +109,8 @@
 	\end{itemize}
 	e in questo caso la funzione $\mu$ è detta \emph{misura}.
 \end{definition}
-%D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio misurato.
+
+D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio misurato.
 
 \begin{remark}\label{MonotoniaMisura}
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\mathcal A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
@@ -113,6 +122,37 @@
 \begin{definition}\label{FinitezzaMisura}
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $\mu(X)<+\infty$.
 \end{definition}
+
+\begin{definition}\label{CompletezzaMisura}
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ si dice completa se per ogni $A\in\mathcal A$ tale che $\mu(A)=0$, ogni suo sottinsieme è anch'esso appartenente ad $\mathcal A$.
+\end{definition}
+
+\begin{proposition}\label{CompletamentoMisura}
+	Dato uno spazio di misura $(X,\mathcal A,\mu)$, chiamo $\mu$-completamento di $\mathcal A$ l'insieme $\mathcal A^*$ formato dagli elementi di $\mathcal A$ uniti con un sottoinsieme di un trascurabile:
+	\begin{equation*}
+		\mathcal A^*=\{A\cup N\ |\ A\in\mathcal A\ \wedge \exists B:\ N\subseteq B,\ \mu(B)=0\}
+	\end{equation*}
+	Allora $\mathcal A^*$ è una \sigalg{} e $\mu$ si estende in maniera canonica su $\mathcal A^*$ ad una misura completa.
+\end{proposition}
+\begin{proof}TODO: dimostrazione
+	Dimostro intanto che $\mathcal A^*$ è una \sigalg{}.
+	Dato $A^*\in\mathcal A^*$, esistono per definizione $A\in\mathcal A$ e $N\subseteq B\in\mathcal A$ dove $\mu(B)=0$. Posso facilmente imporre $B\cap A^*=\emptyset$, visto che se così non è posso ridefinire $N,B$ facendone la differenza con $A^*$. Assumo perciò $A^*,B$ disgiunti.
+	Chiamando $M=B\setminus N$, vale facilmente:
+	\begin{equation*}
+		(A^*)^c=(A\cup N)^c=A^c\cap N^c=(A^c\cap B^c )\cup M \in\mathcal A^*
+	\end{equation*}
+	dove l'ultima appartenenza vale poichè $M$ è anch'esso sottinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
+	
+	Ora considero $(A^*_n)_{n\in\mathbb N}$ una successione di insiemi, e scelgo $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N},(N_n)_{n\in\mathbb N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\mathcal A$ con $\mu(B_n)=0$.
+	
+	Allora risulta:
+	\begin{align*}
+		\bigcup_{n\in\mathbb N}A^*_n=\bigcup_{n\in\mathbb N}A_n \cup \bigcup_{n\in\mathbb N}N_n\\
+		\bigcup_{n\in\mathbb N}N_n\subseteq \bigcup_{n\in\mathbb N}B_n\in\mathcal A\ \wedge\ \mu\left(\bigcup_{n\in\mathbb N}B_n\right)=0
+	\end{align*}
+	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{}, TODO: dimostrare Subaddittività
+\end{proof}
+
 
 
 \begin{proposition}\label{LimiteMonotonoMisura}
