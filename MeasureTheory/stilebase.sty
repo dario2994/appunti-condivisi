@@ -1,0 +1,58 @@
+\ProvidesPackage{stilebase}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[a4paper,twoside,top=0.7in, bottom=1in, left=0.7in, right=0.7in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue},
+	urlcolor = {red}
+}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage[nameinlink]{cleveref}
+\newcommand{\crefpairconjunction}{ e }
+\newcommand{\crefrangepreconjunction}{da }
+\newcommand{\crefrangeconjunction}{ a }
+
+\newtheorem{theorem}{Teorema}[section]
+
+\newtheorem{lemma}{Lemma}[section]
+
+\newtheorem{proposition}{Proposizione}[section]
+
+\newtheorem{corollary}{Corollario}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Nota}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+\newtheorem*{example}{Esempio}
+
+\crefname{theorem}{thm:}{thms:}
+\crefname{lemma}{lemma:}{lemmi:}
+\crefname{proposition}{prop:}{props:}
+\crefname{corollary}{cor:}{cor:}
+\crefname{remark}{nota:}{note:}
+\crefname{definition}{def:}{def:}
+
+\numberwithin{equation}{section}
+
+\newcommand{\CL}{\ensuremath{\mathcal{CL}}}
+\newcommand{\CTL}{\ensuremath{\mathcal{CTL}}}
+\newcommand{\K}{\ensuremath{\mathcal{K}}}
+
+% \DeclareRobustCommand{\disunion}{\scalebox{1}[1.2]{$\sqcup$}}
+\newcommand{\sigalg}[1][a]{$\sigma$-algebr#1}
+\DeclareRobustCommand{\semiring}[1][o]{semianell#1}
+\DeclareRobustCommand{\Semiring}[1][o]{Semianell#1}
+\DeclareRobustCommand{\sigadd}[1][a]{$\sigma$-addittiv#1}
+\newcommand{\sigsubadd}[1][a]{$\sigma$-subaddittiv#1}
+\newcommand{\Rpiu}{\ensuremath{[0,+\infty]}}

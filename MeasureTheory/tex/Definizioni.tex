@@ -1,0 +1,238 @@
+\section{Definizioni}
+\begin{definition}[Algebra]
+	Dato un insieme $X$, una famiglia $\mathcal A\subseteq\mathcal P(X)$ è un'algebra se valgono:
+	\begin{itemize}
+		\item $\emptyset\in\mathcal A$
+		\item $\forall A\in\mathcal A:\ A^c\in\mathcal A$ cioè un'algebra è stabile per passaggio al complementare.
+		\item $\forall A,B\in\mathcal A:\ A\cup B\in\mathcal A$ cioè un'algebra è stabile per unioni finite.
+	\end{itemize}
+\end{definition}
+\begin{remark}\label{ProprietaAlg}
+	Un'algebra è stabile anche per intersezioni finite e per differenza insiemistica.
+\end{remark}
+\begin{proof}
+	Poichè vale la formula insiemistica:
+	\begin{equation*}
+		\bigcap_{i\in I} A_i = \left( \bigcup_{i\in I} A_i^c \right)^c
+	\end{equation*}
+	e un'algebra è stabile per unione finita e complementare, ottengo facilmente che lo è anche per intersezioni finite.
+	
+	Per la differenza si sfrutta la seguente relazione insiemistica $A\setminus B=A\cup B^c$ e visto che ho appena dimostrato che $\mathcal A$ è chiuso anche per intersezioni ho finito.
+\end{proof}
+
+
+\begin{definition}[\sigalg{}]
+	Dato un insieme $X$, una famiglia $\mathcal A\subseteq\mathcal P (X)$ si dice \sigalg{} se valgono:
+	\begin{itemize}
+	\item $\emptyset\in \mathcal A$
+	\item $\forall A\in \mathcal A:\ A^c\in \mathcal A$ cioè una \sigalg{} è stabile per passaggio al complementare.
+	\item $\forall (A_n)_{n\in\mathbb N}\subseteq \mathcal A:\ \bigcup_{n\in\mathbb N} A_n\in \mathcal A$ cioè una \sigalg{} è stabile per unioni numerabili.  
+	\end{itemize}
+\end{definition}
+
+\begin{remark}\label{ProprietaSigAlg}
+	Una \sigalg{} è stabile anche per intersezioni numerabili e per differenza simmetrica.
+\end{remark}
+\begin{proof}
+	Si dimostrano entrambe le proprietà in modo del tutto analogo a come abbiamo dimostrato \cref{ProprietaAlg}.
+\end{proof}
+
+\begin{definition}[\Semiring{}]
+	Una famiglia $\mathcal S\subseteq \mathcal P(X)$ è detta \semiring{} se valgono le seguenti proprietà:
+	\begin{itemize}
+		\item $\emptyset\in \mathcal S$
+		\item $\displaystyle\forall A,B\in \mathcal S: A\cap B, A\setminus B\in \sqcup \mathcal S$ dove
+		$\displaystyle
+		\sqcup{ \mathcal S }=\left\{\bigsqcup_{n\in \mathbb N} S_n\ |\ (S_n)_{n\in\mathbb N} \subseteq \mathcal S \wedge \forall i\not= j:\ S_i\cap S_j=\emptyset\right\}$ 
+		cioè un \semiring{} non deve essere stabile per intersezione e differenza, ma queste si devono scrivere come unioni disgiunte.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}\label{UnioneDisgiuntaQuasiAlgebra}
+	Dato un \semiring{} $\mathcal S$ l'insieme $\sqcup\mathcal S$ è stabile per intersezione finita e unione numerabile.
+\end{proposition}
+\begin{proof}
+	Noto intanto che, per definizione, $\sqcup\mathcal S$ è stabile per unione disgiunta numerabile.
+	
+	Per dimostrare la stabilità di $\sqcup\mathcal S$ per intersezione finita, basta ovviamente farlo per due soli insiemi $A,B\in\sqcup\mathcal S$. Per definizione posso scrivere $A=\bigsqcup_{n\in\mathbb N} A_n, B=\bigsqcup_{n\in\mathbb N} B_n$ dove $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N}$ sono successioni in $\mathcal S$. Allora vale la seguente identità:
+	\begin{equation*}
+		A\cap B=\bigsqcup_{n\in\mathbb N} A_n\cap\bigsqcup_{n\in\mathbb N} B_n=
+		\bigsqcup_{n,m\in\mathbb N} A_n\cap B_m\in\sqcup\mathcal S
+	\end{equation*}
+	dove nell'ultimo passaggio ho usato la stabilità di $\sqcup\mathcal S$ per unione disgiunta.
+	
+	Per l'unione, considero $A,B\in\mathcal S$. Poichè vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
+	
+	Sfruttando quanto detto, fissata $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ vale:
+	\begin{equation}\label{UnioneNumerabileDaS}
+		\bigcup_{n\in\mathbb N} A_n=\bigsqcup_{n\in\mathbb N} A_n\setminus\cup_{i<n} A_i
+		=\bigsqcup_{n\in\mathbb N} \bigcap_{i<n} (A_n\setminus A_i)\in\sqcup\mathcal S
+	\end{equation}
+	dove nell'ultimo passaggio ho usato il fatto che $\sqcup\mathcal S$ è stabile per unione disgiunta e intersezione finita.
+	
+	E ora finalmente dimostro la stabilità di $\sqcup\mathcal S$ per unioni numerabili. Sia $(S_n)_{n\in\mathbb N}$ una successione in $\sqcup\mathcal S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\mathbb N}\subseteq \mathcal S$ tali che $S_n=\bigsqcup_{i\in\mathbb N} A^n_i$.
+	
+	Allora applicando \cref{UnioneNumerabileDaS} ho:
+	\begin{equation*}
+		\bigcup_{n\in\mathbb N}S_n=\bigcup_{i,n\in\mathbb N}A^n_i\in\sqcup\mathcal S 
+	\end{equation*}
+	che è proprio la stabilità di $\sqcup\mathcal S$ per unioni numerabili.
+
+\end{proof}
+
+\begin{definition}[{\sigadd[ità]}]
+	Una funzione $\mu:\mathcal F\to \Rpiu$, dove $\mathcal F$ è una famiglia di insiemi, si dice \sigadd{} se per ogni sottofamiglia numerabile $(F_n)_{n\in\mathbb N}\subseteq \mathcal F$ a due a due disgiunta, tale che l'unione appartiene a $\mathcal F$, vale l'addittività:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N}F_n \right)=\sum_{n\in\mathbb N} \mu(F_n) 
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	Data $\mu:\mathcal F\to \Rpiu$ \sigadd{}, se $\emptyset\in \mathcal F$ allora $\mu(\emptyset)=0$
+\end{remark}
+\begin{proof}
+	Usando la proprietà di \sigadd[ità] ottengo $\mu(\emptyset)=\mu(\emptyset)+\mu(\emptyset)$ che porta ovviamente alla tesi.
+\end{proof}
+
+
+\begin{definition}[Spazio di misura]
+	Dati $X$ un insieme, $\mathcal A$ una famiglia di sottinsiemi di $\mathcal A$ e $\mu:\mathcal A\to \Rpiu$ una funzione, la terna $(X,\mathcal A, \mu)$ si dice uno spazio misurato se:
+	\begin{itemize}
+		\item La famiglia $\mathcal A$ è una \sigalg{}.
+		\item La funzione $\mu$ è \sigadd{}.
+	\end{itemize}
+	e in questo caso la funzione $\mu$ è detta \emph{misura}.
+\end{definition}
+%D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio misurato.
+
+\begin{remark}\label{MonotoniaMisura}
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\mathcal A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
+\end{remark}
+\begin{proof}
+	Per quanto detto in \cref{ProprietaSigAlg} $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ ho $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
+\end{proof}
+
+
+
+\begin{proposition}\label{LimiteMonotonoMisura}
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, allora data una successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$ tale che $A_n\subseteq A_{n+1}$ vale:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\lim_{n\in\mathbb N} \mu(A_n)
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Definisco $B_n=A_n\setminus\bigcup_{i<n}A_i$ e per \cref{ProprietaSigAlg} so che $B_n\in\mathcal A$.
+	Per facili ragionamenti insiemistici risulta che la successione $(B_n)_{n\in\mathbb N}$ è disgiunta a due a due ed inoltre $A_n=\bigcup_{i\le n}B_i$.
+	Sfruttando tutte queste proprietà, e la \sigadd[ità] di $\mu$, ottengo:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
+		\sum_{n\in\mathbb N} \mu(B_n)=\lim_{n\to\infty} \sum_{i\le n} \mu(B_i)=
+		\lim_{n\to\infty} \mu\left(\bigcup_{i\le n} B_i\right)=\lim_{n\to\infty} \mu(A_n)
+	\end{equation*}
+	che è proprio la tesi.
+\end{proof}
+
+\begin{definition}[Misura esterna]
+	Dato un insieme $X$ e una funzione $\mu:\mathcal P(X)\to \Rpiu$ è detta una misura esterna se valgono:
+	\begin{itemize}
+		\item $\mu(\emptyset)=0$
+		\item $\mu$ è monotona, cioè dati $A,B\subseteq X$ se vale $A\subseteq B$ allora $\mu(A)\le \mu(B)$
+		\item $\mu$ è \sigsubadd{}, cioè  per ogni successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal P(X)$ di sottinsiemi di $X$ vale $\mu\left(\bigcup_{n\in\mathbb{N}}A_n\right)\le \sum_{n\in\mathbb N} \mu(A_n)$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}.
+\end{remark}
+\begin{proof}
+	Data una successione di sottinsiemi $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$, considero, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\mathcal A$.
+	Allora ho, lavorando analogamente alla dimostrazione di cui sopra:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
+		\sum_{n\in\mathbb N} \mu(B_n)\le \sum_{n\in\mathbb N} \mu(A_n)
+	\end{equation*}
+	dove nell'ultimo passaggio ho sfruttato la monotonia di $\mu$ dimostrata in \cref{MonotoniaMisura}.
+\end{proof}
+
+\begin{theorem}[Estensione di Caratheodory]
+	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\mathcal A\subseteq \mathcal P(X)$ l'insieme così definito:
+	\begin{equation*}
+		\mathcal A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
+	\end{equation*}
+	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è \sigadd{}, cioè la terna $(X,\mathcal A,\mu|_{\mathcal A})$ è uno spazio di misura.
+\end{theorem}
+\begin{proof}
+	La dimostrazione procede in due passi, prima dimostro che $\mathcal A$ è un'algebra di insiemi e poi passo a dimostrare che è una \sigalg{} e che $\mu$ è \sigadd{} ridotta su di questa.
+	
+	Il fatto che $\mathcal A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
+	
+	Sia $A\in\mathcal P(X)$ generico ed $E,F\in\mathcal A$ applicando la sola definizione di $\mathcal A$ ed alcuni passaggi insiemistici ottengo:
+	\begin{align*}
+		\mu(A)\stackrel{F\in\mathcal A}{=}&\mu(A\cap F)+\mu(A\setminus F)\stackrel{E\in\mathcal A}{=}
+		\mu(A\cap F)+\mu\left((A\setminus F)\cap E\right)+\mu\left((A\setminus F)\setminus E\right)\\
+		=\hspace{0.4em}&\mu\left((A\cap (E\cup F))\cap F\right)+\mu\left((A\cap (E\cup F))\setminus F\right)+
+		\mu\left(A\setminus(E\cup F)\right)\\
+		\stackrel{F\in\mathcal A}{=}&\mu(A\cap (E\cup F))+\mu\left(A\setminus(E\cup F)\right)
+	\end{align*}
+	e visto che questo vale per ogni scelta di $A\in\mathcal P(X)$ ho appena dimostrato che $\mathcal A$ è stabile per unione.
+	
+	Unendo quanto detto si ha facilmente che $\mathcal A$ è un'algebra di insiemi.
+	
+	Ora sia $(E_n)_{n\in\mathbb N}\subseteq \mathcal A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottinsieme di $X$.
+	
+	Per la \sigsubadd[ità] di $\mu$ vale:
+	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
+		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\mathbb N} E_n\right)
+	\end{equation}
+	Si vuole dimostrare che il $\le$ è in realtà un'identità. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\mathbb N}$ sono a due a due disgiunti e che appartengono a $\mathcal A$ poichè quest'ultima è un'algebra.
+	
+	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\mathcal A$ e $\mu(A)<+\infty$, che risulta:
+	\begin{equation}\label{IdentitaDifferenzaCaratheodory}
+		\mu\left(A\setminus \bigsqcup_{n\le m} F_n\right)=\mu(A)-\sum_{n\le m} \mu(A\cap F_n)
+	\end{equation}
+	e incidentalmente da questa formula si ha che la serie $\sum_{n\in\mathbb N}\mu(A\cap F_n)$ converge, visto che è a termini positivi e limitata (da $\mu(A)$).
+	
+	Per la \sigsubadd[ità] di $\mu$ vale:
+	\begin{equation}\label{IntersezioneStimaCaratheodory}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)=\mu\left(\bigsqcup_{n\in\mathbb N} A\cap F_n\right)\le
+		\sum_{n\in\mathbb N} \mu(A\cap F_n)
+	\end{equation}
+	mentre, grazie alla monotonia e a \cref{IdentitaDifferenzaCaratheodory} ottengo:
+	\begin{equation}\label{DifferenzaStimaCaratheodory}
+		\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\mathbb N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
+		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
+	\end{equation}
+	
+	Ora unendo \cref{IntersezioneStimaCaratheodory,DifferenzaStimaCaratheodory} arrivo ad avere che, per ogni $m\in\mathbb{N}$:
+	\begin{equation*}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) 
+	\end{equation*}
+	ma per la convergenza di $\sum_{n\in \mathbb N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arrivo a:
+	\begin{equation*}
+		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu(A)
+	\end{equation*}
+	che unita a \cref{DisuguaglianzaFacileCaratheodory} mi assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$ implica che $\bigcup_{n\in\mathbb N}E_n\in\mathcal A$ che equivale a dire che $\mathcal A$ è una \sigalg{}.
+	
+	Dimostrare che $\mu$ è \sigadd{} su $\mathcal A$ è ora molto facile.
+	Considero $(E_n)_{n\in\mathbb N}\subset \mathcal A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
+	\begin{equation*}
+		\mu\left(\bigsqcup_{n\le m}E_n\right)=\sum_{n\le m} \mu(E_n)
+	\end{equation*}
+	e applicando questa e la monotonia di $\mu$ ottengo:
+	\begin{equation*}
+		\sum_{n\le m} \mu(E_n)=\mu\left(\bigsqcup_{n\le m}E_n\right)\le
+		\mu\left(\bigsqcup_{n\in\mathbb N}E_n\right)\le \sum_{n\in\mathbb N} \mu(E_n)
+	\end{equation*}
+	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, mi implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\mathcal A$ concludendo la dimostrazione.
+\end{proof}
+
+\begin{definition}
+	Una terna $(X,\mathcal S,\mu)$ tale che $\mathcal S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\mathcal S\to \mathbb R$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
+\end{definition}
+
+
+
+
+
+
