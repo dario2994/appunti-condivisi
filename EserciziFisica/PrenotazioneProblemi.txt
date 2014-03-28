@@ -77,3 +77,6 @@ Tre pendoli fissati al soffitto ma collegati da molle. Studiare le piccole oscil
 20/03/14
 Moto di precessione dell'asse di rotazione terrestre rispetto al sistema degli assi principali. Coincide praticamente con il problema della trottola simmetrica.
 Stella con tensore d'inerzia variante. Trovare \omega (asse di rotazione istantaneo) in funzione del tempo. | Giada | Fatto
+
+27/03/14
+Giroscopio, studiarne il moto in alcuni casi particolari.

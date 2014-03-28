@@ -13,47 +13,43 @@ dove $k, \alpha$ sono costanti fissate. Sapendo che la particella \`e soggetta a
 
 \solution
 
-Ricordiamo che l'accelerazione in coordinate polari \`e data da
-\[
-	\ddot{\vec{r}}=(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta},
-\]
-
+Ricordiamo che, per \cref{AccCooPolari}, l'accelerazione in coordinate polari \`e data da
+\begin{equation*}
+	\ddot{\vec{r}}=(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}
+\end{equation*}
 che unita con la seconda legge della dinamica porta a
-\begin{align}
-	f(r)&=m(\ddot{r}-r\dot{\theta}^2), \label{foc:rcomp}\\
-	0&=m(2\dot{r}\dot{\theta}+r\ddot{\theta}).
-\end{align}
-
-La seconda \`e equivalente a
 \begin{equation}
-	\label{foc:momangolare}	
-	r^2\dot{\theta}=c
+\begin{cases}
+	f(r)=m(\ddot{r}-r\dot{\theta}^2) \label{foc:rcomp}\\
+	0=m(2\dot{r}\dot{\theta}+r\ddot{\theta})
+\end{cases}
 \end{equation}
-con $c$ costante, infatti, derivandola  rispetto il tempo si ottiene
-\[
-	0=\frac{d(r^2\dot{\theta})}{dt}=2r\dot{r}\dot{\theta}+r^2\ddot{\theta}=r(2\dot{r}\dot{\theta}+r\ddot{\theta}),
-\]
-ma $r\neq 0$ dalla \cref{foc:traiettoria}.
 
-Ora, confrontando $\dot{\theta}$ nella \cref{foc:momangolare} e nella \cref{foc:traiettoria}	abbiamo
-\[
-	\frac{c}{r^2}=\frac{d\left(\frac{k}{r^{\alpha}}\right)}{dt}=\frac{-k\alpha}{r^{\alpha+1}}\dot{r}
-\]
+Dalla seconda equazione ricavo che deve valere
+\begin{equation}\label{foc:momangolare}
+	0=mr(2\dot{r}\dot{\theta}+r\ddot{\theta})=2mr\dot{r}\dot{\theta}+mr^2\ddot{\theta}=\frac{d(mr^2\dot{\theta})}{dt} \Longrightarrow mr^2\dot{\theta}=L
+\end{equation}
+con $L$ costante. In effetti quest'ultima considerazione si poteva omettere osservando che quella descritta è proprio la conservazione del momento angolare, che ha modulo $L=mr^2\dot{\theta}$.
+
+Ora, sfruttando \cref{foc:momangolare,foc:traiettoria}, abbiamo
+\begin{equation*}
+	\frac{L}{mr^2}=\dot\theta=\frac{d\left(\frac{k}{r^{\alpha}}\right)}{dt}=\frac{-k\alpha}{r^{\alpha+1}}\dot{r}
+\end{equation*}
 da cui
-\[
-	\dot{r}=-\frac{c}{k\alpha}r^{\alpha-1}
-\]
+\begin{equation*}
+	\dot{r}=-\frac{L}{mk\alpha}r^{\alpha-1}
+\end{equation*}
 e
 \begin{equation}
 	\label{foc:r2punti}
-	\ddot{r}=-\frac{c(\alpha-1)}{k\alpha}r^{\alpha-2}\dot{r}=\frac{c^2(\alpha-1)}{k^2\alpha^2}r^{2\alpha-3}.
+	\ddot{r}=-\frac{L(\alpha-1)}{mk\alpha}r^{\alpha-2}\dot{r}=\frac{L^2(\alpha-1)}{m^2k^2\alpha^2}r^{2\alpha-3}
 \end{equation}
 
-Infine nella \cref{foc:rcomp} sostituiamo $\ddot{r}$ dato dalla \cref{foc:r2punti} e $\dot{\theta}$ dato dalla \cref{foc:momangolare}:
-
-\[
-	f(r)=m\left(\frac{c^2(\alpha-1)}{k^2\alpha^2}r^{2\alpha-3}-\frac{c^2}{r^3}\right)
-	=\frac{mc^2}{r^3}\left(\frac{\alpha-1}{k^2\alpha^2}r^{2\alpha}-1\right).
-\]
+Infine, nella prima equazione di \cref{foc:rcomp} sostituiamo $\ddot{r}$ dato dalla \cref{foc:r2punti} e $\dot{\theta}$ dato dalla \cref{foc:momangolare}, e otteniamo:
+\begin{equation*}
+	f(r)=m\left(\frac{L^2(\alpha-1)}{m^2k^2\alpha^2}r^{2\alpha-3}-\frac{L^2}{m^2r^3}\right)
+	=\frac{L^2}{mr^3}\left(\frac{\alpha-1}{k^2\alpha^2}r^{2\alpha}-1\right)
+\end{equation*}
+che era proprio quello che cercavamo.
 
 \end{document}
