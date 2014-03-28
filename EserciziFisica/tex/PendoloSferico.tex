@@ -64,9 +64,9 @@ Poniamo $\theta=\theta_0+\alpha$ nella \cref{ps:Differenziale}, otteniamo, dunqu
 $$ g\sin(\theta_0+\alpha)+l\ddot{\alpha}-\frac{L_z^2\cos(\theta_0+\alpha)}{m^2l^3\sin^3(\theta_0+\alpha)}=0 $$
 che sviluppata secondo Taylor fino al primo ordine diviene
 \begin{equation}\label{ps:Approssimazione}
-g\sin(\theta_0)+\alpha g\cos\theta_0+l\ddot{\alpha}-\frac{L_z^2\cos(\theta_0)}{m^2l^3\sin^3(\theta_0)}-\alpha\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^3\sin^4(\theta_0)}=0
+g\sin\theta_0+\alpha g\cos\theta_0+l\ddot{\alpha}-\frac{L_z^2\cos(\theta_0)}{m^2l^3\sin^3(\theta_0)}-\alpha\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^3\sin^4(\theta_0)}=0
 \end{equation}
-Per la \cref{ps:MotoConico} la \cref{ps:Approssimazione} viene semplificata come
+Per \cref{ps:MotoConico}, \cref{ps:Approssimazione} viene semplificata come
 \begin{equation}
 \ddot{\alpha}=\alpha\left({\frac{L_z^2(1-2\cos^2\theta_0)}{m^2l^4\sin^4(\theta_0)}-\frac{g\cos\theta_0}{l}}\right)
 \end{equation}
@@ -75,17 +75,21 @@ da cui si ricava facilmente che il pendolo oscilla armonicamente con frequenza $
 \solution[2]
 Si giunger\`a alla \cref{ps:Differenziale} attraverso la conservazione dell'energia e quella del momento angolare lungo l'asse $z$ senza passare dalle considerazioni cinematiche svolte in precedenza.
 
-La velocit\`a del punto materiale \`e $\vec{v}=\dot{\vec{r}}=l\dot{\theta}\hat{\theta}+l\dot{\varphi}\sin\theta\hat{\varphi}$, per cui la sua energia cinetica \`e $K=l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta$.
+La velocit\`a del punto materiale \`e $\vec{v}=\dot{\vec{r}}=l\dot{\theta}\hat{\theta}+l\dot{\varphi}\sin\theta\hat{\varphi}$, per cui la sua energia cinetica \`e
+\begin{equation*}
+	K=\frac 12 m(l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta)
+\end{equation*}
+
 
 La sua energia potenziale \`e $U=-mgl(1-\cos\theta)$, quindi l'energia meccanica del punto \`e
 \begin{equation*}
- E=l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta-mgl(1-\cos\theta)
+ E=\frac 12 m(l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta)-mgl(1-\cos\theta)
 \end{equation*}
 ci\`o vuol dire che esiste una costante $c$ per cui vale
 \begin{equation}\label{ps:Energie}
-c=l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta+mgl\cos\theta
+c=\frac 12 m(l^2\dot{\theta}^2+l^2\dot{\varphi}^2\sin^2\theta)+mgl\cos\theta
 \end{equation}
-Essendo $\displaystyle \dot{\varphi}=\frac{L_z}{ml^2\sin^2\theta}$, si ottiene l'equazione desiderata direttamente dalla \cref{ps:Energie}. 
+Essendo $\displaystyle \dot{\varphi}=\frac{L_z}{ml^2\sin^2\theta}$, si ottiene l'equazione desiderata direttamente derivando \cref{ps:Energie}. 
 
 
 
