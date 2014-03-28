@@ -95,7 +95,7 @@
 
 
 \begin{definition}[Spazio di misura]
-	Dati $X$ un insieme, $\mathcal A$ una famiglia di sottinsiemi di $\mathcal A$ e $\mu:\mathcal A\to \Rpiu$ una funzione, la terna $(X,\mathcal A, \mu)$ si dice uno spazio misurato se:
+	Dati $X$ un insieme, $\mathcal A$ una famiglia di sottoinsiemi di $\mathcal A$ e $\mu:\mathcal A\to \Rpiu$ una funzione, la terna $(X,\mathcal A, \mu)$ si dice uno spazio di misura se:
 	\begin{itemize}
 		\item La famiglia $\mathcal A$ è una \sigalg{}.
 		\item La funzione $\mu$ è \sigadd{}.
@@ -111,6 +111,9 @@
 	Per quanto detto in \cref{ProprietaSigAlg} $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ ho $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
 \end{proof}
 
+\begin{definition}\label{FinitezzaMisura}
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $\mu(X)<+\infty$.
+\end{definition}
 
 
 \begin{proposition}\label{LimiteMonotonoMisura}
@@ -136,7 +139,7 @@
 	\begin{itemize}
 		\item $\mu(\emptyset)=0$
 		\item $\mu$ è monotona, cioè dati $A,B\subseteq X$ se vale $A\subseteq B$ allora $\mu(A)\le \mu(B)$
-		\item $\mu$ è \sigsubadd{}, cioè  per ogni successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal P(X)$ di sottinsiemi di $X$ vale $\mu\left(\bigcup_{n\in\mathbb{N}}A_n\right)\le \sum_{n\in\mathbb N} \mu(A_n)$
+		\item $\mu$ è \sigsubadd{}, cioè  per ogni successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal P(X)$ di sottoinsiemi di $X$ vale $\mu\left(\bigcup_{n\in\mathbb{N}}A_n\right)\le \sum_{n\in\mathbb N} \mu(A_n)$
 	\end{itemize}
 \end{definition}
 
@@ -144,7 +147,7 @@
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}.
 \end{remark}
 \begin{proof}
-	Data una successione di sottinsiemi $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$, considero, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\mathcal A$.
+	Data una successione di sottoinsiemi $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$, considero, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\mathcal A$.
 	Allora ho, lavorando analogamente alla dimostrazione di cui sopra:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
@@ -153,7 +156,91 @@
 	dove nell'ultimo passaggio ho sfruttato la monotonia di $\mu$ dimostrata in \cref{MonotoniaMisura}.
 \end{proof}
 
-\begin{theorem}[Estensione di Caratheodory]
+\begin{definition}
+	Una terna $(X,\mathcal S,\mu)$ tale che $\mathcal S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\mathcal S\to \Rpiu$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
+\end{definition}
+
+\begin{lemma}\label{CoerenzaPremisura}
+	Fissato $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N}\subseteq\mathcal S$ delle famiglie tali che l'unione sia la stessa, ma i $(B_n)_{n\in\mathbb N}$ siano disgiunti a due a due: $\bigcup_{n\in\mathbb N}A_n=\bigsqcup_{n\in\mathbb N}B_n$.
+	Allora risulta $\sum_{n\in\mathbb N}\mu(A_n)\ge \sum_{n\in\mathbb N}\mu(B_n)$.
+\end{lemma}
+\begin{proof}
+	Definisco $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\mathbb N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\mathbb N}$.
+	
+	Ora definisco $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perchè lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poichè intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
+	
+	Ora per costruzione e per le osservazioni fatte valgono:
+	\begin{align*}
+		B_n=\bigsqcup_{i\in\mathbb N}C_{in}=\bigsqcup_{i,j\in\mathbb N}C^{in}_j
+		\Longrightarrow \mu(B_n)=\sum_{i,j\in\mathbb N}\mu(C^{in}_j)\\
+		A_n\supseteq A'_n=\bigsqcup_{i\in\mathbb N}C_{ni}=\bigsqcup_{i,j\in\mathbb N}C^{ni}_j
+		\Longrightarrow \mu(A_n)\ge\sum_{i,j\in\mathbb N}\mu(C^{ni}_j)
+	\end{align*}
+
+
+\end{proof}
+
+
+
+\begin{lemma}\label{PiuCheMonotonaPremisura}
+	Data $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $A,(A_n)_{n\in\mathbb N}\subseteq \mathcal S$ tali che $A\subseteq\bigcup_{n\in\mathbb N}A_n$.
+	Allora vale $\mu(A)\le \sum_{n\in\mathbb N}\mu(A_n)$.
+\end{lemma}
+\begin{proof}
+	Visto che $A\subseteq\bigcup_{n\in\mathbb N}A_n$ vale la scrittura insiemistica:
+	\begin{equation}\label{ScritturaDecenteUnionePremisura}
+		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigcup_{n\in\mathbb N}A_n\setminus A
+	\end{equation}
+	Poichè $\mathcal S$ è un \semiring{} $A_n\setminus A\in \sqcup \mathcal S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\mathbb N}\subseteq\mathcal S$ disgiunta tale che $\bigcup_{n\in\mathbb N}A_n\setminus A=\bigsqcup_{n\in\mathbb N}B_n$.
+	Allora sostituendo in \cref{ScritturaDecenteUnionePremisura} ottengo:
+	\begin{equation*}
+		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigsqcup_{n\in\mathbb N}B_n
+	\end{equation*}
+	quindi ricado nelle ipotesi di \cref{CoerenzaPremisura} ottenendo che:
+	\begin{equation*}
+		\sum_{n\in\mathbb N}\mu(A_n)\ge \mu(A)+\sum_{n\in\mathbb N}\mu(B_n)\ge \mu(A)
+	\end{equation*}
+	che è proprio quanto si voleva dimostrare.
+
+\end{proof}
+
+
+\begin{proposition}\label{MisuraEsternaDiPremisura}
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
+	\begin{equation*}
+		\mu^*(A)=\inf\left\{\sum_{n\in\mathbb N} A_n\ |\ (A_n)_{n\in\mathbb N}\subseteq\mathcal S\ \wedge
+		\ A\subseteq\bigcup_{n\in\mathbb N}A_n\right\}
+	\end{equation*}
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_{\mathcal S}=\mu$) ed inoltre $\mathcal S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{EstensioneCaratheodory}).
+\end{proposition}
+\begin{proof}
+	Per ottenere che $\mu^*$ è una misura esterna basta verificare le proprietà che deve rispettare.
+	Ovviamente, poichè $\mu(\emptyset)=0$, vale $\mu^*(\emptyset)=0$. 
+	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
+	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
+	
+	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poichè $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta considero $(S_n)_{n\in\mathbb N}\in \mathcal S$ un ricoprimento di $S$
+	
+	Ora perciò mi resta da dimostrare che se $E\subseteq \mathcal S$ allora per ogni $A\in\mathcal P(X)$ risulta:
+	\begin{equation}\label{MisuraEsternaDisDifficile}
+		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E)
+	\end{equation}
+	Questo è sufficiente ad avere che $\mathcal S$ è contenuto nella \sigalg{} di Caratheodory poichè l'altra disuguaglianza mi è assicurata dalla \sigsubadd[ità].
+	
+	Dato $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ un ricoprimento di $A$, considero $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\mathbb N},(C_n)_{n\in\mathbb N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poichè $\mathcal S$ è un \semiring{} riesco però a trovare $(B'^n_i)_{i\in\mathbb N},(C'^n_i)_{i\in\mathbb N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\mathbb N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\mathbb N}, (C'^n_i)_{n,i\in\mathbb N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
+	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludo:
+	\begin{align*}
+		\sum_{n\in\mathbb N}\mu(A_n)=\sum_{n\in\mathbb N} \mu(B_n)+\mu(C_n)&=
+		\sum_{n\in\mathbb N}\sum_{i\in\mathbb N}\mu(B'^n_i)+\mu(C'^n_i)\\
+		&=
+		\sum_{n,i\in\mathbb N}\mu(B'^n_i)+\sum_{n,i\in\mathbb N}\mu(C'^n_i)\ge \mu(A\cap E)+\mu(A\setminus E)
+	\end{align*}
+	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
+	
+\end{proof}
+
+
+\begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
 	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\mathcal A\subseteq \mathcal P(X)$ l'insieme così definito:
 	\begin{equation*}
 		\mathcal A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
@@ -177,7 +264,7 @@
 	
 	Unendo quanto detto si ha facilmente che $\mathcal A$ è un'algebra di insiemi.
 	
-	Ora sia $(E_n)_{n\in\mathbb N}\subseteq \mathcal A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottinsieme di $X$.
+	Ora sia $(E_n)_{n\in\mathbb N}\subseteq \mathcal A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottoinsieme di $X$.
 	
 	Per la \sigsubadd[ità] di $\mu$ vale:
 	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
@@ -227,11 +314,12 @@
 	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, mi implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\mathcal A$ concludendo la dimostrazione.
 \end{proof}
 
-\begin{definition}
-	Una terna $(X,\mathcal S,\mu)$ tale che $\mathcal S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\mathcal S\to \mathbb R$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
-\end{definition}
-
-
+\begin{theorem}
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura.
+\end{theorem}
+\begin{proof}
+	Considero la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Questa, come dimostrato 
+\end{proof}
 
 
 
