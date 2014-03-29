@@ -81,7 +81,48 @@ Chiamo ora $z=\omega_x+i \omega_y$, sommando alla prima equazione del sistema $i
 
 Quindi, poichè avevo già ricavato $\omega_z(t)$, ho trovato quindi il valore di $\vec\omega$ rispetto al tempo, che è quello che volevo.
 
+\solution[2]
 
+Si vuole adesso spostare l'attenzione sulle componenti $(L_x, \ L_y, \ L_z)$ del vettore momento angolare, mettendo in luce cosa accade alla stella  per tempi molto lunghi (che le approssimazioni della precedente soluzione, esatte solo per tempi brevi, non consentono di osservare). \\
+Imponendo come prima che la derivata del momento angolare sia nulla, si ha:
+\begin{equation*}
+\begin{cases}
+	\displaystyle \dot L_x+(\bar I^{-1}-I_z^{-1}) L_yL_z=0\\
+           \displaystyle \dot L_y+(\bar I^{-1}-I_z^{-1}) L_xL_z=0\\
+           \displaystyle \dot L_z=0\\
+\end{cases}
+\end{equation*}
+Dalla terza equazione deduciamo che $L_z$ è costante. \\
+Sia $\Gamma=L_x+iL_y$ .\\
+ Manipolando le prime due equazioni del sistema si trova: 
+\begin{gather*}
+	\displaystyle \frac{\dot\Gamma}\Gamma=i(\bar I^{-1}-I_z^{-1})L_z=
+           \frac{3}{2}  \varepsilon i\frac{L_z}{I}\cos \Omega t\left (1-\frac \varepsilon 2 \cos\Omega t\right)^{-1} \left( 1+\varepsilon      \cos\Omega t\right)^{-1}\approx \\ \approx
+           \frac{3}{2}  \varepsilon i\frac{L_z}{I}\cos \Omega t\left (1-\frac \varepsilon 2 \cos\Omega t\right) \\
+            \Longrightarrow ln\left(\frac{\dot\Gamma}\Gamma_0\right)= \frac{3}{2}  \varepsilon i\frac{L_z}{I}\left (\frac{\sin \Omega t}{\Omega}- \frac{\varepsilon}{8} \frac{\sin 2 \Omega t}{\Omega}-\frac{\varepsilon t}{4}\right)
+\end{gather*}
+Siamo liberi di supporre che nell'istante iniziale $L_y(0)=0$. Quindi:
+\begin{equation*}
+\begin{cases}
+		\displaystyle L_x(t)=\Gamma_0 \cos \left[\frac{3\varepsilon }{2} \frac{L_z}{I}\left (\frac{\sin \Omega t}{\Omega}- \frac{\varepsilon}{8} \frac{\sin 2 \Omega t}{\Omega}-\frac{\varepsilon t}{4}\right) \right] \\
+                     \displaystyle L_y(t)=\Gamma_0 \sin \left[\frac{3\varepsilon }{2} \frac{L_z}{I}\left (\frac{\sin \Omega t}{\Omega}- \frac{\varepsilon}{8} \frac{\sin 2 \Omega t}{\Omega}-\frac{\varepsilon t}{4}\right) \right] \\
+	\end{cases}
+\end{equation*}
+Per tempi dell'ordine di $\Omega^{-1}$ si ha: 
+\begin{equation*}
+\begin{cases}
+		\displaystyle L_x(t)\approx \Gamma_0 \\
+                     \displaystyle L_y(t)\approx \Gamma_0  \left(\frac{3\varepsilon }{2} \frac{L_z}{I\Omega}  \ {\sin \Omega t} \right) \\
+	\end{cases}
+\end{equation*}
+che equivale esattamente alla soluzione di Giada, passando alle velocità angolari e approssimando al prim'ordine.  \\ Invece, per $t\gg (\varepsilon\Omega)^{-1}$, si trova:
+\begin{equation*}
+\begin{cases}
+		\displaystyle L_x(t)\approx\Gamma_0 \cos \left(\frac{3\varepsilon^2 }{8} \frac{L_z}{I}\  t\right) \\
+                     \displaystyle L_y(t)\approx-\Gamma_0 \sin \left(\frac{3\varepsilon^2 }{8} \frac{L_z}{I} \ t\right) \\
+	\end{cases}
+\end{equation*}
+Si nota in particolare che, per tempi molto lunghi, il sistema acquista simmetria.
 
 
 
