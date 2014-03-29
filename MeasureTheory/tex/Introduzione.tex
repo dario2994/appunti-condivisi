@@ -23,9 +23,9 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 	\begin{equation*}
 		\bigcap_{i\in I} A_i = \left( \bigcup_{i\in I} A_i^c \right)^c
 	\end{equation*}
-	e un'algebra è stabile per unione finita e complementare, ottengo facilmente che lo è anche per intersezioni finite.
+	e un'algebra è stabile per unione finita e complementare, facilmente risulta esserlo anche per intersezioni finite.
 	
-	Per la differenza si sfrutta la seguente relazione insiemistica $A\setminus B=A\cup B^c$ e visto che ho appena dimostrato che $\mathcal A$ è chiuso anche per intersezioni ho finito.
+	Per la differenza si sfrutta la seguente relazione insiemistica $A\setminus B=A\cup B^c$. Questa porta a concludere visto che abbiamo appena dimostrato che $\mathcal A$ è stabile per intersezioni.
 \end{proof}
 
 
@@ -60,27 +60,27 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 	Dato un \semiring{} $\mathcal S$ l'insieme $\sqcup\mathcal S$ è stabile per intersezione finita e unione numerabile.
 \end{proposition}
 \begin{proof}
-	Noto intanto che, per definizione, $\sqcup\mathcal S$ è stabile per unione disgiunta numerabile.
+	Notiamo intanto che, per definizione, $\sqcup\mathcal S$ è stabile per unione disgiunta numerabile.
 	
-	Per dimostrare la stabilità di $\sqcup\mathcal S$ per intersezione finita, basta ovviamente farlo per due soli insiemi $A,B\in\sqcup\mathcal S$. Per definizione posso scrivere $A=\bigsqcup_{n\in\mathbb N} A_n, B=\bigsqcup_{n\in\mathbb N} B_n$ dove $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N}$ sono successioni in $\mathcal S$. Allora vale la seguente identità:
+	Per dimostrare la stabilità di $\sqcup\mathcal S$ per intersezione finita, basta ovviamente farlo per due soli insiemi $A,B\in\sqcup\mathcal S$. Per definizione possiamo scrivere $A=\bigsqcup_{n\in\mathbb N} A_n, B=\bigsqcup_{n\in\mathbb N} B_n$ dove $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N}$ sono successioni in $\mathcal S$. Allora vale la seguente identità:
 	\begin{equation*}
 		A\cap B=\bigsqcup_{n\in\mathbb N} A_n\cap\bigsqcup_{n\in\mathbb N} B_n=
 		\bigsqcup_{n,m\in\mathbb N} A_n\cap B_m\in\sqcup\mathcal S
 	\end{equation*}
-	dove nell'ultimo passaggio ho usato la stabilità di $\sqcup\mathcal S$ per unione disgiunta.
+	dove nell'ultimo passaggio è stata usata la stabilità di $\sqcup\mathcal S$ per unione disgiunta.
 	
-	Per l'unione, considero $A,B\in\mathcal S$. Poichè vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
+	Per l'unione, consideriamo $A,B\in\mathcal S$. Poichè vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
 	
 	Sfruttando quanto detto, fissata $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ vale:
 	\begin{equation}\label{UnioneNumerabileDaS}
 		\bigcup_{n\in\mathbb N} A_n=\bigsqcup_{n\in\mathbb N} A_n\setminus\cup_{i<n} A_i
 		=\bigsqcup_{n\in\mathbb N} \bigcap_{i<n} (A_n\setminus A_i)\in\sqcup\mathcal S
 	\end{equation}
-	dove nell'ultimo passaggio ho usato il fatto che $\sqcup\mathcal S$ è stabile per unione disgiunta e intersezione finita.
+	dove nell'ultimo passaggio abbiamo applicato la stabilità di $\sqcup\mathcal S$ per unione disgiunta e intersezione finita.
 	
-	E ora finalmente dimostro la stabilità di $\sqcup\mathcal S$ per unioni numerabili. Sia $(S_n)_{n\in\mathbb N}$ una successione in $\sqcup\mathcal S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\mathbb N}\subseteq \mathcal S$ tali che $S_n=\bigsqcup_{i\in\mathbb N} A^n_i$.
+	E infine dimostriamo la stabilità di $\sqcup\mathcal S$ per unioni numerabili. Sia $(S_n)_{n\in\mathbb N}$ una successione in $\sqcup\mathcal S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\mathbb N}\subseteq \mathcal S$ tali che $S_n=\bigsqcup_{i\in\mathbb N} A^n_i$.
 	
-	Allora applicando \cref{UnioneNumerabileDaS} ho:
+	Allora applicando \cref{UnioneNumerabileDaS} otteniamo:
 	\begin{equation*}
 		\bigcup_{n\in\mathbb N}S_n=\bigcup_{i,n\in\mathbb N}A^n_i\in\sqcup\mathcal S 
 	\end{equation*}
@@ -97,7 +97,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 	Data $\mu:\mathcal F\to \Rpiu$ \sigadd{}, se $\emptyset\in \mathcal F$ allora $\mu(\emptyset)=0$
 \end{remark}
 \begin{proof}
-	Usando la proprietà di \sigadd[ità] ottengo $\mu(\emptyset)=\mu(\emptyset)+\mu(\emptyset)$ che porta ovviamente alla tesi.
+	Usando la proprietà di \sigadd[ità] si ottiene $\mu(\emptyset)=\mu(\emptyset)+\mu(\emptyset)$ che porta ovviamente alla tesi.
 \end{proof}
 
 
@@ -116,15 +116,43 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\mathcal A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
 \end{remark}
 \begin{proof}
-	Per quanto detto in \cref{ProprietaSigAlg} $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ ho $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
+	Per quanto detto in \cref{ProprietaSigAlg} $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
 \end{proof}
+\begin{remark}\label{SubAdditivitaMisura}
+	Dato $(X,\mathcal A,\mu)$ uno spazio misurato, la misura $\mu$ è \sigsubadd{}, cioè dati $(A_n)_{n\in\mathbb N}\subseteq\mathcal A$ risulta:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N} A_n \right)\le \sum_{n\in\mathbb N}\mu(A_n)
+	\end{equation*}
+\end{remark}
+\begin{proof}
+	La dimostrazione risulta molto facile sfruttando la monotonia \cref{MonotoniaMisura} e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
+	\begin{equation*}
+		\mu\left(\bigcup_{n\in\mathbb N} A_n \right)=\mu\left(\bigsqcup_{n\in\mathbb N} A_n\setminus\bigcup_{i<n}A_i \right)=
+		\sum_{n\in\mathbb N}\mu\left(A_n\setminus\bigcup_{i<n}A_i\right)\le \sum_{n\in\mathbb N}\mu(A_n)
+	\end{equation*}
+\end{proof}
+
+
+
+\begin{definition}\label{TrascurabiliMisura}
+	In uno spazio di misura (o anch'è in ipotesi più deboli come premisura o misura esterna) un insieme con misura nulla è detto trascurabile.
+\end{definition}
+\begin{remark}\label{UnioneTrascurabili}
+	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
+\end{remark}
+\begin{proof}
+	È un'ovvia conseguenza della \sigsubadd[ità] della misura \cref{SubAdditivitaMisura}.
+\end{proof}
+
+
+
 
 \begin{definition}\label{FinitezzaMisura}
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $\mu(X)<+\infty$.
 \end{definition}
 
 \begin{definition}\label{CompletezzaMisura}
-	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ si dice completa se per ogni $A\in\mathcal A$ tale che $\mu(A)=0$, ogni suo sottinsieme è anch'esso appartenente ad $\mathcal A$.
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ si dice completa se per ogni $A\in\mathcal A$ tale che $\mu(A)=0$, ogni suo sottoinsieme è anch'esso appartenente ad $\mathcal A$.
 \end{definition}
 
 \begin{proposition}\label{CompletamentoMisura}
@@ -134,23 +162,45 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\end{equation*}
 	Allora $\mathcal A^*$ è una \sigalg{} e $\mu$ si estende in maniera canonica su $\mathcal A^*$ ad una misura completa.
 \end{proposition}
-\begin{proof}TODO: dimostrazione
-	Dimostro intanto che $\mathcal A^*$ è una \sigalg{}.
-	Dato $A^*\in\mathcal A^*$, esistono per definizione $A\in\mathcal A$ e $N\subseteq B\in\mathcal A$ dove $\mu(B)=0$. Posso facilmente imporre $B\cap A^*=\emptyset$, visto che se così non è posso ridefinire $N,B$ facendone la differenza con $A^*$. Assumo perciò $A^*,B$ disgiunti.
+\begin{proof}
+	Dimostriamo intanto che $\mathcal A^*$ è una \sigalg{}.
+	Dato $A^*\in\mathcal A^*$, esistono per definizione $A\in\mathcal A$ e $N\subseteq B\in\mathcal A$ dove $\mu(B)=0$. Possiamo facilmente imporre $B\cap A^*=\emptyset$, visto che se così non è si può ridefinire $N,B$ facendone la differenza con $A^*$. Assumiamo perciò $A^*,B$ disgiunti.
 	Chiamando $M=B\setminus N$, vale facilmente:
 	\begin{equation*}
 		(A^*)^c=(A\cup N)^c=A^c\cap N^c=(A^c\cap B^c )\cup M \in\mathcal A^*
 	\end{equation*}
-	dove l'ultima appartenenza vale poichè $M$ è anch'esso sottinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
+	dove l'ultima appartenenza vale poichè $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
 	
-	Ora considero $(A^*_n)_{n\in\mathbb N}$ una successione di insiemi, e scelgo $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N},(N_n)_{n\in\mathbb N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\mathcal A$ con $\mu(B_n)=0$.
+	Ora consideriamo $(A^*_n)_{n\in\mathbb N}$ una successione di insiemi, e scegliamo $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N},(N_n)_{n\in\mathbb N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\mathcal A$ con $\mu(B_n)=0$.
 	
 	Allora risulta:
 	\begin{align*}
 		\bigcup_{n\in\mathbb N}A^*_n=\bigcup_{n\in\mathbb N}A_n \cup \bigcup_{n\in\mathbb N}N_n\\
 		\bigcup_{n\in\mathbb N}N_n\subseteq \bigcup_{n\in\mathbb N}B_n\in\mathcal A\ \wedge\ \mu\left(\bigcup_{n\in\mathbb N}B_n\right)=0
 	\end{align*}
-	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{}, TODO: dimostrare Subaddittività
+	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{} \cref{SubAdditivitaMisura}. Perciò abbiamo dimostrato che $\mathcal A^*$ è stabile per unione numerabile.
+	
+	Unendo i due risultati arriviamo a dire che $\mathcal A^*$ è una \sigalg{}.
+	
+	Definiamo ora $\mu^*:\mathcal A^*\to\Rpiu$ di modo che dato $A^*\in\mathcal A^*$ valga $\mu^*(A^*)=\mu(A)$ dove $A^*=A\cup N$ con $N$ sottoinsieme di un trascurabile ed $A\in\mathcal A$.
+	
+	Dimostriamo innanzitutto la coerenza della definizione di $\mu^*$. Si deve dimostrare che per $A,A'\in\mathcal A$ e $N,N'$ sottoinsiemi di trascurabili tali che $A\cup N=A'\cup N'$ vale $\mu(A)=\mu(A')$. Siano $B,B'\in\mathcal A$ i trascurabili a cui appartengono $N,N'$, sia infine $Q=B\cup B'$ a sua volta trascurabile.
+	
+	Per facili ragionamenti di monotonia abbiamo:
+	\begin{align*}
+		\mu(A)\le \mu(A\cup Q) =\mu(A)+\mu(Q)=\mu(A) \Longrightarrow \mu(A)=\mu(A\cup Q)\\
+		\mu(A')\le \mu(A'\cup Q) =\mu(A')+\mu(Q)=\mu(A') \Longrightarrow \mu(A')=\mu(A'\cup Q)
+	\end{align*}
+	ma per costruzione vale $A\cup Q=A'\cup Q$ e perciò otteniamo proprio $\mu(A)=\mu(A')$ che mostra la coerenza della definizione di $\mu^*$.
+	
+	La \sigadd[ità] è ovvia una volta che si è mostrata la coerenza. Presa $(A^*_n)_{n\in\mathbb N}\in\mathcal A^*$ famiglia disgiunta a due a due, sia $(A_n)_{n\in\mathbb N}$ la parte \emph{non trascurabile} della prima successione. Allora risulta, per definizione di $\mu^*$:
+	\begin{equation*}
+		\sum_{n\in\mathbb N} \mu^*(A^*_n)=\sum_{n\in\mathbb N} \mu(A_n)=\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} A^*_n\right)
+	\end{equation*}
+	dove nell'ultimo passaggio abbiamo implicitamente applicato \cref{UnioneTrascurabili}.
+	
+	Resta da verificare che $\mu^*$ sia completa, ma questo è ovvio visto che  $\mu^*(A^*)=0$ se e solo se $A^*$ è il sottoinsieme di un trascurabile di $\mathcal A$ e la relazione di essere sottoinsieme di un trascurabile è chiusa per estrazione di sottoinsiemi. 
+
 \end{proof}
 
 
@@ -162,9 +212,9 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Definisco $B_n=A_n\setminus\bigcup_{i<n}A_i$ e per \cref{ProprietaSigAlg} so che $B_n\in\mathcal A$.
+	Sia $B_n=A_n\setminus\bigcup_{i<n}A_i$. Applicando \cref{ProprietaSigAlg} si ottiene $B_n\in\mathcal A$.
 	Per facili ragionamenti insiemistici risulta che la successione $(B_n)_{n\in\mathbb N}$ è disgiunta a due a due ed inoltre $A_n=\bigcup_{i\le n}B_i$.
-	Sfruttando tutte queste proprietà, e la \sigadd[ità] di $\mu$, ottengo:
+	Sfruttando tutte queste proprietà, e la \sigadd[ità] di $\mu$, otteniamo:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
 		\sum_{n\in\mathbb N} \mu(B_n)=\lim_{n\to\infty} \sum_{i\le n} \mu(B_i)=
@@ -186,13 +236,13 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}.
 \end{remark}
 \begin{proof}
-	Data una successione di sottoinsiemi $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$, considero, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\mathcal A$.
-	Allora ho, lavorando analogamente alla dimostrazione di cui sopra:
+	Data una successione di sottoinsiemi $(A_n)_{n\in\mathbb N}\subseteq \mathcal A$, consideriamo, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\mathcal A$.
+	Allora, lavorando analogamente alla dimostrazione di cui sopra, si ha:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
 		\sum_{n\in\mathbb N} \mu(B_n)\le \sum_{n\in\mathbb N} \mu(A_n)
 	\end{equation*}
-	dove nell'ultimo passaggio ho sfruttato la monotonia di $\mu$ dimostrata in \cref{MonotoniaMisura}.
+	dove nell'ultimo passaggio sfruttiamo la monotonia di $\mu$ dimostrata in \cref{MonotoniaMisura}.
 \end{proof}
 
 \begin{definition}
@@ -204,10 +254,10 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Allora risulta $\sum_{n\in\mathbb N}\mu(A_n)\ge \sum_{n\in\mathbb N}\mu(B_n)$.
 \end{lemma}
 \begin{proof}
-	Definisco $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\mathbb N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\mathbb N}$.
-	È importante notare che $A_n\setminus A'_n=A\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultimo contenimento è per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\mathbb N}\subseteq\mathcal S$ tali che in unione disgiunta mi $A_n\setminus A'_n$.
+	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\mathbb N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\mathbb N}$.
+	È importante notare che $A_n\setminus A'_n=A\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultimo contenimento è per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\mathbb N}\subseteq\mathcal S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
-	Ora definisco $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perchè lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poichè intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
+	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perchè lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poichè intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono:
 	\begin{align*}
@@ -217,7 +267,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 		B_n=\bigsqcup_{i\in\mathbb N}C_{in}=\bigsqcup_{i,j\in\mathbb N}F^{in}_j
 		&\Longrightarrow \mu(B_n)=\sum_{i,j\in\mathbb N}\mu(F^{in}_j)
 	\end{align*}
-	quindi sommando su $n$ arrivo a:
+	quindi sommando su $n$ arriviamo a:
 	\begin{align*}
 		\sum_{n\in\mathbb N}\mu(A_n)&\ge \sum_{n\in\mathbb N}\sum_{i,j\in\mathbb N}\mu(F^{ni}_j)
 		=\sum_{i,n,j\in\mathbb N}\mu(F^{ni}_j)\\
@@ -231,7 +281,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 
 
 \begin{lemma}\label{PiuCheMonotonaPremisura}
-	Data $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $A,(A_n)_{n\in\mathbb N}\subseteq \mathcal S$ tali che $A\subseteq\bigcup_{n\in\mathbb N}A_n$.
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $A,(A_n)_{n\in\mathbb N}\subseteq \mathcal S$ tali che $A\subseteq\bigcup_{n\in\mathbb N}A_n$.
 	Allora vale $\mu(A)\le \sum_{n\in\mathbb N}\mu(A_n)$.
 \end{lemma}
 \begin{proof}
@@ -240,11 +290,11 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigcup_{n\in\mathbb N}A_n\setminus A
 	\end{equation}
 	Poichè $\mathcal S$ è un \semiring{} $A_n\setminus A\in \sqcup \mathcal S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\mathbb N}\subseteq\mathcal S$ disgiunta tale che $\bigcup_{n\in\mathbb N}A_n\setminus A=\bigsqcup_{n\in\mathbb N}B_n$.
-	Allora sostituendo in \cref{ScritturaDecenteUnionePremisura} ottengo:
+	Allora sostituendo in \cref{ScritturaDecenteUnionePremisura} si ottiene:
 	\begin{equation*}
 		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigsqcup_{n\in\mathbb N}B_n
 	\end{equation*}
-	quindi ricado nelle ipotesi di \cref{CoerenzaPremisura} ottenendo che:
+	quindi si ricade nelle ipotesi di \cref{CoerenzaPremisura} ottenendo che:
 	\begin{equation*}
 		\sum_{n\in\mathbb N}\mu(A_n)\ge \mu(A)+\sum_{n\in\mathbb N}\mu(B_n)\ge \mu(A)
 	\end{equation*}
