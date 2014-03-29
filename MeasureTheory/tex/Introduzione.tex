@@ -39,7 +39,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 \end{definition}
 
 \begin{remark}\label{ProprietaSigAlg}
-	Una \sigalg{} è stabile anche per intersezioni numerabili e per differenza simmetrica.
+	Una \sigalg{} è stabile anche per intersezioni numerabili e per differenza insiemistica.
 \end{remark}
 \begin{proof}
 	Si dimostrano entrambe le proprietà in modo del tutto analogo a come abbiamo dimostrato \cref{ProprietaAlg}.
@@ -102,21 +102,21 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 
 
 \begin{definition}[Spazio di misura]
-	Dati $X$ un insieme, $\mathcal A$ una famiglia di sottoinsiemi di $\mathcal A$ e $\mu:\mathcal A\to \Rpiu$ una funzione, la terna $(X,\mathcal A, \mu)$ si dice uno spazio di misura se:
+	Dati $X$ un insieme, $\mathcal A$ una famiglia di sottoinsiemi di $X$ e $\mu:\mathcal A\to \Rpiu$ una funzione, la terna $(X,\mathcal A, \mu)$ si dice uno spazio di misura se:
 	\begin{itemize}
-		\item La famiglia $\mathcal A$ è una \sigalg{}.
-		\item La funzione $\mu$ è \sigadd{}.
+		\item la famiglia $\mathcal A$ è una \sigalg{}.
+		\item la funzione $\mu$ è \sigadd{}.
 	\end{itemize}
 	e in questo caso la funzione $\mu$ è detta \emph{misura}.
 \end{definition}
 
-D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio misurato.
+D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio di misura.
 
 \begin{remark}\label{MonotoniaMisura}
 	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\mathcal A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
 \end{remark}
 \begin{proof}
-	Per quanto detto in \cref{ProprietaSigAlg} $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
+	Per quanto detto in \cref{ProprietaSigAlg}, $B\setminus A\in\mathcal A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
 \end{proof}
 \begin{remark}\label{SubAdditivitaMisura}
 	Dato $(X,\mathcal A,\mu)$ uno spazio misurato, la misura $\mu$ è \sigsubadd{}, cioè dati $(A_n)_{n\in\mathbb N}\subseteq\mathcal A$ risulta:
@@ -125,7 +125,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\end{equation*}
 \end{remark}
 \begin{proof}
-	La dimostrazione risulta molto facile sfruttando la monotonia \cref{MonotoniaMisura} e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
+	La dimostrazione risulta molto facile sfruttando la monotonia, mostrata in \cref{MonotoniaMisura}, e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\mathbb N} A_n \right)=\mu\left(\bigsqcup_{n\in\mathbb N} A_n\setminus\bigcup_{i<n}A_i \right)=
 		\sum_{n\in\mathbb N}\mu\left(A_n\setminus\bigcup_{i<n}A_i\right)\le \sum_{n\in\mathbb N}\mu(A_n)
@@ -141,14 +141,14 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
 \end{remark}
 \begin{proof}
-	È un'ovvia conseguenza della \sigsubadd[ità] della misura \cref{SubAdditivitaMisura}.
+	È un'ovvia conseguenza della \sigsubadd[ità] della misura dimostrata in \cref{SubAdditivitaMisura}.
 \end{proof}
 
 
 
 
 \begin{definition}\label{FinitezzaMisura}
-	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $\mu(X)<+\infty$.
+	Dato $(X,\mathcal A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $X\in\mathcal{A}$ e $\mu(X)<+\infty$.
 \end{definition}
 
 \begin{definition}\label{CompletezzaMisura}
@@ -164,12 +164,12 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \end{proposition}
 \begin{proof}
 	Dimostriamo intanto che $\mathcal A^*$ è una \sigalg{}.
-	Dato $A^*\in\mathcal A^*$, esistono per definizione $A\in\mathcal A$ e $N\subseteq B\in\mathcal A$ dove $\mu(B)=0$. Possiamo facilmente imporre $B\cap A^*=\emptyset$, visto che se così non è si può ridefinire $N,B$ facendone la differenza con $A^*$. Assumiamo perciò $A^*,B$ disgiunti.
+	Dato $A^*\in\mathcal A^*$, esistono per definizione $A\in\mathcal A$ e $N\subseteq B\in\mathcal A$ dove $\mu(B)=0$, tali che $A^*=A\cup N$. Possiamo facilmente imporre $B\cap A=\emptyset$, visto che se così non è si può ridefinire $N,B$ facendone la differenza con $A$. Assumiamo perciò $A,B$ disgiunti.
 	Chiamando $M=B\setminus N$, vale facilmente:
 	\begin{equation*}
-		(A^*)^c=(A\cup N)^c=A^c\cap N^c=(A^c\cap B^c )\cup M \in\mathcal A^*
+		(A^*)^c=(A\cup N)^c=A^c\cap N^c=A^c\cap(B^c\cup M)=(A^c\cap B^c )\cup M \in\mathcal A^*
 	\end{equation*}
-	dove l'ultima appartenenza vale poichè $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
+	dove l'ultima uguaglianza vale perchè ho supposto $A$ e $B$ disgiunti e l'ultima appartenenza è invece vera poichè $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
 	
 	Ora consideriamo $(A^*_n)_{n\in\mathbb N}$ una successione di insiemi, e scegliamo $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N},(N_n)_{n\in\mathbb N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\mathcal A$ con $\mu(B_n)=0$.
 	
@@ -178,28 +178,28 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 		\bigcup_{n\in\mathbb N}A^*_n &=\bigcup_{n\in\mathbb N}A_n \cup \bigcup_{n\in\mathbb N}N_n\\
 		\bigcup_{n\in\mathbb N}N_n &\subseteq \bigcup_{n\in\mathbb N}B_n\in\mathcal A\ \wedge\ \mu\left(\bigcup_{n\in\mathbb N}B_n\right)=0
 	\end{align*}
-	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{} \cref{SubAdditivitaMisura}. Perciò abbiamo dimostrato che $\mathcal A^*$ è stabile per unione numerabile.
+	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{} per \cref{SubAdditivitaMisura}. Perciò abbiamo dimostrato che $\mathcal A^*$ è stabile per unione numerabile.
 	
 	Unendo i due risultati arriviamo a dire che $\mathcal A^*$ è una \sigalg{}.
 	
-	Definiamo ora $\mu^*:\mathcal A^*\to\Rpiu$ di modo che dato $A^*\in\mathcal A^*$ valga $\mu^*(A^*)=\mu(A)$ dove $A^*=A\cup N$ con $N$ sottoinsieme di un trascurabile ed $A\in\mathcal A$.
+	Definiamo ora $\tilde\mu:\mathcal A^*\to\Rpiu$ di modo che dato $A^*\in\mathcal A^*$ valga $\tilde\mu(A^*)=\mu(A)$ dove $A^*=A\cup N$ con $N$ sottoinsieme di un trascurabile ed $A\in\mathcal A$.
 	
-	Dimostriamo innanzitutto la coerenza della definizione di $\mu^*$. Si deve dimostrare che per $A,A'\in\mathcal A$ e $N,N'$ sottoinsiemi di trascurabili tali che $A\cup N=A'\cup N'$ vale $\mu(A)=\mu(A')$. Siano $B,B'\in\mathcal A$ i trascurabili a cui appartengono $N,N'$, sia infine $Q=B\cup B'$ a sua volta trascurabile.
+	Dimostriamo innanzitutto la coerenza della definizione di $\tilde\mu$. Si deve dimostrare che per $A,A'\in\mathcal A$ e $N,N'$ sottoinsiemi di trascurabili tali che $A\cup N=A'\cup N'$ vale $\mu(A)=\mu(A')$. Siano $B,B'\in\mathcal A$ i trascurabili a cui appartengono $N,N'$, sia infine $Q=B\cup B'$ a sua volta trascurabile.
 	
 	Per facili ragionamenti di monotonia abbiamo:
 	\begin{align*}
 		\mu(A)\le \mu(A\cup Q) =\mu(A)+\mu(Q)=\mu(A) &\Longrightarrow \mu(A)=\mu(A\cup Q)\\
 		\mu(A')\le \mu(A'\cup Q) =\mu(A')+\mu(Q)=\mu(A') &\Longrightarrow \mu(A')=\mu(A'\cup Q)
 	\end{align*}
-	ma per costruzione vale $A\cup Q=A'\cup Q$ e perciò otteniamo proprio $\mu(A)=\mu(A')$ che mostra la coerenza della definizione di $\mu^*$.
+	ma per costruzione vale $A\cup Q=A'\cup Q$ e perciò otteniamo proprio $\mu(A)=\mu(A')$ che mostra la coerenza della definizione di $\tilde\mu$.
 	
-	La \sigadd[ità] è ovvia una volta che si è mostrata la coerenza. Presa $(A^*_n)_{n\in\mathbb N}\in\mathcal A^*$ famiglia disgiunta a due a due, sia $(A_n)_{n\in\mathbb N}$ la parte \emph{non trascurabile} della prima successione. Allora risulta, per definizione di $\mu^*$:
+	La \sigadd[ità] è ovvia una volta che si è mostrata la coerenza. Presa $(A^*_n)_{n\in\mathbb N}\in\mathcal A^*$ famiglia disgiunta a due a due, sia $(A_n)_{n\in\mathbb N}$ la parte \emph{non trascurabile} della prima successione. Allora risulta, per definizione di $\tilde\mu$:
 	\begin{equation*}
-		\sum_{n\in\mathbb N} \mu^*(A^*_n)=\sum_{n\in\mathbb N} \mu(A_n)=\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} A^*_n\right)
+		\sum_{n\in\mathbb N} \tilde\mu(A^*_n)=\sum_{n\in\mathbb N} \mu(A_n)=\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} A^*_n\right)
 	\end{equation*}
 	dove nell'ultimo passaggio abbiamo implicitamente applicato \cref{UnioneTrascurabili}.
 	
-	Resta da verificare che $\mu^*$ sia completa, ma questo è ovvio visto che  $\mu^*(A^*)=0$ se e solo se $A^*$ è il sottoinsieme di un trascurabile di $\mathcal A$ e la relazione di essere sottoinsieme di un trascurabile è chiusa per estrazione di sottoinsiemi. 
+	Resta da verificare che $\tilde\mu$ sia completa, ma questo è ovvio visto che  $\tilde\mu(A^*)=0$ se e solo se $A^*$ è il sottoinsieme di un trascurabile di $\mathcal A$ e la relazione di essere sottoinsieme di un trascurabile è chiusa per estrazione di sottoinsiemi. 
 
 \end{proof}
 
@@ -214,7 +214,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \begin{proof}
 	Sia $B_n=A_n\setminus\bigcup_{i<n}A_i$. Applicando \cref{ProprietaSigAlg} si ottiene $B_n\in\mathcal A$.
 	Per facili ragionamenti insiemistici risulta che la successione $(B_n)_{n\in\mathbb N}$ è disgiunta a due a due ed inoltre $A_n=\bigcup_{i\le n}B_i$.
-	Sfruttando tutte queste proprietà, e la \sigadd[ità] di $\mu$, otteniamo:
+	Sfruttando tutte queste proprietà e la \sigadd[ità] di $\mu$, otteniamo:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\mathbb N} A_n\right)=\mu\left(\bigcup_{n\in\mathbb N} B_n\right)=
 		\sum_{n\in\mathbb N} \mu(B_n)=\lim_{n\to\infty} \sum_{i\le n} \mu(B_i)=
@@ -224,11 +224,11 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \end{proof}
 
 \begin{definition}[Misura esterna]
-	Dato un insieme $X$ e una funzione $\mu:\mathcal P(X)\to \Rpiu$ è detta una misura esterna se valgono:
+	Dato un insieme $X$ e una funzione $\mu^*:\mathcal P(X)\to \Rpiu$ è detta una misura esterna se valgono:
 	\begin{itemize}
-		\item $\mu(\emptyset)=0$
-		\item $\mu$ è monotona, cioè dati $A,B\subseteq X$ se vale $A\subseteq B$ allora $\mu(A)\le \mu(B)$
-		\item $\mu$ è \sigsubadd{}, cioè  per ogni successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal P(X)$ di sottoinsiemi di $X$ vale $\mu\left(\bigcup_{n\in\mathbb{N}}A_n\right)\le \sum_{n\in\mathbb N} \mu(A_n)$
+		\item $\mu^*(\emptyset)=0$
+		\item $\mu^*$ è monotona, cioè dati $A,B\subseteq X$ se vale $A\subseteq B$ allora $\mu^*(A)\le \mu^*(B)$
+		\item $\mu^*$ è \sigsubadd{}, cioè  per ogni successione $(A_n)_{n\in\mathbb N}\subseteq \mathcal P(X)$ di sottoinsiemi di $X$ vale $\mu^*\left(\bigcup_{n\in\mathbb{N}}A_n\right)\le \sum_{n\in\mathbb N} \mu^*(A_n)$
 	\end{itemize}
 \end{definition}
 
@@ -255,14 +255,14 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \end{lemma}
 \begin{proof}
 	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\mathbb N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\mathbb N}$.
-	È importante notare che $A_n\setminus A'_n=A\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultimo contenimento è per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\mathbb N}\subseteq\mathcal S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
+	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\mathbb N}\subseteq\mathcal S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
 	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perchè lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poichè intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono:
 	\begin{align*}
-		A_n= A'_n\cup \bigsqcup_{i\in\mathbb N}E^n_i=\bigsqcup_{i\in\mathbb N}C_{ni}\cup \bigsqcup_{i\in\mathbb N}E^n_i
-		=\bigsqcup_{i,j\in\mathbb N}F^{ni}_j\cup \bigsqcup_{i\in\mathbb N}E^n_i
+		A_n= A'_n\sqcup \bigsqcup_{i\in\mathbb N}E^n_i=\bigsqcup_{i\in\mathbb N}C_{ni}\sqcup \bigsqcup_{i\in\mathbb N}E^n_i
+		=\bigsqcup_{i,j\in\mathbb N}F^{ni}_j\sqcup \bigsqcup_{i\in\mathbb N}E^n_i
 		&\Longrightarrow \mu(A_n)\ge\sum_{i,j\in\mathbb N}\mu(F^{ni}_j)+\sum_{i\in\mathbb N}\mu(E^n_i)\\
 		B_n=\bigsqcup_{i\in\mathbb N}C_{in}=\bigsqcup_{i,j\in\mathbb N}F^{in}_j
 		&\Longrightarrow \mu(B_n)=\sum_{i,j\in\mathbb N}\mu(F^{in}_j)
