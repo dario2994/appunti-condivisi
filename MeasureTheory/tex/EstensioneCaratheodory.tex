@@ -32,7 +32,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
 		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\mathbb N} E_n\right)
 	\end{equation}
-	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\mathbb N}$ sono a due a due disgiunti e che appartengono a $\mathcal A$ poichè quest'ultima è un'algebra.
+	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\mathbb N}$ sono a due a due disgiunti e che appartengono a $\mathcal A$ poiché quest'ultima è un'algebra.
 	
 	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\mathcal A$ e $\mu(A)<+\infty$, che risulta:
 	\begin{equation}\label{IdentitaDifferenzaCaratheodory}
@@ -86,19 +86,19 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proposition}
 \begin{proof}
 	Per ottenere che $\mu^*$ è una misura esterna basta verificare le proprietà che deve rispettare.
-	Ovviamente, poichè $\mu(\emptyset)=0$, vale $\mu^*(\emptyset)=0$. 
+	Ovviamente, poiché $\mu(\emptyset)=0$, vale $\mu^*(\emptyset)=0$. 
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poichè $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\mathbb N}\in \mathcal S$ un ricoprimento di $S$
+	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\mathbb N}\in \mathcal S$ un ricoprimento di $S$
 	
 	Ora perciò resta da dimostrare che se $E\subseteq \mathcal S$ allora per ogni $A\in\mathcal P(X)$ risulta:
 	\begin{equation}\label{MisuraEsternaDisDifficile}
 		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E)
 	\end{equation}
-	Questo è sufficiente ad avere che $\mathcal S$ è contenuto nella \sigalg{} di Caratheodory poichè l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
+	Questo è sufficiente ad avere che $\mathcal S$ è contenuto nella \sigalg{} di Caratheodory poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
-	Dato $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\mathbb N},(C_n)_{n\in\mathbb N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poichè $\mathcal S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\mathbb N},(C'^n_i)_{i\in\mathbb N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\mathbb N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\mathbb N}, (C'^n_i)_{n,i\in\mathbb N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
+	Dato $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\mathbb N},(C_n)_{n\in\mathbb N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\mathcal S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\mathbb N},(C'^n_i)_{i\in\mathbb N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\mathbb N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\mathbb N}, (C'^n_i)_{n,i\in\mathbb N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
 	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludo:
 	\begin{align*}
 		\sum_{n\in\mathbb N}\mu(A_n)=\sum_{n\in\mathbb N} \mu(B_n)+\mu(C_n)&=

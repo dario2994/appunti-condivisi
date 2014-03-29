@@ -5,7 +5,7 @@ In particolare definiremo alcune strutture insiemistiche (algebre, \sigalg[e], \
 
 L'idea generale di queste pagine è dare gli strumenti necessari a comprendere il teorema di estensione di una premisura, nella cui dimostrazione ed enunciato convergono tutti i fatti qui trattati. 
 
-Da notare infine che la definizione di \semiring{} non è quella canonica (nè forse si può parlare di una definizione canonica in letteratura) ed anzi è più debole di quella tipicamente usata per enunciare il teorema di estensione. Questo rende più generale il risultato, ma allo stesso tempo rende più ostico dimostrare le prime proprietà della premisura che infatti necessiteranno di vari lemmi tecnici per essere dimostrate (e sarebbero banali se al posto di un \semiring{} ci fosse un anello).
+Da notare infine che la definizione di \semiring{} non è quella canonica (né forse si può parlare di una definizione canonica in letteratura) ed anzi è più debole di quella tipicamente usata per enunciare il teorema di estensione. Questo rende più generale il risultato, ma allo stesso tempo rende più ostico dimostrare le prime proprietà della premisura che infatti necessiteranno di vari lemmi tecnici per essere dimostrate (e sarebbero banali se al posto di un \semiring{} ci fosse un anello).
 
 \begin{definition}[Algebra]
 	Dato un insieme $X$, una famiglia $\mathcal A\subseteq\mathcal P(X)$ è un'algebra se valgono:
@@ -19,7 +19,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 	Un'algebra è stabile anche per intersezioni finite e per differenza insiemistica.
 \end{remark}
 \begin{proof}
-	Poichè vale la formula insiemistica:
+	Poiché vale la formula insiemistica:
 	\begin{equation*}
 		\bigcap_{i\in I} A_i = \left( \bigcup_{i\in I} A_i^c \right)^c
 	\end{equation*}
@@ -69,7 +69,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (nè f
 	\end{equation*}
 	dove nell'ultimo passaggio è stata usata la stabilità di $\sqcup\mathcal S$ per unione disgiunta.
 	
-	Per l'unione, consideriamo $A,B\in\mathcal S$. Poichè vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
+	Per l'unione, consideriamo $A,B\in\mathcal S$. Poiché vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
 	
 	Sfruttando quanto detto, fissata $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ vale:
 	\begin{equation}\label{UnioneNumerabileDaS}
@@ -135,7 +135,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 
 
 \begin{definition}\label{TrascurabiliMisura}
-	In uno spazio di misura (o anch'è in ipotesi più deboli come premisura o misura esterna) un insieme con misura nulla è detto trascurabile.
+	In uno spazio di misura (o anche in ipotesi più deboli come premisura o misura esterna) un insieme con misura nulla è detto trascurabile.
 \end{definition}
 \begin{remark}\label{UnioneTrascurabili}
 	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
@@ -169,7 +169,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\begin{equation*}
 		(A^*)^c=(A\cup N)^c=A^c\cap N^c=A^c\cap(B^c\cup M)=(A^c\cap B^c )\cup M \in\mathcal A^*
 	\end{equation*}
-	dove l'ultima uguaglianza vale perchè ho supposto $A$ e $B$ disgiunti e l'ultima appartenenza è invece vera poichè $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
+	dove l'ultima uguaglianza vale perché ho supposto $A$ e $B$ disgiunti e l'ultima appartenenza è invece vera poiché $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\mathcal A^*$ è stabile per passaggio al complementare.
 	
 	Ora consideriamo $(A^*_n)_{n\in\mathbb N}$ una successione di insiemi, e scegliamo $(A_n)_{n\in\mathbb N},(B_n)_{n\in\mathbb N},(N_n)_{n\in\mathbb N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\mathcal A$ con $\mu(B_n)=0$.
 	
@@ -257,7 +257,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\mathbb N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\mathbb N}$.
 	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\mathbb N}\subseteq\mathcal S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
-	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perchè lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poichè intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
+	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\mathbb N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\mathbb N}$ che $(B_n)_{n\in\mathbb N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\mathbb N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono:
 	\begin{align*}
@@ -289,7 +289,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\begin{equation}\label{ScritturaDecenteUnionePremisura}
 		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigcup_{n\in\mathbb N}A_n\setminus A
 	\end{equation}
-	Poichè $\mathcal S$ è un \semiring{} $A_n\setminus A\in \sqcup \mathcal S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\mathbb N}\subseteq\mathcal S$ disgiunta tale che $\bigcup_{n\in\mathbb N}A_n\setminus A=\bigsqcup_{n\in\mathbb N}B_n$.
+	Poiché $\mathcal S$ è un \semiring{} $A_n\setminus A\in \sqcup \mathcal S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\mathbb N}\subseteq\mathcal S$ disgiunta tale che $\bigcup_{n\in\mathbb N}A_n\setminus A=\bigsqcup_{n\in\mathbb N}B_n$.
 	Allora sostituendo in \cref{ScritturaDecenteUnionePremisura} si ottiene:
 	\begin{equation*}
 		\bigcup_{n\in\mathbb N}A_n=A\sqcup\bigsqcup_{n\in\mathbb N}B_n
