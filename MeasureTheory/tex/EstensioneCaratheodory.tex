@@ -10,7 +10,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è una misura completa. TODO:completezza
 \end{theorem}
 \begin{proof}
-	La dimostrazione procede in due passi, prima dimostro che $\mathcal A$ è un'algebra di insiemi e poi passo a dimostrare che è una \sigalg{} e che $\mu$ è \sigadd{} ridotta su di questa.
+	La dimostrazione procede in tre passi: prima mostriamo che $\mathcal A$ è un'algebra di insiemi, poi che è è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\mathcal A$.
 	
 	Il fatto che $\mathcal A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
 	
@@ -74,6 +74,18 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(\bigsqcup_{n\in\mathbb N}E_n\right)\le \sum_{n\in\mathbb N} \mu(E_n)
 	\end{equation*}
 	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\mathcal A$.
+	
+	Infine per dimostrare la completezza di $\mu|_{\mathcal A}$ basta mostrare che dato $E\in\mathcal P(X)$ trascurabile, vale $E\in\mathcal A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
+	
+	Fissato un generico $A\in\mathcal P(X)$, risulta per la monotonia di $\mu$:
+	\begin{equation*}
+		\mu(A\cap N)+\mu(A\setminus N)\le \mu(N)+\mu(A)=\mu(A)
+	\end{equation*}
+	che, unita alla \sigsubadd[ità] di $\mu$ mi assicura
+	\begin{equation*}
+		\mu(A)=\mu(A\cap N)+\mu(A\setminus N)
+	\end{equation*}
+	che è proprio la condizione di appartenenza ad $\mathcal A$.
 \end{proof}
 
 \begin{proposition}\label{MisuraEsternaDiPremisura}
@@ -110,12 +122,12 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 \begin{theorem}[Estensione di Caratheodory]\label{EstensionexCaratheodory}
-	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura.
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
 	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Sempre \cref{MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
 	
-	Possiamo ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura $\mu':\mathcal A\to\Rpiu$ dove $\mathcal A$ è la \sigalg{} di Caratheodory. 
+	Possiamo ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura completa $\mu':\mathcal A\to\Rpiu$ dove $\mathcal A$ è la \sigalg{} di Caratheodory. 
 	
 	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\mathcal S\subseteq\mathcal A$ e inoltre vale $\mu'|_{\mathcal S}=\mu^*|_{\mathcal S}=\mu$, perciò lo spazio $(X,\mathcal A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
