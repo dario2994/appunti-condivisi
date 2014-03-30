@@ -3,79 +3,79 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 
 
 \begin{theorem}\label{RiduzionePreCaratheodory}
-	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\mathcal A\subseteq \mathcal P(X)$ l'insieme così definito:
+	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\A\subseteq \mathcal P(X)$ l'insieme così definito:
 	\begin{equation*}
-		\mathcal A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
+		\A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
 	\end{equation*}
-	allora $\mathcal A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\mathcal A$ è una misura completa. TODO:completezza
+	allora $\A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\A$ è una misura completa. TODO:completezza
 \end{theorem}
 \begin{proof}
-	La dimostrazione procede in tre passi: prima mostriamo che $\mathcal A$ è un'algebra di insiemi, poi che è è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\mathcal A$.
+	La dimostrazione procede in tre passi: prima mostriamo che $\A$ è un'algebra di insiemi, poi che è è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\A$.
 	
-	Il fatto che $\mathcal A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
+	Il fatto che $\A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
 	
-	Fissati $A\in\mathcal P(X)$ generico ed $E,F\in\mathcal A$, applicando la sola definizione di $\mathcal A$ ed alcuni passaggi insiemistici si ricava:
+	Fissati $A\in\mathcal P(X)$ generico ed $E,F\in\A$, applicando la sola definizione di $\A$ ed alcuni passaggi insiemistici si ricava:
 	\begin{align*}
-		\mu(A)\stackrel{F\in\mathcal A}{=}&\mu(A\cap F)+\mu(A\setminus F)\stackrel{E\in\mathcal A}{=}
+		\mu(A)\stackrel{F\in\A}{=}&\mu(A\cap F)+\mu(A\setminus F)\stackrel{E\in\A}{=}
 		\mu(A\cap F)+\mu\left((A\setminus F)\cap E\right)+\mu\left((A\setminus F)\setminus E\right)\\
 		=\hspace{0.4em}&\mu\left((A\cap (E\cup F))\cap F\right)+\mu\left((A\cap (E\cup F))\setminus F\right)+
 		\mu\left(A\setminus(E\cup F)\right)\\
-		\stackrel{F\in\mathcal A}{=}&\mu(A\cap (E\cup F))+\mu\left(A\setminus(E\cup F)\right)
+		\stackrel{F\in\A}{=}&\mu(A\cap (E\cup F))+\mu\left(A\setminus(E\cup F)\right)
 	\end{align*}
-	e visto che questo vale per ogni scelta di $A\in\mathcal P(X)$ abbiamo dimostrato che $\mathcal A$ è stabile per unione.
+	e visto che questo vale per ogni scelta di $A\in\mathcal P(X)$ abbiamo dimostrato che $\A$ è stabile per unione.
 	
-	Unendo quanto detto si ha facilmente che $\mathcal A$ è un'algebra di insiemi.
+	Unendo quanto detto si ha facilmente che $\A$ è un'algebra di insiemi.
 	
-	Ora sia $(E_n)_{n\in\mathbb N}\subseteq \mathcal A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottoinsieme di $X$.
+	Ora sia $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottoinsieme di $X$.
 	
 	Per la \sigsubadd[ità] di $\mu$ vale:
 	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
-		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\mathbb N} E_n\right)
+		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\N} E_n\right)
 	\end{equation}
-	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\mathbb N}$ sono a due a due disgiunti e che appartengono a $\mathcal A$ poiché quest'ultima è un'algebra.
+	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\N}$ sono a due a due disgiunti e che appartengono a $\A$ poiché quest'ultima è un'algebra.
 	
-	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\mathcal A$ e $\mu(A)<+\infty$, che risulta:
+	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\A$ e $\mu(A)<+\infty$, che risulta:
 	\begin{equation}\label{IdentitaDifferenzaCaratheodory}
 		\mu\left(A\setminus \bigsqcup_{n\le m} F_n\right)=\mu(A)-\sum_{n\le m} \mu(A\cap F_n)
 	\end{equation}
-	e incidentalmente da questa formula si ha che la serie $\sum_{n\in\mathbb N}\mu(A\cap F_n)$ converge, visto che è a termini positivi e limitata (da $\mu(A)$).
+	e incidentalmente da questa formula si ha che la serie $\sum_{n\in\N}\mu(A\cap F_n)$ converge, visto che è a termini positivi e limitata (da $\mu(A)$).
 	
 	Per la \sigsubadd[ità] di $\mu$ vale:
 	\begin{equation}\label{IntersezioneStimaCaratheodory}
-		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)=\mu\left(\bigsqcup_{n\in\mathbb N} A\cap F_n\right)\le
-		\sum_{n\in\mathbb N} \mu(A\cap F_n)
+		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)=\mu\left(\bigsqcup_{n\in\N} A\cap F_n\right)\le
+		\sum_{n\in\N} \mu(A\cap F_n)
 	\end{equation}
 	mentre, grazie alla monotonia e a \cref{IdentitaDifferenzaCaratheodory} otteniamo:
 	\begin{equation}\label{DifferenzaStimaCaratheodory}
-		\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\mathbb N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
+		\mu\left(A\setminus\bigcup_{n\in\N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
 		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
 	\end{equation}
 	
 	Ora unendo \cref{IntersezioneStimaCaratheodory,DifferenzaStimaCaratheodory} giungiamo ad avere che, per ogni $m\in\mathbb{N}$:
 	\begin{equation*}
-		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) 
 	\end{equation*}
-	ma per la convergenza di $\sum_{n\in \mathbb N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arriviamo a:
+	ma per la convergenza di $\sum_{n\in \N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arriviamo a:
 	\begin{equation*}
-		\mu\left(A\cap\bigcup_{n\in\mathbb N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\mathbb N} E_n\right)\le
+		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)
 	\end{equation*}
-	che unita a \cref{DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\mathbb N}E_n\in\mathcal A$ che equivale a dire che $\mathcal A$ è una \sigalg{}.
+	che unita a \cref{DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale a dire che $\A$ è una \sigalg{}.
 	
-	Dimostrare che $\mu$ è \sigadd{} su $\mathcal A$ è ora molto facile.
-	Consideriamo $(E_n)_{n\in\mathbb N}\subset \mathcal A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
+	Dimostrare che $\mu$ è \sigadd{} su $\A$ è ora molto facile.
+	Consideriamo $(E_n)_{n\in\N}\subset \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
 	\begin{equation*}
 		\mu\left(\bigsqcup_{n\le m}E_n\right)=\sum_{n\le m} \mu(E_n)
 	\end{equation*}
 	e applicando questa e la monotonia di $\mu$ risulta:
 	\begin{equation*}
 		\sum_{n\le m} \mu(E_n)=\mu\left(\bigsqcup_{n\le m}E_n\right)\le
-		\mu\left(\bigsqcup_{n\in\mathbb N}E_n\right)\le \sum_{n\in\mathbb N} \mu(E_n)
+		\mu\left(\bigsqcup_{n\in\N}E_n\right)\le \sum_{n\in\N} \mu(E_n)
 	\end{equation*}
-	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\mathcal A$.
+	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\A$.
 	
-	Infine per dimostrare la completezza di $\mu|_{\mathcal A}$ basta mostrare che dato $E\in\mathcal P(X)$ trascurabile, vale $E\in\mathcal A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
+	Infine per dimostrare la completezza di $\mu|_{\A}$ basta mostrare che dato $E\in\mathcal P(X)$ trascurabile, vale $E\in\A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
 	
 	Fissato un generico $A\in\mathcal P(X)$, risulta per la monotonia di $\mu$:
 	\begin{equation*}
@@ -85,14 +85,14 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation*}
 		\mu(A)=\mu(A\cap N)+\mu(A\setminus N)
 	\end{equation*}
-	che è proprio la condizione di appartenenza ad $\mathcal A$.
+	che è proprio la condizione di appartenenza ad $\A$.
 \end{proof}
 
 \begin{proposition}\label{MisuraEsternaDiPremisura}
 	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
 	\begin{equation*}
-		\mu^*(A)=\inf\left\{\sum_{n\in\mathbb N} A_n\ |\ (A_n)_{n\in\mathbb N}\subseteq\mathcal S\ \wedge
-		\ A\subseteq\bigcup_{n\in\mathbb N}A_n\right\}
+		\mu^*(A)=\inf\left\{\sum_{n\in\N} A_n\ |\ (A_n)_{n\in\N}\subseteq\mathcal S\ \wedge
+		\ A\subseteq\bigcup_{n\in\N}A_n\right\}
 	\end{equation*}
 	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_{\mathcal S}=\mu$) ed inoltre $\mathcal S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{RiduzionePreCaratheodory}).
 \end{proposition}
@@ -102,7 +102,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\mathbb N}\in \mathcal S$ un ricoprimento di $S$
+	Dato $S\in\mathcal S$ vale ovviamente $\mu*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\N}\in \mathcal S$ un ricoprimento di $S$
 	
 	Ora perciò resta da dimostrare che se $E\subseteq \mathcal S$ allora per ogni $A\in\mathcal P(X)$ risulta:
 	\begin{equation}\label{MisuraEsternaDisDifficile}
@@ -110,24 +110,24 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\end{equation}
 	Questo è sufficiente ad avere che $\mathcal S$ è contenuto nella \sigalg{} di Caratheodory poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
-	Dato $(A_n)_{n\in\mathbb N}\subseteq\mathcal S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\mathbb N},(C_n)_{n\in\mathbb N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\mathcal S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\mathbb N},(C'^n_i)_{i\in\mathbb N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\mathbb N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\mathbb N}, (C'^n_i)_{n,i\in\mathbb N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
+	Dato $(A_n)_{n\in\N}\subseteq\mathcal S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\N},(C_n)_{n\in\N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\mathcal S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\N},(C'^n_i)_{i\in\N} \subseteq \mathcal S$ tali che $B_n=\bigsqcup_{i\in\N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\N}, (C'^n_i)_{n,i\in\N}$ risultano ricoprimenti con elementi di $\mathcal S$ di $A\cap E,A\setminus E$ rispettivamente.
 	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludo:
 	\begin{align*}
-		\sum_{n\in\mathbb N}\mu(A_n)=\sum_{n\in\mathbb N} \mu(B_n)+\mu(C_n)&=
-		\sum_{n\in\mathbb N}\sum_{i\in\mathbb N}\mu(B'^n_i)+\mu(C'^n_i)\\
+		\sum_{n\in\N}\mu(A_n)=\sum_{n\in\N} \mu(B_n)+\mu(C_n)&=
+		\sum_{n\in\N}\sum_{i\in\N}\mu(B'^n_i)+\mu(C'^n_i)\\
 		&=
-		\sum_{n,i\in\mathbb N}\mu(B'^n_i)+\sum_{n,i\in\mathbb N}\mu(C'^n_i)\ge \mu(A\cap E)+\mu(A\setminus E)
+		\sum_{n,i\in\N}\mu(B'^n_i)+\sum_{n,i\in\N}\mu(C'^n_i)\ge \mu(A\cap E)+\mu(A\setminus E)
 	\end{align*}
 	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 
 \begin{theorem}[Estensione di Caratheodory]\label{EstensionexCaratheodory}
-	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\mathcal A$ e una funzione $\mu':\mathcal A\to\Rpiu$ tali che $\mathcal S\subseteq \mathcal A$, $\mu'$ estende la premisura $\mu$ e $(X,\mathcal A,\mu')$ è uno spazio di misura completo.
+	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\mathcal S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
 	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Sempre \cref{MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
 	
-	Possiamo ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura completa $\mu':\mathcal A\to\Rpiu$ dove $\mathcal A$ è la \sigalg{} di Caratheodory. 
+	Possiamo ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura completa $\mu':\A\to\Rpiu$ dove $\A$ è la \sigalg{} di Caratheodory. 
 	
-	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\mathcal S\subseteq\mathcal A$ e inoltre vale $\mu'|_{\mathcal S}=\mu^*|_{\mathcal S}=\mu$, perciò lo spazio $(X,\mathcal A,\mu')$ rispetta tutte le richieste dell'enunciato.
+	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\mathcal S\subseteq\A$ e inoltre vale $\mu'|_{\mathcal S}=\mu^*|_{\mathcal S}=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
