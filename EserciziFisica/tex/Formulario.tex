@@ -275,14 +275,14 @@ Sia $\vec x_0$ un punto di minimo del potenziale.
 Per ipotesi di regolarità (tutte da decidere...) si riesce a ricavare che, considerando per comodità $\vec y=\vec x-\vec x_0$, sia $T$ che $U$ sono (in approssimazione al second'ordine centrato in $\vec x_0$) delle forme quadratiche. 
 Allora, semplicemente scrivendo quanto appena detto in forma matriciale, esistono delle matrici, che chiamerò $K,M$ per analogia col caso unidimensionale, tali che valgono:
 \begin{align*}
-	T &= \frac 12\dot{\vec{y}}^T K \dot{\vec{y}} \\
-	U &= \frac 12\vec{y}^T M \vec y
+	T &= \frac 12\dot{\vec{y}}^T M \dot{\vec{y}} \\
+	U &= \frac 12\vec{y}^T K \vec y
 \end{align*}
 dove inoltre scelgo $K,M$ simmetriche (posso sceglierle simmetriche). Inoltre ancora per strani motivi $K,M$ risultano rispettivamente semidefinita e definita positiva.
 
 Sostituendo quest'ultime nella formula dell'energia \cref{opgl:EnergiaBrutta} ricavo:
 \begin{equation}\label{opgl:Energia}
-	E=\frac 12\dot{\vec{y}}^T K \dot{\vec{y}} + \frac 12\vec{y}^T M \vec y
+	E=\frac 12\dot{\vec{y}}^T M \dot{\vec{y}} + \frac 12\vec{y}^T K \vec y
 \end{equation}
 
 Da questa, sempre con qualche passaggio pindarico misterioso, si arriva alla differenziale lineare omogenea:
