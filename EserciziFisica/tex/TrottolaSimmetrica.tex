@@ -23,11 +23,11 @@ Per la definizione di tensore di inerzia \cref{ten:MomentoAngolare}, rispetto ag
 \end{equation}
 e derivando quest'ultima rispetto al tempo, sfruttando \cref{OmegaSferiche} arrivo a:
 \begin{equation*}
-	\dot{\overrightarrow M}= I_i\left(\omega'_i\hat\iota + \omega_i\omega\times \hat\iota\right)
+	\dot{\overrightarrow M}= I_i\left(\omega'_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right)
 \end{equation*}
 ora applico \cref{mlts:EqCardinale} e arrivo a
 \begin{equation}\label{mlts:Fondamentale}
-	0=I_i\left(\omega'_i\hat\iota + \omega_i\omega\times \hat\iota\right) =
+	0=I_i\left(\omega'_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right) =
 	\sum_{cyc} \left( I_x\omega'_x+\omega_y\omega_z(I_z-I_y) \right)\hat x
 \end{equation}
 dove nell'ultima uguaglianza ho semplicemente fatto i conti e raccolto per coordinata.
@@ -57,11 +57,11 @@ e chiamando $z=\omega_x+i\omega_y$ arrivo ad una differenziale di variabile comp
 \begin{equation*}
 	z'=ikz \Rightarrow z=A\cdot e^{ikt+\varphi}
 \end{equation*}
-dove $A,\phi$ sono costanti che dipendono dai dati iniziali. E questo, tornando in coordinate $\hat x,\hat y$ implica che:
+dove $A,\varphi$ sono costanti che dipendono dai dati iniziali. E questo, tornando in coordinate $\hat x,\hat y$ implica che:
 \begin{equation}\label{mlts:MotoOmega}
 	(\omega_x,\omega_y)=A(\cos(kt+\varphi),\sin(kt+\varphi))
 \end{equation}
-da cui ottengo che $\omega$ compie una rotazione di pulsazione $k$ intorno all'asse $\hat z$.
+da cui ottengo che $\vec\omega$ compie una rotazione di pulsazione $k$ intorno all'asse $\hat z$.
 
 Inoltre, sfruttando \cref{mlts:MomentoComponenti}, riesco anche ad ottenere la seguente identità:
 \begin{equation}\label{mlts:Complanarita}
@@ -73,5 +73,5 @@ che dimostra che $\overrightarrow{M},\vec\omega,\hat z$ sono complanari. Poichè
 
 Unendo quanto appena detto e che $\vec\omega$ ruota intorno a $\hat z$ con pulsazione $k$ ottengo che sia $\omega$ che $\hat z$ ruotano in modo fisso intorno a $\vec M$ che è costante per $\cref{mlts:EqCardinale}$ con pulsazione $k=\omega_z\dfrac{I_z-I_0}{I_0}$ \emph{rispetto al sistema rotante} degli assi principali della trottola.
 
-Questo moto è detto \emph{Nutazioni di Eulero} e si applica anche alla terra se la si considera un ellissoide schiacciato ai poli.
+Questo moto è detto \emph{nutazioni di Eulero} e si applica anche alla Terra se la si considera un ellissoide schiacciato ai poli.
 \end{document}
