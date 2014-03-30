@@ -10,31 +10,31 @@ Studiare il moto libero (cioè in assenza di forze esterne) di una trottola simm
 \solution
 Lavoro nel centro di massa del corpo (è chiaro che il moto traslatorio di questo non è interessante ai fini del problema ed è a velocità costante visto che non agiscono forze esterne).
 
-Chiamo $\overrightarrow M$ il momento angolare del corpo e $\vec{\omega}$ l'asse di rotazione istantaneo. Inoltre sfrutterò la notazione di Einstein per le sommatorie, e tutti gli indici varieranno su $x,y,z$.
+Chiamo $\vec L$ il momento angolare del corpo e $\vec{\omega}$ l'asse di rotazione istantaneo. Inoltre sfrutterò la notazione di Einstein per le sommatorie, e tutti gli indici varieranno su $x,y,z$.
 
 Per la seconda equazione cardinale della dinamica, poichè sul corpo non agiscono forze esterne, ho che vale:
 \begin{equation}\label{mlts:EqCardinale}
-	0=\dot{\overrightarrow M}
+	0=\dot{\vec L}
 \end{equation}
 
 Per la definizione di tensore di inerzia \cref{ten:MomentoAngolare}, rispetto agli assi principali, ho anche che vale:
 \begin{equation}\label{mlts:MomentoComponenti}
-	\overrightarrow M = I_i\omega_i \hat\iota
+	\vec L = I_i\omega_i \hat\iota
 \end{equation}
 e derivando quest'ultima rispetto al tempo, sfruttando \cref{OmegaSferiche} arrivo a:
 \begin{equation*}
-	\dot{\overrightarrow M}= I_i\left(\omega'_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right)
+	\dot{\vec L}= I_i\left(\dot\omega_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right)
 \end{equation*}
 ora applico \cref{mlts:EqCardinale} e arrivo a
 \begin{equation}\label{mlts:Fondamentale}
-	0=I_i\left(\omega'_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right) =
-	\sum_{cyc} \left( I_x\omega'_x+\omega_y\omega_z(I_z-I_y) \right)\hat x
+	0=I_i\left(\dot\omega_i\hat\iota + \omega_i\vec\omega\times \hat\iota\right) =
+	\sum_{cyc} \left( I_x\dot\omega_x+\omega_y\omega_z(I_z-I_y) \right)\hat x
 \end{equation}
 dove nell'ultima uguaglianza ho semplicemente fatto i conti e raccolto per coordinata.
 
 Guardando la \cref{mlts:Fondamentale} rispetto alla coordinata $\hat z$ ottengo:
 \begin{equation*} 
-	0=I_z\omega'_z+\omega_x\omega_y(I_y-I_x)=I_z\omega'_z\Rightarrow \omega'_z=0
+	0=I_z\dot\omega_z+\omega_x\omega_y(I_y-I_x)=I_z\dot\omega_z\Rightarrow \dot\omega_z=0
 \end{equation*}
 quindi ottengo $\omega_z$ costante.
 
@@ -42,20 +42,20 @@ Chiamo $\alpha=\dfrac{I_z}{I_0}$ e $k=\omega_z(\alpha-1)$. Per quanto appena det
 
 Guardo la \cref{mlts:Fondamentale} rispetto alla coordinata $\hat x$ e ottengo:
 \begin{equation}\label{mlts:x}
-	0=I_x\omega'_x+\omega_y\omega_z(I_z-I_x)\Rightarrow 0=\omega'_x+k\omega_y
+	0=I_x\dot\omega_x+\omega_y\omega_z(I_z-I_x)\Rightarrow 0=\dot\omega_x+k\omega_y
 \end{equation}
 e analogamente, solo guardando la coordinata $\hat y$ ottengo:
 \begin{equation}\label{mlts:y}
-	0=I_y\omega'_y+\omega_z\omega_x(I_x-I_z)\Rightarrow 0=\omega'_y-k\omega_x
+	0=I_y\dot\omega_y+\omega_z\omega_x(I_x-I_z)\Rightarrow 0=\dot\omega_y-k\omega_x
 \end{equation}
 
 Ora sommo la \cref{mlts:x} alla \cref{mlts:y} moltiplicata per $i$ ottenendo:
 \begin{equation*}
-	0=\omega'_x+k\omega_y+i(\omega'_y-k\omega_x)=(\omega_x+i\omega_y)'-ik(\omega_x+i\omega_y)
+	0=\dot\omega_x+k\omega_y+i(\dot\omega_y-k\omega_x)=\frac{\de}{\de t}(\omega_x+i\omega_y)-ik(\omega_x+i\omega_y)
 \end{equation*}
 e chiamando $z=\omega_x+i\omega_y$ arrivo ad una differenziale di variabile complessa facile da risolvere:
 \begin{equation*}
-	z'=ikz \Rightarrow z=A\cdot e^{ikt+\varphi}
+	\dot z=ikz \Rightarrow z=A\cdot e^{ikt+\varphi}
 \end{equation*}
 dove $A,\varphi$ sono costanti che dipendono dai dati iniziali. E questo, tornando in coordinate $\hat x,\hat y$ implica che:
 \begin{equation}\label{mlts:MotoOmega}
@@ -65,13 +65,13 @@ da cui ottengo che $\vec\omega$ compie una rotazione di pulsazione $k$ intorno a
 
 Inoltre, sfruttando \cref{mlts:MomentoComponenti}, riesco anche ad ottenere la seguente identità:
 \begin{equation}\label{mlts:Complanarita}
-	\overrightarrow M = M_i\hat\iota = I_i \omega_i\hat\iota= 
+	\vec L = L_i\hat\iota = I_i \omega_i\hat\iota= 
 	I_0\left(\omega_x\hat x+\omega_y\hat y+\omega_z\hat z\right)+(I_z-I_0)\omega_z \hat z=
 	I_0\vec\omega + (I_z-I_0)\omega_z \hat z
 \end{equation}
-che dimostra che $\overrightarrow{M},\vec\omega,\hat z$ sono complanari. Poichè $\vec M$ ha modulo costante per \cref{mlts:EqCardinale} e anche $\hat z$ ha ovviamente modulo costante ed inoltre i coefficienti della composizione sono costanti ($\omega_z$ è una costante del moto) ottengo anche che visti nel piano che li contiene i tre vettori $\overrightarrow M, \vec\omega, \hat z$ sono fissi.
+che dimostra che $\vec L,\vec\omega,\hat z$ sono complanari. Poichè $\vec L$ ha modulo costante per \cref{mlts:EqCardinale} e anche $\hat z$ ha ovviamente modulo costante ed inoltre i coefficienti della composizione sono costanti ($\omega_z$ è una costante del moto) ottengo anche che visti nel piano che li contiene i tre vettori $\vec L, \vec\omega, \hat z$ sono fissi.
 
-Unendo quanto appena detto e che $\vec\omega$ ruota intorno a $\hat z$ con pulsazione $k$ ottengo che sia $\omega$ che $\hat z$ ruotano in modo fisso intorno a $\vec M$ che è costante per $\cref{mlts:EqCardinale}$ con pulsazione $k=\omega_z\dfrac{I_z-I_0}{I_0}$ \emph{rispetto al sistema rotante} degli assi principali della trottola.
+Unendo quanto appena detto e che $\vec\omega$ ruota intorno a $\hat z$ con pulsazione $k$ ottengo che sia $\omega$ che $\hat z$ ruotano in modo fisso intorno a $\vec L$ che è costante per $\cref{mlts:EqCardinale}$ con pulsazione $k=\omega_z\dfrac{I_z-I_0}{I_0}$ \emph{rispetto al sistema rotante} degli assi principali della trottola.
 
 Questo moto è detto \emph{nutazioni di Eulero} e si applica anche alla Terra se la si considera un ellissoide schiacciato ai poli.
 \end{document}
