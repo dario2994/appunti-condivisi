@@ -46,45 +46,45 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \end{proof}
 
 \begin{definition}[\Semiring{}]
-	Una famiglia $\mathcal S\subseteq \mathcal P(X)$ è detta \semiring{} se valgono le seguenti proprietà:
+	Una famiglia $\S\subseteq \mathcal P(X)$ è detta \semiring{} se valgono le seguenti proprietà:
 	\begin{itemize}
-		\item $\emptyset\in \mathcal S$
-		\item $\displaystyle\forall A,B\in \mathcal S: A\cap B, A\setminus B\in \sqcup \mathcal S$ dove
+		\item $\emptyset\in \S$
+		\item $\displaystyle\forall A,B\in \S: A\cap B, A\setminus B\in \sqcup \S$ dove
 		$\displaystyle
-		\sqcup{ \mathcal S }=\left\{\bigsqcup_{n\in \N} S_n\ |\ (S_n)_{n\in\N} \subseteq \mathcal S \wedge \forall i\not= j:\ S_i\cap S_j=\emptyset\right\}$ 
+		\sqcup{ \S }=\left\{\bigsqcup_{n\in \N} S_n\ |\ (S_n)_{n\in\N} \subseteq \S \wedge \forall i\not= j:\ S_i\cap S_j=\emptyset\right\}$ 
 		cioè un \semiring{} non deve essere stabile per intersezione e differenza, ma queste si devono scrivere come unioni disgiunte.
 	\end{itemize}
 \end{definition}
 
 \begin{proposition}\label{UnioneDisgiuntaQuasiAlgebra}
-	Dato un \semiring{} $\mathcal S$ l'insieme $\sqcup\mathcal S$ è stabile per intersezione finita e unione numerabile.
+	Dato un \semiring{} $\S$ l'insieme $\sqcup\S$ è stabile per intersezione finita e unione numerabile.
 \end{proposition}
 \begin{proof}
-	Notiamo intanto che, per definizione, $\sqcup\mathcal S$ è stabile per unione disgiunta numerabile.
+	Notiamo intanto che, per definizione, $\sqcup\S$ è stabile per unione disgiunta numerabile.
 	
-	Per dimostrare la stabilità di $\sqcup\mathcal S$ per intersezione finita, basta ovviamente farlo per due soli insiemi $A,B\in\sqcup\mathcal S$. Per definizione possiamo scrivere $A=\bigsqcup_{n\in\N} A_n, B=\bigsqcup_{n\in\N} B_n$ dove $(A_n)_{n\in\N},(B_n)_{n\in\N}$ sono successioni in $\mathcal S$. Allora vale la seguente identità:
+	Per dimostrare la stabilità di $\sqcup\S$ per intersezione finita, basta ovviamente farlo per due soli insiemi $A,B\in\sqcup\S$. Per definizione possiamo scrivere $A=\bigsqcup_{n\in\N} A_n, B=\bigsqcup_{n\in\N} B_n$ dove $(A_n)_{n\in\N},(B_n)_{n\in\N}$ sono successioni in $\S$. Allora vale la seguente identità:
 	\begin{equation*}
 		A\cap B=\bigsqcup_{n\in\N} A_n\cap\bigsqcup_{n\in\N} B_n=
-		\bigsqcup_{n,m\in\N} A_n\cap B_m\in\sqcup\mathcal S
+		\bigsqcup_{n,m\in\N} A_n\cap B_m\in\sqcup\S
 	\end{equation*}
-	dove nell'ultimo passaggio è stata usata la stabilità di $\sqcup\mathcal S$ per unione disgiunta.
+	dove nell'ultimo passaggio è stata usata la stabilità di $\sqcup\S$ per unione disgiunta.
 	
-	Per l'unione, consideriamo $A,B\in\mathcal S$. Poiché vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\mathcal S$. Da questo è facile ottenere che anche unioni finite di elementi di $\mathcal S$ appartengono a $\sqcup\mathcal S$.
+	Per l'unione, consideriamo $A,B\in\S$. Poiché vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\S$. Da questo è facile ottenere che anche unioni finite di elementi di $\S$ appartengono a $\sqcup\S$.
 	
-	Sfruttando quanto detto, fissata $(A_n)_{n\in\N}\subseteq\mathcal S$ vale:
+	Sfruttando quanto detto, fissata $(A_n)_{n\in\N}\subseteq\S$ vale:
 	\begin{equation}\label{UnioneNumerabileDaS}
 		\bigcup_{n\in\N} A_n=\bigsqcup_{n\in\N} A_n\setminus\cup_{i<n} A_i
-		=\bigsqcup_{n\in\N} \bigcap_{i<n} (A_n\setminus A_i)\in\sqcup\mathcal S
+		=\bigsqcup_{n\in\N} \bigcap_{i<n} (A_n\setminus A_i)\in\sqcup\S
 	\end{equation}
-	dove nell'ultimo passaggio abbiamo applicato la stabilità di $\sqcup\mathcal S$ per unione disgiunta e intersezione finita.
+	dove nell'ultimo passaggio abbiamo applicato la stabilità di $\sqcup\S$ per unione disgiunta e intersezione finita.
 	
-	E infine dimostriamo la stabilità di $\sqcup\mathcal S$ per unioni numerabili. Sia $(S_n)_{n\in\N}$ una successione in $\sqcup\mathcal S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\N}\subseteq \mathcal S$ tali che $S_n=\bigsqcup_{i\in\N} A^n_i$.
+	E infine dimostriamo la stabilità di $\sqcup\S$ per unioni numerabili. Sia $(S_n)_{n\in\N}$ una successione in $\sqcup\S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\N}\subseteq \S$ tali che $S_n=\bigsqcup_{i\in\N} A^n_i$.
 	
 	Allora applicando \cref{UnioneNumerabileDaS} otteniamo:
 	\begin{equation*}
-		\bigcup_{n\in\N}S_n=\bigcup_{i,n\in\N}A^n_i\in\sqcup\mathcal S 
+		\bigcup_{n\in\N}S_n=\bigcup_{i,n\in\N}A^n_i\in\sqcup\S 
 	\end{equation*}
-	che è proprio la stabilità di $\sqcup\mathcal S$ per unioni numerabili.
+	che è proprio la stabilità di $\sqcup\S$ per unioni numerabili.
 \end{proof}
 
 \begin{definition}[{\sigadd[ità]}]
@@ -135,7 +135,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 
 
 \begin{definition}\label{TrascurabiliMisura}
-	In uno spazio di misura (o anche in ipotesi più deboli come premisura o misura esterna) un insieme con misura nulla è detto trascurabile.
+	In uno spazio di misura un insieme con misura nulla è detto trascurabile.
 \end{definition}
 \begin{remark}\label{UnioneTrascurabili}
 	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
@@ -144,16 +144,21 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	È un'ovvia conseguenza della \sigsubadd[ità] della misura dimostrata in \cref{SubAdditivitaMisura}.
 \end{proof}
 
-
-
-
 \begin{definition}\label{FinitezzaMisura}
 	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $X\in\mathcal{A}$ e $\mu(X)<+\infty$.
+\end{definition}
+
+\begin{definition}\label{SigmaFinitezzaMisura}
+	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è detta \sigfin{} se esiste una famiglia numerabile $(A_n)_{n\in\N}\subseteq \A$ tale che l'unione sia $X$ e inoltre $\mu(A_n)<+\infty$ per ogni $n\in\N$.
 \end{definition}
 
 \begin{definition}\label{CompletezzaMisura}
 	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ si dice completa se per ogni $A\in\A$ tale che $\mu(A)=0$, ogni suo sottoinsieme è anch'esso appartenente ad $\A$.
 \end{definition}
+
+\begin{remark}
+	Le defizioni appena date (\cref{TrascurabiliMisura,FinitezzaMisura,SigmaFinitezzaMisura,CompletezzaMisura}) si estendono anche agli spazi, che definiremo tra poco, che sono muniti di misure elementari o di misure esterne. Inoltre le qualità di finitezza, \sigfin[ezza] e completezza si riferiranno, col medesimo significato, sia alla misura che allo spazio. 
+\end{remark}
 
 \begin{proposition}\label{CompletamentoMisura}
 	Dato uno spazio di misura $(X,\A,\mu)$, chiamo $\mu$-completamento di $\A$ l'insieme $\A^*$ formato dagli elementi di $\A$ uniti con un sottoinsieme di un trascurabile:
@@ -246,18 +251,18 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \end{proof}
 
 \begin{definition}
-	Una terna $(X,\mathcal S,\mu)$ tale che $\mathcal S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\mathcal S\to \Rpiu$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
+	Una terna $(X,\S,\mu)$ tale che $\S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\S\to \Rpiu$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
 \end{definition}
 
 \begin{lemma}\label{CoerenzaPremisura}
-	Fissato $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $(A_n)_{n\in\N},(B_n)_{n\in\N}\subseteq\mathcal S$ delle famiglie tali che l'unione sia la stessa, ma i $(B_n)_{n\in\N}$ siano disgiunti a due a due: $\bigcup_{n\in\N}A_n=\bigsqcup_{n\in\N}B_n$.
+	Fissato $(X,\S,\mu)$ uno spazio di misura elementare, siano $(A_n)_{n\in\N},(B_n)_{n\in\N}\subseteq\S$ delle famiglie tali che l'unione sia la stessa, ma i $(B_n)_{n\in\N}$ siano disgiunti a due a due: $\bigcup_{n\in\N}A_n=\bigsqcup_{n\in\N}B_n$.
 	Allora risulta $\sum_{n\in\N}\mu(A_n)\ge \sum_{n\in\N}\mu(B_n)$.
 \end{lemma}
 \begin{proof}
-	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \mathcal S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \mathcal S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\N}$.
-	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\mathcal S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\mathcal S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\N}\subseteq\mathcal S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
+	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \S$ è chiuso per intersezione finita, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\N}$.
+	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\N}\subseteq\S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
-	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\mathcal S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\mathcal S$ la cui unione disgiunta realizza $C_{ij}$.
+	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono:
 	\begin{align*}
@@ -281,7 +286,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 
 
 \begin{lemma}\label{PiuCheMonotonaPremisura}
-	Dato $(X,\mathcal S,\mu)$ uno spazio di misura elementare, siano $A,(A_n)_{n\in\N}\subseteq \mathcal S$ tali che $A\subseteq\bigcup_{n\in\N}A_n$.
+	Dato $(X,\S,\mu)$ uno spazio di misura elementare, siano $A,(A_n)_{n\in\N}\subseteq \S$ tali che $A\subseteq\bigcup_{n\in\N}A_n$.
 	Allora vale $\mu(A)\le \sum_{n\in\N}\mu(A_n)$.
 \end{lemma}
 \begin{proof}
@@ -289,7 +294,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\begin{equation}\label{ScritturaDecenteUnionePremisura}
 		\bigcup_{n\in\N}A_n=A\sqcup\bigcup_{n\in\N}A_n\setminus A
 	\end{equation}
-	Poiché $\mathcal S$ è un \semiring{} $A_n\setminus A\in \sqcup \mathcal S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\N}\subseteq\mathcal S$ disgiunta tale che $\bigcup_{n\in\N}A_n\setminus A=\bigsqcup_{n\in\N}B_n$.
+	Poiché $\S$ è un \semiring{} $A_n\setminus A\in \sqcup \S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\N}\subseteq\S$ disgiunta tale che $\bigcup_{n\in\N}A_n\setminus A=\bigsqcup_{n\in\N}B_n$.
 	Allora sostituendo in \cref{ScritturaDecenteUnionePremisura} si ottiene:
 	\begin{equation*}
 		\bigcup_{n\in\N}A_n=A\sqcup\bigsqcup_{n\in\N}B_n
