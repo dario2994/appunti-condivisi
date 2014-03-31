@@ -30,7 +30,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 
 
 \begin{definition}[\sigalg{}]
-	Dato un insieme $X$, una famiglia $\A\subseteq\mathcal P (X)$ si dice \sigalg{} se valgono:
+	Dato un insieme $X$, una famiglia $\A\subseteq\mathcal P(X)$ si dice \sigalg{} se valgono:
 	\begin{itemize}
 	\item $\emptyset\in \A$
 	\item $\forall A\in \A:\ A^c\in \A$ cioè una \sigalg{} è stabile per passaggio al complementare.
@@ -44,6 +44,22 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \begin{proof}
 	Si dimostrano entrambe le proprietà in modo del tutto analogo a come abbiamo dimostrato \cref{ProprietaAlg}.
 \end{proof}
+
+\begin{proposition}\label{SigmaAlgGenerata}
+	Dato un insieme $X$, sia $\mathcal F\subseteq\mathcal P(X)$ una famiglia di sottinsiemi di $X$.
+	
+	Allora esiste la più \emph{piccola} (cioè contenuta in ogni altra) \sigalg{} contenente la famiglia $\mathcal F$, che viene detta \sigalg{} generata da $\mathcal F$ e si indica con $\sigma A(\mathcal F)$.
+\end{proposition}
+\begin{proof}
+	Consideriamo l'insieme $\mathcal I$ contenente tutte le \sigalg[e] $\A$ tali che $\mathcal F\subseteq \A \subseteq \mathcal P(X)$.
+	L'insieme $\mathcal I$ è non vuoto poichè ovviamente $\mathcal P(X)\in\mathcal I$.
+	
+	Sia $\mathscr B=\bigcap_{\A\in\mathcal I} \A$.
+	Vale che $\mathcal F\subseteq \mathscr B$ visto che appartiene ad ogni insieme in $\mathcal I$ e tale insieme è non vuoto.
+	
+	È di banale verifica che intersezione di \sigalg[e] è ancora una \sigalg{}, perciò $\mathscr B$ risulta essere una \sigalg{} contenente $\mathcal F$. Ma $\mathscr B$ è definita come l'intersezione di tutte le \sigalg{} contenenti $\mathcal F$, quindi è la più piccola e la tesi è dimostrata.
+\end{proof}
+
 
 \begin{definition}[\Semiring{}]
 	Una famiglia $\S\subseteq \mathcal P(X)$ è detta \semiring{} se valgono le seguenti proprietà:
@@ -93,13 +109,6 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\mu\left(\bigcup_{n\in\N}F_n \right)=\sum_{n\in\N} \mu(F_n) 
 	\end{equation*}
 \end{definition}
-\begin{remark}
-	Data $\mu:\mathcal F\to \Rpiu$ \sigadd{}, se $\emptyset\in \mathcal F$ allora $\mu(\emptyset)=0$
-\end{remark}
-\begin{proof}
-	Usando la proprietà di \sigadd[ità] si ottiene $\mu(\emptyset)=\mu(\emptyset)+\mu(\emptyset)$ che porta ovviamente alla tesi.
-\end{proof}
-
 
 \begin{definition}[Spazio di misura]
 	Dati $X$ un insieme, $\A$ una famiglia di sottoinsiemi di $X$ e $\mu:\A\to \Rpiu$ una funzione, la terna $(X,\A, \mu)$ si dice uno spazio di misura se:
@@ -157,7 +166,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 \end{definition}
 
 \begin{remark}
-	Le defizioni appena date (\cref{TrascurabiliMisura,FinitezzaMisura,SigmaFinitezzaMisura,CompletezzaMisura}) si estendono anche agli spazi, che definiremo tra poco, che sono muniti di misure elementari o di misure esterne. Inoltre le qualità di finitezza, \sigfin[ezza] e completezza si riferiranno, col medesimo significato, sia alla misura che allo spazio. 
+	Le definizioni appena date (\cref{TrascurabiliMisura,FinitezzaMisura,SigmaFinitezzaMisura,CompletezzaMisura}) si estendono anche agli spazi, che definiremo tra poco, che sono muniti di misure elementari o di misure esterne. Inoltre le qualità di finitezza, \sigfin[ezza] e completezza si riferiranno, col medesimo significato, sia alla misura che allo spazio. 
 \end{remark}
 
 \begin{proposition}\label{CompletamentoMisura}

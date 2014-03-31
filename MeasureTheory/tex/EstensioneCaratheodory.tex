@@ -121,7 +121,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 
-\begin{theorem}[Estensione di Caratheodory]\label{EstensionexCaratheodory}
+\begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
@@ -133,15 +133,15 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 \begin{proposition}
-	Sia $(X,\S,\mu)$ una spazio di misura elementare $\sigma$-finito e sia $\A$ la \sigalg{} di Caratheodory, con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+	Dato $(X,\S,\mu)$ una spazio di misura elementare $\sigma$-finito, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Scelto $A\in\mathcal P(X)$, le seguenti affermazioni sono equivalenti:
 	\begin{enumerate}
 		\item $A\in\A$ cioè l'insieme è un misurabile (secondo Caratheodory).
-		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu'(S\setminus A)<\epsilon$.
-		\item Esiste $B\in\sigma A(S)$ che $B$ che contiene $A$ e tale che $\mu'(B\setminus A)=0$.
-		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che è contenuto in $A$ e tale che $\mu'(A\setminus S)<\epsilon$.
-		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu'(A\setminus B)=0$.
+		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu^*(S\setminus A)<\epsilon$.
+		\item Esiste $B\in\sigma A(S)$ che $B$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
+		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che è contenuto in $A$ e tale che $\mu^*(A\setminus S)<\epsilon$.
+		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
