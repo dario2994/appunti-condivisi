@@ -132,18 +132,66 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
 
+
 \begin{proposition}
 	Dato $(X,\S,\mu)$ una spazio di misura elementare $\sigma$-finito, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Scelto $A\in\mathcal P(X)$, le seguenti affermazioni sono equivalenti:
-	\begin{enumerate}
-		\item $A\in\A$ cioè l'insieme è un misurabile (secondo Caratheodory).
-		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu^*(S\setminus A)<\epsilon$.
-		\item Esiste $B\in\sigma A(S)$ che $B$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
-		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che è contenuto in $A$ e tale che $\mu^*(A\setminus S)<\epsilon$.
-		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.
+	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+		\item $A\in\A$ cioè l'insieme è un misurabile (secondo Caratheodory).\label{MisurabileEquivalenze}
+		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu^*(S\setminus A)<\epsilon$.\label{UnioniDaFuoriEquivalenze}
+		\item Esiste $B\in\sigma A(S)$ che $B$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.\label{SigmaDaFuoriEquivalenze}
+		\item Fissato $\epsilon>0$ esiste $S$ contenuto in $A$ tale che $S^c\in\sqcup\S$  e $\mu^*(A\setminus S)<\epsilon$.\label{UnioniDaDentroEquivalenze}
+		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.\label{SigmaDaDentroEquivalenze}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
+	Dimostriamo innanzitutto la catena di implicazioni
+	$\text{\ref{MisurabileEquivalenze}}\implies
+	\text{\ref{UnioniDaFuoriEquivalenze}}\implies
+	\text{\ref{SigmaDaFuoriEquivalenze}}\implies
+	\text{\ref{MisurabileEquivalenze}}$.
+	\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
+	\begin{description}
+		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Sia $A$ misurabile e $(X_n)_{n\in\N}\subseteq \S$ una partizione numerabile di $X$ tale che $\mu(A_n)<+\infty$ (questa esiste poichè $\mu$ è \sigfin{}).
+		
+		Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
+		
+		Sia $\epsilon>0$ fissato.
+		
+		Dato $n\in\N$ allora $\mu'(A_n)=\mu^*(A_n)$, ma per la definizione di $\mu^*$ questo implica che esiste $S_n\in\sqcup \S$ tale che $A_n\subseteq S_n$ e tale che valga:
+		\begin{equation*}
+			\mu^*(A_n)\le \mu^*(S_n) \le \mu^*(A_n)+\frac\epsilon{2^n}\Longrightarrow
+			0\le \mu^*(S_n)-\mu^*(A_n)\le \frac\epsilon{2^n}
+		\end{equation*}
+		dove nell'implicazione abbiamo sfruttato $\mu^*(A_n)=\mu'(A_n)<+\infty$.
+		Infine dal fatto che $S_n,A_n$ sono misurabili, per l'addittività della misura, ricaviamo:
+		\begin{equation}\label{DifficileFreccia12Misurabili}
+			0\le \mu'(S_n\setminus A_n) \le \frac\epsilon{2^n} \Longrightarrow \mu^*(S_n\setminus A_n)\le \frac\epsilon{2^n}
+		\end{equation}
+		
+		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato in \cref{UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subaddittività della misura esterna  $\mu^*$, sfruttando \cref{DifficileFreccia12Misurabili}, si ottiene:
+		\begin{equation*}
+			\mu^*(S\setminus A)=\mu^*\left(\bigcup_{n\in\N}S_n\setminus A_n\right)\le
+			\sum_{n\in\N}\mu^*(S_n\setminus A_n)\le\sum_{n\in\N}\frac\epsilon{2^n}\le \epsilon
+		\end{equation*}
+		e questo conclude, visto che $S$ soddisfa tutte le richieste dell'enunciato.
+		\item[\ImplicationProof{UnioniDaFuoriEquivalenze}{SigmaDaFuoriEquivalenze}] L'ipotesi ci assicura l'esistenza di $(S_n)_{n\in\N}\subseteq \sqcup \S$ tali che $A\subseteq S_n$ e $\mu^*(S_n\setminus A)<\frac1n$.
+		
+		Definiamo $B=\cap_{n\in\N}S_n$, che appartiene a $\sigma A(\S)$ poichè generato a partire da $\S$ con sole unioni e intersezioni numerabili. Ovviamente vale $A\subseteq B$.
+		
+		Infine risulta vera la seguente:
+		\begin{equation*}
+			\forall n\in\N:\ \left(B\subseteq B_n\to B\setminus A\subseteq B_n\setminus A\to \mu^*(B\setminus A)\le \mu^*(B_n\setminus A)\le \frac1n\right) \Longrightarrow \mu^*(B\setminus A)=0
+		\end{equation*}
+		e perciò $B$ rispetta tutte le richieste e dimostra l'implicazione cercata.
+		\item[\ImplicationProof{SigmaDaFuoriEquivalenze}{MisurabileEquivalenze}] Per ipotesi esiste $B\in\sigma A(\S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
+		
+		Poichè $\A$ è una \sigalg{} contenente $\S$ e $B\in\sigma A(\S)$, deve essere $B\in\A$. 
+		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione di \cref{RiduzionePreCaratheodory}) quindi anche $B\setminus A\in A$ in quanto è un trascurabile e la misura è completa. 
+		
+		Di conseguenza, visto che $\A$ è una \sigalg, otteniamo che $A=B\setminus (B\setminus A)$ è misurabile in quanto differenza di misurabili. Perciò $A\in\A$ dimostrando l'implicazione.
+	\end{description}
 	
+	Infine basta vedere, sfruttando il passaggio al complementare, che risultano $\text{\ref{UnioniDaFuoriEquivalenze}}\iff\text{\ref{UnioniDaDentroEquivalenze}}$ e $\text{\ref{SigmaDaFuoriEquivalenze}}\iff\text{\ref{SigmaDaDentroEquivalenze}}$ e questo chiude la dimostrazione.
 \end{proof}
