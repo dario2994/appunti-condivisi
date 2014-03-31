@@ -110,11 +110,11 @@ rispetto al tempo e chiamando $\overrightarrow{O'P}=\vec{r}$, ottengo:
 \begin{equation}\label{VelNonInerziale}
 \begin{split}
 	\vec{v}=\dot{\overrightarrow{OP}}	& =\dot{\overrightarrow{OO'}}+\dot{\vec{r}}\\
-													& =\overrightarrow{v_{tr}}+\dot{r}\hat{r}+\vec{\omega}\times\vec{r}\\
+													& =\overrightarrow{v_{tr}}+\frac{\delta \vec r}{\delta t}+\vec{\omega}\times\vec{r}\\
 													& =\overrightarrow{v_{tr}}+\vec{v_r}+\vec{\omega}\times\vec{r}
 \end{split}
 \end{equation}
-dove $v_{tr}$ (velocità di trascinamento) è la velocità di $O'$ rispetto ad $O$ e $v_r$ è la velocità relativa
+dove $\overrightarrow{v_{tr}}$ (velocità di trascinamento) è la velocità di $O'$ rispetto ad $O$ e $\overrightarrow{v_r}$ è la velocità relativa
 a $K$ di $P$.
 
 Derivando nuovamente ottengo invece:
@@ -125,8 +125,7 @@ Derivando nuovamente ottengo invece:
 											& =\overrightarrow{a_{tr}}+\vec{a_r}+2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+\vec{\omega}\times(\vec{\omega}\times\vec{r})\\
 \end{split}
 \end{equation}
-dove analogamente a prima $a_{tr}$ (accelerazione di trascinamento) è l'accelerazione di $O'$ rispetto a $O$ e $a_r$ e 
-$v_r$ sono rispettivamente l'accelerazione e la velocità relative a $K$ di $P$.
+dove analogamente a prima $\overrightarrow{a_{tr}}$ (accelerazione di trascinamento) è l'accelerazione di $O'$ rispetto a $O$ e $\overrightarrow{a_r}$ è l'accelerazione relativa a $K$ di $P$.
 
 Quindi dall'equazione di Newton ottengo:
 \begin{equation*}
@@ -173,7 +172,7 @@ I problemi di urto in generale riguardano due particelle di massa $m_1$ e $m_2$ 
 
 Vogliamo trovare $\overrightarrow{{v_1}'}$ e $\overrightarrow{{v_2}'}$, le velocità dopo l'urto.
 Scomponiamo il problema nel moto del centro di massa e nel moto relativo: poniamo $\overrightarrow v = \overrightarrow {v_2} - \overrightarrow {v_1}$,
-$M = m_1+m_2$, $\mu = \frac{m_1+m_2}{M}$, $\overrightarrow {V_Q} = \frac{m_1\overrightarrow {v_1}+m_2\overrightarrow{v_2}}{M}$,
+$M = m_1+m_2$, $\mu = \frac{m_1m_2}{M}$, $\overrightarrow {V_Q} = \frac{m_1\overrightarrow {v_1}+m_2\overrightarrow{v_2}}{M}$,
 $\overrightarrow P = M\overrightarrow {V_Q}$, $\overrightarrow p = \mu \overrightarrow v$ e abbiamo che
 \begin{equation}
  E = \frac{P^2}{2M} + \frac{p^2}{2\mu}
@@ -241,7 +240,7 @@ Utilizzando la definizione di momento angolare e la \cref{ten:CondizioneSulCentr
 	m_\alpha\left(\vec\omega\vec r^2_\alpha-\vec r_\alpha\left(\vec\omega\cdot\vec r_\alpha\right)\right)
 	\end{split}
 \end{equation*}
-dove ho usato \cref{OmegaSferiche} per derivare $\vec r_\alpha$ e ho usato una nota identità coi prodotti vettoriali nell'ultima identità.
+dove ho usato ho usato una nota identità coi prodotti vettoriali nell'ultima identità.
 Ora considero la componente $i$-esima dell'identità vettoriale trovata e ottengo:
 \begin{equation*}
 	L_i=m_\alpha\left(\delta_{ij}\omega_j\vec r^2_\alpha-r_{\alpha i}\omega_j r_{\alpha j}\right)=
