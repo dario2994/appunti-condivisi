@@ -202,8 +202,8 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	
 	Per facili ragionamenti di monotonia abbiamo:
 	\begin{align*}
-		\mu(A)\le \mu(A\cup Q) =\mu(A)+\mu(Q)=\mu(A) &\Longrightarrow \mu(A)=\mu(A\cup Q)\\
-		\mu(A')\le \mu(A'\cup Q) =\mu(A')+\mu(Q)=\mu(A') &\Longrightarrow \mu(A')=\mu(A'\cup Q)
+		\mu(A)\le \mu(A\cup Q) =\mu(A)+\mu(Q)=\mu(A) &\implies \mu(A)=\mu(A\cup Q)\\
+		\mu(A')\le \mu(A'\cup Q) =\mu(A')+\mu(Q)=\mu(A') &\implies \mu(A')=\mu(A'\cup Q)
 	\end{align*}
 	ma per costruzione vale $A\cup Q=A'\cup Q$ e perciò otteniamo proprio $\mu(A)=\mu(A')$ che mostra la coerenza della definizione di $\tilde\mu$.
 	
@@ -277,9 +277,9 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	\begin{align*}
 		A_n= A'_n\sqcup \bigsqcup_{i\in\N}E^n_i=\bigsqcup_{i\in\N}C_{ni}\sqcup \bigsqcup_{i\in\N}E^n_i
 		=\bigsqcup_{i,j\in\N}F^{ni}_j\sqcup \bigsqcup_{i\in\N}E^n_i
-		&\Longrightarrow \mu(A_n)\ge\sum_{i,j\in\N}\mu(F^{ni}_j)+\sum_{i\in\N}\mu(E^n_i)\\
+		&\implies \mu(A_n)\ge\sum_{i,j\in\N}\mu(F^{ni}_j)+\sum_{i\in\N}\mu(E^n_i)\\
 		B_n=\bigsqcup_{i\in\N}C_{in}=\bigsqcup_{i,j\in\N}F^{in}_j
-		&\Longrightarrow \mu(B_n)=\sum_{i,j\in\N}\mu(F^{in}_j)
+		&\implies \mu(B_n)=\sum_{i,j\in\N}\mu(F^{in}_j)
 	\end{align*}
 	quindi sommando su $n$ arriviamo a:
 	\begin{align*}
