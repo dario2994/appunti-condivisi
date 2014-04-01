@@ -219,8 +219,8 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 
 
 
-\begin{proposition}\label{LimiteMonotonoMisura}
-	Dato $(X,\A,\mu)$ uno spazio di misura, allora data una successione $(A_n)_{n\in\N}\subseteq \A$ tale che $A_n\subseteq A_{n+1}$ vale:
+\begin{proposition}\label{LimiteMonotonoCrescenteMisura}
+	Dato $(X,\A,\mu)$ uno spazio di misura e una successione $(A_n)_{n\in\N}\subseteq \A$ tale che $A_n\subseteq A_{n+1}$, risultano commutare limite e misura:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\N} A_n\right)=\lim_{n\in\N} \mu(A_n)
 	\end{equation*}
@@ -237,6 +237,31 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	che è proprio la tesi.
 \end{proof}
 
+\begin{corollary}\label{LimiteMonotonoDecrescenteMisura}
+	Dato $(X,\A,\mu)$ uno spazio di misura e una successione $(A_n)_{n\in\N}\subseteq \A$ tale che $A_{n+1}\subseteq A_n$ con $\mu(A_{n_0})<+\infty$, risultano commutare limite e misura:
+	\begin{equation*}
+		\mu\left(\bigcap_{n\in\N} A_n\right)=\lim_{n\in\N} \mu(A_n)
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Intanto possiamo assumere $n_0=0$, tanto i primi elementi della successione $(A_n)_{n\in\N}$ non contano.
+	
+	Poniamo $B_n=A_0\setminus A_n$. Allora vale ovviamente $B_n\subseteq B_{n+1}$ e perciò possiamo applicare \cref{LimiteMonotonoCrescenteMisura} ottenendo:
+	\begin{equation}\label{ContoLimiteMonotonoMisura}
+		\mu\left(A_0\setminus\bigcap_{n\in\N}A_n\right)=\mu\left(\bigcup_{n\in\N}B_n\right)=\lim_{n\in\N}\mu(B_n)
+		=\lim_{n\in\N}\mu(A_0\setminus A_n)
+	\end{equation}
+	Ma poichè $\mu(A_0)<+\infty$, dalla \sigadd[ità] di $\mu$, possiamo ottenere:
+	\begin{align*}
+		\mu\left(A_0\setminus\bigcap_{n\in\N}A_n\right)&=\mu(A_0)-\mu\left(\bigcap_{n\in\N}A_n\right)\\
+		\mu(A_0\setminus A_n)&=\mu(A_0)-\mu(A_n)
+	\end{align*}
+	e applicando questi in \cref{ContoLimiteMonotonoMisura} arriviamo alla tesi ricordando ancora che $\mu(A_0)<+\infty$.
+	
+\end{proof}
+
+
+
 \begin{definition}[Misura esterna]
 	Dato un insieme $X$ e una funzione $\mu^*:\mathcal P(X)\to \Rpiu$ è detta una misura esterna se valgono:
 	\begin{itemize}
@@ -250,7 +275,7 @@ D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che qu
 	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}.
 \end{remark}
 \begin{proof}
-	Data una successione di sottoinsiemi $(A_n)_{n\in\N}\subseteq \A$, consideriamo, come nella dimostrazione di \cref{LimiteMonotonoMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\A$.
+	Data una successione di sottoinsiemi $(A_n)_{n\in\N}\subseteq \A$, consideriamo, come nella dimostrazione di \cref{LimiteMonotonoCrescenteMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\A$.
 	Allora, lavorando analogamente alla dimostrazione di cui sopra, si ha:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\N} A_n\right)=\mu\left(\bigcup_{n\in\N} B_n\right)=
