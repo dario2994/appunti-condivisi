@@ -18,7 +18,7 @@ Buco nel tavolo, due palline legate da un filo |Francesco |Fatto
 Pendolo di torsione (forse in effetti non va considerato come un esercizio)
 Pendolo sferico con approssimazione e velocità iniziale perpendicolare (ellisse)
 Effetto fionda
-Pendolo di Foucault
+Pendolo di Foucault | Marco
 Orbite ellittiche che precedono | Marco | Fatto
 Cosa succede se lascio cadere un grave sulla Terra da altezza H (dato da Barbieri) | Federico | Fatto
 
