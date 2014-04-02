@@ -1,0 +1,98 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[16/12/2013]{Il pendolo di Foucault}%pf
+
+\textex
+
+Vogliamo studiare il moto di un pendolo matematico di lunghezza $l$ posto sulla Terra ad una latitudine $\lambda$.
+In particolare ci interessa l'approssimazione al prim'ordine in $\theta << 1 $ dove $\theta$ è l'angolo forma il pendol
+con la verticale rispetto il filo a piombo
+\footnote{consideriamo implicitamente che l'asse $z$ non sia diretto ortogonalmente al terreno,
+ma lungo la direzione del filo a piombo. La differenza è legata agli effetti centrifughi della rotazione terrestre}.
+
+\solution
+Scegliamo come sistema di riferimento cartesiano $(O, x,y,z)$ dove $O$ è il punto di equilibrio del pendolo, $z$ è uscente
+dalla terra diretto come il filo a piombo, $y$ che punta a nord.
+
+Avendo scelto di approssimare il moto al prim'ordine, la coordinata $z$ del pendolo è costante. La soluzione userà, pertanto,
+solo le coordinate $x,y$.
+
+Richiamando la \cref{ForzaNonInerziale} relativa ai sistemi di riferimento non inerziali abbiamo che 
+\[
+  m\vec{a_r}=\vec{F}-m\vec{a_{tr}}-m\left[2\vec{\omega}\times\vec{v_r}+\dot{\vec{\omega}}\times\vec{r}+
+  \vec{\omega}\times(\vec{\omega}\times\vec{r})\right]
+\]
+
+Il termine $\dot{\vec{\omega}}\times\vec{r}$ è nullo perché $\dot{\vec{\omega}}=0$.
+Trovandoci nel sistema in cui $z$ è diretto lungo il filo a piombo, i termini
+$m\vec{g}-m\overrightarrow{a_{tr}}-\vec{\omega}\times(\vec{\omega}\times\vec{r})$ li possiamo scrivere come
+$m\tilde{g}\hat{g} = m\tilde{g}\hat{z}$ dove $\tilde{g}$ tiene conto degli effetti
+dovuti alle forze apparenti del sistema non inerziale. Tuttavia, è un facile esercizio vedere che $g-\tilde{g}<< g$, è dunque
+possibile approssimare $\tilde{g}$ a $g$. In questa soluzione cercheremo di tenere comunque $\tilde{g}$. Otteniamo dunque
+
+\begin{equation}
+ \label{pf:Fma}
+  \vec{a_r}=\tilde{g}\hat{z}+\vec{T}-2\vec{\omega}\times\vec{v_r} 
+\end{equation}
+
+
+Cerchiamo ora di ridurre \cref{pf:Fma} ad un sistema nelle variabili $x,y$, ovvero le coordinate del pendolo nel nostro sistema di riferimento.
+Al prim'ordine in $\theta$ consideriamo la tensione $\vec{T}$ del pendolo costante. La proiezione dei primi 2 termini in $\hat{x}$ e $\hat{y}$
+vale pertanto rispettivamente $-x\omega^2_0$ e $-y\omega^2_0$, dove $\omega^2_0 = \frac{g}{l}$.
+
+Quanto all'altro termine, abbiamo che $\vec{\omega}=\omega (\sin \lambda \hat{y} + \cos \lambda \hat{z})$; quindi
+$\vec{\omega}\times\vec{v_r} = \omega (-\cos \lambda \dot{y}\hat{x} + \cos \lambda \dot{x}\hat{y} - \sin \lambda \dot{x} \hat{z})$.
+
+Dopo aver trascurato il termine lungo $\hat{z}$ essendo trascurabile rispetto $\tilde{g}$, il sistema che ne risulta è
+
+\begin{align*}
+	\ddot{x} &=  -x\omega^2_0 +2\omega\cos \lambda \dot{y}\\
+	\ddot{y} &=  -y\omega^2_0 -2\omega\cos \lambda \dot{x}.
+\end{align*}
+
+Detto $\xi = x + iy$, dalla somma dell'equazione di $\ddot{x}$ con $i$ quella di $\ddot{y}$ si ottiene una sola equazione in $\xi$.
+Presa la soluzione, la parte reale darà la funzione di $x$, la parte immaginaria la funzione di $y$.
+L'equazione in $\xi$ è
+
+\begin{equation}
+ \label{pf:xieq}
+  \ddot{\xi} = -\xi \omega^2_0 - i 2\omega\cos \lambda \dot{\xi}.
+\end{equation}
+
+Il polinomio associato è $x^2 + 2i\omega\cos\lambda x + \omega^2_0$, le sue radici sono
+$ x_{\pm} = i\left(\omega\cos\lambda \pm \sqrt{\omega^2\cos^2 \lambda + \omega^2_0} \right) = \Omega_{\pm}$,
+quindi la soluzione generica, per opportuni $A,B$ complessi, sarà del tipo
+
+\[
+  \xi = Ae^{i\Omega_+ t} + Be^{i\Omega_-t}.
+\]
+
+e la soluzione in $x,y$, per opportune costanti $a,b,\alpha,\beta$ associate ad $A,B$,
+
+\begin{align*}
+	x &=  a\cos(\Omega_+ t + \alpha) + b\cos(\Omega_- t + \beta)\\
+	y &=  a\sin(\Omega_+ t + \alpha) + b\sin(\Omega_- t + \beta).
+\end{align*}
+
+Ora che abbiamo la soluzione generale, consideriamo quella particolare in cui il pendolo parte da $(0,0)$ con una velocità iniziale diretta
+lungo $y$. Si vede facilmente che le costanti arbitrarie che soddisfano sono $\alpha=\beta=0$, $a=d$, $b=d$
+per un certo $d$ in funzione della velocità iniziale.
+Ora, sfruttando una piccola identità trigonometrica possiamo riscrivere le soluzioni in $x,y$ come
+
+\begin{align*}
+	x &=  2d\cos(\omega\cos\lambda t)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right)\\
+	y &=  2d\sin(\omega\cos\lambda t)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right).
+\end{align*}
+
+Effettivamente il moto si capisce meglio se lo si descrive in coordinate polari:
+
+\begin{align*}
+	r &=  2d\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right)\\
+	\theta &=  \omega\cos\lambda t,
+\end{align*}
+
+cioè un pendolo che oscilla con pulsazione $\sqrt{\omega^2\cos^2 \lambda + \frac{g}{l}}$ su un piano verticale
+il quale ruota su se stesso con velocità angolare $\omega\cos\lambda$.
+
+\end{document}
