@@ -6,14 +6,14 @@
 \textex
 
 Vogliamo studiare il moto di un pendolo matematico di lunghezza $l$ posto sulla Terra ad una latitudine $\lambda$.
-In particolare ci interessa l'approssimazione al prim'ordine in $\theta << 1 $ dove $\theta$ è l'angolo forma il pendol
+In particolare ci interessa l'approssimazione al prim'ordine in $\theta \ll 1 $ dove $\theta$ è l'angolo forma il pendolo
 con la verticale rispetto il filo a piombo
 \footnote{consideriamo implicitamente che l'asse $z$ non sia diretto ortogonalmente al terreno,
 ma lungo la direzione del filo a piombo. La differenza è legata agli effetti centrifughi della rotazione terrestre}.
 
 \solution
 Scegliamo come sistema di riferimento cartesiano $(O, x,y,z)$ dove $O$ è il punto di equilibrio del pendolo, $z$ è uscente
-dalla terra diretto come il filo a piombo, $y$ che punta a nord.
+dalla Terra diretto come il filo a piombo, $y$ che punta a nord.
 
 Avendo scelto di approssimare il moto al prim'ordine, la coordinata $z$ del pendolo è costante. La soluzione userà, pertanto,
 solo le coordinate $x,y$.
@@ -28,7 +28,7 @@ Il termine $\dot{\vec{\omega}}\times\vec{r}$ è nullo perché $\dot{\vec{\omega}
 Trovandoci nel sistema in cui $z$ è diretto lungo il filo a piombo, i termini
 $m\vec{g}-m\overrightarrow{a_{tr}}-\vec{\omega}\times(\vec{\omega}\times\vec{r})$ li possiamo scrivere come
 $m\tilde{g}\hat{g} = m\tilde{g}\hat{z}$ dove $\tilde{g}$ tiene conto degli effetti
-dovuti alle forze apparenti del sistema non inerziale. Tuttavia, è un facile esercizio vedere che $g-\tilde{g}<< g$, è dunque
+dovuti alle forze apparenti del sistema non inerziale. Tuttavia, è un facile esercizio vedere che $g-\tilde{g}\ll g$, è dunque
 possibile approssimare $\tilde{g}$ a $g$. In questa soluzione cercheremo di tenere comunque $\tilde{g}$. Otteniamo dunque
 
 \begin{equation}
@@ -81,15 +81,15 @@ per un certo $d$ in funzione della velocità iniziale.
 Ora, sfruttando una piccola identità trigonometrica possiamo riscrivere le soluzioni in $x,y$ come
 
 \begin{align*}
-	x &=  2d\cos(\omega\cos\lambda t)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right)\\
-	y &=  2d\sin(\omega\cos\lambda t)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right).
+	x &=  2d\cos(t \omega\cos\lambda)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right)\\
+	y &=  2d\sin(t \omega\cos\lambda)\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right).
 \end{align*}
 
 Effettivamente il moto si capisce meglio se lo si descrive in coordinate polari:
 
 \begin{align*}
 	r &=  2d\cos\left(\sqrt{\omega^2\cos^2 \lambda + \omega^2_0} t\right)\\
-	\theta &=  \omega\cos\lambda t,
+	\theta &=t  \omega\cos\lambda,
 \end{align*}
 
 cioè un pendolo che oscilla con pulsazione $\sqrt{\omega^2\cos^2 \lambda + \frac{g}{l}}$ su un piano verticale
