@@ -80,3 +80,8 @@ Stella con tensore d'inerzia variante. Trovare \omega (asse di rotazione istanta
 
 27/03/14
 Giroscopio, studiarne il moto in alcuni casi particolari.
+
+3/04/14
+Corpo rigido che ruota intorno ad un asse principale. Piccole perturbazioni di questo moto.
+Rettangolo che ruota a velocità angolare costante intorno ad una sua diagonale. Calcolare il momento delle forze a cui è soggetto.
+Due stelle orbitano soggette alla reciproca attrazione gravitazionale. So tutto di una delle due, calcolare la massa dell'altra.
