@@ -317,11 +317,28 @@ Si chiama Lagrangiana del sistema la quantità:
 \end{equation}
 cioè si assume implicitamente che il potenziale non dipende dalla velocità (cioè l'energia si mantiene) e che nulla dipende dal tempo. Queste assunzioni sono credibili quando non ci sono forze esterne agenti in modo periodico e le forze sono conservative.
 
-Allora, dette $q_i$ le singole coordinate, le equazioni del moto sono:
+Consideriamo innanzitutto un sistema inerziale di coordinate cartesiane $x=(x_1,x_2,\dots,x_n)$, nel quale la Lagrangiana è quindi della forma:
+\begin{equation*}
+	\mathcal L(x,\dot x)=K(x,\dot x)-V(x)=\frac 12 m \sum_i\dot x_i^2-V(x)
+\end{equation*}
+In questo caso posso applicare l'equazione di Newton e ho quindi che 
+\begin{equation*}
+	m_i\ddot x_i+\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac{\de}{\de t} m\dot x_i +\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac{\de}{\de t} \frac{\delta \frac 12 m \dot x_i^2}{\delta \dot x_i} +\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot x_i} - \frac{\delta \mathcal L}{\delta x_i} =0
+\end{equation*}
+
+Voglio ora dimostrare che quest'ultima equazione trovata vale indipendentemente dal sistema di coordinate scelto. Cioè che, dette $q_i$ le singole componenti di un qualunque sistema di coordinate generalizzate $q$, vale analogamente al caso inerziale:
 \begin{equation}\label{Lag:EqEuleroLagrange}
 	\frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot q_i} = \frac{\delta \mathcal L}{\delta q_i}
 \end{equation}
-e queste si dicono equazioni di Eulero-Lagrange.
+dove queste ultime si dicono equazioni di Eulero-Lagrange.
+
+Supponiamo quindi di scrivere le componenti di $x$ in funzione delle $m$ componenti della coordinata generalizzata $q$, cioè $x_i=x_i(q_1,q_2,\dots,q_m)$. Utilizzando nuovamente l'equazione di Newton per il sistema inerziale $x$, ottengo che:
+\begin{equation*}
+	m \ddot x_i=-\frac{\delta V}{\delta x_i} \Longrightarrow \sum_i m \ddot x_i \frac{\delta x_i}{\delta q_j}=-\sum_i\frac{\delta V}{\delta x_i} \frac{\delta x_i}{\delta q_j}
+\end{equation*}
+Calcolo ora separatamente i due termini dell'ultima equazione. 
+
+NON FINITO.
 
 È importante notare che le Lagrangiane ci danno le equazioni del moto \emph{indipendentemente} dalle coordinate usate (ammessa una certa regolarità di queste) e questo le rende più versatili di $\vec F=m\vec a$ che invece si poteva applicare solo nei casi di coordinate cartesiane.
 
