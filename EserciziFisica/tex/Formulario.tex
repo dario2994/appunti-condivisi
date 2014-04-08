@@ -323,46 +323,46 @@ Consideriamo innanzitutto un sistema inerziale di coordinate cartesiane $x=(x_1,
 \end{equation*}
 In questo caso posso applicare l'equazione di Newton e ho quindi che 
 \begin{equation*}
-	m_i\ddot x_i+\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac{\de}{\de t} m\dot x_i +\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac{\de}{\de t} \frac{\delta \frac 12 m \dot x_i^2}{\delta \dot x_i} +\frac{\delta V}{\delta x_i}=0 \Longrightarrow \frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot x_i} - \frac{\delta \mathcal L}{\delta x_i} =0
+	m_i\ddot x_i+\frac{\partial V}{\partial x_i}=0 \Longrightarrow \frac{\de}{\de t} m\dot x_i +\frac{\partial V}{\partial x_i}=0 \Longrightarrow \frac{\de}{\de t} \frac{\partial \frac 12 m \dot x_i^2}{\partial \dot x_i} +\frac{\partial V}{\partial x_i}=0 \Longrightarrow \frac\de{\de t} \frac{\partial \mathcal L}{\partial \dot x_i} - \frac{\partial \mathcal L}{\partial x_i} =0
 \end{equation*}
 
 Voglio ora dimostrare che quest'ultima equazione trovata vale indipendentemente dal sistema di coordinate scelto. Cioè che, dette $q_i$ le singole componenti di un qualunque sistema di coordinate generalizzate $q$, vale analogamente al caso inerziale:
 \begin{equation}\label{Lag:EqEuleroLagrange}
-	\frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot q_i} = \frac{\delta \mathcal L}{\delta q_i}
+	\frac\de{\de t} \frac{\partial \mathcal L}{\partial \dot q_i} = \frac{\partial \mathcal L}{\partial q_i}
 \end{equation}
 dove queste ultime si dicono equazioni di Eulero-Lagrange.
 
 Supponiamo quindi di scrivere le componenti di $x$ in funzione delle $m$ componenti della coordinata generalizzata $q$, cioè $x_i=x_i(q_1,q_2,\dots,q_m)$. Innanzitutto per le regole di derivazione di una composta ho che:
 \begin{equation}\label{Lag:eq1}
-	\dot x_i=\sum_k \frac{\delta x_i}{\delta q_k}\dot q_k
+	\dot x_i=\sum_k \frac{\partial x_i}{\partial q_k}\dot q_k
 \end{equation}
 da cui ottengo inoltre che 
 \begin{equation}\label{Lag:eq2}
-	\frac{\delta \dot x_i}{\delta \dot q_k}=\frac{\delta x_i}{\delta q_k}
+	\frac{\partial \dot x_i}{\partial \dot q_k}=\frac{\partial x_i}{\partial q_k}
 \end{equation}
 
 Utilizzando nuovamente l'equazione di Newton per il sistema inerziale $x$, ottengo che:
 \begin{equation*}
-	m \ddot x_i=-\frac{\delta V}{\delta x_i} \Longrightarrow \sum_i m \ddot x_i \frac{\delta x_i}{\delta q_j}=-\sum_i\frac{\delta V}{\delta x_i} \frac{\delta x_i}{\delta q_j}
+	m \ddot x_i=-\frac{\partial V}{\partial x_i} \Longrightarrow \sum_i m \ddot x_i \frac{\partial x_i}{\partial q_j}=-\sum_i\frac{\partial V}{\partial x_i} \frac{\partial x_i}{\partial q_j}
 \end{equation*}
 Calcolo ora separatamente i due termini dell'ultima equazione. A secondo membro, per la regola di derivazione di una funzione composta, ho:
 \begin{equation}\label{Lag:ParzialePotenziale}
-	\sum_i\frac{\delta V}{\delta x_i} \frac{\delta x_i}{\delta q_j}=\frac{\delta V}{\delta q_j}
+	\sum_i\frac{\partial V}{\partial x_i} \frac{\partial x_i}{\partial q_j}=\frac{\partial V}{\partial q_j}
 \end{equation}
 dove, nel secondo termine dell'equazione, $V$ è vista come una funzione dei $q_j$.
 
 Al primo membro, invece, utilizzando \cref{Lag:eq1,Lag:eq2} ho che:
 \begin{equation}\label{Lag:ParzialeCinetica}\begin{split}
-	\sum_i m \ddot x_i \frac{\delta x_i}{\delta q_j} &=
-	\sum_i \frac{\de}{\de t}\left(m \dot x_i \frac{\delta x_i}{\delta q_j}\right) - m \dot x_i\frac{\de}{\de t}\left( \frac{\delta x_i}{\delta q_j}\right)= 
-	\sum_i \frac{\de}{\de t}\left(m \dot x_i \frac{\delta \dot x_i}{\delta \dot q_j}\right) - m \dot x_i\sum_k\frac{\delta x_i}{\delta q_k\delta q_j}\dot q_k\\
-	& = \sum_i \frac{\de}{\de t}\left(\frac{\delta \frac 12 m \dot x_i^2}{\delta \dot q_j}\right) - m \dot x_i\frac{\delta \dot x_i}{\delta q_j} =
-	\sum_i \frac{\de}{\de t}\left(\frac{\delta \frac 12 m \dot x_i^2}{\delta \dot q_j}\right) - \frac{\delta \frac 12 m \dot x_i^2}{\delta q_j} =\frac{\de}{\de t}\frac{\delta T}{\delta \dot q_j} - \frac{\delta T}{\delta q_j}
+	\sum_i m \ddot x_i \frac{\partial x_i}{\partial q_j} &=
+	\sum_i \frac{\de}{\de t}\left(m \dot x_i \frac{\partial x_i}{\partial q_j}\right) - m \dot x_i\frac{\de}{\de t}\left( \frac{\partial x_i}{\partial q_j}\right)= 
+	\sum_i \frac{\de}{\de t}\left(m \dot x_i \frac{\partial \dot x_i}{\partial \dot q_j}\right) - m \dot x_i\sum_k\frac{\partial x_i}{\partial q_k\partial q_j}\dot q_k\\
+	& = \sum_i \frac{\de}{\de t}\left(\frac{\partial \frac 12 m \dot x_i^2}{\partial \dot q_j}\right) - m \dot x_i\frac{\partial \dot x_i}{\partial q_j} =
+	\sum_i \frac{\de}{\de t}\left(\frac{\partial \frac 12 m \dot x_i^2}{\partial \dot q_j}\right) - \frac{\partial \frac 12 m \dot x_i^2}{\partial q_j} =\frac{\de}{\de t}\frac{\partial T}{\partial \dot q_j} - \frac{\partial T}{\partial q_j}
 \end{split}\end{equation}
 
 Eguagliando infine \cref{Lag:ParzialePotenziale} e \cref{Lag:ParzialeCinetica}, ottengo:
 \begin{equation*}
-	\frac{\de}{\de t}\frac{\delta T}{\delta \dot q_j} - \frac{\delta T}{\delta q_j}=-\frac{\delta V}{\delta q_j} \Longrightarrow \frac\de{\de t} \frac{\delta \mathcal L}{\delta \dot q_i} - \frac{\delta \mathcal L}{\delta q_i}=0
+	\frac{\de}{\de t}\frac{\partial T}{\partial \dot q_j} - \frac{\partial T}{\partial q_j}=-\frac{\partial V}{\partial q_j} \Longrightarrow \frac\de{\de t} \frac{\partial \mathcal L}{\partial \dot q_i} - \frac{\partial \mathcal L}{\partial q_i}=0
 \end{equation*}
 che è proprio quello che volevo ottenere.
 
@@ -370,7 +370,7 @@ che è proprio quello che volevo ottenere.
 
 Inoltre dalle equazioni di Eulero-Lagrange si possono sempre ricavare le leggi di conservazione del sistema. Ad esempio il solo fatto che la Lagrangiana non dipende esplicitamente dal tempo implica la conservazione dell'energia.
 
-Se il potenziale non dipende dalla coordinata $q_i$ è ovvio ricavare da \cref{Lag:EqEuleroLagrange} che la quantità $\frac{\delta \mathcal L}{\delta \dot q_i}$ si conserva (tale quantità è chiamata quantità di moto generalizzata).
+Se il potenziale non dipende dalla coordinata $q_i$ è ovvio ricavare da \cref{Lag:EqEuleroLagrange} che la quantità $\frac{\partial \mathcal L}{\partial \dot q_i}$ si conserva (tale quantità è chiamata quantità di moto generalizzata).
 
 In generale vale il Teorema di Noether, che afferma che per ogni simmetria della Lagrangiana si ha una relativa quantità conservata. Per simmetria si intende che se le coordinate vengono cambiate di una quantità piccola, la Lagrangiana rimane costante al prim'ordine in questo cambiamento.
 
