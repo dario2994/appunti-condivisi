@@ -88,5 +88,5 @@ Due stelle orbitano soggette alla reciproca attrazione gravitazionale. So tutto 
 
 7/04/14 Compitino
 Pendolo con la cima che si muove
-Cilindro che rotola (poco) con centro di massa spostato | Federico
+Cilindro che rotola (poco) con centro di massa spostato | Federico | Fatto
 La forza che la luna esercita sui punti della terra (considerando che ruotano)

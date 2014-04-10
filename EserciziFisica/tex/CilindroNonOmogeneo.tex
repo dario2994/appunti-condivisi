@@ -10,5 +10,44 @@ Un cilindro di massa $M$ e raggio $R$ rotola senza strisciare su un piano orizzo
 \end{itemize}
 
 \solution
+\begin{itemize}
+	\item Considero il piano perpendicolare all'asse che taglia a metà il cilindro. Per l'ipotesi di omogeneità per traslazioni parallele all'asse il cilindro è simmetrico rispetto all'asse considerato. Esiste di certo un asse principale che non appartiene al piano, allora di certo anche il suo simmetrico è un asse principale con lo stesso momento di inerzia. Di conseguenza tutto lo spazio da loro generato è composto di assi principali. Se tale spazio ha dimensione 1 allora è facile accorgersi che l'asse principale deve essere proprio l'asse del cilindro, altrimenti l'asse del cilindro appartiene allo spazio generato e perciò è comunque un asse principale.
+	\item Sia $\vec B$ il baricentro e $\vec O$ il centro del cilindro. Sia $\theta$ l'angolo tra $\overrightarrow{OB}$ e la verticale.
+	
+	Pongo un sistema di assi cartesiani in modo che quando $\theta=0$ valgano $\vec O=(0,R)$ e $\vec B=(0,R-l_B)$.
+	
+	Per la condizione di puro rotolamento si ha $\vec O=(-\theta R, R)$, mentre per facili considerazioni cinematiche si ha $\overrightarrow{OB}=(l_B\sin\theta,-l_B\cos\theta)$.
+	
+	Unendo queste due si scrivono facilmente posizione e velocità di $\vec B$:
+	\begin{align}
+		\vec B &=\vec O+\overrightarrow{OB}=(-\theta R+l_B\sin\theta , R-l_B\cos\theta) \label{cno:posizione}\\
+		\dot{\vec B} &= (-\dot\theta R+l_B\dot\theta\cos\theta, l_B\dot\theta\sin\theta) \label{cno:velocita}
+	\end{align}
+	
+	Sfruttando \cref{cno:posizione} è facile scrivere l'energia potenziale del sistema:
+	\begin{equation}\label{cno:potenziale}
+		U=Mg(R-l_B\cos\theta) \Longrightarrow U=\frac12 Mgl_B\theta^2
+	\end{equation}
+	dove l'ultima uguaglianza vale, a meno di costanti, approssimando al second'ordine. Da notare che prima di approssimare si nota subito che l'unica posizione di equilibrio stabile (di minimo del potenziale) è $\theta=0$ e perciò tutte le approssimazioni saranno fatte intorno a $\theta=0$.
+	
+	Ed ora sfruttando \cref{cno:velocita} calcolo l'energia cinetica al second'ordine, scomponendo in cinetica del baricentro e rotazionale:
+	\begin{equation}\label{cno:cinetica}
+		T=\frac 12 I_B \dot\theta^2 +\frac 12 M\dot{\vec B}^2\approx 
+		\frac 12 I_B \dot\theta^2 +\frac 12 M\left(-\dot\theta R+l_B\dot\theta\right)^2=
+		\frac 12\left(I_B+M(R-l_B)^2\right)\dot\theta^2
+	\end{equation}
+	
+	Perciò ora, sfruttando \cref{cno:potenziale,cno:cinetica} posso scrivere la conservazione dell'energia e derivare, ottenendo:
+	\begin{equation*}
+		0=\frac{\de}{\de t}(U+T) \implies
+		0=\dot\theta\left(Mgl_B\theta+\left(I_B+M(R-l_B)^2\right)\ddot\theta\right)\implies
+		\ddot\theta=-\frac{Mgl_B}{I_B+M(R-l_B)^2}\theta
+	\end{equation*}
+	ma quest'ultima è l'equazione classica del moto armonico, da cui deduco che il periodo è:
+	\begin{equation*}
+		T=\frac{2\pi\sqrt{I_B+M(R-l_B)^2}}{\sqrt{Mgl_B}}
+	\end{equation*}
+
+\end{itemize}
 
 \end{document}
