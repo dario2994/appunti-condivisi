@@ -10,7 +10,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	allora $\A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\A$ è una misura completa.
 \end{theorem}
 \begin{proof}
-	La dimostrazione procede in tre passi: prima mostriamo che $\A$ è un'algebra di insiemi, poi che è è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\A$.
+	La dimostrazione procede in tre passi: prima mostriamo che $\A$ è un'algebra di insiemi, poi che è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\A$.
 	
 	Il fatto che $\A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
 	
@@ -30,9 +30,9 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Per la \sigsubadd[ità] di $\mu$ vale:
 	\begin{equation}\label{DisuguaglianzaFacileCaratheodory}
-		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\cap\bigcup_{n\in\N} E_n\right)
+		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)
 	\end{equation}
-	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\N}$ sono a due a due disgiunti e che appartengono a $\A$ poiché quest'ultima è un'algebra.
+	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\N}$ sono a due a due disgiunti e che appartengono ad $\A$ poiché quest'ultima è un'algebra.
 	
 	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\A$ e $\mu(A)<+\infty$, che risulta:
 	\begin{equation}\label{IdentitaDifferenzaCaratheodory}
@@ -45,7 +45,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)=\mu\left(\bigsqcup_{n\in\N} A\cap F_n\right)\le
 		\sum_{n\in\N} \mu(A\cap F_n)
 	\end{equation}
-	mentre, grazie alla monotonia e a \cref{IdentitaDifferenzaCaratheodory} otteniamo:
+	mentre, grazie alla monotonia e a \cref{IdentitaDifferenzaCaratheodory}, otteniamo:
 	\begin{equation}\label{DifferenzaStimaCaratheodory}
 		\mu\left(A\setminus\bigcup_{n\in\N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
 		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
@@ -64,7 +64,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	che unita a \cref{DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale a dire che $\A$ è una \sigalg{}.
 	
 	Dimostrare che $\mu$ è \sigadd{} su $\A$ è ora molto facile.
-	Consideriamo $(E_n)_{n\in\N}\subset \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
+	Consideriamo $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
 	\begin{equation*}
 		\mu\left(\bigsqcup_{n\le m}E_n\right)=\sum_{n\le m} \mu(E_n)
 	\end{equation*}
@@ -91,7 +91,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \begin{proposition}\label{MisuraEsternaDiPremisura}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
 	\begin{equation*}
-		\mu^*(A)=\inf\left\{\sum_{n\in\N} A_n\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
+		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
 		\ A\subseteq\bigcup_{n\in\N}A_n\right\}
 	\end{equation*}
 	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{RiduzionePreCaratheodory}).
@@ -102,16 +102,16 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\S$ vale ovviamente $\mu*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$
+	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$.
 	
-	Ora perciò resta da dimostrare che se $E\subseteq \S$ allora per ogni $A\in\mathcal P(X)$ risulta:
+	Ora perciò resta da dimostrare che se $E\in \S$ allora per ogni $A\in\mathcal P(X)$ risulta:
 	\begin{equation}\label{MisuraEsternaDisDifficile}
 		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E)
 	\end{equation}
-	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di Caratheodory poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
+	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di Caratheodory, poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
 	Dato $(A_n)_{n\in\N}\subseteq\S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\N},(C_n)_{n\in\N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\N},(C'^n_i)_{i\in\N} \subseteq \S$ tali che $B_n=\bigsqcup_{i\in\N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\N}, (C'^n_i)_{n,i\in\N}$ risultano ricoprimenti con elementi di $\S$ di $A\cap E,A\setminus E$ rispettivamente.
-	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludo:
+	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludiamo:
 	\begin{align*}
 		\sum_{n\in\N}\mu(A_n)=\sum_{n\in\N} \mu(B_n)+\mu(C_n)&=
 		\sum_{n\in\N}\sum_{i\in\N}\mu(B'^n_i)+\mu(C'^n_i)\\
@@ -153,7 +153,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\text{\ref{MisurabileEquivalenze}}$.
 	\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 	\begin{description}
-		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Sia $A$ misurabile e $(X_n)_{n\in\N}\subseteq \S$ una partizione numerabile di $X$ tale che $\mu(A_n)<+\infty$ (questa esiste poichè $\mu$ è \sigfin{} e ogni unione numerabile di elementi in $\S$ è un unione disgiunta, visto che $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
+		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Sia $A$ misurabile e $(X_n)_{n\in\N}\subseteq \S$ una partizione numerabile di $X$ tale che $\mu(X_n)<+\infty$ (questa esiste poichè $\mu$ è \sigfin{} e ogni unione numerabile di elementi in $\S$ è un'unione disgiunta, visto che $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
 		
 		Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
 		
@@ -188,7 +188,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\item[\ImplicationProof{SigmaDaFuoriEquivalenze}{MisurabileEquivalenze}] Per ipotesi esiste $B\in\sigma A(\S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
 		
 		Poichè $\A$ è una \sigalg{} contenente $\S$ e $B\in\sigma A(\S)$, deve essere $B\in\A$. 
-		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione di \cref{RiduzionePreCaratheodory}) quindi anche $B\setminus A\in A$ in quanto è un trascurabile e la misura è completa. 
+		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione di \cref{RiduzionePreCaratheodory}) quindi anche $B\setminus A\in \A$ in quanto è un trascurabile e la misura è completa. 
 		
 		Di conseguenza, visto che $\A$ è una \sigalg, otteniamo che $A=B\setminus (B\setminus A)$ è misurabile in quanto differenza di misurabili. Perciò $A\in\A$ dimostrando l'implicazione.
 	\end{description}
