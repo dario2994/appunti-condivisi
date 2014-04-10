@@ -115,14 +115,16 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di Caratheodory, poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
 	Dato $(A_n)_{n\in\N}\subseteq\S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\N},(C_n)_{n\in\N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\N},(C'^n_i)_{i\in\N} \subseteq \S$ tali che $B_n=\bigsqcup_{i\in\N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\N}, (C'^n_i)_{n,i\in\N}$ risultano ricoprimenti con elementi di $\S$ di $A\cap E,A\setminus E$ rispettivamente.
-	Ora, sfruttando non più della sola \sigadd[ità] di $\mu$ concludiamo:
+	Ora, sfruttando la \sigadd[ità] di $\mu$ e la \sigsubadd[ità] di $\mu^*$ concludiamo:
 	\begin{align*}
-		\sum_{n\in\N}\mu(A_n)=\sum_{n\in\N} \mu(B_n)+\mu(C_n)&=
-		\sum_{n\in\N}\sum_{i\in\N}\mu(B'^n_i)+\mu(C'^n_i)\\
-		&=
-		\sum_{n,i\in\N}\mu(B'^n_i)+\sum_{n,i\in\N}\mu(C'^n_i)\ge \mu(A\cap E)+\mu(A\setminus E)
+		\sum_{n\in\N}\mu(A_n)&=
+		\sum_{n\in\N} \mu\left(\bigsqcup_{i\in\N} B'^n_i\sqcup \bigsqcup_{i\in\N} C'^n_i\right)=
+		\sum_{n\in\N}\sum_{i\in\N}\mu(B'^n_i)+\sum_{n\in\N}\sum_{i\in\N}\mu(C'^n_i)\\
+		&\ge
+		\sum_{n\in\N}\mu^*(B_n)+\sum_{n\in\N}\mu^*(C_n)
+		\ge \mu^*(A\cap E)+\mu^*(A\setminus E)
 	\end{align*}
-	ma questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
+	e questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 
 \begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
