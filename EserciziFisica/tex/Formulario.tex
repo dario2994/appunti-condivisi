@@ -3,7 +3,8 @@
 \section{Formulario}
 \setcounter{equation}{0}
 \renewcommand{\theequation}{F.\arabic{equation}}
-\subsection{Asse istantaneo di rotazione}
+
+\subsection{Asse istantaneo di rotazione}\label{air}
 Dato un sistema di riferimento con origine fissa, esiste sempre un vettore $\vec\omega$ tale che se $\hat i$ è un versore fisso nel sistema, la sua derivata rispetto al tempo è $\vec\omega\times\hat i$.
 
 Tale $\vec\omega$ risulta inoltre coincidere con quello che si chiama asse istantaneo di rotazione: la retta di punti che istantaneamente ha velocità nulla. Mentre il modulo di $\vec\omega$ coincide con la velocità angolare della rotazione istantanea.
@@ -109,11 +110,11 @@ che agisce su un corpo e la sua accelerazione rispetto al sistema $K$.
 
 Calcoliamo innanzitutto la relazione fra le accelerazioni nei due sistemi di riferimento. Poichè vale la
 relazione $\overrightarrow{OP}=\overrightarrow{OO'}+\overrightarrow{O'P}$ per un qualsiasi punto $P$, derivando 
-rispetto al tempo e chiamando $\overrightarrow{O'P}=\vec{r}$, ottengo:
+rispetto al tempo (sfruttando \cref{air}) e chiamando $\overrightarrow{O'P}=\vec{r}$, ottengo:
 \begin{equation}\label{VelNonInerziale}
 \begin{split}
 	\vec{v}=\dot{\overrightarrow{OP}}	& =\dot{\overrightarrow{OO'}}+\dot{\vec{r}}\\
-													& =\overrightarrow{v_{tr}}+\frac{\delta \vec r}{\delta t}+\vec{\omega}\times\vec{r}\\
+													& =\overrightarrow{v_{tr}}+\frac{\partial \vec r}{\partial t}+\vec{\omega}\times\vec{r}\\
 													& =\overrightarrow{v_{tr}}+\vec{v_r}+\vec{\omega}\times\vec{r}
 \end{split}
 \end{equation}
