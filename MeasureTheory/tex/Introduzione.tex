@@ -273,19 +273,6 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\end{itemize}
 \end{definition}
 
-\begin{remark}
-	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}.
-\end{remark}
-\begin{proof}
-	Data una successione di sottoinsiemi $(A_n)_{n\in\N}\subseteq \A$, consideriamo, come nella dimostrazione di \cref{LimiteMonotonoCrescenteMisura}, i sottoinsiemi $B_n=A_n\setminus\bigcup_{i<n}A_i\in\A$.
-	Allora, lavorando analogamente alla dimostrazione di cui sopra, si ha:
-	\begin{equation*}
-		\mu\left(\bigcup_{n\in\N} A_n\right)=\mu\left(\bigcup_{n\in\N} B_n\right)=
-		\sum_{n\in\N} \mu(B_n)\le \sum_{n\in\N} \mu(A_n)
-	\end{equation*}
-	dove nell'ultimo passaggio sfruttiamo la monotonia di $\mu$ dimostrata in \cref{MonotoniaMisura}.
-\end{proof}
-
 \begin{definition}
 	Una terna $(X,\S,\mu)$ tale che $\S\subseteq\mathcal P(X)$ è un \semiring{} e $\mu:\S\to \Rpiu$ è \sigadd{}, la chiamo spazio di misura elementare e la funzione $\mu$ la chiamo misura elementare o premisura.
 \end{definition}

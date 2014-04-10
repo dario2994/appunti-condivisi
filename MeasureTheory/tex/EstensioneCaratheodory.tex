@@ -126,6 +126,20 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\end{align*}
 	e questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
+\begin{remark}\label{PremisuraMassimaMisura}
+	Sia $(X,\S,\mu)$ uno spazio di premisura e $\mu^*:\mathcal P(X)\to\Rpiu$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}), allora una qualsiasi misura $\mu':\A\to\Rpiu$, dove $\A\supseteq \S$ è una \sigalg{}, che estenda $\mu$ è minore della misura esterna, cioè $\mu'(A)\le \mu^*(A)$ per ogni $A\in\A$.
+\end{remark}
+\begin{proof}
+	Fissiamo $A\in\A$ e chiamiamo $(S_n)_{n\in\N}\in\S$ un suo ricoprimento numerabile.
+	
+	Essendo $\mu'$ una misura è \sigsubadd{} e decrescente per \cref{SubAdditivitaMisura,MonotoniaMisura} e perciò vale:
+	\begin{equation*}
+		\sum_{n\in\N}\mu(S_n)=\sum_{n\in\N}\mu'(S_n)\ge \mu'\left(\bigcup_{n\in\N}S_n\right)\ge \mu'(A)
+	\end{equation*}
+	ed ora passando all'estremo superiore sui ricoprimenti di $A$ otteniamo $\mu^*(A)\ge\mu'(A)$ che è la tesi, visto che la dimostrazione vale per ogni $A\in\A$.
+\end{proof}
+
+
 
 \begin{theorem}[Estensione di Caratheodory]\label{EstensioneCaratheodory}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
@@ -139,8 +153,8 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 
-\begin{proposition}
-	Dato $(X,\S,\mu)$ una spazio di misura elementare $\sigma$-finito, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+\begin{proposition}\label{EquivalenzeMisurabilita}
+	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Scelto $A\in\mathcal P(X)$, le seguenti affermazioni sono equivalenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
@@ -201,3 +215,27 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Infine basta vedere, sfruttando il passaggio al complementare, che risultano $\text{\ref{UnioniDaFuoriEquivalenze}}\iff\text{\ref{UnioniDaDentroEquivalenze}}$ e $\text{\ref{SigmaDaFuoriEquivalenze}}\iff\text{\ref{SigmaDaDentroEquivalenze}}$ e questo chiude la dimostrazione.
 \end{proof}
+
+\begin{proposition}
+	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], esiste un'unica estensione della premisura ad una misura su $\sigma A(\S)$.
+\end{proposition}
+\begin{proof}
+	L'esistenza di una possibile estensione ci è assicurata dal \cref{EstensioneCaratheodory}.
+	
+	Per dimostrare l'unicità consideriamo due misure $\mu',\mu'':\sigma A(\S)\to\Rpiu$ che estendono la premisura $\mu$ alla \sigalg{} generata. Fissiamo inoltre $A\in\sigma A(\S)$ e dimostriamo che $\mu'(A)=\mu''(A)$.
+	
+	Se $\mu'(A)=+\infty=\mu''(A)=$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
+	
+	Fissato $\epsilon>0$, grazie a \cref{EquivalenzeMisurabilita} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
+	
+	Ora, sfruttando \cref{PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(A)<\epsilon,\ \mu''(A)<\epsilon$.
+	
+	Unendo i risultati ottenuti, ricordando che $\mu',\mu''$ sono estensioni di $\mu$ e che $\mu''(A)<+\infty$,  abbiamo:
+	\begin{gather*}
+		\mu'(A)+\mu'(S\setminus A)=\mu'(S)=\mu(S)=\mu''(S)=\mu''(A)+\mu''(S\setminus A) \\
+		\Downarrow \\
+		\lvert\mu'(A)-\mu''(A)\rvert=\lvert\mu''(S\setminus A)-\mu'(S\setminus S)\rvert<2\epsilon
+	\end{gather*}
+	e visto che questo deve valere per ogni $\epsilon>0$ otteniamo $\mu'(A)=\mu''(A)$ che è quanto si voleva.
+\end{proof}
+
