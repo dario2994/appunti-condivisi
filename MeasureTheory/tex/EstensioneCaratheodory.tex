@@ -97,12 +97,16 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{RiduzionePreCaratheodory}).
 \end{proposition}
 \begin{proof}
-	Per ottenere che $\mu^*$ è una misura esterna basta verificare le proprietà che deve rispettare.
+	Per affermare che $\mu^*$ è una misura esterna sono sufficienti le seguenti verifiche.
 	Ovviamente, poiché $\mu(\emptyset)=0$, vale $\mu^*(\emptyset)=0$. 
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$.
+	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per \cref{PiuCheMonotonaPremisura} vale:
+	\begin{equation*}
+		\mu(S)\ge \sum_{n\in\N} \mu(S_n)
+	\end{equation*}
+	e perciò passando all'estremo inferiore sui ricoprimenti otteniamo la disuguaglianza cercata.
 	
 	Ora perciò resta da dimostrare che se $E\in \S$ allora per ogni $A\in\mathcal P(X)$ risulta:
 	\begin{equation}\label{MisuraEsternaDisDifficile}
