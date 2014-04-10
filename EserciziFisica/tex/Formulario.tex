@@ -3,9 +3,13 @@
 \section{Formulario}
 \setcounter{equation}{0}
 \renewcommand{\theequation}{F.\arabic{equation}}
+\subsection{Asse istantaneo di rotazione}
+Dato un sistema di riferimento con origine fissa, esiste sempre un vettore $\vec\omega$ tale che se $\hat i$ è un versore fisso nel sistema, la sua derivata rispetto al tempo è $\vec\omega\times\hat i$.
+
+Tale $\vec\omega$ risulta inoltre coincidere con quello che si chiama asse istantaneo di rotazione: la retta di punti che istantaneamente ha velocità nulla. Mentre il modulo di $\vec\omega$ coincide con la velocità angolare della rotazione istantanea.
+
 \subsection{Coordinate polari} 
-In coordinate polari si ha che per ogni versore $\hat{\iota}$ vale $\dot{\hat{\iota}}=\vec{\omega}\times\hat{\iota}$,
-dove
+Il $\vec\omega$ associato al sistema di riferimento delle coordinate polari è
 \begin{equation}\label{OmegaPolari}
 	\vec{\omega}=\dot{\theta}\hat{z}
 \end{equation}
@@ -19,8 +23,7 @@ Derivando una seconda volta ottengo invece:
 \end{equation}
 
 \subsection{Coordinate sferiche}
-Ponendosi in un sistema di coordinate sferiche, vale $\dot{\hat{\iota}}=\vec{\omega}\times\hat{\iota}$
-per ogni versore $\hat{\iota}$, dove
+Il $\vec\omega$ associato al sistema di riferimento delle coordinate sferiche è
 \begin{equation}\label{OmegaSferiche}
 	\vec{\omega}=\dot{\theta}\hat{\varphi}+\dot{\varphi}\hat{z}
 \end{equation}
