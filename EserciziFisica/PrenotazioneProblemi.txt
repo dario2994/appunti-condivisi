@@ -85,3 +85,8 @@ Giroscopio, studiarne il moto in alcuni casi particolari.
 Corpo rigido che ruota intorno ad un asse principale. Piccole perturbazioni di questo moto.
 Rettangolo che ruota a velocità angolare costante intorno ad una sua diagonale. Calcolare il momento delle forze a cui è soggetto.
 Due stelle orbitano soggette alla reciproca attrazione gravitazionale. So tutto di una delle due, calcolare la massa dell'altra.
+
+7/04/14 Compitino
+Pendolo con la cima che si muove
+Cilindro che rotola (poco) con centro di massa spostato
+La forza che la luna esercita sui punti della terra (considerando che ruotano)
