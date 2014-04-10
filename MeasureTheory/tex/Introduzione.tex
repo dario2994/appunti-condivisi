@@ -119,7 +119,9 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	e in questo caso la funzione $\mu$ è detta \emph{misura}.
 \end{definition}
 
-D'ora in poi, quando ci si riferirà ad una misura, si darà per scontato che questa si riferisce ad uno spazio di misura.
+\begin{remark}
+	Se $(X,\A,\mu)$ è uno spazio di misura e $E\in\A$, allora ovviamente anche $(X,\A_E,\mu|_{\A_E})$ è uno spazio di misura, dove $\A_E=\{A\cap E:\ A\in\A\}$. Cioè riducendosi ad un sottoinsieme misurabile si mantengono le proprietà di spazio di misura.
+\end{remark}
 
 \begin{remark}\label{MonotoniaMisura}
 	Dato $(X,\A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
