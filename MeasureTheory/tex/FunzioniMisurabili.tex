@@ -1,3 +1,50 @@
 \section{Funzioni misurabili}
 
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
+
+\begin{definition}[Funzione misurabile]
+	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \R$ si dice misurabile se
+	$\forall A \subseteq \R$ aperto si ha $f^{-1}(A)\in \A$.
+\end{definition}
+
+\begin{proposition}
+	\label{BasicMis}
+	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \R$ una funzione, sono equivalenti i seguenti fatti:
+	\begin{enumerate}
+		\item $f$ è misurabile; \label{BM:mis}
+		\item $\{f<a\}\in \A \quad \forall a\in \R$; \label{BM:sot}
+		\item $\{f\leq a\}\in \A \quad \forall a\in \R$; \label{BM:soteq}
+		\item $\{f>a\}\in \A \quad \forall a\in \R$; \label{BM:sov}
+		\item $\{f\geq a\}\in \A \quad \forall a\in \R$;  \label{BM:soveq}
+		\item $\{a<f<b\}\in \A \quad \forall a,b\in \overline{\R}$; \label{BM:int}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\cref{BM:mis} $\Rightarrow$ \cref{BM:sot} per definizione;
+	
+	\cref{BM:sot} $\Rightarrow$ \cref{BM:soteq} sfruttando il fatto che $\A$ è \sigalg{} e che
+	$(-\infty,a]=\cap_{n\in \N}(-\infty,a+\frac{1}{n})$;
+	
+	\cref{BM:soteq} $\Rightarrow$ \cref{BM:sov} passando al complementare;
+	
+	\cref{BM:sov} $\Rightarrow$ \cref{BM:soveq}, \cref{BM:soveq} $\Rightarrow$ \cref{BM:sot} come i precedenti;
+	
+	\cref{BM:sot} $+$ \cref{BM:sov} $\Rightarrow$ \cref{BM:int} per intersezione;
+	
+	\cref{BM:int} $\Rightarrow$ \cref{BM:mis} perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
+\end{proof}
+
+\begin{proposition}
+	\label{CounterImgMis}
+	Dato uno spazio di misura $(X,\A,\mu)$, e data $f:X\rightarrow \R$ una funzione misurabile, la famiglia di insiemi
+	\[
+		\mathcal{E} = \{ E\subseteq \R : f^{-1}(E)\in \A \}
+	\]
+	è una \sigalg{}.
+\end{proposition}
+\begin{proof}
+	Unione numerabile: siano $\{E_n\}_{n\in \N}\subseteq \mathcal{E}$ e sia $E = \cup_{n\in \N}E_n$,
+	allora $f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \Rightarrow E \in \mathcal{E}$;
+	
+	Complementare: sia $E\in \mathcal{E}$, allora $f^{-1}(^{c}E)= ^{c}f^{-1}(E)\in \A \Rightarrow ^{c}E \in \mathcal{E}$.
+\end{proof}
