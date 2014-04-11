@@ -66,6 +66,19 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 	Innanzitutto $A\cap K, B\cap K$ sono ancora dei compatti. Questo perchè presa una successione $(a_n)$ in $A\cap K$, so che esiste una sottosuccessione che converge a $k\in K$, ma questa deve anche convergere nel complementare di $B$ visto che $B$ è un aperto e gli $a_n$ non vi appartengono. Quindi $k\in K\setminus B = K\cap A$ e questo dimostra quanto voluto.
 	
 	Ora per il \cref{CompattoInAperto} sappiamo che esistono $r_A,r_B$ tali che $U_{r_A}(K\cap A)\subseteq A$ e $U_{r_B}(K\cap B)\subseteq B$. Chiamiamo $r=\min(r_A,r_B)$.
+
+	Per il \cref{EquivalenzaAllargamento} definitivamente vale $K_n\subseteq U_r(K)$ e, per quanto detto sopra, allora $K_n\subseteq A\cup B$. 
+	Ma tutti i $K_n$ sono connessi per ipotesi, quindi $K_n\subseteq A\cup B$ implica $K_n\subseteq A$ oppure $K_n\subseteq B$.
+
+	Esisterà un $K_{n_0}$ tale che, senza perdita di generalità, è un sottoinsieme di $A$ e tale che $\delta_{K_{n_0}}(K)\le r$ (dove sfruttiamo il fatto che $K_n\to K$). Perciò in particolare $\delta_{K_{n_0}}(K\cap B)\le r$.
+
+	Ma allora, applicando il \cref{ApprossimazioneDistanzaAsimmetrica}, abbiamo due punti $a\in K_{n_0}\subseteq A,\ b\in K\cap B\subseteq B$ tali che $d(a,b)<r$. E questo porta all'assurdo visto che ne segue:
+	\begin{equation*}
+		d(a,b)<r\implies b\in U_r(K\cap A) \subseteq A \implies b\in A
+	\end{equation*}
+	
+
+	
 \end{proof}
 
 
