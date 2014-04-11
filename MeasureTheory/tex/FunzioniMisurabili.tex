@@ -10,7 +10,7 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \begin{proposition}
 	\label{BasicMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \R$ una funzione, sono equivalenti i seguenti fatti:
-	\begin{enumerate}
+	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f$ è misurabile; \label{BM:mis}
 		\item $\{f<a\}\in \A \quad \forall a\in \R$; \label{BM:sot}
 		\item $\{f\leq a\}\in \A \quad \forall a\in \R$; \label{BM:soteq}
@@ -20,18 +20,18 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	\cref{BM:mis} $\Rightarrow$ \cref{BM:sot} per definizione;
+	$\text{\ref{BM:mis}}\implies\text{\ref{BM:sot}}$ per definizione;
 	
-	\cref{BM:sot} $\Rightarrow$ \cref{BM:soteq} sfruttando il fatto che $\A$ è \sigalg{} e che
+	$\text{\ref{BM:sot}}\implies\text{\ref{BM:soteq}}$ sfruttando il fatto che $\A$ è \sigalg{} e che
 	$(-\infty,a]=\cap_{n\in \N}(-\infty,a+\frac{1}{n})$;
 	
-	\cref{BM:soteq} $\Rightarrow$ \cref{BM:sov} passando al complementare;
+	$\text{\ref{BM:soteq}}\implies\text{\ref{BM:sov}}$ passando al complementare;
 	
-	\cref{BM:sov} $\Rightarrow$ \cref{BM:soveq}, \cref{BM:soveq} $\Rightarrow$ \cref{BM:sot} come i precedenti;
+	$\text{\ref{BM:sov}}\implies\text{\ref{BM:soveq}}$, $\text{\ref{BM:soveq}}\implies\text{\ref{BM:sot}}$ come i precedenti;
 	
-	\cref{BM:sot} $+$ \cref{BM:sov} $\Rightarrow$ \cref{BM:int} per intersezione;
+	$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$ per intersezione;
 	
-	\cref{BM:int} $\Rightarrow$ \cref{BM:mis} perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
+	$\text{\ref{BM:int}}\implies\text{\ref{BM:mis}}$ perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
 \end{proof}
 
 \begin{proposition}
@@ -47,4 +47,47 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	allora $f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \Rightarrow E \in \mathcal{E}$;
 	
 	Complementare: sia $E\in \mathcal{E}$, allora $f^{-1}(^{c}E)= ^{c}f^{-1}(E)\in \A \Rightarrow ^{c}E \in \mathcal{E}$.
+\end{proof}
+
+\begin{proposition}
+	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}=\{f:X\rightarrow \R : f\ \grave{e} \ misurabile\}$.
+	Allora $\mathcal{M}$ è un'algebra nel senso che valgono le seguenti:
+	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+		\item $f,g\in \mathcal{M} \Rightarrow f+g\in \mathcal{M}$; \label{AlM:sum}
+		\item $f\in \mathcal{M}, \lambda \in \R \Rightarrow \lambda f\in \mathcal{M}$. \label{AlM:sca}
+		\item $f,g\in \mathcal{M} \Rightarrow fg\in \mathcal{M}$. \label{AlM:pro}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Mostriamo per ogni punto che vale \ref{BM:sov} in \cref{BasicMis}.
+	\ref{AlM:sum}: 
+	\[
+		\{f+g>a\}=\bigcup_{q\in \Q}[\{f>q\}\cap\{g>a-q\}]\in \A
+	\]
+
+	
+	\ref{AlM:sca}:
+	\[
+		\{\lambda f>a\}=\left\{f>\frac{a}{\lambda}\right\}\in \A
+	\]
+
+	\ref{AlM:pro}: Per ogni funzione $h$ possiamo scrivere la parte positiva e la parte negativa: $h^+ = max\{h,0\}$, $h^- = max\{0,-h\}$,
+	così $h^+,h^- \geq 0$ e $h = h^+ - h^-$. Ora scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi $fg$ si scrive
+	come una qualche combinazione di prodotti di funzioni non negative. Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione
+	ci basta mostrare il caso in cui $f,g\geq0$:
+	\[
+		\{fg>a\}=\left\{\begin{array}{ll}
+			\R &\qquad se\ a<0;\\
+			\{f=0\}\cup\{g=0\} &\qquad se\ a=0;\\
+			\bigcup_{q\in \Q^+}\left[\{f>q\}\cap\left\{g>\frac{a}{q}\right\}\right]\in \A &\qquad se\ a>0.
+		\end{array}\right.
+	\]
+\end{proof}
+
+\begin{remark}
+	È facile vedere che le funzioni caratteristiche degli insiemi misurabili sono misurabili.
+\end{remark}
+\begin{proof}
+	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può valere solo $\emptyset$, $A$, $\R$ (tutti e 3 misurabili) a seconda che
+	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
 \end{proof}
