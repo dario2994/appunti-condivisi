@@ -224,17 +224,17 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Per dimostrare l'unicità consideriamo due misure $\mu',\mu'':\sigma A(\S)\to\Rpiu$ che estendono la premisura $\mu$ alla \sigalg{} generata. Fissiamo inoltre $A\in\sigma A(\S)$ e dimostriamo che $\mu'(A)=\mu''(A)$.
 	
-	Se $\mu'(A)=+\infty=\mu''(A)=$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
+	Se $\mu'(A)=+\infty=\mu''(A)$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
 	
 	Fissato $\epsilon>0$, grazie a \cref{EquivalenzeMisurabilita} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
 	
-	Ora, sfruttando \cref{PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(A)<\epsilon,\ \mu''(A)<\epsilon$.
+	Ora, sfruttando \cref{PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	
 	Unendo i risultati ottenuti, ricordando che $\mu',\mu''$ sono estensioni di $\mu$ e che $\mu''(A)<+\infty$,  abbiamo:
 	\begin{gather*}
 		\mu'(A)+\mu'(S\setminus A)=\mu'(S)=\mu(S)=\mu''(S)=\mu''(A)+\mu''(S\setminus A) \\
 		\Downarrow \\
-		\lvert\mu'(A)-\mu''(A)\rvert=\lvert\mu''(S\setminus A)-\mu'(S\setminus S)\rvert<2\epsilon
+		\lvert\mu'(A)-\mu''(A)\rvert=\lvert\mu''(S\setminus A)-\mu'(S\setminus A)\rvert<2\epsilon
 	\end{gather*}
 	e visto che questo deve valere per ogni $\epsilon>0$ otteniamo $\mu'(A)=\mu''(A)$ che è quanto si voleva.
 \end{proof}
