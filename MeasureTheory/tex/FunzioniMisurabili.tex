@@ -118,7 +118,7 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \begin{remark}
 	\label{LimMis}
 	Da quest'ultima proposizione, segue immediatamente che anche $\inf$ di una famiglia numerabile di misurabili è misurabile,
-	quindi anche $\limsup$ e $\liminf$ e come ultima conseguenza che il limite puntuale di di una successionedi misurabili è misurabile.
+	quindi anche $\limsup$ e $\liminf$ e come ultima conseguenza che il limite puntuale di di una successione di misurabili è misurabile.
 \end{remark}
 \begin{proof}
 	Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$;
@@ -130,10 +130,32 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \end{proof}
 
 \begin{proposition}
+	\label{LimSemMis}
 	Sia $f:X \rightarrow \R$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
 	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\phi_n$ che converge puntualmente a $f$.
 \end{proposition}
 \begin{proof}
-	Il solo se è mostrato in \cref{LimMis}.
+	Il se è mostrato in \cref{LimMis}.
+	
+	Per il solo se facciamo vedere che la seguente successione converge puntualmente a $f$:
+	\[
+		\phi_n(x) =
+		\left\{ \begin{array}{ll}
+			n &\qquad se\ f(x)>n;\\
+			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\leq \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\%
+%			\frac{k}{2^n} &\qquad se\ \frac{k-1}{2^n}<f(x)\leq \frac{k}{2^n} \qquad k=-n2^n,\dots,0;\\
+			-n &\qquad se\ f(x)\leq-n;
+		\end{array} \right.\ .
+	\]
+	Prima di tutto abbiamo 
+	\[\phi_n=
+		n\chi_{\{f>n\}}+
+		\sum_{k=-n2^n}^{n2^n}\frac{k}{2^n}\chi_{\left\{ \frac{k}{2^n}<f\leq \frac{k+1}{2^n} \right\}}
+		-n\chi_{\{f<-n\}},
+	\]
+	che mostra che le $\phi_n$ sono funzioni semplici.
+	
+	Per mostrare la convergenza puntuale abbiamo che $|f(x)-\phi_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq f(x)$,
+	quindi $\phi_n(x)\rightarrow f(x)$, $\forall x\in X$.
 \end{proof}
 
