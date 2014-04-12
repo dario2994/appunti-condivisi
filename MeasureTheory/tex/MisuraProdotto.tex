@@ -1,0 +1,56 @@
+\section{Misura prodotto}
+Trattiamo ora la possibilità di rendere uno spazio di misura il prodotto di due spazi di misura. 
+
+Questo risulterà facile sfruttando, come strumento principale, il teorema di estensione di Caratheodory. 
+Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di Caratheodory, proponiamo una via tecnica (che sfrutta la teoria degli integrali costruita), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli operatori integrali in uno spazio prodotto. 
+
+Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scambiare tra loro gli operatori di integrazione sotto opportune ipotesi.
+
+\begin{definition}
+	Dati due insiemi $X,Y$ definiamo, fissato $x\in X$, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ così definita:
+	\begin{equation*}
+		\forall E\subseteq X\times Y:\ J^X_x(E)=\{y\in Y:\ (x,y)\in E\}
+	\end{equation*}
+	
+	Dove ovvio verrà omesso l'apice che indica l'insieme.
+\end{definition}
+
+
+\newcommand{\B}{\ensuremath{\mathscr B}}
+\begin{theorem}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, definiamo la funzione $\mu\nu:\A\times\B\to\Rpiu$ come il prodotto delle misure $\mu\nu(A\times B)=\mu(A)\nu(B)$.
+	
+	Allora $(X\times Y,\A\times\B,\mu\nu)$ è uno spazio di misura elementare.
+\end{theorem}
+\begin{proof}
+	Verifichiamo innanzitutto che $\A\times\B$ rispetti le proprietà di \semiring{}.
+	
+	Ovviamente $\emptyset\in\A\times\B$ visto che $\emptyset\in\A,\B$. 
+	Inoltre valgono, fissati $A\times B,\ A'\times B'\in\A\times\B$, le seguenti identità insiemistiche:
+	\begin{align*}
+		(A\times B)\cap (A'\times B') &= (A\cap A')\times(B\cap B')\\
+		(A\times B)\setminus (A'\times B') &= (A\setminus A')\times B)\sqcup( (A\cap A')\times (B\setminus B') )
+	\end{align*}
+	e queste, ricordando che $\A,\B$ sono \sigalg[e], dimostra che $\A\times\B$ è un \semiring{}, visto che abbiamo scritto intersezione e differenza come unione disgiunta.
+	
+	Mostriamo ora che $\mu\nu$ è \sigadd{}. Sia $(A_n\times B_n)_{n\in\N}\subseteq \A\times \B$ una partizione disgiunta di $A\times B$.
+	
+	Essedo gli $A_n\times B_n$ disgiunti, risulta:
+	\begin{equation}\label{PremisuraProdottoSerie}
+		\bigsqcup_{n\in\N} J_x(A_n\times B_n) = J_x(A\times B)  \implies \sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)=\nu\left(J_x(A\times B)\right)
+	\end{equation}
+	dove nell'implicazione abbiamo applicato la \sigadd[ità] di $\nu$.
+	
+	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\subseteq \A\times\B$, abbiamo:
+	\begin{equation}\label{StupidaIdentitaIndicatrici}
+		\mu\nu(C\times D)=\mu(C)\nu(D)=\int_{X}\chi_C(x)\nu(D)\de \mu(x)=\int_X \nu\left(J_x(C\times D)\right)\de\mu(x)
+	\end{equation}
+	dove l'ultima uguaglianza vale perchè le funzioni sotto il segno di integrale coincidono puntualmente (per verificarlo basta dividere in due casi in base all'appartenenza o meno di $x$ a $C$).
+	
+	Ora unendo le \cref{PremisuraProdottoSerie,StupidaIdentitaIndicatrici} otteniamo, sfruttando il (teorema di commutazione tra integrale e serie MISREF):
+	\begin{align*}
+		\mu\nu(A\times B)&=\int_X\nu(J_x(A\times B))\de \mu(x)=\int_X\sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)\\
+		&=\sum_{n\in\N}\int_X\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)=\sum_{n\in\N}\mu\nu(A_n\times B_n)
+	\end{align*}
+	che è proprio la tesi.
+\end{proof}

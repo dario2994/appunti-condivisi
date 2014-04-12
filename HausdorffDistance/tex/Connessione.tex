@@ -6,6 +6,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 \end{theorem}
 \begin{proof}
 	Mostriamo un controesempio all'affermazione.
+	
 	Considero i sottinsiemi di $\mathbb R^2$ così definiti:
 	\begin{align*}
 		A&=\left\{(x,y)\in\mathbb R^2:\ y=0\right\}\\
@@ -25,22 +26,60 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 	
 	Per rendere gli elementi della successione anche limitati scegliamo una metrica differente per $\mathbb R^2$, in modo che tutto lo spazio sia limitato ma la topologia non cambi. Per farlo basta scegliere il minimo tra la distanza canonica ed il valore $1$. Chiamiamo $d:\mathbb R^2\to [0,1]$ questa nuova distanza.
 	
-	Allora ora ovviamente $(K_n)$ è una successione di chiusi e limitati connessi di $(\mathbb R^2, d)$ (visto che le proprietà di chiusura e connessione sono prettamente topologiche).
+	Allora ora $(K_n)$ è una successione di chiusi e limitati connessi di $(\mathbb R^2, d)$ (visto che le proprietà di chiusura e connessione sono prettamente topologiche).
 	
 	Per concludere dimostriamo che la successione $(K_n)$ converge a $A\cup B$ vista come successione in $(\CL(\mathbb R^2),\delta)$, e questo chiuderebbe il controesempio visto che, come si cercava, $A\cup B$ non è un connesso.
 	
 	Notiamo che vale $A\cup B\in K_n$ e perciò $\delta_{K_n}(A\cup B)=0$. 
-	Inoltre fissato $x\in K_n$ o questo appartiene ad $A\cup B$ e perciò $d_{A\cup B}(x)=0$ oppure appartiene a $C_n$. In quest'ultimo caso però vale, per definizione di $C_n$, $d_{A\cup B}(x)\le d\left((n,0),x\right)\le \frac 1n$. Riassumendo perciò giungo a:
+	Inoltre fissato $x\in K_n$ o questo appartiene ad $A\cup B$ e perciò $d_{A\cup B}(x)=0$ oppure appartiene a $C_n$. In quest'ultimo caso però vale, per definizione di $C_n$, $d_{A\cup B}(x)\le d\left((n,0),x\right)\le \frac 1n$. Riassumendo giungiamo a:
 	\begin{gather*}
 		\delta_{A\cup B}(K_n)=\sup_{x\in K_n} d_{A\cup B}(x)\le \frac 1n \\
 		\Downarrow \\
 		\delta(A\cup B,K_n)=\max(\delta_{K_n}\left(A\cup B),\delta_{A\cup B}(K_n)\right)\le \max\left(0,\frac1n\right)=\frac 1n
 	\end{gather*}
-	e quindi ho ottenuto come volevo che $K_n\to A\cup B$ visto che la distanza $\frac 1n$ tende a $0$.
+	e quindi abbiamo ottenuto come volevamo che $K_n\to A\cup B$ visto che la distanza $\frac 1n$ tende a $0$.
 \end{proof}
+
+\begin{lemma}\label{CompattoInAperto}
+	Siano $K,A$ rispettivamente un compatto ed un aperto di uno spazio metrico $(X,d)$ tali che $K\subseteq A$. Allora esiste $r>0$ tale che $U_r(K)\subseteq A$ dove $U_r$ è l'operatore definito nell'enunciato del \cref{EquivalenzaAllargamento}.
+\end{lemma}
+\begin{proof}
+	Assumiamo per assurdo sia falsa la tesi, allora esiste una successione di coppie $(k_n,b_n)\in K\times A^c$ tali che $d(k_n,b_n)\le \frac 1n$.
+	Sfruttando la compattezza di $K$ possiamo assumere inoltre, a meno di estrarre una sottosuccessione, che $k_n$ sia una successione convergente a $k\in K$.
+	
+	Per una facile applicazione della disuguaglianza triangolare otteniamo:
+	\begin{equation}
+		d(k,b_n)\le d(k,k_n)+d(k_n,b_n)\le d(k,k_n)+\frac 1n \implies d(k,b_n)\to 0
+	\end{equation}
+	quindi la successione $(b_n)\in A^c$ converge a $k\in K\subseteq A$, ma questo mostra l'assurdo visto che abbiamo trovato una successione di elementi nel complementare di un aperto che converge nell'aperto.
+
+\end{proof}
+
+
 
 \begin{theorem}
 	Sia $(K_n)$ una successione di compatti connessi nello spazio metrico $(X,d)$ che converge a $K\in\K(X)$ nella metrica di Hausdorff. Allora il compatto $K$ è connesso a sua volta.
 \end{theorem}
+\begin{proof}
+	Assumiamo per assurdo che $K$ non sia connesso, allora esistono due aperti $A,B$ disgiunti, entrambi con intersezione non nulla con $K$, tali che $K\subseteq A\cup B$.
+	
+	Innanzitutto $A\cap K, B\cap K$ sono ancora dei compatti. Questo perchè presa una successione $(a_n)$ in $A\cap K$, so che esiste una sottosuccessione che converge a $k\in K$, ma questa deve anche convergere nel complementare di $B$ visto che $B$ è un aperto e gli $a_n$ non vi appartengono. Quindi $k\in K\setminus B = K\cap A$ e questo dimostra quanto voluto.
+	
+	Ora per il \cref{CompattoInAperto} sappiamo che esistono $r_A,r_B$ tali che $U_{r_A}(K\cap A)\subseteq A$ e $U_{r_B}(K\cap B)\subseteq B$. Chiamiamo $r=\min(r_A,r_B)$.
+
+	Per il \cref{EquivalenzaAllargamento} definitivamente vale $K_n\subseteq U_r(K)$ e, per quanto detto sopra, allora $K_n\subseteq A\cup B$. 
+	Ma tutti i $K_n$ sono connessi per ipotesi, quindi $K_n\subseteq A\cup B$ implica $K_n\subseteq A$ oppure $K_n\subseteq B$.
+
+	Esisterà un $K_{n_0}$ tale che, senza perdita di generalità, è un sottoinsieme di $A$ e tale che $\delta_{K_{n_0}}(K)\le r$ (dove sfruttiamo il fatto che $K_n\to K$). Perciò in particolare $\delta_{K_{n_0}}(K\cap B)\le r$.
+
+	Ma allora, applicando il \cref{ApprossimazioneDistanzaAsimmetrica}, abbiamo due punti $a\in K_{n_0}\subseteq A,\ b\in K\cap B\subseteq B$ tali che $d(a,b)<r$. E questo porta all'assurdo visto che ne segue:
+	\begin{equation*}
+		d(a,b)<r\implies b\in U_r(K\cap A) \subseteq A \implies b\in A
+	\end{equation*}
+	
+
+	
+\end{proof}
+
 
 
