@@ -50,6 +50,7 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \end{proof}
 
 \begin{proposition}
+	\label{AlgMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}=\{f:X\rightarrow \R : f\ \grave{e} \ misurabile\}$.
 	Allora $\mathcal{M}$ è un'algebra nel senso che valgono le seguenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
@@ -85,9 +86,54 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \end{proof}
 
 \begin{remark}
+	\label{CarMis}
 	È facile vedere che le funzioni caratteristiche degli insiemi misurabili sono misurabili.
 \end{remark}
 \begin{proof}
 	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può valere solo $\emptyset$, $A$, $\R$ (tutti e 3 misurabili) a seconda che
 	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
 \end{proof}
+
+\begin{definition}
+	Una funzione $f:X \rightarrow \R$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
+	funzioni caratteristiche di insiemi misurabili.
+\end{definition}
+\begin{remark}
+	È immediato che le funzioni semplici sono misurabili.
+\end{remark}
+\begin{proof}
+	Discende da \cref{CarMis} e \cref{AlgMis}.
+\end{proof}
+
+
+\begin{proposition}
+	Sia $\{f_n\}_{n\in \N}$ una famiglia di funzioni misurabili definite dallo spazio di misura $(X,\A,\mu)$ a $\R$.
+	Allora $F=\sup\{f_n:n\in \N\}$ è misurabile.
+\end{proposition}
+\begin{proof}
+	Consideriamo il sovralivello della funzione $F$: $\{F>a\}=\bigcup_{n\in \N}\{f_n>a\}$, ma allora $\{F>a\}\in \A$ per le proprietà 
+	di chiusura della \sigalg.
+\end{proof}
+
+\begin{remark}
+	\label{LimMis}
+	Da quest'ultima proposizione, segue immediatamente che anche $\inf$ di una famiglia numerabile di misurabili è misurabile,
+	quindi anche $\limsup$ e $\liminf$ e come ultima conseguenza che il limite puntuale di di una successionedi misurabili è misurabile.
+\end{remark}
+\begin{proof}
+	Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$;
+	
+	per definizione, $\limsup\{f_n\}$ e $\liminf\{f_n\}$ sono rispettivamente $\lim_n\{\sup\{f_n\}\}=\inf\{\sup\{f_n\}\}$ e
+	$\lim_n\{\inf\{f_n\}\}=\sup\{\inf\{f_n\}\}$, quindi sono funzioni misurabili;
+	
+	infine se esiste il limite $\lim_n\{f_n\}$ allora $\liminf\{f_n\}=\limsup\{f_n\}=\lim_n\{f_n\}$, pertanto è misurabile.
+\end{proof}
+
+\begin{proposition}
+	Sia $f:X \rightarrow \R$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
+	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\phi_n$ che converge puntualmente a $f$.
+\end{proposition}
+\begin{proof}
+	Il solo se è mostrato in \cref{LimMis}.
+\end{proof}
+
