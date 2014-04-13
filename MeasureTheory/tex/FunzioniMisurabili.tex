@@ -20,18 +20,17 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	$\text{\ref{BM:mis}}\implies\text{\ref{BM:sot}}$ per definizione;
-	
-	$\text{\ref{BM:sot}}\implies\text{\ref{BM:soteq}}$ sfruttando il fatto che $\A$ è \sigalg{} e che
+	Mostriamo a catena tutte le implicazioni:
+	\begin{description}
+	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione;
+	\item[\ImplicationProof{BM:sot}{BM:soteq}] sfruttando il fatto che $\A$ è \sigalg{} e che
 	$(-\infty,a]=\cap_{n\in \N}(-\infty,a+\frac{1}{n})$;
-	
-	$\text{\ref{BM:soteq}}\implies\text{\ref{BM:sov}}$ passando al complementare;
-	
-	$\text{\ref{BM:sov}}\implies\text{\ref{BM:soveq}}$, $\text{\ref{BM:soveq}}\implies\text{\ref{BM:sot}}$ come i precedenti;
-	
-	$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$ per intersezione;
-	
-	$\text{\ref{BM:int}}\implies\text{\ref{BM:mis}}$ perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
+	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare;
+	\item[\ImplicationProof{BM:sov}{BM:soveq}] analogamente a \ImplicationProof{BM:sot}{BM:soteq}; 
+	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
+	\item[$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$] per intersezione;
+	\item[\ImplicationProof{BM:int}{BM:mis}] perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
+	\end{description}
 \end{proof}
 
 \begin{proposition}
@@ -43,10 +42,18 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	è una \sigalg{}.
 \end{proposition}
 \begin{proof}
-	Unione numerabile: siano $\{E_n\}_{n\in \N}\subseteq \mathcal{E}$ e sia $E = \cup_{n\in \N}E_n$,
-	allora $f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \Rightarrow E \in \mathcal{E}$;
+	Verifichiamo che $\mathcal E$ è stabile per unioni numerabili e passaggio al complementare.
 	
-	Complementare: sia $E\in \mathcal{E}$, allora $f^{-1}(^{c}E)= ^{c}f^{-1}(E)\in \A \Rightarrow ^{c}E \in \mathcal{E}$.
+	Fissati $\{E_n\}_{n\in \N}\subseteq \mathcal{E}$ sia $E = \cup_{n\in \N}E_n$, vale:
+	\begin{equation*}
+		f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \implies E \in \mathcal{E}
+	\end{equation*}
+	e questo dimostra la stabilità per unione numerabile.
+	
+	Per quanto riguard il passaggio al complementare, fissato $E\in \mathcal{E}$, risulta:
+	\begin{equation*}
+		f^{-1}(E^\mathsf{c})= f^{-1}(E)^\mathsf{c} \in \A \implies E^\mathsf{c} \in \mathcal{E}
+	\end{equation*}
 \end{proof}
 
 \begin{proposition}
@@ -60,29 +67,28 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Mostriamo per ogni punto che vale \ref{BM:sov} in \cref{BasicMis}.
-	\ref{AlM:sum}: 
+	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} in \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità).
+	\begin{description}
+	\item[\ref{AlM:sum}] 
 	\[
-		\{f+g>a\}=\bigcup_{q\in \Q}[\{f>q\}\cap\{g>a-q\}]\in \A
+		\{f+g>a\}=\bigcup_{q\in \Q}\left(\{f>q\}\cap\{g>a-q\}\right)\in \A
 	\]
-
-	
-	\ref{AlM:sca}:
+	\item[\ref{AlM:sca}]
 	\[
 		\{\lambda f>a\}=\left\{f>\frac{a}{\lambda}\right\}\in \A
 	\]
-
-	\ref{AlM:pro}: Per ogni funzione $h$ possiamo scrivere la parte positiva e la parte negativa: $h^+ = max\{h,0\}$, $h^- = max\{0,-h\}$,
-	così $h^+,h^- \geq 0$ e $h = h^+ - h^-$. Ora scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi $fg$ si scrive
-	come una qualche combinazione di prodotti di funzioni non negative. Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione
-	ci basta mostrare il caso in cui $f,g\geq0$:
+	\item[\ref{AlM:pro}] Per ogni funzione $h$ possiamo scrivere la parte positiva $h^+ = \max\{h,0\}$ e la parte negativa $h^- = \max\{0,-h\}$,
+	così $h^+,h^- \geq 0$ e $h = h^+ - h^-$. 
+	
+	Ora scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni non negative. Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\geq0$:
 	\[
 		\{fg>a\}=\left\{\begin{array}{ll}
 			\R &\qquad se\ a<0;\\
 			\{f=0\}\cup\{g=0\} &\qquad se\ a=0;\\
-			\bigcup_{q\in \Q^+}\left[\{f>q\}\cap\left\{g>\frac{a}{q}\right\}\right]\in \A &\qquad se\ a>0.
+			\bigcup_{q\in \Q^+}\left(\{f>q\}\cap\left\{g>\frac{a}{q}\right\}\right)\in \A &\qquad se\ a>0.
 		\end{array}\right.
 	\]
+	\end{description}
 \end{proof}
 
 \begin{remark}
