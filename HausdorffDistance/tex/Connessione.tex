@@ -10,7 +10,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 	Considero i sottinsiemi di $\mathbb R^2$ così definiti:
 	\begin{align*}
 		A&=\left\{(x,y)\in\mathbb R^2:\ y=0\right\}\\
-		B&=\left\{(x,y)\in\mathbb R^2:\ x\ge 0\ \wedge\ y=\frac 1x \right\}
+		B&=\left\{(x,y)\in\mathbb R^2:\ x> 0\ \wedge\ y=\frac 1x \right\}
 	\end{align*}
 	cioè si tratta dell'asse delle ascisse e del grafico, nel primo quadrante, della funzione inverso.
 	
@@ -30,7 +30,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 	
 	Per concludere dimostriamo che la successione $(K_n)$ converge a $A\cup B$ vista come successione in $(\CL(\mathbb R^2),\delta)$, e questo chiuderebbe il controesempio visto che, come si cercava, $A\cup B$ non è un connesso.
 	
-	Notiamo che vale $A\cup B\in K_n$ e perciò $\delta_{K_n}(A\cup B)=0$. 
+	Notiamo che vale $A\cup B\subseteq K_n$ e perciò $\delta_{K_n}(A\cup B)=0$. 
 	Inoltre fissato $x\in K_n$ o questo appartiene ad $A\cup B$ e perciò $d_{A\cup B}(x)=0$ oppure appartiene a $C_n$. In quest'ultimo caso però vale, per definizione di $C_n$, $d_{A\cup B}(x)\le d\left((n,0),x\right)\le \frac 1n$. Riassumendo giungiamo a:
 	\begin{gather*}
 		\delta_{A\cup B}(K_n)=\sup_{x\in K_n} d_{A\cup B}(x)\le \frac 1n \\
