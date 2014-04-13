@@ -153,19 +153,22 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 
-\begin{proposition}\label{EquivalenzeMisurabilita}
-	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+\begin{proposition}\label{EquivalenzeMisurabilitaSottoinsieme}
+	Dato $(X,\S,\mu)$ una spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
-	Scelto $A\in\mathcal P(X)$, le seguenti affermazioni sono equivalenti:
+	Sia $A\subseteq X$ tale che sia \emph{\sigfin[o] rispetto alla premisura}, cioè sia contenuto in un unione numerabile di elementi di $\S$ con misura finita.
+	
+	Allora le seguenti affermazioni su $A$ sono equivalenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $A\in\A$ cioè l'insieme è un misurabile (secondo Caratheodory).\label{MisurabileEquivalenze}
 		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu^*(S\setminus A)<\epsilon$.\label{UnioniDaFuoriEquivalenze}
 		\item Esiste $B\in\sigma A(S)$ che $B$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.\label{SigmaDaFuoriEquivalenze}
-		\item Fissato $\epsilon>0$ esiste $S$ contenuto in $A$ tale che $S^c\in\sqcup\S$  e $\mu^*(A\setminus S)<\epsilon$.\label{UnioniDaDentroEquivalenze}
 		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.\label{SigmaDaDentroEquivalenze}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
+	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
+	
 	Dimostriamo innanzitutto la catena di implicazioni
 	$\text{\ref{MisurabileEquivalenze}}\implies
 	\text{\ref{UnioniDaFuoriEquivalenze}}\implies
@@ -173,9 +176,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\text{\ref{MisurabileEquivalenze}}$.
 	\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 	\begin{description}
-		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Sia $A$ misurabile e $(X_n)_{n\in\N}\subseteq \S$ una partizione numerabile di $X$ tale che $\mu(X_n)<+\infty$ (questa esiste poichè $\mu$ è \sigfin{} e ogni unione numerabile di elementi in $\S$ è un'unione disgiunta, visto che $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
-		
-		Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
+		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
 		
 		Sia $\epsilon>0$ fissato.
 		
@@ -213,8 +214,35 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		Di conseguenza, visto che $\A$ è una \sigalg, otteniamo che $A=B\setminus (B\setminus A)$ è misurabile in quanto differenza di misurabili. Perciò $A\in\A$ dimostrando l'implicazione.
 	\end{description}
 	
-	Infine basta vedere, sfruttando il passaggio al complementare, che risultano $\text{\ref{UnioniDaFuoriEquivalenze}}\iff\text{\ref{UnioniDaDentroEquivalenze}}$ e $\text{\ref{SigmaDaFuoriEquivalenze}}\iff\text{\ref{SigmaDaDentroEquivalenze}}$ e questo chiude la dimostrazione.
+	Ora dimostriamo \ImplicationProof{MisurabileEquivalenze}{SigmaDaDentroEquivalenze} sfruttando un passaggio al complementare \emph{ristretto}.
+	
+	Se $A$ è misurabile allora anche $X'\setminus A$ è misurabile ed è anch'esso \sigfin[o] per $\mu$. Quindi sfruttando l'implicazione \ImplicationProof{MisurabileEquivalenze}{SigmaDaFuoriEquivalenze} otteniamo che esiste $C\in\sigma A(\S)$ tale che contiene $X'\setminus A$ e tale che $\mu^*(C\setminus(X'\setminus A))=0$. 
+	
+	Chiamiamo $B$ l'insieme $X'\setminus C$. L'insieme definito è contenuto in $A$ ed appartiene a $\sigma A(\S)$. Inoltre vale la seguente:
+	\begin{equation*}
+		A\setminus B\subseteq C\setminus (X'\setminus A) \implies \mu^*(A\setminus B)\le \mu^*\left(C\setminus(X'\setminus A)\right)\le \epsilon
+	\end{equation*}
+	e questo termina la dimostrazione, visto che $B$ rispetta tutte le richieste.
+	
+	Infine per l'implicazione \ImplicationProof{SigmaDaDentroEquivalenze}{MisurabileEquivalenze} si procede in maniera completamente analoga alla dimostrazione dell'implicazione \ImplicationProof{SigmaDaFuoriEquivalenze}{MisurabileEquivalenze}.
 \end{proof}
+
+\begin{corollary}\label{EquivalenzeMisurabilitaSpazio}
+	La \cref{EquivalenzeMisurabilitaSottoinsieme} valgono anche senza l'ipotesi che $A$ sia \sigfin[o] rispetto alla premisura, ammesso che lo spazio $X$ lo sia.
+\end{corollary}
+\begin{proof}
+	La dimostrazione è ovvia, visto che se $X$ è \sigfin[o], lo è di conseguenza qualsiasi suo sottoinsieme.
+\end{proof}
+
+\begin{remark}
+	Nell'enunciato del \cref{EquivalenzeMisurabilitaSottoinsieme} sembra mancare simmetria tra le equivalenze: manca la possibilità di approssimare dall'interno con elementi di $\sqcup\S$. Infatti è falso che si possa approssimare dall'interno con elementi di $\sqcup\S$.
+\end{remark}
+\begin{proof}
+	Il controesempio più naturale si troverà studiando la misura di Lebesgue su $\R$. In questo ambiente basta considerare $\R\setminus\mathbb Q$ per trovare un insieme con misura infinita, ma che, se approssimato dall'interno con unioni numerabili di intervalli, appare avere misura nulla. Questo è dovuto al fatto che l'insieme proposto, pur avendo misura non nulla, è a parte interna vuota.
+\end{proof}
+
+
+
 
 \begin{proposition}
 	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], esiste un'unica estensione della premisura ad una misura su $\sigma A(\S)$.
@@ -226,7 +254,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Se $\mu'(A)=+\infty=\mu''(A)$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
 	
-	Fissato $\epsilon>0$, grazie a \cref{EquivalenzeMisurabilita} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
+	Fissato $\epsilon>0$, grazie a \cref{EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
 	
 	Ora, sfruttando \cref{PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	

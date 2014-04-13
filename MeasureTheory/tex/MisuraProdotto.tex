@@ -17,7 +17,7 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 
 
 \newcommand{\B}{\ensuremath{\mathscr B}}
-\begin{theorem}
+\begin{theorem}\label{PremisuraProdotto}
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, definiamo la funzione $\mu\nu:\A\times\B\to\Rpiu$ come il prodotto delle misure $\mu\nu(A\times B)=\mu(A)\nu(B)$.
 	
 	Allora $(X\times Y,\A\times\B,\mu\nu)$ è uno spazio di misura elementare.
@@ -54,3 +54,10 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	\end{align*}
 	che è proprio la tesi.
 \end{proof}
+
+\begin{definition}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio misurabile prodotto, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}, generato a partire dallo spazio di premisura definito nel \cref{PremisuraProdotto}. Inoltre chiameremo $\A\otimes\B$ la \sigalg{} prodotto.
+\end{definition}
+
+È importante notare che la scelta dell'estensione della premisura alla misura prodotto è, in qualche senso, di carattere arbitrario. Infatti, a meno che gli spazi fossero \sigfin[i], erano possibili altre estensioni non coincidenti della misura. 
+È preferibile però considerare l'estensione proposta dal teorema di Caratheodory poichè è la scelta corretta in vista dei teoremi cardine di questa sezione: teoremi di Fubini e Tonelli.
