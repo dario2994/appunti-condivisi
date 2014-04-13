@@ -166,6 +166,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.\label{SigmaDaDentroEquivalenze}
 	\end{enumerate}
 \end{proposition}
+\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 \begin{proof}
 	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
 	
@@ -174,7 +175,6 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\text{\ref{UnioniDaFuoriEquivalenze}}\implies
 	\text{\ref{SigmaDaFuoriEquivalenze}}\implies
 	\text{\ref{MisurabileEquivalenze}}$.
-	\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 	\begin{description}
 		\item[\ImplicationProof{MisurabileEquivalenze}{UnioniDaFuoriEquivalenze}] Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
 		
@@ -228,11 +228,37 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 \begin{corollary}\label{EquivalenzeMisurabilitaSpazio}
-	La \cref{EquivalenzeMisurabilitaSottoinsieme} valgono anche senza l'ipotesi che $A$ sia \sigfin[o] rispetto alla premisura, ammesso che lo spazio $X$ lo sia.
+	La \cref{EquivalenzeMisurabilitaSottoinsieme} vale anche senza l'ipotesi che $A$ sia \sigfin[o] rispetto alla premisura, ammesso che lo spazio $X$ lo sia.
 \end{corollary}
 \begin{proof}
 	La dimostrazione è ovvia, visto che se $X$ è \sigfin[o], lo è di conseguenza qualsiasi suo sottoinsieme.
 \end{proof}
+
+\begin{corollary}
+	Nelle stesse ipotesi di \cref{EquivalenzeMisurabilitaSottoinsieme}, sia $A$ un misurabile \sigfin[o].
+	
+	Dato un insieme $K$ chiamo limite monotono di $K$, che indico con $\hat K$ l'insieme:
+	\begin{equation*}
+		\left\{\bigsqcup_{n\in\N}K_n:(K_n)_{n\in\N}\subseteq K\wedge K_n \text{ disgiunti}\right\}\cup
+		\left\{\bigcap_{n\in\N}K_n:\ (K_n)_{n\in\N}\subseteq K\ \wedge\ K_{n+1}\subseteq K_n\right\}
+	\end{equation*}
+
+	Allora esiste $B\in\hat{\hat\S}$ che coincide con $A$ a meno di un sottoinsieme trascurabile.
+\end{corollary}
+\begin{proof}
+	Poichè siamo nelle stesse ipotesi di \cref{EquivalenzeMisurabilitaSottoinsieme} ed $A$ è misurabile, di certo valgono le varie implicazioni, quindi assumiamone implicitamente la validità.
+	
+	Notiamo che nella dimostrazione di \ImplicationProof{UnioniDaFuoriEquivalenze}{SigmaDaFuoriEquivalenze} della \cref{EquivalenzeMisurabilitaSottoinsieme} scriviamo $B$, che è per l'appunto un insieme che coincide con $A$ a meno di un sottoinsieme trascurabile, come intersezione di numerabile di $(S_n)_{n\in\N}\subseteq \sqcup \S$.
+	Avremmo finito se quest'intersezione fosse monotona, visto che $\sqcup \S\subseteq \hat \S$.
+	Ma questo è facile da ottenere, sfruttando questa scrittura:
+	\begin{equation*}
+		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n
+	\end{equation*}
+	dove gli elementi che interseco rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
+
+\end{proof}
+
+
 
 \begin{remark}
 	Nell'enunciato del \cref{EquivalenzeMisurabilitaSottoinsieme} sembra mancare simmetria tra le equivalenze: manca la possibilità di approssimare dall'interno con elementi di $\sqcup\S$. Infatti è falso che si possa approssimare dall'interno con elementi di $\sqcup\S$.
