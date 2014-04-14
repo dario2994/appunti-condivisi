@@ -64,9 +64,33 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 
 \begin{theorem}[Tonelli]
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, sia $f:X\times Y\to \Rbar$ una funzione positiva misurabile sullo spazio prodotto $(X\times Y,\A\otimes\B,\mu\nu)$ a supporto \sigfin[o].
-	Allora vale la seguente identità, cioè posso scambiare l'ordine degli integrali:
-	\begin{equation*}
-		\int_{X\times Y}f(x,y)\de\mu\nu(x,y)=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_Y\int_Xf(x,y)\de\mu(x)\de\nu(y)
-	\end{equation*}
 
+	Allora la funzione $f(x,{}\cdot{})$ è misurabile per $\mu$-quasi ogni $x\in X$, la funzione $\int_Y f(x,y)\de\nu(y)$ è perciò definita $\mu$-quasi ovunque e, ponendola nulla dove non è definita, risulta misurabile. Stessa cosa vale anche scambiando tra loro i ruoli di $X$ e $Y$.
+	
+	Infine vale la seguente identità, che acquista significato visto quanto si è appena affermato (la funzione integrale, dove non definita, la pongo arbitrariamente a $0$):
+	\begin{equation*}
+		\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_{X\times Y}f(x,y)\de\mu\nu(x,y)=\int_Y\int_Xf(x,y)\de\mu(x)\de\nu(y)
+	\end{equation*}
 \end{theorem}
+\begin{proof}
+	Definiamo $V$ l'insieme delle funzioni positive misurabili sullo spazio prodotto che rispettano le richieste di misurabilità dell'enunciato (solo quelle senza scambiare i ruoli di $X$ e $Y$, cioè quelle necessarie a dare senso alla prima identità) nonchè la prima identità tra gli integrali. Dimostreremo che $V$ comprende tutte le funzioni a supporto \sigfin[o], e questo proverà la tesi visto che per totale simmetria dovrà valere anche la seconda identità tra integrali. 
+	
+	Verifichiamo che $V$ rispetti tutte le ipotesi del MISREF:	
+	\begin{description}
+		\item[$V$ contiene le indicatrici dei rettangoli] Questo risulta molto facile sfruttando la definizione della misura prodotto e dell'integrale di funzioni semplici (in particolare le ipotesi di misurabilità, in questo caso, valgono ovunque e non solo $\mu$-quasi ovunque).
+		
+		Infatti, fissati $A\in\A$ e $B\in\B$, vale:
+		\begin{align*}
+			\int_X\int_Y \chi_{A\times B}(x,y) \de\nu(y)\de\mu(x) &=\int_X \nu(B)\chi_A(x)\de\mu(x)=\mu(A)\nu(B)=\mu\nu(A\times B)\\
+			&=\int_{X\times Y}\chi_{A\times B}(x,y)\de\mu\nu(x,y)
+		\end{align*}
+		che equivale a dire $\chi_{A\times B}\in V$.
+		\item[$V$ è un sottospazio vettoriale] Fissate $f,g\in V$, sia $k=af+bg$ una combinazione lineare delle due funzioni. 
+		Fissato $x\in X$, se $f(x,{}\cdot{}),g(x,{}\cdot{})$ sono entrambe misurabili, anche $k(x,{}\cdot{})$ lo è poichè le funzioni misurabili sono uno spazio vettoriale come mostrato in \cref{AlgMis}. Inoltre l'insieme degli $x$ per cui una tra $f(x,{}\cdot{})$ e $g(x,{}\cdot{})$ \emph{non} è misurabile è un trascurabile poichè è unione degli insiemi per cui solo una delle due non è misurabile che sono trascurabili visto che $f,g\in V$.
+		
+		Infine l'identità tra gli integrali per $k$ è ovvia visto che l'operatore integrale è lineare e il porre arbitrariamente a $0$ il valore dove non è definita la funzione $\int_Yk(x,y)\de\nu(y)$ non cambia il valore dell'integrale esterno.
+		\item[$V$ è chiuso per convergenza monotona] Considero un insieme di funzioni $f_n$ che converge monotonamente a $f$.
+	\end{description}
+
+\end{proof}
+
