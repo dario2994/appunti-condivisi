@@ -3,41 +3,48 @@
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
 
 \begin{definition}[Funzione misurabile]
-	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \R$ si dice misurabile se
-	$\forall A \subseteq \R$ aperto si ha $f^{-1}(A)\in \A$.
+	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
+	$\forall A \subseteq \Rbar$ aperto si ha $f^{-1}(A)\in \A$.
 \end{definition}
 
 \begin{proposition}
 	\label{BasicMis}
-	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \R$ una funzione, sono equivalenti i seguenti fatti:
+	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \Rbar$ una funzione, sono equivalenti i seguenti fatti
+	\footnote{qui introduciamo la notazione per i \textit{sovralivelli} di una funzione che useremo in tutti gli appunti:
+		data una funzione $f$ di codominio reale e un certo reale $k$ indichiamo con $\{f>k\}$ l'insieme
+		$\{x:f(x)>k\}=f^{-1}((k,+\infty])$; stessa notazione verrà usata anche per il sottolivello}:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f$ è misurabile; \label{BM:mis}
-		\item $\{f<a\}\in \A \quad \forall a\in \R$; \label{BM:sot}
-		\item $\{f\leq a\}\in \A \quad \forall a\in \R$; \label{BM:soteq}
-		\item $\{f>a\}\in \A \quad \forall a\in \R$; \label{BM:sov}
-		\item $\{f\geq a\}\in \A \quad \forall a\in \R$;  \label{BM:soveq}
-		\item $\{a<f<b\}\in \A \quad \forall a,b\in \overline{\R}$; \label{BM:int}
+		\item $\{f<a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sot}
+		\item $\{f\leq a\}\in \A \quad \forall a\in \Rbar$; \label{BM:soteq}
+		\item $\{f>a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sov}
+		\item $\{f\geq a\}\in \A \quad \forall a\in \Rbar$;  \label{BM:soveq}
+		\item $\{a<f<b\}\in \A \quad \forall a,b\in \Rbar$; \label{BM:int}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Mostriamo a catena tutte le implicazioni:
+	Sfruttando le proprietà di $\A$ come \sigalg, mostriamo a catena tutte le implicazioni:
 	\begin{description}
-	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione;
-	\item[\ImplicationProof{BM:sot}{BM:soteq}] sfruttando il fatto che $\A$ è \sigalg{} e che
-	$(-\infty,a]=\cap_{n\in \N}(-\infty,a+\frac{1}{n})$;
-	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare;
+	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}([-\infty,a))\in \A$,
+		perché $[-\infty,a)$ è aperto;
+	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $[-\infty,a]=\bigcap_{n\in \N}[-\infty,a+\frac{1}{n})$, allora otteniamo che
+		$\{f\leq a\}=f^{-1}([-\infty,a])=\bigcap_{n\in \N}f^{-1}([-\infty,a+\frac{1}{n}))\in \A$
+	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\leq a\}\in \A$;
 	\item[\ImplicationProof{BM:sov}{BM:soveq}] analogamente a \ImplicationProof{BM:sot}{BM:soteq}; 
 	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
-	\item[$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$] per intersezione;
-	\item[\ImplicationProof{BM:int}{BM:mis}] perché in $\R$ gli aperti sono unione numerabile di intervalli aperti (o semirette aperte).
+	\item[$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$] perché
+		$\{a<f<b\}=\{a<f\}\cap\{f<b\}\in \A$;
+	\item[\ImplicationProof{BM:int}{BM:mis}] perché un aperto $A\subseteq\Rbar$ si può scrivere come
+		$A=\bigcup_{n\in \N}A_n$ dove ciascun $A_n$ è un intervallo aperto di $\Rbar$ (o una semiretta aperta);
+		quindi $f^{-1}(A)=\bigcup_{n\in \N}f^{-1}(A_n)\in \A$, perché per il punto \ref{BM:int} $f^{-1}(A_n)\in \A\ \ \forall n$.
 	\end{description}
 \end{proof}
 
 \begin{proposition}
 	\label{CounterImgMis}
-	Dato uno spazio di misura $(X,\A,\mu)$, e data $f:X\rightarrow \R$ una funzione misurabile, la famiglia di insiemi
+	Dato uno spazio di misura $(X,\A,\mu)$, e data $f:X\rightarrow \Rbar$ una funzione misurabile, la famiglia di insiemi
 	\[
-		\mathcal{E} = \{ E\subseteq \R : f^{-1}(E)\in \A \}
+		\mathcal{E} = \{ E\subseteq \Rbar : f^{-1}(E)\in \A \}
 	\]
 	è una \sigalg{}.
 \end{proposition}
@@ -48,34 +55,48 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	\begin{equation*}
 		f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \implies E \in \mathcal{E}
 	\end{equation*}
-	e questo dimostra la stabilità per unione numerabile.
+	dove l'appartenenza ad $\A$ si ha per le proprietà di \sigalg, e questo dimostra la stabilità per unione numerabile.
 	
-	Per quanto riguard il passaggio al complementare, fissato $E\in \mathcal{E}$, risulta:
+	Per quanto riguarda il passaggio al complementare, fissato $E\in \mathcal{E}$, risulta:
 	\begin{equation*}
-		f^{-1}(E^\mathsf{c})= f^{-1}(E)^\mathsf{c} \in \A \implies E^\mathsf{c} \in \mathcal{E}
+		f^{-1}(E^\mathsf{c})= f^{-1}(E)^\mathsf{c} \in \A \implies E^\mathsf{c} \in \mathcal{E}.
 	\end{equation*}
 \end{proof}
 
 \begin{proposition}
 	\label{AlgMis}
-	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}=\{f:X\rightarrow \R : f\ \grave{e} \ misurabile\}$.
-	Allora $\mathcal{M}$ è un'algebra nel senso che valgono le seguenti:
+	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}=\{f:X\rightarrow \Rbar : f\ \grave{e} \ misurabile\}$.
+	Allora $\mathcal{M}$ è un'algebra nel senso che, dove sono definite,
+	\footnote{Nel definire le operazioni algebriche su $\mathcal{M}$ adottiamo le seguenti convenzioni: la somma è definita
+		se non accade che entrambe $f$ e $-g$ siano $\pm\infty$, per la moltiplicazione $0\cdot \infty = 0$.}
+	valgono le seguenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f,g\in \mathcal{M} \Rightarrow f+g\in \mathcal{M}$; \label{AlM:sum}
 		\item $f\in \mathcal{M}, \lambda \in \R \Rightarrow \lambda f\in \mathcal{M}$. \label{AlM:sca}
 		\item $f,g\in \mathcal{M} \Rightarrow fg\in \mathcal{M}$. \label{AlM:pro}
 	\end{enumerate}
 \end{proposition}
+
 \begin{proof}
-	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} in \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità).
+	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} in \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità),
+	distinguendo vari casi di $a\in \Rbar$.
 	\begin{description}
-	\item[\ref{AlM:sum}] 
+	\item[\ref{AlM:sum}]
 	\[
-		\{f+g>a\}=\bigcup_{q\in \Q}\left(\{f>q\}\cap\{g>a-q\}\right)\in \A
+		\{f+g>a\}=\left\{\begin{array}{ll}
+			\{f=-\infty\}\cap\{g=-\infty\}\in \A &\qquad se\ a=-\infty;\\
+			\bigcup_{q\in \Q}\left(\{f>q\}\cap\{g>a-q\}\right)\in \A &\qquad se\ a\in \R;\\
+			\{f=+\infty\}\cup\{g=+\infty\}\in \A &\qquad se\ a=+\infty.
+		\end{array}\right.
 	\]
 	\item[\ref{AlM:sca}]
 	\[
-		\{\lambda f>a\}=\left\{f>\frac{a}{\lambda}\right\}\in \A
+		\{\lambda f>a\}=\left\{\begin{array}{ll}
+			\left\{f<\frac{a}{\lambda}\right\}\in \A &\qquad se\ \lambda<0;\\
+			\Rbar \in \A &\qquad se\ \lambda=0\ e\ a< 0;\\
+			\emptyset \in \A &\qquad se\ \lambda=0\ e\ a\geq 0;\\
+			\left\{f>\frac{a}{\lambda}\right\}\in \A &\qquad se\ \lambda>0.
+		\end{array}\right.
 	\]
 	\item[\ref{AlM:pro}] Per ogni funzione $h$ possiamo scrivere la parte positiva $h^+ = \max\{h,0\}$ e la parte negativa $h^- = \max\{0,-h\}$,
 	così $h^+,h^- \geq 0$ e $h = h^+ - h^-$. 
@@ -83,9 +104,10 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	Ora scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni non negative. Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\geq0$:
 	\[
 		\{fg>a\}=\left\{\begin{array}{ll}
-			\R &\qquad se\ a<0;\\
-			\{f=0\}\cup\{g=0\} &\qquad se\ a=0;\\
-			\bigcup_{q\in \Q^+}\left(\{f>q\}\cap\left\{g>\frac{a}{q}\right\}\right)\in \A &\qquad se\ a>0.
+			\Rbar\in \A &\quad se\ a<0;\\
+			\{f=0\}\cup\{g=0\}\in \A &\quad se\ a=0;\\
+			\bigcup_{q\in \Q^+}\left(\{q<f<+\infty\}\cap\left\{\frac{a}{q}<g<+\infty \right\} \right)\in \A &\quad se\ 0<a<+\infty;\\
+			(\{f=+\infty\}\cap\{g>0\})\cup (\{f>0\}\cap\{g=+\infty\})\in \A &\quad se\ a=+\infty.
 		\end{array}\right.
 	\]
 	\end{description}
@@ -96,12 +118,12 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	È facile vedere che le funzioni caratteristiche degli insiemi misurabili sono misurabili.
 \end{remark}
 \begin{proof}
-	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può valere solo $\emptyset$, $A$, $\R$ (tutti e 3 misurabili) a seconda che
+	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può valere solo $\emptyset$, $A$, $X$ (tutti e 3 misurabili) a seconda che
 	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
 \end{proof}
 
 \begin{definition}
-	Una funzione $f:X \rightarrow \R$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
+	Una funzione $f:X \rightarrow \Rbar$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
 	funzioni caratteristiche di insiemi misurabili.
 \end{definition}
 \begin{remark}
@@ -113,8 +135,9 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 
 
 \begin{proposition}
-	Sia $\{f_n\}_{n\in \N}$ una famiglia di funzioni misurabili definite dallo spazio di misura $(X,\A,\mu)$ a $\R$.
-	Allora $F=\sup\{f_n:n\in \N\}$ è misurabile.
+	\label{SupMis}
+	Sia $\{f_n\}_{n\in \N}$ una famiglia di funzioni misurabili definite dallo spazio di misura $(X,\A,\mu)$ a $\Rbar$.
+	Allora $F:X\rightarrow \Rbar$ definita da $F(x)=\sup\{f_n(x):n\in \N\}$ è misurabile.
 \end{proposition}
 \begin{proof}
 	Consideriamo il sovralivello della funzione $F$: $\{F>a\}=\bigcup_{n\in \N}\{f_n>a\}$, ma allora $\{F>a\}\in \A$ per le proprietà 
@@ -123,21 +146,27 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 
 \begin{remark}
 	\label{LimMis}
-	Da quest'ultima proposizione, segue immediatamente che anche $\inf$ di una famiglia numerabile di misurabili è misurabile,
-	quindi anche $\limsup$ e $\liminf$ e come ultima conseguenza che il limite puntuale di di una successione di misurabili è misurabile.
+	Quest'ultima proposizione ha alcune notevoli conseguenze immediate:
+	\begin{enumerate}
+		\item $\inf$ di una famiglia numerabile di misurabili è misurabile;\label{LM:inf}
+		\item $\limsup$ e $\liminf$ di una famiglie numerabili di misurabili sono misurabili;\label{LM:lim_infsup}
+		\item limite puntuale di funzioni misurabili è misurabile.\label{LM:lim}
+	\end{enumerate}
 \end{remark}
 \begin{proof}
-	Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$;
-	
-	per definizione, $\limsup\{f_n\}$ e $\liminf\{f_n\}$ sono rispettivamente $\lim_n\{\sup\{f_n\}\}=\inf\{\sup\{f_n\}\}$ e
-	$\lim_n\{\inf\{f_n\}\}=\sup\{\inf\{f_n\}\}$, quindi sono funzioni misurabili;
-	
-	infine se esiste il limite $\lim_n\{f_n\}$ allora $\liminf\{f_n\}=\limsup\{f_n\}=\lim_n\{f_n\}$, pertanto è misurabile.
+	\begin{description}
+		\item[\ref{LM:inf}] Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$, quindi è misurabile per \cref{SupMis};
+		\item[\ref{LM:lim_infsup}] per definizione, $\limsup\{f_n\}$ e $\liminf\{f_n\}$ sono rispettivamente
+			$\lim_n\{\sup\{f_n\}\}=\inf\{\sup\{f_n\}\}$ e
+			$\lim_n\{\inf\{f_n\}\}=\sup\{\inf\{f_n\}\}$, quindi sono funzioni misurabili per il punto precedente;
+		\item[\ref{LM:lim}] infine se esiste il limite $\lim_n\{f_n\}$ allora
+			$\liminf\{f_n\}=\limsup\{f_n\}=\lim_n\{f_n\}$, pertanto è misurabile per il punto precedente.
+	\end{description}
 \end{proof}
 
 \begin{proposition}
 	\label{LimSemMis}
-	Sia $f:X \rightarrow \R$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
+	Sia $f:X \rightarrow \Rbar$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
 	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\phi_n$ che converge puntualmente a $f$.
 \end{proposition}
 \begin{proof}
@@ -148,8 +177,7 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 		\phi_n(x) =
 		\left\{ \begin{array}{ll}
 			n &\qquad se\ f(x)>n;\\
-			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\leq \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\%
-%			\frac{k}{2^n} &\qquad se\ \frac{k-1}{2^n}<f(x)\leq \frac{k}{2^n} \qquad k=-n2^n,\dots,0;\\
+			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\leq \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\
 			-n &\qquad se\ f(x)\leq-n;
 		\end{array} \right.\ .
 	\]
@@ -161,7 +189,9 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	\]
 	che mostra che le $\phi_n$ sono funzioni semplici.
 	
-	Per mostrare la convergenza puntuale abbiamo che $|f(x)-\phi_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq f(x)$,
+	Per mostrare la convergenza puntuale distinguiamo $f(x)$ a seconda che sia un numero finito o meno:
+	nel primo caso abbiamo che $|f(x)-\phi_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq |f(x)|$,
+	nel secondo caso $\phi_n(x)=\pm n\rightarrow \pm\infty = f(x)$;
 	quindi $\phi_n(x)\rightarrow f(x)$, $\forall x\in X$.
 \end{proof}
 
