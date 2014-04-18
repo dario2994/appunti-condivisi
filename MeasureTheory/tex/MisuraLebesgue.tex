@@ -8,11 +8,48 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 \end{definition}
 
 \begin{theorem}
-	Sia $\S$ l'insieme degli intervalli semiaperti a destra di $\R$, cioè i sottoinsiemi della retta reale della forma $[a,b)$ con $a<b$. 
-	Definiamo inoltre la funzione $\mu:\S\to\Rbar$ in modo che $f\left([a,b)\right)=b-a$.
+	Sia $\S$ l'insieme degli intervalli semiaperti a destra di $\R$, cioè i sottoinsiemi della retta reale della forma $[a,b)$ con $a,b\in\R$ \footnote{Se $a\ge b$ con la scrittura $[a,b)$ si intenderà l'insieme vuoto.}.
 	
-	Allora $(\R,\S,m)$ è uno spazio di misura elementare.
+	Definendo la funzione $\mu:\S\to\Rbar$ in modo che $\mu\left([a,b)\right)=b-a$, la terna $(\R,\S,\mu)$ risulta essere uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
-	TODO
+	\newcommand{\so}[2]{\ensuremath{[\,#1,\,#2\,)}}
+	\newcommand{\oo}[2]{\ensuremath{(\,#1,\,#2\,)}}
+	\newcommand{\cc}[2]{\ensuremath{[\,#1,\,#2\,]}}
+	L'insieme vuoto appartiene ovviamente a $\S$.
+	Inoltre, fissati $a,b,c,d\in\R$ valgono:
+	\begin{align*}
+		\so ab\cap \so cd &= \so cb\sqcup\so ad\\
+		\so ab\setminus \so cd&= \so ac\sqcup \so db
+	\end{align*}
+	e questo implica che $\S$ è un \semiring{}.
+	
+	Ora resta da dimostrare che $\mu$ sia \sigadd{} su $\S$.
+	Consideriamo $\so {a_n}{b_n}=I_n\in \S$ una successione numerabile di elementi di $\S$ la cui unione \emph{disgiunta} dia $\so ab=I\in \S$.
+	
+	Riconducendoci ad un numero finito di intervalli, e sfruttando facili ragionamenti combinatorici, otteniamo:
+	\begin{equation*}
+		\sum_{n\le k} \mu(I_n)\le \mu(I) \implies \sum_{n\in\N}\mu(I_n)\le \mu(I)
+	\end{equation*}
+	
+	Per ottenere la disuguaglianza opposta sfrutteremo la compattezza degli intervalli limitati di $\mathbb R$, in particolare la possibilità di estrarre ricoprimenti finiti di aperti a partire da ricoprimenti numerabili.
+	
+	Fissiamo $\epsilon>0$ arbitrario.
+	
+	Definiamo gli intervalli aperti $I'_n=\oo{a_n-\frac\epsilon{2^n}}{b_n}$ e notiamo che $I_n\subseteq I'_n$.
+	Vale perciò che la successione di aperti $(I'_n)_{n\in\N}$ è un ricoprimento del compatto $\cc a{b-\epsilon}$ e di conseguenza esiste un insieme di indici finito $J$ tale che $(I'_n)_{n\in J}$ è un ricoprimento finito di $\cc a{b-\epsilon}$.
+	
+	Allora, ancora per facili motivazioni combinatoriche, abbiamo:
+	\begin{equation*}
+		\sum_{n\in J} b_n-\left(a_n-\frac\epsilon{2^n}\right)\ge b-\epsilon-a\implies
+		\sum_{n\in\N} b_n-\left(a_n-\frac\epsilon{2^n}\right)\ge b-a-\epsilon \implies
+		\sum_{n\in\N} \mu(I_n)\ge \mu(I)-2\epsilon
+	\end{equation*}
+	e visto che questo vale per ogni $\epsilon>0$ ne ricaviamo:
+	\begin{equation*}
+		\sum_{n\in\N}\mu(I_n)\ge \mu(I)
+	\end{equation*}
+	che insieme alla disuguaglianza opposta già dimostrata dimostra la \sigadd[ità] della funzione $\mu$.
+	
+	Quindi visto che $\S$ è un \semiring{} e $\mu$ una premisura su $\S$ concludo che $(\R,\S,\mu)$ è uno spazio di misura elementare.
 \end{proof}
