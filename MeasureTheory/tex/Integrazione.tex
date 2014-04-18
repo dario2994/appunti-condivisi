@@ -1,0 +1,32 @@
+\section{Integrazione secondo Lebesgue}
+In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del valore assoluto finito. Chiameremo queste ultime funzioni integrabili.
+
+\begin{lemma}
+	Data una funzione $\simp$ semplice e positiva su $(X,\A,\mu)$, esistono $c_k>0$ reali, con $k=1,\dots, n$, tale che $\simp=\sum_{k=1}^nc_k\chi(E_k)$, dove $E_k\in \A$.
+\end{lemma}
+
+
+\begin{definition}
+	Sia $\simp$ una funzione misurabile, semplice e non negativa, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
+	\begin{equation*}
+		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)
+	\end{equation*}
+	dove $c_k\in \R$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)$.
+\end{definition}
+
+\begin{remark}
+	Quella appena enunciata è una buona definizione, cioè non dipende dalla scelta dei $c_k$ e degli $E_k$.
+\end{remark}
+\begin{proof}
+	Consideriamo innanzitutto dei $c_k\in \R$ e degli $E_k\in \A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)$ e definiamo per ogni $\alpha\subseteq\{1,2,\dots,n\}$:
+	\begin{equation*}
+		\begin{cases}
+			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
+			c_\alpha=\sum_{k\in\alpha} c_k
+		\end{cases}
+	\end{equation*}
+	Allora vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$
+
+\end{proof}
+
+
