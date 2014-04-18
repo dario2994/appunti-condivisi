@@ -7,19 +7,20 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	I Boreliani sono la \sigalg{} generata dai sottoinsiemi aperti della retta reale.
 \end{definition}
 
-\begin{theorem}
+\newcommand{\so}[2]{\ensuremath{[\,#1,\,#2\,)}}
+\newcommand{\oo}[2]{\ensuremath{(\,#1,\,#2\,)}}
+\newcommand{\cc}[2]{\ensuremath{[\,#1,\,#2\,]}}
+
+\begin{theorem}\label{LebesguePremisura}
 	Sia $\S$ l'insieme degli intervalli semiaperti a destra di $\R$, cioè i sottoinsiemi della retta reale della forma $[a,b)$ con $a,b\in\R$ \footnote{Se $a\ge b$ con la scrittura $[a,b)$ si intenderà l'insieme vuoto.}.
 	
 	Definendo la funzione $\mu:\S\to\Rbar$ in modo che $\mu\left([a,b)\right)=b-a$, la terna $(\R,\S,\mu)$ risulta essere uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
-	\newcommand{\so}[2]{\ensuremath{[\,#1,\,#2\,)}}
-	\newcommand{\oo}[2]{\ensuremath{(\,#1,\,#2\,)}}
-	\newcommand{\cc}[2]{\ensuremath{[\,#1,\,#2\,]}}
 	L'insieme vuoto appartiene ovviamente a $\S$.
 	Inoltre, fissati $a,b,c,d\in\R$ valgono:
 	\begin{align*}
-		\so ab\cap \so cd &= \so cb\sqcup\so ad\\
+		\so ab\cap \so cd &= \so {\max(a,c)}{\min(b,d)}\\
 		\so ab\setminus \so cd&= \so ac\sqcup \so db
 	\end{align*}
 	e questo implica che $\S$ è un \semiring{}.
@@ -53,3 +54,51 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	
 	Quindi visto che $\S$ è un \semiring{} e $\mu$ una premisura su $\S$ concludo che $(\R,\S,\mu)$ è uno spazio di misura elementare.
 \end{proof}
+
+\begin{remark}
+	Il \cref{LebesguePremisura} vale anche, con le opportune modifiche alla definizioni, in $\R^n$ piuttosto che in $\R$. La dimostrazione procede in modo del tutto analogo, solo che le ragioni combinatoriche che rendevano banale tutto non appena il numero di intervalli era finito divengono più sfuggenti e necessitano di dimostrazione. Tratteremo però la possibilità di porre una misura su $\R^n$ nelle sezioni successive.
+\end{remark}
+
+\begin{remark}\label{LebesguePremisuraSigFin}
+	Lo spazio di premisura $(\R,\S,\mu)$ come definito nel \cref{LebesguePremisura} è \sigfin[o].
+\end{remark}
+\begin{proof}
+	Mostriamo esplicitamente la \sigfin[ezza]:
+	\begin{equation*}
+		\R=\bigsqcup_{n\in\mathbb Z} \so{n}{n+1}
+	\end{equation*}
+\end{proof}
+
+\begin{remark}\label{SigAlgUgualeBoreliani}
+	La \sigalg{} generata da $\S$, come definito nell'enunciato di \cref{LebesguePremisura}, coincide con i Boreliani.
+\end{remark}
+\begin{proof}
+	Fissati $a<b$ in $\R$ vale:
+	\begin{equation*}
+		\oo{a}{b}=\bigcup_{n\in\N}\so{a+\frac1{2^n}}b
+	\end{equation*}
+	e perciò otteniamo che gli intervalli aperti appartengono a $\sigma A(\S)$.
+	Ma in $\R$ gli aperti sono sempre unione numerabile di intervalli aperti e di conseguenza gli aperti appartengono a $\sigma A(\S)$.
+\end{proof}
+
+
+
+\begin{definition}\label{LebesgueMisura}
+	Dato lo spazio di misura elementare $(\R,\S,\mu)$ definito nel \cref{LebesguePremisura}, sia $\M$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_1:\M\to\Rpiu$ \footnote{L'$1$ al pedice di $m_1$, che verrà a volte omesso, sottolinea il fatto che la misura è quella riferita ad $\R^1$ e non $\R^n$.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
+\end{definition}
+
+\begin{remark}
+	I Boreliani sono un sottoinsieme dei misurabili secondo Lebesgue.
+\end{remark}
+\begin{proof}
+	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue.
+\end{proof}
+
+\begin{remark}
+	La misura di Lebesgue è l'unica misura che estenda la misura definita sugli intervalli semiaperti nel \cref{LebesguePremisura} ai Boreliani.
+\end{remark}
+\begin{proof}
+	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata dagli aperti sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+\end{proof}
+
+
