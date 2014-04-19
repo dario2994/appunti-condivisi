@@ -37,7 +37,7 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	\end{equation*}
 	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
-	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ otteniamo:
+	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ su insiemi disgiunti otteniamo:
 	\begin{equation}\label{RaffinamentoIntegrale}
 		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)
 	\end{equation}
@@ -74,6 +74,18 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
 \end{proof}
 
+\begin{proposition}\label{IntSempSpezzato}
+	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\cup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
+	\begin{equation*}
+		\int_X \simp \de \mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	TODO
+\end{proof}
+
+
+
 \begin{definition}\label{DefIntPos}
 	Sia $f$ una funzione misurabile non negativa su $(X,\A,\mu)$, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
@@ -88,7 +100,35 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	\end{equation*}
 \end{proposition}
 \begin{proof}
+	Dimostriamo innanzitutto che dato un insieme $Y\subseteq X$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
+	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per \cref{PropIntSemp} ho che
+	\begin{equation*}
+		\int_Y\simp_n\ge(a-\epsilon)\mu(A_n)
+	\end{equation*}
+	da cui passando al limite su $n$ ed utilizzando che $\lim_{n\to\infty}\int_y\simp_n=\sup\int_y\simp_n$, otteniamo
+	\begin{equation*}
+		\sup\left\{\int_Y\simp_n\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)
+	\end{equation*}
+	dove in particolare nell'ultima uguaglianza abbiamo utilizzato \cref{LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
+	\begin{equation*}
+		\sup\left\{\int_Y\simp_n\right\}\ge a\mu(Y)
+	\end{equation*}
+
+	Consideriamo ora una qualsiasi funzione semplice $\simp$ tale che $0\le \simp\le f$. Per facile conseguenza della definizione di funzione semplice, esistono $k$ sottoinsiemi misurabili disgiunti di $X$, che chiamiamo $X_1,\dots,X_k$, tali che $\cup_{m=1}^kX_m=X$ e $\simp|_{X_m}$ è costante per ogni $m=1,\dots,k$.
+	
+	Per quanto dimostrato precedentemente abbiamo che $\sup\left\{\int_{X_m}\simp_n\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntSempSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
+	\begin{equation*}
+		\sup_n\left\{\int_X\simp_n\right\}=\sup_n\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_n\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp
+	\end{equation*}
+	Passando ora all'estremo superiore per $0\le \simp \le f$ otteniamo proprio:
+	\begin{equation*}
+		\sup\left\{\int_X\simp_n\right\}\ge \int_X f \Longrightarrow \sup\left\{\int_X\simp_n\right\}= \int_X f
+	\end{equation*}
+	dove l'ultima implicazione è ovvia perchè banalmente $\sup\left\{\int_X\simp_n\right\}\le \int_X f$.
+
+
+
 \end{proof}
 
 
