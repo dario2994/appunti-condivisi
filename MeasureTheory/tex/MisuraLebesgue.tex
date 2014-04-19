@@ -59,9 +59,9 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	Il \cref{LebesguePremisura} vale anche, con le opportune modifiche alla definizioni, in $\R^n$ piuttosto che in $\R$. La dimostrazione procede in modo del tutto analogo, solo che le ragioni combinatoriche che rendevano banale tutto non appena il numero di intervalli era finito divengono più sfuggenti e necessitano di dimostrazione. Tratteremo però la possibilità di porre una misura su $\R^n$ nelle sezioni successive.
 \end{remark}
 
-\begin{remark}\label{LebesguePremisuraSigFin}
+\begin{proposition}\label{LebesguePremisuraSigFin}
 	Lo spazio di premisura $(\R,\S,\mu)$ come definito nel \cref{LebesguePremisura} è \sigfin[o].
-\end{remark}
+\end{proposition}
 \begin{proof}
 	Mostriamo esplicitamente la \sigfin[ezza]:
 	\begin{equation*}
@@ -69,9 +69,9 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	\end{equation*}
 \end{proof}
 
-\begin{remark}\label{SigAlgUgualeBoreliani}
+\begin{proposition}\label{SigAlgUgualeBoreliani}
 	La \sigalg{} generata da $\S$, come definito nell'enunciato di \cref{LebesguePremisura}, coincide con i Boreliani.
-\end{remark}
+\end{proposition}
 \begin{proof}
 	Fissati $a<b$ in $\R$ vale:
 	\begin{equation*}
@@ -87,18 +87,86 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	Dato lo spazio di misura elementare $(\R,\S,\mu)$ definito nel \cref{LebesguePremisura}, sia $\M$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_1:\M\to\Rpiu$ \footnote{L'$1$ al pedice di $m_1$, che verrà a volte omesso, sottolinea il fatto che la misura è quella riferita ad $\R^1$ e non $\R^n$.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
 \end{definition}
 
-\begin{remark}
-	I Boreliani sono un sottoinsieme dei misurabili secondo Lebesgue.
+\begin{remark}\label{LebesgueCompletezza}
+	La misura di Lebesgue è completa.
 \end{remark}
+\begin{proof}
+	È un'ovvia conseguenza del \cref{EstensioneCaratheodory}.
+\end{proof}
+
+\begin{proposition}
+	I Boreliani sono un sottoinsieme dei misurabili secondo Lebesgue.
+\end{proposition}
 \begin{proof}
 	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue.
 \end{proof}
 
-\begin{remark}
-	La misura di Lebesgue è l'unica misura che estenda la misura definita sugli intervalli semiaperti nel \cref{LebesguePremisura} ai Boreliani.
+\begin{proposition}
+	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura definita sugli intervalli semiaperti a destra nel \cref{LebesguePremisura}.
+\end{proposition}
+\begin{proof}
+	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata dagli intervalli semiaperti sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+\end{proof}
+
+\begin{remark}\label{LebesgueInvarianteTraslazione}
+	La misura di Lebesgue $m_1:\M\to\Rpiu$ è invariante per traslazione.
 \end{remark}
 \begin{proof}
-	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata dagli aperti sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+	È sufficiente ricordare che la misura di Lebesgue è stata costruita appplicando il teorema di Caratheodory e perciò nasce come la riduzione della misura esterna associata a $\mu$ (come definita in \cref{LebesguePremisura}). Ma la misura esterna era ovviamente invariante per traslazione, visto che lo era $\mu$ stessa (la lunghezza di un intervallo non cambia se lo traslo), e quindi $m_1$ è invariante per traslazione.
 \end{proof}
+
+\begin{proposition}\label{NumerabiliLebesgueTrascurabili}
+	Dato un insieme numerabile $A\subseteq\R$, questo è misurabile con misura nulla.
+\end{proposition}
+\begin{proof}
+	I singoli punti, essendo banalmente trascurabili, sono Lebesgue misurabili visto che la misura di Lebesgue è completa, come mostrato in \cref{LebesgueCompletezza}.
+	
+	L'insieme $A$ è però numerabile, quindi unione numerabile di singoli punti, che sono trascurabili. Perciò è trascurabile a sua volta $A$ e sfruttando ancora la completezza di $m_1$ otteniamo che $A$ è misurabile di misura nulla.
+\end{proof}
+\begin{remark}
+	È importante notare che la proposizione \cref{NumerabiliLebesgueTrascurabili} ci permette di trattare senza troppa attenzione intervalli aperti, semiaperti e chiusi tutti allo stesso modo rispetto alla misura, visto che a distinguerli sono solo i singoli punti, che non fanno alcuna differenza.
+\end{remark}
+
+
+
+
+\begin{theorem}[Insieme di Vitali]
+	Dato un sottoinsieme $A\in\M$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M$.
+\end{theorem}
+\begin{proof}
+	Dato $A$, notiamo che per la \sigadd[ità] della misura vale:
+	\begin{equation*}
+		0<m_1(A)=\sum_{n\in\mathbb Z} m_1\left(A\cap\so n{n+1}\right)
+	\end{equation*}
+	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esiste $n_0$ tale che:
+	\begin{equation*}
+		0<m_1\left(A\cap\so {n_0}{n_0+1}\right)\le m_1\left(\so {n_0}{n_0+1}\right)=1
+	\end{equation*}
+	quindi, a meno di intersecare con l'intervallo $\so {n_0}{n_0+1}$, possiamo assumere $A$ sia limitato e con diametro minore o uguale ad $1$. In particolare, senza perdita di generalità assumeremo $A\subseteq \so 01$.
+	
+	Pongo su $\R$ la relazione di equivalenza seguente:
+	\begin{equation*}
+		\forall x,y\in\R:\ x\equiv y\iff x-y\in\mathbb Q
+	\end{equation*}
+	Ora quozientiamo $\R$ rispetto a questa relazione d'equivalenza. In particolare siano $(R_i)_{i\in I}$ le classi d'equivalenza, dove $I$ è un insieme di indici. Sia infine $J$ il sottoinsieme degli indici definito come $J=\{i\in I:\ R_i\cap A\not =\emptyset\}$. 
+
+	Applichiamo ora l'assioma della scelta alla famiglia di insiemi $(R_j\cap A)_{j\in J}$ e estraiamone un insieme di rappresentanti privilegiati $(r_j)_{j\in J}$. Sia ora $B$ l'insieme dei rappresentanti privilegiati.
+	
+	Vale, per costruzione, $B\subseteq A$. 
+	Inoltre, ancora per la definizione di $B$ risulta:
+	\begin{equation}\label{ContenimentiVitali}
+		A\subseteq\bigsqcup_{q\in\mathbb Q\cap\cc{-1}{1}} B+q\subseteq \cc{-1}{2}
+	\end{equation}
+	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un razionale, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \so 01$.
+	
+	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{ContenimentiVitali} e ricordando che $m_1$ è invariante per traslazione come mostrato in \cref{LebesgueInvarianteTraslazione}:
+	\begin{equation*}
+		0<m_1(A)\le \sum_{q\in \mathbb Q\cap\cc{-1}{1}} m_1(B+q)= \sum_{q\in \mathbb Q\cap\cc{-1}{1}} m_1(B) \le 3
+	\end{equation*}
+	che non può essere visto che stiamo sommando una quantità numerabile di volte il valore $m_1(B)$ e perciò possiamo ottenere solo $+\infty$ oppure $0$.
+	
+	Allora l'insieme $B$ deve essere non misurabile come richiesto.
+\end{proof}
+
 
 
