@@ -1,5 +1,9 @@
 \section{Integrazione secondo Lebesgue}
-In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del valore assoluto finito. Chiameremo queste ultime funzioni integrabili.
+In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del valore assoluto finito. Chiameremo queste ultime funzioni integrabili. Inoltre indicheremo l'integrale di $f$ su una spazio di misura $(X,\A,\mu)$ con 
+\begin{equation*}
+	\int_X f(x) \de \mu(x)=\int_X f \de \mu=\int f \de \mu=\int f
+\end{equation*}
+dove si applicheranno le varie omissioni quando saranno ovvi la variabile di integrazione $x$, lo spazio di misura $X$ o la misura $\mu$.
 
 \begin{lemma}
 	Data una funzione $\simp$ semplice e positiva su $(X,\A,\mu)$, esistono $c_k>0$ reali, con $k=1,\dots, n$, tale che $\simp=\sum_{k=1}^nc_k\chi(E_k)$, dove $E_k\in \A$.
@@ -25,8 +29,51 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 			c_\alpha=\sum_{k\in\alpha} c_k
 		\end{cases}
 	\end{equation*}
-	Allora vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$
+	D'ora in poi nelle sommatorie sottointenderemo l'insieme su cui cicla $\alpha$, cioè $\mathcal{P}(\{1,2,\dots,n\})$.
+	
+	Innanzitutto gli $E_\alpha$ sono ancora insiemi misurabili in quanto $\A$ è una \sigalg{} e sono insiemi disgiunti, inoltre vale facilmente che:
+	\begin{equation*}
+		\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi(E_\alpha)=\sum_\alpha \chi(E_\alpha)\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi(E_\alpha)
+	\end{equation*}
+	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
+	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ otteniamo:
+	\begin{equation}\label{RaffinamentoIntegrale}
+		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)
+	\end{equation}
+	che è proprio quello che volevo.
+	
+	Consideriamo ora $c_k, b_k\in\R$ e $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^mb_k\chi(F_k)$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nb_k\chi(E_k)$. Applichiamo la costruzione di prima e otteniamo:
+	\begin{equation*}
+		\begin{cases}
+			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
+			c_\alpha=\sum_{k\in\alpha} c_k\\
+			b_\alpha=\sum_{k\in\alpha} b_k
+		\end{cases}
+	\end{equation*}
+	da cui otteniamo per quanto detto precedentemente che:
+	\begin{equation}
+		\sum_\alpha c_\alpha\chi(E_\alpha)=\sum_{k=1}^nc_k\chi(E_k)=\simp=\sum_{k=1}^nb_k\chi(E_k)=\sum_\alpha b_\alpha\chi(E_\alpha)
+	\end{equation}
+	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poichè gli $E_\alpha$ sono disgiunti.
+	
+	Infine da quest'ultima uguaglianza e dalla \cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto:
+	\begin{equation*}
+		\sum_{k=1}^n c_k \mu(E_k)=\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha b_\alpha\mu(E_\alpha)=\sum_{k=1}^n b_k \mu(E_k)
+	\end{equation*}
 \end{proof}
+
+\begin{proposition}\label{PropIntSemp}
+	Date $\simp_1,\simp_2$ funzioni semplici e positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
+	\begin{enumerate}
+		\item $\int (a\simp_1+b\simp_2)=a\int \simp_1+b\int \simp_2$; \label{PIS:add}
+		\item $\simp_1\le \simp_2\Longrightarrow \int f\le \int g$. \label{PIS:mono}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici.
+\end{proof}
+
+
 
 
