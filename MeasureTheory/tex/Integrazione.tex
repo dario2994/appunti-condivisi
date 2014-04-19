@@ -1,5 +1,5 @@
 \section{Integrazione secondo Lebesgue}
-In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del valore assoluto finito. Chiameremo queste ultime funzioni integrabili. Inoltre indicheremo l'integrale di $f$ su una spazio di misura $(X,\A,\mu)$ con 
+In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del loro valore assoluto finito. Chiameremo queste ultime funzioni integrabili. Inoltre indicheremo l'integrale di $f$ su una spazio di misura $(X,\A,\mu)$ con 
 \begin{equation*}
 	\int_X f(x) \de \mu(x)=\int_X f \de \mu=\int f \de \mu=\int f
 \end{equation*}
@@ -10,7 +10,7 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 \end{lemma}
 
 
-\begin{definition}
+\begin{definition}\label{DefIntSemp}
 	Sia $\simp$ una funzione misurabile, semplice e non negativa, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
 	\begin{equation*}
 		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)
@@ -18,7 +18,7 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	dove $c_k\in \R$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)$.
 \end{definition}
 
-\begin{remark}
+\begin{remark}\label{BuonaDefIntSemp}
 	Quella appena enunciata è una buona definizione, cioè non dipende dalla scelta dei $c_k$ e degli $E_k$.
 \end{remark}
 \begin{proof}
@@ -41,9 +41,9 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	\begin{equation}\label{RaffinamentoIntegrale}
 		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)
 	\end{equation}
-	che è proprio quello che volevo.
+	che è proprio quello che volevamo.
 	
-	Consideriamo ora $c_k, b_k\in\R$ e $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^mb_k\chi(F_k)$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nb_k\chi(E_k)$. Applichiamo la costruzione di prima e otteniamo:
+	Consideriamo ora $c_k, b_k\in\R$ ed $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^mb_k\chi(F_k)$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nb_k\chi(E_k)$. Applichiamo la costruzione di prima e otteniamo:
 	\begin{equation*}
 		\begin{cases}
 			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
@@ -51,7 +51,7 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 			b_\alpha=\sum_{k\in\alpha} b_k
 		\end{cases}
 	\end{equation*}
-	da cui otteniamo per quanto detto precedentemente che:
+	da cui ricaviamo per quanto detto precedentemente che:
 	\begin{equation}
 		\sum_\alpha c_\alpha\chi(E_\alpha)=\sum_{k=1}^nc_k\chi(E_k)=\simp=\sum_{k=1}^nb_k\chi(E_k)=\sum_\alpha b_\alpha\chi(E_\alpha)
 	\end{equation}
@@ -71,8 +71,26 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici.
+	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
 \end{proof}
+
+\begin{definition}\label{DefIntPos}
+	Sia $f$ una funzione misurabile non negativa su $(X,\A,\mu)$, allora definiamo l'integrale di $f$ come
+	\begin{equation*}
+		\int_Xf\de\mu=\sup\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
+	\end{equation*}
+\end{definition}
+
+\begin{proposition}
+	Data una successione crescente di funzioni semplici e non negative $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
+	\begin{equation*}
+		\int_X f\de\mu=\sup\left\{\int_X\simp_n\de\mu\right\}
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	
+\end{proof}
+
 
 
 

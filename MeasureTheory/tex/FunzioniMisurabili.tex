@@ -123,7 +123,7 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \end{proof}
 
 \begin{definition}
-	Una funzione $f:X \rightarrow \Rbar$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
+	Una funzione $\simp:X \rightarrow \Rbar$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
 	funzioni caratteristiche di insiemi misurabili.
 \end{definition}
 \begin{remark}
@@ -167,14 +167,14 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \begin{proposition}
 	\label{LimSemMis}
 	Sia $f:X \rightarrow \Rbar$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
-	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\phi_n$ che converge puntualmente a $f$.
+	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\simp_n$ che converge puntualmente a $f$.
 \end{proposition}
 \begin{proof}
 	Il se è mostrato in \cref{LimMis}.
 	
 	Per il solo se facciamo vedere che la seguente successione converge puntualmente a $f$:
 	\[
-		\phi_n(x) =
+		\simp_n(x) =
 		\left\{ \begin{array}{ll}
 			n &\qquad se\ f(x)>n;\\
 			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\leq \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\
@@ -182,16 +182,16 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 		\end{array} \right.\ .
 	\]
 	Prima di tutto abbiamo 
-	\[\phi_n=
+	\[\simp_n=
 		n\chi_{\{f>n\}}+
 		\sum_{k=-n2^n}^{n2^n}\frac{k}{2^n}\chi_{\left\{ \frac{k}{2^n}<f\leq \frac{k+1}{2^n} \right\}}
 		-n\chi_{\{f<-n\}},
 	\]
-	che mostra che le $\phi_n$ sono funzioni semplici.
+	che mostra che le $\simp_n$ sono funzioni semplici.
 	
 	Per mostrare la convergenza puntuale distinguiamo $f(x)$ a seconda che sia un numero finito o meno:
-	nel primo caso abbiamo che $|f(x)-\phi_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq |f(x)|$,
-	nel secondo caso $\phi_n(x)=\pm n\rightarrow \pm\infty = f(x)$;
-	quindi $\phi_n(x)\rightarrow f(x)$, $\forall x\in X$.
+	nel primo caso abbiamo che $|f(x)-\simp_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq |f(x)|$,
+	nel secondo caso $\simp_n(x)=\pm n\rightarrow \pm\infty = f(x)$;
+	quindi $\simp_n(x)\rightarrow f(x)$, $\forall x\in X$.
 \end{proof}
 
