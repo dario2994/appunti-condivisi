@@ -66,8 +66,8 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 \begin{proposition}\label{PropIntSemp}
 	Date $\simp_1,\simp_2$ funzioni semplici e positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
 	\begin{enumerate}
-		\item $\int (a\simp_1+b\simp_2)=a\int \simp_1+b\int \simp_2$; \label{PIS:add}
-		\item $\simp_1\le \simp_2\Longrightarrow \int f\le \int g$. \label{PIS:mono}
+		\item $\int (a\simp_1+b\simp_2)\de\mu=a\int \simp_1\de\mu+b\int \simp_2\de\mu$; \label{PIS:add}
+		\item $\simp_1\le \simp_2\Longrightarrow \int \simp_1\de\mu\le \int \simp_2\de\mu$. \label{PIS:mono}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -81,7 +81,19 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	TODO
+	Per ogni $X_m$ siano $c_{m,i}\in\R$ e $E_{m,i}\in\A$, per $i=1,2,\dots,n_m$, tali che 
+	\begin{equation*}
+		\simp|_{X_m}=\sum_{i=1}^{n_m}c_{m,i}\chi_{E_{m,i}}
+	\end{equation*}
+	allora vale
+	\begin{equation*}
+		\simp=\sum_{m=1}^k\sum_{i=1}^{n_m}c_{m,i}\chi_{E_{m,i}}
+	\end{equation*}
+	da cui quindi ottengo facilmente
+	\begin{equation*}
+		\int_X \simp \de \mu=\sum_{m=1}^k\sum_{i=1}^{n_m}c_{m,i}\mu(E_{m,i})=\sum_{m=1}^k\int_{X_m}\simp\de \mu
+	\end{equation*}
+
 \end{proof}
 
 
@@ -89,43 +101,43 @@ dove si applicheranno le varie omissioni quando saranno ovvi la variabile di int
 \begin{definition}\label{DefIntPos}
 	Sia $f$ una funzione misurabile non negativa su $(X,\A,\mu)$, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
-		\int_Xf\de\mu=\sup\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
+		\int_Xf\de\mu=\sup_{n\in\N}\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
 	\end{equation*}
 \end{definition}
 
 \begin{proposition}
 	Data una successione crescente di funzioni semplici e non negative $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
 	\begin{equation*}
-		\int_X f\de\mu=\sup\left\{\int_X\simp_n\de\mu\right\}
+		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Dimostriamo innanzitutto che dato un insieme $Y\subseteq X$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
+	Dimostriamo innanzitutto che dato un insieme $Y\subseteq X$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
 	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per \cref{PropIntSemp} ho che
 	\begin{equation*}
-		\int_Y\simp_n\ge(a-\epsilon)\mu(A_n)
+		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)
 	\end{equation*}
-	da cui passando al limite su $n$ ed utilizzando che $\lim_{n\to\infty}\int_y\simp_n=\sup\int_y\simp_n$, otteniamo
+	da cui passando al limite su $n$ ed utilizzando che $\lim_{n\to\infty}\int_Y\simp_n\de\mu=\sup_{n\in\N}\int_Y\simp_n\de\mu$, otteniamo
 	\begin{equation*}
-		\sup\left\{\int_Y\simp_n\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)
+		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)
 	\end{equation*}
 	dove in particolare nell'ultima uguaglianza abbiamo utilizzato \cref{LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
 	\begin{equation*}
-		\sup\left\{\int_Y\simp_n\right\}\ge a\mu(Y)
+		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)
 	\end{equation*}
 
 	Consideriamo ora una qualsiasi funzione semplice $\simp$ tale che $0\le \simp\le f$. Per facile conseguenza della definizione di funzione semplice, esistono $k$ sottoinsiemi misurabili disgiunti di $X$, che chiamiamo $X_1,\dots,X_k$, tali che $\cup_{m=1}^kX_m=X$ e $\simp|_{X_m}$ è costante per ogni $m=1,\dots,k$.
 	
-	Per quanto dimostrato precedentemente abbiamo che $\sup\left\{\int_{X_m}\simp_n\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntSempSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
+	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntSempSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
 	\begin{equation*}
-		\sup_n\left\{\int_X\simp_n\right\}=\sup_n\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_n\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp
+		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}=\sup_{n\in\N}\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_{n\in\N}\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp\de\mu
 	\end{equation*}
 	Passando ora all'estremo superiore per $0\le \simp \le f$ otteniamo proprio:
 	\begin{equation*}
-		\sup\left\{\int_X\simp_n\right\}\ge \int_X f \Longrightarrow \sup\left\{\int_X\simp_n\right\}= \int_X f
+		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\ge \int_X f \de\mu\Longrightarrow \sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}= \int_X f\de\mu
 	\end{equation*}
-	dove l'ultima implicazione è ovvia perchè banalmente $\sup\left\{\int_X\simp_n\right\}\le \int_X f$.
+	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 
 
 
