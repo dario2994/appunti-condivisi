@@ -122,6 +122,15 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
 \end{proof}
 
+\begin{remark}\label{ContinueMisurabili}
+	Sia $X$ un insieme dotato sia di una topologia che di una misura su di esso, tali che in particolare la \sigalg{} dei misurabili contenga tutti gli aperti.
+	Data una funzione $f:X\to\R$, se $f$ è continua è anche misurabile.
+\end{remark}
+\begin{proof}
+	Basta notare che la controimmagine di un aperto è un aperto per continuità, ma gli aperti sono misurabili per ipotesi e di conseguenza la funzione è misurabile.
+\end{proof}
+
+
 \begin{definition}
 	Una funzione $\simp:X \rightarrow \Rbar$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
 	funzioni caratteristiche di insiemi misurabili.
