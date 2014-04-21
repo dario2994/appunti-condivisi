@@ -150,7 +150,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 \end{proof}
 
-\begin{theorem}[Beppo Levi]
+\begin{theorem}[Beppo Levi]\label{BeppoLevi}
 	Sia $(f_n)$ una successione crescente di funzioni misurabili positive convergenti puntualmente ad una funzione $f$, allora $\int_Xf\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu$.
 \end{theorem}
 
@@ -161,8 +161,24 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
+\end{proof}
+
+
+\begin{lemma}[Fatou]
+	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
+	\begin{equation*}
+		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	Applichiamo il \cref{BeppoLevi} alle funzioni alla successione crescente $(\inf_{k\ge n}f_n)$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n$ e otteniamo
+	\begin{equation*}
+		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_n\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_n\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+	\end{equation*}
 
 \end{proof}
+
 
 
 
