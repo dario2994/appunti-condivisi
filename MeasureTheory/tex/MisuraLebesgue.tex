@@ -168,5 +168,21 @@ Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misu
 	Allora l'insieme $B$ deve essere non misurabile come richiesto.
 \end{proof}
 
+\begin{proposition}
+	Dato un sottoinsieme $A\subseteq\R$ della retta reale di misura nulla secondo Lebesgue e un insieme di reali $T$ numerabile, esiste $k\in \R$ tale che $A+k$ \footnote{Definiamo lo shift come $A+k=\{a+k:\ a\in A\}$} sia disgiunto da $T$.
+\end{proposition}
+\begin{proof}
+	Consideriamo l'insieme $B=\bigcup_{t\in T} (A-t)$. 
+	Essendo unione di trascurabili è a sua volta trascurabile.
+	Perciò esiste $k\in\R\setminus B$ visto che $\R$ non è trascurabile.
+	
+	Assumendo per assurdo che $A-k$ intersechi $T$, avremmo che esistono $t\in T$ e $a\in A$ tali che:
+	\begin{equation*}
+		a-k=t\implies k=a-t \implies k\in A-t\implies k\in B	
+	\end{equation*}
+	ma questo non può essere per definizione di $k$ e perciò otteniamo che $A-k$ è disgiunto da $T$, che è la tesi.
+\end{proof}
+
+
 
 
