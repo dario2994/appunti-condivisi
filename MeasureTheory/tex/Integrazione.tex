@@ -156,6 +156,12 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 \begin{proof}
 	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f=\sup_{n\in\N}f_n$ per la \cref{SupMis} $f$ è una funzione misurabile e positiva.
+	
+	Per \cref{LimSemCrescMis}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione di \cref{LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
+	\begin{equation*}
+		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu
+	\end{equation*}
+
 \end{proof}
 
 
