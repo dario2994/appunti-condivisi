@@ -234,6 +234,22 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	La dimostrazione è ovvia, visto che se $X$ è \sigfin[o], lo è di conseguenza qualsiasi suo sottoinsieme.
 \end{proof}
 
+\begin{proposition}
+	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], i relativi misurabili secondo Caratheodory coincidono con il completamento (rispetto alla misura che ci è assicurata da \cref{EstensioneCaratheodory}) della \sigalg{} generata da $\S$.
+\end{proposition}
+\begin{proof}
+	Sia $\A$ la \sigalg{} di Caratheodory associata a $(X,\S,\mu)$.
+	
+	Il \cref{EstensioneCaratheodory} ci assicura che $\A$ contiene la \sigalg{} generata da $\S$ ed è completa, quindi $\A$ contiene il completamento di $\sigma A(\S)$.
+	
+	Inoltre dato $A\in\A$ misurabile, lo possiamo scrivere, applicando \cref{EquivalenzeMisurabilitaSpazio}, come differenza tra un elemento di $\sigma A(\S)$ e un trascurabile, ma allora $A$ appartiene al completamento di $\sigma A(\S)$.
+	
+	Visto che abbiamo ottenuto entrambi i contenimenti, risulta come richiesto che i misurabili coincidono con il completamento della \sigalg{} generata da $\S$.
+\end{proof}
+
+
+
+
 \begin{corollary}
 	Nelle stesse ipotesi di \cref{EquivalenzeMisurabilitaSottoinsieme}, sia $A$ un misurabile \sigfin[o].
 	
@@ -255,7 +271,6 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n
 	\end{equation*}
 	dove gli elementi che interseco rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
-
 \end{proof}
 
 
