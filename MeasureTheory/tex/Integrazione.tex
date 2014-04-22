@@ -176,8 +176,66 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_n\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_n\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
-
 \end{proof}
+
+\begin{definition}
+	Una funzione misurabile $f:X\to\Rbar$ con $(X,\A,\mu)$ spazio di misura si dice integrabile se 
+	\begin{equation*}
+		\Vert f \Vert_1=\int_X |f|\de\mu
+	\end{equation*}
+	ha valore finito.
+	
+	La quantità $\Vert f \Vert_1$ è detta norma integrale, anche se non è effettivamente una norma.
+\end{definition}
+
+\begin{definition}
+	Data una funzione integrabile definiamo il suo integrale come
+	\begin{equation*}
+		\int_X f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu
+	\end{equation*}
+	dove $f_+=\max\{0,f\}$ e $f_-=\max\{0,-f\}$.
+\end{definition}
+
+\begin{remark}
+	Notiamo in particolare che le funzioni $f_+$ ed $f_-$, oltre ad essere positive, sono anche integrabili.
+\end{remark}
+
+\begin{lemma}
+	Data una funzione integrabile $f$ e date due funzioni $g,h$ integrabili e positive tali $f=g-h$, allora
+	\begin{equation*}
+		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
+	\end{equation*}
+\begin{proposition}
+	
+\end{proposition}
+\end{lemma}
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{proposition}
+	Date $f,g$ funzioni integrabili su $(X,\A,\mu)$ e dati $a,b$ reali valgono:
+	\begin{enumerate}
+		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$;
+		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	TODO
+\end{proof}
+
+
+
+\begin{definition}
+	Dato uno spazio di misura $(X,\A,\mu)$ definiamo
+	\begin{equation*}
+		\L^1(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
+	\end{equation*}
+\end{definition}
+
+
+
+
 
 
 
