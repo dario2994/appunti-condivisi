@@ -7,7 +7,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 \begin{proof}
 	Mostriamo un controesempio all'affermazione.
 	
-	Considero i sottinsiemi di $\mathbb R^2$ così definiti:
+	Consideriamo i sottoinsiemi di $\mathbb R^2$ così definiti:
 	\begin{align*}
 		A&=\left\{(x,y)\in\mathbb R^2:\ y=0\right\}\\
 		B&=\left\{(x,y)\in\mathbb R^2:\ x> 0\ \wedge\ y=\frac 1x \right\}
@@ -16,7 +16,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 	
 	Ovviamente $A,B$ sono chiusi e connessi ed altrettanto ovviamente non sono limitati e $A\cup B$ non è connesso.
 	
-	Per rendere $A\cup B$ connesso consideriamo la seguente successione di sottinsiemi chiusi di $\mathbb R^2$:
+	Per rendere $A\cup B$ connesso consideriamo la seguente successione di sottoinsiemi chiusi di $\mathbb R^2$:
 	\begin{equation}
 		C_n=\left\{(x,y)\in\mathbb R^2:\ x=n\ \wedge\ 0\le y\le \frac 1n\right\}
 	\end{equation}
@@ -63,7 +63,7 @@ In questa sezione conclusiva noteremo che nello spazio $(\CL(X),\delta)$ la prop
 \begin{proof}
 	Assumiamo per assurdo che $K$ non sia connesso, allora esistono due aperti $A,B$ disgiunti, entrambi con intersezione non nulla con $K$, tali che $K\subseteq A\cup B$.
 	
-	Innanzitutto $A\cap K, B\cap K$ sono ancora dei compatti. Questo perchè presa una successione $(a_n)$ in $A\cap K$, so che esiste una sottosuccessione che converge a $k\in K$, ma questa deve anche convergere nel complementare di $B$ visto che $B$ è un aperto e gli $a_n$ non vi appartengono. Quindi $k\in K\setminus B = K\cap A$ e questo dimostra quanto voluto.
+	Innanzitutto $A\cap K, B\cap K$ sono ancora dei compatti. Questo perché presa una successione $(a_n)$ in $A\cap K$, sappiamo che esiste una sottosuccessione che converge a $k\in K$, ma questa deve anche convergere nel complementare di $B$ visto che $B$ è un aperto e gli $a_n$ non vi appartengono. Quindi $k\in K\setminus B = K\cap A$ e questo dimostra quanto voluto.
 	
 	Ora per il \cref{CompattoInAperto} sappiamo che esistono $r_A,r_B$ tali che $U_{r_A}(K\cap A)\subseteq A$ e $U_{r_B}(K\cap B)\subseteq B$. Chiamiamo $r=\min(r_A,r_B)$.
 
