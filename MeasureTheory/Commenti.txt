@@ -1,0 +1,3 @@
+piccoli commenti sugli appunti
+-le numerazioni di proposizioni/teoremi/lemmi/corollari sono indipendenti, cosa che non mi soddisfa molto;
+-nella sezione misura di Lebesgue, la nota che definisce lo shift credo sia da porre in un qualche passaggio della dimostrazione di Vitali,dove già lo si usa;
