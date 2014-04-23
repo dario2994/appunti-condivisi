@@ -27,7 +27,9 @@
 *.ps
 *.snm
 *.synctex.gz
+*.tcp
 *.toc
+*.tps
 *.vrb
 *.xdy
 *.tdo
