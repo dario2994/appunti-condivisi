@@ -130,6 +130,13 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 	Basta notare che la controimmagine di un aperto è un aperto per continuità, ma gli aperti sono misurabili per ipotesi e di conseguenza la funzione è misurabile.
 \end{proof}
 
+\begin{remark}\label{MonotoneMisurabili}
+	Una funzione $f:\R\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
+\end{remark}
+\begin{proof}
+	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue.
+\end{proof}
+
 
 \begin{definition}
 	Una funzione $\simp:X \rightarrow \Rbar$ con dominio lo spazio di misura $(X,\A,\mu)$ si dice semplice se è combinazione lineare di
