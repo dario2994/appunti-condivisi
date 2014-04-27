@@ -1,6 +1,7 @@
 \section{Funzioni misurabili}
 
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
+La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani, che era una questione lasciata in sospeso in precedenza per mancanza degli strumenti necessari a dimostrarlo.
 
 \begin{definition}[Funzione misurabile]
 	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
@@ -136,6 +137,15 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 \begin{proof}
 	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue.
 \end{proof}
+
+\begin{proposition}\label{BorelianiNonMisurabili}
+	La \sigalg{} dei Boreliani non coincide con la \sigalg{} dei misurabili secondo Lebesgue.
+\end{proposition}
+\begin{proof}
+	Definiamo la funzione $f:\so{0}{1}\to \so{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$ in cui tutte le cifre $1$ sono state trasformate in cifre $2$.
+	TODO
+\end{proof}
+
 
 
 \begin{definition}
