@@ -143,7 +143,12 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 \end{proposition}
 \begin{proof}
 	Definiamo la funzione $f:\so{0}{1}\to \so{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$ in cui tutte le cifre $1$ sono state trasformate in cifre $2$.
+	
 	TODO
+	
+	Per \cref{InsiemeVitali} esiste $A\subseteq \cc{\frac12}{\frac23}$ che non sia misurabile.
+	Sia $B=f(A)$, poichè $f$ è strettamente crescente vale $A=f^{-1}(B)$.
+	Però la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe un misurabile (dato che i misurabili sono la più piccola algebra generata dagli aperti) e perciò l'insieme $A$ è un misurabile non Borealiano.
 \end{proof}
 
 
