@@ -47,7 +47,7 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	\[
 		\mathcal{E} = \{ E\subseteq \Rbar : f^{-1}(E)\in \A \}
 	\]
-	è una \sigalg{}.
+	è una \sigalg{} ed inoltre contiene i Boreliani.
 \end{proposition}
 \begin{proof}
 	Verifichiamo che $\mathcal E$ è stabile per unioni numerabili e passaggio al complementare.
@@ -56,12 +56,14 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	\begin{equation*}
 		f^{-1}(E)=f^{-1}\left(\cup_{n\in \N}E_n\right) = \cup_{n\in \N}f^{-1}(E_n)\in \A \implies E \in \mathcal{E}
 	\end{equation*}
-	dove l'appartenenza ad $\A$ si ha per le proprietà di \sigalg, e questo dimostra la stabilità per unione numerabile.
+	dove l'appartenenza ad $\A$ si ha per le proprietà di \sigalg{}, e questo dimostra la stabilità per unione numerabile.
 	
 	Per quanto riguarda il passaggio al complementare, fissato $E\in \mathcal{E}$, risulta:
 	\begin{equation*}
 		f^{-1}(E^\mathsf{c})= f^{-1}(E)^\mathsf{c} \in \A \implies E^\mathsf{c} \in \mathcal{E}.
 	\end{equation*}
+	
+	Inoltre $\mathcal E$ contiene gli aperti per definizione di funzione misurabile, da cui, per quanto appena dimostrato, contiene la \sigalg{} generata da questi, cioè i Boreliani.
 \end{proof}
 
 \begin{proposition}
@@ -159,7 +161,7 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	Sia $B=f(A)$.
 	
 	Poichè $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
-	Allora la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe un misurabile (dato che i misurabili sono la più piccola algebra generata dagli aperti). 
+	Allora la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe misurabile. 
 	Infine $B$ è sottoinsieme di $\so01$, che è trascurabile, perciò per la completezza della misura di Lebesgue $B$ è misurabile.
 	
 	Allora, unendo quanto detto, abbiamo che $B$ è un misurabile non Boreliano come voluto.
