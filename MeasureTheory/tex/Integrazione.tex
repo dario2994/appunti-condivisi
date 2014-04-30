@@ -242,7 +242,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Sia l'additività che la monotonia seguono facilmente dalla \cref{def:IntegraleIntegrabili} e dal \cref{DefinizioneEquivalenteIntegraleIntegrabili}.
+	Sia l'additività che la monotonia seguono facilmente dalla \cref{def:IntegraleIntegrabili} e dal \cref{DefinizioneEquivalenteIntegraleIntegrabili}, sfruttando la \cref{prop:IntegralePositive}.
 \end{proof}
 
 
@@ -260,7 +260,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
 	
-	TODO
+	Dimostriamo ora che $\Vert \cdot \Vert_1$ è una seminorma su $\L^1(X,\A,\mu)$. Innanzitutto abbiamo che per la \cref{prop:IntegraleIntegrabili} vale che
+	\begin{equation*}
+		\Vert \lambda f \Vert_1 = \int |\lambda f |\de\mu=|\lambda| \int |f| \de\mu=|\lambda|\Vert f \Vert_1 
+	\end{equation*}
+	Inoltre vale anche la disuguaglianza triangolare, infatti sfruttando sempre la \cref{prop:IntegraleIntegrabili} otteniamo che
+	\begin{equation*}
+		\Vert f+g \Vert_1=\int |f+g|\de\mu\le \int (|f|+|g|)\de\mu=\int |f|\de\mu+\int |g|\de\mu=\Vert f \Vert_1+\Vert g \Vert_1
+	\end{equation*}
 \end{proof}
 
 
