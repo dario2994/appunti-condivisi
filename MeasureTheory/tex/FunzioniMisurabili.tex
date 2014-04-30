@@ -132,23 +132,37 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 \end{proof}
 
 \begin{remark}\label{MonotoneMisurabili}
-	Una funzione $f:\R\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
+	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue.
+	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{BorelianiNonMisurabili}
 	La \sigalg{} dei Boreliani non coincide con la \sigalg{} dei misurabili secondo Lebesgue.
 \end{proposition}
 \begin{proof}
-	Definiamo la funzione $f:\so{0}{1}\to \so{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$ in cui tutte le cifre $1$ sono state trasformate in cifre $2$.
+	Definiamo la funzione $f:\so{0}{1}\to \so{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$.
+	Poichè alcuni numeri hanno due scritture in base $2$, sceglieremo sempre quella che non ha una coda infinita di $1$.
 	
-	TODO
+	Qui di seguito un diagramma che mostra la definizione di $f$:
+	\begin{equation*}
+		x=\>\stackrel{\text{Scrittura in base $2$ di $x$}}{\overline{0.x_1x_2x_3\cdots}_2} \>  \longmapsto
+		\> \stackrel{\text{Lettura in base $3$ di $x$ in base $2$}}{\overline{0.x_1x_2x_3\cdots}_3}\>=f(x)
+	\end{equation*}
+
+	La funzione $f$ appena definita è strettamente crescente, poichè lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per \cref{MonotoneMisurabili} $f$ è misurabile.
 	
-	Per \cref{InsiemeVitali} esiste $A\subseteq \cc{\frac12}{\frac23}$ che non sia misurabile.
-	Sia $B=f(A)$, poichè $f$ è strettamente crescente vale $A=f^{-1}(B)$.
-	Però la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe un misurabile (dato che i misurabili sono la più piccola algebra generata dagli aperti) e perciò l'insieme $A$ è un misurabile non Borealiano.
+	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore).
+	
+	Per \cref{InsiemeVitali} esiste $A\subseteq \so{0}{1}$ che non sia misurabile.
+	Sia $B=f(A)$.
+	
+	Poichè $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
+	Allora la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe un misurabile (dato che i misurabili sono la più piccola algebra generata dagli aperti). 
+	Infine $B$ è sottoinsieme di $\so01$, che è trascurabile, perciò per la completezza della misura di Lebesgue $B$ è misurabile.
+	
+	Allora, unendo quanto detto, abbiamo che $B$ è un misurabile non Boreliano come voluto.
 \end{proof}
 
 
