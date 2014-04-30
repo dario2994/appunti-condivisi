@@ -179,7 +179,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 
-\begin{lemma}[Fatou]
+\begin{lemma}[Fatou] \label{Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
@@ -268,6 +268,29 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\Vert f+g \Vert_1=\int |f+g|\de\mu\le \int (|f|+|g|)\de\mu=\int |f|\de\mu+\int |g|\de\mu=\Vert f \Vert_1+\Vert g \Vert_1
 	\end{equation*}
+\end{proof}
+
+\begin{theorem}[Convergenza dominata di Lebesgue]
+	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
+	\begin{equation*}
+		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	Considero le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{Fatou} vale che
+	\begin{equation*}
+		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)
+	\end{equation*}
+	Perciò scegliendo rispettivamente il $+$ e il $-$ otteniamo perciò
+	\begin{equation*}
+		\begin{cases}
+			\int f \de\mu\le \liminf_{n\to\infty}\int f_n \de \mu \\
+			\int f\de\mu \ge \limsup_{n\to\infty}\int f_n \de \mu
+		\end{cases}
+		\Longrightarrow \int f\de\mu = \lim_{n\to\infty}\int f_n \de \mu
+	\end{equation*}
+
 \end{proof}
 
 
