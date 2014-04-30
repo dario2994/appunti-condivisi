@@ -11,18 +11,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove si applicheranno le varie omissioni quando saranno ovvi la variabile di integrazione $x$, lo spazio di misura $X$ o la misura $\mu$.
 \end{remark}
 
-\begin{remark}
-	Chiameremo funzioni positive quelle che assumono solo valori maggiori o uguali a 0.
-\end{remark}
-
-
-
-\begin{lemma}
-	Data una funzione $\simp$ semplice e positiva su $(X,\A,\mu)$, esistono $c_k>0$ reali, con $k=1,\dots, n$, tale che $\simp=\sum_{k=1}^nc_k\chi(E_k)$, dove $E_k\in \A$.
-\end{lemma}
-
-
-\begin{definition}\label{DefIntSemp}
+\begin{definition}\label{def:IntegraleSemplici}
 	Sia $\simp$ una funzione misurabile, semplice e positiva, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
 	\begin{equation*}
 		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)
@@ -75,18 +64,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{proof}
 
-\begin{proposition}\label{PropIntSemp}
+\begin{proposition}\label{prop:IntegraleSemplici}
 	Date $\simp_1,\simp_2$ funzioni semplici e positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
 	\begin{enumerate}
-		\item $\int (a\simp_1+b\simp_2)\de\mu=a\int \simp_1\de\mu+b\int \simp_2\de\mu$; \label{PIS:add}
-		\item $\simp_1\le \simp_2\Longrightarrow \int \simp_1\de\mu\le \int \simp_2\de\mu$. \label{PIS:mono}
+		\item $\int (a\simp_1+b\simp_2)\de\mu=a\int \simp_1\de\mu+b\int \simp_2\de\mu$ \label{PIS:add}
+		\item $\simp_1\le \simp_2\Longrightarrow \int \simp_1\de\mu\le \int \simp_2\de\mu$ \label{PIS:mono}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
 \end{proof}
 
-\begin{proposition}\label{IntSempSpezzato}
+\begin{proposition}\label{IntegraleSempliciSpezzato}
 	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\cup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
 	\begin{equation*}
 		\int_X \simp \de \mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu
@@ -110,14 +99,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 
 
-\begin{definition}\label{DefIntPos}
+\begin{definition}\label{def:IntegralePositive}
 	Sia $f$ una funzione misurabile positiva su $(X,\A,\mu)$, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
 		\int_Xf\de\mu=\sup_{n\in\N}\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
 	\end{equation*}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition} \label{DefinizioneEquivalenteIntegralePositive}
 	Data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}
@@ -126,7 +115,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Dimostriamo innanzitutto che dato un insieme $Y\subseteq X$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
-	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per \cref{PropIntSemp} ho che
+	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per \cref{prop:IntegraleSemplici} ho che
 	\begin{equation*}
 		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)
 	\end{equation*}
@@ -141,7 +130,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 	Consideriamo ora una qualsiasi funzione semplice $\simp$ tale che $0\le \simp\le f$. Per facile conseguenza della definizione di funzione semplice, esistono $k$ sottoinsiemi misurabili disgiunti di $X$, che chiamiamo $X_1,\dots,X_k$, tali che $\cup_{m=1}^kX_m=X$ e $\simp|_{X_m}$ è costante per ogni $m=1,\dots,k$.
 	
-	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntSempSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
+	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntegraleSempliciSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}=\sup_{n\in\N}\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_{n\in\N}\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp\de\mu
 	\end{equation*}
@@ -152,15 +141,28 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 \end{proof}
 
-\begin{proposition}\label{PropIntPos}
+\begin{proposition}\label{prop:IntegralePositive}
 	Date $f,g$ funzioni misurabili positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
 	\begin{enumerate}
-		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$; \label{PIP:add}
-		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$. \label{PIP:mono}
+		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PIP:add}
+		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$ \label{PIP:mono}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	TODO
+	\begin{description}
+		\item[\ref{PIP:add}] Siano $(\simp_n^f)_{n\in\N}$ e $(\simp_n^g)_{n\in\N}$ due successioni crescenti di funzioni semplici e positive convergenti rispettivamente ad $f$ e a $g$. Vale facilmente che la successione crescente di funzioni semplici e positive $(a\simp_n^f+b\simp_n^g)_{n\in\N}$ converge a $af+bg$. Allora per la \cref{DefinizioneEquivalenteIntegralePositive} e per \cref{prop:IntegraleSemplici} abbiamo che
+		\begin{equation*}
+		\begin{split}
+			a\int f\de\mu+b\int g\de\mu&=a\sup_{n\in\N}\int \simp_n^f\de\mu+b\sup_{n\in\N}\int \simp_n^g\de\mu \\
+			&=\sup_{n\in\N}\int (a\simp_n^f+b\simp_n^g)\de\mu=\int (af+bg)\de\mu
+		\end{split}
+		\end{equation*}
+		
+		\item[\ref{PIP:mono}] Segue facilmente dalla \cref{def:IntegralePositive}, in quanto se $\simp$ è una funzione semplice e positiva minore o uguale a $f$ è anche minore o uguale a $g$, perciò
+		\begin{equation*}
+		\int f\de\mu=\sup_{n\in\N}\left\{\int\simp\de \mu:\ 0\le \simp\le f\le g\ \wedge\ \simp \text{ semplice}\right\}\le \int g\de\mu
+	\end{equation*}
+	\end{description}
 \end{proof}
 
 \begin{theorem}[Beppo Levi]\label{BeppoLevi}
@@ -189,7 +191,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
-	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per \cref{PIP:mono}, ho che
+	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per \cref{prop:IntegralePositive}, ho che
 	\begin{equation*}
 		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu
 	\end{equation*}
@@ -205,7 +207,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 % 	La quantità $\Vert f \Vert_1$ è detta norma integrale, anche se non è effettivamente una norma.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{def:IntegraleIntegrabili}
 	Data una funzione integrabile definiamo il suo integrale come
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu
@@ -217,25 +219,30 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Notiamo in particolare che le funzioni $f_+$ ed $f_-$, oltre ad essere positive, sono anche integrabili.
 \end{remark}
 
-\begin{lemma}
+\begin{lemma}\label{DefinizioneEquivalenteIntegraleIntegrabili}
 	Data una funzione integrabile $f$ e date due funzioni $g,h$ integrabili e positive tali $f=g-h$, allora
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	TODO
+	Poichè $f_++h=f_-+g$, per la \cref{prop:IntegralePositive} e ricordando che gli integrali di $f_+,f_-,g,h$ sono finiti, otteniamo
+	\begin{gather*}
+		\int_X f_+\de\mu+\int_X h\de\mu=\int_X f_-\de\mu+\int_X g\de\mu \\
+		\Longrightarrow \int f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
+	\end{gather*}
+
 \end{proof}
 
-\begin{proposition}\label{PropIntInt}
+\begin{proposition}\label{prop:IntegraleIntegrabili}
 	Date $f,g$ funzioni integrabili su $(X,\A,\mu)$ e dati $a,b$ reali valgono:
 	\begin{enumerate}
-		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$;\label{PII:add}
-		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$.\label{PII:mono}
+		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PII:add}
+		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$ \label{PII:mono}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	TODO
+	Sia l'additività che la monotonia seguono facilmente dalla \cref{def:IntegraleIntegrabili} e dal \cref{DefinizioneEquivalenteIntegraleIntegrabili}.
 \end{proof}
 
 
@@ -251,7 +258,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\Vert \cdot \Vert_1$ è una seminorma su $\L^1(X,\A,\mu)$.
 \end{proposition}
 \begin{proof}
-	Dalla \cref{PropIntInt} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
+	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
 	
 	TODO
 \end{proof}
