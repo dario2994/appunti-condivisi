@@ -1,3 +1,5 @@
+% Problemi: Scegliere la notazione degli integrali, delle funzioni ``positive''. Come mi riferisco ad un item di una propositione?
+
 \section{Integrazione secondo Lebesgue}
 In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del loro valore assoluto finito. Chiameremo queste ultime funzioni integrabili.
 
@@ -150,14 +152,25 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 \end{proof}
 
+\begin{proposition}\label{PropIntPos}
+	Date $f,g$ funzioni misurabili positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
+	\begin{enumerate}
+		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$; \label{PIP:add}
+		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$. \label{PIP:mono}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	TODO
+\end{proof}
+
 \begin{theorem}[Beppo Levi]\label{BeppoLevi}
 	Sia $(f_n)$ una successione crescente di funzioni misurabili positive convergenti puntualmente ad una funzione $f$, allora $\int_Xf\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu$.
 \end{theorem}
 
 \begin{proof}
-	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f=\sup_{n\in\N}f_n$ per la \cref{SupMis} $f$ è una funzione misurabile e positiva.
+	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{SupMis} $f$ è una funzione misurabile e positiva.
 	
-	Per \cref{LimSemCrescMis}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione di \cref{LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
+	Per \cref{LimSemCrescMis}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione di \cref{LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
@@ -167,14 +180,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{lemma}[Fatou]
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
-		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
 \end{lemma}
 
 \begin{proof}
-	Applichiamo il \cref{BeppoLevi} alle funzioni alla successione crescente $(\inf_{k\ge n}f_n)$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n$ e otteniamo
+	Applichiamo il \cref{BeppoLevi} alla successione di funzioni crescenti $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
 	\begin{equation*}
-		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_n\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_n\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+	\end{equation*}
+	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per \cref{PIP:mono}, ho che
+	\begin{equation*}
+		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu
 	\end{equation*}
 \end{proof}
 
@@ -185,7 +202,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 	ha valore finito.
 	
-	La quantità $\Vert f \Vert_1$ è detta norma integrale, anche se non è effettivamente una norma.
+% 	La quantità $\Vert f \Vert_1$ è detta norma integrale, anche se non è effettivamente una norma.
 \end{definition}
 
 \begin{definition}
@@ -205,19 +222,16 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
 	\end{equation*}
-\begin{proposition}
-	
-\end{proposition}
 \end{lemma}
 \begin{proof}
 	TODO
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{PropIntInt}
 	Date $f,g$ funzioni integrabili su $(X,\A,\mu)$ e dati $a,b$ reali valgono:
 	\begin{enumerate}
-		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$;
-		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$.
+		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$;\label{PII:add}
+		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$.\label{PII:mono}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -232,6 +246,16 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 		\L^1(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
 	\end{equation*}
 \end{definition}
+
+\begin{proposition}
+	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\Vert \cdot \Vert_1$ è una seminorma su $\L^1(X,\A,\mu)$.
+\end{proposition}
+\begin{proof}
+	Dalla \cref{PropIntInt} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
+	
+	TODO
+\end{proof}
+
 
 
 
