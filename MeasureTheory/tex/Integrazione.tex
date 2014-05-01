@@ -1,5 +1,3 @@
-% Problemi: Scegliere la notazione degli integrali, delle funzioni ``positive''. Come mi riferisco ad un item di una propositione?
-
 \section{Integrazione secondo Lebesgue}
 In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del loro valore assoluto finito. Chiameremo queste ultime funzioni integrabili.
 
@@ -165,7 +163,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{description}
 \end{proof}
 
-\begin{theorem}[Beppo Levi]\label{BeppoLevi}
+\begin{theorem}[Beppo Levi]\label{thm:BeppoLevi}
 	Sia $(f_n)$ una successione crescente di funzioni misurabili positive convergenti puntualmente ad una funzione $f$, allora $\int_Xf\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu$.
 \end{theorem}
 
@@ -179,7 +177,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 
-\begin{lemma}[Fatou] \label{Fatou}
+\begin{lemma}[Fatou] \label{lem:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
@@ -187,7 +185,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{lemma}
 
 \begin{proof}
-	Applichiamo il \cref{BeppoLevi} alla successione di funzioni crescenti $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
+	Applichiamo il \cref{thm:BeppoLevi} alla successione di funzioni crescenti $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
@@ -200,11 +198,11 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{definition}
 	Una funzione misurabile $f:X\to\Rbar$ con $(X,\A,\mu)$ spazio di misura si dice integrabile se 
 	\begin{equation*}
-		\Vert f \Vert_1=\int_X |f|\de\mu
+		\LNorm f=\int_X |f|\de\mu
 	\end{equation*}
 	ha valore finito.
 	
-% 	La quantità $\Vert f \Vert_1$ è detta norma integrale, anche se non è effettivamente una norma.
+% 	La quantità $\LNorm f$ è detta norma integrale, anche se non è effettivamente una norma.
 \end{definition}
 
 \begin{definition}\label{def:IntegraleIntegrabili}
@@ -255,18 +253,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{definition}
 
 \begin{proposition}
-	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\Vert \cdot \Vert_1$ è una seminorma su $\L^1(X,\A,\mu)$.
+	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$.
 \end{proposition}
 \begin{proof}
 	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
 	
-	Dimostriamo ora che $\Vert \cdot \Vert_1$ è una seminorma su $\L^1(X,\A,\mu)$. Innanzitutto abbiamo che per la \cref{prop:IntegraleIntegrabili} vale che
+	Dimostriamo ora che $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$. Innanzitutto abbiamo che per la \cref{prop:IntegraleIntegrabili} vale che
 	\begin{equation*}
-		\Vert \lambda f \Vert_1 = \int |\lambda f |\de\mu=|\lambda| \int |f| \de\mu=|\lambda|\Vert f \Vert_1 
+		\LNorm{\lambda f} = \int |\lambda f |\de\mu=|\lambda| \int |f| \de\mu=|\lambda|\LNorm f
 	\end{equation*}
 	Inoltre vale anche la disuguaglianza triangolare, infatti sfruttando sempre la \cref{prop:IntegraleIntegrabili} otteniamo che
 	\begin{equation*}
-		\Vert f+g \Vert_1=\int |f+g|\de\mu\le \int (|f|+|g|)\de\mu=\int |f|\de\mu+\int |g|\de\mu=\Vert f \Vert_1+\Vert g \Vert_1
+		\LNorm{f+g}=\int |f+g|\de\mu\le \int (|f|+|g|)\de\mu=\int |f|\de\mu+\int |g|\de\mu=\LNorm f+\LNorm g
 	\end{equation*}
 \end{proof}
 
@@ -278,7 +276,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{theorem}
 
 \begin{proof}
-	Considero le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{Fatou} vale che
+	Considero le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{lem:Fatou} vale che
 	\begin{equation*}
 		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)
 	\end{equation*}
@@ -293,9 +291,39 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 \end{proof}
 
+\begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
+	Data una funzione $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e $\lambda>0$ vale
+	\begin{equation*}
+		\mu\left(\left\{x:\ |f(x)|>\lambda\right\}\right) \le \frac{\LNorm f}{\lambda}
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Sia $A_\lambda$ l'insieme degli $x$ tali che $|f(x)|>\lambda$. Ovviamente $A_\lambda$ è un insieme misurabile per la definizione di funzione integrabile.
+	
+	Grazie alla \cref{prop:IntegraleIntegrabili} e per la definizione di integrale di una funzione semplice abbiamo
+	\begin{equation*}
+		|f|\ge\lambda \cdot \chi_{A_\lambda} \implies \int_X |f|\de\mu \ge \int_X \lambda\cdot\chi_{A_\lambda}\de\mu=\lambda\mu(A_\lambda)\implies
+		\LNorm{f}\ge \lambda\mu(A_\lambda)
+	\end{equation*}
+	che è equivalente alla tesi.
+\end{proof}
 
+\begin{corollary}\label{cor:L1NullaAlloraNulla}
+	Data $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, tale che $\LNorm{f}=0$, risulta
+	\begin{equation*}
+		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Per ogni $n\in\N$, chiamiamo $A_n$ l'insieme degli $x\in X$ tali che $|f(x)|>\frac 1n$.
+	
+	Dal \cref{thm:DisuguaglianzaChebyshev}, sfruttando $\LNorm{f}=0$ è facile ottenere $\mu(A_n)=0$. 
+	Sfruttando quanto appena ottenuto insieme alla \sigsubadd[ità] della misura otteniamo facilmente la tesi:
+	\begin{equation*}
+		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0
+	\end{equation*}
 
-
+\end{proof}
 
 
 
