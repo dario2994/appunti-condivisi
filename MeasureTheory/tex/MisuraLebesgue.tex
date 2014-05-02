@@ -21,7 +21,7 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	Inoltre, dato $S=\so{a_1}{b_1}\times\cdots\times\so{a_n}{b_n}$, definiamo $S^-_i=a_i$ e $S^+_i=b_i$.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}\label{lem:SemianelloSemiAperti}
 	La famiglia $\S_n$ è un \semiring{}.
 \end{lemma}
 \begin{proof}
@@ -31,37 +31,93 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 		A\cap B=\so{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\so{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n
 	\end{equation*}
 
-	Mentre per la differenza $A\setminus B$ bisogna decomporre in maniera più complessa.
+	Mentre per la differenza $A\setminus B$ bisogna decomporre in maniera più complessa. TODO
+	\begin{equation*}
+		\so ab\setminus \so cd= \so ac\sqcup \so db
+	\end{equation*}
+
+\end{proof}
+
+\begin{definition}
+	Indicherò con $m_n:\S_n\to\Rpiu$ la funzione che associa ad ogni parallelepipedo il suo volume $n$-dimensionale:
+	\begin{equation*}
+		m_n(S)=\prod_{i=1}^n\max(0,S^+_i-S^-_i)
+	\end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lem:LebesgueElementareFinita}
+	Dati $(S_i)_{1\le i\le k},S\subseteq \S_n$, valgono le seguenti disuguaglianze:
+	\begin{itemize}
+		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$ allora risulta
+		\begin{equation*}
+			\sum_{i=1}^k m_n(S_i)\le m_n(S)
+		\end{equation*}
+		\item Se vale il contenimento $S\subseteq\bigcup_{i=1}^k S_i$ allora risulta
+		\begin{equation*}
+			\sum_{i=1}^k m_n(S_i)\ge m_n(S)
+		\end{equation*}
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{definition}\label{def:AllargamentoSemiaperti}
+	Fissato $\lambda>0$ definiamo $F_\lambda:\S_n\to\S_n$ come l'operatore che associa ad $S\in\S_n$ l'insieme nullo se $S=\emptyset$ e altrimenti
+	\begin{equation*}
+		F_\lambda(S)=\so{S^-_1-\epsilon}{S^+_1}\times\cdots\times\so{S^-_n-\epsilon}{S^+_n}
+	\end{equation*}
+	dove $\epsilon>0$ è definito come
+	\begin{equation*}
+		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_o\}
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	Segue banalmente dalla definizione che $S\in\S_n$ è un sottoinsieme della parte interna di $F_\lambda(S)$ per ogni $\lambda>0$.
+\end{remark}
+
+\begin{proposition}
+	Fissati $\lambda>0$ e $S\in\S_n$ vale la seguente stima:
+	\begin{equation*}
+		m_n(F_\lambda(S))\le m_n(S)+\lambda
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Se $S$ è vuoto la tesi è ovvia, quindi assumiamo $S\not=\emptyset$.
+	
+	Ponendo $\epsilon$ come nella \cref{def:AllargamentoSemiaperti}, risulta vero
+	\begin{gather*}
+		\frac{m_n(F_\lambda(S))}{m_n(S)}=\prod_{i=1}^n\frac{S^+_i-S^-_i+\epsilon}{S^+_i-S^-_i}=
+		\prod_{i=1}^n\left(1+\frac{\epsilon}{S^+_i-S^-_i}\right)\\\le
+		\prod_{i=1}^n\left(1+\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\right)\le
+		1+2^n\frac{\lambda}{2^n\cdot m_n(S)}=1+\frac{\lambda}{m_n(S)}
+	\end{gather*}
+	che implica la tesi moltiplicando ambo i membri per $m_n(S)$.
 \end{proof}
 
 
+
+
 \begin{theorem}\label{LebesguePremisura}
-	Sia $\S$ l'insieme degli intervalli semiaperti a destra di $\R$, cioè i sottoinsiemi della retta reale della forma $[a,b)$ con $a,b\in\R$.
-	
-	Definendo la funzione $\mu:\S\to\Rbar$ in modo che $\mu\left([a,b)\right)=b-a$, la terna $(\R,\S,\mu)$ risulta essere uno spazio di misura elementare.
+	La terna $(\R^n,\S_n,m_n)$ è uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
-	L'insieme vuoto appartiene ovviamente a $\S$.
-	Inoltre, fissati $a,b,c,d\in\R$ valgono:
-	\begin{align*}
-		\so ab\cap \so cd &= \so {\max(a,c)}{\min(b,d)}\\
-		\so ab\setminus \so cd&= \so ac\sqcup \so db
-	\end{align*}
-	e questo implica che $\S$ è un \semiring{}.
+	Per quanto mostrato nel \cref{lem:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
 	
-	Ora resta da dimostrare che $\mu$ sia \sigadd{} su $\S$.
-	Consideriamo $\so {a_n}{b_n}=I_n\in \S$ una successione numerabile di elementi di $\S$ la cui unione \emph{disgiunta} dia $\so ab=I\in \S$.
+	Resta da dimostrare solo che $m_n$ è \sigadd{} su $\S_n$.
+	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta da $S\in\S_n$.
 	
-	Riconducendoci ad un numero finito di intervalli, e sfruttando facili ragionamenti combinatorici, otteniamo:
+	Applicando il \cref{lem:LebesgueElementareFinita} abbiamo facilmente
 	\begin{equation*}
-		\sum_{n\le k} \mu(I_n)\le \mu(I) \implies \sum_{n\in\N}\mu(I_n)\le \mu(I)
+		\forall k\in\N:\ \sqcup_{i=1}^k S_i\subseteq S\implies \forall k\in\N:\ \sum_{i=1}^k m_n(S_i)\le m_n(S) \implies \sum_{i\in\N}m_n(S_i)\le m_n(S)
 	\end{equation*}
+
 	
-	Per ottenere la disuguaglianza opposta sfrutteremo la compattezza degli intervalli limitati di $\mathbb R$, in particolare la possibilità di estrarre ricoprimenti finiti di aperti a partire da ricoprimenti numerabili.
+	Per ottenere la disuguaglianza opposta, concludendo quindi la dimostrazione, sfrutteremo la compattezza dei chiusi e limitati di $\R^n$, in particolare la possibilità di estrarre ricoprimenti finiti di aperti a partire da ricoprimenti numerabili.
 	
 	Fissiamo $\epsilon>0$ arbitrario.
 	
-	Definiamo gli intervalli aperti $I'_n=\oo{a_n-\frac\epsilon{2^n}}{b_n}$ e notiamo che $I_n\subseteq I'_n$.
+	Definiamo $S'_i=\oo{a_n-\frac\epsilon{2^n}}{b_n}$ e notiamo che $I_n\subseteq I'_n$.
 	Vale perciò che la successione di aperti $(I'_n)_{n\in\N}$ è un ricoprimento del compatto $\cc a{b-\epsilon}$ e di conseguenza esiste un insieme di indici finito $J$ tale che $(I'_n)_{n\in J}$ è un ricoprimento finito di $\cc a{b-\epsilon}$.
 	
 	Allora, ancora per facili motivazioni combinatoriche, abbiamo:
