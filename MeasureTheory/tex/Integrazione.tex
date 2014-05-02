@@ -73,7 +73,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
 \end{proof}
 
-\begin{proposition}\label{IntegraleSempliciSpezzato}
+\begin{proposition}\label{prop:IntegraleSempliciSpezzato}
 	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\cup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
 	\begin{equation*}
 		\int_X \simp \de \mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu
@@ -128,7 +128,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 	Consideriamo ora una qualsiasi funzione semplice $\simp$ tale che $0\le \simp\le f$. Per facile conseguenza della definizione di funzione semplice, esistono $k$ sottoinsiemi misurabili disgiunti di $X$, che chiamiamo $X_1,\dots,X_k$, tali che $\cup_{m=1}^kX_m=X$ e $\simp|_{X_m}$ è costante per ogni $m=1,\dots,k$.
 	
-	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{IntegraleSempliciSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
+	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{prop:IntegraleSempliciSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}=\sup_{n\in\N}\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_{n\in\N}\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp\de\mu
 	\end{equation*}
@@ -374,6 +374,30 @@ Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ no
 	Segue facilmente da \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
 \end{proof}
 
+\begin{proposition}\label{prop:IntegraleIntegrabiliSpezzato}
+	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e siano $X_1,X_2,\cdots,X_k$ misurabili disgiunti tali che $X=\cup_{m=1}^kX_m$. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X_m$ per ogni $1\le m\le k$, e in tal caso vale che
+	\begin{equation*}
+		\int_X f\de\mu=\sum_{m=0}^k\int_{X_m}f\de\mu
+	\end{equation*}
+\end{proposition}
+
+\begin{proof}
+	Mi basta dimostrare che per una funzione $f$ misurabile e positiva $\int_X f\de\mu=\sum_{m=0}^k\int_{X_m}f\de\mu$, infatti poi la tesi segue facilmente dalla definizione di funzioni integrabili.
+	
+	Anche quest'ultimo fatto però è una facile conseguenza delle definizione e della \cref{prop:IntegraleSempliciSpezzato} e non ne riportiamo quindi una dimostrazione dettagliata.
+\end{proof}
+
+
+\begin{corollary}\label{lemma:IntegraleAMenoDiTrascurabili}
+	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e nel caso vale che
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N}f\de\mu
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Basta considerare nella proposizione precedente $k=2$ e $X_1=X\setminus N,X_2=N$.
+\end{proof}
+
 
 
 \begin{theorem}[Integrazione per serie]
@@ -408,7 +432,7 @@ Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ no
 		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu
 	\end{equation*}
 
-	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per \cref{BU}
+	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{lemma:IntegraleAMenoDiTrascurabili} che $f\in \L^1(X,\A,\mu)$ e che vale
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
 	\end{equation*}
