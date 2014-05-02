@@ -7,21 +7,17 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 Nella prima parte di questa sezione, quella riguardante degli aspetti fondamentalmente combinatorici degli $n$-cubi di $\R^n$ lasceremo due dimostrazioni al lettore.
 Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e molto facili intuitivamente, non aggiungono nulla alla comprensione che si mira ad avere della misura di Lebesgue.
 
-\begin{definition}
+\begin{definition}\label{def:Boreliani}
 	I Boreliani di $\R^n$ sono la \sigalg{} generata dai sottoinsiemi aperti di $\R^n$.
 \end{definition}
 
-\newcommand{\so}[2]{\ensuremath{\left[\,#1,\,#2\,\right)}}
-\newcommand{\oo}[2]{\ensuremath{\left(\,#1,\,#2\,\right)}}
-\newcommand{\cc}[2]{\ensuremath{\left[\,#1,\,#2\,\right]}}
-
-\begin{definition}
-	Indicheremo con $\S_n\subseteq\mathcal P(\R^n)$ l'insieme dei parallelepipedi $n$-dimensionali semiaperti a destra\footnote{Se $a\ge b$ con la scrittura $\so{a}{b}$ si intenderà l'insieme vuoto.}:
+\begin{definition}\label{def:LebesgueSemiaperti}
+	Indicheremo con $\S_n\subseteq\mathcal P(\R^n)$ l'insieme dei parallelepipedi $n$-dimensionali semiaperti a destra\footnote{Se $a\ge b$ con la scrittura $\co{a}{b}$ si intenderà l'insieme vuoto.}:
 	\begin{equation*}
-		\S_n=\left\{\so{a_1}{b_1}\times\cdots\times\so{a_n}{b_n}:\ (a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq \R\right\}
+		\S_n=\left\{\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}:\ (a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq \R\right\}
 	\end{equation*}
 	
-	Inoltre, dato $S=\so{a_1}{b_1}\times\cdots\times\so{a_n}{b_n}$, definiamo $S^-_i=a_i$ e $S^+_i=b_i$.
+	Inoltre, dato $S=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}$, definiamo $S^-_i=a_i$ e $S^+_i=b_i$.
 \end{definition}
 
 \begin{proposition}\label{prop:SpaccareUnioneSemiaperti}
@@ -44,7 +40,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ovviamente $\emptyset\in\S_n$.
 	Inoltre dati $A,B\in\S_n$ si ricava facilmente che
 	\begin{equation*}
-		A\cap B=\so{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\so{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n
+		A\cap B=\co{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\co{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n
 	\end{equation*}
 
 	Mentre per la differenza $A\setminus B$ applichiamo la \cref{prop:SpaccareUnioneSemiaperti} sugli insiemi $A,B$ per ottenere la famiglia $(S_i)_{i\in I}\subseteq \S_n$ come descritta dall'enunciato.
@@ -57,7 +53,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ma visto che sia intersezione che differenza si scrivono come unione disgiunta di elementi di $\S_n$ abbiamo dimostrato che $\S_n$ è un \semiring{}.
 \end{proof}
 
-\begin{definition}
+\begin{definition}\label{def:LebesgueElementare}
 	Indicherò con $m_n:\S_n\to\Rpiu$ la funzione che associa ad ogni parallelepipedo il suo volume $n$-dimensionale:
 	\begin{equation*}
 		m_n(S)=\prod_{i=1}^n\max(0,S^+_i-S^-_i)
@@ -76,17 +72,15 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	Entrambe le proprietà sono di facile verifica:
 	\begin{multline*}
-		m_n(S+v)=m_n\left(\so{S^-_1+v_1}{S^+_1+v_1}\times\cdots\times\so{S^-_n+v_n}{S^+_n+v_n}\right)\\
+		m_n(S+v)=m_n\left(\co{S^-_1+v_1}{S^+_1+v_1}\times\cdots\times\co{S^-_n+v_n}{S^+_n+v_n}\right)\\
 		=\prod_{i=1}^n\left((S^+_i+v_i)-(S^-_i+v_i)\right)=\prod_{i=1}^n\left(S^+_i-S^-_i\right)=m_n(S)
 	\end{multline*}
 	
 	\begin{multline*}
-		m_n(\lambda S)=m_n\left(\so{\lambda S^-_1}{\lambda S^+_1}\times\cdots\times\so{\lambda S^-_n}{\lambda S^+_n}\right)\\
+		m_n(\lambda S)=m_n\left(\co{\lambda S^-_1}{\lambda S^+_1}\times\cdots\times\co{\lambda S^-_n}{\lambda S^+_n}\right)\\
 		=\prod_{i=1}^n\left(\lambda S^+_i-\lambda S^-_i\right)=\lambda^n\prod_{i=1}^n\left(S^+_i-S^-_i\right)=\lambda^n m_n(S)
 	\end{multline*}
 \end{proof}
-
-
 
 
 \begin{lemma}\label{lem:LebesgueElementareFinita}
@@ -109,7 +103,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{definition}\label{def:AllargamentoSemiaperti}
 	Fissato $\lambda>0$ definiamo $F_\lambda:\S_n\to\S_n$ come l'operatore che associa ad $S\in\S_n$ l'insieme nullo se $S=\emptyset$ e altrimenti
 	\begin{equation*}
-		F_\lambda(S)=\so{S^-_1-\epsilon}{S^+_1}\times\cdots\times\so{S^-_n-\epsilon}{S^+_n}
+		F_\lambda(S)=\co{S^-_1-\epsilon}{S^+_1}\times\cdots\times\co{S^-_n-\epsilon}{S^+_n}
 	\end{equation*}
 	dove $\epsilon>0$ è definito come
 	\begin{equation*}
@@ -175,13 +169,13 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	che conclude la dimostrazione della \sigadd[ità] di $m_n$.
 \end{proof}
 
-\begin{proposition}\label{LebesguePremisuraSigFin}
+\begin{proposition}\label{prop:LebesguePremisuraSigFin}
 	Lo spazio di misura elementare $(\R^n,\S_n,m_n)$ è \sigfin[o].
 \end{proposition}
 \begin{proof}
 	Sfruttando che $\mathbb Z^n$ è numerabile, mostriamo esplicitamente la \sigfin[ezza]:
 	\begin{equation*}
-		\R^n=\bigsqcup_{i_1,i_2,\dots,i_n\in\mathbb Z^n} \so{i_1}{i_1+1}\times\cdots \times\so{i_n}{i_n+1}
+		\R^n=\bigsqcup_{i_1,i_2,\dots,i_n\in\mathbb Z^n} \co{i_1}{i_1+1}\times\cdots \times\co{i_n}{i_n+1}
 	\end{equation*}
 	
 \end{proof}
@@ -192,7 +186,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	Fissati $(a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq\R^n$ tali che per ogni $1\le i\le n$ valga $a_i<b_i$, risulta l'identità insiemistica
 	\begin{equation*}
-		\oo{a_1}{b_1}\times\cdots\times\oo{a_n}{b_n}=\bigcup_{i\in\N}\so{a_1+\frac1i}{b_1}\times\cdots\times\so{a_n+\frac1i}{b_n}
+		\oo{a_1}{b_1}\times\cdots\times\oo{a_n}{b_n}=\bigcup_{i\in\N}\co{a_1+\frac1i}{b_1}\times\cdots\times\co{a_n+\frac1i}{b_n}
 	\end{equation*}
 	da cui otteniamo che gli $n$-parallelepipedi aperti appartengono a $\sigma A(\S_n)$.
 	Ma in $\R^n$ gli aperti sono sempre unione numerabile di $n$-parallelepipedi aperti\footnote{Basta considerare l'unione di tutti gli $n$-cubi con centro razionale e lato razionale contenuti nell'aperto.} e di conseguenza gli aperti appartengono a $\sigma A(\S_n)$.
@@ -201,22 +195,43 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 \begin{definition}\label{LebesgueMisura}
-	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
+	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
+	Inoltre indicheremo con $m_n^*:\mathcal P(\R^n)\to\Rpiu$ la misura esterna associata a $m_n$, che quindi ridotta su $\M_n$ coincide con la misura di Lebesgue.
 \end{definition}
 
-\begin{remark}\label{LebesgueCompletezza}
+\begin{remark}\label{nota:LebesgueCompletezza}
 	La misura di Lebesgue su $\R^n$ è completa.
 \end{remark}
 \begin{proof}
 	È un'ovvia conseguenza del \cref{EstensioneCaratheodory}.
 \end{proof}
 
-\begin{proposition}
-	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$.
+\begin{remark}\label{nota:LebesgueSigFin}
+	La misura di Lebesgue è \sigfin{}.
+\end{remark}
+\begin{proof}
+	È una banale conseguenza della \cref{prop:LebesguePremisuraSigFin}
+\end{proof}
+
+
+%TODO Definire da qualche parte quasi ogni
+\begin{proposition}\label{prop:CompletamentoBoreliani}
+	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
 \end{proposition}
 \begin{proof}
-	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
+	Il \cref{EstensioneCaratheodory} ci assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
+	
+	Per avere che il completamento dei Boreliani coincide con $\M_n$ basta applicare \cref{prop:CaratheodoryCompletamentoSigAlg} ricordando \cref{prop:LebesguePremisuraSigFin}.
 \end{proof}
+
+\begin{theorem}\label{thm:LebesgueEquivalenzeMisurabilita}
+	Dato $A\subseteq \R^n$ sono equivalenti le seguenti proposizioni:
+	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+		\item $A$ è misurabile secondo Lebesgue.
+		\item Esistono 
+	\end{enumerate}
+\end{theorem}
+
 
 \begin{proposition}\label{CardBoreliani}
 	I Boreliani hanno la cardinalità del continuo.
@@ -248,7 +263,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura $m_n$ definita su $\S_n$.
 \end{proposition}
 \begin{proof}
-	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
 \end{proof}
 
 \begin{remark}\label{nota:LebesgueProprieta}
@@ -270,7 +285,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{theorem}\label{thm:LebesgueUnicaInvarianteTraslazione}
 	Se $\mu$ è una misura sui Boreliani di $\R^n$ invariante per traslazione tale che la misura del cubo unitario valga $1$, cioè
 	\begin{equation*}
-		\mu\left(\so01\times\so01\times\cdots\times\so01\right)=1
+		\mu\left(\co01\times\co01\times\cdots\times\co01\right)=1
 	\end{equation*}
 	allora $\mu\equiv m_n$, in altre parole la misura di Lebesgue è l'unica misura con queste proprietà (l'invarianza per traslazione è dimostrata nella \cref{nota:LebesgueProprieta}).
 \end{theorem}
@@ -294,7 +309,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 	Allora, analogamente a quanto già fatto nel caso intero, vale la seguente identità:
 	\begin{equation*}
-		\so0{mS^+_1}\times\cdots\times\so0{mS^+_n}=
+		\co0{mS^+_1}\times\cdots\times\co0{mS^+_n}=
 		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1,i_2,\dots,i_n)
 	\end{equation*}
 	Ma ora applicando quanto abbiamo ricavato per la misura di elementi con estremi a coordinate intere, è chiaro che la misura del membro destro dell'ultima uguaglianza coincide per $\mu,m_n$ e allora sfruttando ancora la loro invarianza per traslazione otteniamo che coincidono anche su $S$.
@@ -337,7 +352,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Dato un insieme numerabile $A\subseteq\R^n$, questo è misurabile con misura nulla.
 \end{proposition}
 \begin{proof}
-	I singoli punti, essendo banalmente trascurabili, sono Lebesgue misurabili visto che la misura di Lebesgue è completa, come mostrato in \cref{LebesgueCompletezza}.
+	I singoli punti, essendo banalmente trascurabili, sono Lebesgue misurabili visto che la misura di Lebesgue è completa, come mostrato nella \cref{nota:LebesgueCompletezza}.
 	
 	L'insieme $A$ è però numerabile, quindi unione numerabile di singoli punti, che sono trascurabili. Perciò è trascurabile a sua volta $A$ che significa che $A$ è misurabile di misura nulla.
 \end{proof}
@@ -352,7 +367,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 	Dato $\epsilon>0$ e $k\in\N$ chiamiamo $I_\epsilon(k)$
 	\begin{equation*}
-		\so{-k}k\times\so{-k}k\times\cdots\times \so{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}
+		\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}
 	\end{equation*}
 	È banale, sfruttando la sola definizione della premisura $m_n$, che $m_n(I_\epsilon(k))=\frac{\epsilon}{2^k}$.
 	
@@ -371,15 +386,15 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	Dato $A$, notiamo che per la \sigadd[ità] della misura vale:
 	\begin{equation*}
-		0<m_n(A)=\sum_{(i_1,i_2,\dots,i_n)\in\mathbb Z^n} m_n\left(A\cap\left(\so{i_1}{i_1+1}\times\cdots\so{i_n}{i_n+1}\right)\right)
+		0<m_n(A)=\sum_{(i_1,i_2,\dots,i_n)\in\mathbb Z^n} m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)
 	\end{equation*}
 	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esistono $(i_1,\dots,i_n)\in \mathbb Z^n$ tale che:
 	\begin{equation*}
-		0<m_n\left(A\cap\left(\so{i_1}{i_1+1}\times\cdots\so{i_n}{i_n+1}\right)\right)\le
-		m_n\left(\so{i_1}{i_1+1}\times\cdots\so{i_n}{i_n+1}\right)=1
+		0<m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)\le
+		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1
 	\end{equation*}
-	quindi, a meno di intersecare con $\so{i_1}{i_1+1}\times\cdots\so{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poichè l'ipotesi di misura non nulla non si perde. 
-	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \so{0}{1}\times\cdots\so{0}{1}$.
+	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poichè l'ipotesi di misura non nulla non si perde. 
+	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
 	
 	Poniamo su $\R^n$ la relazione di equivalenza seguente:
 	\begin{equation*}
@@ -394,7 +409,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\begin{equation}\label{ContenimentiVitali}
 		A\subseteq\bigsqcup_{q\in\mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} B+q\subseteq \cc{-1}{2}\times\cdots\times\cc{-1}{2}
 	\end{equation}
-	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \so 01\times\cdots \times\so 01$.
+	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \co 01\times\cdots \times\co 01$.
 	
 	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}:
 	\begin{equation*}

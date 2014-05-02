@@ -144,7 +144,7 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	La \sigalg{} dei Boreliani non coincide con la \sigalg{} dei misurabili secondo Lebesgue.
 \end{proposition}
 \begin{proof}
-	Definiamo la funzione $f:\so{0}{1}\to \so{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$.
+	Definiamo la funzione $f:\co{0}{1}\to \co{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$.
 	Poichè alcuni numeri hanno due scritture in base $2$, sceglieremo sempre quella che non ha una coda infinita di $1$.
 	
 	Qui di seguito un diagramma che mostra la definizione di $f$:
@@ -157,12 +157,12 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	
 	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore).
 	
-	Per \cref{InsiemeVitali} esiste $A\subseteq \so{0}{1}$ che non sia misurabile.
+	Per \cref{InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non sia misurabile.
 	Sia $B=f(A)$.
 	
 	Poichè $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
 	Allora la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe misurabile. 
-	Infine $B$ è sottoinsieme di $\so01$, che è trascurabile, perciò per la completezza della misura di Lebesgue $B$ è misurabile.
+	Infine $B$ è sottoinsieme di $\co01$, che è trascurabile, perciò per la completezza della misura di Lebesgue $B$ è misurabile.
 	
 	Allora, unendo quanto detto, abbiamo che $B$ è un misurabile non Boreliano come voluto.
 \end{proof}
