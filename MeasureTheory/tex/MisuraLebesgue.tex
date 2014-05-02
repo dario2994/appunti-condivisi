@@ -180,18 +180,22 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 \end{proof}
 
+\begin{proposition}\label{prop:ApertiUnioneDiSemiaperti}
+	Ogni aperto di $\R^n$ si scrive come unione numerabile disgiunta di elementi di $\S_n$.
+\end{proposition}
+\begin{proof}
+	Dato un aperto $A$, consideriamo tutti gli $n$-cubi con centro razionale e lato razionale contenuti in $A$.
+	È facile vedere che l'unione di questi, che è ovviamente numerabile visto che $\mathbb Q^2$ lo è, è tutto l'aperto.
+	
+	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lem:SemianelloSemiAperti}.
+\end{proof}
+
 \begin{proposition}\label{SigAlgUgualeBoreliani}
 	La \sigalg{} generata da $\S_n$ coincide con i Boreliani di $\R^n$.
 \end{proposition}
 \begin{proof}
-	Fissati $(a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq\R^n$ tali che per ogni $1\le i\le n$ valga $a_i<b_i$, risulta l'identità insiemistica
-	\begin{equation*}
-		\oo{a_1}{b_1}\times\cdots\times\oo{a_n}{b_n}=\bigcup_{i\in\N}\co{a_1+\frac1i}{b_1}\times\cdots\times\co{a_n+\frac1i}{b_n}
-	\end{equation*}
-	da cui otteniamo che gli $n$-parallelepipedi aperti appartengono a $\sigma A(\S_n)$.
-	Ma in $\R^n$ gli aperti sono sempre unione numerabile di $n$-parallelepipedi aperti\footnote{Basta considerare l'unione di tutti gli $n$-cubi con centro razionale e lato razionale contenuti nell'aperto.} e di conseguenza gli aperti appartengono a $\sigma A(\S_n)$.
-	
-	Ma allora la \sigalg{} generata dagli aperti e quella generata da $\S_n$ e perciò si ha la tesi.
+	Per quanto mostrato nella \cref{prop:ApertiUnioneDiSemiaperti} di certo la \sigalg{} generata da $\S_n$ contiene gli aperti di $\R^n$.
+	Ma allora la \sigalg{} generata dagli aperti e quella generata da $\S_n$ coincidono e si ottiene la tesi.
 \end{proof}
 
 \begin{definition}\label{LebesgueMisura}
@@ -227,10 +231,47 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{theorem}\label{thm:LebesgueEquivalenzeMisurabilita}
 	Dato $A\subseteq \R^n$ sono equivalenti le seguenti proposizioni:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
-		\item $A$ è misurabile secondo Lebesgue.
-		\item Esistono 
+		\item $A$ è misurabile secondo Lebesgue.\label{it:LEMMisurabile}
+		\item Fissato $\epsilon>0$ esiste $C$ aperto che contiene $A$ e tale che $m_n^*(C\setminus A)<\epsilon$. \label{it:LEMApertoFuori}
+		\item Fissato $\epsilon>0$ esiste $C$ chiuso contenuto in $A$ e tale che $m_n^*(A\setminus C)<\epsilon$. \label{it:LEMChiusoDentro}
+		\item Esiste $B$ Boreliano che contiene $A$ e tale che $m_n^*(B\setminus A)=0$. \label{it:LEMBorelFuori}
+		\item Esiste $B$ Boreliano contenuto in $A$ e tale che $m_n^*(A\setminus B)=0$. \label{it:LEMBorelDentro}
+		\item Esiste una successione $(K_i)_{i\in\N}$ di compatti di $\R^n$ tutti contenuti in $A$, che si contengono in maniera crescente $K_i\subseteq K_{i+1}$ e la cui unione rispetta $m_n^*\left(A\setminus\bigcup_{i\in\N}K_i\right)=0$. \label{it:LEMCompattiDentro}
 	\end{enumerate}
 \end{theorem}
+\begin{proof}
+	È chiaro che questo teorema richiama, specializzandola al caso della misura di Lebesgue, la \cref{EquivalenzeMisurabilitaSottoinsieme}.
+	
+	In particolare applicando la \cref{EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poichè i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poichè per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
+	
+	Ancora per la \cref{EquivalenzeMisurabilitaSottoinsieme}, assumendo la \ref{it:LEMMisurabile}, sappiamo che esistono $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti, la cui unione $S$ contiene $A$ ed è tale che $m_n^*(S\setminus A)<\epsilon$.
+	Allora definendo $C$ come la parte interna di $\bigcup_{i\in\N}F_\frac{\epsilon}{2^i}(S_i)$ abbiamo in effetti che, grazie alla \cref{prop:MisuraAllargamento}, $m_n^*(C\setminus A)\le \epsilon$.
+	Unendo quanto detto e sfruttando la \sigsubadd[ità] della misura esterna si ottiene proprio $m_n^*(C\setminus A)<\epsilon$ e questo conclude la dimostrazione di \ImplicationProof{it:LEMMisurabile}{it:LEMApertoFuori}.
+	
+	Abbiamo quindi dimostrato che \ref{it:LEMMisurabile},\ref{it:LEMApertoFuori},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono tutte equivalenti.
+	
+	Per concludere dimostriamo la serie di implicazioni \ImplicationProof{it:LEMMisurabile}{it:LEMChiusoDentro}$\,\implies\,\,$\ImplicationProof{it:LEMCompattiDentro}{it:LEMBorelDentro}.
+	\begin{description}
+		\item[\ImplicationProof{it:LEMMisurabile}{it:LEMChiusoDentro}] Visto che $A\in\M_n$, allora anche il suo complementare è misurabile e visto che abbiamo già mostrato \ImplicationProof{it:LEMMisurabile}{it:LEMApertoFuori} otteniamo che esiste $D$ aperto tale che $A^\mathsf{c}\subseteq D$ e $m_n^*(D\setminus A^c)< \epsilon$.
+		
+		Allora chiamando $C$ il chiuso complementare di $D$ risulta banale verificare che $C$ rispetta le richieste di \ref{it:LEMChiusoDentro}.
+		\item[\ImplicationProof{it:LEMChiusoDentro}{it:LEMCompattiDentro}] Sia $C_i$ un chiuso tale che $C_i\subseteq A$ e $m_n^*(A\setminus C_i)<\frac1i$.
+		Chiamiamo $K_i$ l'insieme ottenuto intersecando la palla chiusa di raggio $i$ centrata nell'origine con il chiuso $\bigcup_{j\le i}C_i$.
+		
+		I $K_i$ sono compatti, poichè definiti come intersezione tra un chiuso e ed un chiuso e limitato. 
+		Ancora per definizione $K_i\subseteq K_{i+1}$ e inoltre l'unione dei $K_i$ coincide con l'unione dei $C_i$.
+		
+		Per concludere è sufficiente perciò verificare che l'unione dei $C_i$, oltre ad essere ovviamente contenuta in $A$, lo approssima a meno di un trascurabile.
+		La verifica risulta agevole sfruttando la monotonia della misura esterna:
+		\begin{equation*}
+			\forall i_0\in\N:\ m_n^*(A\setminus \bigcup_{i\in\N} C_i)\le m_n^*(A\setminus C_{i_0})< \frac 1{i_0}\implies m_n^*(A\setminus \bigcup_{i\in\N} C_i)=0
+		\end{equation*}
+
+		\item[\ImplicationProof{it:LEMCompattiDentro}{it:LEMBorelDentro}] Presi i compatti descritti dalla proposizione, l'unione è ovviamente un Boreliano e rispetta le richieste della \ref{it:LEMBorelDentro}.
+	\end{description}
+
+\end{proof}
+
 
 
 \begin{proposition}\label{CardBoreliani}
@@ -375,8 +416,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\begin{equation*}
 		V\subset\bigcup_{k\in\N} I_\epsilon(k)\implies m_n^*(V)\le \sum m_n(I_\epsilon(k))=\epsilon
 	\end{equation*}
-	dove con $m_n^*$ abbiamo indicato la misura esterna associata a $m_n$.
-	E questo conclude dato che implica, valendo per $\epsilon>0$, che la misura esterna di $V$ è nulla e perciò che $V$ è trascurabile.
+	e questo conclude dato che implica, valendo per $\epsilon>0$, che la misura esterna di $V$ è nulla e perciò che $V$ è trascurabile.
 \end{proof}
 
 
