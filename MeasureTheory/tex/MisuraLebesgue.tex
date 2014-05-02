@@ -63,6 +63,19 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 		m_n(S)=\prod_{i=1}^n\max(0,S^+_i-S^-_i)
 	\end{equation*}
 \end{definition}
+\begin{remark}\label{nota:LebesgueElementareTraslazione}
+	La funzione di insiemi $m_n$ è invariante per traslazione, cioè risulta che per ogni $S\in\S_n$ e $v\in\R^n$ vale\footnote{Definiamo lo shift di un insieme come $A+k=\{a+k:\ a\in A\}$.}
+	\begin{equation*}
+		m_n(S)=m_n(S+v)
+	\end{equation*}
+\end{remark}
+\begin{proof}
+	Il risultato è di facile verifica:
+	\begin{multline*}
+		m_n(S+v)=m_n\left(\so{S^-_1+v_1}{S^+_1+v_1}\times\cdots\times\so{S^-_n+v_n}{S^+_n+v_n}\right)\\
+		=\prod_{i=1}^n\left((S^+_i+v_i)-(S^-_i+v_i)\right)=\prod_{i=1}^n\left(S^+_i-S^-_i\right)=m_n(S)
+	\end{multline*}
+\end{proof}
 
 \begin{lemma}\label{lem:LebesgueElementareFinita}
 	Dati $(S_i)_{1\le i\le k},S\subseteq \S_n$, valgono le seguenti disuguaglianze:
@@ -175,8 +188,6 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ma allora la \sigalg{} generata dagli aperti e quella generata da $\S_n$ e perciò si ha la tesi.
 \end{proof}
 
-
-
 \begin{definition}\label{LebesgueMisura}
 	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
 \end{definition}
@@ -221,19 +232,63 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 
-\begin{proposition}
-	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura definita sugli intervalli semiaperti a destra nel \cref{LebesguePremisura}.
+\begin{proposition}\label{prop:LebesgueUnicaEstensione}
+	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura $m_n$ definita su $\S_n$.
 \end{proposition}
 \begin{proof}
-	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata dagli intervalli semiaperti sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando \cref{LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
 \end{proof}
 
-\begin{remark}\label{LebesgueInvarianteTraslazione}
-	La misura di Lebesgue $m_1:\M\to\Rpiu$ è invariante per traslazione.
+\begin{remark}\label{nota:LebesgueInvarianteTraslazione}
+	La misura di Lebesgue in $\R^n$ è invariante per traslazione.
 \end{remark}
 \begin{proof}
-	È sufficiente ricordare che la misura di Lebesgue è stata costruita appplicando il teorema di Caratheodory e perciò nasce come la riduzione della misura esterna associata a $\mu$ (come definita in \cref{LebesguePremisura}). Ma la misura esterna era ovviamente invariante per traslazione, visto che lo era $\mu$ stessa (la lunghezza di un intervallo non cambia se lo traslo), e quindi $m_1$ è invariante per traslazione.
+	È sufficiente ricordare che la misura di Lebesgue è stata costruita appplicando il teorema di Caratheodory e perciò nasce come la riduzione della misura esterna associata a $m_n$ (questa volta da vedere come ridotta su $\S_n$). 
+	Ma la misura esterna è invariante per traslazione\footnote{Basta notare che dati due insiemi, l'uno il traslato dell'altro, un ricoprimento del primo è il traslato di un ricoprimento del secondo.}, visto che lo è $m_n$ stessa come mostrato nella \cref{nota:LebesgueElementareTraslazione}, perciò lo è anche la misura di Lebesgue.
 \end{proof}
+
+\begin{theorem}\label{LebesgueUnicaInvarianteTraslazione}
+	Se $\mu$ è una misura sui Boreliani di $\R^n$ invariante per traslazione tale che la misura del cubo unitario valga $1$, cioè
+	\begin{equation*}
+		\mu\left(\so01\times\so01\times\cdots\times\so01\right)=1
+	\end{equation*}
+	allora $\mu\equiv m_n$, in altre parole la misura di Lebesgue è l'unica misura con queste proprietà (l'invarianza per traslazione è dimostrata nella \cref{nota:LebesgueInvarianteTraslazione}).
+\end{theorem}
+\begin{proof}
+	L'idea della dimostrazione è provare che $\mu$ e $m_n$ coincidono sugli elementi di $\S_n$ con estremi interi, poi con estremi razionali ed infine con estremi generici.
+	Una volta ottenuto questo, basterà applicare \cref{prop:LebesgueUnicaEstensione} per avere la tesi.
+	
+	Chiamiamo $C$ il cubo unitario come definito nell'enunciato.
+	
+	Fissato $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Z$, sia $\mathbb Z(S)$ l'insieme dei punti con tutte le coordinate razionali appartenenti a $S$.
+	
+	È facile vedere che
+	\begin{equation*}
+		\bigsqcup_{v\in\mathbb Z(S)} C+v=S
+	\end{equation*}
+	da cui otteniamo, visto che $\mu,m_n$ sono misure invarianti per traslazione che coincidono su $C$, che $\mu,m_n$ coincidono anche su $S$.
+	
+	Ora invece scegliamo $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Q$. Posso assumere, vista l'invarianza per traslazione di tutto quanto, che per ogni $1\le i\le n$ valga $S^-_i=0$.
+	
+	Sia $m\in\mathbb Z$ tale che per ogni $1\le i\le n$ valga $mS^+_i\in \mathbb Z$, cioè ad esempio si può porre $m$ come il minimo comune multiplo di tutti i denominatori.
+	
+	Allora, analogamente a quanto già fatto nel caso intero, vale la seguente identità:
+	\begin{equation*}
+		\so0{mS^+_1}\times\cdots\times\so0{mS^+_n}=
+		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1,i_2,\dots,i_n)
+	\end{equation*}
+	Ma ora applicando quanto abbiamo ricavato per la misura di elementi con estremi a coordinate intere, è chiaro che la misura del membro destro dell'ultima uguaglianza coincide per $\mu,m_n$ e allora sfruttando ancora la loro invarianza per traslazione otteniamo che coincidono anche su $S$.
+	
+	Ora consideriamo $S\in\S_n$ generico e notiamo che vista la densita dei razionali nei reali posso scrivere $S$ come unione \emph{crescente} di elementi di $(Q_i)_{i\in\N}\subseteq S_n$ con estremi a coordinate razionali. 
+	Da questa scrittura, sfruttando \cref{LimiteMonotonoCrescenteMisura}, e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$ otteniamo
+	\begin{equation*}
+		m_n(S)=\lim_{n\to\infty}m_n(Q_i)=\lim_{n\to\infty}\mu(Q_i)=\mu(S)
+	\end{equation*}
+	cioè $\mu,m_n$ coincidono su $S$ e visto che questo è arbitrariamente scelto in $\S_n$ coincidono su tutto $\S_n$.
+	
+	Ora finalmente possiamo applicare \cref{prop:LebesgueUnicaEstensione} ed ottenere $\mu\equiv m_n$ che è la tesi.
+\end{proof}
+
 
 \begin{proposition}\label{NumerabiliLebesgueTrascurabili}
 	Dato un insieme numerabile $A\subseteq\R$, questo è misurabile con misura nulla.
@@ -273,13 +328,13 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Applichiamo ora l'assioma della scelta alla famiglia di insiemi $(R_j\cap A)_{j\in J}$ e estraiamone un insieme di rappresentanti privilegiati $(r_j)_{j\in J}$. Sia ora $B$ l'insieme dei rappresentanti privilegiati.
 	
 	Vale, per costruzione, $B\subseteq A$. 
-	Inoltre, ancora per la definizione di $B$ risulta\footnote{Definiamo lo shift come $A+k=\{a+k:\ a\in A\}$.}:
+	Inoltre, ancora per la definizione di $B$ risulta:
 	\begin{equation}\label{ContenimentiVitali}
 		A\subseteq\bigsqcup_{q\in\mathbb Q\cap\cc{-1}{1}} B+q\subseteq \cc{-1}{2}
 	\end{equation}
 	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un razionale, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \so 01$.
 	
-	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{ContenimentiVitali} e ricordando che $m_1$ è invariante per traslazione come mostrato in \cref{LebesgueInvarianteTraslazione}:
+	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{ContenimentiVitali} e ricordando che $m_1$ è invariante per traslazione come mostrato in \cref{nota:LebesgueInvarianteTraslazione}:
 	\begin{equation*}
 		0<m_1(A)\le \sum_{q\in \mathbb Q\cap\cc{-1}{1}} m_1(B+q)= \sum_{q\in \mathbb Q\cap\cc{-1}{1}} m_1(B) \le 3
 	\end{equation*}
