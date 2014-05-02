@@ -116,7 +116,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\item la famiglia $\A$ è una \sigalg{}.
 		\item la funzione $\mu$ è \sigadd{}.
 	\end{itemize}
-	e in questo caso la funzione $\mu$ è detta \emph{misura}.
+	e in questo caso la funzione $\mu$ è detta \emph{misura} e gli insiemi in $\A$ sono detti misurabili.
 \end{definition}
 
 \begin{remark}\label{RiduzioneMisura}
@@ -259,7 +259,20 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\mu(A_0\setminus A_n)&=\mu(A_0)-\mu(A_n)
 	\end{align*}
 	e applicando questi in \cref{ContoLimiteMonotonoMisura} arriviamo alla tesi ricordando ancora che $\mu(A_0)<+\infty$.
+\end{proof}
+
+\begin{proposition}\label{prop:BigettivaInduceMisura}
+	Dato $(X,\A,\mu)$ uno spazio di misura, se $f:X\to X$ è una funzione bigettiva che manda misurabili in misurabili allora anche $(X,\A,\mu\circ f)$ è uno spazio di misura, vedendo $f$ come funzione tra insiemi.
+\end{proposition}
+\begin{proof}
+	Il fatto che $f$ manda misurabili in misurabili assicura che la funzione $\mu\circ f$ è ben definita sugli elementi di $\A$.
 	
+	Per mostrare la tesi è più che sufficiente dimostrare che $\mu\circ f$ è \sigadd{}, quindi scegliamo $(A_n)_{n\in\N}\subseteq\A$ una successione di misurabili disgiunti.
+	Grazie al fatto che $f$ è bigettiva anche $f(A_n)$ sono tutti disgiunti e perciò per la \sigadd[ità] di $\mu$ otteniamo
+	\begin{equation*}
+		\sum_{n\in\N}\mu(f(A_n))=\mu\left(\bigsqcup_{n\in\N}f(A_n)\right)=\mu\left(f\left(\bigsqcup_{n\in\N}A_n\right)\right)
+	\end{equation*}
+	che equivale proprio alla \sigadd[ità] di $\mu\circ f$ e conclude la dimostrazione.
 \end{proof}
 
 
