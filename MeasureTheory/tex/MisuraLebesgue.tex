@@ -72,31 +72,30 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_o\}
 	\end{equation*}
 \end{definition}
-\begin{remark}
+\begin{remark}\label{nota:ParteInternaAllargamento}
 	Segue banalmente dalla definizione che $S\in\S_n$ è un sottoinsieme della parte interna di $F_\lambda(S)$ per ogni $\lambda>0$.
 \end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:MisuraAllargamento}
 	Fissati $\lambda>0$ e $S\in\S_n$ vale la seguente stima:
 	\begin{equation*}
-		m_n(F_\lambda(S))\le m_n(S)+\lambda
+		m_n(S)\le m_n(F_\lambda(S))\le m_n(S)+\lambda
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Se $S$ è vuoto la tesi è ovvia, quindi assumiamo $S\not=\emptyset$.
+	La prima disuguaglianza è ovvia.
+	
+	La seconda è ovvia se $S$ è vuoto, quindi assumiamo $S\not=\emptyset$.
 	
 	Ponendo $\epsilon$ come nella \cref{def:AllargamentoSemiaperti}, risulta vero
-	\begin{gather*}
+	\begin{multline*}
 		\frac{m_n(F_\lambda(S))}{m_n(S)}=\prod_{i=1}^n\frac{S^+_i-S^-_i+\epsilon}{S^+_i-S^-_i}=
 		\prod_{i=1}^n\left(1+\frac{\epsilon}{S^+_i-S^-_i}\right)\\\le
 		\prod_{i=1}^n\left(1+\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\right)\le
 		1+2^n\frac{\lambda}{2^n\cdot m_n(S)}=1+\frac{\lambda}{m_n(S)}
-	\end{gather*}
+	\end{multline*}
 	che implica la tesi moltiplicando ambo i membri per $m_n(S)$.
 \end{proof}
-
-
-
 
 \begin{theorem}\label{LebesguePremisura}
 	La terna $(\R^n,\S_n,m_n)$ è uno spazio di misura elementare.
@@ -117,68 +116,68 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	
 	Fissiamo $\epsilon>0$ arbitrario.
 	
-	Definiamo $S'_i=\oo{a_n-\frac\epsilon{2^n}}{b_n}$ e notiamo che $I_n\subseteq I'_n$.
-	Vale perciò che la successione di aperti $(I'_n)_{n\in\N}$ è un ricoprimento del compatto $\cc a{b-\epsilon}$ e di conseguenza esiste un insieme di indici finito $J$ tale che $(I'_n)_{n\in J}$ è un ricoprimento finito di $\cc a{b-\epsilon}$.
+	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che le parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ sono un ricoprimento del compatto $S$.
+	Perciò esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S$.
 	
-	Allora, ancora per facili motivazioni combinatoriche, abbiamo:
+	Sfruttando ancora il \cref{lem:LebesgueElementareFinita} e applicando \cref{prop:MisuraAllargamento} otteniamo
 	\begin{equation*}
-		\sum_{n\in J} b_n-\left(a_n-\frac\epsilon{2^n}\right)\ge b-\epsilon-a\implies
-		\sum_{n\in\N} b_n-\left(a_n-\frac\epsilon{2^n}\right)\ge b-a-\epsilon \implies
-		\sum_{n\in\N} \mu(I_n)\ge \mu(I)-2\epsilon
+		\sum_{i\in\N}m_N(S_i)\ge \sum_{i\in I}m_N(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
+		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
 	\end{equation*}
 	e visto che questo vale per ogni $\epsilon>0$ ne ricaviamo:
 	\begin{equation*}
-		\sum_{n\in\N}\mu(I_n)\ge \mu(I)
+		\sum_{i\in\N}m_N(S_i)\ge m_n(S)
 	\end{equation*}
-	che insieme alla disuguaglianza opposta già dimostrata dimostra la \sigadd[ità] della funzione $\mu$.
-	
-	Quindi visto che $\S$ è un \semiring{} e $\mu$ una premisura su $\S$ concludo che $(\R,\S,\mu)$ è uno spazio di misura elementare.
+	che conclude la dimostrazione della \sigadd[ità] di $m_n$.
 \end{proof}
 
-\begin{remark}
-	Il \cref{LebesguePremisura} vale anche, con le opportune modifiche alle definizioni, in $\R^n$ piuttosto che in $\R$. La dimostrazione procede in modo del tutto analogo, solo che le ragioni combinatoriche che rendevano banale tutto non appena il numero di intervalli era finito divengono più sfuggenti e necessitano di dimostrazione. Tratteremo però la possibilità di porre una misura su $\R^n$ nelle sezioni successive.
-\end{remark}
+% \begin{remark}
+% 	Il \cref{LebesguePremisura} vale anche, con le opportune modifiche alle definizioni, in $\R^n$ piuttosto che in $\R$. La dimostrazione procede in modo del tutto analogo, solo che le ragioni combinatoriche che rendevano banale tutto non appena il numero di intervalli era finito divengono più sfuggenti e necessitano di dimostrazione. Tratteremo però la possibilità di porre una misura su $\R^n$ nelle sezioni successive.
+% \end{remark}
 
 \begin{proposition}\label{LebesguePremisuraSigFin}
-	Lo spazio di premisura $(\R,\S,\mu)$ come definito nel \cref{LebesguePremisura} è \sigfin[o].
+	Lo spazio di misura elementare $(\R^n,\S_n,m_n)$ è \sigfin[o].
 \end{proposition}
 \begin{proof}
-	Mostriamo esplicitamente la \sigfin[ezza]:
+	Sfruttando che $\mathbb Z^n$ è numerabile, mostriamo esplicitamente la \sigfin[ezza]:
 	\begin{equation*}
-		\R=\bigsqcup_{n\in\mathbb Z} \so{n}{n+1}
+		\R^n=\bigsqcup_{i_1,i_2,\dots,i_n\in\mathbb Z^n} \so{i_1}{i_1+1}\times\cdots \times\so{i_n}{i_n+1}
 	\end{equation*}
+	
 \end{proof}
 
 \begin{proposition}\label{SigAlgUgualeBoreliani}
-	La \sigalg{} generata da $\S$, come definito nell'enunciato di \cref{LebesguePremisura}, coincide con i Boreliani.
+	La \sigalg{} generata da $\S_n$ coincide con i Boreliani di $\R^n$.
 \end{proposition}
 \begin{proof}
-	Fissati $a<b$ in $\R$ vale:
+	Fissati $(a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq\R^n$ tali che per ogni $1\le i\le n$ valga $a_i<b_i$, risulta l'identità insiemistica
 	\begin{equation*}
-		\oo{a}{b}=\bigcup_{n\in\N}\so{a+\frac1{2^n}}b
+		\oo{a_1}{b_1}\times\cdots\times\oo{a_n}{b_n}=\bigcup_{i\in\N}\so{a_1+\frac1i}{b_1}\times\cdots\times\so{a_n+\frac1i}{b_n}
 	\end{equation*}
-	e perciò otteniamo che gli intervalli aperti appartengono a $\sigma A(\S)$.
-	Ma in $\R$ gli aperti sono sempre unione numerabile di intervalli aperti e di conseguenza gli aperti appartengono a $\sigma A(\S)$.
+	da cui otteniamo che gli $n$-parallelepipedi aperti appartengono a $\sigma A(\S_n)$.
+	Ma in $\R^n$ gli aperti sono sempre unione numerabile di $n$-parallelepipedi aperti\footnote{Basta considerare l'unione di tutti gli $n$-cubi con centro razionale e lato razionale contenuti nell'aperto.} e di conseguenza gli aperti appartengono a $\sigma A(\S_n)$.
+	
+	Ma allora la \sigalg{} generata dagli aperti e quella generata da $\S_n$ e perciò si ha la tesi.
 \end{proof}
 
 
 
 \begin{definition}\label{LebesgueMisura}
-	Dato lo spazio di misura elementare $(\R,\S,\mu)$ definito nel \cref{LebesguePremisura}, sia $\M$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_1:\M\to\Rpiu$ \footnote{L'$1$ al pedice di $m_1$, che verrà a volte omesso, sottolinea il fatto che la misura è quella riferita ad $\R^1$ e non $\R^n$.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
+	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}.
 \end{definition}
 
 \begin{remark}\label{LebesgueCompletezza}
-	La misura di Lebesgue è completa.
+	La misura di Lebesgue su $\R^n$ è completa.
 \end{remark}
 \begin{proof}
 	È un'ovvia conseguenza del \cref{EstensioneCaratheodory}.
 \end{proof}
 
 \begin{proposition}
-	I Boreliani sono un sottoinsieme dei misurabili secondo Lebesgue.
+	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$.
 \end{proposition}
 \begin{proof}
-	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue.
+	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
 \end{proof}
 
 \begin{proposition}\label{CardBoreliani}
