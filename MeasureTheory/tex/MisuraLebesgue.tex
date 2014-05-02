@@ -1,8 +1,11 @@
 \section{Misura di Lebesgue}
-Ora applicheremo i risultati astratti ottenuti nelle due precedenti sezioni al caso più tangibile della retta reale.
+Ora applicheremo i risultati astratti ottenuti nelle due precedenti sezioni al caso più tangibile della retta reale e dello spazio vettoriale $\R^n$.
 
-Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misura più naturale su $\R$, studieremo i misurabili secondo Lebesgue mostrando sia che non coincidono con la \sigalg{} dei Boreliani (cioè la \sigalg{} generata dagli aperti) sia che non coincidono con le parti di $\R$.
-In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sezione seguente, poichè la dimostrazione risulta naturale solo dopo aver introdotto la teoria delle funzioni misurabili.
+Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misura più naturale su $\R^n$, studieremo i misurabili secondo Lebesgue mostrando sia che non coincidono con la \sigalg{} dei Boreliani (cioè la \sigalg{} generata dagli aperti) sia che non coincidono con le parti di $\R^n$.
+In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sezione seguente, poichè la dimostrazione risulta naturale solo dopo aver introdotto la teoria delle funzioni misurabili
+
+Nella prima parte di questa sezione, quella riguardante degli aspetti fondamentalmente combinatorici degli $n$-cubi di $\R^n$ lasceremo due dimostrazioni al lettore.
+Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e molto facili intuitivamente, non aggiungono nulla alla comprensione che si mira ad avere della misura di Lebesgue.
 
 \begin{definition}
 	I Boreliani di $\R^n$ sono la \sigalg{} generata dai sottoinsiemi aperti di $\R^n$.
@@ -21,6 +24,19 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	Inoltre, dato $S=\so{a_1}{b_1}\times\cdots\times\so{a_n}{b_n}$, definiamo $S^-_i=a_i$ e $S^+_i=b_i$.
 \end{definition}
 
+\begin{proposition}\label{prop:SpaccareUnioneSemiaperti}
+	Dati $A,B\in\S_n$ esiste una famiglia finita $(S_i)_{i\in I}\subseteq\S_n$ di insiemi disgiunti la cui unione disgiunta dà $A\cup B$ e tale che per ogni $i\in I$ vale una, ed una sola, delle seguenti:
+	\begin{align*}
+		S_i\subseteq &A\setminus B\\
+		S_i\subseteq &B\setminus A\\
+		S_i\subseteq &A\cap B
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	Lasciata al lettore.
+\end{proof}
+
+
 \begin{lemma}\label{lem:SemianelloSemiAperti}
 	La famiglia $\S_n$ è un \semiring{}.
 \end{lemma}
@@ -31,11 +47,14 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 		A\cap B=\so{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\so{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n
 	\end{equation*}
 
-	Mentre per la differenza $A\setminus B$ bisogna decomporre in maniera più complessa. TODO
+	Mentre per la differenza $A\setminus B$ applichiamo la \cref{prop:SpaccareUnioneSemiaperti} sugli insiemi $A,B$ per ottenere la famiglia $(S_i)_{i\in I}\subseteq \S_n$ come descritta dall'enunciato.
+	Ora basta considerare la famiglia
 	\begin{equation*}
-		\so ab\setminus \so cd= \so ac\sqcup \so db
+		\mathcal F=\left\{S_i:\ i\in I\wedge S_i\subseteq A\setminus B\right\}
 	\end{equation*}
-
+	e notare che, viste le proprietà che ha la famiglia degli $(S_i)_{i\in I}$, l'unione disgiunta degli elementi della famiglia $\mathcal F$ è proprio $A\setminus B$.
+	
+	Ma visto che sia intersezione che differenza si scrivono come unione disgiunta di elementi di $\S_n$ abbiamo dimostrato che $\S_n$ è un \semiring{}.
 \end{proof}
 
 \begin{definition}
@@ -59,7 +78,7 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	\end{itemize}
 \end{lemma}
 \begin{proof}
-	TODO
+	Lasciata al lettore.
 \end{proof}
 
 \begin{definition}\label{def:AllargamentoSemiaperti}
@@ -130,10 +149,6 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	\end{equation*}
 	che conclude la dimostrazione della \sigadd[ità] di $m_n$.
 \end{proof}
-
-% \begin{remark}
-% 	Il \cref{LebesguePremisura} vale anche, con le opportune modifiche alle definizioni, in $\R^n$ piuttosto che in $\R$. La dimostrazione procede in modo del tutto analogo, solo che le ragioni combinatoriche che rendevano banale tutto non appena il numero di intervalli era finito divengono più sfuggenti e necessitano di dimostrazione. Tratteremo però la possibilità di porre una misura su $\R^n$ nelle sezioni successive.
-% \end{remark}
 
 \begin{proposition}\label{LebesguePremisuraSigFin}
 	Lo spazio di misura elementare $(\R^n,\S_n,m_n)$ è \sigfin[o].
