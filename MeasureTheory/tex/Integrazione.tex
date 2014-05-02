@@ -10,18 +10,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{remark}
 
 \begin{definition}\label{def:IntegraleSemplici}
-	Sia $\simp$ una funzione misurabile, semplice e positiva, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
+	Sia $\simp:X\to \Rpiu$ una funzione misurabile, semplice e positiva, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
 	\begin{equation*}
 		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)
 	\end{equation*}
-	dove $c_k\in \R$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)$.
+	dove $c_k\in \Rbar$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}$.
 \end{definition}
 
 \begin{remark}\label{BuonaDefIntSemp}
 	Quella appena enunciata è una buona definizione, cioè non dipende dalla scelta dei $c_k$ e degli $E_k$.
 \end{remark}
 \begin{proof}
-	Consideriamo innanzitutto dei $c_k\in \R$ e degli $E_k\in \A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)$ e definiamo per ogni $\alpha\subseteq\{1,2,\dots,n\}$:
+	Consideriamo innanzitutto dei $c_k\in \Rbar$ e degli $E_k\in \A$ tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}$ e definiamo per ogni $\alpha\subseteq\{1,2,\dots,n\}$:
 	\begin{equation*}
 		\begin{cases}
 			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
@@ -30,9 +30,9 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 	D'ora in poi nelle sommatorie sottointenderemo l'insieme su cui cicla $\alpha$, cioè $\mathcal{P}(\{1,2,\dots,n\})$.
 	
-	Innanzitutto gli $E_\alpha$ sono ancora insiemi misurabili in quanto $\A$ è una \sigalg{} e sono insiemi disgiunti, inoltre vale facilmente che:
+	Innanzitutto gli $E_\alpha$ sono ancora insiemi misurabili (in quanto $\A$ è una \sigalg{}) e sono insiemi disgiunti, inoltre vale facilmente che:
 	\begin{equation*}
-		\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi(E_\alpha)=\sum_\alpha \chi(E_\alpha)\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi(E_\alpha)
+		\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi_{E_\alpha}=\sum_\alpha \chi_{E_\alpha}\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi_{E_\alpha}
 	\end{equation*}
 	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
@@ -42,7 +42,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation}
 	che è proprio quello che volevamo.
 	
-	Consideriamo ora $c_k, b_k\in\R$ ed $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^mb_k\chi(F_k)$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi(E_k)=\sum_{k=1}^nb_k\chi(E_k)$. Applichiamo la costruzione di prima e otteniamo:
+	Consideriamo ora $c_k, b_k\in\Rbar$ ed $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^mb_k\chi_{F_k}$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nb_k\chi_{E_k}$. Applichiamo la costruzione di prima e otteniamo:
 	\begin{equation*}
 		\begin{cases}
 			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
@@ -52,18 +52,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 	da cui ricaviamo per quanto detto precedentemente che:
 	\begin{equation}
-		\sum_\alpha c_\alpha\chi(E_\alpha)=\sum_{k=1}^nc_k\chi(E_k)=\simp=\sum_{k=1}^nb_k\chi(E_k)=\sum_\alpha b_\alpha\chi(E_\alpha)
+		\sum_\alpha c_\alpha\chi_{E_\alpha}=\sum_{k=1}^nc_k\chi_{E_k}=\simp=\sum_{k=1}^nb_k\chi_{E_k}=\sum_\alpha b_\alpha\chi_{E_\alpha}
 	\end{equation}
 	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poichè gli $E_\alpha$ sono disgiunti.
 	
-	Infine da quest'ultima uguaglianza e dalla \cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto:
+	Infine da quest'ultima uguaglianza e dalla \cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
 	\begin{equation*}
 		\sum_{k=1}^n c_k \mu(E_k)=\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha b_\alpha\mu(E_\alpha)=\sum_{k=1}^n b_k \mu(E_k)
 	\end{equation*}
 \end{proof}
 
 \begin{proposition}\label{prop:IntegraleSemplici}
-	Date $\simp_1,\simp_2$ funzioni semplici e positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
+	Date $\simp_1,\simp_2:X\to\Rpiu$ funzioni semplici e positive con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali non negativi, valgono:
 	\begin{enumerate}
 		\item $\int (a\simp_1+b\simp_2)\de\mu=a\int \simp_1\de\mu+b\int \simp_2\de\mu$ \label{PIS:add}
 		\item $\simp_1\le \simp_2\Longrightarrow \int \simp_1\de\mu\le \int \simp_2\de\mu$ \label{PIS:mono}
@@ -80,7 +80,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Per ogni $X_m$ siano $c_{m,i}\in\R$ e $E_{m,i}\in\A$, per $i=1,2,\dots,n_m$, tali che 
+	Per ogni $X_m$ siano $c_{m,i}\in\Rbar$ e $E_{m,i}\in\A$, per $i=1,2,\dots,n_m$, tali che 
 	\begin{equation*}
 		\simp|_{X_m}=\sum_{i=1}^{n_m}c_{m,i}\chi_{E_{m,i}}
 	\end{equation*}
@@ -98,14 +98,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 
 \begin{definition}\label{def:IntegralePositive}
-	Sia $f$ una funzione misurabile positiva su $(X,\A,\mu)$, allora definiamo l'integrale di $f$ come
+	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
 		\int_Xf\de\mu=\sup_{n\in\N}\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
 	\end{equation*}
 \end{definition}
 
 \begin{proposition} \label{DefinizioneEquivalenteIntegralePositive}
-	Data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
+	Data una funzione $f:X\to\Rpiu$ semplice e positiva e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}
 	\end{equation*}
@@ -140,7 +140,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{proposition}\label{prop:IntegralePositive}
-	Date $f,g$ funzioni misurabili positive su $(X,\A,\mu)$ e dati $a,b$ reali non negativi valgono:
+	Date $f,g:X\to\Rpiu$ funzioni misurabili positive con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali non negativi valgono:
 	\begin{enumerate}
 		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PIP:add}
 		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$ \label{PIP:mono}
@@ -148,7 +148,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proposition}
 \begin{proof}
 	\begin{description}
-		\item[\ref{PIP:add}] Siano $(\simp_n^f)_{n\in\N}$ e $(\simp_n^g)_{n\in\N}$ due successioni crescenti di funzioni semplici e positive convergenti rispettivamente ad $f$ e a $g$. Vale facilmente che la successione crescente di funzioni semplici e positive $(a\simp_n^f+b\simp_n^g)_{n\in\N}$ converge a $af+bg$. Allora per la \cref{DefinizioneEquivalenteIntegralePositive} e per \cref{prop:IntegraleSemplici} abbiamo che
+		\item[\ref{PIP:add}] Siano $(\simp_n^f)_{n\in\N}$ e $(\simp_n^g)_{n\in\N}$ due successioni crescenti di funzioni semplici e positive convergenti rispettivamente ad $f$ e a $g$. Vale facilmente che la successione crescente di funzioni semplici e positive $(a\simp_n^f+b\simp_n^g)_{n\in\N}$ converge a $af+bg$. Allora per le \cref{DefinizioneEquivalenteIntegralePositive,prop:IntegraleSemplici} abbiamo che
 		\begin{equation*}
 		\begin{split}
 			a\int f\de\mu+b\int g\de\mu&=a\sup_{n\in\N}\int \simp_n^f\de\mu+b\sup_{n\in\N}\int \simp_n^g\de\mu \\
@@ -206,7 +206,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{definition}
 
 \begin{definition}\label{def:IntegraleIntegrabili}
-	Data una funzione integrabile definiamo il suo integrale come
+	Data una funzione integrabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, definiamo il suo integrale come
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu
 	\end{equation*}
@@ -218,7 +218,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{remark}
 
 \begin{lemma}\label{DefinizioneEquivalenteIntegraleIntegrabili}
-	Data una funzione integrabile $f$ e date due funzioni $g,h$ integrabili e positive tali $f=g-h$, allora
+	Data una funzione integrabile $f:X\to\Rbar$ e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali $f=g-h$, allora
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
 	\end{equation*}
@@ -226,14 +226,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Poichè $f_++h=f_-+g$, per la \cref{prop:IntegralePositive} e ricordando che gli integrali di $f_+,f_-,g,h$ sono finiti, otteniamo
 	\begin{gather*}
-		\int_X f_+\de\mu+\int_X h\de\mu=\int_X f_-\de\mu+\int_X g\de\mu \\
-		\Longrightarrow \int f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
+		\int  f_+\de\mu+\int  h\de\mu=\int  f_-\de\mu+\int  g\de\mu \\
+		\Longrightarrow \int f\de\mu=\int f_+\de\mu-\int f_-\de\mu=\int g\de\mu-\int h\de\mu
 	\end{gather*}
 
 \end{proof}
 
 \begin{proposition}\label{prop:IntegraleIntegrabili}
-	Date $f,g$ funzioni integrabili su $(X,\A,\mu)$ e dati $a,b$ reali valgono:
+	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali valgono:
 	\begin{enumerate}
 		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PII:add}
 		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$ \label{PII:mono}
@@ -241,6 +241,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proposition}
 \begin{proof}
 	Sia l'additività che la monotonia seguono facilmente dalla \cref{def:IntegraleIntegrabili} e dal \cref{DefinizioneEquivalenteIntegraleIntegrabili}, sfruttando la \cref{prop:IntegralePositive}.
+\end{proof}
+
+\begin{corollary}\label{cor:ProprietaNormaL1}
+	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dato $\lambda$ reale, valgono:
+	\begin{enumerate}
+		\item $\LNorm{\lambda f}=|\lambda|\LNorm f$ \label{PNL:moltScalare}
+		\item $|f|\le |g|\Longrightarrow \LNorm f\le \LNorm g$ \label{PNL:mono}
+		\item $\LNorm {f+g}\le\LNorm f+\LNorm g$ \label{PNL:triang}
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	La \ref{PNL:moltScalare} e la \ref{PNL:mono} seguono facilmente dalla \cref{prop:IntegraleIntegrabili}, mentre la \ref{PNL:triang} si ottiene dalla \ref{PNL:mono} in quanto $|f+g|\le|f|+|g|$.
 \end{proof}
 
 
@@ -252,24 +264,17 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prop:L1VettorialeConSeminorma}
 	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$.
 \end{proposition}
 \begin{proof}
-	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale.
+	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale. 
 	
-	Dimostriamo ora che $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$. Innanzitutto abbiamo che per la \cref{prop:IntegraleIntegrabili} vale che
-	\begin{equation*}
-		\LNorm{\lambda f} = \int |\lambda f |\de\mu=|\lambda| \int |f| \de\mu=|\lambda|\LNorm f
-	\end{equation*}
-	Inoltre vale anche la disuguaglianza triangolare, infatti sfruttando sempre la \cref{prop:IntegraleIntegrabili} otteniamo che
-	\begin{equation*}
-		\LNorm{f+g}=\int |f+g|\de\mu\le \int (|f|+|g|)\de\mu=\int |f|\de\mu+\int |g|\de\mu=\LNorm f+\LNorm g
-	\end{equation*}
+	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
 \end{proof}
 
 \begin{theorem}[Convergenza dominata di Lebesgue]
-	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
+	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
 	\begin{equation*}
 		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu
 	\end{equation*}
@@ -280,7 +285,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)
 	\end{equation*}
-	Perciò scegliendo rispettivamente il $+$ e il $-$ otteniamo perciò
+	Perciò scegliendo rispettivamente il $+$ e il $-$ otteniamo
 	\begin{equation*}
 		\begin{cases}
 			\int f \de\mu\le \liminf_{n\to\infty}\int f_n \de \mu \\
@@ -323,6 +328,30 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0
 	\end{equation*}
 \end{proof}
+
+
+Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L^1(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
+
+\begin{lemma}\label{lemma:SottospazioTrascurabili}
+	L'insieme definito da
+	\begin{equation*}
+		\mathcal{N}=\{ f\in\L^1(X,\A,\mu) : \LNorm{f}=0\}
+	\end{equation*}
+	è un sottospazio vettoriale di $\L^1(X,\A,\mu)$.
+\end{lemma}
+\begin{proof}
+	Per il \cref{cor:ProprietaNormaL1} abbiamo che $\mathcal{N}$ è chiuso sia per moltiplicazione per scalare che per somma, quindi è uno spazio vettoriale in quanto contiene facilmente la funzione nulla.
+\end{proof}
+
+\begin{definition}
+	Definisco lo spazio vettoriale normato
+	\begin{equation*}
+		L^1(X,\A,\mu):=\L^1(X,\A,\mu)/\mathcal{N}
+	\end{equation*}
+	dove $\mathcal{N}$ è il sottospazio vettoriale di $\L^1(X,\A,\mu)$ definito nel \cref{lemma:SottospazioTrascurabili}.
+
+\end{definition}
+
 
 
 
