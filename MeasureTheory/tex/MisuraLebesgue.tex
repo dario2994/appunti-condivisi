@@ -125,6 +125,32 @@ In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sez
 	Il \cref{EstensioneCaratheodory} mi assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue.
 \end{proof}
 
+\begin{proposition}\label{CardBoreliani}
+	I Boreliani hanno la cardinalità del continuo.
+\end{proposition}
+\begin{remark}
+	I Boreliani si possono ottenere a partire dall'insieme degli aperti $\tau$ con una successione di insiemi, ottenendo uno dal precedente
+	mediante aggiunta dei complementari e delle unioni numerabili. Tuttavia non basta una successione finita, né l'unione degli insiemi
+	così ottenuti. Vediamo allora come formalizzare questa costruzione utilizzando un'indicizzazione sugli ordinali.
+	
+	Questa costruzione permetterà poi di ottenere facilmente la cardinalità dei Boreliani.
+\end{remark}
+\begin{proof}
+	Consideriamo la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R))$:
+	\[
+	f(\alpha) = \left\{
+		\begin{array}{ll}
+			\tau & \quad se\ \alpha=0 \\
+			\{ E\subseteq \R : \exists \{A_n\}_{n\in \N}\subseteq f(\beta), E = \bigcap_{n\in\N}A_n\}
+			\cup\{E\subseteq\R : E^\mathsf{c}\in f(\beta)\} & \quad se\ \alpha=\beta+1\\
+			\bigcup_{\beta < \alpha}f(\alpha) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite.
+		\end{array}
+	\right.
+	\]
+
+\end{proof}
+
+
 \begin{proposition}
 	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura definita sugli intervalli semiaperti a destra nel \cref{LebesguePremisura}.
 \end{proposition}
