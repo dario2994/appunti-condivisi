@@ -262,6 +262,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\L^1(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
 	\end{equation*}
+	A volte utilizzeremo la notazione più compatta $\L^1$, quando sarà ovvio lo spazio di misura su cui stiamo lavorando.
 \end{definition}
 
 \begin{proposition}\label{prop:L1VettorialeConSeminorma}
@@ -273,7 +274,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
 \end{proof}
 
-\begin{theorem}[Convergenza dominata di Lebesgue]
+\begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
 	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
 	\begin{equation*}
 		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu
@@ -295,6 +296,19 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 
 \end{proof}
+
+\begin{corollary}
+	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L^1(X,\A,\mu)$, cioè $\LNorm{f-f_n}\to 0$.
+\end{corollary}
+\begin{proof}
+	La dimostrazione è ovvia, infatti 
+	\begin{equation*}
+		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}\to 0=\int |f-f_n|\de\mu\to 0
+	\end{equation*}
+
+\end{proof}
+
+
 
 \begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
 	Data una funzione $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e $\lambda>0$ vale
@@ -344,15 +358,62 @@ Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ no
 \end{proof}
 
 \begin{definition}
-	Definisco lo spazio vettoriale normato
+	Definiamo lo spazio vettoriale
 	\begin{equation*}
 		L^1(X,\A,\mu)\doteqdot \L^1(X,\A,\mu)/\mathcal{N}
 	\end{equation*}
 	dove $\mathcal{N}$ è il sottospazio vettoriale di $\L^1(X,\A,\mu)$ definito nel \cref{lemma:SottospazioTrascurabili}.
-
+	
+	Definiamo inoltre su tale spazio $L^1(X,\A,\mu)$ la norma indotta dalla seminorma già definita su $\L^1(X,\A,\mu)$. Cioè in particolare dato $f+\mathcal{N}\in L^1$ abbiamo che $\LNorm{f+\mathcal{N}}=\LNorm f$.
 \end{definition}
 
+\begin{remark}
+	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso.
+\end{remark}
+\begin{proof}
+	Segue facilmente da \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
+\end{proof}
 
+
+
+\begin{theorem}[Integrazione per serie]
+	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
+	
+	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$ per cui $\sum_{n=0}^\infty f_n(x)$ converge assolutamente, e $f(x)$ assume un valore arbitrario altrimenti, vale che $f\in \L^1(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
+\end{theorem}
+
+\begin{proof}
+	Dato $n\in \N$, sia $g_n(x)=\sum_{k=0}^n|f_n(x)|$ per ogni $x\in X$. 
+	
+	Le $g_n$ sono funzioni misurabili (perchè somma di misurabili), positive e crescenti, quindi convergono puntualmente ad una funzione $g:X\to\Rbar$. In particolare per il \cref{thm:BeppoLevi} vale inoltre che $\int g\de\mu=\lim_{n\to\infty}\int g_n\de\mu$.
+	
+	D'altro canto sappiamo che 
+	\begin{equation*}
+		\int g_n\de\mu=\sum_{k=0}^n\LNorm{ f_k} \Longrightarrow \lim_{n\to\infty}\int g_n\de\mu=\sum_{k=0}^\infty \LNorm{ f_k}<\infty
+	\end{equation*}
+	quindi $g$ è integrabile.
+	
+	Chiamiamo ora $N=\{ x\in X:g(x)=\infty\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} ho che $\mu(N)=0$, cioè $g$ assume valori finiti quasi ovunque. Questo implica quindi che $\sum_{n=0}^\infty f_n(x)$ converge assolutamente quasi ovunque, cioè in $X\setminus N$.
+	
+	Sia ora $s_n=\sum_{k=0}^n f_k$, allora vale che
+	\begin{equation*}
+		|s_n(x)|=|\sum_{k=0}^n f_k(x)|\le \sum_{k=0}^n |f_k(x)|=g_n(x)\le g(x)
+	\end{equation*}
+	quindi la successione $(s_n)$ è dominata dalla funzione $g$.
+	
+	Inoltre, poichè $\sum_{n=0}^\infty f_n(x)$ converge assolutamente in $X\setminus N$, $s_n=\sum_{k=0}^n f_k$ converge puntalmente alla funzione $f(x)=\sum_{n=0}^\infty f_n(x)$ nello stesso insieme.
+	
+	Sono quindi rispettate tutte le ipotesi del \cref{thm:ConvergenzaDominata} per la successione di funzioni $(s_n)$ con dominio $X\setminus N$, perciò
+	\begin{equation*}
+		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu
+	\end{equation*}
+
+	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per \cref{BU}
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
+	\end{equation*}
+	che era proprio quello che volevo.
+\end{proof}
 
 
 
