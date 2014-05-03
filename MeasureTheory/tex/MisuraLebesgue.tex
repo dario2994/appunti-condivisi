@@ -321,18 +321,46 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Questa costruzione permetterà poi di ottenere facilmente la cardinalità dei Boreliani.
 \end{remark}
 \begin{proof}
-	Consideriamo la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R))$:
+	Per comodità, definiamo le seguenti applicazioni su famiglie di sottoinsiemi di $X$:
+	$\cdot_{\delta}:\mathcal{P}(\mathcal{P}(X)) \rightarrow \mathcal{P}(\mathcal{P}(X))$ tale che
+	\[
+		A_{\delta} = \left\{ \bigcap_{n\in\N}E_n : E_n\in A \right\};
+	\]
+	e $\cdot_{\mathsf{c}}:\mathcal{P}(\mathcal{P}(X)) \rightarrow \mathcal{P}(\mathcal{P}(X))$ tale che
+	\[
+		A_{\mathsf{c}} = \left\{ E^\mathsf{c} : E\in A \right\}.
+	\]
+	
+	Consideriamo quindi la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R))$:
 	\[
 	f(\alpha) = \left\{
 		\begin{array}{ll}
-			\tau & \quad se\ \alpha=0 \\
-			\{ E\subseteq \R : \exists \{A_n\}_{n\in \N}\subseteq f(\beta), E = \bigcap_{n\in\N}A_n\}
-			\cup\{E\subseteq\R : E^\mathsf{c}\in f(\beta)\} & \quad se\ \alpha=\beta+1\\
+			\tau & \quad se\ \alpha=0, \\
+			f(\beta)_{\delta}\cup f(\beta)_{\mathsf{c}} & \quad se\ \alpha=\beta+1,\\
 			\bigcup_{\beta < \alpha}f(\alpha) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite.
 		\end{array}
 	\right.
 	\]
+	Questa $f$ rappresenta la successione di famiglie di insiemi che, partendo dagli aperti, raggiungerà una \sigalg,
+	che è quella generata dagli aperti.
+	
+	Per prima cosa osserviamo che se $\beta < \alpha$, $f(\beta)\subseteq f(\alpha)$. Altrimenti, consideriamo il il più piccolo $\alpha$
+	tale che $\exists \beta<\alpha$ per cui non vale questa proposizione. Chiaramente $\alpha\neq 0$ e $\alpha$ non è un ordinale limite,
+	quindi è successore di un ordinale $\gamma\geq \beta$. Per minimalità di $\alpha$, $f(\beta)\subseteq f(\gamma)$, tuttavia è sempre vero
+	che $A\subseteq A_{\delta}$ (basta considerare intersezione di famiglie costanti), allora si ottiene $f(\gamma)\subseteq f(\alpha)$, assurdo.
+	
+	Ora dimostriamo che $f(\omega_1)$\footnote{Ricordiamo che $\omega_1$ è il primo ordinale più che numerabile.} è una \sigalg.
+	\begin{description}
+	 \item[Chiusura rispetto complementare] Se $E\in f(\omega_1)$, $\exists \alpha<\omega_1$ tale che $E\in f(\alpha)$.
+		Quindi $E^\mathsf{c}\in f(\alpha+1) \subseteq f(\omega_1)$.
+	 \item[Chiusura rispetto intersezione numerabile] Se $\{E_n\}_{n\in\N}\subseteq f(\omega_1)$, allora $\forall n\in\N, \exists \alpha_n<\omega_1$
+		tale che $E_n\in f(\alpha_n)$. Inoltre $\lambda=\bigcup_{n\in\N}\alpha_n$ è un ordinale numerabile, perché unione numerabile di ordinali
+		numerabili, cioè $\lambda<\omega_1$. Ma allora, $E_n\in f(\lambda), \forall n\in\N$.
+		Quindi $\bigcap_{n\in\N}E_n\in f(\lambda+1)\subseteq f(\omega_1)$.
+	\end{description}
 
+
+	
 \end{proof}
 
 
