@@ -218,7 +218,6 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 
-%TODO Definire da qualche parte quasi ogni
 \begin{proposition}\label{prop:CompletamentoBoreliani}
 	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
 \end{proposition}
@@ -270,6 +269,43 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 		\item[\ImplicationProof{it:LEMCompattiDentro}{it:LEMBorelDentro}] Presi i compatti descritti dalla proposizione, l'unione è ovviamente un Boreliano e rispetta le richieste della \ref{it:LEMBorelDentro}.
 	\end{description}
 
+\end{proof}
+
+\begin{proposition}\label{prop:ContinueSpecialiTengonoMisurabili}
+	Data una funzione $f:\R^n\to\R^n$ continua tale che per ogni $N\in\M_n$ trascurabile anche l'immagine $f(N)$ è trascurabile, allora per ogni $A\in\M_n$ misurabile anche $f(A)$ è misurabile.
+\end{proposition}
+\begin{proof}
+	Fissato $A$ misurabile, applicando il \cref{thm:LebesgueEquivalenzeMisurabilita}, otteniamo l'esistenza di $(K_i)_{i\in\N}$ compatti di $\R^n$ e di $N$ trascurabile tali che la loro unione (crescente sui compatti) è $A$. Applicando quanto detto abbiamo
+	\begin{equation*}
+		f(A)=f\left(N\cup\bigcup_{i\in\N}K_i\right)=f(N)\cup\bigcup_{i\in\N}f(K_i)
+	\end{equation*}
+	ma $f(N)$ è trascurabile a sua volta per ipotesi, e $f(K_i)$ è compatto poichè è immagine continua di un compatto.
+	
+	Allora abbiamo scritto anche $f(A)$ come unione di un trascurabile e di un unione crescente di compatti e questo, ancora per il \cref{thm:LebesgueEquivalenzeMisurabilita}, implica che $f(A)$ è misurabile come voluto.
+\end{proof}
+
+\begin{proposition}\label{prop:LipschitzTengonoMisurabili}
+	Data una funzione $f:\R^n\to\R^n$ Lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
+	\begin{equation*}
+		\forall A\in\M_n:\ \lambda^n m_n(A) \ge m_n(f(A))
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Dimostriamo innanzitutto la stima richiesta nel caso della misura esterna piuttosto che della misura.
+	
+	Dato un ricoprimento $(S_i)_{i\in\N}\subseteq \S_n$ di un insieme $A$ misurabile, siano $(v_i)_{i\in\N}$ i centri degli $n$-parallelepipedi.
+	Chiamiamo $S'_i=\lambda(S_i-v_i)+f(v_i)$.
+	Allora è facile convincersi, sfruttando la Lipschitzianità della funzione, che l'immagine di $S_i$ tramite $f$ è un sottoinsieme di $S'_i$, cioè $f(S_i)\subseteq S'_i$.
+	
+	Inoltre per la \cref{nota:LebesgueElementareProprieta} abbiamo anche che $m_n(S'_i)=\lambda^n m_n(S_i)$. 
+	E quindi unendo quanto detto arriviamo ad avere
+	\begin{equation}\label{eq:StimaMisuraEsternaLipschitz}
+		\lambda^n m_n^*(A) \ge m_n^*(f(A)) 
+	\end{equation}
+	che implica in particolare che se $A$ è trascurabile, anche $f(A)$ è trascurabile.
+	Rientriamo perciò nelle ipotesi della \cref{prop:ContinueSpecialiTengonoMisurabili} e quindi otteniamo che $f$ manda misurabili in misurabili, cioè $f(A)$ è misurabile.
+	
+	Per concludere basta notare che l'\cref{eq:StimaMisuraEsternaLipschitz} ci assicura la stima richiesta dal testo, visto che nel caso in cui $A$ sia misurabile anche $f(A)$ lo è e perciò le misure esterne coincidono con le misure.
 \end{proof}
 
 
@@ -372,7 +408,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Poichè ogni isometria si scrive come una rotazione composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per rotazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per rotazione.
 	Sia $O:\R^n\to\R^n$ una rotazione. Essendo una rotazione di $\R^n$ questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche Lipschitziana (si può dimostrare anche più facilmente in questo caso).
 	
-	Allora per quanto visto in \cref{prop:LipschitzMisurabiliInMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
+	Allora per quanto visto in \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
 	Se dimostriamo che $\mu\equiv m_n$ abbiamo proprio che $m_n$ è invariante per rotazione.
 	
 	È facile notare che $\mu$ è invariante per traslazione, visto che dati $A\in \M_n$ e $v\in\R^n$ vale
@@ -476,8 +512,8 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	ma questo non può essere per definizione di $k$ e perciò otteniamo che $A-k$ è disgiunto da $T$, che è la tesi.
 \end{proof}
 
-\begin{theorem}[Steinhaus]\label{Steinhaus}%TODO
-	Dato un insieme $A\subset\R$ misurabile non trascurabile, l'insieme $A-A=\{a_1-a_2:\ a_1,a_2\in A\}$ contiene un intorno di $0$.
+\begin{theorem}[Steinhaus]\label{thm:Steinhaus}%TODO
+	Dato un misurabile $A\in\M_n$ non trascurabile, l'insieme $A-A=\{a_1-a_2:\ a_1,a_2\in A\}$ contiene un intorno di $0$.
 \end{theorem}
 \begin{proof}
 	TODO.
