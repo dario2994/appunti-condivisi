@@ -1,7 +1,9 @@
 \section{Funzioni misurabili}
 
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
-La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani, che era una questione lasciata in sospeso in precedenza per mancanza degli strumenti necessari a dimostrarlo.
+
+La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani usando strumenti propri della teoria della misura.
+Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il risultato è già stato dimostrato, sia perchè la dimostrazione si adatta facilmente in dimensione maggiore sia perchè troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
 
 \begin{definition}[Funzione misurabile]
 	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
@@ -140,8 +142,8 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
 \end{proof}
 
-\begin{proposition}\label{BorelianiNonMisurabili}
-	La \sigalg{} dei Boreliani non coincide con la \sigalg{} dei misurabili secondo Lebesgue.
+\begin{proposition}\label{prop:BorelianiNonMisurabili2}
+	I Boreliani di $\R$ non coincidono con l'insieme $\M_1$ dei misurabili.
 \end{proposition}
 \begin{proof}
 	Definiamo la funzione $f:\co{0}{1}\to \co{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$.
@@ -155,7 +157,7 @@ La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per
 
 	La funzione $f$ appena definita è strettamente crescente, poichè lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per \cref{MonotoneMisurabili} $f$ è misurabile.
 	
-	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore).
+	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
 	
 	Per \cref{InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non sia misurabile.
 	Sia $B=f(A)$.

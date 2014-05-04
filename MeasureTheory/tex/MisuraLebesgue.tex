@@ -432,12 +432,16 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	e questo conclude dato che implica, valendo per $\epsilon>0$, che la misura esterna di $V$ è nulla e perciò che $V$ è trascurabile.
 \end{proof}
 
+\begin{exercise}\label{ex:CantorTrascurabile}
+	L'insieme di Cantor è trascurabile secondo la misura di Lebesgue $m_1$ su $\R$.
+\end{exercise}
+
 Concludiamo questa sezione, oltre che con un paio di esercizi, con due importanti risultati che mostrano esplicitamente che l'insieme dei misurabili è strettamente contenuto tra i Boreliani e le parti di $\R^n$.
 
 In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, ragionando sulle rispettive cardinalità e applicando risultati che vengono dalla teoria degli ordinali. Nel seguito di queste dispense proporremo un'altra dimostrazione di questo stesso risultato che sfrutta unicamente fatti collegati con la teoria della misura.
 
-\begin{proposition}\label{CardBoreliani}
-	I Boreliani hanno la cardinalità del continuo.
+\begin{proposition}\label{prop:CardBoreliani}
+	I Boreliani di $\R^n$ hanno la cardinalità del continuo.
 \end{proposition}
 \begin{remark}
 	I Boreliani si possono ottenere a partire dall'insieme degli aperti $\tau$ con una successione di insiemi, ottenendo uno dal precedente
@@ -457,7 +461,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 		A_{\mathsf{c}} = \left\{ E^\mathsf{c} : E\in A \right\}.
 	\]
 	
-	Consideriamo quindi la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R))$:
+	Consideriamo quindi la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R^n))$:
 	\[
 	f(\alpha) = \left\{
 		\begin{array}{ll}
@@ -492,13 +496,13 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Ma è ovvio che la \sigalg \ generata dagli aperti soddisfi tutte queste proprietà.
 	
 	Ora che sappiamo che $f(\omega_1)$ sono i Boreliani, calcoliamone la cardinalità.
-	Intanto, $|f(0)|=|\tau|=|\R|$. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
+	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
 	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, se $|E_{\beta}|\leq |E| \forall \beta < \alpha$. Tutto ciò, porta a dire che
 	\begin{equation}\label{Eq:CardBorel}
 		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E|,
 	\end{equation}
 	purché $E$ sia un insieme di cardinalità maggiore od uguale a quella di tutti gli $f(\alpha)$ con $\alpha<\omega_1$;
-	l'ultima disuguaglianza si ha perché è sicuramente vero che $|E|\geq |f(0)| = |\R| \leq |\omega_1|$.
+	l'ultima disuguaglianza si ha perché è sicuramente vero che $|E|\geq |f(0)| = |\R| \geq |\omega_1|$.
 	Ma ora, per tutti gli ordinali al più numerabili, $|f(\alpha)|=|\R|$, altrimenti consideriamo il più piccolo ordinale per cui non vale;
 	non può essere $0$, non può essere un successore:
 	\[
@@ -510,13 +514,19 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	\]
 	Quindi $E$ basta che sia $\R$, allora dalla \cref{Eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{cor:BorelianiNonMisurabili}
 	I Boreliani sono \emph{strettamente} contenuti nei misurabili.
 \end{corollary}
 \begin{proof}
 	Il contenimento debole è mostrato nella \cref{prop:CompletamentoBoreliani}.
 	Per concludere che non coincidono è sufficiente mostrare che hanno cardinalità differenti.
-	%TODO
+	
+	Per quanto riguarda la misura di Lebesgue su $\R$, visto che Cantor è trascurabile, come enunciato nell'\cref{ex:CantorTrascurabile}, sia esso che tutti i suoi sottoinsiemi sono misurabili. 
+	Ma Cantor ha, per fatto noto, la cardinalità del continuo e quindi l'insieme delle sue parti ha cardinalità $2^{|\R|}$, e perciò i misurabili hanno cardinalità $2^{|\R|}$ (per mostrare che non è maggiore basta notare che $\M_n\subseteq\mathcal P(\R)$).
+	
+	In dimensione $n>1$, basta considerare un insieme i cui elementi siano nulli su tutte le coordinate eccetto che sulla prima. Questo è trascurabile per la \cref{prop:SottospaziTrascurabili}, e perciò si può procedere analogamente a quanto fatto nel caso unidimensionale e ottenere che la cardinalità dei misurabili di $\R^n$ è $2^{|\R|}$ (per mostrare l'uguaglianza serve usare $|\R^n|=|\R|$).
+	
+	Ma la \cref{prop:CardBoreliani} ci assicura che i Boreliani hanno cardinalità $|\R|$, indifferentemente dalla dimensione in cui lavoriamo, e questo conclude la dimostrazione, visto che $2^{|\R|}\succ |\R|$.
 \end{proof}
 
 \begin{theorem}[Insieme di Vitali]\label{InsiemeVitali}
@@ -559,8 +569,8 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	
 	Allora l'insieme $B$ deve essere non misurabile come richiesto.
 \end{proof}
-\begin{corollary}\label{cor:MisurabiliDentroParti}
-	Grazie al \cref{InsiemeVitali}, è ovvio mostrare che i misurabili non coincidono con le parti di $\R^n$.
+\begin{corollary}\label{cor:MisurabiliNonParti}
+	Grazie al \cref{InsiemeVitali}, è ovvio mostrare che i misurabili di $\R^n$ non coincidono con le parti di $\R^n$.
 \end{corollary}
 
 \begin{exercise}
