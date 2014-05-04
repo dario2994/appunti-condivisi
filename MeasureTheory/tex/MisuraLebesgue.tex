@@ -2,7 +2,6 @@
 Ora applicheremo i risultati astratti ottenuti nelle due precedenti sezioni al caso più tangibile della retta reale e dello spazio vettoriale $\R^n$.
 
 Definiremo la misura di Lebesgue e, oltre a chiarire come mai questa sia la misura più naturale su $\R^n$, studieremo i misurabili secondo Lebesgue mostrando sia che non coincidono con la \sigalg{} dei Boreliani (cioè la \sigalg{} generata dagli aperti) sia che non coincidono con le parti di $\R^n$.
-In particolare, la distinzione tra Boreliani e misurabili verrà fatta nella sezione seguente, poichè la dimostrazione risulta naturale solo dopo aver introdotto la teoria delle funzioni misurabili
 
 Nella prima parte di questa sezione, quella riguardante degli aspetti fondamentalmente combinatorici degli $n$-cubi di $\R^n$ lasceremo due dimostrazioni al lettore.
 Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e molto facili intuitivamente, non aggiungono nulla alla comprensione che si mira ad avere della misura di Lebesgue.
@@ -28,7 +27,6 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	Lasciata al lettore.
 \end{proof}
-
 
 \begin{lemma}\label{lem:SemianelloSemiAperti}
 	La famiglia $\S_n$ è un \semiring{}.
@@ -199,6 +197,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ma allora la \sigalg{} generata dagli aperti e quella generata da $\S_n$ coincidono e si ottiene la tesi.
 \end{proof}
 
+Ora che abbiamo ottenuto una premisura su $\R^n$, applicheremo il teorema di Caratheodory per ricavarne quindi una misura su $\R^n$. 
+Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per poi caratterizzarla come l'unica misura che coincida con la nozione intutitiva di volume, cioè sia invariante per traslazione e sia normalizzata sul cubo unitario.
+
 \begin{definition}\label{LebesgueMisura}
 	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
 	Inoltre indicheremo con $m_n^*:\mathcal P(\R^n)\to\Rpiu$ la misura esterna associata a $m_n$, che quindi ridotta su $\M_n$ coincide con la misura di Lebesgue.
@@ -217,7 +218,6 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	È una banale conseguenza della \cref{prop:LebesguePremisuraSigFin}
 \end{proof}
-
 
 \begin{proposition}\label{prop:CompletamentoBoreliani}
 	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
@@ -337,6 +337,10 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ora finalmente possiamo applicare \cref{prop:LebesgueUnicaEstensione} ed ottenere $\mu\equiv m_n$ che è la tesi.
 \end{proof}
 
+Ora passiamo a dimostrare che la misura di Lebesgue è anche invariante per isometria, oltre che per rotazione, e che gli insiemi intuitivamente \emph{piccoli} sono trascurabili secondo Lebesgue.
+
+In particolare le prime due proposizioni tecniche, concernenti le funzioni che mandano misurabili in misurabili, oltre ad avere una veloce applicazione nel dimostrare che la misura di Lebesgue è invariante per isometria, torneranno utili quando si vorranno studiare i cambi di variabili lineari nella teoria dell'integrazione.
+
 \begin{proposition}\label{prop:ContinueSpecialiTengonoMisurabili}
 	Data una funzione $f:\R^n\to\R^n$ continua tale che per ogni $N\in\M_n$ trascurabile anche l'immagine $f(N)$ è trascurabile, allora per ogni $A\in\M_n$ misurabile anche $f(A)$ è misurabile.
 \end{proposition}
@@ -428,6 +432,10 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	e questo conclude dato che implica, valendo per $\epsilon>0$, che la misura esterna di $V$ è nulla e perciò che $V$ è trascurabile.
 \end{proof}
 
+Concludiamo questa sezione, oltre che con un paio di esercizi, con due importanti risultati che mostrano esplicitamente che l'insieme dei misurabili è strettamente contenuto tra i Boreliani e le parti di $\R^n$.
+
+In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, ragionando sulle rispettive cardinalità e applicando risultati che vengono dalla teoria degli ordinali. Nel seguito di queste dispense proporremo un'altra dimostrazione di questo stesso risultato che sfrutta unicamente fatti collegati con la teoria della misura.
+
 \begin{proposition}\label{CardBoreliani}
 	I Boreliani hanno la cardinalità del continuo.
 \end{proposition}
@@ -502,6 +510,14 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\]
 	Quindi $E$ basta che sia $\R$, allora dalla \cref{Eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
+\begin{corollary}
+	I Boreliani sono \emph{strettamente} contenuti nei misurabili.
+\end{corollary}
+\begin{proof}
+	Il contenimento debole è mostrato nella \cref{prop:CompletamentoBoreliani}.
+	Per concludere che non coincidono è sufficiente mostrare che hanno cardinalità differenti.
+	%TODO
+\end{proof}
 
 \begin{theorem}[Insieme di Vitali]\label{InsiemeVitali}
 	Dato un sottoinsieme $A\in\M_n$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M$.
@@ -543,6 +559,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 	Allora l'insieme $B$ deve essere non misurabile come richiesto.
 \end{proof}
+\begin{corollary}\label{cor:MisurabiliDentroParti}
+	Grazie al \cref{InsiemeVitali}, è ovvio mostrare che i misurabili non coincidono con le parti di $\R^n$.
+\end{corollary}
 
 \begin{exercise}
 	Dato un insieme $A\subseteq\R^n$ di misura nulla secondo Lebesgue e un insieme numerabile $T\subset \R^n$, esiste $k\in \R^n$ tale che $A+k$ sia disgiunto da $T$.
