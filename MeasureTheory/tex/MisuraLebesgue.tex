@@ -130,7 +130,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	che implica la tesi moltiplicando ambo i membri per $m_n(S)$.
 \end{proof}
 
-\begin{theorem}\label{LebesguePremisura}
+\begin{theorem}\label{thm:LebesguePremisura}
 	La terna $(\R^n,\S_n,m_n)$ è uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
@@ -189,7 +189,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	I Boreliani di $\R^n$ sono la \sigalg{} generata dai sottoinsiemi aperti di $\R^n$.
 \end{definition}
 
-\begin{proposition}\label{SigAlgUgualeBoreliani}
+\begin{proposition}\label{prop:SigAlgUgualeBoreliani}
 	La \sigalg{} generata da $\S_n$ coincide con i Boreliani di $\R^n$.
 \end{proposition}
 \begin{proof}
@@ -200,8 +200,8 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 Ora che abbiamo ottenuto una premisura su $\R^n$, applicheremo il teorema di Caratheodory per ricavarne quindi una misura su $\R^n$. 
 Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per poi caratterizzarla come l'unica misura che coincida con la nozione intutitiva di volume, cioè sia invariante per traslazione e sia normalizzata sul cubo unitario.
 
-\begin{definition}\label{LebesgueMisura}
-	Dato lo spazio di misura elementare $(\R_n,\S_n,m_n)$, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
+\begin{definition}\label{def:LebesgueMisura}
+	Dato lo spazio $(\R_n,\S_n,m_n)$ che si è mostrato essere di misura elementare nel \cref{thm:LebesguePremisura}, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
 	Inoltre indicheremo con $m_n^*:\mathcal P(\R^n)\to\Rpiu$ la misura esterna associata a $m_n$, che quindi ridotta su $\M_n$ coincide con la misura di Lebesgue.
 \end{definition}
 
@@ -223,7 +223,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
 \end{proposition}
 \begin{proof}
-	Il \cref{EstensioneCaratheodory} ci assicura che la \sigalg{} di Caratheodory definita nella \cref{LebesgueMisura} contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
+	Il \cref{EstensioneCaratheodory} ci assicura che la \sigalg{} $\M_n$ dei Boreliani contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{prop:SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
 	
 	Per avere che il completamento dei Boreliani coincide con $\M_n$ basta applicare \cref{prop:CaratheodoryCompletamentoSigAlg} ricordando \cref{prop:LebesguePremisuraSigFin}.
 \end{proof}
@@ -242,7 +242,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 \begin{proof}
 	È chiaro che questo teorema richiama, specializzandola al caso della misura di Lebesgue, la \cref{EquivalenzeMisurabilitaSottoinsieme}.
 	
-	In particolare applicando la \cref{EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poichè i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poichè per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
+	In particolare applicando la \cref{EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poichè i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{prop:SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poichè per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
 	
 	Ancora per la \cref{EquivalenzeMisurabilitaSottoinsieme}, assumendo la \ref{it:LEMMisurabile}, sappiamo che esistono $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti, la cui unione $S$ contiene $A$ ed è tale che $m_n^*(S\setminus A)<\epsilon$.
 	Allora definendo $C$ come la parte interna di $\bigcup_{i\in\N}F_\frac{\epsilon}{2^i}(S_i)$ abbiamo in effetti che, grazie alla \cref{prop:MisuraAllargamento}, $m_n^*(C\setminus A)\le \epsilon$.
@@ -276,7 +276,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura $m_n$ definita su $\S_n$.
 \end{proposition}
 \begin{proof}
-	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{SigAlgUgualeBoreliani}.
+	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{prop:SigAlgUgualeBoreliani}.
 \end{proof}
 
 \begin{remark}\label{nota:LebesgueProprieta}
@@ -402,7 +402,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	La palla $B$, che ha ovviamente misura di Lebesgue né nulla né infinita, è invariante rispetto a $O$, essendo questa una rotazione, e perciò $\mu(B)=m_n(B)$ da cui ricaviamo che $\lambda=1$ cioè $\mu\equiv m_n$ che era quanto si voleva dimostrare.
 \end{proof}
 
-\begin{proposition}\label{NumerabiliLebesgueTrascurabili}
+\begin{proposition}\label{prop:NumerabiliLebesgueTrascurabili}
 	Dato un insieme numerabile $A\subseteq\R^n$, questo è misurabile con misura nulla.
 \end{proposition}
 \begin{proof}
@@ -498,7 +498,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Ora che sappiamo che $f(\omega_1)$ sono i Boreliani, calcoliamone la cardinalità.
 	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
 	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, se $|E_{\beta}|\leq |E| \forall \beta < \alpha$. Tutto ciò, porta a dire che
-	\begin{equation}\label{Eq:CardBorel}
+	\begin{equation}\label{eq:CardBorel}
 		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E|,
 	\end{equation}
 	purché $E$ sia un insieme di cardinalità maggiore od uguale a quella di tutti gli $f(\alpha)$ con $\alpha<\omega_1$;
@@ -512,7 +512,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	\[
 		|f(\alpha)|\leq |\alpha| |\R| \leq |\N||\R| = |\R|.
 	\]
-	Quindi $E$ basta che sia $\R$, allora dalla \cref{Eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
+	Quindi $E$ basta che sia $\R$, allora dalla \cref{eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
 \begin{corollary}\label{cor:BorelianiNonMisurabili}
 	I Boreliani sono \emph{strettamente} contenuti nei misurabili.
@@ -529,7 +529,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Ma la \cref{prop:CardBoreliani} ci assicura che i Boreliani hanno cardinalità $|\R|$, indifferentemente dalla dimensione in cui lavoriamo, e questo conclude la dimostrazione, visto che $2^{|\R|}\succ |\R|$.
 \end{proof}
 
-\begin{theorem}[Insieme di Vitali]\label{InsiemeVitali}
+\begin{theorem}[Insieme di Vitali]\label{thm:InsiemeVitali}
 	Dato un sottoinsieme $A\in\M_n$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M$.
 \end{theorem}
 \begin{proof}
@@ -555,12 +555,12 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	
 	Vale, per costruzione, $B\subseteq A$. 
 	Inoltre, ancora per la definizione di $B$, risulta
-	\begin{equation}\label{ContenimentiVitali}
+	\begin{equation}\label{eq:ContenimentiVitali}
 		A\subseteq\bigsqcup_{q\in\mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} B+q\subseteq \cc{-1}{2}\times\cdots\times\cc{-1}{2}
 	\end{equation}
 	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \co 01\times\cdots \times\co 01$.
 	
-	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}:
+	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{eq:ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}:
 	\begin{equation*}
 		0<m_n(A)\le \sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B+q)=
 		\sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B) \le 3^n
@@ -570,7 +570,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Allora l'insieme $B$ deve essere non misurabile come richiesto.
 \end{proof}
 \begin{corollary}\label{cor:MisurabiliNonParti}
-	Grazie al \cref{InsiemeVitali}, è ovvio mostrare che i misurabili di $\R^n$ non coincidono con le parti di $\R^n$.
+	Grazie al \cref{thm:InsiemeVitali}, è ovvio mostrare che i misurabili di $\R^n$ non coincidono con le parti di $\R^n$.
 \end{corollary}
 
 \begin{exercise}
