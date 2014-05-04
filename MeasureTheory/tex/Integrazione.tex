@@ -100,7 +100,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{definition}\label{def:IntegralePositive}
 	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
-		\int_Xf\de\mu=\sup_{n\in\N}\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
+		\int_Xf\de\mu=\sup\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
 	\end{equation*}
 \end{definition}
 
@@ -327,13 +327,15 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che è equivalente alla tesi.
 \end{proof}
 
-\begin{corollary}\label{cor:L1NullaAlloraNulla}
-	Data $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, tale che $\LNorm{f}=0$, risulta
+\begin{lemma}\label{lemma:L1NullaAlloraNulla}
+	Data $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, risulta che $\LNorm{f}=0$ se e solo se
 	\begin{equation*}
 		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0
 	\end{equation*}
-\end{corollary}
+\end{lemma}
 \begin{proof}
+	Dimostriamo innanzitutto che se $\LNorm{f}=0$ allora $\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0$.
+
 	Per ogni $n\in\N$, chiamiamo $A_n$ l'insieme degli $x\in X$ tali che $|f(x)|>\frac 1n$.
 	
 	Dal \cref{thm:DisuguaglianzaChebyshev}, sfruttando $\LNorm{f}=0$ è facile ottenere $\mu(A_n)=0$. 
@@ -341,10 +343,43 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0
 	\end{equation*}
+	
+	Dimostriamo ora invece la freccia opposta dell'implicazione.
+	
+	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
+	
+	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$; abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
+	\begin{equation*}
+		\simp=\sum_{k=1}^n c_k\chi_{F_k} \Longrightarrow \int_X\simp\de\mu=\sum_{k=1}^n c_k\mu(F_k)=0
+	\end{equation*}
+	dove l'ultima uguaglianza è vera perchè $F_k\subseteq \left\{x:\ \simp(x)\not=0\right\}$ e perciò $\mu(F_k)=0$.
+	
+	Da questo discende facilmente, per la definizione stessa di $\LNorm{f}$, che
+	\begin{equation*}
+		\LNorm f=\sup\left\{ \int_X \simp\de\mu\ :\ 0\le \simp \le |f| \wedge \simp \text{ semplice}\right\}=0
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}\label{cor:IntegraleAMenoDiTrascurabili}
+	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e nel caso vale che
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N}f\de\mu
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Per l'additività dell'integrale ho che
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N} f \de\mu+\int_N f\de\mu=\int_{X\setminus N}f\de\mu
+	\end{equation*}
+	dove l'ultima disuguaglianza è vera per il \cref{lemma:L1NullaAlloraNulla}, poichè infatti
+	\begin{equation*}
+		\left|\int_N f\de\mu\right|\le \int_N |f|\de\mu=0 \Longrightarrow \int_N f\de\mu=0
+	\end{equation*}
+
 \end{proof}
 
 
-Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L^1(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
+Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L^1(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
 
 \begin{lemma}\label{lemma:SottospazioTrascurabili}
 	L'insieme definito da
@@ -373,31 +408,6 @@ Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ no
 \begin{proof}
 	Segue facilmente da \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
 \end{proof}
-
-\begin{proposition}\label{prop:IntegraleIntegrabiliSpezzato}
-	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e siano $X_1,X_2,\cdots,X_k$ misurabili disgiunti tali che $X=\cup_{m=1}^kX_m$. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X_m$ per ogni $1\le m\le k$, e in tal caso vale che
-	\begin{equation*}
-		\int_X f\de\mu=\sum_{m=0}^k\int_{X_m}f\de\mu
-	\end{equation*}
-\end{proposition}
-
-\begin{proof}
-	Mi basta dimostrare che per una funzione $f$ misurabile e positiva $\int_X f\de\mu=\sum_{m=0}^k\int_{X_m}f\de\mu$, infatti poi la tesi segue facilmente dalla definizione di funzioni integrabili.
-	
-	Anche quest'ultimo fatto però è una facile conseguenza delle definizione e della \cref{prop:IntegraleSempliciSpezzato} e non ne riportiamo quindi una dimostrazione dettagliata.
-\end{proof}
-
-
-\begin{corollary}\label{lemma:IntegraleAMenoDiTrascurabili}
-	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e nel caso vale che
-	\begin{equation*}
-		\int_X f\de\mu=\int_{X\setminus N}f\de\mu
-	\end{equation*}
-\end{corollary}
-\begin{proof}
-	Basta considerare nella proposizione precedente $k=2$ e $X_1=X\setminus N,X_2=N$.
-\end{proof}
-
 
 
 \begin{theorem}[Integrazione per serie]
@@ -432,7 +442,7 @@ Dal \cref{cor:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ no
 		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu
 	\end{equation*}
 
-	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{lemma:IntegraleAMenoDiTrascurabili} che $f\in \L^1(X,\A,\mu)$ e che vale
+	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{cor:IntegraleAMenoDiTrascurabili} che $f\in \L^1(X,\A,\mu)$ e che vale
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
 	\end{equation*}
