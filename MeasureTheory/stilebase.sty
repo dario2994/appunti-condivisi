@@ -23,17 +23,21 @@
 \newcommand{\crefrangepreconjunction}{da }
 \newcommand{\crefrangeconjunction}{ a }
 
-\newtheorem{theorem}{Teorema}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{proposition}{Proposizione}[section]
-\newtheorem{corollary}{Corollario}[section]
-\newtheorem{exercise}{Esercizio}[section]
+
+\newcounter{Results}[section]
+\renewcommand{\theResults}{\thesection.\arabic{Results}}
+
+\newtheorem{theorem}[Results]{Teorema}
+\newtheorem{lemma}[Results]{Lemma}
+\newtheorem{proposition}[Results]{Proposizione}
+\newtheorem{corollary}[Results]{Corollario}
+\newtheorem{exercise}[Results]{Esercizio}
 
 \theoremstyle{remark}
-\newtheorem{remark}{Nota}[section]
+\newtheorem{remark}[Results]{Nota}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definizione}[section]
+\newtheorem{definition}[Results]{Definizione}
 \newtheorem*{example}{Esempio}
 
 \crefname{theorem}{thm:}{thms:}
