@@ -5,9 +5,12 @@ Questo risulterà facile sfruttando, come strumento principale, il teorema di es
 Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di Caratheodory, proponiamo una via tecnica (che sfrutta la teoria degli integrali costruita), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli operatori integrali in uno spazio prodotto. 
 
 Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scambiare tra loro gli operatori di integrazione sotto opportune ipotesi.
+%TODO Parole in libertà qui sopra.
 
+
+\newcommand{\B}{\ensuremath{\mathscr B}}
 \begin{definition}
-	Dati due insiemi $X,Y$ definiamo, fissato $x\in X$, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ così definita:
+	Dati due insiemi $X,Y$ e $x\in X$ fissato, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ così definita:
 	\begin{equation*}
 		\forall E\subseteq X\times Y:\ J^X_x(E)=\{y\in Y:\ (x,y)\in E\}
 	\end{equation*}
@@ -15,48 +18,60 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	Dove ovvio verrà omesso l'apice che indica l'insieme.
 \end{definition}
 
+\begin{definition}\label{def:SemianelloProdotto}
+	Dati due spazi misurabili $(X,\A)$, $(Y,\B)$ definiamo, con abuso di notazione, $\A\times\B$ come la famiglia degli insiemi $A\times B$ dove $A\in\A$ e $B\in\B$.
+\end{definition}
 
-\newcommand{\B}{\ensuremath{\mathscr B}}
-\begin{theorem}\label{PremisuraProdotto}
-	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, definiamo la funzione $\mu\nu:\A\times\B\to\Rpiu$ come il prodotto delle misure $\mu\nu(A\times B)=\mu(A)\nu(B)$.
+\begin{proposition}\label{prop:SemianelloProdotto}
+	Dati due spazi misurabili $(X,\A)$, $(Y,\B)$, la famiglia $\A\times\B\subseteq \mathcal P(X\times Y)$ è un \semiring{}.
+\end{proposition}
+\begin{proof}
+	Ovviamente $\emptyset\in\A\times\B$ visto che $\emptyset\in\A$ e $\emptyset\in\B$.
 	
-	Allora $(X\times Y,\A\times\B,\mu\nu)$ è uno spazio di misura elementare.
+	Per concludere, dati $A\times B, A'\times B'\in\A\times\B$, mostriamo esplicitamente una scrittura dell'intersezione e della differenza che rispetti le proprietà che deve avere un \semiring{}:
+	\begin{align*}
+		(A\times B)\cap (A'\times B') &= (A\cap A')\times(B\cap B')\virgola \\
+		(A\times B)\setminus (A'\times B') &= (A\setminus A')\times B)\sqcup( (A\cap A')\times (B\setminus B') )\punto
+	\end{align*}
+\end{proof}
+
+\begin{definition}\label{def:PremisuraProdotto}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, denotiamo con $\mu\nu$ la funzione $\mu\nu:\A\times\B\to\Rpiu$ definita in modo che 
+	\begin{equation*}
+		\forall A\times B\in\A\times\B:\ \mu\nu(A\times B)=\mu(A)\nu(B)\punto
+	\end{equation*}
+\end{definition}
+
+\begin{theorem}\label{thm:PremisuraProdotto}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, allora $(X\times Y,\A\times\B,\mu\nu)$ è uno spazio di misura elementare, dove $\A\times\B$ e $\mu\nu$ sono definiti nelle \cref{def:SemianelloProdotto,def:PremisuraProdotto}.
 \end{theorem}
 \begin{proof}
-	Verifichiamo innanzitutto che $\A\times\B$ rispetti le proprietà di \semiring{}.
+	Avendo già verificato che $\A\times\B$ è un \semiring{} nella \cref{prop:SemianelloProdotto}, è sufficiente mostrare che $\mu\nu$ è \sigadd{}.
 	
-	Ovviamente $\emptyset\in\A\times\B$ visto che $\emptyset\in\A,\B$. 
-	Inoltre valgono, fissati $A\times B,\ A'\times B'\in\A\times\B$, le seguenti identità insiemistiche:
-	\begin{align*}
-		(A\times B)\cap (A'\times B') &= (A\cap A')\times(B\cap B')\\
-		(A\times B)\setminus (A'\times B') &= (A\setminus A')\times B)\sqcup( (A\cap A')\times (B\setminus B') )
-	\end{align*}
-	e queste, ricordando che $\A,\B$ sono \sigalg[e], dimostra che $\A\times\B$ è un \semiring{}, visto che abbiamo scritto intersezione e differenza come unione disgiunta.
+	Sia $(A_n\times B_n)_{n\in\N}\subseteq \A\times \B$ una partizione disgiunta di $A\times B$.
 	
-	Mostriamo ora che $\mu\nu$ è \sigadd{}. Sia $(A_n\times B_n)_{n\in\N}\subseteq \A\times \B$ una partizione disgiunta di $A\times B$.
-	
-	Essedo gli $A_n\times B_n$ disgiunti, risulta:
-	\begin{equation}\label{PremisuraProdottoSerie}
-		\bigsqcup_{n\in\N} J_x(A_n\times B_n) = J_x(A\times B)  \implies \sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)=\nu\left(J_x(A\times B)\right)
+	Per ogni $x\in X$, essendo gli $A_n\times B_n$ disgiunti, risulta
+	\begin{equation}\label{eq:PremisuraProdottoSerie}
+		\bigsqcup_{n\in\N} J_x(A_n\times B_n) = J_x(A\times B)  \implies \sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)=\nu\left(J_x(A\times B)\right)\virgola
 	\end{equation}
 	dove nell'implicazione abbiamo applicato la \sigadd[ità] di $\nu$.
 	
-	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\subseteq \A\times\B$, abbiamo:
+	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\subseteq \A\times\B$, abbiamo
 	\begin{equation}\label{StupidaIdentitaIndicatrici}
-		\mu\nu(C\times D)=\mu(C)\nu(D)=\int_{X}\chi_C(x)\nu(D)\de \mu(x)=\int_X \nu\left(J_x(C\times D)\right)\de\mu(x)
+		\mu\nu(C\times D)=\mu(C)\nu(D)=\int_{X}\chi_C(x)\nu(D)\de \mu(x)=\int_X \nu\left(J_x(C\times D)\right)\de\mu(x)\virgola
 	\end{equation}
-	dove l'ultima uguaglianza vale perchè le funzioni sotto il segno di integrale coincidono puntualmente (per verificarlo basta dividere in due casi in base all'appartenenza o meno di $x$ a $C$).
+	dove l'ultima uguaglianza segue dalla facile identità $\nu\left(J_x(C\times D)\right)=\chi_C(x)\nu(D)$.
 	
-	Ora unendo le \cref{PremisuraProdottoSerie,StupidaIdentitaIndicatrici} otteniamo, sfruttando il (teorema di commutazione tra integrale e serie MISREF):
+	Ora unendo le \cref{eq:PremisuraProdottoSerie,StupidaIdentitaIndicatrici} otteniamo, sfruttando il (teorema di commutazione tra integrale e serie POSITIVO)
 	\begin{align*}
 		\mu\nu(A\times B)&=\int_X\nu(J_x(A\times B))\de \mu(x)=\int_X\sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)\\
-		&=\sum_{n\in\N}\int_X\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)=\sum_{n\in\N}\mu\nu(A_n\times B_n)
+		&=\sum_{n\in\N}\int_X\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)=\sum_{n\in\N}\mu\nu(A_n\times B_n)\virgola
 	\end{align*}
-	che è proprio la tesi.
+	che è la tesi cercata.
 \end{proof}
 
 \begin{definition}
-	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio misurabile prodotto, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}, generato a partire dallo spazio di premisura definito nel \cref{PremisuraProdotto}. Inoltre chiameremo $\A\otimes\B$ la \sigalg{} prodotto.
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio misurabile prodotto, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}, generato a partire dallo spazio di premisura definito nel \cref{thm:PremisuraProdotto}. Inoltre chiameremo $\A\otimes\B$ la \sigalg{} prodotto.
 \end{definition}
 
 È importante notare che la scelta dell'estensione della premisura alla misura prodotto è, in qualche senso, di carattere arbitrario. Infatti, a meno che gli spazi fossero \sigfin[i], erano possibili altre estensioni non coincidenti della misura. 
