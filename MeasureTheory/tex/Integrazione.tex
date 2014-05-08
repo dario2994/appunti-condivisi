@@ -176,6 +176,19 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{proof}
 
+\begin{corollary}\label{cor:IntegrazionePerSeriePositive}
+	Sia $(f_n)$ una successione di funzioni misurabili e positive, definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$. Allora esiste $f:X\to\Rbar$ misurabili e positiva tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$, e $\int f\de\mu=\sum_{n=0}^\infty\int f_n\de\mu$.
+\end{corollary}
+
+\begin{proof}
+	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{SupMis}. Dato che le $s_n$ covergono puntalmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
+	\begin{equation*}
+		\int f \de\mu=\lim_{n\to\infty}\int s_n\de\mu=\lim_{n\to\infty}\int \sum_{k=0}^nf_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n \int f_n\de\mu=\sum_{k=0}^\infty\int f_n\de\mu
+	\end{equation*}
+	che è proprio quello che volevamo dimostrare.
+\end{proof}
+
+
 
 \begin{lemma}[Fatou] \label{lem:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
@@ -361,7 +374,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{corollary}\label{cor:IntegraleAMenoDiTrascurabili}
-	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e nel caso vale che
+	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e in tal caso vale che
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N}f\de\mu
 	\end{equation*}
@@ -406,11 +419,11 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso.
 \end{remark}
 \begin{proof}
-	Segue facilmente da \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
+	Segue facilmente dal \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
 \end{proof}
 
 
-\begin{theorem}[Integrazione per serie]
+\begin{theorem}[Integrazione per serie]\label{thm:IntegrazionePerSerie}
 	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
 	
 	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$ per cui $\sum_{n=0}^\infty f_n(x)$ converge assolutamente, e $f(x)$ assume un valore arbitrario altrimenti, vale che $f\in \L^1(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
@@ -431,7 +444,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	
 	Sia ora $s_n=\sum_{k=0}^n f_k$, allora vale che
 	\begin{equation*}
-		|s_n(x)|=|\sum_{k=0}^n f_k(x)|\le \sum_{k=0}^n |f_k(x)|=g_n(x)\le g(x)
+		|s_n(x)|=\left|\sum_{k=0}^n f_k(x)\right|\le \sum_{k=0}^n |f_k(x)|=g_n(x)\le g(x)
 	\end{equation*}
 	quindi la successione $(s_n)$ è dominata dalla funzione $g$.
 	
@@ -446,7 +459,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
 	\end{equation*}
-	che era proprio quello che volevo.
+	che era proprio quello che volevamo.
 \end{proof}
 
 
