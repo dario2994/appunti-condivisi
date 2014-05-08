@@ -310,7 +310,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:ConvergenzaL1Dominata}
 	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L^1(X,\A,\mu)$, cioè $\LNorm{f-f_n}\to 0$.
 \end{corollary}
 \begin{proof}
@@ -462,7 +462,30 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	che era proprio quello che volevamo.
 \end{proof}
 
+\begin{remark}\label{nota:ConvergenzaL1IntegrazionePerSerie}
+	Da notare che dalla dimostrazione, ricordando il \cref{cor:ConvergenzaL1Dominata}, segue anche che la convergenza di $s_n$ ad $f$ è in $\L^1(X,\A,\mu)$ ed è dominata, infatti $|s_n|\le g$.
+\end{remark}
 
+
+\begin{corollary}
+	Dato uno spazio di misura $(X,\A,\mu)$, lo spazio $L^1(X,\A,\mu)$ è completo.
+\end{corollary}
+
+\begin{proof}
+	Segue immediatamente dal \cref{thm:IntegrazionePerSerie}, ricordando che uno spazio normato è completo se e solo se ogni serie totalmente convergente è convergente nello spazio.
+\end{proof}
+
+\begin{proposition}
+	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L^1(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge quasi ovunque ad $f$ ed è dominata in $\L^1(X,\A,\mu)$.
+\end{proposition}
+
+\begin{proof}
+	Per la \cref{nota:ConvergenzaL1IntegrazionePerSerie} $\LNorm{f-f_n}\to 0$, quindi possiamo definire $(f_{n_k})_{k\in\N}$ tale che $\LNorm{f-f_{n_k}}<2^{-k}$ e la successione $(n_k)_{k\in\N}$ sia crescente.
+	
+	Sia ora $h_k=f_{n_{k+1}}-f_{n_k}$ per ogni $k\in\N$. La successione $(h_k)$ rispetta le ipotesi del \cref{thm:IntegrazionePerSerie}, in quanto $\sum_{k=0}^\infty \LNorm {h_k}\le \sum_{k=0}^\infty 2^{-k}$, quindi la serie $\sum_{k=0}^\infty h_k$ converge quasi ovunque ed è dominata in $\L^1(X,\A,\mu)$.
+	
+	Abbiamo quindi ottenuto che $f_{n_k}=f_{n_0}+\sum_{i=0}^{k-1}(f_{n_{i+1}}-f_{n_i})=f_{n_0}+\sum_{i=0}^{k-1} h_i$ converge quasi ovunque alla funzione $f$ e la successione $(f_{n_k})_{k\in\N}$ è dominata.
+\end{proof}
 
 
 
