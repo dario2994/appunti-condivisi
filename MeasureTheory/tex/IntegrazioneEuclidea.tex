@@ -1,0 +1,58 @@
+\section{L'integrazione negli spazi Euclidei}
+
+\begin{proposition}
+	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
+	\begin{equation}
+		m_n(L(E))=\lvert \det L\rvert\cdot m_n(E)\punto
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	La funzione $L$ essendo lineare è in particolare Lipschitziana (con costante la propria norma) quindi, applicando la \cref{prop:LipschitzTengonoMisurabili} otteniamo che per ogni $E$ misurabile, $L(E)$ è anch'esso misurabile.
+	
+	Consideriamo ora la funzione $\mu_L:\M_n\to\Rpiu$ definita come $\mu_L(E)=m_n(L(E))$. Per quanto appena mostrato questa è una buona definizione.
+	Per la \cref{prop:BigettivaInduceMisura} la $\mu_L$ è una misura.
+	Inoltre, ricordando che la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, si ottiene
+	\begin{equation*}
+		\forall v\in\R^n:\ \mu_L(E+v)=m_n(L(E+v))=m_n(L(E)+Lv)=m_n(L(E))=\mu_L(E)
+	\end{equation*}
+	che equivale a dire che $\mu_L$ è invariante per traslazione.
+	\newcommand{\linR}{\ensuremath{\mathcal L(\R^n,\R^n)}}
+	Allora possiamo applicare il \cref{thm:LebesgueUnicaInvarianteTraslazione}\footnote{Il teorema ci assicura l'identità delle misure solo sui Boreliani, ma i misurabili sono il completamento dei Boreliani e perciò le due misure coincidono anche sui misurabili.} ottenendo che esiste una funzione $c:\linR\to\Rpiu$ con dominio le applicazioni lineari, tale che valga
+	\begin{equation}\label{eq:DefQuasiDet}
+		\forall L\in \linR,\ E\in\M_n:\ \mu_L(E)=c(L)m_n(E)\punto
+	\end{equation}
+	
+	Mostriamo ora che $c(\cdot)$ è moltiplicativa e che coindice con il valore assoluto del determinante sulle applicazioni diagonali e ortogonali. Da questo, sfruttando una decomposizione nota delle applicazioni lineari di $\R^n$, seguirà che coincide con il valore assoluto del determinante su ogni applicazione lineare e questo è proprio quanto richiesto dalla tesi. 
+	
+	Fissate $A,B\in \linR$ applicazioni lineari ed $E\in\M_n$ un misurabili non trascurabile, applicando unicamente \cref{eq:DefQuasiDet} risulta
+	\begin{align*}
+		c(AB)m_n(E)&=\mu_{AB}(E)=m_n(AB(E))=m_n(A(B(E))\\
+		&=\mu_A(B(E))=c(A)m_n(B(E))=c(A)\mu_B(E)=c(A)c(B)m_n(E)\virgola
+	\end{align*}
+	da cui si ricava $c(AB)=c(A)c(B)$ dividendo per $m_n(E)$. Perciò $c$ è moltiplicativa.
+	
+	Sia $D\in\linR$ un'applicazione diagonale, in particolare siano $(\lambda_i)_{1\le i\le n}$ i valori sulla diagonale.
+	Allora è facile ricavare
+	\begin{equation*}
+		D\left(\co01\times\co01\times\dots\times\co01\right)=\co0{\lambda_1}\times\co0{\lambda_2}\times\cdots\times\co0{\lambda_n}\virgola
+	\end{equation*}
+	da cui, applicando ad entrambi i membri la misura di Lebesgue, si ottiene
+	\begin{align*}
+		c(D)&=c(D)m_n\left(\co01\times\dots\times\co01\right)=\mu_D\left(\co01\times\dots\times\co01\right)\\
+		&=m_n\left(\co0{\lambda_1}\times\cdots\times\co0{\lambda_n}\right)=
+		\lvert\lambda_1\rvert\cdot\lvert\lambda_2\rvert\cdots\lvert\lambda_n\rvert=\lvert\det(D)\rvert
+	\end{align*}
+	che equivale a dire che $c(\cdot)$ e $\lvert\det(\cdot)\rvert$ coincidono sulle matrici diagonali.
+	
+	Fissata un'applicazione $O\in\linR$ ortogonale, chiamando $P$ la palla unitaria di $\R^n$ è ovvio che $O(P)=P$.
+	Da questo, applicando ad entrambi i membri la misura di Lebesgue, si ricava $\mu_O(P)=m_n(P)$ e, ricordando che $P$ non è trascurabile, ne discende $c(O)=1$.
+	Ma $O$ è ortogonale, quindi $\det O=\pm 1$ e allora è dimostrato anche in questo caso $\lvert\det O\rvert =c(O)$.
+	
+	Infine, data un'applicazione lineare generica $L\in\linR$, sia $L=OS$ la sua decomposizione polare\footnote{La si ottiene notando che $LL^t$ è una matrice simmetrica definita positiva che perciò ammette una ``radice quadrata''.} dove $O$ è ortogonale e $S$ è simmetrica. Per il teorema spettrale esistono $P,D$ rispettivamente invertibile e simmetrica tali che $S=PDP^{-1}$.
+	Ricordando le proprietà che rispetta la funzione $c$ e la moltiplicatività del determinante, ricaviamo
+	\begin{align*}
+		c(L)&=c(OPDP^{-1})=c(O)c(P)c(D)c(P^{-1})=c(O)c(D)c(P)c(P^{-1})\\
+		&=c(O)c(D)c(PP^{-1})=\lvert\det O\rvert\cdot\lvert\det D\rvert=\lvert \det(OPDP^{-1})\rvert=\lvert\det L\rvert \virgola
+	\end{align*}
+	che è equivale a dire che $c(\cdot)$ e $\lvert\det(\cdot)\rvert$ coincidono come si voleva.
+\end{proof}
