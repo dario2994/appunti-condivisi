@@ -209,7 +209,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{definition}
-	Una funzione misurabile $f:X\to\Rbar$ con $(X,\A,\mu)$ spazio di misura si dice integrabile se 
+	Una funzione misurabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, si dice integrabile se 
 	\begin{equation*}
 		\LNorm f\doteqdot \int_X |f|\de\mu
 	\end{equation*}
@@ -475,7 +475,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	Segue immediatamente dal \cref{thm:IntegrazionePerSerie}, ricordando che uno spazio normato è completo se e solo se ogni serie totalmente convergente è convergente nello spazio.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:L1ImplicaSottosuccessioneQuasiOvunque}
 	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L^1(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge quasi ovunque ad $f$ ed è dominata in $\L^1(X,\A,\mu)$.
 \end{proposition}
 
@@ -487,6 +487,15 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	Abbiamo quindi ottenuto che $f_{n_k}=f_{n_0}+\sum_{i=0}^{k-1}(f_{n_{i+1}}-f_{n_i})=f_{n_0}+\sum_{i=0}^{k-1} h_i$ converge quasi ovunque alla funzione $f$ e la successione $(f_{n_k})_{k\in\N}$ è dominata.
 \end{proof}
 
+\begin{remark}
+	Notiamo che la tesi della \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque} non può essere migliorata. Infatti in genere non è vero che se una successione di funzioni integrabili $(f_n)$ converge ad $f$ in $\L^1(X,\A,\mu)$, allora converge quasi ovunque ad $f$.
+\end{remark}
+\begin{proof}
+	Sia $(f_n)$ la successione di funzioni integrabili definita da $f_n=\chi_{I_n}$, dove $I_n=\left[\frac{n-2^k}{2^k},\frac{n-2^k+1}{2^k}\right]$ se $2^k\le n<2^{k+1}$. In particolare quindi i primi termini della successione $(I_n)$ sono $I_1=\left[0,1\right],I_2=\left[0,\frac 12\right],I_3=\left[\frac 12,1\right],I_4=\left[0,\frac 14\right],\cdots$. 
+	
+	È facile verificare che in $\L^1(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
+
+\end{proof}
 
 
 
