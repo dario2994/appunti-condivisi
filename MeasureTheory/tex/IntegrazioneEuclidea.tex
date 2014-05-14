@@ -1,5 +1,37 @@
 \section{L'integrazione negli spazi Euclidei}
 
+\begin{proposition}\label{prop:IntegraleRiemannCoincide}
+	Data una funzione $f:\cc ab\to \mathbb R$, se essa è integrabile secondo Riemann ed integrabile secondo Lebesgue allora i due integrali coincidono.
+\end{proposition}
+\begin{proof}
+	Nel caso in cui la funzione sia integrabile secondo Riemann (e quindi anche limitata, dando senso agli $\inf,\sup$ che compariranno nelle formule), il valore dell'integrale secondo Riemann corrisponde all'estremo superiore delle somme inferiori alla Riemann\footnote{Indicheremo con $\int_a^b$ l'integrale di Riemann, e con $\int_{\cc ab}$ l'integrale di Lebesgue}
+	\begin{equation*}
+		\int_a^b f(x)\de x=\sup\left\{\sum_{i=0}^{k-1} (x_{i+1}-x_i)\left(\inf_{t\in\co{x_i}{x_{i+1}}}f(t)\right):\ a=x_0<x_1<\cdots<x_{k-1}<x_k=b\right\} \virgola
+	\end{equation*}
+	ed anche all'estremo inferiore delle somme superiori alla Riemann
+	\begin{equation*}
+		\int_a^b f(x)\de x=\inf\left\{\sum_{i=0}^{k-1} (x_{i+1}-x_i)\left(\sup_{t\in\co{x_i}{x_{i+1}}}f(t)\right):\ a=x_0<x_1<\cdots<x_{k-1}<x_k=b\right\} \punto
+	\end{equation*}
+	
+	Data una partizione $a=x_0<x_1<\cdots<x_{k-1}<x_k=b$ dell'intervallo $\cc ab$, definiamo le funzioni
+	\begin{align*}
+		f^-_{x_0,x_1,\dots,x_k}(x)=\sum_{i=0}^{k-1}\chi_{\co{x_i}{x_{i+1}}}(x)\cdot\inf_{t\in\co{x_i}{x_{i+1}}}f(t) \virgola \\
+		f^+_{x_0,x_1,\dots,x_k}(x)=\sum_{i=0}^{k-1}\chi_{\co{x_i}{x_{i+1}}}(x)\cdot\sup_{t\in\co{x_i}{x_{i+1}}}f(t) \punto
+	\end{align*}
+
+	Con le definizioni mostrate è facile accorgersi che l'integrale di Riemann allora è l'estremo superiore dell'integrale di Lebesgue delle funzioni semplici $f^-_{x_0,\dots,x_k}$ su tutte le partizioni e analogamente l'estremo inferiore dell'integrale di Lebesgue delle funzioni semplici $f^+_{x_0,\dots,x_k}$ ancora su tutte le partizioni.
+	Allora, per la monotonia dell'integrale di Lebesgue è facile accorgersi che
+	\begin{multline*}
+		\int_{\cc ab}f(x)\de x\le \\
+		\inf_{a=x_0<\dots<x_k=b}\left\{\int_{\cc ab}f^+_{x_0,\dots,x_k}(x)\de x\right\}
+		=\int_a^b f(x)\de x= 
+		\sup_{a=x_0<\dots<x_k=b}\left\{\int_{\cc ab}f^-_{x_0,\dots,x_k}(x)\de x\right\}\\
+		 \le \int_{\cc ab} f(x)\de x
+	\end{multline*}
+	e ciò equivale ovviamente alla tesi.
+\end{proof}
+
+
 \begin{proposition}
 	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
 	\begin{equation}
