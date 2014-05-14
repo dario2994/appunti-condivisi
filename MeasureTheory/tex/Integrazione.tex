@@ -202,7 +202,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
 	\end{equation*}
-	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per \cref{prop:IntegralePositive}, ho che
+	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per la \cref{prop:IntegralePositive}, ho che
 	\begin{equation*}
 		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu
 	\end{equation*}
@@ -316,12 +316,12 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{corollary}\label{cor:ConvergenzaL1Dominata}
-	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$, cioè $\LNorm{f-f_n}\to 0$.
+	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$.
 \end{corollary}
 \begin{proof}
 	La dimostrazione è ovvia, infatti 
 	\begin{equation*}
-		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}\to 0=\int |f-f_n|\de\mu\to 0
+		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}=\int |f-f_n|\de\mu\to 0
 	\end{equation*}
 
 \end{proof}
@@ -329,7 +329,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 
 \begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
-	Data una funzione $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e $\lambda>0$ vale
+	Data una funzione $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
 	\begin{equation*}
 		\mu\left(\left\{x:\ |f(x)|>\lambda\right\}\right) \le \frac{\LNorm f}{\lambda}
 	\end{equation*}
@@ -366,7 +366,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	
 	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
 	
-	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$; abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
+	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$. Abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
 	\begin{equation*}
 		\simp=\sum_{k=1}^n c_k\chi_{F_k} \Longrightarrow \int_X\simp\de\mu=\sum_{k=1}^n c_k\mu(F_k)=0
 	\end{equation*}
