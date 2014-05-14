@@ -8,4 +8,4 @@ Integrazione per serie | Giada | Fatto
 Commutazione tra integrale e derivata
 Fubini-Tonelli (iniziato da Federico, che non riesce a concluderlo)
 Se due funzioni coincidono quasi ovunque, allora una è misurabile se e solo se lo è l'altra.
-La solita chiusura monotona delle misurabili becca tutte le misurabili. | Marco
+La solita chiusura monotona delle misurabili becca tutte le misurabili. | Marco | fatto
