@@ -1,10 +1,11 @@
 Visto che se apriamo issue su github girano milioni di mail e la cosa non si può disattivare, in questo file scrivo un po' di cose che mancano.
 Ci si deve prenotare accanto.
 
-Misura di Lebesgue in R^n | Federico
-La cardinalità dei Boreliani | Marco
-Lo spazio quozientato L^1 | Giada
-Integrazione per serie
+Misura di Lebesgue in R^n | Federico | Fatto
+La cardinalità dei Boreliani | Marco | Fatto
+Lo spazio quozientato L^1 | Giada | Fatto
+Integrazione per serie | Giada | Fatto
 Commutazione tra integrale e derivata
 Fubini-Tonelli (iniziato da Federico, che non riesce a concluderlo)
-
+Se due funzioni coincidono quasi ovunque, allora una è misurabile se e solo se lo è l'altra.
+La solita chiusura monotona delle misurabili becca tutte le misurabili.
