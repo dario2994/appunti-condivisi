@@ -19,7 +19,7 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 \end{definition}
 
 \begin{definition}\label{def:SemianelloProdotto}
-	Dati due spazi misurabili $(X,\A)$, $(Y,\B)$ definiamo, con abuso di notazione, $\A\times\B$ come la famiglia degli insiemi $A\times B$ dove $A\in\A$ e $B\in\B$.
+	Dati due spazi misurabili $(X,\A)$, $(Y,\B)$ definiamo, con abuso di notazione, $\A\times\B$ come la famiglia degli insiemi $A\times B$ dove $A\in\A$ e $B\in\B$, che chiameremo rettangoli.
 \end{definition}
 
 \begin{proposition}\label{prop:SemianelloProdotto}
@@ -69,6 +69,33 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	\end{align*}
 	che è la tesi cercata.
 \end{proof}
+
+\begin{definition}\label{def:SigAlgProdotto}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $\A\otimes\B\subseteq \mathcal P(X\times Y)$ la \sigalg{} generata da $\A\times\B$. 
+\end{definition}
+
+\begin{proposition}\label{def:SezioniMisurabili}
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura ed $E\in\A\otimes\B$, le sue sezioni trasversali sono misurabili, cioè
+	\begin{align*}
+		\forall x\in X:\ &J^X_x(E)\in\B \virgola \\
+		\forall y\in Y:\ &J^Y_y(E)\in\A \punto
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	\newcommand{\C}{\ensuremath{\mathscr C}}
+	Sia $\C\subset\mathcal P(X\times Y)$, l'insieme dei sottoinsiemi di $X\times Y$ tali che tutte le sezioni trasversali (come definite implicitamente nell'enunciato) sono misurabili.
+	Dimostriamo ora che $\A\times\B\subseteq \C$ e che $\C$ è una \sigalg{}.
+	
+	Dato un rettangolo $A\times B\in\A\times B$, è chiaro che le sue sezioni trasversali o sono $A$ o $B$ o vuote e in ogni caso risultano misurabili, perciò vale $A\times B\in\C$ e visto che il rettangolo è stato scelto arbitrariamente se ne ricava $\A\times\B\subseteq \C$.
+	
+	Dato $E\in\C$, è chiaro che $E^\mathsf{c}\in\C$, visto che le sezioni del complementare sono il complementare delle sezioni e perciò sono anch'esse misurabili.
+	
+	Data una successione $(E_i)_{i\in\N}$, le sezioni dell'unione $\bigcup_{i\in\N}E_i$ sono facilmente l'unione delle sezioni e quindi anch'esse misurabili. Perciò, per definizione di $\C$, anche $\bigcup_{i\in\N}E_i\in\C$.
+	Allora unendo quanto detto si ricava come cercato che $\C$ è una \sigalg{}.
+	
+	Per concludere basta ricordare che $\A\otimes\B$ è la più piccola \sigalg{} che contiene $\A\times\B$ e visto che $\C$ è una \sigalg{} che contiene $\A\times\B$, deve essere $\A\otimes\B\subseteq\C$. Allora $E\in\A\otimes\B$ implica $E\in\C$ e per definizione di $\C$ questo comporta la tesi.
+\end{proof}
+
 
 %TODO MIgliorare da qui in poi.
 
