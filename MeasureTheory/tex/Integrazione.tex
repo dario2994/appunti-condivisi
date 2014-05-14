@@ -273,18 +273,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{definition}
 	Dato uno spazio di misura $(X,\A,\mu)$ definiamo
 	\begin{equation*}
-		\L^1(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
+		\L(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
 	\end{equation*}
-	A volte utilizzeremo la notazione più compatta $\L^1$, quando sarà ovvio lo spazio di misura su cui stiamo lavorando.
+	A volte utilizzeremo la notazione più compatta $\L$, quando sarà ovvio lo spazio di misura su cui stiamo lavorando.
 \end{definition}
 
 \begin{proposition}\label{prop:L1VettorialeConSeminorma}
-	$\L^1(X,\A,\mu)$ è uno spazio vettoriale e $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$.
+	$\L(X,\A,\mu)$ è uno spazio vettoriale e $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$.
 \end{proposition}
 \begin{proof}
-	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L^1(X,\A,\mu)$ è uno spazio vettoriale. 
+	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L(X,\A,\mu)$ è uno spazio vettoriale. 
 	
-	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L^1(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
+	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
 \end{proof}
 
 \begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
@@ -311,7 +311,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{corollary}\label{cor:ConvergenzaL1Dominata}
-	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L^1(X,\A,\mu)$, cioè $\LNorm{f-f_n}\to 0$.
+	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$, cioè $\LNorm{f-f_n}\to 0$.
 \end{corollary}
 \begin{proof}
 	La dimostrazione è ovvia, infatti 
@@ -392,14 +392,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 
-Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L^1(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
+Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
 
 \begin{lemma}\label{lemma:SottospazioTrascurabili}
 	L'insieme definito da
 	\begin{equation*}
-		\mathcal{N}=\{ f\in\L^1(X,\A,\mu) : \LNorm{f}=0\}
+		\mathcal{N}=\{ f\in\L(X,\A,\mu) : \LNorm{f}=0\}
 	\end{equation*}
-	è un sottospazio vettoriale di $\L^1(X,\A,\mu)$.
+	è un sottospazio vettoriale di $\L(X,\A,\mu)$.
 \end{lemma}
 \begin{proof}
 	Per il \cref{cor:ProprietaNormaL1} abbiamo che $\mathcal{N}$ è chiuso sia per moltiplicazione per scalare che per somma, quindi è uno spazio vettoriale in quanto contiene facilmente la funzione nulla.
@@ -408,11 +408,11 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 \begin{definition}
 	Definiamo lo spazio vettoriale
 	\begin{equation*}
-		L^1(X,\A,\mu)\doteqdot \L^1(X,\A,\mu)/\mathcal{N}
+		L^1(X,\A,\mu)\doteqdot \L(X,\A,\mu)/\mathcal{N}
 	\end{equation*}
-	dove $\mathcal{N}$ è il sottospazio vettoriale di $\L^1(X,\A,\mu)$ definito nel \cref{lemma:SottospazioTrascurabili}.
+	dove $\mathcal{N}$ è il sottospazio vettoriale di $\L(X,\A,\mu)$ definito nel \cref{lemma:SottospazioTrascurabili}.
 	
-	Definiamo inoltre su tale spazio $L^1(X,\A,\mu)$ la norma indotta dalla seminorma già definita su $\L^1(X,\A,\mu)$. Cioè in particolare dato $f+\mathcal{N}\in L^1$ abbiamo che $\LNorm{f+\mathcal{N}}=\LNorm f$.
+	Definiamo inoltre su tale spazio $L^1(X,\A,\mu)$ la norma indotta dalla seminorma già definita su $\L(X,\A,\mu)$. Cioè in particolare dato $f+\mathcal{N}\in L^1$ abbiamo che $\LNorm{f+\mathcal{N}}=\LNorm f$.
 \end{definition}
 
 \begin{remark}
@@ -426,7 +426,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 \begin{theorem}[Integrazione per serie]\label{thm:IntegrazionePerSerie}
 	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
 	
-	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$ per cui $\sum_{n=0}^\infty f_n(x)$ converge assolutamente, e $f(x)$ assume un valore arbitrario altrimenti, vale che $f\in \L^1(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
+	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$ per cui $\sum_{n=0}^\infty f_n(x)$ converge assolutamente, e $f(x)$ assume un valore arbitrario altrimenti, vale che $f\in \L(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
 \end{theorem}
 
 \begin{proof}
@@ -455,7 +455,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu
 	\end{equation*}
 
-	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{cor:IntegraleAMenoDiTrascurabili} che $f\in \L^1(X,\A,\mu)$ e che vale
+	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{cor:IntegraleAMenoDiTrascurabili} che $f\in \L(X,\A,\mu)$ e che vale
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
 	\end{equation*}
@@ -463,7 +463,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 \end{proof}
 
 \begin{remark}\label{nota:ConvergenzaL1IntegrazionePerSerie}
-	Da notare che dalla dimostrazione, ricordando il \cref{cor:ConvergenzaL1Dominata}, segue anche che la convergenza di $s_n$ ad $f$ è in $\L^1(X,\A,\mu)$ ed è dominata, infatti $|s_n|\le g$.
+	Da notare che dalla dimostrazione, ricordando il \cref{cor:ConvergenzaL1Dominata}, segue anche che la convergenza di $s_n$ ad $f$ è in $\L(X,\A,\mu)$ ed è dominata, infatti $|s_n|\le g$.
 \end{remark}
 
 
@@ -476,24 +476,24 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 \end{proof}
 
 \begin{proposition}\label{prop:L1ImplicaSottosuccessioneQuasiOvunque}
-	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L^1(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge quasi ovunque ad $f$ ed è dominata in $\L^1(X,\A,\mu)$.
+	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge quasi ovunque ad $f$ ed è dominata in $\L(X,\A,\mu)$.
 \end{proposition}
 
 \begin{proof}
 	Per la \cref{nota:ConvergenzaL1IntegrazionePerSerie} $\LNorm{f-f_n}\to 0$, quindi possiamo definire $(f_{n_k})_{k\in\N}$ tale che $\LNorm{f-f_{n_k}}<2^{-k}$ e la successione $(n_k)_{k\in\N}$ sia crescente.
 	
-	Sia ora $h_k=f_{n_{k+1}}-f_{n_k}$ per ogni $k\in\N$. La successione $(h_k)$ rispetta le ipotesi del \cref{thm:IntegrazionePerSerie}, in quanto $\sum_{k=0}^\infty \LNorm {h_k}\le \sum_{k=0}^\infty 2^{-k}$, quindi la serie $\sum_{k=0}^\infty h_k$ converge quasi ovunque ed è dominata in $\L^1(X,\A,\mu)$.
+	Sia ora $h_k=f_{n_{k+1}}-f_{n_k}$ per ogni $k\in\N$. La successione $(h_k)$ rispetta le ipotesi del \cref{thm:IntegrazionePerSerie}, in quanto $\sum_{k=0}^\infty \LNorm {h_k}\le \sum_{k=0}^\infty 2^{-k}$, quindi la serie $\sum_{k=0}^\infty h_k$ converge quasi ovunque ed è dominata in $\L(X,\A,\mu)$.
 	
 	Abbiamo quindi ottenuto che $f_{n_k}=f_{n_0}+\sum_{i=0}^{k-1}(f_{n_{i+1}}-f_{n_i})=f_{n_0}+\sum_{i=0}^{k-1} h_i$ converge quasi ovunque alla funzione $f$ e la successione $(f_{n_k})_{k\in\N}$ è dominata.
 \end{proof}
 
 \begin{remark}
-	Notiamo che la tesi della \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque} non può essere migliorata. Infatti in genere non è vero che se una successione di funzioni integrabili $(f_n)$ converge ad $f$ in $\L^1(X,\A,\mu)$, allora converge quasi ovunque ad $f$.
+	Notiamo che la tesi della \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque} non può essere migliorata. Infatti in genere non è vero che se una successione di funzioni integrabili $(f_n)$ converge ad $f$ in $\L(X,\A,\mu)$, allora converge quasi ovunque ad $f$.
 \end{remark}
 \begin{proof}
 	Sia $(f_n)$ la successione di funzioni integrabili definita da $f_n=\chi_{I_n}$, dove $I_n=\left[\frac{n-2^k}{2^k},\frac{n-2^k+1}{2^k}\right]$ se $2^k\le n<2^{k+1}$. In particolare quindi i primi termini della successione $(I_n)$ sono $I_1=\left[0,1\right],I_2=\left[0,\frac 12\right],I_3=\left[\frac 12,1\right],I_4=\left[0,\frac 14\right],\cdots$. 
 	
-	È facile verificare che in $\L^1(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
+	È facile verificare che in $\L(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
 
 \end{proof}
 
