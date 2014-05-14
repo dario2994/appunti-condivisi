@@ -595,12 +595,24 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	ma questo non può essere per definizione di $k$ e perciò otteniamo che $A-k$ è disgiunto da $T$, che è la tesi.
 \end{proof}
 
-\begin{theorem}[Steinhaus]\label{thm:Steinhaus}%TODO
+\begin{theorem}[Steinhaus]\label{thm:Steinhaus}
 	Dato un misurabile $A\in\M_n$ non trascurabile, l'insieme $A-A=\{a_1-a_2:\ a_1,a_2\in A\}$ contiene un intorno di $0$.
 \end{theorem}
 \begin{proof}
-	TODO.
-	Probabilmente da fare usando il solito risultato indimostrabile sulla chiusura monotona 3 o 4 volte.
+	Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, fissato $\epsilon>0$, esistono $H\supseteq A$ aperto e $C\subseteq A$ chiuso tali che
+	\[
+		m_n(C)+\epsilon > m_n(A) > m_n(H)-\epsilon\punto
+	\]
+	Inoltre, dato che $C$ è chiuso e che $H^\mathsf{c}$ è chiuso e che $C \cap H^\mathsf{c} = \emptyset$, esiste $\rho>0$ tale che
+	$C+B_{\rho}(0) \cap H^\mathsf{c} = \emptyset$ (basta prendere $\rho = \frac{1}{2}\inf\{|c-h|:c\in C\virgola\ h\in H\}$).
+	Allora si ha che $\forall x\in B_{\rho}(0)$, $C \cap C+x \neq \emptyset$; altrimenti per monotonia della misura si ha
+	\[
+		2m_n(C) = m_n(C)+m_n(C+x) \leq m_n(C+B_{\rho}(0)) \leq m_n(H)\virgola
+	\]
+	ma questo contraddice la disuguaglianza precedente, pur di considerare $\epsilon< \frac{1}{2}m_n(C)$. E ciò è sempre possibile, dato che
+	$m_n(A) > 0$ per ipotesi.
+	
+	La contraddizione implica che $\forall x\in B_{\rho}(0)$ esistono $c_1,c_2$ tali che $c_1+x=c_2$, cioè che $B_{\rho}(0) \subseteq A-A$.
 \end{proof}
 
 
