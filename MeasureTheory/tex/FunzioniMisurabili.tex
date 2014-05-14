@@ -3,7 +3,7 @@
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
 
 La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani usando strumenti propri della teoria della misura.
-Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il risultato è già stato dimostrato, sia perchè la dimostrazione si adatta facilmente in dimensione maggiore sia perchè troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
+Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il risultato è già stato dimostrato, sia perché la dimostrazione si adatta facilmente in dimensione maggiore sia perché troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
 
 \begin{definition}[Funzione misurabile]
 	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
@@ -138,7 +138,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poichè la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
+	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{prop:BorelianiNonMisurabili2}
@@ -146,7 +146,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 \end{proposition}
 \begin{proof}
 	Definiamo la funzione $f:\co{0}{1}\to \co{0}{1}$ in modo che $f(x)$ sia il numero che corrisponde alla lettura in base $3$ della scrittura in base $2$ di $x$.
-	Poichè alcuni numeri hanno due scritture in base $2$, sceglieremo sempre quella che non ha una coda infinita di $1$.
+	Poiché alcuni numeri hanno due scritture in base $2$, sceglieremo sempre quella che non ha una coda infinita di $1$.
 	
 	Qui di seguito un diagramma che mostra la definizione di $f$:
 	\begin{equation*}
@@ -154,7 +154,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 		\> \stackrel{\text{Lettura in base $3$ di $x$ in base $2$}}{\overline{0.x_1x_2x_3\cdots}_3}\>=f(x)
 	\end{equation*}
 
-	La funzione $f$ appena definita è strettamente crescente, poichè lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{MonotoneMisurabili} $f$ è misurabile.
+	La funzione $f$ appena definita è strettamente crescente, poiché lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{MonotoneMisurabili} $f$ è misurabile.
 	
 	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
 	
@@ -255,3 +255,23 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	Costruendo le $\simp_n$ come nella \cref{LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
 \end{proof}
 
+\begin{theorem}\label{thm:ChiusuraMonotona}
+	Sia $\mathcal F$ una famiglia di funzioni da $X$ a $\Rbar$, dove $(X,\A,\mu)$ è uno spazio misurabile tale che
+	\begin{itemize}
+	 \item è uno spazio vettoriale;
+	 \item contiene le funzioni $\chi_A$ $\forall A\in \A$;
+	 \item se $(f_n)\subseteq \mathcal F$ è una successione monotona che converge a $f$, allora $f\in \mathcal F$;
+	\end{itemize}
+	allora $\mathcal F$ contiene tutte le funzioni misurabili.
+\end{theorem}
+\begin{proof}
+	Per prima cosa notiamo che $\mathcal F$ contiene le funzioni semplici: essendo $\mathcal F$ uno spazio vettoriale, contiene le combinazioni
+	lineari delle funzioni caratteristiche, cioè le funzioni semplici.
+	
+	Notiamo allora che per il \cref{LimSemCrescMis}, $\mathcal F$ contiene le funzioni misurabili positive. Allora, data $f$ misurabile,
+	$f = f_+-f_-$
+	\footnote{\label{PartePosNeg}
+		qui e altrove indicheremo con $f_+=\max\{f,0\}$ la parte positiva e con $f_-=\max\{0,-f\}$ di una funzione}
+	quindi è contenuta in $\mathcal F$, ancora per le proprietà di spazio vettoriale, poiché entrambe $f_+,f_-$ sono
+	positive e misurabili.
+\end{proof}
