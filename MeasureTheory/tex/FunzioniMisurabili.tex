@@ -82,7 +82,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 \end{proposition}
 
 \begin{proof}
-	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} in \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità),
+	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} nella \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità),
 	distinguendo vari casi di $a\in \Rbar$.
 	\begin{description}
 	\item[\ref{AlM:sum}]
@@ -138,7 +138,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poichè la funzione è monotona, perciò applicando \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
+	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poichè la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{prop:BorelianiNonMisurabili2}
@@ -154,11 +154,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 		\> \stackrel{\text{Lettura in base $3$ di $x$ in base $2$}}{\overline{0.x_1x_2x_3\cdots}_3}\>=f(x)
 	\end{equation*}
 
-	La funzione $f$ appena definita è strettamente crescente, poichè lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per \cref{MonotoneMisurabili} $f$ è misurabile.
+	La funzione $f$ appena definita è strettamente crescente, poichè lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{MonotoneMisurabili} $f$ è misurabile.
 	
 	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
 	
-	Per \cref{thm:InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non sia misurabile.
+	Per il \cref{thm:InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non sia misurabile.
 	Sia $B=f(A)$.
 	
 	Poichè $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
@@ -178,7 +178,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	È immediato che le funzioni semplici sono misurabili.
 \end{remark}
 \begin{proof}
-	Discende da \cref{CarMis} e \cref{AlgMis}.
+	Discende dalla \cref{CarMis} e dalla \cref{AlgMis}.
 \end{proof}
 
 
@@ -203,7 +203,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 \end{remark}
 \begin{proof}
 	\begin{description}
-		\item[\ref{LM:inf}] Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$, quindi è misurabile per \cref{SupMis};
+		\item[\ref{LM:inf}] Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$, quindi è misurabile per la \cref{SupMis};
 		\item[\ref{LM:lim_infsup}] per definizione, $\limsup\{f_n\}$ e $\liminf\{f_n\}$ sono rispettivamente
 			$\lim_n\{\sup\{f_n\}\}=\inf\{\sup\{f_n\}\}$ e
 			$\lim_n\{\inf\{f_n\}\}=\sup\{\inf\{f_n\}\}$, quindi sono funzioni misurabili per il punto precedente;
@@ -218,7 +218,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\simp_n$ che converge puntualmente a $f$.
 \end{proposition}
 \begin{proof}
-	Il se è mostrato in \cref{LimMis}.
+	Il se è mostrato nella \cref{LimMis}.
 	
 	Per il solo se facciamo vedere che la seguente successione converge puntualmente a $f$:
 	\[
@@ -252,6 +252,6 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perchè il r
 	Sia $f:X\rightarrow \Rbar$ misurabile e positiva su $(X,\A,\mu)$, allora esiste una successione crescente di funzioni semplici e positive $(\simp_n)$ che converge puntalmente a $f$.
 \end{corollary}
 \begin{proof}
-	Costruendo le $\simp_n$ come in \cref{LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
+	Costruendo le $\simp_n$ come nella \cref{LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
 \end{proof}
 

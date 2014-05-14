@@ -278,6 +278,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	A volte utilizzeremo la notazione più compatta $\L$, quando sarà ovvio lo spazio di misura su cui stiamo lavorando.
 \end{definition}
 
+
 \begin{proposition}\label{prop:L1VettorialeConSeminorma}
 	$\L(X,\A,\mu)$ è uno spazio vettoriale e $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$.
 \end{proposition}
@@ -286,6 +287,10 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	
 	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
 \end{proof}
+
+\begin{remark}
+	Dato che $\LNorm{\cdot}$ è una seminorma sullo spazio $\L$, possiamo parlare di convergenza in tale spazio. In particolare diremo che una successione di funzioni integrabili $(f_n)\subseteq \L(X,\A,\mu)$ converge ad $f$ in $\L$ se $\lim_{n\to\infty}\LNorm{f-f_n}=0$.
+\end{remark}
 
 \begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
 	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
