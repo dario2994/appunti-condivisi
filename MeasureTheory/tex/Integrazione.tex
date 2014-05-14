@@ -105,7 +105,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{definition}
 
 \begin{proposition} \label{DefinizioneEquivalenteIntegralePositive}
-	Data una funzione $f:X\to\Rpiu$ semplice e positiva e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
+	Data una funzione $f:X\to\Rpiu$ misurabile e positiva e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}
 	\end{equation*}
@@ -177,7 +177,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{corollary}\label{cor:IntegrazionePerSeriePositive}
-	Sia $(f_n)$ una successione di funzioni misurabili e positive, definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$. Allora esiste $f:X\to\Rbar$ misurabili e positiva tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$, e $\int f\de\mu=\sum_{n=0}^\infty\int f_n\de\mu$.
+	Sia $(f_n)$ una successione di funzioni misurabili e positive, definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$. Allora esiste $f:X\to\Rbar$ misurabile e positiva tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$, e $\int f\de\mu=\sum_{n=0}^\infty\int f_n\de\mu$.
 \end{corollary}
 
 \begin{proof}
@@ -231,7 +231,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{remark}
 
 \begin{lemma}\label{DefinizioneEquivalenteIntegraleIntegrabili}
-	Data una funzione integrabile $f:X\to\Rbar$ e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali $f=g-h$, allora
+	Data una funzione integrabile $f:X\to\Rbar$ e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali che $f=g-h$, allora
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
 	\end{equation*}
