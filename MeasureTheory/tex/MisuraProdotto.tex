@@ -74,7 +74,7 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $\A\otimes\B\subseteq \mathcal P(X\times Y)$ la \sigalg{} generata da $\A\times\B$. 
 \end{definition}
 
-\begin{proposition}\label{def:SezioniMisurabili}
+\begin{proposition}\label{prop:SezioniMisurabili}
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura ed $E\in\A\otimes\B$, le sue sezioni trasversali sono misurabili, cioè
 	\begin{align*}
 		\forall x\in X:\ &J^X_x(E)\in\B \virgola \\
@@ -137,11 +137,36 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 \begin{proposition}\label{prop:PreTonelli}
 	Dato lo spazio di misura prodotto $(X\times Y,\A\otimes\B,\mu\nu)$, per ogni insieme misurabile $E\in\A\otimes\B$ \sigfin[o] vale la seguente espressione per la misura:
 	\begin{equation*}
-		\mu\nu(E)=\int_X\nu(J_x^X(E))\de\mu(x)=\int_Y\mu(J_y^Y(E))\de\nu(y)\punto
+		\mu\nu(E)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)=\int_Y\mu\left(J_y^Y(E)\right)\de\nu(y)\punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	%TODO
+	\newcommand{\E}{\ensuremath{\mathscr E}}
+	Useremo implicitamente che, per quanto dimostrato nella \cref{prop:SezioniMisurabili}, le sezioni di insiemi misurabili nel prodotto sono misurabili anch'esse.
+	Inoltre dimostreremo solo la prima uguaglianza della tesi, la seconda risulterà di conseguenza vera per simmetria.
+	
+	Sia $\E\subseteq \A\otimes\B$ l'insieme degli insiemi misurabili sul prodotto \sigfin[i] che rispettano la tesi (solo la prima uguaglianza).
+	
+	Dimostriamo che $\E$ contiene i rettangoli ed è chiuso per intersezione monotona e unione disgiunta (numerabili).
+	
+	Sfruttando solo le definizioni degli operatori in gioco, si ha
+	\begin{equation*}
+		\forall A\times B\in\A\times\B:\ \mu\nu(A\times B)=\mu(A)\nu(B)=\int_X \chi_A(x)\nu(B)\de\mu(x)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)
+	\end{equation*}
+	e questo dimostra che $\A\times\B\subseteq \E$ come voluto.
+	
+	Fissati $(E_i)_{i\in\N}\subseteq \E$ disgiunti, è banale verificare
+	\begin{equation*}
+		\bigsqcup_{i\in\N}J_x^X(E_i)=J_x^X\left(\bigsqcup_{i\in\N}E_i\right)\virgola
+	\end{equation*}
+	da cui segue, ricordando che la tesi vale per gli $E_i$ ed applicando la commutazione tra integrale e serie mostrata nel \cref{cor:IntegrazionePerSeriePositive}, l'uguaglianza
+	\begin{align*}
+		\mu\nu\left(\bigsqcup_{i\in\N}E_i\right)&=\sum_{i\in\N}\mu\nu(E_i)=\sum_{i\in\N}\int_X \nu\left(J_x^X(E_i)\right)\de\mu(x)\\
+		&=\int_X\sum_{i\in\N}\nu\left(J_x^X\left(E_i\right)\right)\de\mu(x)=\int_X\nu\left(J_x^X\left(\bigsqcup_{i\in\N}E_i\right)\right)\punto
+	\end{align*}
+	Quest'ultima uguaglianza dimostra, osservando che l'unione numerabile di insiemi \sigfin[i] è \sigfin[a], che $\bigsqcup_{i\in\N}E_i\in\E$ e perciò, vista la scelta arbitraria degli $E_i$, ne ricaviamo che $\E$ è chiuso per unione disgiunta.
+	
+	Infine siano $(E_i)_{i\in\N}\subseteq \E$ che si contengono decrescentemente $E_{i+1}\subseteq E_i$. (QUI DEVO USARE LA SIGMAFINITEZZA PER DAVVERO)
 \end{proof}
 
 %TODO MIgliorare da qui in poi.
