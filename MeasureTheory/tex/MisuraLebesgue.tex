@@ -79,7 +79,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 
 
 \begin{lemma}\label{lem:LebesgueElementareFinita}
-	Dati $(S_i)_{1\le i\le k},S\subseteq \S_n$, valgono le seguenti disuguaglianze:
+	Dati $(S_i)_{1\le i\le k}\subseteq \S_n$ e $S\in\S_n$, valgono le seguenti disuguaglianze:
 	\begin{itemize}
 		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$ allora risulta
 		\begin{equation*}
@@ -102,7 +102,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\end{equation*}
 	dove $\epsilon>0$ è definito come
 	\begin{equation*}
-		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_o\}
+		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_i\}
 	\end{equation*}
 \end{definition}
 \begin{remark}\label{nota:ParteInternaAllargamento}
@@ -137,7 +137,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Per quanto mostrato nel \cref{lem:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
 	
 	Resta da dimostrare solo che $m_n$ è \sigadd{} su $\S_n$.
-	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta da $S\in\S_n$.
+	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta dà $S\in\S_n$.
 	
 	Applicando il \cref{lem:LebesgueElementareFinita} abbiamo facilmente
 	\begin{equation*}
@@ -152,7 +152,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che la successione composta dalle parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ è un ricoprimento del compatto $S$.
 	Perciò esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S$.
 	
-	Sfruttando ancora il \cref{lem:LebesgueElementareFinita} e applicando \cref{prop:MisuraAllargamento} otteniamo
+	Sfruttando ancora il \cref{lem:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
 	\begin{equation*}
 		\sum_{i\in\N}m_N(S_i)\ge \sum_{i\in I}m_N(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
 		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
@@ -198,10 +198,10 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 Ora che abbiamo ottenuto una premisura su $\R^n$, applicheremo il teorema di Caratheodory per ricavarne quindi una misura su $\R^n$. 
-Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per poi caratterizzarla come l'unica misura che coincida con la nozione intutitiva di volume, cioè sia invariante per traslazione e sia normalizzata sul cubo unitario.
+Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per poi caratterizzarla come l'unica misura che coincida con la nozione intuitiva di volume, cioè sia invariante per traslazione e sia normalizzata sul cubo unitario.
 
 \begin{definition}\label{def:LebesgueMisura}
-	Dato lo spazio $(\R^n,\S_n,m_n)$ che si è mostrato essere di misura elementare nel \cref{thm:LebesguePremisura}, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
+	Dato lo spazio $(\R^n,\S_n,m_n)$, che si è mostrato essere di misura elementare nel \cref{thm:LebesguePremisura}, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
 	Inoltre indicheremo con $m_n^*:\mathcal P(\R^n)\to\Rpiu$ la misura esterna associata a $m_n$, che quindi ridotta su $\M_n$ coincide con la misura di Lebesgue.
 \end{definition}
 
@@ -599,14 +599,14 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Dato un misurabile $A\in\M_n$ non trascurabile, l'insieme $A-A=\{a_1-a_2:\ a_1,a_2\in A\}$ contiene un intorno di $0$.
 \end{theorem}
 \begin{proof}
-	Innanzitutto notiamo che si può supporre $A$ limitato e di misura finita. Consideriamo infatti una numerazione $(B_n)$ dei ``cubi'' di $\R^n$ di lato 1, con vertici a valori negli interi (cioè ogni $B_n$ sarà della forma $B_n=[m_1,m_1+1]\times\cdots\times[m_n,m_n+1]$ con $m_1,\dots,m_n\in\Z$). Allora abbiamo che $A_n=A\cap B_n$ è misurabile di misura finita per ogni $n\in\N$. Inoltre almeno uno degli $A_n$ deve avere misura diversa da 0 per la \cref{UnioneTrascurabili}. Tale $A_n$ rispetta quindi esso stesso le ipotesi del teorema e se la tesi valesse per questo $A_n$ limitato varrebbe banalmente anche per $A$. Ci basta quindi dimostrare la tesi per $A$ limitato e di conseguenza anche di misura finita.
+	Innanzitutto notiamo che si può supporre $A$ limitato e di misura finita. Consideriamo infatti una numerazione $(B_n)$ degli $n$-cubi chiusi di $\R^n$ di lato 1, con vertici a valori negli interi (cioè ogni $B_n$ sarà della forma $B_n=[m_1,m_1+1]\times\cdots\times[m_n,m_n+1]$ con $m_1,\dots,m_n\in\Z$). Allora abbiamo che $A_n=A\cap B_n$ è misurabile di misura finita per ogni $n\in\N$. Inoltre almeno uno degli $A_n$ deve avere misura diversa da 0 per la \cref{UnioneTrascurabili}. Tale $A_n$ rispetta quindi esso stesso le ipotesi del teorema e se la tesi valesse per questo $A_n$ limitato varrebbe banalmente anche per $A$. Ci basta quindi dimostrare la tesi per $A$ limitato e di conseguenza anche di misura finita.
 	
 	Per il \cref{thm:LebesgueEquivalenzeMisurabilita} e poichè $A$ ha misura finita, fissato $\epsilon>0$, esistono $H\supseteq A$ aperto e $C\subseteq A$ chiuso tali che
 	\[
 		m_n(C)+\epsilon > m_n(A) > m_n(H)-\epsilon\punto
 	\]
-	Inoltre, dato che $C$ è chiuso e limitato, $H^\mathsf{c}$ è chiuso e $C \cap H^\mathsf{c} = \emptyset$, esiste $\rho>0$ tale che
-	$(C+B_{\rho}(0)) \cap H^\mathsf{c} = \emptyset$ (basta prendere $\rho = \frac{1}{2}\inf\{|c-h|:c\in C\virgola\ h\in H\}$).
+	Inoltre, dato che $C$ è chiuso e limitato (quindi compatto), $H^\mathsf{c}$ è chiuso e $C \cap H^\mathsf{c} = \emptyset$, esiste $\rho>0$ tale che
+	$(C+B_{\rho}(0)) \cap H^\mathsf{c} = \emptyset$ (basta prendere $\rho = \frac{1}{2}\inf\{|c-h|:c\in C\virgola\ h\in H\}$, che è maggiore di 0 per la compattezza di $C$).
 	Allora si ha che $\forall x\in B_{\rho}(0)$, $C \cap (C+x) \neq \emptyset$; altrimenti per monotonia della misura si avrebbe
 	\[
 		2m_n(C) = m_n(C)+m_n(C+x) \leq m_n(C+B_{\rho}(0)) \leq m_n(H)\virgola
