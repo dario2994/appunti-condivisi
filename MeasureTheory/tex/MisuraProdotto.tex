@@ -145,7 +145,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	Useremo implicitamente che, per quanto dimostrato nella \cref{prop:SezioniMisurabili}, le sezioni di insiemi misurabili nel prodotto sono misurabili anch'esse.
 	Inoltre dimostreremo solo la prima uguaglianza della tesi, la seconda risulterà di conseguenza vera per simmetria.
 	
-	Sia $\E\subseteq \A\otimes\B$ l'insieme degli insiemi misurabili sul prodotto \sigfin[i] che rispettano la tesi (solo la prima uguaglianza).
+	Sia $\E\subseteq \A\otimes\B$ l'insieme degli insiemi misurabili sul prodotto con \emph{misura finita} che rispettano la tesi (solo la prima uguaglianza).
 	
 	Dimostriamo che $\E$ contiene i rettangoli ed è chiuso per intersezione numerabile monotona e unione numerabile disgiunta.
 	
@@ -164,13 +164,11 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 		\mu\nu\left(\bigsqcup_{i\in\N}E_i\right)&=\sum_{i\in\N}\mu\nu(E_i)=\sum_{i\in\N}\int_X \nu\left(J_x^X(E_i)\right)\de\mu(x)\\
 		&=\int_X\sum_{i\in\N}\nu\left(J_x^X\left(E_i\right)\right)\de\mu(x)=\int_X\nu\left(J_x^X\left(\bigsqcup_{i\in\N}E_i\right)\right)\punto
 	\end{align*}
-	Quest'ultima uguaglianza dimostra, osservando che l'unione numerabile di insiemi \sigfin[i] è \sigfin[a], che $\bigsqcup_{i\in\N}E_i\in\E$ e perciò, vista la scelta arbitraria degli $E_i$, ne ricaviamo che $\E$ è chiuso per unione disgiunta.
+	Quest'ultima uguaglianza dimostra, nel caso in cui l'unione degli $E_i$ abbia misura finita, che $\bigsqcup_{i\in\N}E_i\in\E$ e perciò, vista la scelta arbitraria degli $E_i$, ne ricaviamo che $\E$ è chiuso per unione disgiunta.
 	
 	Infine siano $(E_i)_{i\in\N}\subseteq \E$ che si contengono decrescentemente $E_{i+1}\subseteq E_i$.
-	Per la \sigfin[ezza] di $E_1$, esistono $(F_i)_{i\in\N}\subseteq \A\otimes\B$ disgiunti, con misura finita $\mu\nu(F_i)<+\infty$, tali che la loro unione contiene $E_1$ e di conseguenza contiene ogni $E_i$.
-	Chiamiamo allora $E_i^j=E_i\cap F_j$. Per la monotonia della misura $\mu\nu(E_i^j)<+\infty$ per ogni $i,j\in\N$ e anche la successione $(E_i^j)_{i\in\N}$ è monotona decrescente.
 	
-	Allora ora, ricordando il  e
+	Allora, ricordando il \cref{cor:LimiteMonotonoDecrescenteMisura} e il \cref{thm:ConvergenzaDominata}, otteniamo
 	
 	
 \end{proof}

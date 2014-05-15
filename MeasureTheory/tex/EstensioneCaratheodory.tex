@@ -153,7 +153,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 
-\begin{proposition}\label{thm:EquivalenzeMisurabilitaSottoinsieme}
+\begin{theorem}\label{thm:EquivalenzeMisurabilitaSottoinsieme}
 	Dato $(X,\S,\mu)$ una spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Sia $A\subseteq X$ tale che sia \emph{\sigfin[o] rispetto alla premisura}, cioè sia contenuto in un unione numerabile di elementi di $\S$ con misura finita.
@@ -165,7 +165,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\item Esiste $B\in\sigma A(S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.\label{SigmaDaFuoriEquivalenze}
 		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.\label{SigmaDaDentroEquivalenze}
 	\end{enumerate}
-\end{proposition}
+\end{theorem}
 \newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 \begin{proof}
 	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
@@ -247,29 +247,34 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Visto che abbiamo ottenuto entrambi i contenimenti, risulta come richiesto che i misurabili coincidono con il completamento della \sigalg{} generata da $\S$.
 \end{proof}
 
-
-
-
 \begin{corollary}\label{cor:ChiusuraMonotonaInsiemi}
 	Dato un insieme $K$ chiamiamo limite monotono di $K$, indicandolo con $\hat K$, l'insieme
 	\begin{equation*}
 		\left\{\bigsqcup_{n\in\N}K_n:(K_n)_{n\in\N}\subseteq K\wedge K_n \text{ disgiunti}\right\}\cup
 		\left\{\bigcap_{n\in\N}K_n:\ (K_n)_{n\in\N}\subseteq K\ \wedge\ K_{n+1}\subseteq K_n\right\} \punto
 	\end{equation*}
-	Nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme}, sia $A$ un misurabile \sigfin[o].
-
-	Allora esiste $B\in\hat{\hat\S}$ che coincide con $A$ a meno di un sottoinsieme trascurabile.
+	
+	Nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme}, dato $A$ un misurabile \sigfin[o], esiste $B\in\hat{\hat\S}$ che contiene $A$ e tale che $\mu(B\setminus A)=0$.
 \end{corollary}
 \begin{proof}
 	Poichè siamo nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} ed $A$ è misurabile, di certo valgono le varie implicazioni, quindi assumiamone implicitamente la validità.
 	
-	Notiamo che nella dimostrazione di \ImplicationProof{UnioniDaFuoriEquivalenze}{SigmaDaFuoriEquivalenze} del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} scriviamo $B$, che è per l'appunto un insieme che coincide con $A$ a meno di un sottoinsieme trascurabile, come intersezione numerabile di $(S_n)_{n\in\N}\subseteq \sqcup \S$.
+	Notiamo che nella dimostrazione di \ImplicationProof{UnioniDaFuoriEquivalenze}{SigmaDaFuoriEquivalenze} del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} scriviamo $B$, che è per l'appunto un insieme che contiene $A$ e tale che $\mu(B\setminus A)=0$, come intersezione numerabile di $(S_n)_{n\in\N}\subseteq \sqcup \S$.
 	Avremmo finito se quest'intersezione fosse monotona, visto che $\sqcup \S\subseteq \hat \S$.
 	Ma questo è facile da ottenere, sfruttando questa scrittura:
 	\begin{equation*}
 		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n
 	\end{equation*}
 	dove gli elementi che interseco rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato in \cref{UnioneDisgiuntaQuasiAlgebra}).
+\end{proof}
+
+\begin{corollary}\label{cor:ChiusuraMonotonaInsiemiFiniti}
+	Dato $(X,\A,\mu)$ uno spazio di misura, se $T\subseteq\A$ è un sottoinsieme dei misurabili sia $T^F=\{A\in T:\ \mu(A)<+\infty\}$ il sottoinsieme degli insiemi con misura finita.
+	
+	Esattamente nelle stesse ipotesi del \cref{cor:ChiusuraMonotonaInsiemi}, dato $A$ misurabile \emph{finito}, esiste $B\in\widehat{{\widehat{\S^F}}^F}$ che coincide con $A$ a meno di un sottoinsieme trascurabile ma stavolta assumendo che se 
+\end{corollary}
+\begin{proof}
+	La dimostrazione è ovvia notando che, se $A$ è finito, gli insiemi $(S_n)_{n\in\N}$ che uso nella dimostrazione del \cref{cor:ChiusuraMonotonaInsiemi} possono essere scelti anch'essi finiti (essendo insiemi che approssimano da fuori $A$ a meno di un insiemi di misura piccola).
 \end{proof}
 
 
