@@ -169,8 +169,28 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	Infine siano $(E_i)_{i\in\N}\subseteq \E$ che si contengono decrescentemente $E_{i+1}\subseteq E_i$.
 	
 	Allora, ricordando il \cref{cor:LimiteMonotonoDecrescenteMisura} e il \cref{thm:ConvergenzaDominata}, otteniamo
+	\begin{align*}
+		\mu\nu\left(\bigcap_{i\in\N}E_i\right)&=\lim_{i\in\N}\mu\nu(E_i)=
+		\lim_{i\in\N}\int_X\nu\left(J_x^X(E_i)\right)\de\mu(x)\\
+		&=\int_X\lim_{i\in\N}\nu\left(J_x^X(E_i)\right)\de\mu(x)=
+		\int_X\nu\left(J_x^X\left(\bigcap_{i\in\N}E_i\right)\right)\de\mu(x)\virgola
+	\end{align*}
+	dove nei vari passaggi abbiamo usato implicitamente che gli $E_i$ si contengono vicendevolmente.
+	È facile verificare che quanto scritto equivale a dire $\bigcap_{i\in\N}E_i\in\E$, perciò, sempre per l'arbitrarietà della scelta degli $E_i$, ne segue che $\E$ è chiuso per intersezione monotona.
 	
+	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}\subseteq\E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo Caratheodory, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
+	Però per la \cref{prop:TrascurabiliProdotto} l'insieme trascurabile $E\setminus F$ appartiene ad $\E$, e quindi vale
+	\begin{align*}
+		\mu\nu(F)&=\mu\nu(E)-\mu\nu(E\setminus F)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)-\int_X\nu\left(J_x^X(E\setminus F)\right)\de\mu(x)\\
+		&=\int_X\nu\left(J_x^X(E\setminus F)\right)-\nu(\left(J_x^X(E)\right)\de\mu(x)
+		=\int_X\nu\left(J_x^X(F)\right)\de\mu(x)\virgola
+	\end{align*}
+	dove nei passaggi intermedi abbiamo ripetutamente usato che $E$ contiene $F$.
+	Ma l'identità equivale a $F\in\E$ e perciò, poichè $F$ è un qualsiasi insieme misurabile sul prodotto con misura finita, è dimostrato che ogni insieme di misura finita appartiene a $\E$.
 	
+	Per concludere la dimostrazione sia $G\in\A\otimes\B$ un insieme misurabile \sigfin[o]. Per l'ipotesi di \sigfin[ezza], esiste una famiglia $(F_i)_{i\in\N}\subseteq \A\otimes\B$ di insiemi disgiunti di misura finita la cui unione coincide con $G$.
+	
+	Ricordando la dimostrazione del fatto che $\E$ è chiuso per unione disgiunta, notiamo che abbiamo già dimostrato che l'unione disgiunta di elementi di $\E$ rispetta anch'essa la tesi, indipendentemente dal fatto che sia anch'essa di misura finita o meno. Questo però dimostra che la tesi vale anche per $G$ visto che $F_i\in\E$, essendo misurabili di misura finita, e $G$ si può scrivere come unione numerabile disgiunta degli $F_i$. 
 \end{proof}
 
 %TODO MIgliorare da qui in poi.
