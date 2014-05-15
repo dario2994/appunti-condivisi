@@ -276,7 +276,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura $m_n$ definita su $\S_n$.
 \end{proposition}
 \begin{proof}
-	È una banale conseguenza di \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato in \cref{prop:SigAlgUgualeBoreliani}.
+	È una banale conseguenza della \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato nella \cref{prop:SigAlgUgualeBoreliani}.
 \end{proof}
 
 \begin{remark}\label{nota:LebesgueProprieta}
@@ -304,11 +304,11 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 \end{theorem}
 \begin{proof}
 	L'idea della dimostrazione è provare che $\mu$ e $m_n$ coincidono sugli elementi di $\S_n$ con estremi interi, poi con estremi razionali ed infine con estremi generici.
-	Una volta ottenuto questo, basterà applicare \cref{prop:LebesgueUnicaEstensione} per avere la tesi.
+	Una volta ottenuto questo, basterà applicare la \cref{prop:LebesgueUnicaEstensione} per avere la tesi.
 	
 	Chiamiamo $C$ il cubo unitario come definito nell'enunciato.
 	
-	Fissato $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Z$, sia $\mathbb Z(S)$ l'insieme dei punti con tutte le coordinate razionali appartenenti a $S$.
+	Fissato $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Z$, sia $\mathbb Z(S)$ l'insieme dei punti con tutte le coordinate intere appartenenti a $S$.
 	
 	È facile vedere che
 	\begin{equation*}
@@ -316,25 +316,25 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	\end{equation*}
 	da cui otteniamo, visto che $\mu,m_n$ sono misure invarianti per traslazione che coincidono su $C$, che $\mu,m_n$ coincidono anche su $S$.
 	
-	Ora invece scegliamo $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Q$. Posso assumere, vista l'invarianza per traslazione di tutto quanto, che per ogni $1\le i\le n$ valga $S^-_i=0$.
+	Ora invece scegliamo $S\in\S_n$ tale che per ogni $1\le i\le n$ valga $S^-_i,S^+_i\in \mathbb Q$. Possiamo assumere, vista l'invarianza per traslazione di tutto quanto, che per ogni $1\le i\le n$ valga $S^-_i=0$.
 	
 	Sia $m\in\mathbb Z$ tale che per ogni $1\le i\le n$ valga $mS^+_i\in \mathbb Z$, cioè ad esempio si può porre $m$ come il minimo comune multiplo di tutti i denominatori.
 	
 	Allora, analogamente a quanto già fatto nel caso intero, vale la seguente identità:
 	\begin{equation*}
 		\co0{mS^+_1}\times\cdots\times\co0{mS^+_n}=
-		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1,i_2,\dots,i_n)
+		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1S_1^+,i_2S_2^+,\dots,i_nS_n^+)
 	\end{equation*}
 	Ma ora applicando quanto abbiamo ricavato per la misura di elementi con estremi a coordinate intere, è chiaro che la misura del membro destro dell'ultima uguaglianza coincide per $\mu,m_n$ e allora sfruttando ancora la loro invarianza per traslazione otteniamo che coincidono anche su $S$.
 	
-	Ora consideriamo $S\in\S_n$ generico e notiamo che vista la densita dei razionali nei reali posso scrivere $S$ come unione \emph{crescente} di elementi di $(Q_i)_{i\in\N}\subseteq S_n$ con estremi a coordinate razionali. 
-	Da questa scrittura, sfruttando \cref{LimiteMonotonoCrescenteMisura}, e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$ otteniamo
+	Ora consideriamo $S\in\S_n$ generico e notiamo che vista la densità dei razionali nei reali posso scrivere $S$ come unione \emph{crescente} di elementi $(Q_i)_{i\in\N}\subseteq \S_n$ con estremi a coordinate razionali. 
+	Da questa scrittura, sfruttando la \cref{LimiteMonotonoCrescenteMisura} e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$, otteniamo
 	\begin{equation*}
 		m_n(S)=\lim_{n\to\infty}m_n(Q_i)=\lim_{n\to\infty}\mu(Q_i)=\mu(S)
 	\end{equation*}
 	cioè $\mu,m_n$ coincidono su $S$ e visto che questo è arbitrariamente scelto in $\S_n$ coincidono su tutto $\S_n$.
 	
-	Ora finalmente possiamo applicare \cref{prop:LebesgueUnicaEstensione} ed ottenere $\mu\equiv m_n$ che è la tesi.
+	Ora finalmente possiamo applicare la \cref{prop:LebesgueUnicaEstensione} ed ottenere $\mu\equiv m_n$, che è la tesi.
 \end{proof}
 \begin{remark}
 	Se togliamo dalle ipotesi del \cref{thm:LebesgueUnicaInvarianteTraslazione} la normalizzazione sul cubo unitario è banale, dividendo per il corretto fattore di normalizzazione, ricavare che allora la misura $\mu$ non coincide con Lebesgue ma è un suo multiplo di un fattore costante (proprio la misura $\mu$ del cubo unitario).
@@ -389,10 +389,10 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	La misura di Lebesgue su $\R^n$ è invariante per isometria.
 \end{proposition}
 \begin{proof}
-	Poichè ogni isometria si scrive come una rotazione composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per rotazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per rotazione.
-	Sia $O:\R^n\to\R^n$ una rotazione. Essendo una rotazione di $\R^n$ questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche Lipschitziana (si può dimostrare anche più facilmente in questo caso).
+	Poichè ogni isometria si scrive come una rotazione composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per traslazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per rotazione.
+	Sia $O:\R^n\to\R^n$ una rotazione. Essendo una rotazione di $\R^n$, questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche Lipschitziana (si può dimostrare anche più facilmente in questo caso).
 	
-	Allora per quanto visto in \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
+	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
 	Se dimostriamo che $\mu\equiv m_n$ abbiamo proprio che $m_n$ è invariante per rotazione.
 	
 	È facile notare che $\mu$ è invariante per traslazione, visto che dati $A\in \M_n$ e $v\in\R^n$ vale
@@ -401,11 +401,11 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	\end{equation*}
 	dove nei vari passaggi abbiamo usato l'invarianza per traslazione della misura di Lebesgue e la linearità di $O$.
 	
-	Inoltre, essendo $O$ anche bigettiva, come mostrato in \cref{prop:BigettivaInduceMisura}, la funzione $\mu$ risulta essere una misura.
+	Inoltre, essendo $O$ anche bigettiva, come mostrato nella \cref{prop:BigettivaInduceMisura}, la funzione $\mu$ risulta essere una misura.
 	
-	Allora unendo quanto ottenuto abbiamo che $\mu$ è una misura invariante per traslazione su $\M_n$ e quindi in particolare sui Boreliani di $\R^n$. Allora applicando \cref{thm:LebesgueUnicaInvarianteTraslazione} si ottiene che esiste $\lambda\in\Rpiu$ tale che $\mu=\lambda m_n$.
+	Allora unendo quanto ottenuto abbiamo che $\mu$ è una misura invariante per traslazione su $\M_n$ e quindi in particolare sui Boreliani di $\R^n$. Allora applicando il \cref{thm:LebesgueUnicaInvarianteTraslazione} si ottiene che esiste $\lambda\in\Rpiu$ tale che $\mu=\lambda m_n$.
 	
-	Ora basta considerare la palla unitaria $B$ di $\R^n$ , che è misurabile poichè aperta.
+	Ora basta considerare la palla unitaria $B$ di $\R^n$, che è misurabile poichè aperta.
 	La palla $B$, che ha ovviamente misura di Lebesgue né nulla né infinita, è invariante rispetto a $O$, essendo questa una rotazione, e perciò $\mu(B)=m_n(B)$ da cui ricaviamo che $\lambda=1$ cioè $\mu\equiv m_n$ che era quanto si voleva dimostrare.
 \end{proof}
 
@@ -415,20 +415,20 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 \begin{proof}
 	I singoli punti, essendo banalmente trascurabili, sono Lebesgue misurabili visto che la misura di Lebesgue è completa, come mostrato nella \cref{nota:LebesgueCompletezza}.
 	
-	L'insieme $A$ è però numerabile, quindi unione numerabile di singoli punti, che sono trascurabili. Perciò è trascurabile a sua volta $A$ che significa che $A$ è misurabile di misura nulla.
+	L'insieme $A$ è però numerabile, quindi unione numerabile di singoli punti, che sono trascurabili. Perciò $A$ è trascurabile a sua volta che significa che $A$ è misurabile di misura nulla.
 \end{proof}
 
 \begin{proposition}\label{prop:SottospaziTrascurabili}
-	Dato $U\subset\R^n$ se lo spazio \emph{affine} generato da $U$ ha dimensione strettamente minore di $n$ allora $U$ è trascurabile secondo Lebesgue.
+	Dato $U\subset\R^n$, se lo spazio \emph{affine} generato da $U$ ha dimensione strettamente minore di $n$, allora $U$ è trascurabile secondo Lebesgue.
 \end{proposition}
 \begin{proof}
 	Definiamo $V=\{(x_1,x_2,\dots,x_{n-1},0):\ (x_i)_{1\le i\le n-1}\subseteq\R\}$.
 	
 	Poichè lo spazio generato da $U$ ha dimensione $\le n-1$, esiste un'isometria che manda $U$ in un sottoinsieme di $V$ ed essendo la misura di Lebesgue invariante per isometria, come dimostrato nella \cref{prop:LebesgueProprietaIsometria}, è sufficiente dimostrare che $V$ è trascurabile per concludere.
 	
-	Dato $\epsilon>0$ e $k\in\N$ chiamiamo $I_\epsilon(k)$
+	Dato $\epsilon>0$ e $k\in\N$ chiamiamo
 	\begin{equation*}
-		\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}
+		I_\epsilon(k)=\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}
 	\end{equation*}
 	È banale, sfruttando la sola definizione della premisura $m_n$, che $m_n(I_\epsilon(k))=\frac{\epsilon}{2^k}$.
 	
