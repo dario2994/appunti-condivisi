@@ -3,12 +3,17 @@
 In questa sezione daremo la definizione di funzione misurabile e dimostreremo alcuni fatti basilari su di esse.
 
 La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani usando strumenti propri della teoria della misura.
-Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il risultato è già stato dimostrato, sia perché la dimostrazione si adatta facilmente in dimensione maggiore sia perché troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
+Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il risultato è già stato dimostrato, sia perché la dimostrazione si adatta facilmente in dimensione maggiore e sia perché troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
 
 \begin{definition}[Funzione misurabile]
 	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
 	$\forall A \subseteq \Rbar$ aperto si ha $f^{-1}(A)\in \A$.
 \end{definition}
+
+\begin{remark}
+	Se esistono funzioni misurabili $f:X\rightarrow \Rbar$, con $(X,\A,\mu)$ spazio di misura, allora $X\in\A$. Infatti deve valere $X=f^{-1}(\Rbar)\in\A$, perchè $\Rbar$ è un aperto.
+\end{remark}
+
 
 \begin{proposition}
 	\label{BasicMis}
@@ -22,7 +27,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 		\item $\{f\leq a\}\in \A \quad \forall a\in \Rbar$; \label{BM:soteq}
 		\item $\{f>a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sov}
 		\item $\{f\geq a\}\in \A \quad \forall a\in \Rbar$;  \label{BM:soveq}
-		\item $\{a<f<b\}\in \A \quad \forall a,b\in \Rbar$; \label{BM:int}
+		\item $\{a<f<b\}\in \A \quad \forall a,b\in \Rbar$. \label{BM:int}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -31,7 +36,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}([-\infty,a))\in \A$,
 		perché $[-\infty,a)$ è aperto;
 	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $[-\infty,a]=\bigcap_{n\in \N}[-\infty,a+\frac{1}{n})$, allora otteniamo che
-		$\{f\leq a\}=f^{-1}([-\infty,a])=\bigcap_{n\in \N}f^{-1}([-\infty,a+\frac{1}{n}))\in \A$
+		$\{f\leq a\}=f^{-1}([-\infty,a])=\bigcap_{n\in \N}f^{-1}([-\infty,a+\frac{1}{n}))\in \A$;
 	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\leq a\}\in \A$;
 	\item[\ImplicationProof{BM:sov}{BM:soveq}] analogamente a \ImplicationProof{BM:sot}{BM:soteq}; 
 	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
@@ -68,6 +73,24 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Inoltre $\mathcal E$ contiene gli aperti per definizione di funzione misurabile, da cui, per quanto appena dimostrato, contiene la \sigalg{} generata da questi, cioè i Boreliani.
 \end{proof}
 
+\begin{definition}
+	Sia $f:X\to\Rbar$ una funzione misurabile su uno spazio di misura $(X,\A,\mu)$. Definiamo $f^+ = \max\{f,0\}$ e $f^- = \max\{-f,0\}$.
+\end{definition}
+\begin{remark}\label{nota:ProprietaFpiuFmeno}
+	Data una funzione $f$ misurabile, vale $f^+,f^-$ sono misurabile. Inoltre $f^+,f^-\ge 0$ e $f=f^+-f^-$. 
+\end{remark}
+\begin{proof}
+	Abbiamo che per ogni $a\in\Rbar$ vale
+	\begin{equation*}
+		\{f^+>a\}=\left\{\begin{array}{ll}
+			\{f>a\}\in\A &\text{se }a>0\\
+			X\in\A &\text{se }a\le 0
+	\end{array}\right.
+	\end{equation*}
+	Quindi, per la \ref{BM:sov} della \cref{BasicMis}, $f^+$ è misurabile. Analogamente si dimostra che $f^-$ è misurabile.
+\end{proof}
+
+
 \begin{proposition}
 	\label{AlgMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}$ l'insieme delle funzioni misurabili da $X$ in $\Rbar$.
@@ -76,7 +99,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	valgono le seguenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f,g\in \mathcal{M} \Rightarrow f+g\in \mathcal{M}$; \label{AlM:sum}
-		\item $f\in \mathcal{M}, \lambda \in \R \Rightarrow \lambda f\in \mathcal{M}$. \label{AlM:sca}
+		\item $f\in \mathcal{M}, \lambda \in \R \Rightarrow \lambda f\in \mathcal{M}$; \label{AlM:sca}
 		\item $f,g\in \mathcal{M} \Rightarrow fg\in \mathcal{M}$. \label{AlM:pro}
 	\end{enumerate}
 \end{proposition}
@@ -88,28 +111,25 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\item[\ref{AlM:sum}]
 	\[
 		\{f+g>a\}=\left\{\begin{array}{ll}
-			\{f=-\infty\}\cap\{g=-\infty\}\in \A &\qquad se\ a=-\infty;\\
-			\bigcup_{q\in \Q}\left(\{f>q\}\cap\{g>a-q\}\right)\in \A &\qquad se\ a\in \R;\\
-			\{f=+\infty\}\cup\{g=+\infty\}\in \A &\qquad se\ a=+\infty.
+			\{f\ge -\infty\}\cap\{g\ge -\infty\}\in \A &\qquad \text{se}\ a=-\infty;\\
+			\bigcup_{q\in \Q}\left(\{f>q\}\cap\{g>a-q\}\right)\in \A &\qquad \text{se}\ a\in \R;\\
+			\{f=+\infty\}\cup\{g=+\infty\}\in \A &\qquad \text{se}\ a=+\infty.
 		\end{array}\right.
 	\]
 	\item[\ref{AlM:sca}]
 	\[
 		\{\lambda f>a\}=\left\{\begin{array}{ll}
-			\left\{f<\frac{a}{\lambda}\right\}\in \A &\qquad se\ \lambda<0;\\
-			\Rbar \in \A &\qquad se\ \lambda=0\ e\ a< 0;\\
-			\emptyset \in \A &\qquad se\ \lambda=0\ e\ a\geq 0;\\
-			\left\{f>\frac{a}{\lambda}\right\}\in \A &\qquad se\ \lambda>0.
+			\left\{f<\frac{a}{\lambda}\right\}\in \A &\qquad \text{se}\ \lambda<0;\\
+			X \in \A &\qquad \text{se}\ \lambda=0\ \text{e}\ a< 0;\\
+			\emptyset \in \A &\qquad \text{se}\ \lambda=0\ \text{e}\ a\geq 0;\\
+			\left\{f>\frac{a}{\lambda}\right\}\in \A &\qquad \text{se}\ \lambda>0.
 		\end{array}\right.
 	\]
-	\item[\ref{AlM:pro}] Per ogni funzione $h$ possiamo scrivere la parte positiva $h^+ = \max\{h,0\}$ e la parte negativa $h^- = \max\{0,-h\}$,
-	così $h^+,h^- \geq 0$ e $h = h^+ - h^-$. 
-	
-	Ora scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni non negative. Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\geq0$:
+	\item[\ref{AlM:pro}] Scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni misurabili non negative (abbiamo già dimostrato nella \cref{nota:ProprietaFpiuFmeno} le proprietà di $f^+,f^-,g^+,g^-$ che ci servono). Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\geq0$:
 	\[
 		\{fg>a\}=\left\{\begin{array}{ll}
-			\Rbar\in \A &\quad se\ a<0;\\
-			\{f=0\}\cup\{g=0\}\in \A &\quad se\ a=0;\\
+			X\in \A &\quad se\ a<0;\\
+			\{f>0\}\cup\{g>0\}\in \A &\quad se\ a=0;\\
 			\bigcup_{q\in \Q^+}\left(\{q<f<+\infty\}\cap\left\{\frac{a}{q}<g<+\infty \right\} \right)\in \A &\quad se\ 0<a<+\infty;\\
 			(\{f=+\infty\}\cap\{g>0\})\cup (\{f>0\}\cap\{g=+\infty\})\in \A &\quad se\ a=+\infty.
 		\end{array}\right.
@@ -138,7 +158,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo \footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
+	È sufficiente notare che la controimmagine di un intervallo\footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{prop:BorelianiNonMisurabili2}
@@ -197,7 +217,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Quest'ultima proposizione ha alcune notevoli conseguenze immediate:
 	\begin{enumerate}
 		\item $\inf$ di una famiglia numerabile di misurabili è misurabile;\label{LM:inf}
-		\item $\limsup$ e $\liminf$ di una famiglie numerabili di misurabili sono misurabili;\label{LM:lim_infsup}
+		\item $\limsup$ e $\liminf$ di una famiglia numerabile di misurabili sono misurabili;\label{LM:lim_infsup}
 		\item limite puntuale di funzioni misurabili è misurabile.\label{LM:lim}
 	\end{enumerate}
 \end{remark}
@@ -244,19 +264,19 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \end{proof}
 
 \begin{definition}
-	Una funzione $f$ definita su $(X,\A,\mu)$ si dice positiva se assume solo valori maggiori o uguali a 0.
+	Una funzione $f$ definita su $(X,\A,\mu)$ e a valori in $\Rbar$ si dice positiva se assume solo valori maggiori o uguali a 0.
 \end{definition}
 
 
 \begin{corollary}\label{cor:LimSemCrescMis}
-	Sia $f:X\rightarrow \Rbar$ misurabile e positiva su $(X,\A,\mu)$, allora esiste una successione crescente di funzioni semplici e positive $(\simp_n)$ che converge puntalmente a $f$.
+	Sia $f:X\rightarrow \Rbar$ misurabile e positiva su $(X,\A,\mu)$ spazio di misura, allora esiste una successione crescente di funzioni semplici e positive $(\simp_n)$ che converge puntalmente a $f$.
 \end{corollary}
 \begin{proof}
 	Costruendo le $\simp_n$ come nella \cref{LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
 \end{proof}
 
 \begin{theorem}\label{thm:ChiusuraMonotona}
-	Sia $\mathcal F$ una famiglia di funzioni da $X$ a $\Rbar$, dove $(X,\A,\mu)$ è uno spazio misurabile tale che
+	Sia $\mathcal F$ una famiglia di funzioni da $X$ a $\Rbar$, dove $(X,\A,\mu)$ è uno spazio di misura tale che
 	\begin{itemize}
 	 \item è uno spazio vettoriale;
 	 \item contiene le funzioni $\chi_A$ $\forall A\in \A$;
@@ -269,9 +289,6 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	lineari delle funzioni caratteristiche, cioè le funzioni semplici.
 	
 	Notiamo allora che per il \cref{cor:LimSemCrescMis}, $\mathcal F$ contiene le funzioni misurabili positive. Allora, data $f$ misurabile,
-	$f = f_+-f_-$
-	\footnote{\label{PartePosNeg}
-		qui e altrove indicheremo con $f_+=\max\{f,0\}$ la parte positiva e con $f_-=\max\{0,-f\}$ di una funzione}
-	quindi è contenuta in $\mathcal F$, ancora per le proprietà di spazio vettoriale, poiché entrambe $f_+,f_-$ sono
-	positive e misurabili.
+	$f = f_+-f_-$ quindi è contenuta in $\mathcal F$, ancora per le proprietà di spazio vettoriale, poiché entrambe $f_+,f_-$ sono
+	positive e misurabili per la \cref{nota:ProprietaFpiuFmeno}.
 \end{proof}
