@@ -468,7 +468,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 		A_{\mathsf{c}} = \left\{ E^\mathsf{c} : E\in A \right\}.
 	\]
 	
-	Consideriamo quindi la seguente funzione, definita $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R^n))$:
+	Consideriamo quindi la seguente funzione, definita come $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R^n))$:
 	\[
 	f(\alpha) = \left\{
 		\begin{array}{ll}
@@ -482,29 +482,30 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	che è quella generata dagli aperti.
 	
 	Per prima cosa osserviamo che se $\beta < \alpha$, $f(\beta)\subseteq f(\alpha)$. Altrimenti, consideriamo il più piccolo $\alpha$
-	tale che $\exists \beta<\alpha$ per cui non vale questa proposizione. Chiaramente $\alpha\neq 0$ e $\alpha$ non è un ordinale limite,
+	tale che esiste $\beta<\alpha$ per cui non vale questa proposizione. Chiaramente $\alpha\neq 0$ e $\alpha$ non è un ordinale limite,
 	quindi è successore di un ordinale $\gamma\geq \beta$. Per minimalità di $\alpha$, $f(\beta)\subseteq f(\gamma)$, tuttavia è sempre vero
 	che $A\subseteq A_{\delta}$ (basta considerare intersezione di famiglie costanti), allora si ottiene $f(\gamma)\subseteq f(\alpha)$, assurdo.
 	
 	Ora dimostriamo che $f(\omega_1)$\footnote{Ricordiamo che $\omega_1$ è il primo ordinale più che numerabile.} è una \sigalg.
 	\begin{description}
-	 \item[Chiusura rispetto complementare] Se $E\in f(\omega_1)$, $\exists \alpha<\omega_1$ tale che $E\in f(\alpha)$.
+	 \item[Chiusura rispetto complementare] Se $E\in f(\omega_1)$, esiste $\alpha<\omega_1$ tale che $E\in f(\alpha)$.
 		Quindi $E^\mathsf{c}\in f(\alpha+1) \subseteq f(\omega_1)$.
-	 \item[Chiusura rispetto intersezione numerabile] Se $\{E_n\}_{n\in\N}\subseteq f(\omega_1)$, allora $\forall n\in\N, \exists \alpha_n<\omega_1$
+	 \item[Chiusura rispetto intersezione numerabile] Se $(E_n)_{n\in\N}\subseteq f(\omega_1)$, allora $\forall n\in\N$, esiste $\alpha_n<\omega_1$
 		tale che $E_n\in f(\alpha_n)$. Inoltre $\lambda=\bigcup_{n\in\N}\alpha_n$ è un ordinale numerabile, perché unione numerabile di ordinali
-		numerabili, cioè $\lambda<\omega_1$. Ma allora, $E_n\in f(\lambda), \forall n\in\N$.
+		numerabili, cioè $\lambda<\omega_1$. Ma allora vale che $E_n\in f(\lambda)$, per ogni $n\in\N$.
 		Quindi $\bigcap_{n\in\N}E_n\in f(\lambda+1)\subseteq f(\omega_1)$.
 	\end{description}
-	Osservazione: avendo mostrato che $f(\omega_1)$ è una \sigalg, abbiamo che $f(\omega_1+1)=f(\omega_1)$, quindi $f$ è definitivamente costante.
+	
+	Avendo mostrato che $f(\omega_1)$ è una \sigalg, abbiamo che $f(\omega_1+1)=f(\omega_1)$, quindi $f$ è definitivamente costante.
 	
 	Mostriamo quindi che $f(\omega_1)$ sono i Boreliani.
 	Per fare ciò, basta mostrare che i Boreliani contengono $f(0)=\tau$, che se contengono $A$ contengono $A_{\delta}$ e $A_{\mathsf{c}}$ e che
 	se contengono tutti gli elementi di una famiglia $\{A_i\}_{i\in I}$ allora contengono anche la loro unione $\bigcup_{i\in I}A_i$.
-	Ma è ovvio che la \sigalg \ generata dagli aperti soddisfi tutte queste proprietà.
+	È però ovvio che la \sigalg \ generata dagli aperti soddisfi tutte queste proprietà.
 	
 	Ora che sappiamo che $f(\omega_1)$ sono i Boreliani, calcoliamone la cardinalità.
 	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
-	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, se $|E_{\beta}|\leq |E| \forall \beta < \alpha$. Tutto ciò, porta a dire che
+	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, con $|E_{\beta}|\leq |E|$ per ogni $\beta < \alpha$. Tutto ciò, porta a dire che
 	\begin{equation}\label{eq:CardBorel}
 		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E|,
 	\end{equation}
@@ -519,7 +520,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	\[
 		|f(\alpha)|\leq |\alpha| |\R| \leq |\N||\R| = |\R|.
 	\]
-	Quindi $E$ basta che sia $\R$, allora dalla \cref{eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
+	Quindi $E$ basta che sia $\R$, allora dall'\cref{eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
 \begin{corollary}\label{cor:BorelianiNonMisurabili}
 	I Boreliani sono \emph{strettamente} contenuti nei misurabili.
@@ -537,7 +538,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 \end{proof}
 
 \begin{theorem}[Insieme di Vitali]\label{thm:InsiemeVitali}
-	Dato un sottoinsieme $A\in\M_n$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M$.
+	Dato un sottoinsieme $A\in\M_n$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M_n$.
 \end{theorem}
 \begin{proof}
 	Dato $A$, notiamo che per la \sigadd[ità] della misura vale:
@@ -550,7 +551,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1
 	\end{equation*}
 	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poichè l'ipotesi di misura non nulla non si perde. 
-	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
+	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
 	
 	Poniamo su $\R^n$ la relazione di equivalenza seguente:
 	\begin{equation*}
@@ -567,7 +568,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	\end{equation}
 	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \co 01\times\cdots \times\co 01$.
 	
-	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando \cref{eq:ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato in \cref{nota:LebesgueProprieta}:
+	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando l'\cref{eq:ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}:
 	\begin{equation*}
 		0<m_n(A)\le \sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B+q)=
 		\sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B) \le 3^n
