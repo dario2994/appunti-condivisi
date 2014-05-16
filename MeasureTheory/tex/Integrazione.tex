@@ -329,7 +329,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 
 \begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
-	Data una funzione $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
+	Data una funzione $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
 	\begin{equation*}
 		\mu\left(\left\{x:\ |f(x)|>\lambda\right\}\right) \le \frac{\LNorm f}{\lambda}
 	\end{equation*}
@@ -345,8 +345,16 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che è equivalente alla tesi.
 \end{proof}
 
+\begin{corollary}\label{cor:SupportoIntegrabile}
+	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, allora l'insieme degli $x\in X$ in cui $f$ non si annulla\footnote{In teoria della misura chiamiamo tale insieme supporto} è \sigfin[o].
+\end{corollary}
+\begin{proof}
+	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
+\end{proof}
+
+
 \begin{lemma}\label{lemma:L1NullaAlloraNulla}
-	Data $f:X\to\R$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, risulta che $\LNorm{f}=0$ se e solo se
+	Data $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, risulta che $\LNorm{f}=0$ se e solo se
 	\begin{equation*}
 		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0
 	\end{equation*}
