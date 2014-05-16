@@ -193,6 +193,66 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	Ricordando la dimostrazione del fatto che $\E$ è chiuso per unione disgiunta, notiamo che abbiamo già dimostrato che l'unione disgiunta di elementi di $\E$ rispetta anch'essa la tesi, indipendentemente dal fatto che sia anch'essa di misura finita o meno. Questo però dimostra che la tesi vale anche per $G$ visto che $F_i\in\E$, essendo misurabili di misura finita, e $G$ si può scrivere come unione numerabile disgiunta degli $F_i$. 
 \end{proof}
 
+\begin{theorem}[Tonelli]\label{thm:Tonelli}%TODO Definire il supporto
+	Dato $(X\times Y,\A\otimes\B,\mu\nu)$ uno spazio prodotto, per ogni funzione $f:X\times Y\to\Rbar$ misurabile positiva a supporto \sigfin[o] vale
+	\begin{equation*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_Y\int_X f(x,y)\de\mu(x)\de\nu(y)\punto
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	\newcommand{\E}{\ensuremath{\mathscr E}}
+	Sia $\E$ l'insieme delle funzioni misurabili con supporto \sigfin[o] che rispettano la prima uguaglianza della tesi (è ovvio che se dimostriamo la prima uguaglianza, la seconda segue per simmetria).
+	
+	La \cref{prop:PreTonelli} implica che, per ogni $E\in\A\otimes\B$ a supporto \sigfin[o], vale
+	\begin{equation*}
+		\int_{X\times Y}\chi_E(u)\de\mu\nu(u)=\mu\nu(E)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)=\int_X\int_Y\chi_E(x,y)\de\nu(y)\de\mu(x)\virgola
+	\end{equation*}
+	che equivale a dire che le funzioni indicatrici dei misurabili \sigfin[i] appartengono a $\E$.
+	
+	Inoltre, per la linearità dell'operatore di integrale, è facile convincersi che $\E$ è un sottospazio vettoriale delle funzioni misurabili e perciò, visto che contiene le indicatrici degli insiemi misurabili \sigfin[i], contiene ogni funzione semplice a supporto \sigfin[o].
+	
+	Per concludere sia $f:X\times Y\to\Rbar$ una funzione misurabile a supporto \sigfin[o].
+	Per il \cref{cor:LimSemCrescMis} esiste una famiglia crescente $(f_i)_{i\in\N}$ di funzioni misurabili positive che convergono puntualmente ad $f$. Essendo $f$ a supporto \sigfin[o] ed essendo le $f_i$ sempre minori di $f$ anche il loro supporto è \sigfin[o] e perciò $f_i\in\E$ per ogni $i\in\N$.
+	
+	Infine, applicando ripetutamente \cref{thm:BeppoLevi} e ricordando la monotonia dell'integrale, otteniamo
+	\begin{align*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)
+		&=\lim_{i\in\N}\int_{X\times Y}f_i(u)\de\mu\nu(u)
+		=\lim_{i\in\N}\int_X\int_Y f_i(x,y)\de\nu(y)\de\mu(x)\\
+		&=\int_X\left(\lim_{i\in\N}\int_Y f_i(x,y)\de\nu(y)\right)\de\mu(x)
+		=\int_X\int_Y\lim_{i\in\N} f_i(x,y)\de\nu(y)\de\mu(x)\\
+		&=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)
+	\end{align*}
+	e questo dimostra $f\in\E$ concludendo la dimostrazione.
+\end{proof}
+
+\begin{theorem}[Fubini]\label{thm:Fubini}
+	Dato $(X\times Y,\A\otimes\B,\mu\nu)$ uno spazio prodotto, per ogni funzione $f:X\times Y\to\Rbar$ integrabile vale
+	\begin{equation*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_Y\int_X f(x,y)\de\mu(x)\de\nu(y)\virgola
+	\end{equation*}
+	dove alcuni integrali risultano definiti solo quasi ovunque, ma questo non influisce in virtù del \cref{cor:IntegraleAMenoDiTrascurabili}.
+\end{theorem}
+\begin{proof}
+	Ancora una volta dimostriamo solo la prima uguaglianza, visto che la seconda segue poi per simmetria.
+	
+	Decompongo, come nella \cref{def:IntegraleIntegrabili}, la funzione $f$ nelle funzioni positive $f^+,f^-:X\times Y\to\Rbar$.
+	Le funzioni $f^+,f^-$ sono integrabili a loro volta MISREF e perciò per il \cref{cor:SupportoIntegrabile} hanno supporto \sigfin[o].
+	
+	Allora da qui si conclude banalmente sfruttando la linearità dell'operatore di integrale e il \cref{thm:Tonelli}:
+	\begin{align*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)
+		& =\int_{X\times Y}f^+(u)\de\mu\nu(u)-\int_{X\times Y}f^-(u)\de\mu\nu(u)\\
+		&=\int_X\int_Y f^+(x,y)\de\nu(y)\de\mu(x)-\int_X\int_Y f^-(x,y)\de\nu(y)\de\mu(x)\\
+		&=\int_X\left(\int_Y f^+(x,y)\de\nu(y)-\int_Y f^-(x,y)\de\nu(y)\right)\de\mu(x)\\
+		&=\int_X\int_Y f^+(x,y)-f^-(x,y)\de\nu(y)\de\mu(x)
+		=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)\punto
+	\end{align*}
+	È importante notare che, come osservato nel MISREF, gli integrali interni $\int_Y f(\bar x,y)\de\nu(y)$ possono non esistere, ma poichè questo avviene per $\mu$-quasi nessuna $\bar x\in X$ ciò non influisce sul valore dell'integrale doppio.
+\end{proof}
+
+
+
 %TODO MIgliorare da qui in poi.
 
 \begin{proposition}
