@@ -12,7 +12,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{definition}\label{def:IntegraleSemplici}
 	Sia $\simp:X\to \Rpiu$ una funzione misurabile, semplice e positiva, definita sullo spazio di misura $(X,\A,\mu)$. Definiamo l'integrale di Lebesgue della funzione il valore
 	\begin{equation*}
-		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)
+		\int_X \simp d \mu = \sum_{k=1}^n c_k\mu(E_k)\virgola
 	\end{equation*}
 	dove $c_k\in \Rbar$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}$.
 \end{definition}
@@ -30,19 +30,19 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 	D'ora in poi nelle sommatorie sottointenderemo l'insieme su cui cicla $\alpha$, cioè $\mathcal{P}(\{1,2,\dots,n\})$.
 	
-	Innanzitutto gli $E_\alpha$ sono ancora insiemi misurabili (in quanto $\A$ è una \sigalg{}) e sono insiemi disgiunti, inoltre vale facilmente che:
+	Innanzitutto gli $E_\alpha$ sono ancora insiemi misurabili (in quanto $\A$ è una \sigalg{}) e sono insiemi disgiunti, inoltre vale facilmente che
 	\begin{equation*}
-		\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi_{E_\alpha}=\sum_\alpha \chi_{E_\alpha}\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi_{E_\alpha}
+		\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi_{E_\alpha}=\sum_\alpha \chi_{E_\alpha}\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi_{E_\alpha}\virgola
 	\end{equation*}
 	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
-	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ su insiemi disgiunti otteniamo:
+	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ su insiemi disgiunti otteniamo
 	\begin{equation}\label{RaffinamentoIntegrale}
-		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)
+		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)\virgola
 	\end{equation}
 	che è proprio quello che volevamo.
 	
-	Consideriamo ora $c_k, b_k\in\Rbar$ ed $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^mb_k\chi_{F_k}$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $E_k=F_k$ e $n=m$, da cui $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nb_k\chi_{E_k}$. Applichiamo la costruzione di prima e otteniamo:
+	Consideriamo ora $c_k, b_k\in\Rbar$ ed $E_k,F_k\in\A$ tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^mb_k\chi_{F_k}$. A meno di aggiungere dei termini ad entrambe le sommatorie possiamo supporre $n=m$ e $E_k=F_k$ per ogni $1\le k\le n$, da cui $\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nb_k\chi_{E_k}$. Applichiamo la costruzione di prima e otteniamo:
 	\begin{equation*}
 		\begin{cases}
 			E_\alpha=\bigcap_{k\in\alpha}E_k\setminus \bigcup_{k\not\in \alpha} E_k\\
@@ -50,20 +50,20 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 			b_\alpha=\sum_{k\in\alpha} b_k
 		\end{cases}
 	\end{equation*}
-	da cui ricaviamo per quanto detto precedentemente che:
+	da cui ricaviamo per quanto detto precedentemente che
 	\begin{equation}
-		\sum_\alpha c_\alpha\chi_{E_\alpha}=\sum_{k=1}^nc_k\chi_{E_k}=\simp=\sum_{k=1}^nb_k\chi_{E_k}=\sum_\alpha b_\alpha\chi_{E_\alpha}
+		\sum_\alpha c_\alpha\chi_{E_\alpha}=\sum_{k=1}^nc_k\chi_{E_k}=\simp=\sum_{k=1}^nb_k\chi_{E_k}=\sum_\alpha b_\alpha\chi_{E_\alpha}\virgola
 	\end{equation}
 	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poichè gli $E_\alpha$ sono disgiunti.
 	
-	Infine da quest'ultima uguaglianza e dalla \cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
+	Infine da quest'ultima uguaglianza e dall'\cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
 	\begin{equation*}
-		\sum_{k=1}^n c_k \mu(E_k)=\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha b_\alpha\mu(E_\alpha)=\sum_{k=1}^n b_k \mu(E_k)
+		\sum_{k=1}^n c_k \mu(E_k)=\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha b_\alpha\mu(E_\alpha)=\sum_{k=1}^n b_k \mu(E_k)\punto
 	\end{equation*}
 \end{proof}
 
 \begin{proposition}\label{prop:IntegraleSemplici}
-	Date $\simp_1,\simp_2:X\to\Rpiu$ funzioni semplici e positive con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali non negativi, valgono:
+	Date $\simp_1,\simp_2:X\to\Rpiu$ funzioni misurabili, semplici e positive con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali non negativi, valgono:
 	\begin{enumerate}
 		\item $\int (a\simp_1+b\simp_2)\de\mu=a\int \simp_1\de\mu+b\int \simp_2\de\mu$ \label{PIS:add}
 		\item $\simp_1\le \simp_2\Longrightarrow \int \simp_1\de\mu\le \int \simp_2\de\mu$ \label{PIS:mono}
@@ -73,71 +73,86 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
 \end{proof}
 
-\begin{proposition}\label{prop:IntegraleSempliciSpezzato}
+\begin{remark}
+	Osserviamo che data una funzione misurabile, semplice e positiva $\simp:X\to\Rpiu$, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$ misurabile, possiamo definire l'integrale di $\simp$ su $E$. 
+	
+	Infatti per la \cref{RiduzioneMisura} anche $(E,\A_E,\mu|_{\A_E})$ (come definito nella \cref{RiduzioneMisura}) è uno spazio di misura e vale facilmente che $\simp$ è misurabile, semplice e positiva anche ridotta su $(E,\A_E,\mu|_{\A_E})$.
+\end{remark}
+
+\begin{proposition}\label{prop:IntegraleSempliciSuMisurabili}
+	Data una funzione $\simp:X\to\Rpiu$ misurabile, semplice e positiva, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$, vale che
+	\begin{equation*}
+		\int_E \simp\de\mu=\int_X \simp \cdot \chi_E \de\mu\punto
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Siano $c_k\in\Rbar$ e $E_k\in\A$, per $1\le k\le n$, tali che $\simp=\sum_{i=1}^nc_k\chi_{E_k}$. Chiamiamo $E'_k=E_k\cap E$, che è ancora un insieme misurabile per ogni $1\le k\le n$. Allora vale che
+	\begin{equation*}
+		\int_X \simp \cdot \chi_E \de\mu=\int_X \sum_{i=1}^nc_k\chi_{E_k}\cdot \chi_E \de\mu=\int_X \sum_{i=1}^nc_k\chi_{E'_k} \de\mu = \sum_{i=1}^n c_k \mu(E'_k)=\int_E \simp\de\mu \punto
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}\label{cor:IntegraleSempliciSpezzato}
 	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\cup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
 	\begin{equation*}
 		\int_X \simp \de \mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu
 	\end{equation*}
-\end{proposition}
+\end{corollary}
 \begin{proof}
-	Per ogni $X_m$ siano $c_{m,i}\in\Rbar$ e $E_{m,i}\in\A$, per $i=1,2,\dots,n_m$, tali che 
+	Sfruttando le \cref{prop:IntegraleSempliciSuMisurabili,prop:IntegraleSemplici}, otteniamo che
 	\begin{equation*}
-		\simp|_{X_m}=\sum_{i=1}^{n_m}c_{m,i}\chi_{E_{m,i}}
+		\int_X \simp \de \mu=\int_X\sum_{m=1}^k\simp\cdot \chi_{X_m}\de\mu=\sum_{m=1}^k\int_X \simp\cdot \chi_{X_m}\de\mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu\punto
 	\end{equation*}
-	allora vale
-	\begin{equation*}
-		\simp=\sum_{m=1}^k\sum_{i=1}^{n_m}c_{m,i}\chi_{E_{m,i}}
-	\end{equation*}
-	da cui quindi ottengo facilmente
-	\begin{equation*}
-		\int_X \simp \de \mu=\sum_{m=1}^k\sum_{i=1}^{n_m}c_{m,i}\mu(E_{m,i})=\sum_{m=1}^k\int_{X_m}\simp\de \mu
-	\end{equation*}
-
 \end{proof}
 
 
 
 \begin{definition}\label{def:IntegralePositive}
-	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, allora definiamo l'integrale di $f$ come
+	Sia $f:X\to\Rpiu$ una funzione misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, allora definiamo l'integrale di $f$ come
 	\begin{equation*}
-		\int_Xf\de\mu=\sup\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}
+		\int_Xf\de\mu=\sup\left\{\int_X\simp\de \mu:\ 0\le \simp\le f\ \wedge\ \simp \text{ semplice}\right\}\punto
 	\end{equation*}
 \end{definition}
 
-\begin{proposition} \label{DefinizioneEquivalenteIntegralePositive}
-	Data una funzione $f:X\to\Rpiu$ misurabile e positiva e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
+\begin{proposition} \label{prop:DefinizioneEquivalenteIntegralePositive}
+	Data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
 	\begin{equation*}
-		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}
+		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Dimostriamo innanzitutto che dato un insieme $Y\subseteq X$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
+	Dimostriamo innanzitutto che dato un insieme $Y\in \A$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
-	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per \cref{prop:IntegraleSemplici} ho che
+	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per la \cref{prop:IntegraleSemplici} ho che
 	\begin{equation*}
-		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)
+		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)\virgola
 	\end{equation*}
 	da cui passando al limite su $n$ ed utilizzando che $\lim_{n\to\infty}\int_Y\simp_n\de\mu=\sup_{n\in\N}\int_Y\simp_n\de\mu$, otteniamo
 	\begin{equation*}
-		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)
+		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)\virgola
 	\end{equation*}
-	dove in particolare nell'ultima uguaglianza abbiamo utilizzato \cref{LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
+	dove in particolare nell'ultima uguaglianza abbiamo utilizzato la \cref{LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
 	\begin{equation*}
-		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)
+		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)\punto
 	\end{equation*}
 
 	Consideriamo ora una qualsiasi funzione semplice $\simp$ tale che $0\le \simp\le f$. Per facile conseguenza della definizione di funzione semplice, esistono $k$ sottoinsiemi misurabili disgiunti di $X$, che chiamiamo $X_1,\dots,X_k$, tali che $\cup_{m=1}^kX_m=X$ e $\simp|_{X_m}$ è costante per ogni $m=1,\dots,k$.
 	
-	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato a \cref{prop:IntegraleSempliciSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
+	Per quanto dimostrato precedentemente abbiamo che $\sup_{n\in\N}\left\{\int_{X_m}\simp_n\de\mu\right\}\ge a_m\mu(X_m)$ per ogni $m=1,\dots,k$, dove $a_m=\simp|_{X_m}$. Unendo questo risultato al \cref{cor:IntegraleSempliciSpezzato} e ricordando che i $\sup$ sono in realtà dei limiti, otteniamo:
 	\begin{equation*}
-		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}=\sup_{n\in\N}\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_{n\in\N}\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp\de\mu
+		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}=\sup_{n\in\N}\left\{\sum_{m=1}^k \int_{X_m}\simp_n\de \mu\right\}=\sum_{m=1}^k\sup_{n\in\N}\left\{ \int_{X_m}\simp_n\de \mu\right\}\ge \sum_{m=1}^ka_m\mu(X_m)=\int_X\simp\de\mu\punto
 	\end{equation*}
 	Passando ora all'estremo superiore per $0\le \simp \le f$ otteniamo proprio:
 	\begin{equation*}
-		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\ge \int_X f \de\mu\Longrightarrow \sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}= \int_X f\de\mu
+		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\ge \int_X f \de\mu\Longrightarrow \sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}= \int_X f\de\mu\virgola
 	\end{equation*}
 	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 \end{proof}
+
+\begin{remark}\label{nota:ApprossimazioneIntegralePositiveConSemplici}
+	Sfruttando la \cref{prop:DefinizioneEquivalenteIntegralePositive}, notiamo che data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, possiamo sempre scrivere l'integrale di $f$ come $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}$, per qualche successione crescente $(\simp_n)$ di funzioni semplici e positive che converge puntalmente ad $f$, che esiste per il \cref{cor:LimSemCrescMis}.
+\end{remark}
+
 
 \begin{proposition}\label{prop:IntegralePositive}
 	Date $f,g:X\to\Rpiu$ funzioni misurabili positive con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali non negativi valgono:
@@ -148,42 +163,45 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proposition}
 \begin{proof}
 	\begin{description}
-		\item[\ref{PIP:add}] Siano $(\simp_n^f)_{n\in\N}$ e $(\simp_n^g)_{n\in\N}$ due successioni crescenti di funzioni semplici e positive convergenti rispettivamente ad $f$ e a $g$. Vale facilmente che la successione crescente di funzioni semplici e positive $(a\simp_n^f+b\simp_n^g)_{n\in\N}$ converge a $af+bg$. Allora per le \cref{DefinizioneEquivalenteIntegralePositive,prop:IntegraleSemplici} abbiamo che
+		\item[\ref{PIP:add}] Siano $(\simp_n^f)_{n\in\N}$ e $(\simp_n^g)_{n\in\N}$ due successioni crescenti di funzioni semplici e positive convergenti rispettivamente ad $f$ e a $g$. Vale facilmente che la successione crescente di funzioni semplici e positive $(a\simp_n^f+b\simp_n^g)_{n\in\N}$ converge a $af+bg$. Allora per le \cref{prop:DefinizioneEquivalenteIntegralePositive,prop:IntegraleSemplici} abbiamo che
 		\begin{equation*}
 		\begin{split}
 			a\int f\de\mu+b\int g\de\mu&=a\sup_{n\in\N}\int \simp_n^f\de\mu+b\sup_{n\in\N}\int \simp_n^g\de\mu \\
-			&=\sup_{n\in\N}\int (a\simp_n^f+b\simp_n^g)\de\mu=\int (af+bg)\de\mu
+			&=\sup_{n\in\N}\int (a\simp_n^f+b\simp_n^g)\de\mu=\int (af+bg)\de\mu\punto
 		\end{split}
 		\end{equation*}
 		
 		\item[\ref{PIP:mono}] Segue facilmente dalla \cref{def:IntegralePositive}, in quanto se $\simp$ è una funzione semplice e positiva minore o uguale a $f$ è anche minore o uguale a $g$, perciò
 		\begin{equation*}
-		\int f\de\mu=\sup_{n\in\N}\left\{\int\simp\de \mu:\ 0\le \simp\le f\le g\ \wedge\ \simp \text{ semplice}\right\}\le \int g\de\mu
+		\int f\de\mu=\sup_{n\in\N}\left\{\int\simp\de \mu:\ 0\le \simp\le f\le g\ \wedge\ \simp \text{ semplice}\right\}\le \int g\de\mu\punto
 	\end{equation*}
 	\end{description}
 \end{proof}
 
 \begin{theorem}[Beppo Levi]\label{thm:BeppoLevi}
-	Sia $(f_n)$ una successione crescente di funzioni misurabili positive convergenti puntualmente ad una funzione $f$, allora $\int_Xf\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu$.
+	Sia $(f_n)$ una successione crescente di funzioni misurabili positive, definita su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rpiu$, convergenti puntualmente ad una funzione $f$. Allora 
+	\begin{equation*}
+	\int_Xf\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu\punto
+	\end{equation*}
 \end{theorem}
 
 \begin{proof}
 	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{SupMis} $f$ è una funzione misurabile e positiva.
 	
-	Per il \cref{cor:LimSemCrescMis}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
+	Come osservato nella \cref{nota:ApprossimazioneIntegralePositiveConSemplici}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
 	\begin{equation*}
-		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu
+		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X\punto f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu\punto
 	\end{equation*}
 \end{proof}
 
 \begin{corollary}\label{cor:IntegrazionePerSeriePositive}
-	Sia $(f_n)$ una successione di funzioni misurabili e positive, definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$. Allora esiste $f:X\to\Rbar$ misurabile e positiva tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$, e $\int f\de\mu=\sum_{n=0}^\infty\int f_n\de\mu$.
+	Sia $(f_n)$ una successione di funzioni misurabili e positive, definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rpiu$. Allora esiste $f:X\to\Rpiu$ misurabile e positiva tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$, e $\int f\de\mu=\sum_{n=0}^\infty\int f_n\de\mu$.
 \end{corollary}
 
 \begin{proof}
 	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{SupMis}. Dato che le $s_n$ covergono puntalmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
 	\begin{equation*}
-		\int f \de\mu=\lim_{n\to\infty}\int s_n\de\mu=\lim_{n\to\infty}\int \sum_{k=0}^nf_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n \int f_n\de\mu=\sum_{k=0}^\infty\int f_n\de\mu
+		\int f \de\mu=\lim_{n\to\infty}\int s_n\de\mu=\lim_{n\to\infty}\int \sum_{k=0}^nf_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n \int f_n\de\mu=\sum_{k=0}^\infty\int f_n\de\mu\virgola
 	\end{equation*}
 	che è proprio quello che volevamo dimostrare.
 \end{proof}
@@ -193,18 +211,18 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{lemma}[Fatou] \label{lem:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
-		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\punto
 	\end{equation*}
 \end{lemma}
 
 \begin{proof}
 	Applichiamo il \cref{thm:BeppoLevi} alla successione di funzioni crescenti $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
 	\begin{equation*}
-		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu
+		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\virgola
 	\end{equation*}
 	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per la \cref{prop:IntegralePositive}, ho che
 	\begin{equation*}
-		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu
+		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu\punto
 	\end{equation*}
 \end{proof}
 
@@ -223,26 +241,25 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xf_+\de\mu-\int_Xf_-\de\mu
 	\end{equation*}
-	dove $f_+=\max\{0,f\}$ e $f_-=\max\{0,-f\}$.
+	dove $f_+$ ed $f_-$ sono definite nella \cref{def:FpiuFmeno}.
 \end{definition}
 
-\begin{remark}
-	Notiamo in particolare che le funzioni $f_+$ ed $f_-$, oltre ad essere positive, sono anche integrabili.
+\begin{remark}\label{nota:FpiuFmenoIntegrabili}
+	Notiamo in particolare che le funzioni $f_+$ ed $f_-$, oltre ad essere positive e misurabili (per la \cref{nota:ProprietaFpiuFmeno}), sono anche integrabili.
 \end{remark}
 
 \begin{lemma}\label{DefinizioneEquivalenteIntegraleIntegrabili}
-	Data una funzione integrabile $f:X\to\Rbar$ e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali che $f=g-h$, allora
+	Data una funzione integrabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali che $f=g-h$, vale che
 	\begin{equation*}
-		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu
+		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu\punto
 	\end{equation*}
 \end{lemma}
 \begin{proof}
 	Poichè $f_++h=f_-+g$, per la \cref{prop:IntegralePositive} e ricordando che gli integrali di $f_+,f_-,g,h$ sono finiti, otteniamo
 	\begin{gather*}
 		\int  f_+\de\mu+\int  h\de\mu=\int  f_-\de\mu+\int  g\de\mu \\
-		\Longrightarrow \int f\de\mu=\int f_+\de\mu-\int f_-\de\mu=\int g\de\mu-\int h\de\mu
+		\Longrightarrow \int f\de\mu=\int f_+\de\mu-\int f_-\de\mu=\int g\de\mu-\int h\de\mu\punto
 	\end{gather*}
-
 \end{proof}
 
 \begin{proposition}\label{prop:IntegraleIntegrabili}
