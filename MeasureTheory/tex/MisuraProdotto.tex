@@ -1,20 +1,23 @@
 \section{Misura prodotto}
 Trattiamo ora la possibilità di rendere uno spazio di misura il prodotto di due spazi di misura. 
-
 Questo risulterà facile sfruttando, come strumento principale, il teorema di estensione di Caratheodory. 
-Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di Caratheodory, proponiamo una via tecnica (che sfrutta la teoria degli integrali costruita), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli operatori integrali in uno spazio prodotto. 
+Si potrebbe decidere di esplicitare direttamente la misura prodotto, come integrale della misura delle sezioni, piuttosto che sfruttare il teorema di Caratheodory per assicurarne l'esistenza. 
+Questa via, più diretta e meno tecnica, è effettivamente presa da vari libri di teoria della misura. Qui si è deciso di procedere diversamente sia per ignoranza iniziale degli autori, sia perchè in effetti si dimostra, ed è a nostro parere molto istruttivo, che le due definizioni sono equivalenti.
 
-Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scambiare tra loro gli operatori di integrazione sotto opportune ipotesi.
-%TODO Parole in libertà qui sopra.
+L'idea portante di tutta questa sezione è quella di mostrare che la misura più ovvia da porre sullo spazio prodotto, cioè quella derivante dalla premisura sui rettangoli, è in effetti sufficientemente  ricca da assicurare molte proprietà allo spazio di misura a essa relativo ed in particolare ha sufficienti proprietà per dimostrare i teoremi di Fubini e Tonelli, che assicurano, sotto ipotesi relativamente lascive, la possibilità di scambiare tra loro gli operatori di integrazione.
+
+È importante enfatizzare da subito come vi sia una certa arbitrarietà nel decidere quale sia la \sigalg{} dei misurabili sullo spazio prodotto. Si potrebbe decidere di lavorare sulla \sigalg{} di Caratheodory, ma questa risulterebbe troppo ampia, oppure lavorare sulla \sigalg{} generata dai rettangoli, che invece risulta spesso (in particolare nel caso fondamentale della misura di Lebesgue) troppo ristretta.
+L'ambiente giusto in cui lavorare risulterà infatti essere la \sigalg{} generata dai rettangoli nel caso in cui le misure iniziali non siano complete, mentre sarà più adatto lavorare nel completamento di questa \sigalg{} nel caso in cui le misure siano complete.
 
 
+
+Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di Caratheodory, proponiamo una via tecnica (che sfrutta la teoria degli integrali), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli integrali in uno spazio prodotto. 
 \newcommand{\B}{\ensuremath{\mathscr B}}
-\begin{definition}
-	Dati due insiemi $X,Y$ e $x\in X$ fissato, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ così definita:
+\begin{definition}\label{def:SezioneProdotto}
+	Dati due insiemi $X,Y$ e $x\in X$ fissato, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ che restituisce le sezioni di un insieme:
 	\begin{equation*}
-		\forall E\subseteq X\times Y:\ J^X_x(E)=\{y\in Y:\ (x,y)\in E\}
+		\forall E\subseteq X\times Y:\ J^X_x(E)=\{y\in Y:\ (x,y)\in E\}\punto
 	\end{equation*}
-	
 	Dove ovvio verrà omesso l'apice che indica l'insieme.
 \end{definition}
 
@@ -70,6 +73,8 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	che è la tesi cercata.
 \end{proof}
 
+La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di lavoro finale potrà essere vario. Infatti piuttosto che dimostrarla per soli insiemi misurabili (non ancora definiti) la si deve dimostrare per insiemi trascurabili qualunque, per poi poterla sfruttare indipendentemente da quale \sigalg{} dei misurabili verrà scelta.
+
 \begin{proposition}\label{prop:TrascurabiliProdotto}
 	Dato lo spazio di premisura $(X\times Y,\A\times\B,\overline{\mu\nu})$, che si è mostrato essere di premisura nel \cref{thm:PremisuraProdotto}, sia $\mu\nu^*:\mathcal P(X\times Y)\to\Rpiu$ la misura esterna associata a $\overline{\mu\nu}$.
 	
@@ -108,7 +113,6 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	Per concludere basta notare che l'insieme degli $x\in X$ tali che $\nu^*(J_x^X(E))>0$ si ottiene come unione numerabile degli $X_{\frac 1i}$, che sono tutti trascurabili, ed è perciò trascurabile anch'esso per la \cref{nota:UnioneTrascurabili} come voluto.
 \end{proof}
 
-
 \begin{definition}\label{def:SigAlgProdotto}
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $\A\otimes\B\subseteq \mathcal P(X\times Y)$ la \sigalg{} generata da $\A\times\B$. 
 \end{definition}
@@ -139,9 +143,12 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio di misura prodotto, dove $\mu\nu$ è la riduzione alla sola \sigalg{} generata da $\A\times\B$ della misura, associata alla premisura $\overline{\mu\nu}$, assicurataci dal \cref{EstensioneCaratheodory}.
 \end{definition}
 
-%TODO Questo che segue non ha senso, perchè noi considereremo la misura solo sugli insiemi sigma finiti e perciò tutte le estensioni coincidono.
-È importante notare che la scelta dell'estensione della premisura alla misura prodotto è, in qualche senso, di carattere arbitrario. Infatti, a meno che gli spazi siano \sigfin[i], sono possibili altre estensioni non coincidenti della misura. 
-È preferibile però considerare l'estensione proposta dal teorema di Caratheodory poichè è la scelta corretta in vista dei teoremi cardine di questa sezione: Fubini e Tonelli.
+Ora che abbiamo fissato la \sigalg{} dei misurabili, fermiamoci un attimo a riflettere sulla scelta. Perchè piuttosto non abbiamo scelto il suo completamento? Oppure perchè non abbiamo scelto la \sigalg{} degli insiemi che hanno ogni sezione misurabile? 
+Il motivo è che nessuna di queste ci avrebbe assicurato, nel caso generale, la veridicità della \cref{prop:SezioniMisurabili} e dei teoremi che seguiranno.
+
+Ora andiamo a dimostrare i teoremi di Fubini e Tonelli, che permettono di scambiare integrali, nel caso in cui i misurabili siano proprio $\A\otimes\B$. In seguito li ridimostreremo, in maniera più concisa, nel caso in cui le misure di partenza siano complete e i misurabili piuttosto che essere $\A\otimes\B$, sono il suo completamento.
+
+Le dimostrazioni che seguono fondamentalmente vanno per passi e dimostrano la commutazione tra integrali per funzioni gradualmente più complicate: indicatrici di insiemi, semplici, misurabili positive ed infine integrabili.
 
 D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la notazione associata ai singoli spazi di misura, cioè se parliamo di $(X\times Y,\A\otimes\B,\mu\nu)$ è sottointeso che corrisponde agli spazi di misura $(X,\A,\mu)$ e $(Y,\B,\nu)$.
 
@@ -153,10 +160,9 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 \end{proposition}
 \begin{proof}
 	\newcommand{\E}{\ensuremath{\mathscr E}}
-	Useremo implicitamente che, per quanto dimostrato nella \cref{prop:SezioniMisurabili}, le sezioni di insiemi misurabili nel prodotto sono misurabili anch'esse.
-	Inoltre dimostreremo solo la prima uguaglianza della tesi, la seconda risulterà di conseguenza vera per simmetria.
+	Dimostriamo solo la prima uguaglianza della tesi, la seconda risulterà di conseguenza vera per simmetria.
 	
-	Sia $\E\subseteq \A\otimes\B$ l'insieme degli insiemi misurabili sul prodotto con \emph{misura finita} che rispettano la tesi (solo la prima uguaglianza).
+	Sia $\E\subseteq \A\otimes\B$ l'insieme degli insiemi misurabili sul prodotto con \emph{misura finita} che rispettano la tesi\footnote{Più correttamente $\E$ contiene gli insiemi tali che gli integrali dell'enunciato sono ben definiti e coincidono} (solo la prima uguaglianza).
 	
 	Dimostriamo che $\E$ contiene i rettangoli ed è chiuso per intersezione numerabile monotona e unione numerabile disgiunta.
 	
@@ -190,7 +196,10 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	È facile verificare che quanto scritto equivale a dire $\bigcap_{i\in\N}E_i\in\E$, perciò, sempre per l'arbitrarietà della scelta degli $E_i$, ne segue che $\E$ è chiuso per intersezione monotona.
 	
 	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}\subseteq\E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo Caratheodory, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
-	Però per la \cref{prop:TrascurabiliProdotto} l'insieme trascurabile $E\setminus F$ appartiene ad $\E$, e quindi vale
+	
+	Però per la \cref{prop:TrascurabiliProdotto} l'insieme trascurabile $E\setminus F$ ha quasi ogni sezione trascurabile a sua volta.
+	Allora applicando la \cref{prop:SezioniMisurabili} e ricordando il \cref{lemma:L1NullaAlloraNulla} ne discende banalmente che $E\setminus F\in\E$.
+	Perciò vale
 	\begin{align*}
 		\mu\nu(F)&=\mu\nu(E)-\mu\nu(E\setminus F)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)-\int_X\nu\left(J_x^X(E\setminus F)\right)\de\mu(x)\\
 		&=\int_X\nu\left(J_x^X(E\setminus F)\right)-\nu(\left(J_x^X(E)\right)\de\mu(x)
@@ -220,7 +229,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	\end{equation*}
 	che equivale a dire che le funzioni indicatrici dei misurabili \sigfin[i] appartengono a $\E$.
 	
-	Inoltre, per la linearità dell'operatore di integrale, è facile convincersi che $\E$ è un sottospazio vettoriale delle funzioni misurabili e perciò, visto che contiene le indicatrici degli insiemi misurabili \sigfin[i], contiene ogni funzione semplice a supporto \sigfin[o].
+	Inoltre, per la linearità dell'operatore di integrale, è facile convincersi che $\E$, visto che contiene le indicatrici degli insiemi misurabili \sigfin[i], contiene anche le funzioni semplici positive a supporto \sigfin[o].
 	
 	Per concludere sia $f:X\times Y\to\Rbar$ una funzione misurabile a supporto \sigfin[o].
 	Per il \cref{cor:LimSemCrescMis} esiste una famiglia crescente $(f_i)_{i\in\N}$ di funzioni misurabili positive che convergono puntualmente ad $f$. Essendo $f$ a supporto \sigfin[o] ed essendo le $f_i$ sempre minori di $f$ anche il loro supporto è \sigfin[o] e perciò $f_i\in\E$ per ogni $i\in\N$.
@@ -262,59 +271,50 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	È importante notare che, come osservato nel MISREF, gli integrali interni $\int_Y f(\bar x,y)\de\nu(y)$ possono non esistere, ma poichè questo avviene per $\mu$-quasi nessuna $\bar x\in X$ ciò non influisce sul valore dell'integrale doppio.
 \end{proof}
 
+Ora che abbiamo terminato la trattazione nel caso in cui i misurabili siano $\A\otimes\B$, tratteremo il caso in cui entrambe le misure iniziali sono complete e $\A\otimes\B$ piuttosto che essere la \sigalg{} generata dai rettangoli è il suo completamento rispetto alla misura prodotto.
+Ridimostreremo perciò gli ultimi tre risultati soffermandoci unicamente sulle differenze negli enunciati e nelle dimostrazioni nel caso di misure complete.
 
+\emph{D'ora in poi assumiamo implicitamente che $(X,\A,\mu)$ e $(Y,\B,\nu)$ siano spazi di misura completi.}
 
-%TODO MIgliorare da qui in poi.
+\begin{definition}\label{def:MisuraProdottoCompleta}
+	Indichiamo con $(X\times Y,\overline{\A\otimes\B},\mu\nu)$\footnote{Compiamo ora un leggerissimo abuso di notazione, visto che $\mu\nu$ è già la misura su $\A\otimes\B$ piuttosto che sul suo completamento} il completamento dello spazio di misura $(X\times Y,\A\otimes\B,\mu\nu)$.
+\end{definition}
 
-\begin{proposition}
-	Siano $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura ed $E$ un insieme misurabile dello spazio prodotto $(X\times Y,\A\otimes\B,\mu\nu)$.
-	Per $\mu$-quasi ogni $x$ l'insieme $J^X_x(E)$ è un misurabile, cioè appartiene a $\B$.
-\end{proposition}
-\begin{proof}
-	TODO: Non sono troppo convinto dell'enunciato, forse serve qualche ipotesi di \sigfin[ezza].
-\end{proof}
-
-\begin{proposition}
-	Siano $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura ed $f:X\times Y\to\Rbar$ una funzione misurabile dello spazio prodotto $(X\times Y,\A\otimes\B,\mu\nu)$.
-	Per $\mu$-quasi ogni $x$ la funzione $f(x,{}\cdot{}):Y\to\Rbar$ è misurabile nello spazio $(Y,\B,\nu)$.
-\end{proposition}
-\begin{proof}
-	TODO: Come sopra!
-\end{proof}
-
-
-
-
-
-\begin{theorem}[Tonelli]
-	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, sia $f:X\times Y\to \Rbar$ una funzione positiva misurabile sullo spazio prodotto $(X\times Y,\A\otimes\B,\mu\nu)$ a supporto \sigfin[o].
-
-	Allora la funzione $f(x,{}\cdot{})$ è misurabile per $\mu$-quasi ogni $x\in X$, la funzione $\int_Y f(x,y)\de\nu(y)$ è perciò definita $\mu$-quasi ovunque e, ponendola nulla dove non è definita, risulta misurabile. Stessa cosa vale anche scambiando tra loro i ruoli di $X$ e $Y$.
-	
-	Infine vale la seguente identità, che acquista significato visto quanto si è appena affermato (la funzione integrale, dove non definita, la pongo arbitrariamente a $0$):
+\begin{proposition}\label{prop:PreTonelliCompleto}
+	Dato lo spazio di misura prodotto $(X\times Y,\overline{\A\otimes\B},\mu\nu)$, per ogni insieme misurabile $E\in\overline{\A\otimes\B}$ \sigfin[o] vale la seguente espressione per la misura:
 	\begin{equation*}
-		\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_{X\times Y}f(x,y)\de\mu\nu(x,y)=\int_Y\int_Xf(x,y)\de\mu(x)\de\nu(y)
+		\mu\nu(E)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)=\int_Y\mu\left(J_y^Y(E)\right)\de\nu(y)\virgola
 	\end{equation*}
+	dove le funzioni integrande $\nu\left(J_x^X(E)\right)$ e $\mu\left(J_y^Y(E)\right)$ sono definite solo quasi ovunque, ma questo non cambia il valore dell'integrale in virtù del \cref{cor:IntegraleAMenoDiTrascurabili}.
+\end{proposition}
+\begin{proof}
+	La dimostrazione procede pedissequamente a quella della \cref{prop:PreTonelli}, tranne che quando si afferma che grazie alla \cref{prop:TrascurabiliProdotto} gli insiemi trascurabili risultano avere quasi tutte le sezioni misurabili di misura nulla. Infatti nel dimostrarlo si sfruttava la \cref{prop:SezioniMisurabili}, che in questo caso non si può più applicare.
+	Ridimostriamo perciò il fatto citato in questo caso.
+	
+	Sia $N\in\overline{\A\otimes\B}$ trascurabile. Allora per la \cref{prop:TrascurabiliProdotto}, per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(N)$ risulta trascurabile. Ma allora per la completezza della misura $\mu$,  si ottiene anche che quasi ovunque $J_x^X(N)$ è misurabile di misura nulla e questo è proprio quanto serve.
+	
+	È importante notare che è proprio in questo passaggio che si sfrutta la completezza delle misure ed è sempre qui che diventa necessaria la precisazione nell'enunciato dell'esistenza solo quasi ovunque delle funzioni integrande.
+\end{proof}
+
+\begin{theorem}[Tonelli]\label{thm:TonelliCompleto}
+	Dato $(X\times Y,\overline{\A\otimes\B},\mu\nu)$ uno spazio prodotto, per ogni funzione $f:X\times Y\to\Rbar$ misurabile positiva a supporto \sigfin[o] vale
+	\begin{equation*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_Y\int_X f(x,y)\de\mu(x)\de\nu(y)\virgola
+	\end{equation*}
+	dove le funzioni $f(x,\cdot):Y\to\Rpiu$ e $f(\cdot,y):X\to\Rpiu$ risultano misurabili solo quasi ovunque e perciò anche gli integrali $\int_Y f(x,y)\de\nu(y)$ e $\int_X f(x,y)\de\mu(x)$ risultano definiti solo quasi ovunque, ma questo non cambia il valore dell'integrale esterno in virtù del \cref{cor:IntegraleAMenoDiTrascurabili}.
 \end{theorem}
 \begin{proof}
-	Definiamo $V$ l'insieme delle funzioni positive misurabili sullo spazio prodotto che rispettano le richieste di misurabilità dell'enunciato (solo quelle senza scambiare i ruoli di $X$ e $Y$, cioè quelle necessarie a dare senso alla prima identità) nonchè la prima identità tra gli integrali. Dimostreremo che $V$ comprende tutte le funzioni a supporto \sigfin[o], e questo proverà la tesi visto che per totale simmetria dovrà valere anche la seconda identità tra integrali. 
-	
-	Verifichiamo che $V$ rispetti tutte le ipotesi del MISREF:	
-	\begin{description}
-		\item[$V$ contiene le indicatrici dei rettangoli] Questo risulta molto facile sfruttando la definizione della misura prodotto e dell'integrale di funzioni semplici (in particolare le ipotesi di misurabilità, in questo caso, valgono ovunque e non solo $\mu$-quasi ovunque).
-		
-		Infatti, fissati $A\in\A$ e $B\in\B$, vale:
-		\begin{align*}
-			\int_X\int_Y \chi_{A\times B}(x,y) \de\nu(y)\de\mu(x) &=\int_X \nu(B)\chi_A(x)\de\mu(x)=\mu(A)\nu(B)=\mu\nu(A\times B)\\
-			&=\int_{X\times Y}\chi_{A\times B}(x,y)\de\mu\nu(x,y)
-		\end{align*}
-		che equivale a dire $\chi_{A\times B}\in V$.
-		\item[$V$ è un sottospazio vettoriale] Fissate $f,g\in V$, sia $k=af+bg$ una combinazione lineare delle due funzioni. 
-		Fissato $x\in X$, se $f(x,{}\cdot{}),g(x,{}\cdot{})$ sono entrambe misurabili, anche $k(x,{}\cdot{})$ lo è poichè le funzioni misurabili sono uno spazio vettoriale come mostrato in \cref{AlgMis}. Inoltre l'insieme degli $x$ per cui una tra $f(x,{}\cdot{})$ e $g(x,{}\cdot{})$ \emph{non} è misurabile è un trascurabile poichè è unione degli insiemi per cui solo una delle due non è misurabile che sono trascurabili visto che $f,g\in V$.
-		
-		Infine l'identità tra gli integrali per $k$ è ovvia visto che l'operatore integrale è lineare e il porre arbitrariamente a $0$ il valore dove non è definita la funzione $\int_Yk(x,y)\de\nu(y)$ non cambia il valore dell'integrale esterno.
-		\item[$V$ è chiuso per convergenza monotona] Considero un insieme di funzioni $f_n$ che converge monotonamente a $f$.
-	\end{description}
-
+	Anche in questo caso la dimostrazione ricopia quella del \cref{thm:Tonelli}, con la lieve differenza che, al posto di sfruttare la \cref{prop:PreTonelli}, sfrutta la \cref{prop:PreTonelliCompleto} che ha ovviamente enunciato analogo solo che tratta il caso di misure complete. 
+	Proprio per il fatto che sfrutta la \cref{prop:PreTonelliCompleto}, che assicura la definizione delle funzioni solo quasi ovunque, nell'enunciato si deve specificare che le funzioni e i relativi integrali sono definiti solo quasi ovunque.
 \end{proof}
 
+\begin{theorem}[Fubini]\label{thm:FubiniCompleto}
+	Dato $(X\times Y,\overline{\A\otimes\B},\mu\nu)$ uno spazio prodotto, per ogni funzione $f:X\times Y\to\Rbar$ integrabile vale
+	\begin{equation*}
+		\int_{X\times Y}f(u)\de\mu\nu(u)=\int_X\int_Y f(x,y)\de\nu(y)\de\mu(x)=\int_Y\int_X f(x,y)\de\mu(x)\de\nu(y)\virgola
+	\end{equation*}
+	dove le funzioni $f(x,\cdot):Y\to\Rpiu$ e $f(\cdot,y):X\to\Rpiu$ risultano misurabili solo quasi ovunque e perciò anche gli integrali $\int_Y f(x,y)\de\nu(y)$ e $\int_X f(x,y)\de\mu(x)$ risultano definiti solo quasi ovunque, ma questo non cambia il valore dell'integrale esterno in virtù del \cref{cor:IntegraleAMenoDiTrascurabili}.
+\end{theorem}
+\begin{proof}
+	Si dimostra identicamente a come si è dimostrato \cref{thm:Fubini}, solo che, al posto di applicare \cref{thm:Tonelli}, si applica \cref{thm:TonelliCompleto}.
+\end{proof}
