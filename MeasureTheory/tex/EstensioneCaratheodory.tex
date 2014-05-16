@@ -88,7 +88,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	che è proprio la condizione di appartenenza ad $\A$.
 \end{proof}
 
-\begin{proposition}\label{MisuraEsternaDiPremisura}
+\begin{proposition}\label{prop:MisuraEsternaDiPremisura}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
 	\begin{equation*}
 		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
@@ -127,7 +127,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	e questo implica facilmente \cref{MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 \begin{remark}\label{PremisuraMassimaMisura}
-	Sia $(X,\S,\mu)$ uno spazio di premisura e $\mu^*:\mathcal P(X)\to\Rpiu$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}), allora una qualsiasi misura $\mu':\A\to\Rpiu$, dove $\A\supseteq \S$ è una \sigalg{}, che estenda $\mu$ è minore della misura esterna, cioè $\mu'(A)\le \mu^*(A)$ per ogni $A\in\A$.
+	Sia $(X,\S,\mu)$ uno spazio di premisura e $\mu^*:\mathcal P(X)\to\Rpiu$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{prop:MisuraEsternaDiPremisura}), allora una qualsiasi misura $\mu':\A\to\Rpiu$, dove $\A\supseteq \S$ è una \sigalg{}, che estenda $\mu$ è minore della misura esterna, cioè $\mu'(A)\le \mu^*(A)$ per ogni $A\in\A$.
 \end{remark}
 \begin{proof}
 	Fissiamo $A\in\A$ e chiamiamo $(S_n)_{n\in\N}\in\S$ un suo ricoprimento numerabile.
@@ -145,16 +145,16 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
-	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{MisuraEsternaDiPremisura}. Sempre \cref{MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
+	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{prop:MisuraEsternaDiPremisura}. Sempre \cref{prop:MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
 	
 	Possiamo ora ridurre $\mu^*$ grazie al \cref{RiduzionePreCaratheodory} ad una misura completa $\mu':\A\to\Rpiu$ dove $\A$ è la \sigalg{} di Caratheodory. 
 	
-	Ma come dimostrato in \cref{MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
+	Ma come dimostrato in \cref{prop:MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
 
 
 \begin{theorem}\label{thm:EquivalenzeMisurabilitaSottoinsieme}
-	Dato $(X,\S,\mu)$ una spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+	Dato $(X,\S,\mu)$ una spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{prop:MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Sia $A\subseteq X$ tale che sia \emph{\sigfin[o] rispetto alla premisura}, cioè sia contenuto in un unione numerabile di elementi di $\S$ con misura finita.
 	

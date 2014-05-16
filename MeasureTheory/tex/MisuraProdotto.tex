@@ -56,7 +56,7 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	\end{equation}
 	dove nell'implicazione abbiamo applicato la \sigadd[ità] di $\nu$.
 	
-	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\subseteq \A\times\B$, abbiamo
+	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\in \A\times\B$, abbiamo
 	\begin{equation}\label{StupidaIdentitaIndicatrici}
 		\overline{\mu\nu}(C\times D)=\mu(C)\nu(D)=\int_{X}\chi_C(x)\nu(D)\de \mu(x)=\int_X \nu\left(J_x(C\times D)\right)\de\mu(x)\virgola
 	\end{equation}
@@ -69,6 +69,45 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 	\end{align*}
 	che è la tesi cercata.
 \end{proof}
+
+\begin{proposition}\label{prop:TrascurabiliProdotto}
+	Dato lo spazio di premisura $(X\times Y,\A\times\B,\overline{\mu\nu})$, che si è mostrato essere di premisura nel \cref{thm:PremisuraProdotto}, sia $\mu\nu^*:\mathcal P(X\times Y)\to\Rpiu$ la misura esterna associata a $\overline{\mu\nu}$.
+	
+	Se $E\subseteq X\times Y$ è trascurabile rispetto a $\mu\nu^*$, allora per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(E)$ è trascurabile\footnote{Il fatto che un insieme sia trascurabile non implica che sia misurabile come osservato nella \cref{def:TrascurabiliMisura}.} rispetto alla misura $\mu$.
+\end{proposition}
+\begin{proof}
+	Chiamiamo $\mu^*,\nu^*$ le misure esterne associate alle misure $\mu,\nu$, definite come nella \cref{prop:MisuraEsternaDiPremisura} considerando $\mu,\nu$ delle premisure\footnote{Uno spazio di misura è sempre ovviamente anche uno spazio di premisura.}.
+	
+	Per $\delta>0$, sia $X_\delta$ l'insieme degli $x\in X$ tali che $\nu^*(J_x^X(E))\ge\delta$ e sia $m_\delta=\mu^*(X_\delta)$.
+	
+	Essendo $E$ trascurabile, se per assurdo $m_\delta>0$, esiste una famiglia di rettangoli $(A_i\times B_i)_{i\in\N}\subseteq \A\times\B$ la cui unione contiene $E$ e tali che
+	\begin{equation*}
+		\sum_{i\in\N}\mu(A_i)\nu(B_i)=\sum_{i\in\N}\overline{\mu\nu}(A_i\times B_i)< \delta m_\delta \punto
+	\end{equation*}
+	Poniamo $f:X\to\Rpiu$ la funzione definita come
+	\begin{equation*}
+		f(x)=\sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)
+	\end{equation*}
+	e notiamo subito che $f$ è una funzione misurabile positiva, per il MISREF{supDiMisurabili}, essendo una serie numerabile di funzioni indicatrici di misurabili.
+	
+	Per la sola definizione di misura esterna si ottiene che per ogni $x\in X$
+	\begin{equation*}
+		f(x)=\sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\ge\nu^*(J_x^X(E))\virgola
+	\end{equation*}
+	poichè i $B_i$, tali che i rispettivi $A_i$ contengano $x$, sono un ricoprimento numerabile di $J_x^X(E)$.
+	
+	Allora, per la monotonia della misura esterna, ne segue banalmente che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poichè $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
+	Perciò applicando il \cref{thm:DisuguaglianzaChebyshev}, ne ricaviamo che $\LNorm f\ge \delta m_\delta$.
+
+	Però, applicando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
+	\begin{equation*}
+		\delta m_\delta \le\LNorm f=\int_X \sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\de\mu(x)= \sum_{i\in\N}\int_X \chi_{A_i}(x)\nu(B_i)\de\mu(x)=\sum_{i\in\N}\mu(A_i)\nu(B_i)<\delta m_\delta\virgola
+	\end{equation*}
+	che mostra l'assurdo e dimostra $m_\delta=0$.
+	
+	Per concludere basta notare che l'insieme degli $x\in X$ tali che $\nu^*(J_x^X(E))>0$ si ottiene come unione numerabile degli $X_{\frac 1i}$, che sono tutti trascurabili, ed è perciò trascurabile anch'esso per la \cref{nota:UnioneTrascurabili} come voluto.
+\end{proof}
+
 
 \begin{definition}\label{def:SigAlgProdotto}
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $\A\otimes\B\subseteq \mathcal P(X\times Y)$ la \sigalg{} generata da $\A\times\B$. 
@@ -105,34 +144,6 @@ Infine dimostreremo i teoremi di Fubini e Tonelli, cioè la possibilità di scam
 È preferibile però considerare l'estensione proposta dal teorema di Caratheodory poichè è la scelta corretta in vista dei teoremi cardine di questa sezione: Fubini e Tonelli.
 
 D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la notazione associata ai singoli spazi di misura, cioè se parliamo di $(X\times Y,\A\otimes\B,\mu\nu)$ è sottointeso che corrisponde agli spazi di misura $(X,\A,\mu)$ e $(Y,\B,\nu)$.
-
-\begin{proposition}\label{prop:TrascurabiliProdotto}
-	Dato lo spazio di misura prodotto $(X\times Y,\A\otimes\B,\mu\nu)$, se $E\in\A\otimes\B$ è un trascurabili allora la sezione $J_x^X(E)$ è trascurabile per $\mu$-quasi ogni $x\in X$ (e analogo risultato vale ovviamente rispetto all'insieme $Y$).
-\end{proposition}
-\begin{proof}
-	Per la definizione di $\mu\nu$ come riduzione della misura esterna associata a $\overline{\mu\nu}$, abbiamo che se $E$ è trascurabile allora fissato $\epsilon>0$, esiste una famiglia di rettangoli $(A_i\times B_i)_{i\in\N}\subseteq \A\times\B$ la cui unione contiene $E$ e tali che
-	\begin{equation*}
-		\sum_{i\in\N}\mu(A_i)\nu(B_i)=\sum_{i\in\N}\overline{\mu\nu}(A_i\times B_i)\le\epsilon \punto
-	\end{equation*}
-	
-	Grazie alla monotonia dell'integrale e al fatto che $E$ appartiene all'unione dei rettangoli, otteniamo
-	\begin{equation}\label{eq:TrascurabiliProdotto1}
-		\int_X \nu(J_x^X(E))\de\mu(x)\le \int_X \sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\de\mu(x)
-	\end{equation}
-	ed applicando il \cref{cor:IntegrazionePerSeriePositive} ricaviamo
-	\begin{equation}\label{eq:TrascurabiliProdotto2}
-		\int_X \sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\de\mu(x)= \sum_{i\in\N}\int_X \chi_{A_i}(x)\nu(B_i)\de\mu(x)=\sum_{i\in\N}\mu(A_i)\nu(B_i)\le\epsilon\punto
-	\end{equation}
-	Unendo le \cref{eq:TrascurabiliProdotto1,eq:TrascurabiliProdotto2} arriviamo a
-	\begin{equation*}
-		\int_X \nu(J_x^X(E))\de\mu(x)\le \epsilon
-	\end{equation*}
-	e visto che vale per ogni $\epsilon>0$ ne concludiamo
-	\begin{equation*}
-		\int_X \nu(J_x^X(E))\de\mu(x)=0\virgola
-	\end{equation*}
-	ed applicando il \cref{lemma:L1NullaAlloraNulla} otteniamo la tesi.
-\end{proof}
 
 \begin{proposition}\label{prop:PreTonelli}
 	Dato lo spazio di misura prodotto $(X\times Y,\A\otimes\B,\mu\nu)$, per ogni insieme misurabile $E\in\A\otimes\B$ \sigfin[o] vale la seguente espressione per la misura:

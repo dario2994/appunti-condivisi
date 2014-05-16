@@ -145,10 +145,11 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 
 
 
-\begin{definition}\label{TrascurabiliMisura}
+\begin{definition}\label{def:TrascurabiliMisura}
 	In uno spazio di misura un insieme con misura nulla è detto trascurabile.
+	Più in generale si diranno trascurabili tutti gli insiemi, eventualmente non misurabili, che sono sottoinsieme di un insieme di misura nulla.
 \end{definition}
-\begin{remark}\label{UnioneTrascurabili}
+\begin{remark}\label{nota:UnioneTrascurabili}
 	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
 \end{remark}
 \begin{proof}
@@ -173,7 +174,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \end{definition}
 
 \begin{remark}
-	Le definizioni appena date (\cref{TrascurabiliMisura,def:QuasiOvunque,FinitezzaMisura,SigmaFinitezzaMisura,CompletezzaMisura}) si estendono anche agli spazi, che definiremo tra poco, che sono muniti di misure elementari o di misure esterne. Inoltre le qualità di finitezza, \sigfin[ezza] e completezza si riferiranno, col medesimo significato, sia alla misura che allo spazio. 
+	Le definizioni appena date (\cref{def:TrascurabiliMisura,def:QuasiOvunque,FinitezzaMisura,SigmaFinitezzaMisura,CompletezzaMisura}) si estendono anche agli spazi, che definiremo tra poco, che sono muniti di misure elementari o di misure esterne. Inoltre le qualità di finitezza, \sigfin[ezza] e completezza si riferiranno, col medesimo significato, sia alla misura che allo spazio. 
 \end{remark}
 
 \begin{proposition}\label{CompletamentoMisura}
@@ -218,7 +219,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\begin{equation*}
 		\sum_{n\in\N} \tilde\mu(A^*_n)=\sum_{n\in\N} \mu(A_n)=\mu\left(\bigcup_{n\in\N} A_n\right)=\mu\left(\bigcup_{n\in\N} A^*_n\right)
 	\end{equation*}
-	dove nell'ultimo passaggio abbiamo implicitamente applicato \cref{UnioneTrascurabili}.
+	dove nell'ultimo passaggio abbiamo implicitamente applicato la \cref{nota:UnioneTrascurabili}.
 	
 	Resta da verificare che $\tilde\mu$ sia completa, ma questo è ovvio visto che  $\tilde\mu(A^*)=0$ se e solo se $A^*$ è il sottoinsieme di un trascurabile di $\A$ e la relazione di essere sottoinsieme di un trascurabile è chiusa per estrazione di sottoinsiemi. 
 
