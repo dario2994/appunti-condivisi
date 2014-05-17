@@ -262,27 +262,113 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{gather*}
 \end{proof}
 
+
+
+\begin{remark}\label{nota:MonotoniaIntegraleIntegrabili}
+	Dalla definizione di funzioni integrabili e dalla \cref{prop:IntegralePositive}, segue facilmente che date $f,g:X\to\Rbar$ funzioni integrabili, con $(X,\A,\mu)$ spazio di misura, vale che se $f\le g$, allora $\int f\de\mu\le \int g\de\mu$.
+\end{remark}
+
+\begin{remark}\label{nota:IntegraleIntegrabiliSuMisurabili}
+	Dalla \cref{prop:IntegraleSempliciSuMisurabili}, dimostrandolo prima per le funzioni positive, si ricava che data una funzione integrabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$, vale che
+	\begin{equation*}
+		\int_E f \de\mu=\int_X f\cdot\chi_E\de\mu\punto
+	\end{equation*}
+
+\end{remark}
+
+
+
+\begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
+	Data una funzione $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
+	\begin{equation*}
+		\mu\left(\left\{x:\ |f(x)|>\lambda\right\}\right) \le \frac{\LNorm f}{\lambda}\punto
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Sia $A_\lambda$ l'insieme degli $x$ tali che $|f(x)|>\lambda$. Ovviamente $A_\lambda$ è un insieme misurabile per la definizione di funzione integrabile.
+	
+	Grazie alla \cref{nota:MonotoniaIntegraleIntegrabili} e per la definizione di integrale di una funzione semplice abbiamo
+	\begin{equation*}
+		|f|\ge\lambda \cdot \chi_{A_\lambda} \implies \int_X |f|\de\mu \ge \int_X \lambda\cdot\chi_{A_\lambda}\de\mu=\lambda\mu(A_\lambda)\implies
+		\LNorm{f}\ge \lambda\mu(A_\lambda)\virgola
+	\end{equation*}
+	che è equivalente alla tesi.
+\end{proof}
+
+\begin{corollary}\label{cor:SupportoIntegrabile}
+	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, allora l'insieme degli $x\in X$ in cui $f$ non si annulla\footnote{In teoria della misura chiamiamo tale insieme supporto.} è \sigfin[o].
+\end{corollary}
+\begin{proof}
+	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:L1NullaAlloraNulla}
+	Data $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, risulta che $\LNorm{f}=0$ se e solo se
+	\begin{equation*}
+		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0\punto
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Dimostriamo innanzitutto che se $\LNorm{f}=0$ allora $\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0$.
+
+	Per ogni $n\in\N$, chiamiamo $A_n$ l'insieme degli $x\in X$ tali che $|f(x)|>\frac 1n$.
+	
+	Dal \cref{thm:DisuguaglianzaChebyshev}, sfruttando $\LNorm{f}=0$ è facile ottenere $\mu(A_n)=0$. 
+	Sfruttando quanto appena ottenuto insieme alla \sigsubadd[ità] della misura otteniamo facilmente la tesi:
+	\begin{equation*}
+		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0\punto
+	\end{equation*}
+	
+	Dimostriamo ora invece la freccia opposta dell'implicazione.
+	
+	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
+	
+	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$. Abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
+	\begin{equation*}
+		\simp=\sum_{k=1}^n c_k\chi_{F_k} \Longrightarrow \int_X\simp\de\mu=\sum_{k=1}^n c_k\mu(F_k)=0\virgola
+	\end{equation*}
+	dove l'ultima uguaglianza è vera perchè $F_k\subseteq \left\{x:\ \simp(x)\not=0\right\}$ e perciò $\mu(F_k)=0$.
+	
+	Da questo discende facilmente, per la definizione stessa di $\LNorm{f}$, che
+	\begin{equation*}
+		\LNorm f=\sup\left\{ \int_X \simp\de\mu\ :\ 0\le \simp \le |f| \wedge \simp \text{ semplice}\right\}=0\punto
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}\label{cor:IntegraleAMenoDiTrascurabili}
+	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e in tal caso vale che
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N}f\de\mu\punto
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Per l'additività dell'integrale e per la \cref{nota:IntegraleIntegrabiliSuMisurabili} abbiamo che
+	\begin{equation*}
+		\int_X f\de\mu=\int_{X\setminus N} f \de\mu+\int_N f\de\mu=\int_{X\setminus N}f\de\mu\virgola
+	\end{equation*}
+	dove l'ultima disuguaglianza è vera per il \cref{lemma:L1NullaAlloraNulla}, poichè infatti
+	\begin{equation*}
+		\left|\int_N f\de\mu\right|\le \int_N |f|\de\mu=0 \Longrightarrow \int_N f\de\mu=0\punto
+	\end{equation*}
+\end{proof}
+
+
+Il fatto che l'integrale di una funzione integrabile sia invariante a meno di insiemi trascurabili sarà fondamentale e molto utilizzato nel resto della trattazione. Spesso parleremo infatti di integrale di una funzione anche se questa non è definita su un sottoinsieme trascurabile del dominio (infatti l'integrale sarebbe lo stesso per qualsiasi scelta di valori su quel trascurabile).
+
+
 \begin{proposition}\label{prop:IntegraleIntegrabili}
-	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dati $a,b$ reali valgono:
+	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dati $a,b,\lambda\in\R$ valgono:
 	\begin{enumerate}
-		\item $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PII:add}
-		\item $f\le g\Longrightarrow \int f\de\mu\le \int g\de\mu$ \label{PII:mono}
+		\item $af+bg$\footnote{La somma $af+bg$ di due funzioni integrabili è definita a meno che $af$ e $-bg$ siano entrambe $\pm \infty$, ma ciò accade al più in un insieme trascurabile del dominio (per il \cref{thm:DisuguaglianzaChebyshev}). Perciò per il \cref{cor:IntegraleAMenoDiTrascurabili}, come già detto, non ce ne dobbiamo preoccupare. } è integrabile e $\int (af+bg)\de\mu=a\int f\de\mu+b\int g\de\mu$ \label{PII:add}
+		\item $\LNorm{\lambda f}=|\lambda|\LNorm f$ \label{PII:moltScalare}
+		\item $|f|\le |g|\Longrightarrow \LNorm f\le \LNorm g$ \label{PII:mono}
+		\item $\LNorm {f+g}\le\LNorm f+\LNorm g$ \label{PII:triang}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Sia l'additività che la monotonia seguono facilmente dalla \cref{def:IntegraleIntegrabili} e dal \cref{DefinizioneEquivalenteIntegraleIntegrabili}, sfruttando la \cref{prop:IntegralePositive}.
-\end{proof}
-
-\begin{corollary}\label{cor:ProprietaNormaL1}
-	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dato $\lambda$ reale, valgono:
-	\begin{enumerate}
-		\item $\LNorm{\lambda f}=|\lambda|\LNorm f$ \label{PNL:moltScalare}
-		\item $|f|\le |g|\Longrightarrow \LNorm f\le \LNorm g$ \label{PNL:mono}
-		\item $\LNorm {f+g}\le\LNorm f+\LNorm g$ \label{PNL:triang}
-	\end{enumerate}
-\end{corollary}
-\begin{proof}
-	La \ref{PNL:moltScalare} e la \ref{PNL:mono} seguono facilmente dalla \cref{prop:IntegraleIntegrabili}, mentre la \ref{PNL:triang} si ottiene dalla \ref{PNL:mono} in quanto $|f+g|\le|f|+|g|$.
+	La \ref{PII:add} è una facile conseguenza della definizione di integrale e dalla \cref{prop:IntegralePositive}.
+	La \ref{PII:moltScalare} e la \ref{PII:mono} seguono facilmente dalla \ref{PII:add} e dalla \cref{nota:MonotoniaIntegraleIntegrabili}, mentre la \ref{PII:triang} si ottiene dalla \ref{PII:mono} in quanto $|f+g|\le|f|+|g|$.
 \end{proof}
 
 
@@ -290,7 +376,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{definition}
 	Dato uno spazio di misura $(X,\A,\mu)$ definiamo
 	\begin{equation*}
-		\L(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}
+		\L(X,\A,\mu)=\{ f:X\to\Rbar \text{ integrabili} \}\punto
 	\end{equation*}
 	A volte utilizzeremo la notazione più compatta $\L$, quando sarà ovvio lo spazio di misura su cui stiamo lavorando.
 \end{definition}
@@ -302,7 +388,9 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L(X,\A,\mu)$ è uno spazio vettoriale. 
 	
-	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poichè il \cref{cor:ProprietaNormaL1} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
+	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poichè il \cref{prop:IntegraleIntegrabili} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
+	
+	Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo però che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L(X,\A,\mu)$ ma solo una seminorma.
 \end{proof}
 
 \begin{remark}
@@ -312,14 +400,14 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
 	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
 	\begin{equation*}
-		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu
+		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu\punto
 	\end{equation*}
 \end{theorem}
 
 \begin{proof}
-	Considero le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{lem:Fatou} vale che
+	Consideriamo le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{lem:Fatou} vale che
 	\begin{equation*}
-		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)
+		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)\punto
 	\end{equation*}
 	Perciò scegliendo rispettivamente il $+$ e il $-$ otteniamo
 	\begin{equation*}
@@ -327,102 +415,17 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 			\int f \de\mu\le \liminf_{n\to\infty}\int f_n \de \mu \\
 			\int f\de\mu \ge \limsup_{n\to\infty}\int f_n \de \mu
 		\end{cases}
-		\Longrightarrow \int f\de\mu = \lim_{n\to\infty}\int f_n \de \mu
+		\Longrightarrow \int f\de\mu = \lim_{n\to\infty}\int f_n \de \mu\punto
 	\end{equation*}
 
 \end{proof}
 
-\begin{corollary}\label{cor:ConvergenzaL1Dominata}
-	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$.
-\end{corollary}
-\begin{proof}
-	La dimostrazione è ovvia, infatti 
+\begin{remark}\label{nota:ConvergenzaL1Dominata}
+	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$. Infatti abbiamo che
 	\begin{equation*}
-		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}=\int |f-f_n|\de\mu\to 0
+		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}=\int |f-f_n|\de\mu\to 0\punto
 	\end{equation*}
-
-\end{proof}
-
-
-
-\begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
-	Data una funzione $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
-	\begin{equation*}
-		\mu\left(\left\{x:\ |f(x)|>\lambda\right\}\right) \le \frac{\LNorm f}{\lambda}
-	\end{equation*}
-\end{theorem}
-\begin{proof}
-	Sia $A_\lambda$ l'insieme degli $x$ tali che $|f(x)|>\lambda$. Ovviamente $A_\lambda$ è un insieme misurabile per la definizione di funzione integrabile.
-	
-	Grazie alla \cref{prop:IntegraleIntegrabili} e per la definizione di integrale di una funzione semplice abbiamo
-	\begin{equation*}
-		|f|\ge\lambda \cdot \chi_{A_\lambda} \implies \int_X |f|\de\mu \ge \int_X \lambda\cdot\chi_{A_\lambda}\de\mu=\lambda\mu(A_\lambda)\implies
-		\LNorm{f}\ge \lambda\mu(A_\lambda)
-	\end{equation*}
-	che è equivalente alla tesi.
-\end{proof}
-
-\begin{corollary}\label{cor:SupportoIntegrabile}
-	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, allora l'insieme degli $x\in X$ in cui $f$ non si annulla\footnote{In teoria della misura chiamiamo tale insieme supporto} è \sigfin[o].
-\end{corollary}
-\begin{proof}
-	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
-\end{proof}
-
-
-\begin{lemma}\label{lemma:L1NullaAlloraNulla}
-	Data $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, risulta che $\LNorm{f}=0$ se e solo se
-	\begin{equation*}
-		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0
-	\end{equation*}
-\end{lemma}
-\begin{proof}
-	Dimostriamo innanzitutto che se $\LNorm{f}=0$ allora $\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=0$.
-
-	Per ogni $n\in\N$, chiamiamo $A_n$ l'insieme degli $x\in X$ tali che $|f(x)|>\frac 1n$.
-	
-	Dal \cref{thm:DisuguaglianzaChebyshev}, sfruttando $\LNorm{f}=0$ è facile ottenere $\mu(A_n)=0$. 
-	Sfruttando quanto appena ottenuto insieme alla \sigsubadd[ità] della misura otteniamo facilmente la tesi:
-	\begin{equation*}
-		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0
-	\end{equation*}
-	
-	Dimostriamo ora invece la freccia opposta dell'implicazione.
-	
-	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
-	
-	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$. Abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
-	\begin{equation*}
-		\simp=\sum_{k=1}^n c_k\chi_{F_k} \Longrightarrow \int_X\simp\de\mu=\sum_{k=1}^n c_k\mu(F_k)=0
-	\end{equation*}
-	dove l'ultima uguaglianza è vera perchè $F_k\subseteq \left\{x:\ \simp(x)\not=0\right\}$ e perciò $\mu(F_k)=0$.
-	
-	Da questo discende facilmente, per la definizione stessa di $\LNorm{f}$, che
-	\begin{equation*}
-		\LNorm f=\sup\left\{ \int_X \simp\de\mu\ :\ 0\le \simp \le |f| \wedge \simp \text{ semplice}\right\}=0
-	\end{equation*}
-\end{proof}
-
-\begin{corollary}\label{cor:IntegraleAMenoDiTrascurabili}
-	Sia $f:X\to\Rbar$ una funzione misurabile, dove $(X,\A,\mu)$ è uno spazio di misura, e sia $N\in\A$ trascurabile. Allora $f$ è integrabile su $X$ se e solo se è integrabile su $X\setminus N$ e in tal caso vale che
-	\begin{equation*}
-		\int_X f\de\mu=\int_{X\setminus N}f\de\mu
-	\end{equation*}
-\end{corollary}
-\begin{proof}
-	Per l'additività dell'integrale ho che
-	\begin{equation*}
-		\int_X f\de\mu=\int_{X\setminus N} f \de\mu+\int_N f\de\mu=\int_{X\setminus N}f\de\mu
-	\end{equation*}
-	dove l'ultima disuguaglianza è vera per il \cref{lemma:L1NullaAlloraNulla}, poichè infatti
-	\begin{equation*}
-		\left|\int_N f\de\mu\right|\le \int_N |f|\de\mu=0 \Longrightarrow \int_N f\de\mu=0
-	\end{equation*}
-
-\end{proof}
-
-
-Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L(X,\A,\mu)$ ma solo una seminorma (come già dimostrato nella \cref{prop:L1VettorialeConSeminorma}). Vediamo ora come ricondurci invece a considerare uno spazio vettoriale normato.
+\end{remark}
 
 \begin{lemma}\label{lemma:SottospazioTrascurabili}
 	L'insieme definito da
@@ -432,7 +435,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	è un sottospazio vettoriale di $\L(X,\A,\mu)$.
 \end{lemma}
 \begin{proof}
-	Per il \cref{cor:ProprietaNormaL1} abbiamo che $\mathcal{N}$ è chiuso sia per moltiplicazione per scalare che per somma, quindi è uno spazio vettoriale in quanto contiene facilmente la funzione nulla.
+	Per la \cref{prop:IntegraleIntegrabili} abbiamo che $\mathcal{N}$ è chiuso sia per moltiplicazione per scalare che per somma, quindi è uno spazio vettoriale in quanto contiene facilmente la funzione nulla.
 \end{proof}
 
 \begin{definition}
@@ -446,17 +449,14 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 \end{definition}
 
 \begin{remark}
-	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso.
+	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso. Questo è ovvio per il \cref{lemma:SottospazioTrascurabili} e per la definizion stessa di $L^1$
 \end{remark}
-\begin{proof}
-	Segue facilmente dal \cref{lemma:SottospazioTrascurabili} e dalla definizione stessa di $L^1$.
-\end{proof}
 
 
 \begin{theorem}[Integrazione per serie]\label{thm:IntegrazionePerSerie}
 	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
 	
-	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$, per ogni $x\in X$ per cui $\sum_{n=0}^\infty f_n(x)$ converge assolutamente, e $f(x)$ assume un valore arbitrario altrimenti, vale che $f\in \L(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
+	Detta poi $f:X\to\Rbar$ tale che $f(x)=\sum_{n=0}^\infty f_n(x)$ vale che $f\in \L(X,\A,\mu)$ e $\int_X f\de\mu=\sum_{n=0}^\infty \int_X f_n\de\mu$.
 \end{theorem}
 
 \begin{proof}
@@ -466,7 +466,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	
 	D'altro canto sappiamo che 
 	\begin{equation*}
-		\int g_n\de\mu=\sum_{k=0}^n\LNorm{ f_k} \Longrightarrow \lim_{n\to\infty}\int g_n\de\mu=\sum_{k=0}^\infty \LNorm{ f_k}<\infty
+		\int g_n\de\mu=\sum_{k=0}^n\LNorm{ f_k} \Longrightarrow \lim_{n\to\infty}\int g_n\de\mu=\sum_{k=0}^\infty \LNorm{ f_k}<\infty\virgola
 	\end{equation*}
 	quindi $g$ è integrabile.
 	
@@ -474,7 +474,7 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	
 	Sia ora $s_n=\sum_{k=0}^n f_k$, allora vale che
 	\begin{equation*}
-		|s_n(x)|=\left|\sum_{k=0}^n f_k(x)\right|\le \sum_{k=0}^n |f_k(x)|=g_n(x)\le g(x)
+		|s_n(x)|=\left|\sum_{k=0}^n f_k(x)\right|\le \sum_{k=0}^n |f_k(x)|=g_n(x)\le g(x)\virgola
 	\end{equation*}
 	quindi la successione $(s_n)$ è dominata dalla funzione $g$.
 	
@@ -482,18 +482,17 @@ Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo perciò che esistono funzioni $f$ 
 	
 	Sono quindi rispettate tutte le ipotesi del \cref{thm:ConvergenzaDominata} per la successione di funzioni $(s_n)$ con dominio $X\setminus N$, perciò
 	\begin{equation*}
-		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu
+		\int_{X\setminus N} f\de\mu=\lim_{n\to\infty}\int_{X\setminus N}s_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n\int_{X\setminus N}  f_k\de\mu= \sum_{k=0}^\infty\int_{X\setminus N}f_k\de\mu\punto
 	\end{equation*}
 
-	Se ora definiamo $f$ anche su $N$, assegnandogli dei valori arbitrari, abbiamo per il \cref{cor:IntegraleAMenoDiTrascurabili} che $f\in \L(X,\A,\mu)$ e che vale
+	Per quanto già osservato come conseguenza del \cref{cor:IntegraleAMenoDiTrascurabili}, è indifferente fare l'integrale su $X$ e su $X\setminus N$ (su $N$ possiamo definire $f$ arbitrariamente); perciò otteniamo proprio quello che volevamo
 	\begin{equation*}
-		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu
+		\int_X f\de\mu=\int_{X\setminus N} f\de\mu=\sum_{n=0}^\infty\int_{X\setminus N}f_n\de\mu=\sum_{n=0}^\infty\int_X f_n\de\mu\punto
 	\end{equation*}
-	che era proprio quello che volevamo.
 \end{proof}
 
 \begin{remark}\label{nota:ConvergenzaL1IntegrazionePerSerie}
-	Da notare che dalla dimostrazione, ricordando il \cref{cor:ConvergenzaL1Dominata}, segue anche che la convergenza di $s_n$ ad $f$ è in $\L(X,\A,\mu)$ ed è dominata, infatti $|s_n|\le g$.
+	Da notare che dalla dimostrazione, ricordando la \cref{nota:ConvergenzaL1Dominata}, segue anche che la convergenza di $s_n$ ad $f$ è in $\L(X,\A,\mu)$ ed è dominata, infatti $|s_n|\le g$.
 \end{remark}
 
 
