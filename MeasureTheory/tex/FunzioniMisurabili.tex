@@ -10,8 +10,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	$\forall A \subseteq \Rbar$ aperto si ha $f^{-1}(A)\in \A$.
 \end{definition}
 
-\begin{proposition}
-	\label{BasicMis}
+\begin{proposition}\label{prop:BasicMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \Rbar$ una funzione, sono equivalenti i seguenti fatti
 	\footnote{qui introduciamo la notazione per i \textit{sovralivelli} di una funzione che useremo in tutti gli appunti:
 		data una funzione $f$ di codominio reale e un certo reale $k$ indichiamo con $\{f>k\}$ l'insieme
@@ -43,8 +42,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\end{description}
 \end{proof}
 
-\begin{proposition}
-	\label{CounterImgMis}
+\begin{proposition}\label{prop:CounterImgMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, e data $f:X\rightarrow \Rbar$ una funzione misurabile, la famiglia di insiemi
 	\[
 		\mathcal{E} = \{ E\subseteq \Rbar : f^{-1}(E)\in \A \}
@@ -82,12 +80,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 			X\in\A &\text{se }a\le 0
 	\end{array}\right.
 	\end{equation*}
-	Quindi, per la \ref{BM:sov} della \cref{BasicMis}, $f^+$ è misurabile. Analogamente si dimostra che $f^-$ è misurabile.
+	Quindi, per la \ref{BM:sov} della \cref{prop:BasicMis}, $f^+$ è misurabile. Analogamente si dimostra che $f^-$ è misurabile.
 \end{proof}
 
 
-\begin{proposition}
-	\label{AlgMis}
+\begin{proposition}\label{prop:AlgMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}$ l'insieme delle funzioni misurabili da $X$ in $\Rbar$.
 	Allora $\mathcal{M}$ è un'algebra nel senso che, dove sono definite \footnote{Nel definire le operazioni algebriche su $\mathcal{M}$ adottiamo le seguenti convenzioni: la somma è definita
 		se non accade che entrambe $f$ e $-g$ siano $\pm\infty$, per la moltiplicazione $0\cdot \infty = 0$.},
@@ -100,7 +97,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \end{proposition}
 
 \begin{proof}
-	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} nella \cref{BasicMis} (che come lì mostrato, equivale alla misurabilità),
+	Mostriamo per ogni punto che vale la proposizione \ref{BM:sov} nella \cref{prop:BasicMis} (che come lì mostrato, equivale alla misurabilità),
 	distinguendo vari casi di $a\in \Rbar$.
 	\begin{description}
 	\item[\ref{AlM:sum}]
@@ -132,8 +129,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\end{description}
 \end{proof}
 
-\begin{remark}
-	\label{CarMis}
+\begin{remark}\label{nota:CarMis}
 	È facile vedere che le funzioni caratteristiche degli insiemi misurabili sono misurabili.
 \end{remark}
 \begin{proof}
@@ -141,7 +137,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
 \end{proof}
 
-\begin{remark}\label{ContinueMisurabili}
+\begin{remark}\label{nota:ContinueMisurabili}
 	Sia $X$ un insieme dotato sia di una topologia che di una misura su di esso, tali che in particolare la \sigalg{} dei misurabili contenga tutti gli aperti.
 	Data una funzione $f:X\to\R$, se $f$ è continua è anche misurabile.
 \end{remark}
@@ -149,11 +145,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Basta notare che la controimmagine di un aperto è un aperto per continuità, ma gli aperti sono misurabili per ipotesi e di conseguenza la funzione è misurabile.
 \end{proof}
 
-\begin{remark}\label{MonotoneMisurabili}
+\begin{remark}\label{nota:MonotoneMisurabili}
 	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo\footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{RiduzioneMisura}).
+	È sufficiente notare che la controimmagine di un intervallo\footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{prop:BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{nota:RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{prop:BorelianiNonMisurabili2}
@@ -169,7 +165,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 		\> \stackrel{\text{Lettura in base $3$ di $x$ in base $2$}}{\overline{0.x_1x_2x_3\cdots}_3}\>=f(x)
 	\end{equation*}
 
-	La funzione $f$ appena definita è strettamente crescente, poiché lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{MonotoneMisurabili} $f$ è misurabile.
+	La funzione $f$ appena definita è strettamente crescente, poiché lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{nota:MonotoneMisurabili} $f$ è misurabile.
 	
 	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
 	
@@ -177,7 +173,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Sia $B=f(A)$.
 	
 	Poichè $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
-	Allora la \cref{CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe misurabile. 
+	Allora la \cref{prop:CounterImgMis} ci assicura che $B$ non appartiene ai Boreliani, altrimenti la sua controimmagine sarebbe misurabile. 
 	Infine $B$ è sottoinsieme di $\co01$, che è trascurabile, perciò per la completezza della misura di Lebesgue $B$ è misurabile.
 	
 	Allora, unendo quanto detto, abbiamo che $B$ è un misurabile non Boreliano come voluto.
@@ -193,12 +189,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	È immediato che le funzioni semplici sono misurabili.
 \end{remark}
 \begin{proof}
-	Discende dalla \cref{CarMis} e dalla \cref{AlgMis}.
+	Discende dalla \cref{nota:CarMis} e dalla \cref{prop:AlgMis}.
 \end{proof}
 
 
 \begin{proposition}\label{prop:SupDiMisurabili}
-	\label{SupMis}
 	Sia $\{f_n\}_{n\in \N}$ una famiglia di funzioni misurabili definite dallo spazio di misura $(X,\A,\mu)$ a $\Rbar$.
 	Allora $F:X\rightarrow \Rbar$ definita da $F(x)=\sup\{f_n(x):n\in \N\}$ è misurabile.
 \end{proposition}
@@ -207,8 +202,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	di chiusura della \sigalg.
 \end{proof}
 
-\begin{remark}
-	\label{LimMis}
+\begin{remark}\label{nota:LimMis}
 	Quest'ultima proposizione ha alcune notevoli conseguenze immediate:
 	\begin{enumerate}
 		\item $\inf$ di una famiglia numerabile di misurabili è misurabile;\label{LM:inf}
@@ -218,7 +212,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \end{remark}
 \begin{proof}
 	\begin{description}
-		\item[\ref{LM:inf}] Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$, quindi è misurabile per la \cref{SupMis};
+		\item[\ref{LM:inf}] Per l'$\inf$ basta notare che $\inf\{f_n\}=-\sup\{-f_n\}$, quindi è misurabile per la \cref{prop:SupDiMisurabili};
 		\item[\ref{LM:lim_infsup}] per definizione, $\limsup\{f_n\}$ e $\liminf\{f_n\}$ sono rispettivamente
 			$\lim_n\{\sup\{f_n\}\}=\inf\{\sup\{f_n\}\}$ e
 			$\lim_n\{\inf\{f_n\}\}=\sup\{\inf\{f_n\}\}$, quindi sono funzioni misurabili per il punto precedente;
@@ -227,13 +221,12 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\end{description}
 \end{proof}
 
-\begin{proposition}
-	\label{LimSemMis}
+\begin{proposition}\label{prop:LimSemMis}
 	Sia $f:X \rightarrow \Rbar$ una funzione con dominio lo spazio di misura $(X,\A,\mu)$.
 	Allora $f$ è misurabile se e solo se esiste una successione di funzioni semplici $\simp_n$ che converge puntualmente a $f$.
 \end{proposition}
 \begin{proof}
-	Il se è mostrato nella \cref{LimMis}.
+	Il se è mostrato nella \cref{nota:LimMis}.
 	
 	Per il solo se facciamo vedere che la seguente successione converge puntualmente a $f$:
 	\[
@@ -267,7 +260,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Sia $f:X\rightarrow \Rbar$ misurabile e positiva su $(X,\A,\mu)$ spazio di misura, allora esiste una successione crescente di funzioni semplici e positive $(\simp_n)$ che converge puntalmente a $f$.
 \end{corollary}
 \begin{proof}
-	Costruendo le $\simp_n$ come nella \cref{LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
+	Costruendo le $\simp_n$ come nella \cref{prop:LimSemMis}, se $f$ è positiva otteniamo facilmente che le $\simp_n$ sono anche crescenti, da cui la tesi.
 \end{proof}
 
 \begin{theorem}\label{thm:ChiusuraMonotona}

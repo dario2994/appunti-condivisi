@@ -28,7 +28,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Lasciata al lettore.
 \end{proof}
 
-\begin{lemma}\label{lem:SemianelloSemiAperti}
+\begin{lemma}\label{lemma:lem:SemianelloSemiAperti}
 	La famiglia $\S_n$ è un \semiring{}.
 \end{lemma}
 \begin{proof}
@@ -78,7 +78,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 
-\begin{lemma}\label{lem:LebesgueElementareFinita}
+\begin{lemma}\label{lemma:lem:LebesgueElementareFinita}
 	Dati $(S_i)_{1\le i\le k}\subseteq \S_n$ e $S\in\S_n$, valgono le seguenti disuguaglianze:
 	\begin{itemize}
 		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$ allora risulta
@@ -134,12 +134,12 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	La terna $(\R^n,\S_n,m_n)$ è uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
-	Per quanto mostrato nel \cref{lem:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
+	Per quanto mostrato nel \cref{lemma:lem:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
 	
 	Resta da dimostrare solo che $m_n$ è \sigadd{} su $\S_n$.
 	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta dà $S\in\S_n$.
 	
-	Applicando il \cref{lem:LebesgueElementareFinita} abbiamo facilmente
+	Applicando il \cref{lemma:lem:LebesgueElementareFinita} abbiamo facilmente
 	\begin{equation*}
 		\forall k\in\N:\ \sqcup_{i=1}^k S_i\subseteq S\implies \forall k\in\N:\ \sum_{i=1}^k m_n(S_i)\le m_n(S) \implies \sum_{i\in\N}m_n(S_i)\le m_n(S)
 	\end{equation*}
@@ -152,7 +152,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che la successione composta dalle parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ è un ricoprimento del compatto $S$.
 	Perciò esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S$.
 	
-	Sfruttando ancora il \cref{lem:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
+	Sfruttando ancora il \cref{lemma:lem:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
 	\begin{equation*}
 		\sum_{i\in\N}m_N(S_i)\ge \sum_{i\in I}m_N(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
 		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
@@ -182,7 +182,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Dato un aperto $A$, consideriamo tutti gli $n$-cubi con centro razionale e lato razionale contenuti in $A$.
 	È facile vedere che l'unione di questi, che è ovviamente numerabile visto che $\mathbb Q^2$ lo è, è tutto l'aperto.
 	
-	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lem:SemianelloSemiAperti}.
+	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{prop:UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lemma:lem:SemianelloSemiAperti}.
 \end{proof}
 
 \begin{definition}\label{def:Boreliani}
@@ -201,7 +201,7 @@ Ora che abbiamo ottenuto una premisura su $\R^n$, applicheremo il teorema di Car
 Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per poi caratterizzarla come l'unica misura che coincida con la nozione intuitiva di volume, cioè sia invariante per traslazione e sia normalizzata sul cubo unitario.
 
 \begin{definition}\label{def:LebesgueMisura}
-	Dato lo spazio $(\R^n,\S_n,m_n)$, che si è mostrato essere di misura elementare nel \cref{thm:LebesguePremisura}, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{EstensioneCaratheodory}. 
+	Dato lo spazio $(\R^n,\S_n,m_n)$, che si è mostrato essere di misura elementare nel \cref{thm:LebesguePremisura}, sia $\M_n$, che verrà chiamato l'insieme dei misurabili secondo Lebesgue, la relativa \sigalg{} di Caratheodory e $m_n:\M_n\to\Rpiu$ \footnote{Qui abusiamo leggermente di notazione, visto che con $m_n$ si indicava la premisura.}, che verrà chiamata misura di Lebesgue, la misura associata, la cui esistenza ci è assicurata dal \cref{thm:EstensioneCaratheodory}. 
 	Inoltre indicheremo con $m_n^*:\mathcal P(\R^n)\to\Rpiu$ la misura esterna associata a $m_n$, che quindi ridotta su $\M_n$ coincide con la misura di Lebesgue.
 \end{definition}
 
@@ -209,7 +209,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	La misura di Lebesgue su $\R^n$ è completa.
 \end{remark}
 \begin{proof}
-	È un'ovvia conseguenza del \cref{EstensioneCaratheodory}.
+	È un'ovvia conseguenza del \cref{thm:EstensioneCaratheodory}.
 \end{proof}
 
 \begin{remark}\label{nota:LebesgueSigFin}
@@ -223,7 +223,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
 \end{proposition}
 \begin{proof}
-	Il \cref{EstensioneCaratheodory} ci assicura che la \sigalg{} $\M_n$ dei Boreliani contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{prop:SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
+	Il \cref{thm:EstensioneCaratheodory} ci assicura che la \sigalg{} $\M_n$ dei Boreliani contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{prop:SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
 	
 	Per avere che il completamento dei Boreliani coincide con $\M_n$ basta applicare \cref{prop:CaratheodoryCompletamentoSigAlg} ricordando \cref{prop:LebesguePremisuraSigFin}.
 \end{proof}
@@ -276,7 +276,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	La misura di Lebesgue è l'unica possibile estensione alla \sigalg{} dei Boreliani della premisura $m_n$ definita su $\S_n$.
 \end{proposition}
 \begin{proof}
-	È una banale conseguenza della \cref{UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato nella \cref{prop:SigAlgUgualeBoreliani}.
+	È una banale conseguenza della \cref{prop:UnicitaCaratheodory}, che si può applicare ricordando la \cref{prop:LebesguePremisuraSigFin} e notando che la \sigalg{} generata da $\S_n$ sono i Boreliani come mostrato nella \cref{prop:SigAlgUgualeBoreliani}.
 \end{proof}
 
 \begin{remark}\label{nota:LebesgueProprieta}
@@ -328,7 +328,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	Ma ora applicando quanto abbiamo ricavato per la misura di elementi con estremi a coordinate intere, è chiaro che la misura del membro destro dell'ultima uguaglianza coincide per $\mu,m_n$ e allora sfruttando ancora la loro invarianza per traslazione otteniamo che coincidono anche su $S$.
 	
 	Ora consideriamo $S\in\S_n$ generico e notiamo che vista la densità dei razionali nei reali posso scrivere $S$ come unione \emph{crescente} di elementi $(Q_i)_{i\in\N}\subseteq \S_n$ con estremi a coordinate razionali. 
-	Da questa scrittura, sfruttando la \cref{LimiteMonotonoCrescenteMisura} e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$, otteniamo
+	Da questa scrittura, sfruttando la \cref{prop:LimiteMonotonoCrescenteMisura} e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$, otteniamo
 	\begin{equation*}
 		m_n(S)=\lim_{n\to\infty}m_n(Q_i)=\lim_{n\to\infty}\mu(Q_i)=\mu(S)
 	\end{equation*}

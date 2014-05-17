@@ -17,7 +17,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove $c_k\in \Rbar$ e $E_k \in \A$ sono tali che $\simp=\sum_{k=1}^nc_k\chi_{E_k}$.
 \end{definition}
 
-\begin{remark}\label{BuonaDefIntSemp}
+\begin{remark}\label{nota:BuonaDefIntSemp}
 	Quella appena enunciata è una buona definizione, cioè non dipende dalla scelta dei $c_k$ e degli $E_k$.
 \end{remark}
 \begin{proof}
@@ -37,7 +37,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
 	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ su insiemi disgiunti otteniamo
-	\begin{equation}\label{RaffinamentoIntegrale}
+	\begin{equation}\label{eq:RaffinamentoIntegrale}
 		\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha \sum_{k\in\alpha}c_k\mu(E_\alpha)=\sum_{k=1}^n c_k\sum_{\alpha \ni k} \mu(E_\alpha)=\sum_{k=1}^n c_k \mu(E_k)\virgola
 	\end{equation}
 	che è proprio quello che volevamo.
@@ -56,7 +56,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation}
 	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poichè gli $E_\alpha$ sono disgiunti.
 	
-	Infine da quest'ultima uguaglianza e dall'\cref{RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
+	Infine da quest'ultima uguaglianza e dall'\cref{eq:RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
 	\begin{equation*}
 		\sum_{k=1}^n c_k \mu(E_k)=\sum_\alpha c_\alpha\mu(E_\alpha)=\sum_\alpha b_\alpha\mu(E_\alpha)=\sum_{k=1}^n b_k \mu(E_k)\punto
 	\end{equation*}
@@ -70,13 +70,13 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{BuonaDefIntSemp}.
+	Seguono entrambe facilmente dalla definizione di integrale di funzioni semplici e dalla \cref{nota:BuonaDefIntSemp}.
 \end{proof}
 
 \begin{remark}
 	Osserviamo che data una funzione misurabile, semplice e positiva $\simp:X\to\Rpiu$, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$ misurabile, possiamo definire l'integrale di $\simp$ su $E$. 
 	
-	Infatti per la \cref{RiduzioneMisura} anche $(E,\A_E,\mu|_{\A_E})$ (come definito nella \cref{RiduzioneMisura}) è uno spazio di misura e vale facilmente che $\simp$ è misurabile, semplice e positiva anche ridotta su $(E,\A_E,\mu|_{\A_E})$.
+	Infatti per la \cref{nota:RiduzioneMisura} anche $(E,\A_E,\mu|_{\A_E})$ (come definito nella \cref{nota:RiduzioneMisura}) è uno spazio di misura e vale facilmente che $\simp$ è misurabile, semplice e positiva anche ridotta su $(E,\A_E,\mu|_{\A_E})$.
 \end{remark}
 
 \begin{proposition}\label{prop:IntegraleSempliciSuMisurabili}
@@ -131,7 +131,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)\virgola
 	\end{equation*}
-	dove in particolare nell'ultima uguaglianza abbiamo utilizzato la \cref{LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
+	dove in particolare nell'ultima uguaglianza abbiamo utilizzato la \cref{prop:LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)\punto
 	\end{equation*}
@@ -186,7 +186,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{theorem}
 
 \begin{proof}
-	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{SupMis} $f$ è una funzione misurabile e positiva.
+	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{prop:SupDiMisurabili} $f$ è una funzione misurabile e positiva.
 	
 	Come osservato nella \cref{nota:ApprossimazioneIntegralePositiveConSemplici}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
 	\begin{equation*}
@@ -199,7 +199,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{corollary}
 
 \begin{proof}
-	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{SupMis}. Dato che le $s_n$ covergono puntalmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
+	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{prop:SupDiMisurabili}. Dato che le $s_n$ covergono puntalmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
 	\begin{equation*}
 		\int f \de\mu=\lim_{n\to\infty}\int s_n\de\mu=\lim_{n\to\infty}\int \sum_{k=0}^nf_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n \int f_n\de\mu=\sum_{k=0}^\infty\int f_n\de\mu\virgola
 	\end{equation*}
@@ -208,7 +208,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 
 
-\begin{lemma}[Fatou] \label{lem:Fatou}
+\begin{lemma}[Fatou] \label{lemma:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\punto
@@ -248,7 +248,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Notiamo in particolare che le funzioni $f_+$ ed $f_-$, oltre ad essere positive e misurabili (per la \cref{nota:ProprietaFpiuFmeno}), sono anche integrabili.
 \end{remark}
 
-\begin{lemma}\label{DefinizioneEquivalenteIntegraleIntegrabili}
+\begin{lemma}\label{lemma:DefinizioneEquivalenteIntegraleIntegrabili}
 	Data una funzione integrabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, e date due funzioni $g,h:X\to \Rbar$ integrabili e positive tali che $f=g-h$, vale che
 	\begin{equation*}
 		\int_X f\de\mu=\int_Xg\de\mu-\int_Xh\de\mu\punto
@@ -405,7 +405,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 \end{theorem}
 
 \begin{proof}
-	Consideriamo le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{lem:Fatou} vale che
+	Consideriamo le due successioni di funzioni misurabili positive $(g\pm f_n)$ (rispettivamente con il segno $+$ e il segno $-$). Tali funzioni sono banalmente positive in quanto $|f_n(x)|\le g(x)$, inoltre convergono puntualmente alle funzioni $g\pm f$. Per il \cref{lemma:Fatou} vale che
 	\begin{equation*}
 		\int g\de\mu\pm\int f\de\mu=\int (g\pm f) \de\mu \le \liminf_{n\to\infty} \int (g\pm f_n) \de\mu=\int g\de\mu +\liminf_{n\to\infty}\left( \pm\int f_n \de \mu\right)\punto
 	\end{equation*}

@@ -60,12 +60,12 @@ Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi 
 	dove nell'implicazione abbiamo applicato la \sigadd[ità] di $\nu$.
 	
 	Applicando la sola definizione della misura prodotto e dell'integrale per funzioni semplici, fissato $C\times D\in \A\times\B$, abbiamo
-	\begin{equation}\label{StupidaIdentitaIndicatrici}
+	\begin{equation}\label{eq:StupidaIdentitaIndicatrici}
 		\overline{\mu\nu}(C\times D)=\mu(C)\nu(D)=\int_{X}\chi_C(x)\nu(D)\de \mu(x)=\int_X \nu\left(J_x(C\times D)\right)\de\mu(x)\virgola
 	\end{equation}
 	dove l'ultima uguaglianza segue dalla facile identità $\nu\left(J_x(C\times D)\right)=\chi_C(x)\nu(D)$.
 	
-	Ora unendo le \cref{eq:PremisuraProdottoSerie,StupidaIdentitaIndicatrici}, sfruttando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
+	Ora unendo le \cref{eq:PremisuraProdottoSerie,eq:StupidaIdentitaIndicatrici}, sfruttando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
 	\begin{align*}
 		\overline{\mu\nu}(A\times B)&=\int_X\nu(J_x(A\times B))\de \mu(x)=\int_X\sum_{n\in\N}\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)\\
 		&=\sum_{n\in\N}\int_X\nu\left(J_x(A_n\times B_n)\right)\de\mu(x)=\sum_{n\in\N}\overline{\mu\nu}(A_n\times B_n)\virgola
@@ -140,7 +140,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 \end{proof}
 
 \begin{definition}\label{def:MisuraProdotto}
-	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio di misura prodotto, dove $\mu\nu$ è la riduzione alla sola \sigalg{} generata da $\A\times\B$ della misura, associata alla premisura $\overline{\mu\nu}$, assicurataci dal \cref{EstensioneCaratheodory}.
+	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio di misura prodotto, dove $\mu\nu$ è la riduzione alla sola \sigalg{} generata da $\A\times\B$ della misura, associata alla premisura $\overline{\mu\nu}$, assicurataci dal \cref{thm:EstensioneCaratheodory}.
 \end{definition}
 
 Ora che abbiamo fissato la \sigalg{} dei misurabili, fermiamoci un attimo a riflettere sulla scelta. Perchè piuttosto non abbiamo scelto il suo completamento? Oppure perchè non abbiamo scelto la \sigalg{} degli insiemi che hanno ogni sezione misurabile? 
