@@ -34,7 +34,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\simp=\sum_{k=1}^nc_k\chi_{E_k}=\sum_{k=1}^nc_k\sum_{\alpha\ni k}\chi_{E_\alpha}=\sum_\alpha \chi_{E_\alpha}\sum_{k\in\alpha}c_k=\sum_\alpha c_\alpha\chi_{E_\alpha}\virgola
 	\end{equation*}
-	dove ho utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
+	dove abbiamo utilizzato che $E_k=\cup_{\alpha\ni k} E_\alpha$.
 
 	Vogliamo dimostrare che $\sum_{k=1}^nc_k\mu(E_k)=\sum_{\alpha}c_\alpha\mu(E_\alpha)$, ma per l'additività di $\mu$ su insiemi disgiunti otteniamo
 	\begin{equation}\label{eq:RaffinamentoIntegrale}
@@ -123,7 +123,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Dimostriamo innanzitutto che dato un insieme $Y\in \A$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
-	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per la \cref{prop:IntegraleSemplici} ho che
+	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per la \cref{prop:IntegraleSemplici} abbiamo che
 	\begin{equation*}
 		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)\virgola
 	\end{equation*}
@@ -216,11 +216,11 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{lemma}
 
 \begin{proof}
-	Applichiamo il \cref{thm:BeppoLevi} alla successione di funzioni crescenti $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
+	Applichiamo il \cref{thm:BeppoLevi} alla successione di funzioni $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente in modo crescente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\virgola
 	\end{equation*}
-	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per la \cref{prop:IntegralePositive}, ho che
+	dove l'ultima disuguaglianza è vera per la monotonia dell'integrale. Infatti per la \cref{prop:IntegralePositive}, abbiamo che
 	\begin{equation*}
 		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu\punto
 	\end{equation*}
@@ -470,7 +470,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	\end{equation*}
 	quindi $g$ è integrabile.
 	
-	Chiamiamo ora $N=\{ x\in X:g(x)=\infty\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} ho che $\mu(N)=0$, cioè $g$ assume valori finiti quasi ovunque. Questo implica quindi che $\sum_{n=0}^\infty f_n(x)$ converge assolutamente quasi ovunque, cioè in $X\setminus N$.
+	Chiamiamo ora $N=\{ x\in X:g(x)=\infty\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} abbiamo che $\mu(N)=0$, cioè $g$ assume valori finiti quasi ovunque. Questo implica quindi che $\sum_{n=0}^\infty f_n(x)$ converge assolutamente quasi ovunque, cioè in $X\setminus N$.
 	
 	Sia ora $s_n=\sum_{k=0}^n f_k$, allora vale che
 	\begin{equation*}

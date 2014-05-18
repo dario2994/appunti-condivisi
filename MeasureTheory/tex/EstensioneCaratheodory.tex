@@ -45,13 +45,13 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)=\mu\left(\bigsqcup_{n\in\N} A\cap F_n\right)\le
 		\sum_{n\in\N} \mu(A\cap F_n)
 	\end{equation}
-	mentre, grazie alla monotonia e a \cref{eq:IdentitaDifferenzaCaratheodory}, otteniamo:
+	mentre, grazie alla monotonia e all'\cref{eq:IdentitaDifferenzaCaratheodory}, otteniamo:
 	\begin{equation}\label{eq:DifferenzaStimaCaratheodory}
 		\mu\left(A\setminus\bigcup_{n\in\N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
 		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
 	\end{equation}
 	
-	Ora unendo \cref{eq:IntersezioneStimaCaratheodory,eq:DifferenzaStimaCaratheodory} giungiamo ad avere che, per ogni $m\in\mathbb{N}$:
+	Ora unendo le \cref{eq:IntersezioneStimaCaratheodory,eq:DifferenzaStimaCaratheodory} giungiamo ad avere che, per ogni $m\in\mathbb{N}$:
 	\begin{equation*}
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) 
@@ -61,7 +61,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)
 	\end{equation*}
-	che unita a \cref{eq:DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale a dire che $\A$ è una \sigalg{}.
+	che unita all'\cref{eq:DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale a dire che $\A$ è una \sigalg{}.
 	
 	Dimostrare che $\mu$ è \sigadd{} su $\A$ è ora molto facile.
 	Consideriamo $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
@@ -94,7 +94,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
 		\ A\subseteq\bigcup_{n\in\N}A_n\right\}
 	\end{equation*}
-	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita in \cref{thm:RiduzionePreCaratheodory}).
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita nel \cref{thm:RiduzionePreCaratheodory}).
 \end{proposition}
 \begin{proof}
 	Per affermare che $\mu^*$ è una misura esterna sono sufficienti le seguenti verifiche.
@@ -102,7 +102,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per \cref{lemma:PiuCheMonotonaPremisura} vale:
+	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per il \cref{lemma:PiuCheMonotonaPremisura} vale:
 	\begin{equation*}
 		\mu(S)\ge \sum_{n\in\N} \mu(S_n)
 	\end{equation*}
@@ -124,15 +124,15 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\sum_{n\in\N}\mu^*(B_n)+\sum_{n\in\N}\mu^*(C_n)
 		\ge \mu^*(A\cap E)+\mu^*(A\setminus E)
 	\end{align*}
-	e questo implica facilmente \cref{eq:MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
+	e questo implica facilmente l'\cref{eq:MisuraEsternaDisDifficile} estraendo l'estremo inferiore a entrambi i membri sui ricoprimenti di $A$.
 \end{proof}
 \begin{remark}\label{nota:PremisuraMassimaMisura}
-	Sia $(X,\S,\mu)$ uno spazio di premisura e $\mu^*:\mathcal P(X)\to\Rpiu$ la misura esterna associata a $\mu$ (come definita nell'enunciato di \cref{prop:MisuraEsternaDiPremisura}), allora una qualsiasi misura $\mu':\A\to\Rpiu$, dove $\A\supseteq \S$ è una \sigalg{}, che estenda $\mu$ è minore della misura esterna, cioè $\mu'(A)\le \mu^*(A)$ per ogni $A\in\A$.
+	Sia $(X,\S,\mu)$ uno spazio di premisura e $\mu^*:\mathcal P(X)\to\Rpiu$ la misura esterna associata a $\mu$ (come definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}), allora una qualsiasi misura $\mu':\A\to\Rpiu$, dove $\A\supseteq \S$ è una \sigalg{}, che estenda $\mu$ è minore della misura esterna, cioè $\mu'(A)\le \mu^*(A)$ per ogni $A\in\A$.
 \end{remark}
 \begin{proof}
 	Fissiamo $A\in\A$ e chiamiamo $(S_n)_{n\in\N}\in\S$ un suo ricoprimento numerabile.
 	
-	Essendo $\mu'$ una misura è \sigsubadd{} e decrescente per \cref{nota:SubAdditivitaMisura,nota:MonotoniaMisura} e perciò vale:
+	Essendo $\mu'$ una misura è \sigsubadd{} e decrescente per le \cref{nota:SubAdditivitaMisura,nota:MonotoniaMisura} e perciò vale:
 	\begin{equation*}
 		\sum_{n\in\N}\mu(S_n)=\sum_{n\in\N}\mu'(S_n)\ge \mu'\left(\bigcup_{n\in\N}S_n\right)\ge \mu'(A)
 	\end{equation*}
@@ -145,16 +145,16 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
-	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato di \cref{prop:MisuraEsternaDiPremisura}. Sempre \cref{prop:MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
+	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}. Sempre la \cref{prop:MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
 	
 	Possiamo ora ridurre $\mu^*$ grazie al \cref{thm:RiduzionePreCaratheodory} ad una misura completa $\mu':\A\to\Rpiu$ dove $\A$ è la \sigalg{} di Caratheodory. 
 	
-	Ma come dimostrato in \cref{prop:MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
+	Ma come dimostrato nella \cref{prop:MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
 
 
 \begin{theorem}\label{thm:EquivalenzeMisurabilitaSottoinsieme}
-	Dato $(X,\S,\mu)$ uno spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza mi è assicurata dal \cref{thm:EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+	Dato $(X,\S,\mu)$ uno spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza ci è assicurata dal \cref{thm:EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Sia $A\subseteq X$ tale che sia \emph{\sigfin[o] rispetto alla premisura}, cioè sia contenuto in un unione numerabile di elementi di $\S$ con misura finita.
 	
@@ -168,7 +168,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{theorem}
 \newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 \begin{proof}
-	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato in \cref{prop:UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
+	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
 	
 	Dimostriamo innanzitutto la catena di implicazioni
 	$\text{\ref{it:MisurabileEquivalenze}}\implies
@@ -191,7 +191,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 			0\le \mu'(S_n\setminus A_n) \le \frac\epsilon{2^n} \implies \mu^*(S_n\setminus A_n)\le \frac\epsilon{2^n}
 		\end{equation}
 		
-		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato in \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subaddittività della misura esterna  $\mu^*$, sfruttando \cref{eq:DifficileFreccia12Misurabili}, si ottiene:
+		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subaddittività della misura esterna  $\mu^*$, sfruttando l'\cref{eq:DifficileFreccia12Misurabili}, si ottiene:
 		\begin{equation*}
 			\mu^*(S\setminus A)=\mu^*\left(\bigcup_{n\in\N}S_n\setminus A_n\right)\le
 			\sum_{n\in\N}\mu^*(S_n\setminus A_n)\le\sum_{n\in\N}\frac\epsilon{2^n}\le \epsilon
@@ -209,7 +209,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\item[\ImplicationProof{it:SigmaDaFuoriEquivalenze}{it:MisurabileEquivalenze}] Per ipotesi esiste $B\in\sigma A(\S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
 		
 		Poichè $\A$ è una \sigalg{} contenente $\S$ e $B\in\sigma A(\S)$, deve essere $B\in\A$. 
-		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{thm:RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione di \cref{thm:RiduzionePreCaratheodory}) quindi anche $B\setminus A\in \A$ in quanto è un trascurabile e la misura è completa. 
+		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{thm:RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione del \cref{thm:RiduzionePreCaratheodory}) quindi anche $B\setminus A\in \A$ in quanto è un trascurabile e la misura è completa. 
 		
 		Di conseguenza, visto che $\A$ è una \sigalg, otteniamo che $A=B\setminus (B\setminus A)$ è misurabile in quanto differenza di misurabili. Perciò $A\in\A$ dimostrando l'implicazione.
 	\end{description}
@@ -242,7 +242,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Il \cref{thm:EstensioneCaratheodory} ci assicura che $\A$ contiene la \sigalg{} generata da $\S$ ed è completa, quindi $\A$ contiene il completamento di $\sigma A(\S)$.
 	
-	Inoltre dato $A\in\A$ misurabile, lo possiamo scrivere, applicando \cref{cor:EquivalenzeMisurabilitaSpazio}, come differenza tra un elemento di $\sigma A(\S)$ e un trascurabile, ma allora $A$ appartiene al completamento di $\sigma A(\S)$.
+	Inoltre dato $A\in\A$ misurabile, lo possiamo scrivere, applicando il \cref{cor:EquivalenzeMisurabilitaSpazio}, come differenza tra un elemento di $\sigma A(\S)$ e un trascurabile, ma allora $A$ appartiene al completamento di $\sigma A(\S)$.
 	
 	Visto che abbiamo ottenuto entrambi i contenimenti, risulta come richiesto che i misurabili coincidono con il completamento della \sigalg{} generata da $\S$.
 \end{proof}
@@ -265,7 +265,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation*}
 		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n
 	\end{equation*}
-	dove gli elementi che interseco rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato in \cref{prop:UnioneDisgiuntaQuasiAlgebra}).
+	dove gli elementi che interseco rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}).
 \end{proof}
 
 \begin{corollary}\label{cor:ChiusuraMonotonaInsiemiFiniti}
@@ -299,9 +299,9 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Se $\mu'(A)=+\infty=\mu''(A)$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
 	
-	Fissato $\epsilon>0$, grazie a \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
+	Fissato $\epsilon>0$, grazie al \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
 	
-	Ora, sfruttando \cref{nota:PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
+	Ora, sfruttando la \cref{nota:PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	
 	Unendo i risultati ottenuti, ricordando che $\mu',\mu''$ sono estensioni di $\mu$ e che $\mu''(A)<+\infty$,  abbiamo:
 	\begin{gather*}
