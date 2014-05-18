@@ -234,7 +234,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	Per concludere sia $f:X\times Y\to\Rbar$ una funzione misurabile a supporto \sigfin[o].
 	Per il \cref{cor:LimSemCrescMis} esiste una famiglia crescente $(f_i)_{i\in\N}$ di funzioni misurabili positive che convergono puntualmente ad $f$. Essendo $f$ a supporto \sigfin[o] ed essendo le $f_i$ sempre minori di $f$ anche il loro supporto è \sigfin[o] e perciò $f_i\in\E$ per ogni $i\in\N$.
 	
-	Infine, applicando ripetutamente \cref{thm:BeppoLevi} e ricordando la monotonia dell'integrale, otteniamo
+	Infine, applicando ripetutamente il \cref{thm:BeppoLevi} e ricordando la monotonia dell'integrale, otteniamo
 	\begin{align*}
 		\int_{X\times Y}f(u)\de\mu\nu(u)
 		&=\lim_{i\in\N}\int_{X\times Y}f_i(u)\de\mu\nu(u)
@@ -316,7 +316,7 @@ Ridimostreremo perciò gli ultimi tre risultati soffermandoci unicamente sulle d
 	dove le funzioni $f(x,\cdot):Y\to\Rpiu$ e $f(\cdot,y):X\to\Rpiu$ risultano misurabili solo quasi ovunque e perciò anche gli integrali $\int_Y f(x,y)\de\nu(y)$ e $\int_X f(x,y)\de\mu(x)$ risultano definiti solo quasi ovunque, ma questo non cambia il valore dell'integrale esterno in virtù del \cref{cor:IntegraleAMenoDiTrascurabili}.
 \end{theorem}
 \begin{proof}
-	Si dimostra identicamente a come si è dimostrato \cref{thm:Fubini}, solo che, al posto di applicare \cref{thm:Tonelli}, si applica \cref{thm:TonelliCompleto}.
+	Si dimostra identicamente a come si è dimostrato il \cref{thm:Fubini}, solo che, al posto di applicare il \cref{thm:Tonelli}, si applica il \cref{thm:TonelliCompleto}.
 \end{proof}
 
 
