@@ -42,7 +42,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Una \sigalg{} è stabile anche per intersezioni numerabili e per differenza insiemistica.
 \end{remark}
 \begin{proof}
-	Si dimostrano entrambe le proprietà in modo del tutto analogo a come abbiamo dimostrato \cref{nota:ProprietaAlg}.
+	Si dimostrano entrambe le proprietà in modo del tutto analogo a come abbiamo dimostrato la \cref{nota:ProprietaAlg}.
 \end{proof}
 
 \begin{proposition}\label{prop:SigmaAlgGenerata}
@@ -96,7 +96,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	
 	E infine dimostriamo la stabilità di $\sqcup\S$ per unioni numerabili. Sia $(S_n)_{n\in\N}$ una successione in $\sqcup\S$. Per definizione devono esistere le successioni $(A^n_i)_{i\in\N}\subseteq \S$ tali che $S_n=\bigsqcup_{i\in\N} A^n_i$.
 	
-	Allora applicando \cref{eq:UnioneNumerabileDaS} otteniamo:
+	Allora applicando l'\cref{eq:UnioneNumerabileDaS} otteniamo:
 	\begin{equation*}
 		\bigcup_{n\in\N}S_n=\bigcup_{i,n\in\N}A^n_i\in\sqcup\S 
 	\end{equation*}
@@ -127,7 +127,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Dato $(X,\A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
 \end{remark}
 \begin{proof}
-	Per quanto detto in \cref{nota:ProprietaSigAlg}, $B\setminus A\in\A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
+	Per quanto detto nella \cref{nota:ProprietaSigAlg}, $B\setminus A\in\A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
 \end{proof}
 \begin{remark}\label{nota:SubAdditivitaMisura}
 	Dato $(X,\A,\mu)$ uno spazio misurato, la misura $\mu$ è \sigsubadd{}, cioè dati $(A_n)_{n\in\N}\subseteq\A$ risulta:
@@ -136,7 +136,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\end{equation*}
 \end{remark}
 \begin{proof}
-	La dimostrazione risulta molto facile sfruttando la monotonia, mostrata in \cref{nota:MonotoniaMisura}, e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
+	La dimostrazione risulta molto facile sfruttando la monotonia, mostrata nella \cref{nota:MonotoniaMisura}, e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
 	\begin{equation*}
 		\mu\left(\bigcup_{n\in\N} A_n \right)=\mu\left(\bigsqcup_{n\in\N} A_n\setminus\bigcup_{i<n}A_i \right)=
 		\sum_{n\in\N}\mu\left(A_n\setminus\bigcup_{i<n}A_i\right)\le \sum_{n\in\N}\mu(A_n)
@@ -153,7 +153,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
 \end{remark}
 \begin{proof}
-	È un'ovvia conseguenza della \sigsubadd[ità] della misura dimostrata in \cref{nota:SubAdditivitaMisura}.
+	È un'ovvia conseguenza della \sigsubadd[ità] della misura dimostrata nella \cref{nota:SubAdditivitaMisura}.
 \end{proof}
 
 \begin{definition}\label{def:QuasiOvunque}
@@ -200,7 +200,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\bigcup_{n\in\N}A^*_n &=\bigcup_{n\in\N}A_n \cup \bigcup_{n\in\N}N_n\\
 		\bigcup_{n\in\N}N_n &\subseteq \bigcup_{n\in\N}B_n\in\A\ \wedge\ \mu\left(\bigcup_{n\in\N}B_n\right)=0
 	\end{align*}
-	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{} per \cref{nota:SubAdditivitaMisura}. Perciò abbiamo dimostrato che $\A^*$ è stabile per unione numerabile.
+	dove l'ultima uguaglianza dipende dal fatto che la misura è \sigsubadd{} per la \cref{nota:SubAdditivitaMisura}. Perciò abbiamo dimostrato che $\A^*$ è stabile per unione numerabile.
 	
 	Unendo i due risultati arriviamo a dire che $\A^*$ è una \sigalg{}.
 	
@@ -222,7 +222,6 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	dove nell'ultimo passaggio abbiamo implicitamente applicato la \cref{nota:UnioneTrascurabili}.
 	
 	Resta da verificare che $\tilde\mu$ sia completa, ma questo è ovvio visto che  $\tilde\mu(A^*)=0$ se e solo se $A^*$ è il sottoinsieme di un trascurabile di $\A$ e la relazione di essere sottoinsieme di un trascurabile è chiusa per estrazione di sottoinsiemi. 
-
 \end{proof}
 
 
@@ -234,7 +233,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Sia $B_n=A_n\setminus\bigcup_{i<n}A_i$. Applicando \cref{nota:ProprietaSigAlg} si ottiene $B_n\in\A$.
+	Sia $B_n=A_n\setminus\bigcup_{i<n}A_i$. Applicando la \cref{nota:ProprietaSigAlg} si ottiene $B_n\in\A$.
 	Per facili ragionamenti insiemistici risulta che la successione $(B_n)_{n\in\N}$ è disgiunta a due a due ed inoltre $A_n=\bigcup_{i\le n}B_i$.
 	Sfruttando tutte queste proprietà e la \sigadd[ità] di $\mu$, otteniamo:
 	\begin{equation*}
@@ -254,7 +253,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \begin{proof}
 	Intanto possiamo assumere $n_0=0$, tanto i primi elementi della successione $(A_n)_{n\in\N}$ non contano.
 	
-	Poniamo $B_n=A_0\setminus A_n$. Allora vale ovviamente $B_n\subseteq B_{n+1}$ e perciò possiamo applicare \cref{prop:LimiteMonotonoCrescenteMisura} ottenendo:
+	Poniamo $B_n=A_0\setminus A_n$. Allora vale ovviamente $B_n\subseteq B_{n+1}$ e perciò possiamo applicare la \cref{prop:LimiteMonotonoCrescenteMisura} ottenendo:
 	\begin{equation}\label{eq:ContoLimiteMonotonoMisura}
 		\mu\left(A_0\setminus\bigcap_{n\in\N}A_n\right)=\mu\left(\bigcup_{n\in\N}B_n\right)=\lim_{n\in\N}\mu(B_n)
 		=\lim_{n\in\N}\mu(A_0\setminus A_n)
@@ -264,7 +263,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\mu\left(A_0\setminus\bigcap_{n\in\N}A_n\right)&=\mu(A_0)-\mu\left(\bigcap_{n\in\N}A_n\right)\\
 		\mu(A_0\setminus A_n)&=\mu(A_0)-\mu(A_n)
 	\end{align*}
-	e applicando questi in \cref{eq:ContoLimiteMonotonoMisura} arriviamo alla tesi ricordando ancora che $\mu(A_0)<+\infty$.
+	e applicando questi nell'\cref{eq:ContoLimiteMonotonoMisura} arriviamo alla tesi ricordando ancora che $\mu(A_0)<+\infty$.
 \end{proof}
 
 \begin{proposition}\label{prop:BigettivaInduceMisura}
@@ -301,7 +300,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Allora risulta $\sum_{n\in\N}\mu(A_n)\ge \sum_{n\in\N}\mu(B_n)$.
 \end{lemma}
 \begin{proof}
-	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \S$ è chiuso per intersezione finita, come mostrato in \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\N}$.
+	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \S$ è chiuso per intersezione finita, come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\N}$.
 	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\N}\subseteq\S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
 	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\S$ la cui unione disgiunta realizza $C_{ij}$.
@@ -321,8 +320,6 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 		\sum_{n\in\N}\mu(B_n)&=\sum_{n\in\N}\sum_{i,j\in\N}\mu(F^{in}_j)=\sum_{i,n,j\in\N}\mu(F^{in}_j)
 	\end{align*}
 	ma visto che l'ordine degli indici non conta, questi risultati implicano banalmente la tesi.
-
-
 \end{proof}
 
 
@@ -336,17 +333,16 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\begin{equation}\label{eq:ScritturaDecenteUnionePremisura}
 		\bigcup_{n\in\N}A_n=A\sqcup\bigcup_{n\in\N}A_n\setminus A
 	\end{equation}
-	Poiché $\S$ è un \semiring{} $A_n\setminus A\in \sqcup \S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato in \cref{prop:UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\N}\subseteq\S$ disgiunta tale che $\bigcup_{n\in\N}A_n\setminus A=\bigsqcup_{n\in\N}B_n$.
-	Allora sostituendo in \cref{eq:ScritturaDecenteUnionePremisura} si ottiene:
+	Poiché $\S$ è un \semiring{} $A_n\setminus A\in \sqcup \S$, e visto che $\sqcup S$ è chiuso per unione numerabile, come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}, esiste una famiglia $(B_n)_{n\in\N}\subseteq\S$ disgiunta tale che $\bigcup_{n\in\N}A_n\setminus A=\bigsqcup_{n\in\N}B_n$.
+	Allora sostituendo nell'\cref{eq:ScritturaDecenteUnionePremisura} si ottiene:
 	\begin{equation*}
 		\bigcup_{n\in\N}A_n=A\sqcup\bigsqcup_{n\in\N}B_n
 	\end{equation*}
-	quindi si ricade nelle ipotesi di \cref{lemma:CoerenzaPremisura} ottenendo che:
+	quindi si ricade nelle ipotesi del \cref{lemma:CoerenzaPremisura} ottenendo che:
 	\begin{equation*}
 		\sum_{n\in\N}\mu(A_n)\ge \mu(A)+\sum_{n\in\N}\mu(B_n)\ge \mu(A)
 	\end{equation*}
 	che è proprio quanto si voleva dimostrare.
-
 \end{proof}
 
 
