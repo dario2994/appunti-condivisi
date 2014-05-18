@@ -28,7 +28,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Lasciata al lettore.
 \end{proof}
 
-\begin{lemma}\label{lemma:lem:SemianelloSemiAperti}
+\begin{lemma}\label{lemma:SemianelloSemiAperti}
 	La famiglia $\S_n$ è un \semiring{}.
 \end{lemma}
 \begin{proof}
@@ -59,7 +59,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\begin{equation*}
 		m_n(S)=m_n(S+v)
 	\end{equation*}
-	ed è anche $n$-omogenea, cioè per ogni $\lambda>0$ e $S\in\S_n$ vale\footnote{Definisco la moltiplicazione per scalare come $\lambda S=\{\lambda s:\ s\in S\}$}
+	ed è anche $n$-omogenea, cioè per ogni $\lambda>0$ e $S\in\S_n$ vale\footnote{Definiamo la moltiplicazione per scalare come $\lambda S=\{\lambda s:\ s\in S\}$}
 	\begin{equation*}
 		m_n(\lambda S)=\lambda^n m_n(S)
 	\end{equation*}
@@ -78,7 +78,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 
-\begin{lemma}\label{lemma:lem:LebesgueElementareFinita}
+\begin{lemma}\label{lemma:LebesgueElementareFinita}
 	Dati $(S_i)_{1\le i\le k}\subseteq \S_n$ e $S\in\S_n$, valgono le seguenti disuguaglianze:
 	\begin{itemize}
 		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$ allora risulta
@@ -134,12 +134,12 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	La terna $(\R^n,\S_n,m_n)$ è uno spazio di misura elementare.
 \end{theorem}
 \begin{proof}
-	Per quanto mostrato nel \cref{lemma:lem:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
+	Per quanto mostrato nel \cref{lemma:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
 	
 	Resta da dimostrare solo che $m_n$ è \sigadd{} su $\S_n$.
 	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta dà $S\in\S_n$.
 	
-	Applicando il \cref{lemma:lem:LebesgueElementareFinita} abbiamo facilmente
+	Applicando il \cref{lemma:LebesgueElementareFinita} abbiamo facilmente
 	\begin{equation*}
 		\forall k\in\N:\ \sqcup_{i=1}^k S_i\subseteq S\implies \forall k\in\N:\ \sum_{i=1}^k m_n(S_i)\le m_n(S) \implies \sum_{i\in\N}m_n(S_i)\le m_n(S)
 	\end{equation*}
@@ -152,7 +152,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che la successione composta dalle parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ è un ricoprimento del compatto $S$.
 	Perciò esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S$.
 	
-	Sfruttando ancora il \cref{lemma:lem:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
+	Sfruttando ancora il \cref{lemma:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
 	\begin{equation*}
 		\sum_{i\in\N}m_N(S_i)\ge \sum_{i\in I}m_N(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
 		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
@@ -182,7 +182,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Dato un aperto $A$, consideriamo tutti gli $n$-cubi con centro razionale e lato razionale contenuti in $A$.
 	È facile vedere che l'unione di questi, che è ovviamente numerabile visto che $\mathbb Q^2$ lo è, è tutto l'aperto.
 	
-	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{prop:UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lemma:lem:SemianelloSemiAperti}.
+	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{prop:UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lemma:SemianelloSemiAperti}.
 \end{proof}
 
 \begin{definition}\label{def:Boreliani}
@@ -223,9 +223,9 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	I Boreliani di $\R^n$ sono un sottoinsieme di $\M_n$ ed in particolare il loro completamento rispetto alla misura di Lebesgue è proprio $\M_n$.
 \end{proposition}
 \begin{proof}
-	Il \cref{thm:EstensioneCaratheodory} ci assicura che la \sigalg{} $\M_n$ dei Boreliani contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando \cref{prop:SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
+	Il \cref{thm:EstensioneCaratheodory} ci assicura che la \sigalg{} $\M_n$ dei Boreliani contiene la \sigalg{} generata da $\S_n$ e perciò, sfruttando la \cref{prop:SigAlgUgualeBoreliani}, otteniamo i Boreliani sono misurabili secondo Lebesgue come voluto.
 	
-	Per avere che il completamento dei Boreliani coincide con $\M_n$ basta applicare \cref{prop:CaratheodoryCompletamentoSigAlg} ricordando \cref{prop:LebesguePremisuraSigFin}.
+	Per avere che il completamento dei Boreliani coincide con $\M_n$ basta applicare la \cref{prop:CaratheodoryCompletamentoSigAlg} ricordando la \cref{prop:LebesguePremisuraSigFin}.
 \end{proof}
 
 \begin{theorem}\label{thm:LebesgueEquivalenzeMisurabilita}

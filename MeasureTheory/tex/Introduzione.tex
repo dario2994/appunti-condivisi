@@ -186,12 +186,12 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \end{proposition}
 \begin{proof}
 	Dimostriamo intanto che $\A^*$ è una \sigalg{}.
-	Dato $A^*\in\A^*$, esistono per definizione $A\in\A$ e $N\subseteq B\in\A$ dove $\mu(B)=0$, tali che $A^*=A\cup N$. Possiamo facilmente imporre $B\cap A=\emptyset$, visto che se così non è si può ridefinire $N,B$ facendone la differenza con $A$. Assumiamo perciò $A,B$ disgiunti.
+	Dato $A^*\in\A^*$, esistono per definizione $A\in\A$ e $N\subseteq B\in\A$ dove $\mu(B)=0$, tali che $A^*=A\cup N$. Possiamo facilmente imporre $B\cap A=\emptyset$, visto che se così non fosse potremmo ridefinire $N,B$ facendone la differenza con $A$. Assumiamo perciò $A,B$ disgiunti.
 	Chiamando $M=B\setminus N$, vale facilmente:
 	\begin{equation*}
 		(A^*)^c=(A\cup N)^c=A^c\cap N^c=A^c\cap(B^c\cup M)=(A^c\cap B^c )\cup M \in\A^*
 	\end{equation*}
-	dove l'ultima uguaglianza vale perché ho supposto $A$ e $B$ disgiunti e l'ultima appartenenza è invece vera poiché $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\A^*$ è stabile per passaggio al complementare.
+	dove l'ultima uguaglianza vale perché abbiamo supposto $A$ e $B$ disgiunti e l'ultima appartenenza è invece vera poiché $M$ è anch'esso sottoinsieme di un trascurabile. Quindi $\A^*$ è stabile per passaggio al complementare.
 	
 	Ora consideriamo $(A^*_n)_{n\in\N}$ una successione di insiemi, e scegliamo $(A_n)_{n\in\N},(B_n)_{n\in\N},(N_n)_{n\in\N}$ tali che valgano $A^*_n=A_n\cup N_n$ e $N_n\subseteq B_n\in\A$ con $\mu(B_n)=0$.
 	
