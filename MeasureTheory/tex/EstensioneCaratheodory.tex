@@ -3,18 +3,18 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 
 
 \begin{theorem}\label{thm:RiduzionePreCaratheodory}
-	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\A\subseteq \mathcal P(X)$ l'insieme così definito:
+	Data $\mu:\mathcal P(X)\to \Rpiu$ una misura esterna, sia $\A\subseteq \mathcal P(X)$ l'insieme
 	\begin{equation*}
-		\A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\}
+		\A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\} \punto
 	\end{equation*}
-	allora $\A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\A$ è una misura completa.
+	L'insieme $\A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\A$ è una misura completa.
 \end{theorem}
 \begin{proof}
 	La dimostrazione procede in tre passi: prima mostriamo che $\A$ è un'algebra di insiemi, poi che è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\A$.
 	
 	Il fatto che $\A$ sia stabile per complementare è ovvio per la definizione (che è simmetrica tra $E$ ed $E^c$).
 	
-	Fissati $A\in\mathcal P(X)$ generico ed $E,F\in\A$, applicando la sola definizione di $\A$ ed alcuni passaggi insiemistici si ricava:
+	Fissati $A\in\mathcal P(X)$ generico ed $E,F\in\A$, applicando la sola definizione di $\A$ ed alcuni passaggi insiemistici si ricava
 	\begin{align*}
 		\mu(A)\stackrel{F\in\A}{=}&\mu(A\cap F)+\mu(A\setminus F)\stackrel{E\in\A}{=}
 		\mu(A\cap F)+\mu\left((A\setminus F)\cap E\right)+\mu\left((A\setminus F)\setminus E\right)\\
@@ -22,77 +22,77 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(A\setminus(E\cup F)\right)\\
 		\stackrel{F\in\A}{=}&\mu(A\cap (E\cup F))+\mu\left(A\setminus(E\cup F)\right)
 	\end{align*}
-	e visto che questo vale per ogni scelta di $A\in\mathcal P(X)$ abbiamo dimostrato che $\A$ è stabile per unione.
+	e, visto che questo vale per ogni scelta di $A\in\mathcal P(X)$, abbiamo dimostrato che $\A$ è stabile per unione.
 	
 	Unendo quanto detto si ha facilmente che $\A$ è un'algebra di insiemi.
 	
 	Ora sia $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi ed $A\in\mathcal P(X)$ un generico sottoinsieme di $X$.
 	
-	Per la \sigsubadd[ità] di $\mu$ vale:
+	Per la \sigsubadd[ità] di $\mu$ vale
 	\begin{equation}\label{eq:DisuguaglianzaFacileCaratheodory}
-		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)
+		\mu(A)\le \mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right) \punto
 	\end{equation}
 	Si vuole dimostrare che il $\le$ è in realtà un'uguaglianza. Se $\mu(A)=+\infty$ questo è ovvio, quindi tratteremo il caso in cui $\mu(A)<+\infty$. Chiamiamo $F_n=E_n\setminus \bigcup_{i<n} E_i$, ottenendo in maniera ovvia che gli $(F_n)_{n\in\N}$ sono a due a due disgiunti e che appartengono ad $\A$ poiché quest'ultima è un'algebra.
 	
-	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\A$ e $\mu(A)<+\infty$, che risulta:
+	Per induzione è facile verificare, sfruttando unicamente il fatto che $F_n\in\A$ e $\mu(A)<+\infty$, che 
 	\begin{equation}\label{eq:IdentitaDifferenzaCaratheodory}
 		\mu\left(A\setminus \bigsqcup_{n\le m} F_n\right)=\mu(A)-\sum_{n\le m} \mu(A\cap F_n)
 	\end{equation}
 	e incidentalmente da questa formula si ha che la serie $\sum_{n\in\N}\mu(A\cap F_n)$ converge, visto che è a termini positivi e limitata (da $\mu(A)$).
 	
-	Per la \sigsubadd[ità] di $\mu$ vale:
+	Per la \sigsubadd[ità] di $\mu$ vale
 	\begin{equation}\label{eq:IntersezioneStimaCaratheodory}
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)=\mu\left(\bigsqcup_{n\in\N} A\cap F_n\right)\le
-		\sum_{n\in\N} \mu(A\cap F_n)
+		\sum_{n\in\N} \mu(A\cap F_n)\virgola
 	\end{equation}
-	mentre, grazie alla monotonia e all'\cref{eq:IdentitaDifferenzaCaratheodory}, otteniamo:
+	mentre, grazie alla monotonia e all'\cref{eq:IdentitaDifferenzaCaratheodory}, otteniamo
 	\begin{equation}\label{eq:DifferenzaStimaCaratheodory}
 		\mu\left(A\setminus\bigcup_{n\in\N} E_n\right) = \mu\left(A\setminus\bigsqcup_{n\in\N} F_n\right) \le \mu\left(A\setminus\bigsqcup_{n\le m} F_n\right) = 
-		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)
+		\mu(A)-\sum_{n\le m}\mu(A\cap F_n)\punto
 	\end{equation}
 	
-	Ora unendo le \cref{eq:IntersezioneStimaCaratheodory,eq:DifferenzaStimaCaratheodory} giungiamo ad avere che, per ogni $m\in\mathbb{N}$:
+	Ora unendo le \cref{eq:IntersezioneStimaCaratheodory,eq:DifferenzaStimaCaratheodory} giungiamo ad avere, per ogni $m\in\mathbb{N}$, 
 	\begin{equation*}
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
-		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) 
+		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) \virgola
 	\end{equation*}
-	ma per la convergenza di $\sum_{n\in \N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arriviamo a:
+	ma per la convergenza di $\sum_{n\in \N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arriviamo a
 	\begin{equation*}
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)
 	\end{equation*}
-	che unita all'\cref{eq:DisuguaglianzaFacileCaratheodory} ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale a dire che $\A$ è una \sigalg{}.
+	che, unita all'\cref{eq:DisuguaglianzaFacileCaratheodory}, ci assicura che vale l'identità tra i membri e, visto che ciò vale indipendentemente dalla scelta di $A\in\mathcal P(X)$, risulta $\bigcup_{n\in\N}E_n\in\A$ che equivale ad affermare che $\A$ è una \sigalg{}.
 	
 	Dimostrare che $\mu$ è \sigadd{} su $\A$ è ora molto facile.
-	Consideriamo $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che:
+	Consideriamo $(E_n)_{n\in\N}\subseteq \A$ una famiglia numerabile di insiemi \emph{disgiunti}. Per facile induzione si ha che
 	\begin{equation*}
 		\mu\left(\bigsqcup_{n\le m}E_n\right)=\sum_{n\le m} \mu(E_n)
 	\end{equation*}
-	e applicando questa e la monotonia di $\mu$ risulta:
+	ed applicando quest'ultima e la monotonia di $\mu$ otteniamo 
 	\begin{equation*}
 		\sum_{n\le m} \mu(E_n)=\mu\left(\bigsqcup_{n\le m}E_n\right)\le
-		\mu\left(\bigsqcup_{n\in\N}E_n\right)\le \sum_{n\in\N} \mu(E_n)
+		\mu\left(\bigsqcup_{n\in\N}E_n\right)\le \sum_{n\in\N} \mu(E_n) \punto
 	\end{equation*}
-	e questa doppia disuguaglianza, per la definizione delle serie a termini positivi, implica che tutte le disuguaglianze sono identità. Ma allora questo dimostra che $\mu$ è \sigadd{} su $\A$.
+	Se in quest'ultima disuguaglianza lasciamo andare $m$ all'infinito, per la definizione delle serie a termini positivi, ne ricaviamo che tutte le disuguaglianze diventano identità visto che il membro più a sinistra tende al membro più a destra, ma allora questo dimostra che $\mu$ è \sigadd{} su $\A$.
 	
 	Infine per dimostrare la completezza di $\mu|_{\A}$ basta mostrare che dato $E\in\mathcal P(X)$ trascurabile, vale $E\in\A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
 	
-	Fissato un generico $A\in\mathcal P(X)$, risulta per la monotonia di $\mu$:
+	Fissato un generico $A\in\mathcal P(X)$, grazie alla monotonia di $\mu$, risulta
 	\begin{equation*}
-		\mu(A\cap N)+\mu(A\setminus N)\le \mu(N)+\mu(A)=\mu(A)
+		\mu(A\cap N)+\mu(A\setminus N)\le \mu(N)+\mu(A)=\mu(A)\virgola
 	\end{equation*}
 	che, unita alla \sigsubadd[ità] di $\mu$, ci assicura
 	\begin{equation*}
 		\mu(A)=\mu(A\cap N)+\mu(A\setminus N)
 	\end{equation*}
-	che è proprio la condizione di appartenenza ad $\A$.
+	e questa è proprio la condizione di appartenenza ad $\A$.
 \end{proof}
 
 \begin{proposition}\label{prop:MisuraEsternaDiPremisura}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare si consideri la funzione che associa ad ogni sottoinsieme l'estremo inferiore delle misure dei ricoprimenti, cioè $\mu^*:\mathcal P(X)\to\Rpiu$ definita come 
 	\begin{equation*}
 		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
-		\ A\subseteq\bigcup_{n\in\N}A_n\right\}
+		\ A\subseteq\bigcup_{n\in\N}A_n\right\} \punto
 	\end{equation*}
 	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita nel \cref{thm:RiduzionePreCaratheodory}).
 \end{proposition}
@@ -102,20 +102,20 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Inoltre, ancora facilmente, $\mu^*$ è monotona, visto che se $A\subseteq B$ un ricoprimento di $B$ ricopre anche $A$.
 	E infine è anche \sigsubadd{} visto che l'unione di ricoprimenti (che risulta ancora un ricoprimento numerabile) è un ricoprimento dell'unione.
 	
-	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per il \cref{lemma:PiuCheMonotonaPremisura} vale:
+	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per il \cref{lemma:PiuCheMonotonaPremisura} vale
 	\begin{equation*}
 		\mu(S)\ge \sum_{n\in\N} \mu(S_n)
 	\end{equation*}
-	e perciò passando all'estremo inferiore sui ricoprimenti otteniamo la disuguaglianza cercata.
+	e da questa, passando all'estremo inferiore sui ricoprimenti, otteniamo la disuguaglianza cercata.
 	
-	Ora perciò resta da dimostrare che se $E\in \S$ allora per ogni $A\in\mathcal P(X)$ risulta:
+	Perciò resta da dimostrare che se $E\in \S$, allora, per ogni $A\in\mathcal P(X)$, risulta
 	\begin{equation}\label{eq:MisuraEsternaDisDifficile}
-		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E)
+		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E) \punto
 	\end{equation}
 	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di Caratheodory, poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
 	Dato $(A_n)_{n\in\N}\subseteq\S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\N},(C_n)_{n\in\N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\N},(C'^n_i)_{i\in\N} \subseteq \S$ tali che $B_n=\bigsqcup_{i\in\N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\N}, (C'^n_i)_{n,i\in\N}$ risultano ricoprimenti con elementi di $\S$ di $A\cap E,A\setminus E$ rispettivamente.
-	Ora, sfruttando la \sigadd[ità] di $\mu$ e la \sigsubadd[ità] di $\mu^*$ concludiamo:
+	Ora, sfruttando la \sigadd[ità] di $\mu$ e la \sigsubadd[ità] di $\mu^*$ concludiamo
 	\begin{align*}
 		\sum_{n\in\N}\mu(A_n)&=
 		\sum_{n\in\N} \mu\left(\bigsqcup_{i\in\N} B'^n_i\sqcup \bigsqcup_{i\in\N} C'^n_i\right)=
@@ -132,11 +132,11 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \begin{proof}
 	Fissiamo $A\in\A$ e chiamiamo $(S_n)_{n\in\N}\in\S$ un suo ricoprimento numerabile.
 	
-	Essendo $\mu'$ una misura è \sigsubadd{} e decrescente per le \cref{nota:SubAdditivitaMisura,nota:MonotoniaMisura} e perciò vale:
+	Essendo una misura, $\mu'$ è \sigsubadd{} e decrescente per le \cref{nota:SubAdditivitaMisura,nota:MonotoniaMisura}, e di conseguenza vale
 	\begin{equation*}
-		\sum_{n\in\N}\mu(S_n)=\sum_{n\in\N}\mu'(S_n)\ge \mu'\left(\bigcup_{n\in\N}S_n\right)\ge \mu'(A)
+		\sum_{n\in\N}\mu(S_n)=\sum_{n\in\N}\mu'(S_n)\ge \mu'\left(\bigcup_{n\in\N}S_n\right)\ge \mu'(A) \virgola
 	\end{equation*}
-	ed ora passando all'estremo superiore sui ricoprimenti di $A$ otteniamo $\mu^*(A)\ge\mu'(A)$ che è la tesi, visto che la dimostrazione vale per ogni $A\in\A$.
+	che, passando all'estremo superiore sui ricoprimenti di $A$, dimostra $\mu^*(A)\ge\mu'(A)$ che è la tesi, visto che la dimostrazione vale per ogni $A\in\A$.
 \end{proof}
 
 
@@ -180,28 +180,28 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		
 		Sia $\epsilon>0$ fissato.
 		
-		Dato $n\in\N$ allora $\mu'(A_n)=\mu^*(A_n)$, ma per la definizione di $\mu^*$ questo implica che esiste $S_n\in\sqcup \S$ tale che $A_n\subseteq S_n$ e tale che valga:
+		Dato $n\in\N$ risulta $\mu'(A_n)=\mu^*(A_n)$, ma per la definizione di $\mu^*$ questo implica che esiste $S_n\in\sqcup \S$ tale che $A_n\subseteq S_n$ e tale che valga
 		\begin{equation*}
 			\mu^*(A_n)\le \mu^*(S_n) \le \mu^*(A_n)+\frac\epsilon{2^n}\implies
-			0\le \mu^*(S_n)-\mu^*(A_n)\le \frac\epsilon{2^n}
+			0\le \mu^*(S_n)-\mu^*(A_n)\le \frac\epsilon{2^n} \virgola
 		\end{equation*}
 		dove nell'implicazione abbiamo sfruttato $\mu^*(A_n)=\mu'(A_n)<+\infty$.
-		Infine dal fatto che $S_n,A_n$ sono misurabili, per l'addittività della misura, ricaviamo:
+		Infine dal fatto che $S_n,A_n$ sono misurabili, per l'addittività della misura, ricaviamo
 		\begin{equation}\label{eq:DifficileFreccia12Misurabili}
-			0\le \mu'(S_n\setminus A_n) \le \frac\epsilon{2^n} \implies \mu^*(S_n\setminus A_n)\le \frac\epsilon{2^n}
+			0\le \mu'(S_n\setminus A_n) \le \frac\epsilon{2^n} \implies \mu^*(S_n\setminus A_n)\le \frac\epsilon{2^n}\punto
 		\end{equation}
 		
-		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subaddittività della misura esterna  $\mu^*$, sfruttando l'\cref{eq:DifficileFreccia12Misurabili}, si ottiene:
+		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subaddittività della misura esterna  $\mu^*$, sfruttando l'\cref{eq:DifficileFreccia12Misurabili}, si ottiene
 		\begin{equation*}
 			\mu^*(S\setminus A)=\mu^*\left(\bigcup_{n\in\N}S_n\setminus A_n\right)\le
 			\sum_{n\in\N}\mu^*(S_n\setminus A_n)\le\sum_{n\in\N}\frac\epsilon{2^n}\le \epsilon
 		\end{equation*}
-		e questo conclude, visto che $S$ soddisfa tutte le richieste dell'enunciato.
+		e questo conclude visto che $S$ soddisfa tutte le richieste dell'enunciato.
 		\item[\ImplicationProof{it:UnioniDaFuoriEquivalenze}{it:SigmaDaFuoriEquivalenze}] L'ipotesi ci assicura l'esistenza di $(S_n)_{n\in\N}\subseteq \sqcup \S$ tali che $A\subseteq S_n$ e $\mu^*(S_n\setminus A)<\frac1n$.
 		
 		Definiamo $B=\cap_{n\in\N}S_n$, che appartiene a $\sigma A(\S)$ poichè generato a partire da $\S$ con sole unioni e intersezioni numerabili. Ovviamente vale $A\subseteq B$.
 		
-		Infine risulta vera la seguente:
+		Infine risulta vera 
 		\begin{equation*}
 			\forall n\in\N:\ B\subseteq B_n\implies B\setminus A\subseteq B_n\setminus A\implies \mu^*(B\setminus A)\le \mu^*(B_n\setminus A)\le \frac1n
 		\end{equation*}
@@ -218,11 +218,11 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Se $A$ è misurabile allora anche $X'\setminus A$ è misurabile ed è anch'esso \sigfin[o] per $\mu$. Quindi sfruttando l'implicazione \ImplicationProof{it:MisurabileEquivalenze}{it:SigmaDaFuoriEquivalenze} otteniamo che esiste $C\in\sigma A(\S)$ tale che contiene $X'\setminus A$ e tale che $\mu^*(C\setminus(X'\setminus A))=0$. 
 	
-	Chiamiamo $B$ l'insieme $X'\setminus C$. L'insieme definito è contenuto in $A$ ed appartiene a $\sigma A(\S)$. Inoltre vale la seguente:
+	Chiamiamo $B$ l'insieme $X'\setminus C$. L'insieme appena definito è contenuto in $A$ ed appartiene a $\sigma A(\S)$. Inoltre vale
 	\begin{equation*}
 		A\setminus B\subseteq C\setminus (X'\setminus A) \implies \mu^*(A\setminus B)\le \mu^*\left(C\setminus(X'\setminus A)\right)\le \epsilon
 	\end{equation*}
-	e questo termina la dimostrazione, visto che $B$ rispetta tutte le richieste.
+	e questo termina la dimostrazione visto che $B$ rispetta tutte le richieste.
 	
 	Infine per l'implicazione \ImplicationProof{it:SigmaDaDentroEquivalenze}{it:MisurabileEquivalenze} si procede in maniera completamente analoga alla dimostrazione dell'implicazione \ImplicationProof{it:SigmaDaFuoriEquivalenze}{it:MisurabileEquivalenze}.
 \end{proof}
@@ -261,9 +261,9 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Notiamo che nella dimostrazione di \ImplicationProof{it:UnioniDaFuoriEquivalenze}{it:SigmaDaFuoriEquivalenze} del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} scriviamo $B$, che è per l'appunto un insieme che contiene $A$ e tale che $\mu(B\setminus A)=0$, come intersezione numerabile di $(S_n)_{n\in\N}\subseteq \sqcup \S$.
 	Avremmo finito se quest'intersezione fosse monotona, visto che $\sqcup \S\subseteq \hat \S$.
-	Ma questo è facile da ottenere, sfruttando questa scrittura:
+	Ma questo è facile da ottenere, sfruttando l'identità
 	\begin{equation*}
-		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n
+		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n \virgola
 	\end{equation*}
 	dove gli elementi che intersechiamo rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}).
 \end{proof}
@@ -303,12 +303,12 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Ora, sfruttando la \cref{nota:PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	
-	Unendo i risultati ottenuti, ricordando che $\mu',\mu''$ sono estensioni di $\mu$ e che $\mu''(A)<+\infty$,  abbiamo:
+	Unendo i risultati ottenuti, ricordando che $\mu',\mu''$ sono estensioni di $\mu$ e che $\mu''(A)<+\infty$,  abbiamo
 	\begin{gather*}
 		\mu'(A)+\mu'(S\setminus A)=\mu'(S)=\mu(S)=\mu''(S)=\mu''(A)+\mu''(S\setminus A) \\
 		\Downarrow \\
 		\lvert\mu'(A)-\mu''(A)\rvert=\lvert\mu''(S\setminus A)-\mu'(S\setminus A)\rvert<2\epsilon
 	\end{gather*}
-	e visto che questo deve valere per ogni $\epsilon>0$ otteniamo $\mu'(A)=\mu''(A)$ che è quanto si voleva.
+	e, visto che questo deve valere per ogni $\epsilon>0$, otteniamo $\mu'(A)=\mu''(A)$ che è quanto si voleva.
 \end{proof}
 
