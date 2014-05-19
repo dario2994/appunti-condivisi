@@ -10,7 +10,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{definition}\label{def:LebesgueSemiaperti}
 	Indicheremo con $\S_n\subseteq\mathcal P(\R^n)$ l'insieme dei parallelepipedi $n$-dimensionali semiaperti a destra\footnote{Se $a\ge b$ con la scrittura $\co{a}{b}$ si intenderà l'insieme vuoto.}:
 	\begin{equation*}
-		\S_n=\left\{\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}:\ (a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq \R\right\}
+		\S_n=\left\{\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}:\ (a_i)_{1\le i\le n},(b_i)_{1\le i\le n}\subseteq \R\right\}	\punto
 	\end{equation*}
 	
 	Inoltre, dato $S=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}$, definiamo $S^-_i=a_i$ e $S^+_i=b_i$.
@@ -19,9 +19,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proposition}\label{prop:SpaccareUnioneSemiaperti}
 	Dati $A,B\in\S_n$ esiste una famiglia finita $(S_i)_{i\in I}\subseteq\S_n$ di insiemi disgiunti la cui unione disgiunta dà $A\cup B$ e tale che per ogni $i\in I$ vale una, ed una sola, delle seguenti:
 	\begin{align*}
-		S_i\subseteq &A\setminus B\\
-		S_i\subseteq &B\setminus A\\
-		S_i\subseteq &A\cap B
+		S_i\subseteq &A\setminus B\virgola\\
+		S_i\subseteq &B\setminus A\virgola\\
+		S_i\subseteq &A\cap B\punto
 	\end{align*}
 \end{proposition}
 \begin{proof}
@@ -35,7 +35,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Ovviamente $\emptyset\in\S_n$.
 	Inoltre dati $A,B\in\S_n$ si ricava facilmente che
 	\begin{equation*}
-		A\cap B=\co{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\co{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n
+		A\cap B=\co{\max(A^-_1,B^-_1)}{\min(A^+_1,B^+_1)}\times\cdots\times\co{\max(A^-_n,B^-_n)}{\min(A^+_n,B^+_n)}\in\S_n \punto
 	\end{equation*}
 
 	Mentre per la differenza $A\setminus B$ applichiamo la \cref{prop:SpaccareUnioneSemiaperti} sugli insiemi $A,B$ per ottenere la famiglia $(S_i)_{i\in I}\subseteq \S_n$ come descritta dall'enunciato.
@@ -49,9 +49,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proof}
 
 \begin{definition}\label{def:LebesgueElementare}
-	Indicherò con $m_n:\S_n\to\Rpiu$ la funzione che associa ad ogni parallelepipedo il suo volume $n$-dimensionale:
+	Indicheremo con $m_n:\S_n\to\Rpiu$ la funzione che associa ad ogni parallelepipedo il suo volume $n$-dimensionale:
 	\begin{equation*}
-		m_n(S)=\prod_{i=1}^n\max(0,S^+_i-S^-_i)
+		m_n(S)=\prod_{i=1}^n\max(0,S^+_i-S^-_i) \punto
 	\end{equation*}
 \end{definition}
 \begin{remark}\label{nota:LebesgueElementareProprieta}
@@ -61,19 +61,18 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	\end{equation*}
 	ed è anche $n$-omogenea, cioè per ogni $\lambda>0$ e $S\in\S_n$ vale\footnote{Definiamo la moltiplicazione per scalare come $\lambda S=\{\lambda s:\ s\in S\}$}
 	\begin{equation*}
-		m_n(\lambda S)=\lambda^n m_n(S)
+		m_n(\lambda S)=\lambda^n m_n(S)\punto
 	\end{equation*}
 \end{remark}
 \begin{proof}
 	Entrambe le proprietà sono di facile verifica:
 	\begin{multline*}
 		m_n(S+v)=m_n\left(\co{S^-_1+v_1}{S^+_1+v_1}\times\cdots\times\co{S^-_n+v_n}{S^+_n+v_n}\right)\\
-		=\prod_{i=1}^n\left((S^+_i+v_i)-(S^-_i+v_i)\right)=\prod_{i=1}^n\left(S^+_i-S^-_i\right)=m_n(S)
+		=\prod_{i=1}^n\left((S^+_i+v_i)-(S^-_i+v_i)\right)=\prod_{i=1}^n\left(S^+_i-S^-_i\right)=m_n(S)\virgola
 	\end{multline*}
-	
 	\begin{multline*}
 		m_n(\lambda S)=m_n\left(\co{\lambda S^-_1}{\lambda S^+_1}\times\cdots\times\co{\lambda S^-_n}{\lambda S^+_n}\right)\\
-		=\prod_{i=1}^n\left(\lambda S^+_i-\lambda S^-_i\right)=\lambda^n\prod_{i=1}^n\left(S^+_i-S^-_i\right)=\lambda^n m_n(S)
+		=\prod_{i=1}^n\left(\lambda S^+_i-\lambda S^-_i\right)=\lambda^n\prod_{i=1}^n\left(S^+_i-S^-_i\right)=\lambda^n m_n(S)\punto
 	\end{multline*}
 \end{proof}
 
@@ -81,13 +80,13 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{lemma}\label{lemma:LebesgueElementareFinita}
 	Dati $(S_i)_{1\le i\le k}\subseteq \S_n$ e $S\in\S_n$, valgono le seguenti disuguaglianze:
 	\begin{itemize}
-		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$ allora risulta
+		\item Se gli $S_i$ sono disgiunti e $\bigsqcup_{i=1}^k S_i\subseteq S$, allora risulta
 		\begin{equation*}
-			\sum_{i=1}^k m_n(S_i)\le m_n(S)
+			\sum_{i=1}^k m_n(S_i)\le m_n(S)\punto
 		\end{equation*}
-		\item Se vale il contenimento $S\subseteq\bigcup_{i=1}^k S_i$ allora risulta
+		\item Se vale il contenimento $S\subseteq\bigcup_{i=1}^k S_i$, allora risulta
 		\begin{equation*}
-			\sum_{i=1}^k m_n(S_i)\ge m_n(S)
+			\sum_{i=1}^k m_n(S_i)\ge m_n(S)\punto
 		\end{equation*}
 	\end{itemize}
 \end{lemma}
@@ -98,11 +97,11 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{definition}\label{def:AllargamentoSemiaperti}
 	Fissato $\lambda>0$ definiamo $F_\lambda:\S_n\to\S_n$ come l'operatore che associa ad $S\in\S_n$ l'insieme nullo se $S=\emptyset$ e altrimenti
 	\begin{equation*}
-		F_\lambda(S)=\co{S^-_1-\epsilon}{S^+_1}\times\cdots\times\co{S^-_n-\epsilon}{S^+_n}
+		F_\lambda(S)=\co{S^-_1-\epsilon}{S^+_1}\times\cdots\times\co{S^-_n-\epsilon}{S^+_n} \virgola
 	\end{equation*}
 	dove $\epsilon>0$ è definito come
 	\begin{equation*}
-		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_i\}
+		\epsilon=\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\cdot\min_{1\le i\le n}\{S^+_i-S^-_i\} \punto
 	\end{equation*}
 \end{definition}
 \begin{remark}\label{nota:ParteInternaAllargamento}
@@ -110,9 +109,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{remark}
 
 \begin{proposition}\label{prop:MisuraAllargamento}
-	Fissati $\lambda>0$ e $S\in\S_n$ vale la seguente stima:
+	Fissati $\lambda>0$ e $S\in\S_n$ vale la stima
 	\begin{equation*}
-		m_n(S)\le m_n(F_\lambda(S))\le m_n(S)+\lambda
+		m_n(S)\le m_n(F_\lambda(S))\le m_n(S)+\lambda \punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
@@ -120,12 +119,12 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 	La seconda è ovvia se $S$ è vuoto, quindi assumiamo $S\not=\emptyset$.
 	
-	Ponendo $\epsilon$ come nella \cref{def:AllargamentoSemiaperti}, risulta vero
+	Ponendo $\epsilon$ come nella \cref{def:AllargamentoSemiaperti}, otteniamo
 	\begin{multline*}
 		\frac{m_n(F_\lambda(S))}{m_n(S)}=\prod_{i=1}^n\frac{S^+_i-S^-_i+\epsilon}{S^+_i-S^-_i}=
 		\prod_{i=1}^n\left(1+\frac{\epsilon}{S^+_i-S^-_i}\right)\\\le
 		\prod_{i=1}^n\left(1+\min\left(1,\frac{\lambda}{2^n\cdot m_n(S)}\right)\right)\le
-		1+2^n\frac{\lambda}{2^n\cdot m_n(S)}=1+\frac{\lambda}{m_n(S)}
+		1+2^n\frac{\lambda}{2^n\cdot m_n(S)}=1+\frac{\lambda}{m_n(S)} \virgola
 	\end{multline*}
 	che implica la tesi moltiplicando ambo i membri per $m_n(S)$.
 \end{proof}
@@ -137,14 +136,13 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	Per quanto mostrato nel \cref{lemma:SemianelloSemiAperti} la famiglia $\S_n$ è un \semiring{}.
 	
 	Resta da dimostrare solo che $m_n$ è \sigadd{} su $\S_n$.
-	Perciò fisso $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta dà $S\in\S_n$.
+	Perciò fissiamo $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti tali che la loro unione disgiunta dà $S\in\S_n$.
 	
 	Applicando il \cref{lemma:LebesgueElementareFinita} abbiamo facilmente
 	\begin{equation*}
-		\forall k\in\N:\ \sqcup_{i=1}^k S_i\subseteq S\implies \forall k\in\N:\ \sum_{i=1}^k m_n(S_i)\le m_n(S) \implies \sum_{i\in\N}m_n(S_i)\le m_n(S)
+		\forall k\in\N:\ \sqcup_{i=1}^k S_i\subseteq S\implies \forall k\in\N:\ \sum_{i=1}^k m_n(S_i)\le m_n(S) \implies \sum_{i\in\N}m_n(S_i)\le m_n(S) \punto
 	\end{equation*}
 
-	
 	Per ottenere la disuguaglianza opposta, concludendo quindi la dimostrazione, sfrutteremo la compattezza dei chiusi e limitati di $\R^n$, in particolare la possibilità di estrarre ricoprimenti finiti di aperti a partire da ricoprimenti numerabili.
 	
 	Fissiamo $\epsilon>0$ arbitrario.
@@ -157,9 +155,9 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 		\sum_{i\in\N}m_N(S_i)\ge \sum_{i\in I}m_N(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
 		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
 	\end{equation*}
-	e visto che questo vale per ogni $\epsilon>0$ ne ricaviamo:
+	e visto che questo vale per ogni $\epsilon>0$ ne ricaviamo
 	\begin{equation*}
-		\sum_{i\in\N}m_N(S_i)\ge m_n(S)
+		\sum_{i\in\N}m_N(S_i)\ge m_n(S) \virgola
 	\end{equation*}
 	che conclude la dimostrazione della \sigadd[ità] di $m_n$.
 \end{proof}
@@ -170,7 +168,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \begin{proof}
 	Sfruttando che $\mathbb Z^n$ è numerabile, mostriamo esplicitamente la \sigfin[ezza]:
 	\begin{equation*}
-		\R^n=\bigsqcup_{i_1,i_2,\dots,i_n\in\mathbb Z^n} \co{i_1}{i_1+1}\times\cdots \times\co{i_n}{i_n+1}
+		\R^n=\bigsqcup_{i_1,i_2,\dots,i_n\in\mathbb Z^n} \co{i_1}{i_1+1}\times\cdots \times\co{i_n}{i_n+1} \punto
 	\end{equation*}
 	
 \end{proof}
@@ -240,7 +238,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	È chiaro che questo teorema richiama, specializzandola al caso della misura di Lebesgue, il \cref{thm:EquivalenzeMisurabilitaSottoinsieme}.
+	È chiaro che questo teorema richiama, specializzandolo al caso della misura di Lebesgue, il \cref{thm:EquivalenzeMisurabilitaSottoinsieme}.
 	
 	In particolare applicando il \cref{thm:EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poichè i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{prop:SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poichè per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
 	
@@ -264,7 +262,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 		Per concludere è sufficiente perciò verificare che l'unione dei $C_i$, oltre ad essere ovviamente contenuta in $A$, lo approssima a meno di un trascurabile.
 		La verifica risulta agevole sfruttando la monotonia della misura esterna:
 		\begin{equation*}
-			\forall i_0\in\N:\ m_n^*(A\setminus \bigcup_{i\in\N} C_i)\le m_n^*(A\setminus C_{i_0})< \frac 1{i_0}\implies m_n^*(A\setminus \bigcup_{i\in\N} C_i)=0
+			\forall i_0\in\N:\ m_n^*(A\setminus \bigcup_{i\in\N} C_i)\le m_n^*(A\setminus C_{i_0})< \frac 1{i_0}\implies m_n^*(A\setminus \bigcup_{i\in\N} C_i)=0 \punto
 		\end{equation*}
 
 		\item[\ImplicationProof{it:LEMCompattiDentro}{it:LEMBorelDentro}] Presi i compatti descritti dalla proposizione, l'unione è ovviamente un Boreliano e rispetta le richieste della \ref{it:LEMBorelDentro}.
@@ -298,7 +296,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 \begin{theorem}\label{thm:LebesgueUnicaInvarianteTraslazione}
 	Se $\mu$ è una misura sui Boreliani di $\R^n$ invariante per traslazione tale che la misura del cubo unitario valga $1$, cioè
 	\begin{equation*}
-		\mu\left(\co01\times\co01\times\cdots\times\co01\right)=1
+		\mu\left(\co01\times\co01\times\cdots\times\co01\right)=1 \virgola
 	\end{equation*}
 	allora $\mu\equiv m_n$, in altre parole la misura di Lebesgue è l'unica misura con queste proprietà (l'invarianza per traslazione è dimostrata nella \cref{nota:LebesgueProprieta}).
 \end{theorem}
@@ -312,7 +310,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	
 	È facile vedere che
 	\begin{equation*}
-		\bigsqcup_{v\in\mathbb Z(S)} C+v=S
+		\bigsqcup_{v\in\mathbb Z(S)} C+v=S \virgola
 	\end{equation*}
 	da cui otteniamo, visto che $\mu,m_n$ sono misure invarianti per traslazione che coincidono su $C$, che $\mu,m_n$ coincidono anche su $S$.
 	
@@ -320,17 +318,17 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	
 	Sia $m\in\mathbb Z$ tale che per ogni $1\le i\le n$ valga $mS^+_i\in \mathbb Z$, cioè ad esempio si può porre $m$ come il minimo comune multiplo di tutti i denominatori.
 	
-	Allora, analogamente a quanto già fatto nel caso intero, vale la seguente identità:
+	Allora, analogamente a quanto già fatto nel caso intero, vale l'identità
 	\begin{equation*}
 		\co0{mS^+_1}\times\cdots\times\co0{mS^+_n}=
-		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1S_1^+,i_2S_2^+,\dots,i_nS_n^+)
+		\bigsqcup_{(i_1,i_2,\dots i_n)\in\mathbb \{0,1,\dots,m-1\}^n}S+(i_1S_1^+,i_2S_2^+,\dots,i_nS_n^+) \punto
 	\end{equation*}
 	Ma ora applicando quanto abbiamo ricavato per la misura di elementi con estremi a coordinate intere, è chiaro che la misura del membro destro dell'ultima uguaglianza coincide per $\mu,m_n$ e allora sfruttando ancora la loro invarianza per traslazione otteniamo che coincidono anche su $S$.
 	
 	Ora consideriamo $S\in\S_n$ generico e notiamo che vista la densità dei razionali nei reali posso scrivere $S$ come unione \emph{crescente} di elementi $(Q_i)_{i\in\N}\subseteq \S_n$ con estremi a coordinate razionali. 
 	Da questa scrittura, sfruttando la \cref{prop:LimiteMonotonoCrescenteMisura} e quanto già ottenuto sulla coincidenza tra $\mu$ e $m_n$, otteniamo
 	\begin{equation*}
-		m_n(S)=\lim_{n\to\infty}m_n(Q_i)=\lim_{n\to\infty}\mu(Q_i)=\mu(S)
+		m_n(S)=\lim_{n\to\infty}m_n(Q_i)=\lim_{n\to\infty}\mu(Q_i)=\mu(S) \virgola
 	\end{equation*}
 	cioè $\mu,m_n$ coincidono su $S$ e visto che questo è arbitrariamente scelto in $\S_n$ coincidono su tutto $\S_n$.
 	
@@ -354,7 +352,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 \begin{proof}
 	Fissato $A$ misurabile, applicando il \cref{thm:LebesgueEquivalenzeMisurabilita}, otteniamo l'esistenza di $(K_i)_{i\in\N}$ compatti di $\R^n$ e di $N$ trascurabile tali che la loro unione (crescente sui compatti) è $A$. Applicando quanto detto abbiamo
 	\begin{equation*}
-		f(A)=f\left(N\cup\bigcup_{i\in\N}K_i\right)=f(N)\cup\bigcup_{i\in\N}f(K_i)
+		f(A)=f\left(N\cup\bigcup_{i\in\N}K_i\right)=f(N)\cup\bigcup_{i\in\N}f(K_i) \virgola
 	\end{equation*}
 	ma $f(N)$ è trascurabile a sua volta per ipotesi, e $f(K_i)$ è compatto poichè è immagine continua di un compatto.
 	
@@ -364,7 +362,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
 	Data una funzione $f:\R^n\to\R^n$ Lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
 	\begin{equation*}
-		\forall A\in\M_n:\ \lambda^n m_n(A) \ge m_n(f(A))
+		\forall A\in\M_n:\ \lambda^n m_n(A) \ge m_n(f(A)) \punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
@@ -377,7 +375,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	Inoltre per la \cref{nota:LebesgueElementareProprieta} abbiamo anche che $m_n(S'_i)=\lambda^n m_n(S_i)$. 
 	E quindi unendo quanto detto arriviamo ad avere
 	\begin{equation}\label{eq:StimaMisuraEsternaLipschitz}
-		\lambda^n m_n^*(A) \ge m_n^*(f(A)) 
+		\lambda^n m_n^*(A) \ge m_n^*(f(A))  \virgola
 	\end{equation}
 	che implica in particolare che se $A$ è trascurabile, anche $f(A)$ è trascurabile.
 	Rientriamo perciò nelle ipotesi della \cref{prop:ContinueSpecialiTengonoMisurabili} e quindi otteniamo che $f$ manda misurabili in misurabili, cioè $f(A)$ è misurabile.
@@ -395,9 +393,9 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
 	Se dimostriamo che $\mu\equiv m_n$ abbiamo proprio che $m_n$ è invariante per rotazione.
 	
-	È facile notare che $\mu$ è invariante per traslazione, visto che dati $A\in \M_n$ e $v\in\R^n$ vale
+	È facile notare che $\mu$ è invariante per traslazione, visto che, dati $A\in \M_n$ e $v\in\R^n$, vale
 	\begin{equation*}
-		\mu(A+v)=m_n(O(A+v))=m_n(O(A)+O(v))=m_n(O(A))=\mu(A)
+		\mu(A+v)=m_n(O(A+v))=m_n(O(A)+O(v))=m_n(O(A))=\mu(A) \virgola
 	\end{equation*}
 	dove nei vari passaggi abbiamo usato l'invarianza per traslazione della misura di Lebesgue e la linearità di $O$.
 	
@@ -426,9 +424,9 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	
 	Poichè lo spazio generato da $U$ ha dimensione $\le n-1$, esiste un'isometria che manda $U$ in un sottoinsieme di $V$ ed essendo la misura di Lebesgue invariante per isometria, come dimostrato nella \cref{prop:LebesgueProprietaIsometria}, è sufficiente dimostrare che $V$ è trascurabile per concludere.
 	
-	Dato $\epsilon>0$ e $k\in\N$ chiamiamo
+	Dato $\epsilon>0$ e $k\in\N$, poniamo
 	\begin{equation*}
-		I_\epsilon(k)=\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}
+		I_\epsilon(k)=\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}\punto
 	\end{equation*}
 	È banale, sfruttando la sola definizione della premisura $m_n$, che $m_n(I_\epsilon(k))=\frac{\epsilon}{2^k}$.
 	
@@ -457,24 +455,24 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	
 	Questa costruzione permetterà poi di ottenere facilmente la cardinalità dei Boreliani.
 \end{remark}
-\begin{proof}
+\begin{proof}%TODO Aggiustare la punteggiatura
 	Per comodità, definiamo le seguenti applicazioni su famiglie di sottoinsiemi di $X$:
-	$\cdot_{\delta}:\mathcal{P}(\mathcal{P}(X)) \rightarrow \mathcal{P}(\mathcal{P}(X))$ tale che
+	l'applicazione $\cdot_{\delta}:\mathcal{P}(\mathcal{P}(X)) \rightarrow \mathcal{P}(\mathcal{P}(X))$ tale che
 	\[
-		A_{\delta} = \left\{ \bigcap_{n\in\N}E_n : E_n\in A \right\};
+		A_{\delta} = \left\{ \bigcap_{n\in\N}E_n : E_n\in A \right\}
 	\]
 	e $\cdot_{\mathsf{c}}:\mathcal{P}(\mathcal{P}(X)) \rightarrow \mathcal{P}(\mathcal{P}(X))$ tale che
 	\[
-		A_{\mathsf{c}} = \left\{ E^\mathsf{c} : E\in A \right\}.
+		A_{\mathsf{c}} = \left\{ E^\mathsf{c} : E\in A \right\} \punto
 	\]
 	
 	Consideriamo quindi la seguente funzione, definita come $f:ON \rightarrow \mathcal{P}(\mathcal{P}(\R^n))$:
 	\[
 	f(\alpha) = \left\{
 		\begin{array}{ll}
-			\tau & \quad se\ \alpha=0, \\
-			f(\beta)_{\delta}\cup f(\beta)_{\mathsf{c}} & \quad se\ \alpha=\beta+1,\\
-			\bigcup_{\beta < \alpha}f(\alpha) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite.
+			\tau & \quad se\ \alpha=0 \virgola \\
+			f(\beta)_{\delta}\cup f(\beta)_{\mathsf{c}} & \quad se\ \alpha=\beta+1 \virgola\\
+			\bigcup_{\beta < \alpha}f(\alpha) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite \punto
 		\end{array}
 	\right.
 	\]
@@ -507,18 +505,19 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
 	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, con $|E_{\beta}|\leq |E|$ per ogni $\beta < \alpha$. Tutto ciò, porta a dire che
 	\begin{equation}\label{eq:CardBorel}
-		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E|,
+		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E| \virgola
 	\end{equation}
 	purché $E$ sia un insieme di cardinalità maggiore od uguale a quella di tutti gli $f(\alpha)$ con $\alpha<\omega_1$;
 	l'ultima disuguaglianza si ha perché è sicuramente vero che $|E|\geq |f(0)| = |\R| \geq |\omega_1|$.
-	Ma ora, per tutti gli ordinali al più numerabili, $|f(\alpha)|=|\R|$, altrimenti consideriamo il più piccolo ordinale per cui non vale;
-	non può essere $0$, non può essere un successore:
+	Ma ora, per tutti gli ordinali $\alpha$ al più numerabili, dimostriamo $|f(\alpha)|=|\R|$. 
+	Se fosse falso,consideriamo il più piccolo ordinale per cui non vale;
+	non può essere $0$, non può essere un successore
 	\[
 		|f(\alpha+1)|\leq |f(\alpha)|+|f(\alpha)|^{\N} = |\R|^{|\N|} = |\R|
 	\]
-	e non può essere un ordinale limite:
+	e non può essere un ordinale limite
 	\[
-		|f(\alpha)|\leq |\alpha| |\R| \leq |\N||\R| = |\R|.
+		|f(\alpha)|\leq |\alpha| |\R| \leq |\N||\R| = |\R| \punto
 	\]
 	Quindi $E$ basta che sia $\R$, allora dall'\cref{eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
@@ -541,37 +540,37 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Dato un sottoinsieme $A\in\M_n$ misurabile secondo Lebesgue con misura non nulla, esiste un sottoinsieme $B\subseteq A$ non misurabile secondo Lebesgue, cioè $B\not\in\M_n$.
 \end{theorem}
 \begin{proof}
-	Dato $A$, notiamo che per la \sigadd[ità] della misura vale:
+	Dato $A$, notiamo che per la \sigadd[ità] della misura vale
 	\begin{equation*}
 		0<m_n(A)=\sum_{(i_1,i_2,\dots,i_n)\in\mathbb Z^n} m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)
 	\end{equation*}
-	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esistono $(i_1,\dots,i_n)\in \mathbb Z^n$ tale che:
+	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esistono $(i_1,\dots,i_n)\in \mathbb Z^n$ tali che
 	\begin{equation*}
 		0<m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)\le
-		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1
+		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1 \virgola
 	\end{equation*}
 	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poichè l'ipotesi di misura non nulla non si perde. 
 	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
 	
-	Poniamo su $\R^n$ la relazione di equivalenza seguente:
+	Poniamo su $\R^n$ la relazione di equivalenza 
 	\begin{equation*}
 		\forall x,y\in\R^n:\ x\equiv y\iff x-y\in\mathbb Q^n
 	\end{equation*}
-	Ora quozientiamo $\R^n$ rispetto a questa relazione d'equivalenza. In particolare siano $(R_i)_{i\in I}$ le classi d'equivalenza, dove $I$ è un insieme di indici. Sia infine $J$ il sottoinsieme degli indici definito come $J=\{i\in I:\ R_i\cap A\not =\emptyset\}$. 
+	e quozientiamo $\R^n$ rispetto a tale relazione. In particolare siano $(R_i)_{i\in I}$ le classi d'equivalenza, dove $I$ è un insieme di indici. Sia infine $J$ il sottoinsieme degli indici definito come $J=\{i\in I:\ R_i\cap A\not =\emptyset\}$. 
 
 	Applichiamo ora l'assioma della scelta alla famiglia di insiemi $(R_j\cap A)_{j\in J}$ e estraiamone un insieme di rappresentanti privilegiati $(r_j)_{j\in J}$. Sia ora $B$ l'insieme dei rappresentanti privilegiati.
 	
 	Vale, per costruzione, $B\subseteq A$. 
 	Inoltre, ancora per la definizione di $B$, risulta
 	\begin{equation}\label{eq:ContenimentiVitali}
-		A\subseteq\bigsqcup_{q\in\mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} B+q\subseteq \cc{-1}{2}\times\cdots\times\cc{-1}{2}
+		A\subseteq\bigsqcup_{q\in\mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} B+q\subseteq \cc{-1}{2}\times\cdots\times\cc{-1}{2}\virgola
 	\end{equation}
 	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \co 01\times\cdots \times\co 01$.
 	
 	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando l'\cref{eq:ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}:
 	\begin{equation*}
 		0<m_n(A)\le \sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B+q)=
-		\sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B) \le 3^n
+		\sum_{q\in \mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} m_n(B) \le 3^n \virgola
 	\end{equation*}
 	che non può essere visto che stiamo sommando una quantità numerabile di volte il valore $m_n(B)$ e perciò possiamo ottenere solo $+\infty$ oppure $0$.
 	
@@ -589,9 +588,9 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	Essendo unione numerabile di trascurabili è a sua volta trascurabile.
 	Perciò esiste $k\in\R^n\setminus B$ visto che $\R^n$ non è trascurabile.
 	
-	Assumendo per assurdo che $A-k$ intersechi $T$, avremmo che esistono $t\in T$ e $a\in A$ tali che:
+	Assumendo per assurdo che $A-k$ intersechi $T$, avremmo che esistono $t\in T$ e $a\in A$ tali che
 	\begin{equation*}
-		a-k=t\implies k=a-t \implies k\in A-t\implies k\in B	
+		a-k=t\implies k=a-t \implies k\in A-t\implies k\in B \virgola
 	\end{equation*}
 	ma questo non può essere per definizione di $k$ e perciò otteniamo che $A-k$ è disgiunto da $T$, che è la tesi.
 \end{proof}
