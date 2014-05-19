@@ -89,7 +89,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	\begin{equation*}
 		\sum_{i\in\N}\mu(A_i)\nu(B_i)=\sum_{i\in\N}\overline{\mu\nu}(A_i\times B_i)< \delta m_\delta \punto
 	\end{equation*}
-	Poniamo $f:X\to\Rpiu$ la funzione definita come
+	Chiamiamo $f:X\to\Rpiu$ la funzione definita come
 	\begin{equation*}
 		f(x)=\sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)
 	\end{equation*}
@@ -319,5 +319,16 @@ Ridimostreremo perciò gli ultimi tre risultati soffermandoci unicamente sulle d
 	Si dimostra identicamente a come si è dimostrato il \cref{thm:Fubini}, solo che, al posto di applicare il \cref{thm:Tonelli}, si applica il \cref{thm:TonelliCompleto}.
 \end{proof}
 
+Per concludere la sezione, lasciamo per esercizio al lettore di verificare che le seguenti situazioni, ovviamente carenti delle ipotesi necessarie, falsificano le ipotesi dei teoremi di Fubini e Tonelli.
+
+\begin{exercise}\label{ex:ControesempiFubini}
+	Chiamando $(X,\A,\mu)$ e $(Y,\B,\nu)$ due spazi di misura e $f:X\times Y\to \Rbar$ una funzione dal prodotto degli spazi, mostrare che nei seguenti casi non vale almeno una parte degli enunciati di Fubini e Tonelli.
+	\begin{enumerate}
+		\item Se $X=Y=\R$, $\A=\B=\mathcal(\R)$, $\mu$ è la misura contapunti (cioè la misura che restituisce il numero di elementi se l'insieme è finito ed $+\infty$ altrimenti), $\nu$ la misura che restituisce $0$ se l'insieme è finito e $+\infty$ se è infinito ed infine $f$ è la funzione indicatrice della diagonale $\{(x,y)\in X\times Y: x=y\}$.
+		\item Se $X=Y=\R$, $\A,\B$ coincidono con i Boreliani di $\R$, $\mu=\nu=m_1$ e la funzione $f$ è la funzione indicatrice dell'insieme $\cc01\times V$ dove $V$ è un insieme trascurabile non misurabile per Lebesgue.
+		\item Se $X=Y=\R$, $\A=\B=\M_1$, $\mu=\nu=m_1$ e la funzione $f$ è definita come $f(x,y)=\frac{x^2-y^2}{(x^2+y^2)^2}\cdot\chi_{\cc01\times\cc01}(x,y)$.
+	\end{enumerate}
+
+\end{exercise}
 
 %TODO Aggiungere vari controesempi a Fubini Tonelli nel caso in cui vengano meno alcune ipotesi.
