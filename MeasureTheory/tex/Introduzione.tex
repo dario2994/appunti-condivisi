@@ -115,8 +115,9 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \begin{definition}[Spazio di misura]
 	Dati $X$ un insieme, $\A$ una famiglia di sottoinsiemi di $X$ e $\mu:\A\to \Rpiu$ una funzione, la terna $(X,\A, \mu)$ si dice uno spazio di misura se:
 	\begin{itemize}
-		\item la famiglia $\A$ è una \sigalg{}.
-		\item la funzione $\mu$ è \sigadd{}.
+		\item la famiglia $\A$ è una \sigalg{};
+		\item la funzione $\mu$ è \sigadd{};
+		\item $\mu(\emptyset)=0$.
 	\end{itemize}
 	e in questo caso la funzione $\mu$ è detta \emph{misura} e gli insiemi in $\A$ sono detti misurabili.
 \end{definition}
@@ -129,7 +130,8 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Dato $(X,\A,\mu)$ uno spazio di misura, $\mu$ è monotona, cioè se $A,B\in\A$ e $A\subseteq B$ allora $\mu(A)\le \mu(B)$.
 \end{remark}
 \begin{proof}
-	Per quanto detto nella \cref{nota:ProprietaSigAlg}, $B\setminus A\in\A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$ otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)>\mu(A)$ che è la tesi.
+	Per quanto detto nella \cref{nota:ProprietaSigAlg}, $B\setminus A\in\A$ e perciò sfruttando l'addittività su insiemi disgiunti di $\mu$
+	otteniamo $\mu(B)=\mu(B\setminus A)+\mu(A)\geq\mu(A)$ che è la tesi.
 \end{proof}
 \begin{remark}\label{nota:SubAdditivitaMisura}
 	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è \sigsubadd{}, cioè dati $(A_n)_{n\in\N}\subseteq\A$ vale
@@ -138,9 +140,10 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\end{equation*}
 \end{remark}
 \begin{proof}
-	La dimostrazione risulta molto facile sfruttando la monotonia, mostrata nella \cref{nota:MonotoniaMisura}, e la solita decomposizione dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
+	La dimostrazione risulta molto facile sfruttando la monotonia, mostrata nella \cref{nota:MonotoniaMisura}, e la solita decomposizione
+	dell'unione in un'unione disgiunta che permette di applicare la \sigadd[ità]:
 	\begin{equation*}
-		\mu\left(\bigcup_{n\in\N} A_n \right)=\mu\left(\bigsqcup_{n\in\N} A_n\setminus\bigcup_{i<n}A_i \right)=
+		\mu\left(\bigcup_{n\in\N} A_n \right)=\mu\left(\bigsqcup_{n\in\N} \left(A_n\setminus\bigcup_{i<n}A_i\right) \right)=
 		\sum_{n\in\N}\mu\left(A_n\setminus\bigcup_{i<n}A_i\right)\le \sum_{n\in\N}\mu(A_n) \punto
 	\end{equation*}
 \end{proof}
@@ -164,7 +167,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 
 
 \begin{definition}\label{def:FinitezzaMisura}
-	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $X\in\mathcal{A}$ e $\mu(X)<+\infty$.
+	Dato $(X,\A,\mu)$ uno spazio di misura, la misura $\mu$ è detta finita se $\mu(X)<+\infty$.
 \end{definition}
 
 \begin{definition}\label{def:SigmaFinitezzaMisura}
@@ -180,9 +183,10 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \end{remark}
 
 \begin{proposition}\label{prop:CompletamentoMisura}
-	Dato uno spazio di misura $(X,\A,\mu)$, chiamiamo $\mu$-completamento di $\A$ l'insieme $\A^*$ formato dagli elementi di $\A$ uniti con il sottoinsieme di un trascurabile (che in base alla definizione scelta per i trascurabili può essere a sua volta un trascurabile):
+	Dato uno spazio di misura $(X,\A,\mu)$, chiamiamo $\mu$-completamento di $\A$ l'insieme $\A^*$ formato dagli elementi di $\A$
+	uniti con il sottoinsieme di un trascurabile (che in base alla definizione scelta per i trascurabili può essere a sua volta un trascurabile):
 	\begin{equation*}
-		\A^*=\{A\cup N\ |\ A\in\A\ \wedge \exists B:\ N\subseteq B,\ \mu(B)=0\} \punto
+		\A^*=\{A\cup N\ :\ A\in\A,\ \exists B\in \A:\ N\subseteq B,\ \mu(B)=0\} \punto
 	\end{equation*}
 	Allora $\A^*$ è una \sigalg{} e $\mu$ si estende in maniera canonica su $\A^*$ ad una misura completa.
 \end{proposition}
