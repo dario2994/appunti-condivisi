@@ -1,6 +1,25 @@
 \section{L'integrazione negli spazi Euclidei}
 
-%TODO Aggiustare Fubini e Tonelli nel caso di Rn
+\begin{proposition}\label{prop:MisuraProdottoEuclidea}
+	La \sigalg{} prodotto completata $\overline{\M_n\otimes\M_m}$ dei misurabili di $\R^n$ e $\R^m$ coincide con la \sigalg{} dei misurabili in $\R^{n+m}$.
+\end{proposition}
+\begin{proof}
+	Lavoriamo sulla \sigalg{} prodotto \emph{non completata} $\M_n\otimes\M_m$, per poi ottenere l'enunciato ricordando che il completamento dei Boreliani sono i misurabili.
+
+	Ricordando la \cref{def:LebesgueSemiaperti}, poichè valgono ovviamente i contenimenti $S_n\subseteq M_n$ e $S_m\subseteq M_m$, è facile ricavarne che $S_{n+m}\subseteq M_n\otimes M_m$.
+	Ma allora, applicando la \cref{prop:SigAlgUgualeBoreliani} e ricordando che $\M_n\otimes M_m$ è una \sigalg{}, otteniamo che i Boreliani sono contenuti in $\M_n\otimes\M_m$.
+	
+	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $B_1,B_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $R^n$ e $R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
+	Perciò, grazie alla distributività del prodotto insiemistico rispetto all'unione disgiunta, otteniamo
+	\begin{equation*}
+		E_1\times E_2=(A_1\sqcup N_1)\times(A_2\sqcup N_2)=\left(A_1\times A_2\right)\sqcup\left(A_1\times N_2\sqcup A_2\times N_1 \sqcup N_1\times N_2\right) \punto
+	\end{equation*}
+	Però l'insieme $A_1\times N_2\sqcup A_2\times N_1 \sqcup N_1\times N_2$ è trascurabile per la \cref{prop:TrascurabilePerInsiemeTrascurabile} e l'insieme $A_1\times A_2$ è un Boreliano in quanto prodotto di Boreliani\footnote{Lasciamo al lettore la dimostrazione che il prodotto di Boreliani è un Boreliano.}, allora applicando ancora il \cref{thm:LebesgueEquivalenzeMisurabilita} si ottiene $E_1\times E_2\in\M_{n+m}$.
+	Vista la generalità della scelta di $E_1\times E_2$, quanto appena mostrato implica che $\M_n\times\M_m\subseteq \M_{n+m}$.
+	
+	Quindi abbiamo dimostrato che $\M_n\otimes\M_m$ contiene i Boreliani ed è un sottoinsieme dei misurabili, perciò, ricordando la \cref{prop:CompletamentoBoreliani}, è ovvio concluderne che il suo completamento\footnote{È fondamentale notare che la misura indotta dal prodotto e la misura di Lebesgue coincidono in virtù della \cref{prop:UnicitaCaratheodory} e di conseguenza anche l'operatore di completamento di una \sigalg{} è coincidente.} $\overline{\M_n\otimes\M_m}$ coincide con l'insieme dei misurabili.
+\end{proof}
+
 
 \begin{proposition}\label{prop:IntegraleRiemannCoincide}
 	Data una funzione $f:\cc ab\to \mathbb R$, se essa è integrabile secondo Riemann ed integrabile secondo Lebesgue allora i due integrali coincidono.

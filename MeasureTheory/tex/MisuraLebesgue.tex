@@ -416,6 +416,26 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	L'insieme $A$ è però numerabile, quindi unione numerabile di singoli punti, che sono trascurabili. Perciò $A$ è trascurabile a sua volta che significa che $A$ è misurabile di misura nulla.
 \end{proof}
 
+\begin{proposition}\label{prop:TrascurabilePerInsiemeTrascurabile}
+	Dato $N\in M_n$ un insieme trascurabile e $X\subseteq \R^m$ un sottoinsieme qualunque, l'insieme $N\times X$ è trascurabile secondo Lebesgue nello spazio $\R^{n+m}$.
+\end{proposition}
+\begin{proof}
+	Denotiamo con $(A^{x}_i)_{i\in\N}\subseteq \S_n$ un ricoprimento di $N$ tale che $\sum_{i\in\N}m_n(A^x_i)\le x$.
+	Chiamiamo $C_i\subseteq\R^m$ l'ipercubo di lato $2i$ centrato nell'origine $C_i=\cc{-i}{i}\times\cdots\times\cc{-i}{i}$.
+	
+	Allora è facile verificare che, per ogni $\epsilon>0$, l'insieme
+	\begin{equation*}
+		R_\epsilon=\left\{A^{\epsilon(j^{-(m+2)})}_i\times C_j:\ i,j\in\N\right\}\subseteq \S_{n+m}
+	\end{equation*}
+	è un ricoprimento di $N\times X$, semplicemente perchè l'unione dei $C_j$ contiene tutto $\R^m$ e quindi anche $X$, ed inoltre la somma delle misure degli elementi del ricoprimento rispetta
+	\begin{equation*}
+		\sum_{E\in R_\epsilon}m_{n+m}(E)=\sum_{j\in\N}\sum_{i\in\N}m_{n+m}\left(A^{\epsilon(j^{-(m+2)})}_i\times C_j\right)
+		=\sum_{j\in\N}(2j)^m\sum_{i\in\N}m_n(A^{\epsilon(j^{-(m+2)})}_i)\le 2^m\epsilon\sum_{j\in\N}\frac1{j^2}\virgola
+	\end{equation*}
+	perciò, poichè la somma degli inversi dei quadrati converge, scegliendo $\epsilon$ sufficientemente piccolo si è appena fornito un ricoprimento di $N\times X$ con misura arbitrariamente piccola e questo equivale alla tesi.
+\end{proof}
+
+
 \begin{proposition}\label{prop:SottospaziTrascurabili}
 	Dato $U\subset\R^n$, se lo spazio \emph{affine} generato da $U$ ha dimensione strettamente minore di $n$, allora $U$ è trascurabile secondo Lebesgue.
 \end{proposition}
@@ -424,17 +444,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	
 	Poichè lo spazio generato da $U$ ha dimensione $\le n-1$, esiste un'isometria che manda $U$ in un sottoinsieme di $V$ ed essendo la misura di Lebesgue invariante per isometria, come dimostrato nella \cref{prop:LebesgueProprietaIsometria}, è sufficiente dimostrare che $V$ è trascurabile per concludere.
 	
-	Dato $\epsilon>0$ e $k\in\N$, poniamo
-	\begin{equation*}
-		I_\epsilon(k)=\co{-k}k\times\co{-k}k\times\cdots\times \co{\frac{-\epsilon}{(2k)^{n-1}2^{k+1}}}{\frac{+\epsilon}{(2k)^{n-1}2^{k+1}}}\punto
-	\end{equation*}
-	È banale, sfruttando la sola definizione della premisura $m_n$, che $m_n(I_\epsilon(k))=\frac{\epsilon}{2^k}$.
-	
-	Inoltre sfruttando la sola definizione di $V$ è facile verificare che per ogni $\epsilon>0$
-	\begin{equation*}
-		V\subset\bigcup_{k\in\N} I_\epsilon(k)\implies m_n^*(V)\le \sum m_n(I_\epsilon(k))=\epsilon
-	\end{equation*}
-	e questo conclude dato che implica, valendo per $\epsilon>0$, che la misura esterna di $V$ è nulla e perciò che $V$ è trascurabile.
+	Ma l'iperpiano $V$ si può anche scrivere come $R^{n-1}\times \{0\}$ e perciò, grazie alla \cref{prop:TrascurabilePerInsiemeTrascurabile}, ne concludiamo che $V$ è trascurabile come desiderato.
 \end{proof}
 
 \begin{exercise}\label{ex:CantorTrascurabile}
