@@ -109,3 +109,31 @@
 	\end{align*}
 	che è equivale a dire che $c(\cdot)$ e $\lvert\det(\cdot)\rvert$ coincidono come si voleva.
 \end{proof}
+
+\begin{definition}\label{def:AssolutamenteContinua}
+	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\nu$, indicandolo con $\mu\ll\nu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
+\end{definition}
+
+\begin{theorem}\label{thm:RadonNikodym}
+	Dato uno spazio di misura $(X,\A,\mu)$ \sigfin[o], se la misura $\nu:\A\to\Rpiu$ è assolutamente continua rispetto a $\mu$, allora esiste una funzione $f:X\to\Rpiu$ misurabile, tale che
+	\begin{equation*}
+		\forall A\in\A:\ \nu(A)=\int_A f(x)\de\mu x\punto
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	%TODO
+	Magari da lasciare al lettore
+\end{proof}
+
+\begin{theorem}\label{thm:CambioVariabile}
+	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità, tale che in differenziale non si annulla mai.
+	Allora per ogni funzione $f:\varphi(\Omega)\to\R$ integrabile vale
+	\begin{equation*}
+		\int_{\varphi(\Omega)} f(v)\de m_n(v) = \int_{\Omega} f(\varphi(u))\lvert \det D\varphi(u) \rvert \de m_n(y) \virgola
+	\end{equation*}
+	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
+\end{theorem}
+\begin{proof}
+	%TODO
+\end{proof}
+
