@@ -125,6 +125,19 @@
 	Magari da lasciare al lettore
 \end{proof}
 
+\begin{lemma}\label{lemma:LimiteDeterminante}
+	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile.
+	Allora vale la seguente disuguaglianza:
+	\begin{equation*}
+		\forall x\in\Omega:\ \limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \virgola 
+	\end{equation*}
+	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $D\varphi$ è la matrice Jacobiana della funzione $\varphi$.
+\end{lemma}
+\begin{proof}
+	%TODO
+\end{proof}
+
+
 \begin{theorem}\label{thm:CambioVariabile}
 	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità, tale che in differenziale non si annulla mai.
 	Allora per ogni funzione $f:\varphi(\Omega)\to\R$ integrabile vale
