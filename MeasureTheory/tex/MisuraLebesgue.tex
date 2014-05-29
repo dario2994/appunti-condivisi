@@ -347,10 +347,10 @@ Ora passiamo a dimostrare che la misura di Lebesgue è anche invariante per isom
 In particolare le prime due proposizioni tecniche, concernenti le funzioni che mandano misurabili in misurabili, oltre ad avere una veloce applicazione nel dimostrare che la misura di Lebesgue è invariante per isometria, torneranno utili quando si vorranno studiare i cambi di variabili lineari nella teoria dell'integrazione.
 
 \begin{proposition}\label{prop:ContinueSpecialiTengonoMisurabili}
-	Data una funzione $f:\R^n\to\R^n$ continua tale che per ogni $N\in\M_n$ trascurabile anche l'immagine $f(N)$ è trascurabile, allora per ogni $A\in\M_n$ misurabile anche $f(A)$ è misurabile.
+	Data una funzione $f:E\subseteq\R^n\to\R^n$ continua tale che per ogni $N\subseteq E$ trascurabile anche l'immagine $f(N)$ è trascurabile, risulta vero che per ogni $A\subseteq E$ misurabile anche $f(A)$ è misurabile.
 \end{proposition}
 \begin{proof}
-	Fissato $A$ misurabile, applicando il \cref{thm:LebesgueEquivalenzeMisurabilita}, otteniamo l'esistenza di $(K_i)_{i\in\N}$ compatti di $\R^n$ e di $N$ trascurabile tali che la loro unione (crescente sui compatti) è $A$. Applicando quanto detto abbiamo
+	Fissato $A\subseteq E$ misurabile, applicando il \cref{thm:LebesgueEquivalenzeMisurabilita}, otteniamo l'esistenza di $(K_i)_{i\in\N}$ compatti e di $N$ trascurabile tali che la loro unione (crescente sui compatti) è $A$. Applicando quanto detto abbiamo
 	\begin{equation*}
 		f(A)=f\left(N\cup\bigcup_{i\in\N}K_i\right)=f(N)\cup\bigcup_{i\in\N}f(K_i) \virgola
 	\end{equation*}
@@ -360,17 +360,17 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 \end{proof}
 
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
-	Data una funzione $f:\R^n\to\R^n$ Lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
+	Data una funzione $f:E\subseteq \R^n\to\R^n$ Lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
 	\begin{equation*}
-		\forall A\in\M_n:\ \lambda^n m_n(A) \ge m_n(f(A)) \punto
+		\forall A\in\M_n, A\subseteq E:\ \lambda^n m_n(A) \ge m_n(f(A)) \punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
 	Dimostriamo innanzitutto la stima richiesta nel caso della misura esterna piuttosto che della misura.
 	
-	Dato un ricoprimento $(S_i)_{i\in\N}\subseteq \S_n$ di un insieme $A$ misurabile, siano $(v_i)_{i\in\N}$ i centri degli $n$-parallelepipedi.
+	Dato un ricoprimento $(S_i)_{i\in\N}\subseteq \S_n$ di un insieme $A\subseteq E$ misurabile, siano $(v_i)_{i\in\N}$ i centri degli $n$-parallelepipedi.
 	Chiamiamo $S'_i=\lambda(S_i-v_i)+f(v_i)$.
-	Allora è facile convincersi, sfruttando la Lipschitzianità della funzione, che l'immagine di $S_i$ tramite $f$ è un sottoinsieme di $S'_i$, cioè $f(S_i)\subseteq S'_i$.
+	Allora è facile convincersi, sfruttando la Lipschitzianità della funzione, che l'immagine di $S_i\cap E$ tramite $f$ è un sottoinsieme di $S'_i$, cioè $f(S_i\cap E)\subseteq S'_i$.
 	
 	Inoltre per la \cref{nota:LebesgueElementareProprieta} abbiamo anche che $m_n(S'_i)=\lambda^n m_n(S_i)$. 
 	E quindi unendo quanto detto arriviamo ad avere

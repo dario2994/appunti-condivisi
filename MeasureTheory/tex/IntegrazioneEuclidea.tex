@@ -53,7 +53,7 @@
 \end{proof}
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:MisuraImmagineLineare}
 	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
 	\begin{equation}
 		m_n(L(E))=\lvert \det L\rvert\cdot m_n(E)\punto
@@ -125,8 +125,8 @@
 	Magari da lasciare al lettore.
 \end{proof}
 
-\begin{lemma}\label{lemma:LimiteDensita} %TODO
-	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità. (FORSE SERVE DIFFERENZIABILE NELLA CHIUSURA)
+\begin{lemma}\label{lemma:LimiteDensita} %TODO Aggiustare decisamente l'enunciato
+	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità. 
 	Sia $\rho:\Omega\to\Rpiu$ una funzione misurabile, assicurataci dal \cref{thm:RadonNikodym} visto che $m_n\circ A$ è una misura in virtù del ??, tale che
 	\begin{equation*}
 		\forall A\in\M_n,\ A\subseteq \Omega:\ \int_A \rho(x)\de m_n(x)=m_n(f(A)) \punto
@@ -140,7 +140,7 @@
 
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
-	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile.
+	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità.
 	Allora vale la seguente disuguaglianza:
 	\begin{equation*}
 		\forall x\in\Omega:\ \limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \virgola 
@@ -148,7 +148,33 @@
 	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $D\varphi$ è la matrice Jacobiana della funzione $\varphi$.
 \end{lemma}
 \begin{proof}
-	%TODO
+	Fissiamo $\bar x\in\Omega$ e chiamiamo $A=D \varphi(\bar x)$.
+	Allora, per definizione di differenziale, risulta vero che
+	\begin{equation*}
+		\varphi(\bar x+h)=\varphi(\bar x)+Ah+\smallO(h)=\varphi(\bar x)+A(h+\smallO(h))\in \varphi(\bar x)+A\left(B_{|h|+\smallO(h)}(0)\right) \virgola
+	\end{equation*}
+	dove abbiamo implicitamente sfruttato che moltiplicare per la norma degli operatori di $A$ non cambia il fatto che una funzione sia $\smallO$-piccolo di un'altra.
+	
+	Da quanto appena detto discende facilmente che, per ogni $r>0$, vale
+	\begin{equation}\label{eq:ContenimentoPallaLineare}
+		\varphi(B_r(\bar x))\subseteq \varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right).
+	\end{equation}
+	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, purchè $r$ sia sufficientemente piccolo, la funzione è Lipschitziana in $B_r(\bar x)$ e quindi, per la \cref{prop:LipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
+	Allora possiamo applicare la misura di Lebesgue ad entrambi i membri del contenimento mostrato nell'\cref{eq:ContenimentoPallaLineare} ottenendo
+	\begin{equation}\label{eq:StimaImmaginePalla}
+		m_n\left( \varphi(B_r(\bar x)) \right)\le m_n\left(\varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right)\right)
+		=\lvert \det A\rvert m_n\left(B_{r+\smallO(r)}(\bar x)\right)\virgola
+	\end{equation}
+	dove i passaggi sono giustificati dall'invarianza per traslazione della misura di Lebesgue e dalla \cref{prop:MisuraImmagineLineare}.
+	Ma ora, grazie alla $n$-omogeneità della misura $m_n$, ricaviamo
+	\begin{equation*} 
+		m_n\left(B_{r+\smallO(r)}(\bar x)\right)=\left(1+\smallO(r)\right)^n m_n\left( B_r(\bar x)\right)
+	\end{equation*}
+	e perciò sostituendo questa nell'\cref{eq:StimaImmaginePalla} arriviamo a
+	\begin{equation*}
+		m_n\left( \varphi(B_r(\bar x)) \right)\le \left(1+\smallO(r)\right)^n m_n\left( B_r(\bar x)\right)\lvert \det A\rvert \virgola
+	\end{equation*}
+	che implica banalmente la tesi.
 \end{proof}
 
 
