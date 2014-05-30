@@ -155,8 +155,37 @@
 		\le \C^{-1}\int_{B_r(0)}\LNorm{\rho(\cdot+t)-\rho(\cdot)}\de t \\
 		\le \sup_{t\in B_r(0)} \LNorm{\rho(\cdot+t)-\rho(\cdot)}
 	\end{multline*}
-	%TODO: Bisogna finire questa dimostrazione!
+	%TODO: Da cancellare tutta la proposizione, è stata sostituita dalla successiva.
 \end{proof}
+
+\begin{lemma}\label{lemma:ContinuitaL1Palle}
+	Fissato $\Omega\subseteq \R^n $ un aperto e $f:\Omega\to\Rbar$ una funzione misurabile, definiamo, per ogni $r>0$, la funzione $f_r:\Omega\to\R$ come
+	\begin{equation*}
+		\forall x\in\Omega:\ f_r(x)=\frac{\int_{B_r(x)\cap \Omega}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
+	\end{equation*}
+	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$.
+	Allora le funzioni $f_r$ convergono in $\L$ alla funzione $f$ per $r$ che tende a $0$.
+\end{lemma}
+\begin{proof}
+	Innanzitutto, per comodità di notazione, allarghiamo il dominio della $f$ ponendo $f(\Omega^{\mathsf c})=\{0\}$, così facendo otteniamo
+	\begin{equation*}
+		\forall r>0,\ x\in\Omega:\ f_r(x)=\frac{\int_{B_r(x)}f(t)\de t}{m_n(B_r(x)} \punto
+	\end{equation*}
+
+	Calcoliamo ora la norma $\L$ della differenza tra $f$ e $f_r$:
+	\begin{multline}\label{eq:ContinuitaPalleDis}
+		m_n\left(B_r(x)\right)\LNorm{f-f_r}=\int_\Omega \left\lvert m_n\left(B_r(x)\right)f(x)-\int_{B_r(x)}f(t)\de t\right\rvert\de x\\
+		=\int_\Omega\left\lvert\int_{B_r(x)}f(x)-f(t)\de x\right\rvert\de t\le \int_\Omega\int_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de x\de t\\
+		=\int_\Omega\int_{B_r(0)}\left\lvert f(x)-f(x+h)\right\rvert\de h\de x
+		=\int_{B_r(0)}\int_\Omega \left\lvert f(x)-f(x+h)\right\rvert\de x\de h\\
+		= \int_{B_r(0)}\LNorm{f(\cdot)-f(\cdot+h)}\de h\le m_n\left(B_r(0)\right)\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}\virgola
+	\end{multline}
+	dove nei vari passaggi abbiamo sfruttato il fatto che l'integrale è monotono e il \cref{thm:TonelliCompleto} che si può applicare ricordando la \cref{prop:MisuraProdottoEuclidea}. Va però osservato che per poter applicare il teorema di Tonelli e quindi scambiare gli integrali come abbiamo fatto, è fondamentale che la funzione $\Omega\times B_r(0)\ni(x,h)\mapsto f(x)-f(x+h)\in\Rbar$. Questo è vero e lo lasciamo come esercizio, non banale ma neppure arduo, al lettore. %TODO Ci sono ancora parecchie piccolezze che andrebbero migliorate!
+	
+	Però, per la \cref{prop:ContinuitaL1}, il valore $\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}$ tende a $0$ per $r\to 0$ e applicando questo nell'\cref{eq:ContinuitaPalleDis} si ricava facilmente la tesi.
+\end{proof}
+
+
 
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
