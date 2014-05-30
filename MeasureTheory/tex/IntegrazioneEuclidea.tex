@@ -125,18 +125,38 @@
 	Magari da lasciare al lettore.
 \end{proof}
 
-\begin{lemma}\label{lemma:LimiteDensita} %TODO Aggiustare decisamente l'enunciato
-	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità. 
-	Sia $\rho:\Omega\to\Rpiu$ una funzione misurabile, assicurataci dal \cref{thm:RadonNikodym} visto che $m_n\circ A$ è una misura in virtù del ??, tale che
+\begin{lemma}\label{lemma:LimiteDensita}%TODO Si possono sicuro allegerire le ipotesi.
+	Fissato $\Omega,\Omega'\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo con differenziale continuo.
+	
+	Allora, per ogni $A\subset\Omega$ Boreliano, l'insieme $\varphi(A)$ è misurabile\footnote{In realtà è anche Boreliano.} e perciò $m_n\circ\varphi$ è una misura sui Boreliani di $\Omega$ in virtù della \cref{prop:BigettivaInduceMisura}.
+	Sia quindi $\rho:\Omega\to\Rpiu$ una funzione misurabile, assicurataci dal \cref{thm:RadonNikodym}, tale che
 	\begin{equation*}
-		\forall A\in\M_n,\ A\subseteq \Omega:\ \int_A \rho(x)\de m_n(x)=m_n(f(A)) \punto
+		\forall A\ \text{Boreliano},\ A\subseteq \Omega:\ \int_A \rho(x)\de m_n(x)=m_n(f(A)) \punto
 	\end{equation*}
 	Allora la serie di funzioni
 	\begin{equation*}
-		f_r(x)=\frac{m_n\left(f\left(B_r(x)\right)\right)}{m_n\left(B_r(x)\right)}
+		\rho_r(x)=\frac{m_n\left(\varphi\left(B_r(x)\cap \Omega\right)\right)}{m_n\left(B_r(x)\right)}\virgola
 	\end{equation*}
-	converge in $\L$, con $r\to 0$, alla funzione $\rho$.
+	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$, converge in $\L$, con $r\to 0$, alla funzione $\rho$.
 \end{lemma}
+\begin{proof}
+	Innanzitutto, ricordando che $\varphi^{-1}$ è continua e perciò misurabile, applichiamo la \cref{prop:CounterImgMis} otteniamo che $\varphi$ manda Boreliani in misurabili, come detto implicitamente nell'enunciato.
+	
+	Ora allarghiamo per comodità il dominio di $\rho$ a tutto $\R^n$ ponendo $\rho(\Omega^{\mathsf{c}})=\{0\}$.
+	
+	Calcoliamo la norma $\L$ della differenza tra $\rho$ e $\rho_r$ applicando la definizione di $\rho$:
+	\newcommand{\C}{\ensuremath{m_n\left(B_r(x)\right)}}
+	\begin{multline*}
+		\LNorm{\rho-\rho_r}=\int_\Omega \rho(x)-\frac{m_n\left(\varphi\left(B_r(x)\cap \Omega\right)\right)}{\C} \de x\\
+		= \C^{-1}\int_\Omega \left(\C\rho(x)-\int_{B_r(x)\cap\omega}\rho(t)\de t\right)\de x\\
+		=\C^{-1}\int_\Omega \int_{B_r(x)}\rho(x)-\rho(t)\de t\de x
+		=\C^{-1}\int_\Omega \int_{B_r(0)}\rho(x)-\rho(x+t)\de t\de x\\
+		=\C^{-1}\int_{B_r(0)}\int_\Omega \rho(x)-\rho(x+t) \de x\de t
+		\le \C^{-1}\int_{B_r(0)}\LNorm{\rho(\cdot+t)-\rho(\cdot)}\de t \\
+		\le \sup_{t\in B_r(0)} \LNorm{\rho(\cdot+t)-\rho(\cdot)}
+	\end{multline*}
+	%TODO: Bisogna finire questa dimostrazione!
+\end{proof}
 
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
