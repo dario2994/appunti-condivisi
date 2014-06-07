@@ -180,9 +180,9 @@
 		=\int_{B_r(0)}\int_\Omega \left\lvert f(x)-f(x+h)\right\rvert\de x\de h\\
 		= \int_{B_r(0)}\LNorm{f(\cdot)-f(\cdot+h)}\de h\le m_n\left(B_r(0)\right)\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}\virgola
 	\end{multline}
-	dove nei vari passaggi abbiamo sfruttato il fatto che l'integrale è monotono e il \cref{thm:TonelliCompleto} che si può applicare ricordando la \cref{prop:MisuraProdottoEuclidea}. Va però osservato che per poter applicare il teorema di Tonelli e quindi scambiare gli integrali come abbiamo fatto, è fondamentale che la funzione $\Omega\times B_r(0)\ni(x,h)\mapsto f(x)-f(x+h)\in\Rbar$. Questo è vero e lo lasciamo come esercizio, non banale ma neppure arduo, al lettore. %TODO Ci sono ancora parecchie piccolezze che andrebbero migliorate!
+	dove nei vari passaggi abbiamo sfruttato il fatto che l'integrale è monotono e il \cref{thm:TonelliCompleto} che si può applicare ricordando la \cref{prop:MisuraProdottoEuclidea}. Va però osservato che per poter applicare il teorema di Tonelli e quindi scambiare gli integrali come abbiamo fatto, è fondamentale che la funzione $\Omega\times B_r(0)\ni(x,h)\mapsto f(x)-f(x+h)\in\Rbar$ sia misurabile. Questo è vero e lo lasciamo come esercizio, non banale ma neppure arduo, al lettore. %TODO Ci sono ancora parecchie piccolezze che andrebbero migliorate!
 	
-	Però, per la \cref{prop:ContinuitaL1}, il valore $\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}$ tende a $0$ per $r\to 0$ e applicando questo nell'\cref{eq:ContinuitaPalleDis} si ricava facilmente la tesi.
+	Per la \cref{prop:ContinuitaL1}, il valore $\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}$ tende a $0$ per $r\to 0$ e applicando ciò nell'\cref{eq:ContinuitaPalleDis} si ricava facilmente la tesi.
 \end{proof}
 
 
