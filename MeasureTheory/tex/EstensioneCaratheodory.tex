@@ -7,7 +7,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation*}
 		\A=\{E\in\mathcal P(X):\ \mu(A)=\mu(A\cap E)+\mu(A\setminus E)\ \forall A\in \mathcal P(X)\} \punto
 	\end{equation*}
-	L'insieme $\A$ è una \sigalg{}, detta \sigalg{} di Caratheodory, e $\mu$ ridotta su $\A$ è una misura completa.
+	L'insieme $\A$ è una \sigalg{}, detta \sigalg{} di \carat{}, e $\mu$ ridotta su $\A$ è una misura completa.
 \end{theorem}
 \begin{proof}
 	La dimostrazione procede in tre passi: prima mostriamo che $\A$ è un'algebra di insiemi, poi che è una \sigalg{} e infine che $\mu$ è \sigadd{} e completa ridotta su $\A$.
@@ -94,7 +94,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
 		\ A\subseteq\bigcup_{n\in\N}A_n\right\} \punto
 	\end{equation*}
-	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di Caratheodory (come definita nel \cref{thm:RiduzionePreCaratheodory}).
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di \carat{} (come definita nel \cref{thm:RiduzionePreCaratheodory}).
 \end{proposition}
 \begin{proof}
 	Per affermare che $\mu^*$ è una misura esterna sono sufficienti le seguenti verifiche.
@@ -112,7 +112,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation}\label{eq:MisuraEsternaDisDifficile}
 		\mu^*(A) \ge \mu^*(A\cap E)+\mu^*(A\setminus E) \punto
 	\end{equation}
-	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di Caratheodory, poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
+	Questo è sufficiente ad avere che $\S$ è contenuto nella \sigalg{} di \carat{}, poiché l'altra disuguaglianza è assicurata dalla \sigsubadd[ità].
 	
 	Dato $(A_n)_{n\in\N}\subseteq\S$ un ricoprimento di $A$, chiamiamo $B_n=A_n\cap E$ e $C_n=A_n\setminus E$. Ovviamente $(B_n)_{n\in\N},(C_n)_{n\in\N}$ ricoprono rispettivamente $A\cap E,A\setminus E$. Poiché $\S$ è un \semiring{} riusciamo però a trovare $(B'^n_i)_{i\in\N},(C'^n_i)_{i\in\N} \subseteq \S$ tali che $B_n=\bigsqcup_{i\in\N}B'^n_i$ e analogo risultato per $C_n$. Quindi $(B'^n_i)_{n,i\in\N}, (C'^n_i)_{n,i\in\N}$ risultano ricoprimenti con elementi di $\S$ di $A\cap E,A\setminus E$ rispettivamente.
 	Ora, sfruttando la \sigadd[ità] di $\mu$ e la \sigsubadd[ità] di $\mu^*$ concludiamo
@@ -141,26 +141,26 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 
 
 
-\begin{theorem}[Estensione di Caratheodory]\label{thm:EstensioneCaratheodory}
+\begin{theorem}[Estensione di \carat{}]\label{thm:EstensioneCaratheodory}
 	Dato $(X,\S,\mu)$ uno spazio di misura elementare esiste una \sigalg{} $\A$ e una funzione $\mu':\A\to\Rpiu$ tali che $\S\subseteq \A$, $\mu'$ estende la premisura $\mu$ e $(X,\A,\mu')$ è uno spazio di misura completo.
 \end{theorem}
 \begin{proof}
 	Consideriamo la misura esterna $\mu^*:\mathcal P(X)\to\Rpiu$ definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}. Sempre la \cref{prop:MisuraEsternaDiPremisura} ci assicura che questa è un'estensione di $\mu$.
 	
-	Possiamo ora ridurre $\mu^*$ grazie al \cref{thm:RiduzionePreCaratheodory} ad una misura completa $\mu':\A\to\Rpiu$ dove $\A$ è la \sigalg{} di Caratheodory. 
+	Possiamo ora ridurre $\mu^*$ grazie al \cref{thm:RiduzionePreCaratheodory} ad una misura completa $\mu':\A\to\Rpiu$ dove $\A$ è la \sigalg{} di \carat{}. 
 	
 	Ma come dimostrato nella \cref{prop:MisuraEsternaDiPremisura} $\S\subseteq\A$ e inoltre vale $\mu'|_\S=\mu^*|_\S=\mu$, perciò lo spazio $(X,\A,\mu')$ rispetta tutte le richieste dell'enunciato.
 \end{proof}
 
 
 \begin{theorem}\label{thm:EquivalenzeMisurabilitaSottoinsieme}
-	Dato $(X,\S,\mu)$ uno spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di Caratheodory (la cui esistenza ci è assicurata dal \cref{thm:EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
+	Dato $(X,\S,\mu)$ uno spazio di misura elementare, sia $\mu^*$ la misura esterna associata a $\mu$ (come definita nell'enunciato della \cref{prop:MisuraEsternaDiPremisura}) e $\A$ la \sigalg{} di \carat{} (la cui esistenza ci è assicurata dal \cref{thm:EstensioneCaratheodory}) con la relativa estensione della misura $\mu':\A\to\Rpiu$.
 	
 	Sia $A\subseteq X$ tale che sia \emph{\sigfin[o] rispetto alla premisura}, cioè sia contenuto in un unione numerabile di elementi di $\S$ con misura finita.
 	
 	Allora le seguenti affermazioni su $A$ sono equivalenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
-		\item $A\in\A$ cioè l'insieme è un misurabile (secondo Caratheodory).\label{it:MisurabileEquivalenze}
+		\item $A\in\A$ cioè l'insieme è un misurabile (secondo \carat{}).\label{it:MisurabileEquivalenze}
 		\item Fissato $\epsilon>0$ esiste $S\in\sqcup\S$ che contiene $A$ e tale che $\mu^*(S\setminus A)<\epsilon$.\label{it:UnioniDaFuoriEquivalenze}
 		\item Esiste $B\in\sigma A(S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.\label{it:SigmaDaFuoriEquivalenze}
 		\item Esiste $B\in\sigma A(S)$ che è contenuto in $A$ e tale che $\mu^*(A\setminus B)=0$.\label{it:SigmaDaDentroEquivalenze}
@@ -235,10 +235,10 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{proof}
 
 \begin{proposition}\label{prop:CaratheodoryCompletamentoSigAlg}
-	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], i relativi misurabili secondo Caratheodory coincidono con il completamento (rispetto alla misura che ci è assicurata dal \cref{thm:EstensioneCaratheodory}) della \sigalg{} generata da $\S$.
+	Dato $(X,\S,\mu)$ una spazio di misura elementare \sigfin[o], i relativi misurabili secondo \carat{} coincidono con il completamento (rispetto alla misura che ci è assicurata dal \cref{thm:EstensioneCaratheodory}) della \sigalg{} generata da $\S$.
 \end{proposition}
 \begin{proof}
-	Sia $\A$ la \sigalg{} di Caratheodory associata a $(X,\S,\mu)$.
+	Sia $\A$ la \sigalg{} di \carat{} associata a $(X,\S,\mu)$.
 	
 	Il \cref{thm:EstensioneCaratheodory} ci assicura che $\A$ contiene la \sigalg{} generata da $\S$ ed è completa, quindi $\A$ contiene il completamento di $\sigma A(\S)$.
 	
@@ -299,7 +299,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Se $\mu'(A)=+\infty=\mu''(A)$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
 	
-	Fissato $\epsilon>0$, grazie al \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo Caratheodory, visto che appartiene alla \sigalg{} generata da $\S$).
+	Fissato $\epsilon>0$, grazie al \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo \carat{}, visto che appartiene alla \sigalg{} generata da $\S$).
 	
 	Ora, sfruttando la \cref{nota:PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	

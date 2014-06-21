@@ -1,17 +1,17 @@
 \section{Misura prodotto}
 Trattiamo ora la possibilità di rendere uno spazio di misura il prodotto di due spazi di misura. 
-Questo risulterà facile sfruttando, come strumento principale, il teorema di estensione di Caratheodory. 
-Si potrebbe decidere di esplicitare direttamente la misura prodotto, come integrale della misura delle sezioni, piuttosto che sfruttare il teorema di Caratheodory per assicurarne l'esistenza. 
+Questo risulterà facile sfruttando, come strumento principale, il teorema di estensione di \carat{}. 
+Si potrebbe decidere di esplicitare direttamente la misura prodotto, come integrale della misura delle sezioni, piuttosto che sfruttare il teorema di \carat{} per assicurarne l'esistenza. 
 Questa via, più diretta e meno tecnica, è effettivamente presa da vari libri di teoria della misura. Qui si è deciso di procedere diversamente sia per ignoranza iniziale degli autori, sia perchè in effetti si dimostra, ed è a nostro parere molto istruttivo, che le due definizioni sono equivalenti.
 
 L'idea portante di tutta questa sezione è quella di mostrare che la misura più ovvia da porre sullo spazio prodotto, cioè quella derivante dalla premisura sui rettangoli, è in effetti sufficientemente  ricca da assicurare molte proprietà allo spazio di misura a essa relativo ed in particolare ha sufficienti proprietà per dimostrare i teoremi di Fubini e Tonelli, che assicurano, sotto ipotesi relativamente lascive, la possibilità di scambiare tra loro gli operatori di integrazione.
 
-È importante enfatizzare da subito come vi sia una certa arbitrarietà nel decidere quale sia la \sigalg{} dei misurabili sullo spazio prodotto. Si potrebbe decidere di lavorare sulla \sigalg{} di Caratheodory, ma questa risulterebbe troppo ampia, oppure lavorare sulla \sigalg{} generata dai rettangoli, che invece risulta spesso (in particolare nel caso fondamentale della misura di Lebesgue) troppo ristretta.
+È importante enfatizzare da subito come vi sia una certa arbitrarietà nel decidere quale sia la \sigalg{} dei misurabili sullo spazio prodotto. Si potrebbe decidere di lavorare sulla \sigalg{} di \carat{}, ma questa risulterebbe troppo ampia, oppure lavorare sulla \sigalg{} generata dai rettangoli, che invece risulta spesso (in particolare nel caso fondamentale della misura di Lebesgue) troppo ristretta.
 L'ambiente giusto in cui lavorare risulterà infatti essere la \sigalg{} generata dai rettangoli nel caso in cui le misure iniziali non siano complete, mentre sarà più adatto lavorare nel completamento di questa \sigalg{} nel caso in cui le misure siano complete.
 
 
 
-Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di Caratheodory, proponiamo una via tecnica (che sfrutta la teoria degli integrali), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli integrali in uno spazio prodotto. 
+Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi di \carat{}, proponiamo una via tecnica (che sfrutta la teoria degli integrali), che diverge da quello che potrebbe essere un modo standard di procedere. Questo è sia più breve di una dimostrazione fatta con le mani, sia rende chiara da subito la possibilità di avere scambi tra gli integrali in uno spazio prodotto. 
 \newcommand{\B}{\ensuremath{\mathscr B}}
 \begin{definition}\label{def:SezioneProdotto}
 	Dati due insiemi $X,Y$ e $x\in X$ fissato, indichiamo con la notazione $J^X_x$ la funzione $J^X_x:\mathcal P(X\times Y) \to \mathcal P(Y)$ che restituisce le sezioni di un insieme:
@@ -195,7 +195,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	dove nei vari passaggi abbiamo usato implicitamente che gli $E_i$ si contengono vicendevolmente.
 	È facile verificare che quanto scritto equivale a dire $\bigcap_{i\in\N}E_i\in\E$, perciò, sempre per l'arbitrarietà della scelta degli $E_i$, ne segue che $\E$ è chiuso per intersezione monotona.
 	
-	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}$ è un sottoinsieme di $E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo Caratheodory, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
+	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}$ è un sottoinsieme di $E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo \carat{}, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
 	
 	Però per la \cref{prop:TrascurabiliProdotto} l'insieme trascurabile $E\setminus F$ ha quasi ogni sezione trascurabile a sua volta.
 	Allora applicando la \cref{prop:SezioniMisurabili} e ricordando il \cref{lemma:L1NullaAlloraNulla} ne discende banalmente che $E\setminus F\in\E$.
