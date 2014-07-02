@@ -110,6 +110,16 @@
 	che è equivale a dire che $c(\cdot)$ e $\lvert\det(\cdot)\rvert$ coincidono come si voleva.
 \end{proof}
 
+\begin{corollary}\label{cor:CambioVariabileLineare}
+	Cambio di Variabile lineare %TODO
+\end{corollary}
+
+
+\begin{proposition}\label{prop:ContinuitaL1}
+	asdasd
+\end{proposition}
+
+
 \begin{definition}\label{def:AssolutamenteContinua}
 	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
 \end{definition}
@@ -117,7 +127,7 @@
 \begin{theorem}\label{thm:RadonNikodym} [Radon-Nikodym]
 	Dato uno spazio di misura $(X,\A,\mu)$ \sigfin[o], se la misura $\nu:\A\to\Rpiu$ è assolutamente continua rispetto a $\mu$, allora esiste una funzione $\rho:X\to\Rpiu$ misurabile rispetto a $\mu$, tale che
 	\begin{equation*}
-		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu x\punto
+		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
 	\end{equation*}
 \end{theorem}
 \begin{proof}
@@ -125,67 +135,82 @@
 	Magari da lasciare al lettore.
 \end{proof}
 
-\begin{lemma}\label{lemma:LimiteDensita}%TODO Si possono sicuro allegerire le ipotesi.
-	Fissato $\Omega,\Omega'\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo con differenziale continuo.
-	
-	Allora, per ogni $A\subset\Omega$ Boreliano, l'insieme $\varphi(A)$ è misurabile\footnote{In realtà è anche Boreliano.} e perciò $m_n\circ\varphi$ è una misura sui Boreliani di $\Omega$ in virtù della \cref{prop:BigettivaInduceMisura}.
-	Sia quindi $\rho:\Omega\to\Rpiu$ una funzione misurabile, assicurataci dal \cref{thm:RadonNikodym}, tale che
+\begin{definition}[Media integrale]\label{def:MediaIntegrale}
+	Definiamo l'operatore $\aint$, chiamato media integrale, come
 	\begin{equation*}
-		\forall A\ \text{Boreliano},\ A\subseteq \Omega:\ \int_A \rho(x)\de m_n(x)=m_n(f(A)) \punto
+		\aint_E f(x)\de\mu(x)=\frac 1{\mu(E)}\int_E f(x)\de\mu(x)\virgola
 	\end{equation*}
-	Allora la serie di funzioni
-	\begin{equation*}
-		\rho_r(x)=\frac{m_n\left(\varphi\left(B_r(x)\cap \Omega\right)\right)}{m_n\left(B_r(x)\right)}\virgola
-	\end{equation*}
-	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$, converge in $\L$, con $r\to 0$, alla funzione $\rho$.
-\end{lemma}
+	dove $E$ è un insieme misurabile nello spazio di misura $(X,\A,\mu)$ e $f:X\to\Rbar$ è una funzione integrabile nel medesimo spazio di misura.
+\end{definition}
+\begin{remark}\label{nota:ProprietaMediaIntegrale}
+	Fissato uno spazio di misura $(X,\A,\mu)$ e un insieme misurabile $E\in\A$ l'operatore di media integrale rispetta le seguenti proprietà:
+	\begin{itemize}
+		\item Date $f,g:X\to\Rbar$ funzioni misurabili e $a,b\in\R$ vale
+		\begin{equation*}
+			a\aint_E f(x)\de\mu(x)+b\aint_E g(x)\de\mu(x)=\aint_E af(x)+bg(x)\de\mu(x)
+		\end{equation*}
+		e se $f\le g$ allora
+		\begin{equation*}
+			\aint_E f(x)\de\mu(x)\le \aint_E g(x)\de\mu(x)\virgola
+		\end{equation*}
+		cioè la media integrale è lineare e monotona.
+		\item Fissato $c\in\R$ vale
+		\begin{equation*}
+			\aint_E c\de\mu(x)=c\punto
+		\end{equation*}
+		\item Per ogni $f:X\to\Rbar$ misurabile valgono le stime
+		\begin{equation*}
+			\inf_{x\in E}f(x)\le \aint_E f(x)\de\mu(x) \le \sup_{x\in E}f(x)\punto
+		\end{equation*}
+	\end{itemize}
+\end{remark}
 \begin{proof}
-	Innanzitutto, ricordando che $\varphi^{-1}$ è continua e perciò misurabile, applichiamo la \cref{prop:CounterImgMis} otteniamo che $\varphi$ manda Boreliani in misurabili, come detto implicitamente nell'enunciato.
+	La linearità, la monotonia e l'identità riguardante la media integrale delle costanti discendono dalla \cref{def:MediaIntegrale} applicando le prime proprietà dell'integrale di Lebesgue.
 	
-	Ora allarghiamo per comodità il dominio di $\rho$ a tutto $\R^n$ ponendo $\rho(\Omega^{\mathsf{c}})=\{0\}$.
-	
-	Calcoliamo la norma $\L$ della differenza tra $\rho$ e $\rho_r$ applicando la definizione di $\rho$:
-	\newcommand{\C}{\ensuremath{m_n\left(B_r(x)\right)}}
-	\begin{multline*}
-		\LNorm{\rho-\rho_r}=\int_\Omega \rho(x)-\frac{m_n\left(\varphi\left(B_r(x)\cap \Omega\right)\right)}{\C} \de x\\
-		= \C^{-1}\int_\Omega \left(\C\rho(x)-\int_{B_r(x)\cap\omega}\rho(t)\de t\right)\de x\\
-		=\C^{-1}\int_\Omega \int_{B_r(x)}\rho(x)-\rho(t)\de t\de x
-		=\C^{-1}\int_\Omega \int_{B_r(0)}\rho(x)-\rho(x+t)\de t\de x\\
-		=\C^{-1}\int_{B_r(0)}\int_\Omega \rho(x)-\rho(x+t) \de x\de t
-		\le \C^{-1}\int_{B_r(0)}\LNorm{\rho(\cdot+t)-\rho(\cdot)}\de t \\
-		\le \sup_{t\in B_r(0)} \LNorm{\rho(\cdot+t)-\rho(\cdot)}
-	\end{multline*}
-	%TODO: Da cancellare tutta la proposizione, è stata sostituita dalla successiva.
+	Per quanto riguarda l'ultima stima, è sufficiente applicare le proprietà già dimostrate per ottenere
+	\begin{equation*}
+		\inf_{x\in E}f(x) = \aint_E \inf_{x\in E} f(x)\de\mu(x)\le \aint_E f(x)\de\mu(x) \le \aint_E \sup_{x\in E} f(x)\de\mu(x) =\sup_{x\in E}f(x)\punto
+	\end{equation*}
+
 \end{proof}
 
+
+
 \begin{lemma}\label{lemma:ContinuitaL1Palle}
-	Fissato $\Omega\subseteq \R^n $ un aperto e $f:\Omega\to\Rbar$ una funzione misurabile, definiamo, per ogni $r>0$, la funzione $f_r:\Omega\to\R$ come
+	Fissato $E\in\M_n$ un insieme misurabile e $f:E\to\Rbar$ una funzione misurabile, definiamo, per ogni $r>0$, la funzione $f_r:E\to\R$ come
 	\begin{equation*}
-		\forall x\in\Omega:\ f_r(x)=\frac{\int_{B_r(x)\cap \Omega}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
+		\forall x\in E:\ f_r(x)=\frac{\int_{B_r(x)\cap E}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
 	\end{equation*}
 	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$.
-	Allora le funzioni $f_r$ convergono in $\L$ alla funzione $f$ per $r$ che tende a $0$.
+	Allora le funzioni $f_r$, che risultano essere continue, convergono in $\L$ alla funzione $f$ per $r$ che tende a $0$.
 \end{lemma}
 \begin{proof}
-	Innanzitutto, per comodità di notazione, allarghiamo il dominio della $f$ ponendo $f(\Omega^{\mathsf c})=\{0\}$, così facendo otteniamo
+	Innanzitutto, per comodità di notazione, allarghiamo il dominio della $f$ ponendo $f(E^{\mathsf c})=\{0\}$, così facendo otteniamo
 	\begin{equation*}
-		\forall r>0,\ x\in\Omega:\ f_r(x)=\frac{\int_{B_r(x)}f(t)\de t}{m_n(B_r(x)} \punto
+		\forall r>0,\ x\in E:\ f_r(x)=\frac{\int_{B_r(x)}f(t)\de t}{m_n(B_r(x))}=\aint_{B_r(x)} f(t)\de t \punto
 	\end{equation*}
 
+	Vale facilmente, per ogni $x,y\in E$, l'identità
+	\begin{equation*}
+		\lvert f_r(x)-f_r(y)\rvert %= \left\lvert \aint_{B_r(x)}f(t)\de t-\aint_{B_r(y)} f(t)\de t\right\rvert 
+		\le \aint_{B_r(x)}\lvert f(t)-f(t+(y-x))\rvert \de t \le \frac{ \LNorm{f({}\cdot{})-f({}\cdot{}+(y-x)} }{ m_n(B_r(0)) } \virgola
+	\end{equation*}
+	che grazie alla \cref{prop:ContinuitaL1} implica la continuità delle funzioni $f_r$.
+	
+	Ora verifichiamo, per poi poter applicare il teorema di Tonelli, che la funzione $g:\R^n\times\R^n\to\Rbar$ definita come $g(x,t)=f(x+t)-f(x)$ è misurabile nello spazio prodotto $\R^n\times\R^n$. DAFARE. %TODO
+	
 	Calcoliamo ora la norma $\L$ della differenza tra $f$ e $f_r$:
 	\begin{multline}\label{eq:ContinuitaPalleDis}
-		m_n\left(B_r(x)\right)\LNorm{f-f_r}=\int_\Omega \left\lvert m_n\left(B_r(x)\right)f(x)-\int_{B_r(x)}f(t)\de t\right\rvert\de x\\
-		=\int_\Omega\left\lvert\int_{B_r(x)}f(x)-f(t)\de x\right\rvert\de t\le \int_\Omega\int_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de x\de t\\
-		=\int_\Omega\int_{B_r(0)}\left\lvert f(x)-f(x+h)\right\rvert\de h\de x
-		=\int_{B_r(0)}\int_\Omega \left\lvert f(x)-f(x+h)\right\rvert\de x\de h\\
-		= \int_{B_r(0)}\LNorm{f(\cdot)-f(\cdot+h)}\de h\le m_n\left(B_r(0)\right)\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}\virgola
+		\LNorm{f-f_r}=\int_E \left\lvert f(x)-\aint_{B_r(x)}f(t)\de t\right\rvert\de x\\
+		=\int_E\left\lvert\aint_{B_r(x)}f(x)-f(t)\de x\right\rvert\de t\le \int_E\aint_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de x\de t\\
+		=\int_E\aint_{B_r(0)}\left\lvert f(x)-f(x+h)\right\rvert\de h\de x
+		=\aint_{B_r(0)}\int_E \left\lvert f(x)-f(x+h)\right\rvert\de x\de h\\
+		= \aint_{B_r(0)}\LNorm{f(\cdot)-f(\cdot+h)}\de h\le \sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}\virgola
 	\end{multline}
-	dove nei vari passaggi abbiamo sfruttato il fatto che l'integrale è monotono e il \cref{thm:TonelliCompleto} che si può applicare ricordando la \cref{prop:MisuraProdottoEuclidea}. Va però osservato che per poter applicare il teorema di Tonelli e quindi scambiare gli integrali come abbiamo fatto, è fondamentale che la funzione $\Omega\times B_r(0)\ni(x,h)\mapsto f(x)-f(x+h)\in\Rbar$ sia misurabile. Questo è vero e lo lasciamo come esercizio, non banale ma neppure arduo, al lettore. %TODO Ci sono ancora parecchie piccolezze che andrebbero migliorate!
+	dove nei vari passaggi abbiamo sfruttato il \cref{thm:TonelliCompleto}, che si può applicare ricordando la \cref{prop:MisuraProdottoEuclidea}, e la \cref{nota:ProprietaMediaIntegrale}.
 	
 	Per la \cref{prop:ContinuitaL1}, il valore $\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}$ tende a $0$ per $r\to 0$ e applicando ciò nell'\cref{eq:ContinuitaPalleDis} si ricava facilmente la tesi.
 \end{proof}
-
-
 
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
@@ -226,16 +251,76 @@
 	che implica banalmente la tesi.
 \end{proof}
 
+\begin{lemma}\label{lemma:MisuraImmagine}
+	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
+	Allora, per ogni $E\subseteq \Omega$ misurabile vale
+	\begin{equation*}
+		m_n(\varphi(E))=\left\lvert \det D\varphi(x) \right\rvert \de m_n(x)\virgola
+	\end{equation*}
+	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
+\end{lemma}
+\begin{proof}
+	Innanzitutto scriviamo $\Omega=\bigcup_{n\in\N} K_n$ dove $(K_n)_{n\in\N}$ è una successione di compatti. 
+	Allora, dato un insieme $N\subset\Omega$ trascurabile, vale
+	\begin{equation*}
+		\varphi(N)=\bigcup_{n\in\N} \varphi\left(N\cap K_n\right)\virgola
+	\end{equation*}
+	ma nei compatti $K_n$ la funzione $\varphi$, essendo $C^1$, è Lipschitziana e quindi per la \cref{prop:LipschitzTengonoMisurabili} manda trascurabili in trascurabili e perciò $\varphi\left(N\cap K_n\right)$ è trascurabile e da questo ne segue che $\varphi(N)$ è trascurabile in quanto unione numerabile di trascurabili.
+	Riassumendo, la funzione $\varphi$ manda trascurabili in trascurabili e per la \cref{prop:ContinueSpecialiTengonoMisurabili} questo implica che manda misurabili in misurabili.
+	
+	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poichè $\varphi$ manda trascurabili in trascurabili.
+	Perciò, per il \cref{thm:RadonNikodym}, esiste $\rho:\Omega\to\Rpiu$ integrabile tale che
+	\begin{equation*}
+		\forall E\in M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
+	\end{equation*}
+	Con una dimostrazione del tutto analoga a quella del \cref{cor:CambioVariabileLineare} questo implica che vale anche la formula
+	\begin{equation}\label{eq:CambioRadonNikodym}
+		\forall E\in M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
+	\end{equation}
+	per ogni $f:\Omega\to\Rbar$ integrabile.
+	
+	A questo punto, usando la medesima notazione dell'enunciato del \cref{lemma:ContinuitaL1Palle}, notiamo che
+	\begin{equation*}
+		\rho_r(x)=\aint_{B_r(x)}\rho(t)\de t=\frac{\int_{B_r(x)} \rho(t)\de t}{m_n(B_r(0))}=\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\virgola
+	\end{equation*}
+	e quindi, applicando proprio il \cref{lemma:ContinuitaL1Palle}, otteniamo che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge a $\rho$ in $\L$ per $r$ che tende a $0$.
+	Ricordando però la \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque}, abbiamo anche che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge puntualmente quasi ovunque a $\rho$. Perciò, notando che se esiste il limite coincide con il limite superiore, possiamo applicare il \cref{lemma:LimiteDeterminante} ed ottenere che per quasi ogni $x\in\Omega$ vale
+	\begin{equation}\label{eq:DisuguaglianzaRadonNikodym}
+		\rho(x)=\limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \punto
+	\end{equation}
+	
+	Ora, unendo le due \cref{eq:CambioRadonNikodym,eq:DisuguaglianzaRadonNikodym}, arriviamo a dire che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
+	\begin{equation*}
+		\forall E\in M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
+		\int_E f(\varphi(x))\left\lvert\det D\varphi(x)\right\rvert\de x \punto
+	\end{equation*}
+	
+	Ora giungiamo alla disuguaglianza conclusiva applicando quest'ultima stima sia alla funzione $\varphi$ sia alla funzione $\varphi^{-1}$ che essendo per ipotesi anch'esso un diffeomorfismo $C^1$ rispetterà un analogo enunciato.
+	Seguendo lo schema enunciato otteniamo che per ogni $E\subseteq\Omega$ misurabile vale
+	\begin{multline*}
+		m_n(E) =\int_{\varphi(\varphi^{-1}(E))}1\de x\le \int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \\
+ 		\le \int_E \left\lvert\det D\varphi(\varphi^{-1}(x))\right\rvert \cdot \left\lvert\det D\varphi^{-1}(x)\right\rvert\de x =\int_E 1\de x=m_n(E) \virgola
+	\end{multline*}
+	dove abbiamo applicato implicitamente la formula del differenziale dell'inversa e la moltiplicatività del determinante.
+	Però, poichè primo e ultimo membro coincidono, tutte le disuguaglianze della catena devono essere uguaglianze e da questo ricaviamo
+	\begin{equation*}
+		m_n(E)=\int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \virgola
+	\end{equation*}
+	che implica banalmente la tesi.
+
+\end{proof}
+
+
 
 \begin{theorem}\label{thm:CambioVariabile}
-	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità, tale che in differenziale non si annulla mai.
-	Allora per ogni funzione $f:\varphi(\Omega)\to\R$ integrabile vale
+	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
+	Allora, per ogni $E\subseteq \Omega$ misurabile e $f:\Omega'\to\R$ integrabile, vale
 	\begin{equation*}
-		\int_{\varphi(\Omega)} f(v)\de m_n(v) = \int_{\Omega} f(\varphi(u))\lvert \det D\varphi(u) \rvert \de m_n(y) \virgola
+		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
 	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
 \end{theorem}
 \begin{proof}
-	%TODO
+	La dimostrazione è completamente analoga a quella del \cref{cor:CambioVariabileLineare}, solo che al posto di sfruttare la \cref{prop:MisuraImmagineLineare} si sfrutta il \cref{lemma:MisuraImmagine}.
 \end{proof}
 
