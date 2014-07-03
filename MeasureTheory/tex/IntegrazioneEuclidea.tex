@@ -218,7 +218,8 @@
 	\end{equation*}
 	che grazie alla \cref{prop:ContinuitaL1} implica la continuità delle funzioni $f_r$.
 	
-	Ora verifichiamo, per poi poter applicare il teorema di Tonelli, che la funzione $g:\R^n\times\R^n\to\Rbar$ definita come $g(x,t)=f(x+t)-f(x)$ è misurabile nello spazio prodotto $\R^n\times\R^n$. DAFARE. %TODO: Misurabilità nel prodotto
+	Ora verifichiamo, per poi poter applicare il teorema di Tonelli, che la funzione $g:\R^n\times\R^n\to\Rbar$ definita come $g(x,t)=f(x+t)-f(x)$ è misurabile nello spazio prodotto $\R^n\times\R^n$. 
+	La funzione $u(x,t)=f(x)$ è misurabile nel prodotto grazie alla \cref{nota:FunzioniMisProdotto} e allora anche $u(x+t,t)$ lo è in quanto composizione di una misurabile con una lineare invertibile. Unendo quanto detto si ha, come cercato, che $g(x,t)=u(x+t,t)-u(x,t)$ è misurabile in quanto differenza di misurabili.
 	
 	Calcoliamo ora la norma $L^1$ della differenza tra $f$ e $f_r$:
 	\begin{multline}\label{eq:ContinuitaPalleDis}

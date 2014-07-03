@@ -75,7 +75,7 @@ Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi 
 
 La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di lavoro finale potrà essere vario. Infatti piuttosto che dimostrarla per soli insiemi misurabili (non ancora definiti) la si deve dimostrare per insiemi trascurabili qualunque, per poi poterla sfruttare indipendentemente da quale \sigalg{} dei misurabili verrà scelta.
 
-\begin{proposition}\label{prop:TrascurabiliProdotto}
+\begin{proposition}\label{prop:TrascurabiliProdotto} %TODO: Sarebbe da aggiustare la dimostrazione, togliendo gli integrali.
 	Dato lo spazio di premisura $(X\times Y,\A\times\B,\overline{\mu\nu})$, che si è mostrato essere di premisura nel \cref{thm:PremisuraProdotto}, sia $\mu\nu^*:\mathcal P(X\times Y)\to\Rpiu$ la misura esterna associata a $\overline{\mu\nu}$.
 	
 	Se $E\subseteq X\times Y$ è trascurabile rispetto a $\mu\nu^*$, allora per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(E)$ è trascurabile\footnote{Il fatto che un insieme sia trascurabile non implica che sia misurabile come osservato nella \cref{def:TrascurabiliMisura}.} rispetto alla misura $\mu$.
@@ -143,6 +143,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	Dati $(X,\A,\mu)$ e $(Y,\B,\nu)$ spazi di misura, chiamiamo $(X\times Y,\A\otimes\B,\mu\nu)$ lo spazio di misura prodotto, dove $\mu\nu$ è la riduzione alla sola \sigalg{} generata da $\A\times\B$ della misura, associata alla premisura $\overline{\mu\nu}$, assicurataci dal \cref{thm:EstensioneCaratheodory}.
 \end{definition}
 
+
 Ora che abbiamo fissato la \sigalg{} dei misurabili, fermiamoci un attimo a riflettere sulla scelta. Perchè piuttosto non abbiamo scelto il suo completamento? Oppure perchè non abbiamo scelto la \sigalg{} degli insiemi che hanno ogni sezione misurabile? 
 Il motivo è che nessuna di queste ci avrebbe assicurato, nel caso generale, la veridicità della \cref{prop:SezioniMisurabili} e dei teoremi che seguiranno.
 
@@ -151,6 +152,19 @@ Ora andiamo a dimostrare i teoremi di Fubini e Tonelli, che permettono di scambi
 Le dimostrazioni che seguono fondamentalmente vanno per passi e dimostrano la commutazione tra integrali per funzioni gradualmente più complicate: indicatrici di insiemi, semplici, misurabili positive ed infine integrabili.
 
 D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la notazione associata ai singoli spazi di misura, cioè se parliamo di $(X\times Y,\A\otimes\B,\mu\nu)$ è sottointeso che corrisponde agli spazi di misura $(X,\A,\mu)$ e $(Y,\B,\nu)$.
+
+\begin{remark}\label{nota:FunzioniMisProdotto}
+	Dato lo spazio di misura prodotto $(X\times Y,\A\otimes\B,\mu\nu)$ ed una funzione $f:X\to\Rbar$ misurabile in $(X,\A,\mu)$, la funzione associata $\hat f:X\times Y\to\Rbar$ definita come $\hat f(x,y)=f(x)$ è misurabile.
+\end{remark}
+\begin{proof}
+	Sfruttando le proprietà basilari della controimmagine e la definizione di $\hat f$, per ogni $A$ aperto di $\R$, otteniamo
+	\begin{equation*}
+		\hat f^{-1}(A)=f^{-1}(A)\times Y \punto
+	\end{equation*}
+	Allora, essendo $f^{-1}(A)$ misurabile in $(X,\A,\mu)$ per l'ipotesi di misurabilità di $f$ ed $Y\in\B$, abbiamo l'appartenenza $\hat f^{-1}(A)\in \A\times\B$ e cioè $\hat f^{-1}(A)$ misurabile nel prodotto.
+	Ma poichè questo è valido per ogni $A$ aperto di $\R$ ne concludiamo che $\hat f$ è misurabile nel prodotto.
+\end{proof}
+
 
 \begin{proposition}\label{prop:PreTonelli}
 	Dato lo spazio di misura prodotto $(X\times Y,\A\otimes\B,\mu\nu)$, per ogni insieme misurabile $E\in\A\otimes\B$ \sigfin[o] vale la seguente espressione per la misura:
