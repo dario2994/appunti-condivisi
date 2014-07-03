@@ -75,13 +75,13 @@ Nella dimostrazione del primo teorema, che fondamentalmente verifica le ipotesi 
 
 La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di lavoro finale potrà essere vario. Infatti piuttosto che dimostrarla per soli insiemi misurabili (non ancora definiti) la si deve dimostrare per insiemi trascurabili qualunque, per poi poterla sfruttare indipendentemente da quale \sigalg{} dei misurabili verrà scelta.
 
-\begin{proposition}\label{prop:TrascurabiliProdotto} %TODO: Sarebbe da aggiustare la dimostrazione, togliendo gli integrali.
+\begin{proposition}\label{prop:TrascurabiliProdotto}
 	Dato lo spazio di premisura $(X\times Y,\A\times\B,\overline{\mu\nu})$, che si è mostrato essere di premisura nel \cref{thm:PremisuraProdotto}, sia $\mu\nu^*:\mathcal P(X\times Y)\to\Rpiu$ la misura esterna associata a $\overline{\mu\nu}$.
 	
 	Se $E\subseteq X\times Y$ è trascurabile rispetto a $\mu\nu^*$, allora per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(E)$ è trascurabile\footnote{Il fatto che un insieme sia trascurabile non implica che sia misurabile come osservato nella \cref{def:TrascurabiliMisura}.} rispetto alla misura $\mu$.
 \end{proposition}
 \begin{proof}
-	Chiamiamo $\mu^*,\nu^*$ le misure esterne associate alle misure $\mu,\nu$, definite come nella \cref{prop:MisuraEsternaDiPremisura} considerando $\mu,\nu$ delle premisure\footnote{Uno spazio di misura è sempre ovviamente anche uno spazio di premisura.}.
+	Chiamiamo $\mu^*,\nu^*$ le misure esterne, definite come nella \cref{prop:MisuraEsternaDiPremisura}, associate alle misure\footnote{Uno spazio di misura è sempre ovviamente anche uno spazio di premisura.} $\mu,\nu$.
 	
 	Per $\delta>0$, sia $X_\delta$ l'insieme degli $x\in X$ tali che $\nu^*(J_x^X(E))\ge\delta$ e sia $m_\delta=\mu^*(X_\delta)$.
 	
@@ -96,13 +96,13 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	e notiamo subito che $f$ è una funzione misurabile positiva, per la \cref{prop:SupDiMisurabili}, essendo una serie numerabile di funzioni indicatrici di misurabili.
 	
 	Per la sola definizione di misura esterna si ottiene che per ogni $x\in X$
-	\begin{equation*}
+	\begin{equation*}\label{eq:DisTrascurabiliProdotto}
 		f(x)=\sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\ge\nu^*(J_x^X(E))\virgola
 	\end{equation*}
 	poichè i $B_i$, tali che i rispettivi $A_i$ contengano $x$, sono un ricoprimento numerabile di $J_x^X(E)$.
 	
-	Allora, per la monotonia della misura esterna, ne segue banalmente che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poichè $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
-	Perciò applicando il \cref{thm:DisuguaglianzaChebyshev}, ne ricaviamo che $\LNorm f\ge \delta m_\delta$.
+	Allora, applicando quest'ultima disuguaglianza aggiungengo l'ipotesi $x\in X_\delta$, otteniamo il contenimento $X_\delta\subseteq \{x\in X:f(x)\ge\delta\}$ e quindi ne ricaviamo che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poichè $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
+	Quindi il \cref{thm:DisuguaglianzaChebyshev} ci assicura che $\LNorm f\ge \delta m_\delta$.
 
 	Però, applicando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
 	\begin{equation*}
@@ -342,7 +342,4 @@ Per concludere la sezione, lasciamo per esercizio al lettore di verificare che l
 		\item Se $X=Y=\R$, $\A,\B$ coincidono con i Boreliani di $\R$, $\mu=\nu=m_1$ e la funzione $f$ è la funzione indicatrice dell'insieme $\cc01\times V$ dove $V$ è un insieme trascurabile non misurabile per Lebesgue.
 		\item Se $X=Y=\R$, $\A=\B=\M_1$, $\mu=\nu=m_1$ e la funzione $f$ è definita come $f(x,y)=\frac{x^2-y^2}{(x^2+y^2)^2}\cdot\chi_{\cc01\times\cc01}(x,y)$.
 	\end{enumerate}
-
 \end{exercise}
-
-%TODO Aggiungere vari controesempi a Fubini Tonelli nel caso in cui vengano meno alcune ipotesi.
