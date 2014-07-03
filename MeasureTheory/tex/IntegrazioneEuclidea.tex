@@ -1,7 +1,9 @@
 \section{L'integrazione negli spazi Euclidei}
 
+% Ovunque, scriveremo implicitamente $\L$ per intendere $\L(\R^n,\M_n,m_n)$.
+
 \begin{proposition}\label{prop:MisuraProdottoEuclidea}
-	La \sigalg{} prodotto completata $\overline{\M_n\otimes\M_m}$ dei misurabili di $\R^n$ e $\R^m$ coincide con la \sigalg{} dei misurabili in $\R^{n+m}$.
+	La \sigalg{} prodotto completata $\overline{\M_n\otimes\M_m}$ dei misurabili di $\R^n$ e $\R^m$ coincide con la \sigalg{} dei misurabili di $\R^{n+m}$.
 \end{proposition}
 \begin{proof}
 	Lavoriamo sulla \sigalg{} prodotto \emph{non completata} $\M_n\otimes\M_m$, per poi ottenere l'enunciato ricordando che il completamento dei Boreliani sono i misurabili.
@@ -111,13 +113,38 @@
 \end{proof}
 
 \begin{corollary}\label{cor:CambioVariabileLineare}
-	Cambio di Variabile lineare %TODO
+	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile ed $f:\R^n\to\Rbar$ integrabile vale la formula per il cambio di variabile lineare
+	\begin{equation*}
+		\int_{L(E)}f(y)\de m_n(y) = \int_E f(L(x))\left\lvert\det L\right\rvert \de m_n(x) \punto
+	\end{equation*}
 \end{corollary}
-
+\begin{proof}
+	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni che rispettano l'enunciato.
+	
+	Assumendo che $f$ sia l'indicatrice di un insieme $A\in\M_n$, applicando la \cref{prop:MisuraImmagineLineare}, otteniamo
+	\begin{multline*}
+		\int_{L(E)}f(y)\de m_n(y)=m_n\left( A\cap L(E) \right)=m_n\left(L(L^{-1}(A)\cap E)\right)\\
+		=\left\lvert\det L\right\rvert m_n\left(L^{-1}(A)\cap E\right)=\int_E f(L(x))\left\lvert\det L\right\rvert \de m_n(x) \virgola
+	\end{multline*}
+	cioè le indicatrici appartengono a $\mathcal F$.
+	
+	Per la linearità dell'operatore integrale è chiaro che l'insieme delle funzioni che rispettano è uno spazio vettoriale ed inoltre per il \cref{thm:BeppoLevi} è ovvio che $\mathcal F$ è chiuso per convergenza monotona (ammesso di rimanere nelle integrabili).
+	
+	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
+	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
+\end{proof}
 
 \begin{proposition}\label{prop:ContinuitaL1}
-	asdasd
+	Data una funzione $f:\R^n\to\Rbar$ integrabile nella misura di Lebesgue, le funzioni $f({}\cdot{}+c)$ convergono in norma $L^1$ ad $f$ per $c$ che tende a $0$.
 \end{proposition}
+\begin{proof}
+	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
+	
+	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è chiuso per convergenza monotona ed è uno spazio vettoriale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
+	L'unione di questi fatti sarà sufficiente a mostrare che $\mathcal F=\L(\R^n,\M_n,m_n)$ dimostrando così la tesi.
+	
+	%TODO: Finire la dimostrazione della continuità L1 seguendo lo schema preannunciato.
+\end{proof}
 
 
 \begin{definition}\label{def:AssolutamenteContinua}
@@ -129,13 +156,9 @@
 	\begin{equation*}
 		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
 	\end{equation*}
-\end{theorem}
-\begin{proof}
-	%TODO
-	Magari da lasciare al lettore.
-\end{proof}
+\end{theorem} %TODO: Scrivere perchè lo lasciamo indimostrato.
 
-\begin{definition}[Media integrale]\label{def:MediaIntegrale}
+\begin{definition}\label{def:MediaIntegrale} [Media integrale]
 	Definiamo l'operatore $\aint$, chiamato media integrale, come
 	\begin{equation*}
 		\aint_E f(x)\de\mu(x)=\frac 1{\mu(E)}\int_E f(x)\de\mu(x)\virgola
@@ -171,9 +194,7 @@
 	\begin{equation*}
 		\inf_{x\in E}f(x) = \aint_E \inf_{x\in E} f(x)\de\mu(x)\le \aint_E f(x)\de\mu(x) \le \aint_E \sup_{x\in E} f(x)\de\mu(x) =\sup_{x\in E}f(x)\punto
 	\end{equation*}
-
 \end{proof}
-
 
 
 \begin{lemma}\label{lemma:ContinuitaL1Palle}
@@ -182,7 +203,7 @@
 		\forall x\in E:\ f_r(x)=\frac{\int_{B_r(x)\cap E}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
 	\end{equation*}
 	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$.
-	Allora le funzioni $f_r$, che risultano essere continue, convergono in $\L$ alla funzione $f$ per $r$ che tende a $0$.
+	Allora le funzioni $f_r$, che risultano essere continue, convergono in norma $L^1$ alla funzione $f$ per $r$ che tende a $0$.
 \end{lemma}
 \begin{proof}
 	Innanzitutto, per comodità di notazione, allarghiamo il dominio della $f$ ponendo $f(E^{\mathsf c})=\{0\}$, così facendo otteniamo
@@ -197,9 +218,9 @@
 	\end{equation*}
 	che grazie alla \cref{prop:ContinuitaL1} implica la continuità delle funzioni $f_r$.
 	
-	Ora verifichiamo, per poi poter applicare il teorema di Tonelli, che la funzione $g:\R^n\times\R^n\to\Rbar$ definita come $g(x,t)=f(x+t)-f(x)$ è misurabile nello spazio prodotto $\R^n\times\R^n$. DAFARE. %TODO
+	Ora verifichiamo, per poi poter applicare il teorema di Tonelli, che la funzione $g:\R^n\times\R^n\to\Rbar$ definita come $g(x,t)=f(x+t)-f(x)$ è misurabile nello spazio prodotto $\R^n\times\R^n$. DAFARE. %TODO: Misurabilità nel prodotto
 	
-	Calcoliamo ora la norma $\L$ della differenza tra $f$ e $f_r$:
+	Calcoliamo ora la norma $L^1$ della differenza tra $f$ e $f_r$:
 	\begin{multline}\label{eq:ContinuitaPalleDis}
 		\LNorm{f-f_r}=\int_E \left\lvert f(x)-\aint_{B_r(x)}f(t)\de t\right\rvert\de x\\
 		=\int_E\left\lvert\aint_{B_r(x)}f(x)-f(t)\de x\right\rvert\de t\le \int_E\aint_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de x\de t\\
@@ -283,7 +304,7 @@
 	\begin{equation*}
 		\rho_r(x)=\aint_{B_r(x)}\rho(t)\de t=\frac{\int_{B_r(x)} \rho(t)\de t}{m_n(B_r(0))}=\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\virgola
 	\end{equation*}
-	e quindi, applicando proprio il \cref{lemma:ContinuitaL1Palle}, otteniamo che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge a $\rho$ in $\L$ per $r$ che tende a $0$.
+	e quindi, applicando proprio il \cref{lemma:ContinuitaL1Palle}, otteniamo che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge a $\rho$ in norma $L^1$ per $r$ che tende a $0$.
 	Ricordando però la \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque}, abbiamo anche che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge puntualmente quasi ovunque a $\rho$. Perciò, notando che se esiste il limite coincide con il limite superiore, possiamo applicare il \cref{lemma:LimiteDeterminante} ed ottenere che per quasi ogni $x\in\Omega$ vale
 	\begin{equation}\label{eq:DisuguaglianzaRadonNikodym}
 		\rho(x)=\limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \punto
