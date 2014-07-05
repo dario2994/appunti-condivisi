@@ -139,10 +139,46 @@
 \end{proposition}
 \begin{proof}
 	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
+	Chiamiamo poi, per $c\in\R^n$, $\tau_c:\R^n\to\R^n$ la traslazione $\tau_c(x)=x+c$.
 	
-	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è chiuso per convergenza monotona ed è uno spazio vettoriale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
+	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è chiuso per convergenza monotona crescente ed è uno spazio vettoriale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
 	L'unione di questi fatti sarà sufficiente a mostrare che $\mathcal F=\L(\R^n,\M_n,m_n)$ dimostrando così la tesi.
 	
+	Il fatto che $\mathcal F$ sia uno spazio vettoriale discende direttamente dalla linearità dell'integrale e dal fatto che il limite di una somma è la somma dei limiti.
+	
+	Date $f,g:\R^n\to\Rbar$ funzioni integrabili equivalenti in $L^1$, con $f\in\mathcal F$, dimostriamo che $g\in\mathcal F$. 
+	Anche $f\circ\tau_c$ e $g\circ\tau_c$ sono equivalenti in $L^1$ e perciò anche $f\circ\tau_c-f$ coincide quasi ovunque con $g\circ\tau_c-g$.
+	Unendo quanto detto si ottiene
+	\begin{equation*}
+		\LNorm{g\circ\tau_c-g}=\LNorm{f\circ\tau_c-f}\to 0 \virgola
+	\end{equation*}
+	che implica che anche $g$ appartiene a $\mathcal F$.
+	
+	Sia $(f_n)_{n\in\N}$ una successione crescente di funzioni integrabili e sia $f$ il limite di tale successione, che assumiamo essere integrabile.
+	Per il \cref{thm:BeppoLevi} le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
+	Inoltre, una facile conseguenza dell'invarianza per traslazione della misura di Lebesgue è 
+	\begin{equation*}
+		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola
+	\end{equation*}
+	da cui, poichè $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
+	\begin{equation*}
+		\LNorm{f\circ\tau_c-f}\le \LNorm{f_m\circ\tau_c-f\circ\tau_c}+\LNorm{f_m-f}+\LNorm{f_m\circ\tau_c-f_m} \le 2\epsilon+\LNorm{f_m\circ\tau_c-f_m}\virgola
+	\end{equation*}
+	che passando al $\limsup$ entrambi i membri e ricordando che $f_n\in\mathcal F$, implica la disuguaglianza
+	\begin{equation*}
+		\liminf_{c\to 0} \LNorm{f\circ\tau_c-f} \le 2\epsilon \punto
+	\end{equation*}
+	Ma quest'ultima disuguaglianza vale per ogni $\epsilon>0$ e ciò implica ovviamente che anche $f\in\mathcal F$.
+	
+	Sia $S=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ un elemento del \semiring{} degli iper-parallelepipedi aperti a destra di $\R^n$.
+	Fissato $c\in\R^n$, sia $f(x)=\left\lvert\chi_S(x+c)-\chi_S(x)\right\rvert$. 
+	Sfruttando delle identità insiemistiche e la definizione delle funzioni caratteristiche, è facile verificare che
+	\begin{equation*}
+		f(x)=\chi_{T\setminus\left(T-c\right)}(x)+\chi_{\left(T-c\right)\setminus T}(x)
+	\end{equation*}
+	e che i due insiemi $T\setminus\left(T-c\right)$ e $\left(T-c\right)\setminus T$ hanno la stessa misura in quanto si può ottenere uno dall'altro, a meno del bordo che ha misura nulla, con una simmetria nell'origine ed una traslazione che però non cambiano la misura in virtù del \cref{prop:LebesgueProprietaIsometria}.
+	
+	%TODO: Calcolare la misura di uno dei due insiemi a cui si è arrivati
 	%TODO: Finire la dimostrazione della continuità L1 seguendo lo schema preannunciato.
 \end{proof}
 
@@ -156,7 +192,7 @@
 	\begin{equation*}
 		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
 	\end{equation*}
-\end{theorem} %TODO: Scrivere perchè lo lasciamo indimostrato.
+\end{theorem}
 
 \begin{definition}\label{def:MediaIntegrale} [Media integrale]
 	Definiamo l'operatore $\aint$, chiamato media integrale, come
