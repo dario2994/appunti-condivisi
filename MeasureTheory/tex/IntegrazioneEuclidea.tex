@@ -171,15 +171,47 @@
 	Ma quest'ultima disuguaglianza vale per ogni $\epsilon>0$ e ciò implica ovviamente che anche $f\in\mathcal F$.
 	
 	Sia $S=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ un elemento del \semiring{} degli iper-parallelepipedi aperti a destra di $\R^n$.
-	Fissato $c\in\R^n$, sia $f(x)=\left\lvert\chi_S(x+c)-\chi_S(x)\right\rvert$. 
+	Fissato $c=(c_1,\dots,c_n)\in\R^n$, definiamo la funzione misurabile $s_c:\R^n\to\R$ come $s_c(x)=\left\lvert\chi_S(x+c)-\chi_S(x)\right\rvert$.
+	
 	Sfruttando delle identità insiemistiche e la definizione delle funzioni caratteristiche, è facile verificare che
 	\begin{equation*}
-		f(x)=\chi_{T\setminus\left(T-c\right)}(x)+\chi_{\left(T-c\right)\setminus T}(x)
+		s_c(x)=\chi_{T\setminus\left(T-c\right)}(x)+\chi_{\left(T-c\right)\setminus T}(x)\punto
 	\end{equation*}
-	e che i due insiemi $T\setminus\left(T-c\right)$ e $\left(T-c\right)\setminus T$ hanno la stessa misura in quanto si può ottenere uno dall'altro, a meno del bordo che ha misura nulla, con una simmetria nell'origine ed una traslazione che però non cambiano la misura in virtù del \cref{prop:LebesgueProprietaIsometria}.
+	Inoltre i due insiemi $T\setminus\left(T-c\right)$ e $\left(T-c\right)\setminus T$ hanno la stessa misura in virtù del \cref{prop:LebesgueProprietaIsometria}, in quanto si può ottenere l'uno dall'altro, a meno del bordo che è però trascurabile, con un'isometria.
+	Unendo quanto detto e ricordando che l'integrale di una caratteristica è la misura dell'insieme, è evidente la validità della formula
+	\begin{equation} \label{eq:IdentitaIntegraleContinuitaL1}
+		\LNorm{s_c}=2m_n\left(T\setminus\left(T-c\right)\right)\punto
+	\end{equation}
 	
-	%TODO: Calcolare la misura di uno dei due insiemi a cui si è arrivati
-	%TODO: Finire la dimostrazione della continuità L1 seguendo lo schema preannunciato.
+	Vogliamo quindi stimare la misura di $T\setminus\left(T-c\right)$. 
+	Se $x=(x_1,\dots,x_n)\in\R^n$ appartiene a $T\setminus\left(T-c\right)$ allora $x\in T$ e $x\not\in T-c$. Ma tali appartenenze, passando in coordinate, divengono il seguente sistema:
+	\begin{equation}\label{eq:SistemaSemianelloContinuitaL1}
+		\begin{cases}
+			\forall i\in\{1,\dots,n\}: &a_i\le x_i<b_i \virgola\\
+			\exists j\in\{1,\dots,n\}: &x_j<a_j-c_j \vee b_j-c_j\le x_j \punto
+		\end{cases}
+	\end{equation}
+	Definiamo quindi $T_j$, con $j\in\{1,\dots,n\}$, come l'insieme dei punti che rispettano il sistema dove la proprietà nella seconda riga è rispettata da $j$.
+	Allora, per la subadditività della misura di Lebesgue, vale
+	\begin{equation}\label{eq:StimaInsiemeConPezzettiContinuitaL1}
+		T\setminus\left(T-c\right)\subseteq \bigcup_{j=1}^n T_j \implies m_n\left(T\setminus\left(T-c\right)\right)\le \sum_{j=1}^n m_n(T_j) \punto
+	\end{equation}
+	Preso $x\in T_j$ se $c_j\ge 0$, come conseguenza dell'\cref{eq:SistemaSemianelloContinuitaL1}, vale $b_j-c_j\le x_j<b_j$; mentre se $c_j<0$ risulta $a_j\le x_j<a_j-c_j$. Sia allora $I$ l'intervallo $\co{b_j-c_j}{b_j}$, nel caso in cui $c_j\ge 0$, e $\co{a_j}{a_j-c_j}$ altrimenti. In entrambi i casi la lunghezza di $I$ risulta essere $\lvert c_j \rvert$.
+	Per quanto detto, ricordando ancora l'\cref{eq:SistemaSemianelloContinuitaL1} è facile accorgersi che vale
+	\begin{equation*}
+		T_j\subseteq \co{a_1}{b_1}\times\cdots\times\co{a_{j-1}}{b_{j-1}}\times I\times\co{a_{j+1}}{b_{j+1}}\times\cdots\times \co{a_n}{b_n}
+	\end{equation*}
+	e da questa, per la definizione della misura di Lebesgue su $\S_n$ è ovvio ricavarne
+	\begin{equation}\label{eq:StimaFinalePezzettoContinuitaL1}
+		m_n(T_j)\le \frac{\lvert c_j\rvert }{b_j-a_j} \prod_{i=1}^n (b_i-a_i)=\frac{\lvert c_j\rvert }{b_j-a_j} m_n(T) \punto
+	\end{equation}
+	
+	Unendo le \cref{eq:IdentitaIntegraleContinuitaL1,eq:StimaInsiemeConPezzettiContinuitaL1,eq:StimaFinalePezzettoContinuitaL1} arriviamo finalmente ad avere
+	\begin{equation*}
+		\LNorm{s_c}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_j\rvert }{b_i-a_i}\virgola
+	\end{equation*}
+	che implica che per $c\to 0$ anche $\LNorm{s_c}\to 0$ e quindi, per la definizione di $s_c$, dimostra che le indicatrici degli elementi del \semiring{} $\S_n$ appartengono a $\mathcal F$ come cercato.
+	%TODO: Riordinare i fatti dimostrati e concludere... ormai manca poco.
 \end{proof}
 
 
