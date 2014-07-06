@@ -219,14 +219,14 @@
 	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
 \end{definition}
 
-\begin{theorem}\label{thm:RadonNikodym} [Radon-Nikodym]
+\begin{theorem}[Radon-Nikodym] \label{thm:RadonNikodym}
 	Dato uno spazio di misura $(X,\A,\mu)$ \sigfin[o], se la misura $\nu:\A\to\Rpiu$ è assolutamente continua rispetto a $\mu$, allora esiste una funzione $\rho:X\to\Rpiu$ misurabile rispetto a $\mu$, tale che
 	\begin{equation*}
 		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
 	\end{equation*}
 \end{theorem}
 
-\begin{definition}\label{def:MediaIntegrale} [Media integrale]
+\begin{definition}[Media integrale] \label{def:MediaIntegrale}
 	Definiamo l'operatore $\aint$, chiamato media integrale, come
 	\begin{equation*}
 		\aint_E f(x)\de\mu(x)=\frac 1{\mu(E)}\int_E f(x)\de\mu(x)\virgola
