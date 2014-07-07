@@ -134,50 +134,20 @@
 	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
 \end{proof}
 
-\begin{proposition}\label{prop:ContinuitaL1}
-	Data una funzione $f:\R^n\to\Rbar$ integrabile nella misura di Lebesgue, le funzioni $f({}\cdot{}+c)$ convergono in norma $L^1$ ad $f$ per $c$ che tende a $0$.
-\end{proposition}
+\begin{lemma}\label{lemma:ContinuitaL1Semianello}
+	Dato $T=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ e $c=(c_1,\dots,c_n)\in\R^n$, vale la stima
+	\begin{equation*}
+		\LNorm{\chi_T({}\cdot{}+c)-\chi_T({}\cdot{})}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_j\rvert }{b_i-a_i} \punto
+	\end{equation*}
+\end{lemma}
 \begin{proof}
-	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
-	Chiamiamo poi, per $c\in\R^n$, $\tau_c:\R^n\to\R^n$ la traslazione $\tau_c(x)=x+c$.
-	
-	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è chiuso per convergenza monotona crescente ed è uno spazio vettoriale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
-	L'unione di questi fatti sarà sufficiente a mostrare che $\mathcal F=\L(\R^n,\M_n,m_n)$ dimostrando così la tesi.
-	
-	Il fatto che $\mathcal F$ sia uno spazio vettoriale discende direttamente dalla linearità dell'integrale e dal fatto che il limite di una somma è la somma dei limiti.
-	
-	Date $f,g:\R^n\to\Rbar$ funzioni integrabili equivalenti in $L^1$, con $f\in\mathcal F$, dimostriamo che $g\in\mathcal F$. 
-	Anche $f\circ\tau_c$ e $g\circ\tau_c$ sono equivalenti in $L^1$ e perciò anche $f\circ\tau_c-f$ coincide quasi ovunque con $g\circ\tau_c-g$.
-	Unendo quanto detto si ottiene
-	\begin{equation*}
-		\LNorm{g\circ\tau_c-g}=\LNorm{f\circ\tau_c-f}\to 0 \virgola
-	\end{equation*}
-	che implica che anche $g$ appartiene a $\mathcal F$.
-	
-	Sia $(f_n)_{n\in\N}$ una successione crescente di funzioni integrabili e sia $f$ il limite di tale successione, che assumiamo essere integrabile.
-	Per il \cref{thm:BeppoLevi} le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
-	Inoltre, una facile conseguenza dell'invarianza per traslazione della misura di Lebesgue è 
-	\begin{equation*}
-		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola
-	\end{equation*}
-	da cui, poichè $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
-	\begin{equation*}
-		\LNorm{f\circ\tau_c-f}\le \LNorm{f_m\circ\tau_c-f\circ\tau_c}+\LNorm{f_m-f}+\LNorm{f_m\circ\tau_c-f_m} \le 2\epsilon+\LNorm{f_m\circ\tau_c-f_m}\virgola
-	\end{equation*}
-	che passando al $\limsup$ entrambi i membri e ricordando che $f_n\in\mathcal F$, implica la disuguaglianza
-	\begin{equation*}
-		\liminf_{c\to 0} \LNorm{f\circ\tau_c-f} \le 2\epsilon \punto
-	\end{equation*}
-	Ma quest'ultima disuguaglianza vale per ogni $\epsilon>0$ e ciò implica ovviamente che anche $f\in\mathcal F$.
-	
-	Sia $S=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ un elemento del \semiring{} degli iper-parallelepipedi aperti a destra di $\R^n$.
-	Fissato $c=(c_1,\dots,c_n)\in\R^n$, definiamo la funzione misurabile $s_c:\R^n\to\R$ come $s_c(x)=\left\lvert\chi_S(x+c)-\chi_S(x)\right\rvert$.
+	Definiamo la funzione misurabile $s_c:\R^n\to\R$ come $s_c(x)=\left\lvert\chi_T(x+c)-\chi_T(x)\right\rvert$.
 	
 	Sfruttando delle identità insiemistiche e la definizione delle funzioni caratteristiche, è facile verificare che
 	\begin{equation*}
 		s_c(x)=\chi_{T\setminus\left(T-c\right)}(x)+\chi_{\left(T-c\right)\setminus T}(x)\punto
 	\end{equation*}
-	Inoltre i due insiemi $T\setminus\left(T-c\right)$ e $\left(T-c\right)\setminus T$ hanno la stessa misura in virtù del \cref{prop:LebesgueProprietaIsometria}, in quanto si può ottenere l'uno dall'altro, a meno del bordo che è però trascurabile, con un'isometria.
+	Inoltre i due insiemi $T\setminus\left(T-c\right)$ e $\left(T-c\right)\setminus T$ hanno la stessa misura in virtù della \cref{prop:LebesgueProprietaIsometria}, in quanto si può ottenere l'uno dall'altro, a meno del bordo che è però trascurabile, con un'isometria.
 	Unendo quanto detto e ricordando che l'integrale di una caratteristica è la misura dell'insieme, è evidente la validità della formula
 	\begin{equation} \label{eq:IdentitaIntegraleContinuitaL1}
 		\LNorm{s_c}=2m_n\left(T\setminus\left(T-c\right)\right)\punto
@@ -210,8 +180,56 @@
 	\begin{equation*}
 		\LNorm{s_c}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_j\rvert }{b_i-a_i}\virgola
 	\end{equation*}
-	che implica che per $c\to 0$ anche $\LNorm{s_c}\to 0$ e quindi, per la definizione di $s_c$, dimostra che le indicatrici degli elementi del \semiring{} $\S_n$ appartengono a $\mathcal F$ come cercato.
-	%TODO: Riordinare i fatti dimostrati e concludere... ormai manca poco.
+	che implica che la tesi per definizione di $s_c$.
+\end{proof}
+
+
+\begin{proposition}\label{prop:ContinuitaL1}
+	Data una funzione $f:\R^n\to\Rbar$ integrabile nella misura di Lebesgue, le funzioni $f({}\cdot{}+c)$ convergono in norma $L^1$ ad $f$ per $c$ che tende a $0$.
+\end{proposition}
+\begin{proof}
+	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
+	Chiamiamo poi, per $c\in\R^n$, $\tau_c:\R^n\to\R^n$ la traslazione $\tau_c(x)=x+c$.
+	
+	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è uno spazio vettoriale chiuso per convergenga puntuale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
+	L'unione di questi fatti sarà sufficiente a mostrare che $\mathcal F=\L(\R^n,\M_n,m_n)$ dimostrando così la tesi.
+	
+	Il \cref{lemma:ContinuitaL1Semianello} dimostra banalmente, considerando il limite per $c\to 0$, che le indicatrici degli insiemi in $\S_n$ appartengono ad $\mathcal F$.
+	
+	Il fatto che $\mathcal F$ sia uno spazio vettoriale discende direttamente dalla linearità dell'integrale e dal fatto che il limite di una somma è la somma dei limiti.
+	
+	Sia $(f_n)_{n\in\N}$ una successione di funzioni integrabili che appartengono ad $\mathcal F$ e sia $f$ il limite puntuale di tale successione, che assumiamo essere integrabile.
+	Per il \cref{thm:ConvergenzaDominata}, le cui ipotesi sono facilmente verificate poichè $f$ è integrabile, le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
+	Inoltre, una facile conseguenza dell'invarianza per traslazione della misura di Lebesgue è 
+	\begin{equation*}
+		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola
+	\end{equation*}
+	da cui, poichè $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
+	\begin{equation*}
+		\LNorm{f\circ\tau_c-f}\le \LNorm{f_m\circ\tau_c-f\circ\tau_c}+\LNorm{f_m-f}+\LNorm{f_m\circ\tau_c-f_m} \le 2\epsilon+\LNorm{f_m\circ\tau_c-f_m}\virgola
+	\end{equation*}
+	che passando al massimo limite entrambi i membri e ricordando che $f_n\in\mathcal F$, implica la disuguaglianza
+	\begin{equation*}
+		\limsup_{c\to 0} \LNorm{f\circ\tau_c-f} \le 2\epsilon \punto
+	\end{equation*}
+	Ma quest'ultima disuguaglianza vale per ogni $\epsilon>0$ e ciò implica ovviamente che anche $f\in\mathcal F$.
+	
+	Date $f,g:\R^n\to\Rbar$ funzioni integrabili equivalenti in $L^1$, con $f\in\mathcal F$, dimostriamo che $g\in\mathcal F$. 
+	Anche $f\circ\tau_c$ e $g\circ\tau_c$ sono equivalenti in $L^1$ e perciò anche $f\circ\tau_c-f$ coincide quasi ovunque con $g\circ\tau_c-g$.
+	Unendo quanto detto si ottiene
+	\begin{equation*}
+		\LNorm{g\circ\tau_c-g}=\LNorm{f\circ\tau_c-f}\to 0 \virgola
+	\end{equation*}
+	che implica che anche $g$ appartiene a $\mathcal F$.
+	
+	Sia $\mathcal E$ la famiglia degli insiemi tali che le loro indicatrici appartengono ad $\mathcal F$. 
+	
+	Abbiamo mostrato che $\S_n\subseteq \mathcal E$. 
+	Inoltre il fatto che $\mathcal F$ sia uno spazio vettoriale implica che $\mathcal E$ sia stabile per unione disgiunta e, essendo $\mathcal F$ chiuso per convergenza puntuale nelle funzioni integrabile, $\mathcal E$ risulta stabile per unione e intersezione monotona numerabile negli insiemi finiti.
+	Quindi risultano verificate le ipotesi del \cref{cor:ChiusuraMonotonaInsiemiFiniti} e ne deduciamo che $\mathcal E$ contiene ogni misurabile finito a meno di un trascurabile. Ma il fatto che se $\mathcal F$ contiene una funzione allora contiene ogni funzione che coincide quasi ovunque con essa implica che $\mathcal E$ se contiene un insieme allora contiene anche quelli che coincidono con lui a meno di un trascurabile.
+	Quindi questo implica $\mathcal E$ contiene tutti gli insiemi misurabili finiti e perciò $\mathcal F$ contiene le loro indicatrici.
+	
+	Concludiamo quindi applicando il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Di nuovo sfruttiamo l'enunciato nella forma con insiemi finiti e funzioni integrabili.}, di cui abbiamo controllato essere verificate tutte le ipotesi, e otteniamo che $\mathcal F$ contiene tutte le funzioni integrabili.
 \end{proof}
 
 
