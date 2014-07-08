@@ -379,5 +379,98 @@ Se il potenziale non dipende dalla coordinata $q_i$ è ovvio ricavare da \cref{L
 In generale vale il Teorema di Noether, che afferma che per ogni simmetria della Lagrangiana si ha una relativa quantità conservata. Per simmetria si intende che se le coordinate vengono cambiate di una quantità piccola, la Lagrangiana rimane costante al prim'ordine in questo cambiamento.
 
 Appunto col formalismo Lagrangiano si riescono a dimostrare agevolmente i risultati enunciati nella sezione precedente \cref{opgl}, poichè discendono quasi banalmente dalle equazioni di Eulero-Lagrange.
-\end{document}
 
+\subsection{Termodinamica}\label{formulario:term}
+
+Trattiamo un gas nell'approssimazione del modello di gas perfetto, ossia assumiamo che il gas sia un insieme di molte particelle in una stessa regione
+di spazio limitata tali che:
+\begin{itemize}
+	\item il loro volume complessivo è trascurabile rispetto il volume di spazio occupato;
+	\item non interagiscono tra loro;
+	\item interagiscono con l'esterno solo attraverso urti elastici sul bordo del loro contenitore.
+\end{itemize}
+
+Definizione di pressione esercitata dal gas: la pressione $p$ del gas è la forza media esercitata dalle particelle sul bordo del contenitore divisa
+per la superficie di questo.
+
+Definizione di temperatura:
+\begin{equation}
+	\label{term:temperatura}
+	\frac{2}{3}kT=<E_{kin}>
+\end{equation}
+dove $k$ è una costante universale per tutti i gas e  $<E_{kin}>$ è l'energia cinetica media di traslazione delle particelle che compongono il gas.
+
+Legge dei gas perfetti:
+\begin{equation}
+	\label{term:perfetti}
+	pV=nRT
+\end{equation}
+dove $n$ è il numero di moli che compongono il gas e $R$ è una costante universale per tutti i gas perfetti.
+
+Definizione di energia interna del gas:
+\begin{equation}
+	\label{term:uinterna}
+	U = \frac{nRT}{\gamma-1}
+\end{equation}
+dove $\gamma$ è una costante che dipende dal tipo di gas (in particolare dalla conformazione delle sue particelle).
+
+Nel caso monoatomico, l'energia delle particelle è solo traslazionale, pertanto, in un sistema di $N$ particelle, vale che
+\[
+	U = N <E_{kin}>
+\]
+da cui, dato che vale $Nk = nR$, si ottiene che $\gamma = \frac{5}{3}$.
+
+Una forza esterna si può vedere come forze applicate a tutte le particelle. Se scriviamo il lavoro svolto sul gas (indichiamo con $\vec{F_i}$ la forza
+sull'$i$-esima particella, $\vec{s_i}$ lo spostamento dell'$i$-esima particella, $\vec F$ e $\vec s$ le quantità medie associate,
+$\delta \vec{F_i} = \vec{F_i}-\vec F$) otteniamo:
+\[
+	\Delta U  = N \vec F \cdot \vec s + \sum_i \delta \vec {F_i}\cdot \vec {s_i}
+\]
+dove abbiamo messo in evidenza una componente di lavoro macroscopico svolto sul sistema e una componente di lavoro \emph{disordinato} sul sistema.
+Chiameremo quest'ultimo come calore $Q$ ceduto sul sistema. Otteniamo in questo modo la prima legge della temodinamica:
+\begin{equation}
+	\label{term:1legge}
+	\Delta U = L + Q
+\end{equation}
+intendendo che il lavoro è svolto \emph{sul} sistema e il calore è ceduto \emph{al} sistema. Notiamo inoltre che tale legge non è altro che una
+riformulazione della conservazione dell'energia.
+
+Un altro modo di esprimere  il lavoro fatto sul gas è
+\begin{equation}
+	\label{term:lavoro}
+	dL = -pdV
+\end{equation}
+
+
+Definizione di macchina termica: è un sistema che trasforma calore ricevuto dall'esterno in lavoro meccanico.
+Una quantità che si associa naturalmente ad una trasformazione compiuta da una macchina termica è il rendimento:
+\begin{equation}
+	\label{term:rendimento}
+	\eta = \frac{-L}{Q}
+\end{equation}
+dove $L$ è il lavoro compiuto dal sistema sulla macchina in quella trasformazione e $Q$ è il calore assorbito.
+Vengono dette cicliche le macchine che compiono trasformazioni cicliche che quindi si possono ripetere un numero arbitrario di volte.
+
+Definizione di sorgente termica: è un sistema con una determinata temperatura che cede o assorbe calore dall'esterno. Ad una sorgente termica
+si associa naturalmente la sua capacità termica:
+\begin{equation}
+	\label{term:capacita}
+	C = \frac{dQ}{dT}
+\end{equation}
+Notevoli sono le sorgenti termiche ideali che hanno capacità termica infinita, ossia non cambiano temperatura anche se cedono o assorbono calore.
+
+Possiamo ora esprimere la seconda legge fondamentale della termodinamica: non esiste una macchina termica ciclica che, lavorando da una sorgente,
+estrae lavoro meccanico.
+
+Come conseguenza di questa legge, si ha la seguente disuguaglianza tra i rendimenti di varie macchine termiche: se $x$ è una macchina termica generica
+e $y$ una macchina ciclica, allora $\eta_x \leq \eta_y$.
+
+Definizione di entropia: definiamo prima la differenza di entropia
+\begin{equation}
+	\label{term:entropia}
+	\Delta S = \int_A^B \frac{dQ}{T}
+\end{equation}
+ora però, l'integrale in generale dipende dal percorso. Se però la trasformazione lungo la quale si calcola la differenza di entropia è reversibile,
+allora l'integrale è indipendente dal percorso. Questo permette di dire che l'entropia è una funzione di stato.
+
+\end{document}
