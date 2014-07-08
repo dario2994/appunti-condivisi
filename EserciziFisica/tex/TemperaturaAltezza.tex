@@ -1,0 +1,47 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Temperatura nella colonna d'aria} %tca
+
+\textex
+
+Assumendo che una colonna d'aria sia in equilibrio termico e che l'aria sia un isolante termico,
+determinare l'andamento della temperatura in funzione dell'altezza.
+
+\solution
+
+Consideriamo le seguenti relazioni tra pressione, altezza e temperatura:
+\begin{equation}
+	\label{tca:stevino}
+	dp = -\rho g dh
+\end{equation}
+
+\begin{equation}
+	\label{tca:densita}
+	\rho = \frac{M}{V} = \frac{Mp}{nRT}
+\end{equation}
+
+dove abbiamo usato la legge dei gas perfetti (\cref{term:perfetti}), inoltre dato che i vari strati di aria sono isolati tra loro, non avviene scambio
+di calore, quindi vale
+
+\begin{equation}
+	\label{tca:adiabatica}
+	pV^{\gamma} = \text{costante} \Rightarrow (1-\gamma)dp+p\gamma\frac{dT}{T} = 0
+\end{equation}
+
+da cui, confrontando i $dp$ nelle \cref{tca:stevino,tca:adiabatica} e usando anche la \cref{tca:densita}  otteniamo
+
+\[
+	\frac{Mpg}{nRT}dh = \frac{p\gamma}{(1-\gamma)T}dT
+\]
+
+da cui una relazione lineare:
+\begin{equation}
+	\label{tca:andamento}
+	\Delta T = \frac{1-\gamma}{\gamma}\frac{Mg}{nR}\Delta h \approx -10 C/km \Delta h
+\end{equation}
+
+
+
+
+\end{document}
