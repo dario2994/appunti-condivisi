@@ -81,6 +81,9 @@ Stella con tensore d'inerzia variante. Trovare \omega (asse di rotazione istanta
 27/03/14
 Giroscopio, studiarne il moto in alcuni casi particolari.
 
+31/03/14 Lezione
+Andamento della temperatura in funzione dell'altezza in una colonna d'aria | Marco | quasi Fatto
+
 3/04/14
 Corpo rigido che ruota intorno ad un asse principale. Piccole perturbazioni di questo moto.
 Rettangolo che ruota a velocità angolare costante intorno ad una sua diagonale. Calcolare il momento delle forze a cui è soggetto.
@@ -91,5 +94,11 @@ Pendolo con la cima che si muove
 Cilindro che rotola (poco) con centro di massa spostato | Federico | Fatto
 La forza che la luna esercita sui punti della terra (considerando che ruotano)
 
-?? Termodinamica
-Andamento della temperatura in funzione dell'altezza in una colonna d'aria | Marco | quasi Fatto
+12/05/14
+Frequenza delle piccole oscillazioni di una massetta che si muove su una semicirconferenza (la massetta "ci sta dentro"), che si muove anch'essa
+Problema di due cilindri posti uno sopra l'altro che si muovono rotolando senza attrito
+
+15/05/14
+Trasformazione ciclica di un gas perfetto tramite un'adiabatica irreversibile, un'isocora reversibile e un'isobara reversibile. Calcolare il lavoro compiuto dal gas e la variazione di entropia del sistema
+Gas in un recipiente il cui coperchio e attaccato ad una molla. Calcolare la pressione in funzione del volume e la capacità termica
+Recipiente formato da due colonne collegate da un rubinetto. Studiare la trasformazione che avviene dopo aver aperto il rubinetto (inizialmente il gas si trova nella prima colonna)
