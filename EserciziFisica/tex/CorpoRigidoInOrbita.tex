@@ -52,7 +52,7 @@ Sostituendo quindi nella \cref{crc:MomentoForzeAssiPrincipali}, ho che vale:
 \begin{equation}\label{crc:SistemaMomentoForze}
 \begin{cases}
 	N_Q^x=N_Q^y=0\\
-	N_Q^z=\frac{3G_N M}{r_Q^5} (\varepsilon_{zxy} I_{x}\theta +\varepsilon_{zyx} I_{y}\theta)=\frac{3G_N M}{r_Q^5}(I_x-I_y)\theta
+	N_Q^z=\frac{3G_N M}{r_Q^5} (\varepsilon_{zxy} I_{x}r_Q^2\theta +\varepsilon_{zyx} I_{y}r_Q^2\theta)=\frac{3G_N M}{r_Q^3}(I_x-I_y)\theta
 \end{cases}
 \end{equation}
 
@@ -71,12 +71,12 @@ ma $\vec \omega$ è diretto lungo l'asse $\hat z$, quindi la componente $z$ di $
 \end{equation*}
 Ponendo infine in quest'ultima equazione la \cref{crc:SistemaMomentoForze} per $N_Q^z$, ho che:
 \begin{equation*}
-	I_z\ddot\theta=\frac{3G_N M}{r_Q^5}(I_x-I_y)\theta \Longrightarrow \ddot\theta=\frac{3G_N M}{r_Q^5}\cdot\frac{I_x-I_y}{I_z}\theta
+	I_z\ddot\theta=\frac{3G_N M}{r_Q^3}(I_x-I_y)\theta \Longrightarrow \ddot\theta=\frac{3G_N M}{r_Q^3}\cdot\frac{I_x-I_y}{I_z}\theta
 \end{equation*}
 
 Da quest'ultima equazione ricaviamo che l'equilibrio è stabile se $I_x-I_y<0$ e in tal caso la pulsazione delle piccole oscillazioni è
 \begin{equation*}
-	\omega=\sqrt{\frac{3G_N M}{r_Q^5}\cdot\frac{I_y-I_x}{I_z}}
+	\omega=\sqrt{\frac{3G_N M}{r_Q^3}\cdot\frac{I_y-I_x}{I_z}}
 \end{equation*}
 
 
