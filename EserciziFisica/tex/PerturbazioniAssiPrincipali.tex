@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Piccole perturbazioni attorno agli assi principali} %pap
+
+\textex
+ Studiare le piccole perturbazioni di una rotazione di un corpo rigido attorno ad uno degli assi principali.
+
+\solution
+ Siamo nel caso in cui non ci sono forze esterne, quindi per la seconda equzione cardinale si ha
+ \begin{equation}
+	\label{pap:cardinale}
+	\vec{L} = 0,
+ \end{equation}
+ 
+ consideriamo quindi, come sistema di riferimento, quello degli assi principali. Per ipotesi abbiamo che
+ \begin{equation}
+	\vec{\omega} = \omega \hat{x} + \epsilon y(t)\hat y + \epsilon z(t) \hat z
+ \end{equation}
+ con $\epsilon<< 1$, cioè $\vec{\omega}$ subisce una lieve deviazione rispetto la direzione lungo l'asse principale.
+ 
+ Una considerazione legittima potrebbe essere quella che manca una componente di deviazione lungo $\hat x$, ma questa trascurabile al primo ordine e,
+ addirittura, imponendo le equazioni che andiamo a studiare ora, otterremo che questa deviazione risulta costante nel tempo (sempre al primo ordine).
+ 
+ Veniamo ora ad imporre l'equazione sul momento angolare (la seconda equazione cardinale della meccanica), tenendo conto che non ci sono forze 
+ esterne e che il polo rispetto cui calcoliamo il momento angolare è fisso abbiamo che $\dot{\vec{L}}=0$, cioè
+ (consideriamo solo le componenti in $\hat y$ e $\hat z$)
+ 
+ \begin{align}
+	I_y \epsilon\dot y + (I_x-I_z)\omega \epsilon z = 0 \\
+	I_z \epsilon\dot z + (I_y-I_x)\omega \epsilon y = 0
+ \end{align}
+ 
+ che è un sistema nella forma
+ 
+ \[
+	\dot v = A v
+ \]
+ dove $v=(y,z)$ e $A=\left(\begin{smallmatrix} 0 & a \\ b & 0 \end{smallmatrix} \right)$ e $a = \frac{I_z-I_x}{I_y}\omega$,
+ $b=\frac{I_x-I_y}{I_z}\omega$. Per trovare le soluzioni ci basta fare la matrice esponenziale o, equivalentemente, 
+ cercare autovalori e farne l'esponenziale.
+ In questo caso, gli autovalori sono $\pm \sqrt{ab}$ e quindi le soluzioni sono un'opportuna combinazione lineare di 
+ $e^{\sqrt{ab}}$ e di $e^{-\sqrt{ab}}$.
+ 
+ Tuttavia, cercavamo le piccole oscillazioni, quindi avevamo intenzione di studiare solo le soluzioni limitate, ma queste si hanno solo se 
+ non ci sono esponenziali di numeri con perte reale positiva. Quindi ciò accade quando $ab$ è nonpositivo, così che otteniamo il classico moto armonico,
+ la cui pulsazione risulta essere $\sqrt{|ab|}$. La condizione ora è $ab\leq 0$ cioè
+ 
+ \begin{equation}
+	\frac{I_z-I_x}{I_y}\frac{I_x-I_y}{I_z}\omega^2 \leq 0
+ \end{equation}
+
+ che è verificata quando $I_x$ non è intermedio a $I_y$ e $I_z$, cioè, quando è il più grande o il più piccolo dei 3 momenti di inerzia.
+ In caso contrario il moto non è stabile attorno all'asse di inerzia.
+ 
+
+\end{document}
