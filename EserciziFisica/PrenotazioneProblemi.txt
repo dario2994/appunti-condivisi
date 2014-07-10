@@ -85,7 +85,7 @@ Giroscopio, studiarne il moto in alcuni casi particolari.
 Andamento della temperatura in funzione dell'altezza in una colonna d'aria | Marco | quasi Fatto
 
 3/04/14
-Corpo rigido che ruota intorno ad un asse principale. Piccole perturbazioni di questo moto.
+Corpo rigido che ruota intorno ad un asse principale. Piccole perturbazioni di questo moto. | Marco
 Rettangolo che ruota a velocità angolare costante intorno ad una sua diagonale. Calcolare il momento delle forze a cui è soggetto.
 Due stelle orbitano soggette alla reciproca attrazione gravitazionale. So tutto di una delle due, calcolare la massa dell'altra.
 
