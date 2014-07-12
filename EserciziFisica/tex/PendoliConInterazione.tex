@@ -1,0 +1,65 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[Compitino 11/07/2014]{Pendoli con interazione gravitazionale} %pig
+\textex
+Due pendoli matematici identici di massa $m$ e lunghezza $l$ sono perturbati dalla sola interazione gravitazionale tra le due masse. La distanza tra i due punti di applicazione dei pendoli è uguale a $l$. 
+\begin{itemize}
+\item Scrivere l'energia (o la lagrangiana) per le piccole oscillazioni del sistema intorno alla posizione di equilibrio. 
+\item Calcolare i modi propri di oscillazione del sistema e le relative frequenze. 
+\item Descrivere l'evoluzione del sistema perturbando una sola delle due masse di un piccolo angolo $\theta_0$ rispetto alla posizione di equlibrio con velocità iniziale nulla. 
+\end{itemize} 
+Si considerino in generale solo effetti al primo ordine nell'interazione tra le due masse ($g\gg\frac{Gm}{l^2}$). 
+
+\solution
+La posizione delle due masse (sistema di assi cartesiani fissato nel punto di applicazione del primo pendolo) è rispettivamente $l(\sin\theta,-\cos\theta)$ e $l(1+\sin\phi, -\cos\phi)$.
+
+La posizione di equilibrio del sistema è data dalle due masse inclinate di un angolo $\alpha=\frac{Gm}{gl^2}$, risultato che si trova scrivendo le forze applicate ad una massa nell'approssimazione che la tensione del filo sia uguale alla forza peso (per comodità possiamo prendere gli angoli positivi verso destra per la prima massa e verso sinistra per la seconda).
+
+D'ora in poi chiamiamo $\theta,\phi$ gli angoli misurati \emph{a partire dalla situazione d'equilibrio $\alpha$}.
+
+Allora l'energia potenziale del sistema risulta essere 
+$$V=-mgl\left[\cos(\alpha+\theta)+\cos(\alpha+\phi)\right]-\frac{m^2 G}{d}$$
+dove $d=l\sqrt{\left[1-\sin(\alpha+\theta)-\sin(\alpha+\phi)\right]^2+\left[\cos(\alpha+\theta)+\cos(\alpha+\phi)\right]^2}$ è la distanza tra le due masse. Ora, dato che $\alpha$ è molto piccolo (per ipotesi) si ha che lo sviluppo attorno al punto di equilibrio si può approssimare con lo sviluppo attorno a 0. Approssimando in questo modo la distanza tra le due masse si vede che $\left[\cos(\alpha+\theta)+\cos(\alpha+\phi)\right]^2$ è trascurabile perché i termini al secondo ordine si cancellano e restano quindi termini al quarto ordine, che sono trascurabili. La radice e il quadrato restante si semplificano, e il secondo termine del potenziale risulta essere
+$$-\frac{m^2 G}{l\left[1-\sin(\alpha+\theta)-\sin(\alpha+\phi)\right]} $$
+Quindi, approssimando intorno a 0, il potenziale per piccole oscillazioni risulta essere
+$$ V=\frac{mgl}{2}\left[(\alpha+\theta)^2+(\alpha+\phi)^2\right]-\frac{m^2 G}{l\left[1-(\alpha+\theta)-(\alpha+\phi)\right]} $$
+e infine questo è uguale, al secondo ordine, a
+$$ V=\frac{mgl}{2}\left[(\alpha+\theta)^2+(\alpha+\phi)^2\right]-\frac{m^2 G}{l}\left[1+2\alpha+\theta+\phi+4\alpha^2+4\alpha(\theta+\phi)+(\theta+\phi)^2\right] $$
+Ora, trattandosi di un potenziale, tutti i termini costanti possono essere eliminati, ottenendo
+$$ V=\frac{mgl}{2}(\theta^2+2\alpha\theta+\phi^2+2\alpha\theta)-\frac{m^2 G}{l}(\theta+\phi+4\alpha(\theta+\phi)+(\theta+\phi)^2)=$$
+$$=\frac{mgl}{2}(\theta^2+2\alpha\theta+\phi^2+2\alpha\phi)-\frac{\alpha m g l}{l}\left[\theta+\phi+4\alpha(\theta+\phi)+(\theta+\phi)^2\right] $$
+e come si vede i termini al primo ordine si cancellano tutti, o direttamente o perché risultano moltiplicati per $\alpha^2$ che è trascurabile. Si ottiene quindi
+\begin{equation}\label{pig:Potenziale}
+	V=\frac{mgl}{2}(\theta^2+\phi^2)-\frac{\alpha m g l}{l}(\theta+\phi)^2=\frac{mgl}{2}\left[\theta^2+\phi^2-2\alpha(\theta+\phi)^2\right]
+\end{equation}
+
+Inoltre vale banalmente, detta $T$ l'energia cinetica del sistema, che
+\begin{equation}\label{pig:Cinetica}
+	T=\frac12ml^2\left(\theta^2+\phi^2\right)
+\end{equation}
+
+Allora, ricordando la \cref{opgl} ed usando la medesima notazione per le matrici, le \cref{pig:Potenziale,pig:Cinetica} impongono che le matrici siano
+\begin{equation*}
+	K=mgl\begin{pmatrix}
+		1-2\alpha & -2\alpha \\
+		-2\alpha & 1-2\alpha
+	\end{pmatrix} \qquad	
+	M=ml^2\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix} 
+\end{equation*}
+e da qui imponendo $\det\left(K-\omega^2M\right)=0$ si trovano facilmente i modi normali e le rispettive frequenze di oscillazione, che risultano essere $\omega_1^2=\frac{g}{l}$ per l'oscillazione associata al modo normale $(1,-1)$ (cioè $\theta=-\phi$) e $\omega_2^2=\frac{g}{l}(1-4\alpha)$ per l'oscillazione associata al modo normale $(1,1)$ (cioè $\theta=\phi$).
+
+Per concludere basta scrivere
+\begin{equation*}
+	(\theta_0,0)=\frac{\theta_0}2\left[(1,-1)+(1,1)\right]
+\end{equation*}
+per ottenere che il moto che si genera partendo a velocità nulla da $(\theta_0,0)$ è
+\begin{align*}
+	\theta=&\frac{\theta_0}2\left[\cos(\omega_2t)+\cos(\omega_1t)\right] \\
+	\phi=&\frac{\theta_0}2\left[\cos(\omega_2t)-\cos(\omega_1t)\right]
+\end{align*}
+e cioè piano piano anche il secondo pendolo si mette in movimento (la differenza di coseni si può scrivere come prodotto di sinusoidi).
+\end{document}
