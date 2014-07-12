@@ -106,6 +106,6 @@ Recipiente formato da due colonne collegate da un rubinetto. Studiare la trasfor
 11/07/14 Compito
 Elettroni in un campo magnetico
 Ciclo termodinamico rettangolare (relazione tra le temperature)
-Pendoli soggetti alla gravità
+Pendoli soggetti alla gravità | Becchi | Fatto
 Potenziale in polari
 
