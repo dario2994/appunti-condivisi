@@ -102,3 +102,10 @@ Problema di due cilindri posti uno sopra l'altro che si muovono rotolando senza 
 Trasformazione ciclica di un gas perfetto tramite un'adiabatica irreversibile, un'isocora reversibile e un'isobara reversibile. Calcolare il lavoro compiuto dal gas e la variazione di entropia del sistema
 Gas in un recipiente il cui coperchio e attaccato ad una molla. Calcolare la pressione in funzione del volume e la capacità termica
 Recipiente formato da due colonne collegate da un rubinetto. Studiare la trasformazione che avviene dopo aver aperto il rubinetto (inizialmente il gas si trova nella prima colonna)
+
+11/07/14 Compito
+Elettroni in un campo magnetico
+Ciclo termodinamico rettangolare (relazione tra le temperature)
+Pendoli soggetti alla gravità
+Potenziale in polari
+
