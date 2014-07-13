@@ -1,21 +1,68 @@
 \documentclass[../main.tex]{subfiles} 
 \begin{document}
 
-  \newcommand\ecmvprod{\times}
-
   \exercise[11/07/14]{Elettroni in un campo magnetico} %ecm
   \textex
-  Un atomo, schematizzabile come un sistema di N elettroni sottoposti ad una forza centrale ed interagenti fra loro, \`e soggetto ad un campo magnetico esterno uniforme e costante $\vec B$, che agisce sull'elettrone $i$-esimo con una forza $\vec F_i = \frac{e}{c} \cdot \left(\vec v_i \ecmvprod \vec B\right)$, dove $e$ ed $m$ sono la carica elettrica e la massa dell'elettrone, e $c$ \`e la velocit\`a della luce.
+  Un atomo, schematizzabile come un sistema di N elettroni sottoposti ad una forza centrale ed interagenti fra loro, \`e soggetto ad un campo magnetico esterno uniforme e costante $\vec B$, che agisce sull'elettrone $i$-esimo con una forza $\vec F_i = \frac{e}{c} \cdot \left(\vec v_i \times \vec B\right)$, dove $e$ ed $m$ sono la carica elettrica e la massa dell'elettrone, e $c$ \`e la velocit\`a della luce.
 
   \begin{itemize}
-    \item[(a)] Mostrare che i moti possibili degli elettroni in presenza del campo magnetico, purch\'e sufficientemente piccolo, sono gli stessi di quelli in assenza del campo, sovrapposti ad una rotazione dell'intero sistema con velocit\`a angolare opportuna. \newline
+    \item[(a)] Mostrare che i moti possibili degli elettroni in presenza del campo magnetico, purch\'e sufficientemente piccolo, sono gli stessi di quelli in assenza del campo, sovrapposti ad una rotazione dell'intero sistema con velocit\`a angolare opportuna.\footnote{Se quest'ultima frase si intende riferita non a ``quelli in assenza del campo'' ma a ``i moti possibili degli elettroni in presenza del campo magnetico'' la soluzione differisce per correzioni al secondo ordine, perch\'e la forza dovuta al campo magnetico nel sistema non inerziale diventa $\frac{e}{c} \cdot \left( \left(\dot {\vec {r_i}} - r_i \omega \hat \theta \right) \times \vec B\right)$} \newline
     Qual \`e tale velocit\`a angolare?
     \item[(b)]Qual \`e la condizione che deve soddisfare il campo magnetico?
   \end{itemize}
 
-  
-  
-  
-  
+  \solution
+  \begin{itemize}
+    \item[(a)]
+    Considero un sistema di riferimento inerziale con il centro coincidente con quello della forza centrale, cio\`e $\vec \alpha(r, \theta)=\alpha(r)\hat r$.
+    
+    La forza sull'elettrone $i$-esimo vale:
+    
+    \begin{equation}
+      \label{ecm:forzai}
+      \vec F_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r+\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)
+    \end{equation}
+    dove $\vec f_{ij}$ \`e la forza di interazione tra gli elettroni.
+    
+    Considero ora lo stesso sistema in rotazione (attorno al centro) con velocit\`a angolare $\omega$ costante e senza il campo magnetico.
+    
+    Quindi devo considerare le forze apparenti dovute alla rotazione del sistema: dalla \cref{ForzaNonInerziale}, con $\vec a_{tr}=0$ e $\dot{\vec \omega}=0$ ottengo che la forza sull'elettrone $i$-esimo vale 
+    
+    \begin{equation}
+      \label{ecm:forzar}
+      \vec F'_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r-m (2 \vec \omega \times \dot {\vec {r_i}}+ \vec \omega \times (\omega \times \vec r_i))
+    \end{equation}
+    perch\'e le posizioni reciproche degli elettroni non cambiano in una rotazione e nemmeno la forza centrale (espressa in termini di $\hat r$), se la rotazione avviene attorno al centro. \newline
+    La differenza tra le due forze vale quindi
+    
+    \begin{equation}
+      \label{ecm:diff}
+      \vec F_i-\vec F'_i=\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)+m (2 \vec \omega \times \dot {\vec {r_i}}+ \vec \omega \times (\omega \times \vec r_i))
+    \end{equation}
+    Posso considerare $\vec r_i$ e $\dot {\vec{r_i}}$ come indipendenti, quindi raccolgo i termini relativi a $\dot {\vec{r_i}}$ e impongo che la differenza sia nulla, ottenendo
+      
+    \begin{equation}
+      \label{ecm:diff0}
+      \vec F_i-\vec F'_i=\left(\dot {\vec {r_i}} \times \left(\frac{e}{c} \vec B -2m\vec \omega\right)\right)+ m \vec \omega \times (\omega \times \vec r_i)=0
+    \end{equation}
+    cio\`e
+    
+    \begin{equation}
+    \label{ecm:result}
+    \vec \omega=\frac{e}{2mc} \vec B
+    \end{equation}
+    e $m \vec \omega \times (\omega \times \vec r_i)$ deve essere trascurabile (rispetto a cosa non \`e chiaro, vedi punto b).
+    
+    \item[(b)]
+    La condizione per cui vale il risulatto del punto a \`e che la forza centrifuga  $\vec \omega \times (\omega \times \vec r_i)$ sia trascurabile.
+    Ci sono almeno due modi in cui pu\`o essere intesa questa condizione:
+    
+    \begin{itemize}
+      \item rispetto alla forza di Coriolis, da \cref{ecm:diff} in modo da poter trascurare la forza centrifuga in questa espressione e imporre \cref{ecm:result};
+      \item rispetto alla forza centrale, che \`e l'unica a dipendere solo da $\vec r_i$;
+    \end{itemize}
+    
+    
+  \end{itemize}
 
 \end{document}
