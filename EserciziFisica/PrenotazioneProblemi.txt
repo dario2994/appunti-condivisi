@@ -104,7 +104,7 @@ Gas in un recipiente il cui coperchio e attaccato ad una molla. Calcolare la pre
 Recipiente formato da due colonne collegate da un rubinetto. Studiare la trasformazione che avviene dopo aver aperto il rubinetto (inizialmente il gas si trova nella prima colonna)
 
 11/07/14 Compito
-Elettroni in un campo magnetico
+Elettroni in un campo magnetico | Francesco | quasi fatto
 Ciclo termodinamico rettangolare (relazione tra le temperature)
 Pendoli soggetti alla gravità | Becchi | Fatto
 Potenziale in polari
