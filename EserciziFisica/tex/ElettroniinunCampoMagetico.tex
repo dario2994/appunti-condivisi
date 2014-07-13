@@ -18,40 +18,35 @@
     Considero un sistema di riferimento inerziale con il centro coincidente con quello della forza centrale, cio\`e $\vec \alpha(r, \theta)=\alpha(r)\hat r$.
     
     La forza sull'elettrone $i$-esimo vale:
-    
     \begin{equation}
       \label{ecm:forzai}
-      \vec F_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r+\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)
+      \vec F_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r
     \end{equation}
     dove $\vec f_{ij}$ \`e la forza di interazione tra gli elettroni.
     
-    Considero ora lo stesso sistema in rotazione (attorno al centro) con velocit\`a angolare $\omega$ costante e senza il campo magnetico.
+    Ora guardo lo stesso sistema in presenza di un campo magnetico da un sistema in rotazione (attorno al centro) con velocit\`a angolare $\vec\omega$ costante.
+    Vorrei scegliere $\vec \omega$ di modo che il moto degli elettroni sia il medesimo visto nel nuovo sistema di quello nel sistema precedente.
     
     Quindi devo considerare le forze apparenti dovute alla rotazione del sistema: dalla \cref{ForzaNonInerziale}, con $\vec a_{tr}=0$ e $\dot{\vec \omega}=0$ ottengo che la forza sull'elettrone $i$-esimo, chiamando $\vec v_{ir}$ la velocità nel sistema rotante, vale 
     \begin{equation}
       \label{ecm:forzar}
-      \vec F'_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r-m (2 \vec \omega \times \vec v_{ir}+ \vec \omega \times (\omega \times \vec r_i))
+      \vec F'_i= \sum_{j \neq i} \vec f_{ji}(\vec r_i-\vec r_j)+\alpha(r_i)\hat r+\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)-m (2 \vec \omega \times \vec v_{ir}+ \vec \omega \times (\omega \times \vec r_i))
     \end{equation}
     perch\'e le posizioni reciproche degli elettroni non cambiano in una rotazione e nemmeno la forza centrale (espressa in termini di $\hat r$), se la rotazione avviene attorno al centro.
     
+    Se avessi $\vec F_i=\vec F'_i$ potrei ricavare che $\vec a_{ir}$, l'accelerazione relativa al sistema rotante, coincide con quella del sistema fermo senza campo magnetico e questo darebbe la tesi.
     Ma vale che $\vec v_{ir}=\vec v_i-\vec \omega\times \vec r_i$ e perciò la differenza tra le due forze vale
     \begin{equation}
       \label{ecm:diff}
-      \vec F_i-\vec F'_i=\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)+m (2 \vec \omega \times \dot {\vec {r_i}}- \vec \omega \times (\omega \times \vec r_i))
+      \vec F_i-\vec F'_i=m (2 \vec \omega \times \dot {\vec {r_i}}- \vec \omega \times (\omega \times \vec r_i))-\frac{e}{c} \cdot \left(\dot {\vec {r_i}} \times \vec B\right)
+      =-m\vec \omega \times (\omega \times \vec r_i))-\dot{\vec{r_i}}\times \left(\frac{e}{c} \vec B+2m\vec\omega\right)
     \end{equation}
-    Posso considerare $\vec r_i$ e $\dot {\vec{r_i}}$ come indipendenti, quindi raccolgo i termini relativi a $\dot {\vec{r_i}}$ e impongo che la differenza sia nulla, ottenendo
-    \begin{equation}
-      \label{ecm:diff0}
-      \vec F_i-\vec F'_i=\left(\dot {\vec {r_i}} \times \left(\frac{e}{c} \vec B -2m\vec \omega\right)\right)- m \vec \omega \times (\omega \times \vec r_i)=0
-    \end{equation}
-    cio\`e
-    
+    Quindi, considerando la parte centrifuga trascurabile (rispetto a cosa non è chiaro, vedi punto b) si ottiene
     \begin{equation}
     \label{ecm:result}
-    \vec \omega=\frac{e}{2mc} \vec B
+    \vec \omega=-\frac{e}{2mc} \vec B
     \end{equation}
-    e $m \vec \omega \times (\omega \times \vec r_i)$ deve essere trascurabile (rispetto a cosa non \`e chiaro, vedi punto b).
-    
+    e cioè il sistema ruota con velocità angolare $-\vec\omega=\frac e{2mc}\vec B$ (ricordiamo infatti che ci eravamo messi a girare \emph{noi} con velocità angolare $\vec\omega$ di modo che il sistema sembrasse comportarsi normalmente).
     \item[(b)]
     La condizione per cui vale il risultato del punto a \`e che la forza centrifuga  $\vec \omega \times (\omega \times \vec r_i)$ sia trascurabile.
     Ci sono almeno due modi in cui pu\`o essere intesa questa condizione:
