@@ -1,6 +1,9 @@
 \section{L'integrazione negli spazi Euclidei}
+Approfondiamo ora la teoria dell'integrazione nell'ambientazione più classica: lo spazio $\R^n$ munito della misura di Lebesgue.
 
-% Ovunque, scriveremo implicitamente $\L$ per intendere $\L(\R^n,\M_n,m_n)$.
+Mostreremo che l'integrale di Lebesgue non è che una generalizzazione dell'integrale di Riemann e che la misura prodotto definibile su $\R^n$ a partire dalla misura sulla retta reale coincide proprio con la misura $m_n$. Questi due risultati forniranno, a meno di applicare i teoremi di Fubini e Tonelli, i metodi primari per calcolare gli integrali in più dimensioni.
+
+La seconda parte della sezione sarà completamente votata alla dimostrazione della formula del cambio di variabile, che necessita di un gran numero di lemmi e di un teorema, il teorema di Radon-Nikodym, che lasceremo indimostrato.
 
 \begin{proposition}\label{prop:MisuraProdottoEuclidea}
 	La \sigalg{} prodotto completata $\overline{\M_n\otimes\M_m}$ dei misurabili di $\R^n$ e $\R^m$ coincide con la \sigalg{} dei misurabili di $\R^{n+m}$.
@@ -54,6 +57,10 @@
 	e ciò equivale ovviamente alla tesi.
 \end{proof}
 
+Dimostriamo ora un caso particolare, ma molto significativo, della formula del cambio di variabile. 
+Proviamo la formula per il cambio di variabile lineare che verrà poi sfruttata, attraverso una sorta di passaggio al limite, per dimostrare la formula più generale.
+
+In particolare, e tale procedimento verrà ripetuto varie volte in questa sezione, prima otterremo un risultato sulla misura di un insieme trasformato da un'applicazione lineare per poi ricavarne facilmente la formula per il cambio di variabile. L'idea che sta alla base di questo è che l'identità riguardante le misure è in realtà un cambio di variabile riguardante le funzioni indicatrici.
 
 \begin{proposition}\label{prop:MisuraImmagineLineare}
 	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
@@ -134,6 +141,14 @@
 	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
 \end{proof}
 
+I fatti seguenti sono tutti mirati a fornire basi solide ai vari procedimenti di limite necessari per ottenere la formula per il cambio di variabile.
+%TODO: aldilà o al di là
+In particolare la continuità $L^1$, così è nota in letteratura la \cref{prop:ContinuitaL1}, oltre ad essere il fondamento di tutti gli altri lemmi è importante anche aldilà di questa dimostrazione. È infatti un fatto assolutamente non ovvio che rende possibile ottenere tutti i risultati riguardo la convoluzione integrale.
+
+Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ ricalca quella che vuole essere la struttura di tutte le dimostrazioni fondazionali della teoria della misura: si inizia dimostrando l'enunciato per insiemi nel \semiring{} per poi concludere che vale per ogni misurabile attraverso l'applicazione di chiusure monotone.
+
+
+
 \begin{lemma}\label{lemma:ContinuitaL1Semianello}
 	Dato $T=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ e $c=(c_1,\dots,c_n)\in\R^n$, vale la stima
 	\begin{equation*}
@@ -184,8 +199,8 @@
 \end{proof}
 
 
-\begin{proposition}\label{prop:ContinuitaL1}
-	Data una funzione $f:\R^n\to\Rbar$ integrabile nella misura di Lebesgue, le funzioni $f({}\cdot{}+c)$ convergono in norma $L^1$ ad $f$ per $c$ che tende a $0$.
+\begin{proposition}[Continuità $L^1$]\label{prop:ContinuitaL1}
+	Data una funzione $f:\R^n\to\Rbar$ integrabile nella misura di Lebesgue, le funzioni $f({}\cdot{}+c)$ convergono, per $c$ che tende a $0$, in norma $L^1$ ad $f$.
 \end{proposition}
 \begin{proof}
 	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
@@ -232,18 +247,6 @@
 	Concludiamo quindi applicando il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Di nuovo sfruttiamo l'enunciato nella forma con insiemi finiti e funzioni integrabili.}, di cui abbiamo controllato essere verificate tutte le ipotesi, e otteniamo che $\mathcal F$ contiene tutte le funzioni integrabili.
 \end{proof}
 
-
-\begin{definition}\label{def:AssolutamenteContinua}
-	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
-\end{definition}
-
-\begin{theorem}[Radon-Nikodym] \label{thm:RadonNikodym}
-	Dato uno spazio di misura $(X,\A,\mu)$ \sigfin[o], se la misura $\nu:\A\to\Rpiu$ è assolutamente continua rispetto a $\mu$, allora esiste una funzione $\rho:X\to\Rpiu$ misurabile rispetto a $\mu$, tale che
-	\begin{equation*}
-		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
-	\end{equation*}
-\end{theorem}
-
 \begin{definition}[Media integrale] \label{def:MediaIntegrale}
 	Definiamo l'operatore $\aint$, chiamato media integrale, come
 	\begin{equation*}
@@ -289,7 +292,7 @@
 		\forall x\in E:\ f_r(x)=\frac{\int_{B_r(x)\cap E}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
 	\end{equation*}
 	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$.
-	Allora le funzioni $f_r$, che risultano essere continue, convergono in norma $L^1$ alla funzione $f$ per $r$ che tende a $0$.
+	Allora le funzioni $f_r$, che risultano essere continue, convergono, per $r$ che tende a $0$, in norma $L^1$ alla funzione $f$.
 \end{lemma}
 \begin{proof}
 	Innanzitutto, per comodità di notazione, allarghiamo il dominio della $f$ ponendo $f(E^{\mathsf c})=\{0\}$, così facendo otteniamo
@@ -320,6 +323,11 @@
 	Per la \cref{prop:ContinuitaL1}, il valore $\sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}$ tende a $0$ per $r\to 0$ e applicando ciò nell'\cref{eq:ContinuitaPalleDis} si ricava facilmente la tesi.
 \end{proof}
 
+Terminati i lemmi preliminari, mostriamo ora la formula per il cambio di variabile. La dimostrazione procede in tre passi. 
+In un primo passo, cioè nel \cref{lemma:LimiteDeterminante}, proviamo solo una disuguaglianza, che poi mostreremo essere un'uguaglianza nel \cref{lemma:MisuraImmagine} e che sarà l'equivalente della \cref{prop:MisuraImmagineLineare} ma nel caso generale e non in quello lineare. Infine il terzo passo semplicente trasforma l'enunciato sulla misura di un insieme nella formula per il cambio di variabile.
+
+Per passare da disuguaglianza a disuguaglianza sfrutteremo come strumento fondamentale il teorema di Radon-Nikodym, che asserisce fondamentalmente che ogni misura ammette una ``densità'' cioè una funzione tale che il suo integrale su un insieme, rispetto ad un'altra misura, coincide con la misura dell'insieme.
+Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità della dimostrazione e poichè in queste dispense lo useremo solo come strumento tecnico, senza approfondire l'argomento.
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
 	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità.
@@ -359,11 +367,22 @@
 	che implica banalmente la tesi.
 \end{proof}
 
+\begin{definition}\label{def:AssolutamenteContinua}
+	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
+\end{definition}
+
+\begin{theorem}[Radon-Nikodym] \label{thm:RadonNikodym}
+	Dato uno spazio di misura $(X,\A,\mu)$ \sigfin[o], se la misura $\nu:\A\to\Rpiu$ è assolutamente continua rispetto a $\mu$, allora esiste una funzione $\rho:X\to\Rpiu$ misurabile rispetto a $\mu$, tale che
+	\begin{equation*}
+		\forall A\in\A:\ \nu(A)=\int_A \rho(x)\de\mu(x)\punto
+	\end{equation*}
+\end{theorem}
+
 \begin{lemma}\label{lemma:MisuraImmagine}
 	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
 	Allora, per ogni $E\subseteq \Omega$ misurabile vale
 	\begin{equation*}
-		m_n(\varphi(E))=\left\lvert \det D\varphi(x) \right\rvert \de m_n(x)\virgola
+		m_n(\varphi(E))=\int_E\left\lvert \det D\varphi(x) \right\rvert \de m_n(x)\virgola
 	\end{equation*}
 	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
 \end{lemma}
@@ -415,10 +434,7 @@
 		m_n(E)=\int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \virgola
 	\end{equation*}
 	che implica banalmente la tesi.
-
 \end{proof}
-
-
 
 \begin{theorem}\label{thm:CambioVariabile}
 	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
