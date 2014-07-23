@@ -168,7 +168,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 \end{theorem}
 \newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% X => Y
 \begin{proof}
-	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poichè $\sqcup\S$ è chiuso per unioni numerabili come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
+	Per l'ipotesi di \sigfin[ezza] esiste $(X_n)_{n\in\N}\subseteq \S$ una successione disgiunta (posso sceglierla disgiunta poiché $\sqcup\S$ è chiuso per unioni numerabili come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}) tale che $A\subseteq \bigcup_{n\in\N}X_n$ e $\mu(X_n)<+\infty$. Chiamiamo inoltre $X'=\bigcup_{n\in\N}X_n$.
 	
 	Dimostriamo innanzitutto la catena di implicazioni
 	$\text{\ref{it:MisurabileEquivalenze}}\implies
@@ -176,7 +176,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\text{\ref{it:SigmaDaFuoriEquivalenze}}\implies
 	\text{\ref{it:MisurabileEquivalenze}}$.
 	\begin{description}
-		\item[\ImplicationProof{it:MisurabileEquivalenze}{it:UnioniDaFuoriEquivalenze}] Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perchè intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
+		\item[\ImplicationProof{it:MisurabileEquivalenze}{it:UnioniDaFuoriEquivalenze}] Definiamo $A_n=A\cap X_n$. Gli $A_n$ sono misurabili, perché intersezioni di misurabili, e hanno misura finita dato che la misura è monotona.
 		
 		Sia $\epsilon>0$ fissato.
 		
@@ -191,7 +191,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 			0\le \mu'(S_n\setminus A_n) \le \frac\epsilon{2^n} \implies \mu^*(S_n\setminus A_n)\le \frac\epsilon{2^n}\punto
 		\end{equation}
 		
-		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poichè questo è chiuso per unione numerabile come dimostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subadditività della misura esterna  $\mu^*$, sfruttando l'\cref{eq:DifficileFreccia12Misurabili}, si ottiene
+		Ora consideriamo $S=\bigcup_{n\in\N}S_n$, che appartiene ancora a $\sqcup\S$ poiché questo è chiuso per unione numerabile come dimostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Si ha $A\subseteq S$ e per la subadditività della misura esterna  $\mu^*$, sfruttando l'\cref{eq:DifficileFreccia12Misurabili}, si ottiene
 		\begin{equation*}
 			\mu^*(S\setminus A)=\mu^*\left(\bigcup_{n\in\N}S_n\setminus A_n\right)\le
 			\sum_{n\in\N}\mu^*(S_n\setminus A_n)\le\sum_{n\in\N}\frac\epsilon{2^n}\le \epsilon
@@ -199,7 +199,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		e questo conclude visto che $S$ soddisfa tutte le richieste dell'enunciato.
 		\item[\ImplicationProof{it:UnioniDaFuoriEquivalenze}{it:SigmaDaFuoriEquivalenze}] L'ipotesi ci assicura l'esistenza di $(S_n)_{n\in\N}\subseteq \sqcup \S$ tali che $A\subseteq S_n$ e $\mu^*(S_n\setminus A)<\frac1n$.
 		
-		Definiamo $B=\cap_{n\in\N}S_n$, che appartiene a $\sigma A(\S)$ poichè generato a partire da $\S$ con sole unioni e intersezioni numerabili. Ovviamente vale $A\subseteq B$.
+		Definiamo $B=\cap_{n\in\N}S_n$, che appartiene a $\sigma A(\S)$ poiché generato a partire da $\S$ con sole unioni e intersezioni numerabili. Ovviamente vale $A\subseteq B$.
 		
 		Infine risulta vera 
 		\begin{equation*}
@@ -208,7 +208,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		e perciò $\mu^*(B\setminus A)=0$ e questo dimostra l'implicazione cercata.
 		\item[\ImplicationProof{it:SigmaDaFuoriEquivalenze}{it:MisurabileEquivalenze}] Per ipotesi esiste $B\in\sigma A(\S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.
 		
-		Poichè $\A$ è una \sigalg{} contenente $\S$ e $B\in\sigma A(\S)$, deve essere $B\in\A$. 
+		Poiché $\A$ è una \sigalg{} contenente $\S$ e $B\in\sigma A(\S)$, deve essere $B\in\A$. 
 		Inoltre $\mu':\A\to\Rpiu$ è una misura completa, come visto nel \cref{thm:RiduzionePreCaratheodory}, e inoltre i trascurabili secondo $\mu^*$ risultano essere proprio i trascurabili secondo $\mu'$ (come visto nella dimostrazione del \cref{thm:RiduzionePreCaratheodory}) quindi anche $B\setminus A\in \A$ in quanto è un trascurabile e la misura è completa. 
 		
 		Di conseguenza, visto che $\A$ è una \sigalg, otteniamo che $A=B\setminus (B\setminus A)$ è misurabile in quanto differenza di misurabili. Perciò $A\in\A$ dimostrando l'implicazione.
@@ -257,7 +257,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	Nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme}, dato $A$ un misurabile \sigfin[o], esiste $B\in\hat{\hat\S}$ che contiene $A$ e tale che $\mu(B\setminus A)=0$.
 \end{corollary}
 \begin{proof}
-	Poichè siamo nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} ed $A$ è misurabile, di certo valgono le varie implicazioni, quindi assumiamone implicitamente la validità.
+	Poiché siamo nelle stesse ipotesi del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} ed $A$ è misurabile, di certo valgono le varie implicazioni, quindi assumiamone implicitamente la validità.
 	
 	Notiamo che nella dimostrazione di \ImplicationProof{it:UnioniDaFuoriEquivalenze}{it:SigmaDaFuoriEquivalenze} del \cref{thm:EquivalenzeMisurabilitaSottoinsieme} scriviamo $B$, che è per l'appunto un insieme che contiene $A$ e tale che $\mu(B\setminus A)=0$, come intersezione numerabile di $(S_n)_{n\in\N}\subseteq \sqcup \S$.
 	Avremmo finito se quest'intersezione fosse monotona, visto che $\sqcup \S\subseteq \hat \S$.
@@ -265,7 +265,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation*}
 		\bigcap_{n\in\N} S_n = \bigcap_{n\in\N} \bigcap_{i\le n} S_n \virgola
 	\end{equation*}
-	dove gli elementi che intersechiamo rispetto ad $n$ appartengono ancora a $\sqcup \S$ poichè questo è chiuso per intersezione finita (come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}).
+	dove gli elementi che intersechiamo rispetto ad $n$ appartengono ancora a $\sqcup \S$ poiché questo è chiuso per intersezione finita (come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}).
 \end{proof}
 
 \begin{corollary}\label{cor:ChiusuraMonotonaInsiemiFiniti}
@@ -299,7 +299,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Se $\mu'(A)=+\infty=\mu''(A)$ la tesi è già dimostrata,  quindi assumiamo, senza perdità di generalità, $\mu''(A)<+\infty$.
 	
-	Fissato $\epsilon>0$, grazie al \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perchè di certo $A$ appartiene ai misurabili secondo \carat{}, visto che appartiene alla \sigalg{} generata da $\S$).
+	Fissato $\epsilon>0$, grazie al \cref{cor:EquivalenzeMisurabilitaSpazio} ricaviamo che esiste $S\in\sqcup S$ che contiene $A$ tale che $\mu^*(S\setminus A)< \epsilon$ (questo perché di certo $A$ appartiene ai misurabili secondo \carat{}, visto che appartiene alla \sigalg{} generata da $\S$).
 	
 	Ora, sfruttando la \cref{nota:PremisuraMassimaMisura}, ricaviamo anche $\mu^*(S\setminus A)\ge\mu'(S\setminus A)$ e un risultato analogo per $\mu''$. Quindi risultano valere $\mu'(S\setminus A)<\epsilon,\ \mu''(S\setminus A)<\epsilon$.
 	

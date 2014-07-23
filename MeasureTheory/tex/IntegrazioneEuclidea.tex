@@ -11,7 +11,7 @@ La seconda parte della sezione sarà completamente votata alla dimostrazione del
 \begin{proof}
 	Lavoriamo sulla \sigalg{} prodotto \emph{non completata} $\M_n\otimes\M_m$, per poi ottenere l'enunciato ricordando che il completamento dei Boreliani sono i misurabili.
 
-	Ricordando la \cref{def:LebesgueSemiaperti}, poichè valgono ovviamente i contenimenti $S_n\subseteq M_n$ e $S_m\subseteq M_m$, è facile ricavarne che $S_{n+m}\subseteq M_n\otimes M_m$.
+	Ricordando la \cref{def:LebesgueSemiaperti}, poiché valgono ovviamente i contenimenti $S_n\subseteq M_n$ e $S_m\subseteq M_m$, è facile ricavarne che $S_{n+m}\subseteq M_n\otimes M_m$.
 	Ma allora, applicando la \cref{prop:SigAlgUgualeBoreliani} e ricordando che $\M_n\otimes M_m$ è una \sigalg{}, otteniamo che i Boreliani sono contenuti in $\M_n\otimes\M_m$.
 	
 	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $B_1,B_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $R^n$ e $R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
@@ -214,12 +214,12 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	Il fatto che $\mathcal F$ sia uno spazio vettoriale discende direttamente dalla linearità dell'integrale e dal fatto che il limite di una somma è la somma dei limiti.
 	
 	Sia $(f_n)_{n\in\N}$ una successione di funzioni integrabili che appartengono ad $\mathcal F$ e sia $f$ il limite puntuale di tale successione, che assumiamo essere integrabile.
-	Per il \cref{thm:ConvergenzaDominata}, le cui ipotesi sono facilmente verificate poichè $f$ è integrabile, le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
+	Per il \cref{thm:ConvergenzaDominata}, le cui ipotesi sono facilmente verificate poiché $f$ è integrabile, le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
 	Inoltre, una facile conseguenza dell'invarianza per traslazione della misura di Lebesgue è 
 	\begin{equation*}
 		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola
 	\end{equation*}
-	da cui, poichè $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
+	da cui, poiché $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
 	\begin{equation*}
 		\LNorm{f\circ\tau_c-f}\le \LNorm{f_m\circ\tau_c-f\circ\tau_c}+\LNorm{f_m-f}+\LNorm{f_m\circ\tau_c-f_m} \le 2\epsilon+\LNorm{f_m\circ\tau_c-f_m}\virgola
 	\end{equation*}
@@ -327,7 +327,7 @@ Terminati i lemmi preliminari, mostriamo ora la formula per il cambio di variabi
 In un primo passo, cioè nel \cref{lemma:LimiteDeterminante}, proviamo solo una disuguaglianza, che poi mostreremo essere un'uguaglianza nel \cref{lemma:MisuraImmagine} e che sarà l'equivalente della \cref{prop:MisuraImmagineLineare} ma nel caso generale e non in quello lineare. Infine il terzo passo semplicente trasforma l'enunciato sulla misura di un insieme nella formula per il cambio di variabile.
 
 Per passare da disuguaglianza a disuguaglianza sfrutteremo come strumento fondamentale il teorema di Radon-Nikodym, che asserisce fondamentalmente che ogni misura ammette una ``densità'' cioè una funzione tale che il suo integrale su un insieme, rispetto ad un'altra misura, coincide con la misura dell'insieme.
-Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità della dimostrazione e poichè in queste dispense lo useremo solo come strumento tecnico, senza approfondire l'argomento.
+Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità della dimostrazione e poiché in queste dispense lo useremo solo come strumento tecnico, senza approfondire l'argomento.
 
 \begin{lemma}\label{lemma:LimiteDeterminante}
 	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità.
@@ -349,7 +349,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation}\label{eq:ContenimentoPallaLineare}
 		\varphi(B_r(\bar x))\subseteq \varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right).
 	\end{equation}
-	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, purchè $r$ sia sufficientemente piccolo, la funzione è Lipschitziana in $B_r(\bar x)$ e quindi, per la \cref{prop:LipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
+	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, purché $r$ sia sufficientemente piccolo, la funzione è Lipschitziana in $B_r(\bar x)$ e quindi, per la \cref{prop:LipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
 	Allora possiamo applicare la misura di Lebesgue ad entrambi i membri del contenimento mostrato nell'\cref{eq:ContenimentoPallaLineare} ottenendo
 	\begin{equation}\label{eq:StimaImmaginePalla}
 		m_n\left( \varphi(B_r(\bar x)) \right)\le m_n\left(\varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right)\right)
@@ -395,7 +395,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	ma nei compatti $K_n$ la funzione $\varphi$, essendo $C^1$, è Lipschitziana e quindi per la \cref{prop:LipschitzTengonoMisurabili} manda trascurabili in trascurabili e perciò $\varphi\left(N\cap K_n\right)$ è trascurabile e da questo ne segue che $\varphi(N)$ è trascurabile in quanto unione numerabile di trascurabili.
 	Riassumendo, la funzione $\varphi$ manda trascurabili in trascurabili e per la \cref{prop:ContinueSpecialiTengonoMisurabili} questo implica che manda misurabili in misurabili.
 	
-	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poichè $\varphi$ manda trascurabili in trascurabili.
+	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
 	Perciò, per il \cref{thm:RadonNikodym}, esiste $\rho:\Omega\to\Rpiu$ integrabile tale che
 	\begin{equation*}
 		\forall E\in M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
@@ -429,7 +429,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
  		\le \int_E \left\lvert\det D\varphi(\varphi^{-1}(x))\right\rvert \cdot \left\lvert\det D\varphi^{-1}(x)\right\rvert\de x =\int_E 1\de x=m_n(E) \virgola
 	\end{multline*}
 	dove abbiamo applicato implicitamente la formula del differenziale dell'inversa e la moltiplicatività del determinante.
-	Però, poichè primo e ultimo membro coincidono, tutte le disuguaglianze della catena devono essere uguaglianze e da questo ricaviamo
+	Però, poiché primo e ultimo membro coincidono, tutte le disuguaglianze della catena devono essere uguaglianze e da questo ricaviamo
 	\begin{equation*}
 		m_n(E)=\int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \virgola
 	\end{equation*}

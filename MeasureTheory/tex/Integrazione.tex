@@ -54,7 +54,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation}
 		\sum_\alpha c_\alpha\chi_{E_\alpha}=\sum_{k=1}^nc_k\chi_{E_k}=\simp=\sum_{k=1}^nb_k\chi_{E_k}=\sum_\alpha b_\alpha\chi_{E_\alpha}\virgola
 	\end{equation}
-	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poichè gli $E_\alpha$ sono disgiunti.
+	che implica facilmente che $c_\alpha=b_\alpha$ per ogni $\alpha$, poiché gli $E_\alpha$ sono disgiunti.
 	
 	Infine da quest'ultima uguaglianza e dall'\cref{eq:RaffinamentoIntegrale} otteniamo proprio quello che volevamo, in quanto
 	\begin{equation*}
@@ -123,7 +123,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \begin{proof}
 	Dimostriamo innanzitutto che dato un insieme $Y\in \A$ misurabile tale che $f\ge a$ in $Y$, allora vale $\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)$.
 	
-	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perchè le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per la \cref{prop:IntegraleSemplici} abbiamo che
+	Dato $\epsilon>0$ sia $A_n=\{\simp_n\ge a-\epsilon\}\cap Y$. Allora abbiamo che gli $A_n$ sono misurabili, vale $A_n\subseteq A_{n+1}$, perché le $\simp_n$ sono crescenti, e $\cup_nA_n=Y$. Inoltre $\simp_n\ge (a-\epsilon)\chi_{A_n}$ in $Y$ per la definizione stessa di $A_n$. Perciò per la \cref{prop:IntegraleSemplici} abbiamo che
 	\begin{equation*}
 		\int_Y\simp_n\de\mu\ge(a-\epsilon)\mu(A_n)\virgola
 	\end{equation*}
@@ -131,7 +131,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge(a-\epsilon)\lim_{n\to\infty}\mu(A_n)=(a-\epsilon)\mu(Y)\virgola
 	\end{equation*}
-	dove in particolare nell'ultima uguaglianza abbiamo utilizzato la \cref{prop:LimiteMonotonoCrescenteMisura}. Poichè in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
+	dove in particolare nell'ultima uguaglianza abbiamo utilizzato la \cref{prop:LimiteMonotonoCrescenteMisura}. Poiché in quest'ultima relazione $\epsilon$ è arbitrario otteniamo quindi
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_Y\simp_n\de\mu\right\}\ge a\mu(Y)\punto
 	\end{equation*}
@@ -146,7 +146,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\ge \int_X f \de\mu\Longrightarrow \sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}= \int_X f\de\mu\virgola
 	\end{equation*}
-	dove l'ultima implicazione è ovvia perchè banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
+	dove l'ultima implicazione è ovvia perché banalmente $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\le \int_X f\de\mu$.
 \end{proof}
 
 \begin{remark}\label{nota:ApprossimazioneIntegralePositiveConSemplici}
@@ -186,7 +186,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{theorem}
 
 \begin{proof}
-	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perchè essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{prop:SupDiMisurabili} $f$ è una funzione misurabile e positiva.
+	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perché essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{prop:SupDiMisurabili} $f$ è una funzione misurabile e positiva.
 	
 	Come osservato nella \cref{nota:ApprossimazioneIntegralePositiveConSemplici}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
 	\begin{equation*}
@@ -255,7 +255,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Poichè $f_++h=f_-+g$, per la \cref{prop:IntegralePositive} e ricordando che gli integrali di $f_+,f_-,g,h$ sono finiti, otteniamo
+	Poiché $f_++h=f_-+g$, per la \cref{prop:IntegralePositive} e ricordando che gli integrali di $f_+,f_-,g,h$ sono finiti, otteniamo
 	\begin{gather*}
 		\int  f_+\de\mu+\int  h\de\mu=\int  f_-\de\mu+\int  g\de\mu \\
 		\Longrightarrow \int f\de\mu=\int f_+\de\mu-\int f_-\de\mu=\int g\de\mu-\int h\de\mu\punto
@@ -324,11 +324,11 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	
 	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
 	
-	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$. Abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perchè intersezione di misurabili e inoltre 
+	Consideriamo ora la scrittura di $\simp$ come $\simp=\sum_{k=1}^n c_k\chi_{E_k}$, dove $c_k\in\Rbar$ e $E_k\in\A$. Abbiamo che, chiamati $F_k=E_k\cap \left\{x:\ \simp(x)\not=0\right\}$, $F_k\in\A$ perché intersezione di misurabili e inoltre 
 	\begin{equation*}
 		\simp=\sum_{k=1}^n c_k\chi_{F_k} \Longrightarrow \int_X\simp\de\mu=\sum_{k=1}^n c_k\mu(F_k)=0\virgola
 	\end{equation*}
-	dove l'ultima uguaglianza è vera perchè $F_k\subseteq \left\{x:\ \simp(x)\not=0\right\}$ e perciò $\mu(F_k)=0$.
+	dove l'ultima uguaglianza è vera perché $F_k\subseteq \left\{x:\ \simp(x)\not=0\right\}$ e perciò $\mu(F_k)=0$.
 	
 	Da questo discende facilmente, per la definizione stessa di $\LNorm{f}$, che
 	\begin{equation*}
@@ -347,7 +347,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\begin{equation*}
 		\int_X f\de\mu=\int_{X\setminus N} f \de\mu+\int_N f\de\mu=\int_{X\setminus N}f\de\mu\virgola
 	\end{equation*}
-	dove l'ultima disuguaglianza è vera per il \cref{lemma:L1NullaAlloraNulla}, poichè infatti
+	dove l'ultima disuguaglianza è vera per il \cref{lemma:L1NullaAlloraNulla}, poiché infatti
 	\begin{equation*}
 		\left|\int_N f\de\mu\right|\le \int_N |f|\de\mu=0 \Longrightarrow \int_N f\de\mu=0\punto
 	\end{equation*}
@@ -388,7 +388,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 \begin{proof}
 	Dalla \cref{prop:IntegraleIntegrabili} segue facilmente che $\L(X,\A,\mu)$ è uno spazio vettoriale. 
 	
-	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poichè la \cref{prop:IntegraleIntegrabili} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
+	Altrettanto facilmente abbiamo anche che $\LNorm{\cdot}$ è una seminorma su $\L(X,\A,\mu)$, poiché la \cref{prop:IntegraleIntegrabili} dimostra che $\LNorm{\cdot}$ rispetta sia l'omogeneità che la disuguaglianza triangolare.
 	
 	Dal \cref{lemma:L1NullaAlloraNulla} ricaviamo però che esistono funzioni $f$ non identicamente nulle tali che $\LNorm{f}=0$. Quindi $\LNorm{\cdot}$ non è una norma su $\L(X,\A,\mu)$ ma solo una seminorma.
 \end{proof}
@@ -460,7 +460,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 \begin{proof}
 	Dato $n\in \N$, sia $g_n(x)=\sum_{k=0}^n|f_n(x)|$ per ogni $x\in X$. 
 	
-	Le $g_n$ sono funzioni misurabili (perchè somma di misurabili), positive e crescenti, quindi convergono puntualmente ad una funzione $g:X\to\Rbar$. In particolare per il \cref{thm:BeppoLevi} vale inoltre che $\int g\de\mu=\lim_{n\to\infty}\int g_n\de\mu$.
+	Le $g_n$ sono funzioni misurabili (perché somma di misurabili), positive e crescenti, quindi convergono puntualmente ad una funzione $g:X\to\Rbar$. In particolare per il \cref{thm:BeppoLevi} vale inoltre che $\int g\de\mu=\lim_{n\to\infty}\int g_n\de\mu$.
 	
 	D'altro canto sappiamo che 
 	\begin{equation*}
@@ -476,7 +476,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	\end{equation*}
 	quindi la successione $(s_n)$ è dominata dalla funzione $g$.
 	
-	Inoltre, poichè $\sum_{n=0}^\infty f_n(x)$ converge assolutamente in $X\setminus N$, $s_n=\sum_{k=0}^n f_k$ converge puntalmente alla funzione $f(x)=\sum_{n=0}^\infty f_n(x)$ nello stesso insieme.
+	Inoltre, poiché $\sum_{n=0}^\infty f_n(x)$ converge assolutamente in $X\setminus N$, $s_n=\sum_{k=0}^n f_k$ converge puntalmente alla funzione $f(x)=\sum_{n=0}^\infty f_n(x)$ nello stesso insieme.
 	
 	Sono quindi rispettate tutte le ipotesi del \cref{thm:ConvergenzaDominata} per la successione di funzioni $(s_n)$ con dominio $X\setminus N$, perciò
 	\begin{equation*}

@@ -2,7 +2,7 @@
 Trattiamo ora la possibilità di rendere uno spazio di misura il prodotto di due spazi di misura. 
 Questo risulterà facile sfruttando, come strumento principale, il teorema di estensione di \carat{}. 
 Si potrebbe decidere di esplicitare direttamente la misura prodotto, come integrale della misura delle sezioni, piuttosto che sfruttare il teorema di \carat{} per assicurarne l'esistenza. 
-Questa via, più diretta e meno tecnica, è effettivamente presa da vari libri di teoria della misura. Qui si è deciso di procedere diversamente sia per ignoranza iniziale degli autori, sia perchè in effetti si dimostra, ed è a nostro parere molto istruttivo, che le due definizioni sono equivalenti.
+Questa via, più diretta e meno tecnica, è effettivamente presa da vari libri di teoria della misura. Qui si è deciso di procedere diversamente sia per ignoranza iniziale degli autori, sia perché in effetti si dimostra, ed è a nostro parere molto istruttivo, che le due definizioni sono equivalenti.
 
 L'idea portante di tutta questa sezione è quella di mostrare che la misura più ovvia da porre sullo spazio prodotto, cioè quella derivante dalla premisura sui rettangoli, è in effetti sufficientemente  ricca da assicurare molte proprietà allo spazio di misura a essa relativo ed in particolare ha sufficienti proprietà per dimostrare i teoremi di Fubini e Tonelli, che assicurano, sotto ipotesi relativamente lascive, la possibilità di scambiare tra loro gli operatori di integrazione.
 
@@ -99,9 +99,9 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	\begin{equation*}\label{eq:DisTrascurabiliProdotto}
 		f(x)=\sum_{i\in\N}\chi_{A_i}(x)\nu(B_i)\ge\nu^*(J_x^X(E))\virgola
 	\end{equation*}
-	poichè i $B_i$, tali che i rispettivi $A_i$ contengano $x$, sono un ricoprimento numerabile di $J_x^X(E)$.
+	poiché i $B_i$, tali che i rispettivi $A_i$ contengano $x$, sono un ricoprimento numerabile di $J_x^X(E)$.
 	
-	Allora, applicando quest'ultima disuguaglianza aggiungengo l'ipotesi $x\in X_\delta$, otteniamo il contenimento $X_\delta\subseteq \{x\in X:f(x)\ge\delta\}$ e quindi ne ricaviamo che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poichè $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
+	Allora, applicando quest'ultima disuguaglianza aggiungengo l'ipotesi $x\in X_\delta$, otteniamo il contenimento $X_\delta\subseteq \{x\in X:f(x)\ge\delta\}$ e quindi ne ricaviamo che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poiché $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
 	Quindi il \cref{thm:DisuguaglianzaChebyshev} ci assicura che $\LNorm f\ge \delta m_\delta$.
 
 	Però, applicando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
@@ -144,7 +144,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 \end{definition}
 
 
-Ora che abbiamo fissato la \sigalg{} dei misurabili, fermiamoci un attimo a riflettere sulla scelta. Perchè piuttosto non abbiamo scelto il suo completamento? Oppure perchè non abbiamo scelto la \sigalg{} degli insiemi che hanno ogni sezione misurabile? 
+Ora che abbiamo fissato la \sigalg{} dei misurabili, fermiamoci un attimo a riflettere sulla scelta. Perché piuttosto non abbiamo scelto il suo completamento? Oppure perché non abbiamo scelto la \sigalg{} degli insiemi che hanno ogni sezione misurabile? 
 Il motivo è che nessuna di queste ci avrebbe assicurato, nel caso generale, la veridicità della \cref{prop:SezioniMisurabili} e dei teoremi che seguiranno.
 
 Ora andiamo a dimostrare i teoremi di Fubini e Tonelli, che permettono di scambiare integrali, nel caso in cui i misurabili siano proprio $\A\otimes\B$. In seguito li ridimostreremo, in maniera più concisa, nel caso in cui le misure di partenza siano complete e i misurabili piuttosto che essere $\A\otimes\B$, sono il suo completamento.
@@ -162,7 +162,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 		\hat f^{-1}(A)=f^{-1}(A)\times Y \punto
 	\end{equation*}
 	Allora, essendo $f^{-1}(A)$ misurabile in $(X,\A,\mu)$ per l'ipotesi di misurabilità di $f$ ed $Y\in\B$, abbiamo l'appartenenza $\hat f^{-1}(A)\in \A\times\B$ e cioè $\hat f^{-1}(A)$ misurabile nel prodotto.
-	Ma poichè questo è valido per ogni $A$ aperto di $\R$ ne concludiamo che $\hat f$ è misurabile nel prodotto.
+	Ma poiché questo è valido per ogni $A$ aperto di $\R$ ne concludiamo che $\hat f$ è misurabile nel prodotto.
 \end{proof}
 
 
@@ -220,7 +220,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 		=\int_X\nu\left(J_x^X(F)\right)\de\mu(x)\virgola
 	\end{align*}
 	dove nei passaggi intermedi abbiamo ripetutamente usato che $E$ contiene $F$.
-	Ma l'identità equivale a $F\in\E$ e perciò, poichè $F$ è un qualsiasi insieme misurabile sul prodotto con misura finita, è dimostrato che ogni insieme di misura finita appartiene a $\E$.
+	Ma l'identità equivale a $F\in\E$ e perciò, poiché $F$ è un qualsiasi insieme misurabile sul prodotto con misura finita, è dimostrato che ogni insieme di misura finita appartiene a $\E$.
 	
 	Per concludere la dimostrazione sia $G\in\A\otimes\B$ un insieme misurabile \sigfin[o]. Per l'ipotesi di \sigfin[ezza], esiste una famiglia $(F_i)_{i\in\N}\subseteq \A\otimes\B$ di insiemi disgiunti di misura finita la cui unione coincide con $G$.
 	

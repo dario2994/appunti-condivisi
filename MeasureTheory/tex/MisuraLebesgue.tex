@@ -240,7 +240,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 \begin{proof}
 	È chiaro che questo teorema richiama, specializzandolo al caso della misura di Lebesgue, il \cref{thm:EquivalenzeMisurabilitaSottoinsieme}.
 	
-	In particolare applicando il \cref{thm:EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poichè i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{prop:SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poichè per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
+	In particolare applicando il \cref{thm:EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poiché i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{prop:SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poiché per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
 	
 	Ancora per il \cref{thm:EquivalenzeMisurabilitaSottoinsieme}, assumendo la \ref{it:LEMMisurabile}, sappiamo che esistono $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti, la cui unione $S$ contiene $A$ ed è tale che $m_n^*(S\setminus A)<\epsilon$.
 	Allora definendo $C$ come la parte interna di $\bigcup_{i\in\N}F_\frac{\epsilon}{2^i}(S_i)$ abbiamo in effetti che, grazie alla \cref{prop:MisuraAllargamento}, $m_n^*(C\setminus A)\le \epsilon$.
@@ -256,7 +256,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 		\item[\ImplicationProof{it:LEMChiusoDentro}{it:LEMCompattiDentro}] Sia $C_i$ un chiuso tale che $C_i\subseteq A$ e $m_n^*(A\setminus C_i)<\frac1i$.
 		Chiamiamo $K_i$ l'insieme ottenuto intersecando la palla chiusa di raggio $i$ centrata nell'origine con il chiuso $\bigcup_{j\le i}C_i$.
 		
-		I $K_i$ sono compatti, poichè definiti come intersezione tra un chiuso ed un chiuso e limitato. 
+		I $K_i$ sono compatti, poiché definiti come intersezione tra un chiuso ed un chiuso e limitato. 
 		Ancora per definizione $K_i\subseteq K_{i+1}$ e inoltre l'unione dei $K_i$ coincide con l'unione dei $C_i$.
 		
 		Per concludere è sufficiente perciò verificare che l'unione dei $C_i$, oltre ad essere ovviamente contenuta in $A$, lo approssima a meno di un trascurabile.
@@ -288,7 +288,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	Ricordiamo innanzitutto che la misura di Lebesgue è stata costruita appplicando il teorema di \carat{} e perciò nasce come la riduzione della misura esterna associata a $m_n$ (questa volta da vedere come ridotta su $\S_n$). 
 	Basta quindi mostrare che la misura esterna rispetta le proprietà richieste.
 	
-	Ma è chiaro che le proprietà richieste, poichè gli operatori in gioco commutano con l'unione, vengono ereditate dalla misura esterna se la premisura le rispetta.
+	Ma è chiaro che le proprietà richieste, poiché gli operatori in gioco commutano con l'unione, vengono ereditate dalla misura esterna se la premisura le rispetta.
 	
 	Ma nel nostro caso la premisura le rispetta come dimostrato nella \cref{nota:LebesgueElementareProprieta} e questo chiude la dimostrazione.
 \end{proof}
@@ -354,7 +354,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	\begin{equation*}
 		f(A)=f\left(N\cup\bigcup_{i\in\N}K_i\right)=f(N)\cup\bigcup_{i\in\N}f(K_i) \virgola
 	\end{equation*}
-	ma $f(N)$ è trascurabile a sua volta per ipotesi, e $f(K_i)$ è compatto poichè è immagine continua di un compatto.
+	ma $f(N)$ è trascurabile a sua volta per ipotesi, e $f(K_i)$ è compatto poiché è immagine continua di un compatto.
 	
 	Allora abbiamo scritto anche $f(A)$ come unione di un trascurabile e di un unione crescente di compatti e questo, ancora per il \cref{thm:LebesgueEquivalenzeMisurabilita}, implica che $f(A)$ è misurabile come voluto.
 \end{proof}
@@ -387,7 +387,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	La misura di Lebesgue su $\R^n$ è invariante per isometria.
 \end{proposition}
 \begin{proof}
-	Poichè ogni isometria si scrive come una applicazione ortogonale composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per traslazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per applicazioni ortogonali.
+	Poiché ogni isometria si scrive come una applicazione ortogonale composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per traslazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per applicazioni ortogonali.
 	Sia $O:\R^n\to\R^n$ una applicazione ortogonale. Questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche Lipschitziana (si può dimostrare anche più facilmente in questo caso).
 	
 	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
@@ -403,7 +403,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	
 	Allora unendo quanto ottenuto abbiamo che $\mu$ è una misura invariante per traslazione su $\M_n$ e quindi in particolare sui Boreliani di $\R^n$. Allora applicando il \cref{thm:LebesgueUnicaInvarianteTraslazione} si ottiene che esiste $\lambda\in\Rpiu$ tale che $\mu=\lambda m_n$.
 	
-	Ora basta considerare la palla unitaria $B$ di $\R^n$, che è misurabile poichè aperta.
+	Ora basta considerare la palla unitaria $B$ di $\R^n$, che è misurabile poiché aperta.
 	La palla $B$, che ha ovviamente misura di Lebesgue né nulla né infinita, è invariante rispetto a $O$, essendo questa una rotazione, e perciò $\mu(B)=m_n(B)$ da cui ricaviamo che $\lambda=1$ cioè $\mu\equiv m_n$ che era quanto si voleva dimostrare.
 \end{proof}
 
@@ -427,12 +427,12 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	\begin{equation*}
 		R_\epsilon=\left\{A^{\epsilon(j^{-(m+2)})}_i\times C_j:\ i,j\in\N\right\}\subseteq \S_{n+m}
 	\end{equation*}
-	è un ricoprimento di $N\times X$, semplicemente perchè l'unione dei $C_j$ contiene tutto $\R^m$ e quindi anche $X$, ed inoltre la somma delle misure degli elementi del ricoprimento rispetta
+	è un ricoprimento di $N\times X$, semplicemente perché l'unione dei $C_j$ contiene tutto $\R^m$ e quindi anche $X$, ed inoltre la somma delle misure degli elementi del ricoprimento rispetta
 	\begin{equation*}
 		\sum_{E\in R_\epsilon}m_{n+m}(E)=\sum_{j\in\N}\sum_{i\in\N}m_{n+m}\left(A^{\epsilon(j^{-(m+2)})}_i\times C_j\right)
 		=\sum_{j\in\N}(2j)^m\sum_{i\in\N}m_n(A^{\epsilon(j^{-(m+2)})}_i)\le 2^m\epsilon\sum_{j\in\N}\frac1{j^2}\virgola
 	\end{equation*}
-	perciò, poichè la somma degli inversi dei quadrati converge, scegliendo $\epsilon$ sufficientemente piccolo si è appena fornito un ricoprimento di $N\times X$ con misura arbitrariamente piccola e questo equivale alla tesi.
+	perciò, poiché la somma degli inversi dei quadrati converge, scegliendo $\epsilon$ sufficientemente piccolo si è appena fornito un ricoprimento di $N\times X$ con misura arbitrariamente piccola e questo equivale alla tesi.
 \end{proof}
 
 
@@ -442,7 +442,7 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 \begin{proof}
 	Definiamo $V=\{(x_1,x_2,\dots,x_{n-1},0):\ (x_i)_{1\le i\le n-1}\subseteq\R\}$.
 	
-	Poichè lo spazio generato da $U$ ha dimensione $\le n-1$, esiste un'isometria che manda $U$ in un sottoinsieme di $V$ ed essendo la misura di Lebesgue invariante per isometria, come dimostrato nella \cref{prop:LebesgueProprietaIsometria}, è sufficiente dimostrare che $V$ è trascurabile per concludere.
+	Poiché lo spazio generato da $U$ ha dimensione $\le n-1$, esiste un'isometria che manda $U$ in un sottoinsieme di $V$ ed essendo la misura di Lebesgue invariante per isometria, come dimostrato nella \cref{prop:LebesgueProprietaIsometria}, è sufficiente dimostrare che $V$ è trascurabile per concludere.
 	
 	Ma l'iperpiano $V$ si può anche scrivere come $R^{n-1}\times \{0\}$ e perciò, grazie alla \cref{prop:TrascurabilePerInsiemeTrascurabile}, ne concludiamo che $V$ è trascurabile come desiderato.
 \end{proof}
@@ -559,8 +559,8 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 		0<m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)\le
 		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1 \virgola
 	\end{equation*}
-	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poichè l'ipotesi di misura non nulla non si perde. 
-	In particolare, poichè la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
+	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poiché l'ipotesi di misura non nulla non si perde. 
+	In particolare, poiché la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
 	
 	Poniamo su $\R^n$ la relazione di equivalenza 
 	\begin{equation*}
@@ -575,7 +575,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	\begin{equation}\label{eq:ContenimentiVitali}
 		A\subseteq\bigsqcup_{q\in\mathbb Q^n\cap\left(\cc{-1}{1}\times\cdots \times\cc{-1}{1}\right)} B+q\subseteq \cc{-1}{2}\times\cdots\times\cc{-1}{2}\virgola
 	\end{equation}
-	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perchè l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poichè $A\subseteq \co 01\times\cdots \times\co 01$.
+	dato che ogni elemento di $A$ si scrive \emph{in modo unico} (e questo spiega perché l'unione è disgiunta) come un rappresentante privilegiato rispetto all'equivalenza più un elemento a coordinate razionali, che in questo caso possiamo scegliere tra $-1$ e $1$ poiché $A\subseteq \co 01\times\cdots \times\co 01$.
 	
 	Se assumiamo che $B$ sia misurabile, ora otteniamo un assurdo applicando l'\cref{eq:ContenimentiVitali} e ricordando che $m_n$ è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}:
 	\begin{equation*}
@@ -611,7 +611,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 \begin{proof}
 	Innanzitutto notiamo che si può supporre $A$ limitato e di misura finita. Consideriamo infatti una numerazione $(B_n)$ degli $n$-cubi chiusi di $\R^n$ di lato 1, con vertici a valori negli interi (cioè ogni $B_n$ sarà della forma $B_n=[m_1,m_1+1]\times\cdots\times[m_n,m_n+1]$ con $m_1,\dots,m_n\in\Z$). Allora abbiamo che $A_n=A\cap B_n$ è misurabile di misura finita per ogni $n\in\N$. Inoltre almeno uno degli $A_n$ deve avere misura diversa da 0 per la \cref{nota:UnioneTrascurabili}. Tale $A_n$ rispetta quindi esso stesso le ipotesi del teorema e se la tesi valesse per questo $A_n$ limitato varrebbe banalmente anche per $A$. Ci basta quindi dimostrare la tesi per $A$ limitato e di conseguenza anche di misura finita.
 	
-	Per il \cref{thm:LebesgueEquivalenzeMisurabilita} e poichè $A$ ha misura finita, fissato $\epsilon>0$, esistono $H\supseteq A$ aperto e $C\subseteq A$ chiuso tali che
+	Per il \cref{thm:LebesgueEquivalenzeMisurabilita} e poiché $A$ ha misura finita, fissato $\epsilon>0$, esistono $H\supseteq A$ aperto e $C\subseteq A$ chiuso tali che
 	\[
 		m_n(C)+\epsilon > m_n(A) > m_n(H)-\epsilon\punto
 	\]
