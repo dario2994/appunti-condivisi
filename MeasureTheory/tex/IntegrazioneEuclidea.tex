@@ -11,18 +11,18 @@ La seconda parte della sezione sarà completamente votata alla dimostrazione del
 \begin{proof}
 	Lavoriamo sulla \sigalg{} prodotto \emph{non completata} $\M_n\otimes\M_m$, per poi ottenere l'enunciato ricordando che il completamento dei Boreliani sono i misurabili.
 
-	Ricordando la \cref{def:LebesgueSemiaperti}, poiché valgono ovviamente i contenimenti $S_n\subseteq M_n$ e $S_m\subseteq M_m$, è facile ricavarne che $S_{n+m}\subseteq M_n\otimes M_m$.
-	Ma allora, applicando la \cref{prop:SigAlgUgualeBoreliani} e ricordando che $\M_n\otimes M_m$ è una \sigalg{}, otteniamo che i Boreliani sono contenuti in $\M_n\otimes\M_m$.
+	Ricordando la \cref{def:LebesgueSemiaperti}, poiché valgono ovviamente i contenimenti $S_n\subseteq \M_n$ e $S_m\subseteq \M_m$, è facile ricavarne che $S_{n+m}\subseteq \M_n\otimes \M_m$.
+	Ma allora, applicando la \cref{prop:SigAlgUgualeBoreliani} e ricordando che $\M_n\otimes \M_m$ è una \sigalg{}, otteniamo che i Boreliani sono contenuti in $\M_n\otimes\M_m$.
 	
-	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $B_1,B_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $R^n$ e $R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
+	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $B_1,B_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $\R^n$ e $\R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
 	Perciò, grazie alla distributività del prodotto insiemistico rispetto all'unione disgiunta, otteniamo
 	\begin{equation*}
 		E_1\times E_2=(A_1\sqcup N_1)\times(A_2\sqcup N_2)=\left(A_1\times A_2\right)\sqcup\left(A_1\times N_2\sqcup A_2\times N_1 \sqcup N_1\times N_2\right) \punto
 	\end{equation*}
 	Però l'insieme $A_1\times N_2\sqcup A_2\times N_1 \sqcup N_1\times N_2$ è trascurabile per la \cref{prop:TrascurabilePerInsiemeTrascurabile} e l'insieme $A_1\times A_2$ è un Boreliano in quanto prodotto di Boreliani\footnote{Lasciamo al lettore la dimostrazione che il prodotto di Boreliani è un Boreliano.}, allora applicando ancora il \cref{thm:LebesgueEquivalenzeMisurabilita} si ottiene $E_1\times E_2\in\M_{n+m}$.
-	Vista la generalità della scelta di $E_1\times E_2$, quanto appena mostrato implica che $\M_n\times\M_m\subseteq \M_{n+m}$.
+	Vista la generalità della scelta di $E_1\times E_2$, quanto appena mostrato implica che $\M_n\times\M_m\subseteq \M_{n+m}$ e visto che $\M_{n+m}$ è una \sigalg{} se ne ricava che $\M_n\otimes\M_m\subseteq \M_{n+m}$.
 	
-	Quindi abbiamo dimostrato che $\M_n\otimes\M_m$ contiene i Boreliani ed è un sottoinsieme dei misurabili, perciò, ricordando la \cref{prop:CompletamentoBoreliani}, è ovvio concluderne che il suo completamento\footnote{È fondamentale notare che la misura indotta dal prodotto e la misura di Lebesgue coincidono in virtù della \cref{prop:UnicitaCaratheodory} e di conseguenza anche l'operatore di completamento di una \sigalg{} è coincidente.} $\overline{\M_n\otimes\M_m}$ coincide con l'insieme dei misurabili.
+	Per quanto appena detto e poichè $\M_n\otimes\M_m$ contiene i Boreliani, ricordando la \cref{prop:CompletamentoBoreliani}, è ovvio concluderne che il suo completamento\footnote{È fondamentale notare che la misura indotta dal prodotto e la misura di Lebesgue coincidono in virtù della \cref{prop:UnicitaCaratheodory} e di conseguenza anche l'operatore di completamento di una \sigalg{} è coincidente.} $\overline{\M_n\otimes\M_m}$ coincide con l'insieme dei misurabili.
 \end{proof}
 
 
@@ -110,7 +110,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	Da questo, applicando ad entrambi i membri la misura di Lebesgue, si ricava $\mu_O(P)=m_n(P)$ e, ricordando che $P$ non è trascurabile, ne discende $c(O)=1$.
 	Ma $O$ è ortogonale, quindi $\det O=\pm 1$ e allora è dimostrato anche in questo caso $\lvert\det O\rvert =c(O)$.
 	
-	Infine, data un'applicazione lineare generica $L\in\linR$, sia $L=OS$ la sua decomposizione polare\footnote{La si ottiene notando che $LL^t$ è una matrice simmetrica definita positiva che perciò ammette una ``radice quadrata''.} dove $O$ è ortogonale e $S$ è simmetrica. Per il teorema spettrale esistono $P,D$ rispettivamente invertibile e simmetrica tali che $S=PDP^{-1}$.
+	Infine, data un'applicazione lineare generica $L\in\linR$, sia $L=OS$ la sua decomposizione polare\footnote{La si ottiene notando che $LL^t$ è una matrice simmetrica definita positiva che perciò ammette una ``radice quadrata''.} dove $O$ è ortogonale e $S$ è simmetrica. Per il teorema spettrale esistono $P,D$ rispettivamente invertibile e diagonale tali che $S=PDP^{-1}$.
 	Ricordando le proprietà che rispetta la funzione $c$ e la moltiplicatività del determinante, ricaviamo
 	\begin{align*}
 		c(L)&=c(OPDP^{-1})=c(O)c(P)c(D)c(P^{-1})=c(O)c(D)c(P)c(P^{-1})\\
@@ -205,7 +205,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni integrabili per cui l'enunciato è vero.
 	Chiamiamo poi, per $c\in\R^n$, $\tau_c:\R^n\to\R^n$ la traslazione $\tau_c(x)=x+c$.
 	
-	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è uno spazio vettoriale chiuso per convergenga puntuale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
+	Dimostreremo che le funzioni indicatrici di $\S_n$ appartengono ad $\mathcal F$, poi che $\mathcal F$ è uno spazio vettoriale chiuso per convergenza puntuale ed infine che se due funzioni coincidono quasi ovunque ed una appartiene ad $\mathcal F$ allora anche l'altra vi appartiene. 
 	L'unione di questi fatti sarà sufficiente a mostrare che $\mathcal F=\L(\R^n,\M_n,m_n)$ dimostrando così la tesi.
 	
 	Il \cref{lemma:ContinuitaL1Semianello} dimostra banalmente, considerando il limite per $c\to 0$, che le indicatrici degli insiemi in $\S_n$ appartengono ad $\mathcal F$.
@@ -357,17 +357,17 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	dove i passaggi sono giustificati dall'invarianza per traslazione della misura di Lebesgue e dalla \cref{prop:MisuraImmagineLineare}.
 	Ma ora, grazie alla $n$-omogeneità della misura $m_n$, ricaviamo
 	\begin{equation*} 
-		m_n\left(B_{r+\smallO(r)}(\bar x)\right)=\left(1+\smallO(r)\right)^n m_n\left( B_r(\bar x)\right)
+		m_n\left(B_{r+\smallO(r)}(\bar x)\right)=\left(1+\smallO(1)\right)^n m_n\left( B_r(\bar x)\right)
 	\end{equation*}
 	e perciò sostituendo questa nell'\cref{eq:StimaImmaginePalla} arriviamo a
 	\begin{equation*}
-		m_n\left( \varphi(B_r(\bar x)) \right)\le \left(1+\smallO(r)\right)^n m_n\left( B_r(\bar x)\right)\lvert \det A\rvert \virgola
+		m_n\left( \varphi(B_r(\bar x)) \right)\le \left(1+\smallO(1)\right)^n m_n\left( B_r(\bar x)\right)\lvert \det A\rvert \virgola
 	\end{equation*}
 	che implica banalmente la tesi.
 \end{proof}
 
 \begin{definition}\label{def:AssolutamenteContinua}
-	Date due misure $\mu:\A\to\Rpiu,\nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se, per ogni $E\in\A$, se $\mu(E)=0$ allora $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
+	Date due misure $\mu:\A\to\Rpiu,\ \nu:\A\to\Rpiu$ sullo stesso spazio misurabile $(X,\A)$, diciamo che $\nu$ è assolutamente continua rispetto a $\mu$, indicandolo con $\nu\ll\mu$, se per ogni $E\in\A$ tale che $\mu(E)=0$ vale $\nu(E)=0$, cioè se tutti gli insiemi trascurabili per $\mu$ sono trascurabili anche per $\nu$.
 \end{definition}
 
 \begin{theorem}[Radon-Nikodym] \label{thm:RadonNikodym}
@@ -397,11 +397,11 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
 	Perciò, per il \cref{thm:RadonNikodym}, esiste $\rho:\Omega\to\Rpiu$ integrabile tale che
 	\begin{equation*}
-		\forall E\in M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
+		\forall E\in \M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
 	\end{equation*}
 	Con una dimostrazione del tutto analoga a quella del \cref{cor:CambioVariabileLineare} questo implica che vale anche la formula
 	\begin{equation}\label{eq:CambioRadonNikodym}
-		\forall E\in M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
+		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
 	\end{equation}
 	per ogni $f:\Omega\to\Rbar$ integrabile.
 	
@@ -417,7 +417,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	
 	Ora, unendo le due \cref{eq:CambioRadonNikodym,eq:DisuguaglianzaRadonNikodym}, arriviamo a dire che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
 	\begin{equation*}
-		\forall E\in M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
+		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
 		\int_E f(\varphi(x))\left\lvert\det D\varphi(x)\right\rvert\de x \punto
 	\end{equation*}
 	
