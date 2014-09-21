@@ -1,5 +1,47 @@
 \section{Misura superficiale}
-Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``superficie'', ``volume'', utilizzando gli strumenti di teoria della misura affrontati finora. Studieremo innanzitutto il caso di un sottospazio $k$-dimesionale di $\R^n$, per poi dare una definizione più generale che vedremo coincidere a quella precedente nel caso ristretto.
+Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``superficie'', ``volume'', utilizzando gli strumenti di teoria della misura affrontati finora. 
+
+\begin{definition}
+	Una funzione $f:\Omega \subseteq \R^k\to\R^n$ si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con $Df(x)$ inettivo per ogni $x\in\Omega$. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
+\end{definition}
+
+\begin{definition}
+	$\Sigma\subseteq\R^n$ è una sottovarietà $C^1$ $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno di $x$ in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
+\end{definition}
+
+La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli aperti di $\R^n$ intersecati con $\Sigma$. D'ora in poi sottoinderemo di star considerando questa topologia. Inoltre chiamiamo Boreliani di $\Sigma$ la \sigalg\ generata dagli aperti di $\Sigma$.
+
+\begin{lemma}\label{lemma:SottovarietaUnioneNumerabile}
+	Data $\Sigma$ sottovarietà $C^1$ $k$-dimensionale di $\R^n$, esistono $\{\Sigma_i\}_{i\in\N}\subseteq\Sigma$, aperti nella topologia di $\Sigma$, tali che $\cup_{i\in\N}\Sigma_i=\Sigma$ e $\Sigma_i$ ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$, per ogni $i\in\N$.
+\end{lemma}
+\begin{proof}
+	$\Sigma$ è separabile in quanto sottoinsieme di $\R^n$ che è separabile, ma di conseguenza è anche Lindelöf, poichè in uno spazio metrico la separabilità e la proprietà di Lindelöf sono equivalenti.
+	
+	Per la definizione stessa di sottovarietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
+\end{proof}
+
+\begin{remark}
+	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che $\Sigma_i$ è un Boreliano di $\R^n$ per ogni $i\in\N$. (AGGIUNGERE CHE IMMAGINE DI APERTI TRAMITE CONTINUE È BORELIANA)
+\end{remark}
+
+\begin{lemma}
+	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, vale che per ogni $E\in\mathcal{B}(M)$
+	\begin{equation*}
+		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
+	\begin{multline*}
+		\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\\
+		=\int_{g^{-1}(E)}\sqrt{\det(Df(\varphi(x))^TDf(\varphi(x)))}\ |\det D\varphi(x)|dx=\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx\virgola
+	\end{multline*}
+	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
+
+\end{proof}
+
+
+Studieremo innanzitutto il caso di un sottospazio $k$-dimesionale di $\R^n$, per poi dare una definizione più generale che vedremo coincidere a quella precedente nel caso ristretto.
 
 \begin{remark}\label{nota:IsometriaSottospazio}
 	Dato $V$ sottospazio affine $k$-dimensionale di $\R^n$, allora esiste $U:\R^k\to V$ isometria lineare.
