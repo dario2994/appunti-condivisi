@@ -25,10 +25,10 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 \end{remark}
 
 
-\begin{lemma}
+\begin{lemma}\label{lemma:InvarianzaImmersione}
 	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, sono definiti i seguenti integrali e vale che per ogni $E\in\mathcal{B}(M)$
 	\begin{equation*}
-		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx
+		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x
 	\end{equation*}
 \end{lemma}
 \begin{proof}
@@ -36,15 +36,38 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 
 	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
-		\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\\
-		=\int_{g^{-1}(E)}\sqrt{\det(Df(\varphi(x))^TDf(\varphi(x)))}\ |\det D\varphi(x)|dx=\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx\virgola
+		\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x=\\
+		=\int_{g^{-1}(E)}\sqrt{\det(Df(\varphi(x))^TDf(\varphi(x)))}\ |\det D\varphi(x)|\de x=\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x\virgola
 	\end{multline*}
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
 \end{proof}
 
-\begin{definition}
-	Dato $E$ Boreliano di una sottovarietà 
+\begin{definition}\label{def:MisuraKDimensionale}
+	Sia $E$ Boreliano di $\Sigma$, sottovarietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	
+	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
+	\begin{equation*}
+		\sigma(E)=\sum_{i\in\N} \sigma_i(E_i\cap \Sigma_i)\virgola
+	\end{equation*}
+	dove $E_i=E\setminus (\cup_{j<i}E_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
 \end{definition}
+\begin{theorem}
+	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
+\end{theorem}
+\begin{proof}
+	Innanzitutto notiamo che la definizione è ben posta, in quanto si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un misurabile di $\R^k$ (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
+
+	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
+	
+	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione più fine sia di $\{\Sigma_i\}_{i\in\N}$ che di $\{\Sigma_i'\}_{i\in\N}$. In particolare vale le seguenti relazioni
+	\begin{equation*}
+		\sigma(E)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})\virgola \sigma'(E)=\sum_{i,j\in\N} \sigma_j'(E\cap B_{i,j})\punto
+	\end{equation*}
+	Ma per il \cref{lemma:InvarianzaImmersione} abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
+
+\end{proof}
+
+
 
 
 
