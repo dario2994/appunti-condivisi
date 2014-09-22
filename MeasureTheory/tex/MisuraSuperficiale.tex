@@ -20,25 +20,32 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	Per la definizione stessa di sottovarietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
 
-\begin{remark}
-	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che $\Sigma_i$ è un Boreliano di $\R^n$ per ogni $i\in\N$. (AGGIUNGERE CHE IMMAGINE DI APERTI TRAMITE CONTINUE È BORELIANA)
+\begin{remark}\label{nota:BorelianiSottovarieta}
+	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che $\Sigma_i$ è un Boreliano di $\R^n$ per ogni $i\in\N$. (AGGIUNGERE CHE IMMAGINE DI APERTI TRAMITE CONTINUE È BORELIANA) Di conseguenza abbiamo anche che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$.
 \end{remark}
 
+
 \begin{lemma}
-	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, vale che per ogni $E\in\mathcal{B}(M)$
+	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, sono definiti i seguenti integrali e vale che per ogni $E\in\mathcal{B}(M)$
 	\begin{equation*}
 		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx
 	\end{equation*}
 \end{lemma}
 \begin{proof}
+	Innanzitutto notiamo che i due integrali sono definiti, in quanto $Df(x)$ e $Dg(x)$ sono continue e soprattutto $f^{-1}(E)$ e $g^{-1}(E)$ sono misurabili in $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni misurabili e di conseguenza sono misurabili di $\R^k$ per (AGGIUNGERE CONTROIMMAGINE DI BORELIANI TRAMITE MISURABILI). 
+
 	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
 		\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}dx=\\
 		=\int_{g^{-1}(E)}\sqrt{\det(Df(\varphi(x))^TDf(\varphi(x)))}\ |\det D\varphi(x)|dx=\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}dx\virgola
 	\end{multline*}
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
-
 \end{proof}
+
+\begin{definition}
+	Dato $E$ Boreliano di una sottovarietà 
+\end{definition}
+
 
 
 Studieremo innanzitutto il caso di un sottospazio $k$-dimesionale di $\R^n$, per poi dare una definizione più generale che vedremo coincidere a quella precedente nel caso ristretto.
