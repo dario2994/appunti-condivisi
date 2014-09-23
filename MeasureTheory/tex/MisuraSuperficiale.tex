@@ -26,7 +26,7 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
-	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, sono definiti i seguenti integrali e vale che per ogni $E\in\mathcal{B}(M)$
+	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\mathcal{B}(M)$ sono definiti i seguenti integrali e vale che 
 	\begin{equation*}
 		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x
 	\end{equation*}
@@ -49,20 +49,36 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	\begin{equation*}
 		\sigma(E)=\sum_{i\in\N} \sigma_i(E_i\cap \Sigma_i)\virgola
 	\end{equation*}
-	dove $E_i=E\setminus (\cup_{j<i}E_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
+	dove $E_i=E\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
 \end{definition}
 \begin{theorem}
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
 \end{theorem}
 \begin{proof}
-	Innanzitutto notiamo che la definizione è ben posta, in quanto si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un misurabile di $\R^k$ (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
+	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un misurabile di $\R^k$ (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
 	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
-	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione più fine sia di $\{\Sigma_i\}_{i\in\N}$ che di $\{\Sigma_i'\}_{i\in\N}$. In particolare vale le seguenti relazioni
+	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
 	\begin{equation*}
-		\sigma(E)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})\virgola \sigma'(E)=\sum_{i,j\in\N} \sigma_j'(E\cap B_{i,j})\punto
+		E_i\cap\Sigma_i=(E\setminus (\cup_{j<i}\Sigma_j))\cap \Sigma_i=E\cap (\Sigma_i\setminus (\cup_{k<i}\Sigma_k))=E\cap (\cup_{j\in\N}B_{i,j})=\cup_{j\in\N}(E\cap B_{i,j})\virgola
 	\end{equation*}
+	abbiamo che
+	\begin{equation*}
+		\sigma_i(E_i\cap \Sigma_i)=\sigma_i(\cup_{j\in\N}(E\cap B_{i,j}))=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\virgola
+	\end{equation*}
+	dove l'ultima uguaglianza è vera perchè dati $A_j=E\cap B_{i,j}$, che sono disgiunti fra loro, risulta
+	\begin{align*}
+		\sigma_i(\cup_{j\in\N}A_j)& =\int_{f_i^{-1}(\cup_{j\in\N}A_j)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x\\
+		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\punto
+	\end{align*}
+	
+	Otteniamo quindi che
+	\begin{equation*}
+		\sigma(E)=\sum_{i\in\N}\sigma_i(E_i\cap \Sigma_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
+	\end{equation*}
+	e analogamente per $\sigma'$.
+
 	Ma per il \cref{lemma:InvarianzaImmersione} abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
 
 \end{proof}
