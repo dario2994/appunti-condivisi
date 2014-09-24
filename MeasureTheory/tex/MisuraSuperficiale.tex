@@ -80,34 +80,22 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	e analogamente per $\sigma'$.
 
 	Ma per il \cref{lemma:InvarianzaImmersione} abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
-
 \end{proof}
 
+Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la sottovarietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
 
-
-
-
-Studieremo innanzitutto il caso di un sottospazio $k$-dimesionale di $\R^n$, per poi dare una definizione più generale che vedremo coincidere a quella precedente nel caso ristretto.
+In particolare prendiamo ora in considerazione il caso ancora più semplice in cui la sottovarietà è uno spazio affine $k$-dimensionale di $\R^n$, che chiameremo $V$.
 
 \begin{remark}\label{nota:IsometriaSottospazio}
 	Dato $V$ sottospazio affine $k$-dimensionale di $\R^n$, allora esiste $U:\R^k\to V$ isometria lineare.
 \end{remark}
 
-\begin{definition}\label{def:MisuraSottospazio}
-	Dato $V$ sottospazio affine $k$-dimensionale di $\R^n$ e $U$ come nella \cref{nota:IsometriaSottospazio}, definiamo i Boreliani $\mathcal{B}(V)$ di $V$ come le immagini attraverso $U$ dei Boreliani di $\R^k$. Inoltre per ogni $E\in\mathcal{B}(V)$, definiamo la misura di Lebesgue $k$-dimensionale come $\sigma(E)=m_n(U^{-1}(E))$.
-\end{definition}
+Quello che ci aspettiamo da una misura su $V$ è che si comporti come la misura di Lebesgue su $\R^k$, cioè che dipenda dalla metrica del sottospazio $V$. Perciò vorremmo che data $U:\R^k\to V$ isometria lineare (che esiste per la \cref{nota:IsometriaSottospazio}), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\mathcal{B}(V)$. Ma questo risulta immediato in quanto
+\begin{equation*}
+	\sigma(E)=\int_{U^{-1}(E)}\sqrt{\det(DU(x)^TDU(x))}\de x=\int_{U^{-1}(E)}\sqrt{\det(U^TU)}\de x=m_k(U^{-1}(E))\virgola
+\end{equation*}
+dove abbiamo utilizzato che $DU(x)=U$, in quanto $U$ è lineare, e che $U$ è ortogonale e quindi $U^TU=I$.
 
-\begin{remark}
-	La \cref{def:MisuraSottospazio} non dipende dalla scelta dell'isometria lineare.
-\end{remark}
-\begin{proof}
-	Siano $U:\R^k\to V$ e $W:\R^k\to V$ isometrie lineari che parametrizzano $V$. Allora $T=U\circ W^{-1}:\R^k\to\R^k$ è un'isometria di $\R^k$, in quanto composizione di isometrie.
-	
-	Consideriamo ora $E\subseteq V$, allora vale che $W^{-1}(E)=T\circ U^{-1}(E)$. Per la \cref{prop:LebesgueProprietaIsometria}, abbiamo però che la misura di Lebesgue è invariante per isometria, quindi $W^{-1}(E)$ appartiene ai Boreliani di $\R^k$ se e solo se ci appartiene anche $U^{-1}(E)$, poichè si ottengono uno dall'altro mediante un'isometria. Analogamente dato $E\in\mathcal{B}(V)$ vale $m_n(W^{-1}(E))=m_n(T\circ U^{-1}(E))=m_n(U^{-1}(E))$, da cui quello che volevamo dimostrare.
-\end{proof}
-
-Notiamo che la \cref{def:MisuraSottospazio} rispecchia la nostra idea di quella che dovrebbe essere la misura su un sottospazio di $\R^n$. In particolare, la misura di Lebesgue $k$-dimensionale dipende fondamentalmente dalla metrica del sottospazio, che è quello che ci aspettiamo.
-
-Consideriamo per esempio il piano $x+y+z=1$ di $\R^3$ e in particolare il triangolo di tale piano formato dalla base canonica di $\R^3$. Tale triangolo è un triangolo equilatero di lato $\sqrt{2}$, vorremmo quindi che la sua misura (cioè la sua ``area'') sia quella di un triangolo equilatero in $\R^2$ con lo stesso lato. Questo però risulta immediato in quanto definiamo la misura del triangolo come la misura di un suo isometrico, che quindi è un triangolo con lo stesso lato.
-
-
+\begin{example}
+	Consideriamo il piano $x+y+z=1$ di $\R^3$ e in particolare il triangolo di tale piano formato dalla base canonica di $\R^3$. Tale triangolo è un triangolo equilatero di lato $\sqrt{2}$, vorremmo quindi che la sua misura (cioè la sua ``area'') sia quella di un triangolo equilatero in $\R^2$ con lo stesso lato. Questo però risulta immediato per quanto appena detto, poichè la misura del triangolo equivale alla misura di un suo isometrico, che quindi è un triangolo con lo stesso lato.
+\end{example}
