@@ -243,8 +243,8 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 	In particolare applicando il \cref{thm:EquivalenzeMisurabilitaSottoinsieme} si ha da subito che \ref{it:LEMMisurabile},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono equivalenti (poiché i Boreliani sono la \sigalg{} generata da $\S_n$ come mostrato nella \cref{prop:SigAlgUgualeBoreliani}) e anche che \ImplicationProof{it:LEMApertoFuori}{it:LEMMisurabile} poiché per quanto dimostrato nella \cref{prop:ApertiUnioneDiSemiaperti} un aperto è unione disgiunta di elementi di $\S_n$.
 	
 	Ancora per il \cref{thm:EquivalenzeMisurabilitaSottoinsieme}, assumendo la \ref{it:LEMMisurabile}, sappiamo che esistono $(S_i)_{i\in\N}\subseteq \S_n$ disgiunti, la cui unione $S$ contiene $A$ ed è tale che $m_n^*(S\setminus A)<\epsilon$.
-	Allora definendo $C$ come la parte interna di $\bigcup_{i\in\N}F_\frac{\epsilon}{2^i}(S_i)$ abbiamo in effetti che, grazie alla \cref{prop:MisuraAllargamento}, $m_n^*(C\setminus A)\le \epsilon$.
-	Unendo quanto detto e sfruttando la \sigsubadd[ità] della misura esterna si ottiene proprio $m_n^*(C\setminus A)<\epsilon$ e questo conclude la dimostrazione di \ImplicationProof{it:LEMMisurabile}{it:LEMApertoFuori}.
+	Allora definendo $C$ come la parte interna di $\bigcup_{i\in\N}F_\frac{\epsilon}{2^i}(S_i)$ abbiamo in effetti che, grazie alla \cref{prop:MisuraAllargamento}, $m_n^*(C\setminus S)\le \epsilon$.
+	Unendo quanto detto e sfruttando la \sigsubadd[ità] della misura esterna si ottiene proprio $m_n^*(C\setminus A)<2\epsilon$ e questo conclude la dimostrazione di \ImplicationProof{it:LEMMisurabile}{it:LEMApertoFuori}.
 	
 	Abbiamo quindi dimostrato che \ref{it:LEMMisurabile},\ref{it:LEMApertoFuori},\ref{it:LEMBorelFuori},\ref{it:LEMBorelDentro} sono tutte equivalenti.
 	

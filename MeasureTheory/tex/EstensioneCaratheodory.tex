@@ -104,7 +104,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	
 	Dato $S\in\S$ vale ovviamente $\mu^*(S)\le\mu(S)$, poiché $S$ si ricopre da solo. Per dimostrare la disuguaglianza opposta, ottenendo così che $\mu^*$ estende $\mu$, consideriamo $(S_n)_{n\in\N}\in \S$ un ricoprimento di $S$. Per il \cref{lemma:PiuCheMonotonaPremisura} vale
 	\begin{equation*}
-		\mu(S)\ge \sum_{n\in\N} \mu(S_n)
+		\mu(S)\le \sum_{n\in\N} \mu(S_n)
 	\end{equation*}
 	e da questa, passando all'estremo inferiore sui ricoprimenti, otteniamo la disuguaglianza cercata.
 	
@@ -203,7 +203,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		
 		Infine risulta vera 
 		\begin{equation*}
-			\forall n\in\N:\ B\subseteq B_n\implies B\setminus A\subseteq B_n\setminus A\implies \mu^*(B\setminus A)\le \mu^*(B_n\setminus A)\le \frac1n
+			\forall n\in\N:\ B\subseteq S_n\implies B\setminus A\subseteq S_n\setminus A\implies \mu^*(B\setminus A)\le \mu^*(S_n\setminus A)\le \frac1n
 		\end{equation*}
 		e perciò $\mu^*(B\setminus A)=0$ e questo dimostra l'implicazione cercata.
 		\item[\ImplicationProof{it:SigmaDaFuoriEquivalenze}{it:MisurabileEquivalenze}] Per ipotesi esiste $B\in\sigma A(\S)$ che contiene $A$ e tale che $\mu^*(B\setminus A)=0$.

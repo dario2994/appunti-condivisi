@@ -85,7 +85,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	\end{equation*}
 	dove nell'ultimo passaggio è stata usata la stabilità di $\sqcup\S$ per unione disgiunta.
 	
-	Per l'unione, consideriamo $A,B\in\S$. Poiché vale $A\cup B=(A\setminus B)\sqcup(A\cap B)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\S$. Da questo è facile ottenere che anche unioni finite di elementi di $\S$ appartengono a $\sqcup\S$.
+	Per l'unione, consideriamo $A,B\in\S$. Poiché vale $A\cup B=(A\setminus B)\sqcup(A\cap B)\sqcup(B\setminus A)$, viste le proprietà di un \semiring{}, risulta $A\cup B\in \sqcup\S$. Da questo è facile ottenere che anche unioni finite di elementi di $\S$ appartengono a $\sqcup\S$.
 	
 	Sfruttando quanto detto, fissata $(A_n)_{n\in\N}\subseteq\S$, otteniamo
 	\begin{equation}\label{eq:UnioneNumerabileDaS}
@@ -214,8 +214,8 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	
 	Per facili ragionamenti di monotonia abbiamo
 	\begin{align*}
-		\mu(A)\le \mu(A\cup Q) =\mu(A)+\mu(Q)=\mu(A) &\implies \mu(A)=\mu(A\cup Q) \puntovirgola\\
-		\mu(A')\le \mu(A'\cup Q) =\mu(A')+\mu(Q)=\mu(A') &\implies \mu(A')=\mu(A'\cup Q) \virgola
+		\mu(A)\le \mu(A\cup Q) \le\mu(A)+\mu(Q)=\mu(A) &\implies \mu(A)=\mu(A\cup Q) \puntovirgola\\
+		\mu(A')\le \mu(A'\cup Q) \le\mu(A')+\mu(Q)=\mu(A') &\implies \mu(A')=\mu(A'\cup Q) \virgola
 	\end{align*}
 	ma per costruzione vale $A\cup Q=A'\cup Q$ e perciò otteniamo proprio $\mu(A)=\mu(A')$ che mostra la coerenza della definizione di $\tilde\mu$.
 	
