@@ -11,29 +11,51 @@ Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``super
 
 La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli aperti di $\R^n$ intersecati con $\Sigma$. D'ora in poi sottoinderemo di star considerando questa topologia. Inoltre chiamiamo Boreliani di $\Sigma$ la \sigalg\ generata dagli aperti di $\Sigma$.
 
-\begin{lemma}\label{lemma:SottovarietaUnioneNumerabile}
+\begin{proposition}\label{prop:SottovarietaUnioneNumerabile}
 	Data $\Sigma$ sottovarietà $C^1$ $k$-dimensionale di $\R^n$, esistono $\{\Sigma_i\}_{i\in\N}\subseteq\Sigma$, aperti nella topologia di $\Sigma$, tali che $\cup_{i\in\N}\Sigma_i=\Sigma$ e $\Sigma_i$ ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$, per ogni $i\in\N$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	$\Sigma$ è separabile in quanto sottoinsieme di $\R^n$ che è separabile, ma di conseguenza è anche Lindelöf, poichè in uno spazio metrico la separabilità e la proprietà di Lindelöf sono equivalenti.
 	
 	Per la definizione stessa di sottovarietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
 
-\begin{remark}\label{nota:BorelianiSottovarieta}
-	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che $\Sigma_i$ è un Boreliano di $\R^n$ per ogni $i\in\N$ e quindi anche $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione di Boreliani. (AGGIUNGERE CHE IMMAGINE DI APERTI TRAMITE CONTINUE È BORELIANA)  
-	Di conseguenza abbiamo che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$, in quanto corrispondono alla \sigalg\ generata dagli aperti di $\Sigma$, che però sono Boreliani di $\R^n$, in quanto intersezione fra aperti di $\R^n$ e $\Sigma$ che è Boreliano.
+\begin{lemma}\label{lemma:ImmagineApertiContinua}
+	Sia $f:\R^k\to\R^n$ una funzione continua, allora $f$ manda aperti di $\R^k$ in Boreliani di $\R^n$.
+\end{lemma}
+\begin{proof}
+	Consideriamo $A$ aperto di $\R^k$ e definiamo $K_n=\{x\in A\ |\ d_{A^c}(x)\ge\frac 1n\ \wedge\ |x|\le n\}$, dove $d_{A^c}(x)$ indica la distanza del punto $x\in\R^k$ dal chiuso $A^c$. $K_n$ è facilmente chiuso e limitato, quindi è compatto, e inoltre vale che  $A=\bigcup_{n\in\N}K_n$.
+	
+	Abbiamo quindi che
+	\begin{equation*}
+		f(A)=f(\bigcup_{n\in\N}K_n)=\bigcup_{n\in\N}f(K_n)\punto
+	\end{equation*}
+	$f(K_n)$ è però compatto per ogni $n\in\N$, in quanto immagine continua di un compatto, e di conseguenza è anche un Boreliano di $\R^n$. Quindi $f(A)$ è anch'esso un Boreliano in quanto unione numerabile di Boreliani.	
+\end{proof}
+
+\begin{lemma}\label{lemma:ContinuaImplicaBoreliana}
+	Sia $f:X\to Y$ una funzione continua, dove $(X,\A,\mu)$ e $(Y;\mathscr{B},\nu)$ sono spazi di misura, allora $f$ è Boreliana, cioè controimmagine di Boreliani è Boreliana. 
+\end{lemma}
+\begin{proof}
+	La dimostrazione ricalca fondamentalmente quella della \cref{prop:CounterImgMis}, sfruttando che controimmagine di aperti tramite funzioni continue è aperta.
+\end{proof}
+
+\begin{remark}\label{nota:SigmaBoreliano}
+	Utilizzando la stessa notazione del \cref{prop:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione di Boreliani.  
 \end{remark}
 
+\begin{remark}\label{nota:BorelianiSottovarieta}
+	Per la \cref{nota:SigmaBoreliano}, abbiamo che gli aperti di $\Sigma$ sono anche Boreliani di $\R^n$, poichè sono intersezione fra aperti di $\R^n$ e $\Sigma$, che è un Boreliano di $\R^n$. Perciò in particolare otteniamo che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$.
+\end{remark}
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
-	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\mathcal{B}(M)$ sono definiti i seguenti integrali e vale che 
+	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E$ Boreliano di $M$ sono definiti i seguenti integrali e vale che 
 	\begin{equation*}
 		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Innanzitutto notiamo che i due integrali sono definiti, in quanto $Df(x)$ e $Dg(x)$ sono continue e soprattutto $f^{-1}(E)$ e $g^{-1}(E)$ sono misurabili in $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni misurabili e di conseguenza sono misurabili di $\R^k$ per (AGGIUNGERE CONTROIMMAGINE DI BORELIANI TRAMITE MISURABILI). 
+	Innanzitutto notiamo che, dato $E$ Boreliano di $M$, i due integrali sono definiti, in quanto $Df(x)$ e $Dg(x)$ sono continue e $f^{-1}(E)$ e $g^{-1}(E)$ sono Boreliani di $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni continue e di conseguenza sono Boreliani di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana}.
 
 	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
@@ -44,7 +66,7 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 \end{proof}
 
 \begin{definition}\label{def:MisuraKDimensionale}
-	Sia $E$ Boreliano di $\Sigma$, sottovarietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	Sia $E$ Boreliano di $\Sigma$, sottovarietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
 	
 	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
 	\begin{equation*}
@@ -56,9 +78,9 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
 \end{theorem}
 \begin{proof}
-	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un misurabile di $\R^k$ (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
+	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
-	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
+	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{prop:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
 	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
 	\begin{equation*}
@@ -78,9 +100,9 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	\begin{equation*}
 		\sigma(E)=\sum_{i\in\N}\sigma_i(E_i\cap \Sigma_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
 	\end{equation*}
-	e analogamente per $\sigma'$.
+	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$.
 
-	Ma per il \cref{lemma:InvarianzaImmersione} abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
+	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
 \end{proof}
 
 Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la sottovarietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
@@ -98,5 +120,5 @@ Quello che ci aspettiamo da una misura su $V$ è che si comporti come la misura 
 dove abbiamo utilizzato che $DU(x)=U$, in quanto $U$ è lineare, e che $U$ è ortogonale e quindi $U^TU=I$.
 
 \begin{example}
-	Consideriamo il piano $x+y+z=1$ di $\R^3$ e in particolare il triangolo di tale piano formato dalla base canonica di $\R^3$. Tale triangolo è un triangolo equilatero di lato $\sqrt{2}$, vorremmo quindi che la sua misura (cioè la sua ``area'') sia quella di un triangolo equilatero in $\R^2$ con lo stesso lato. Questo però risulta immediato per quanto appena detto, poichè la misura del triangolo equivale alla misura di un suo isometrico, che quindi è un triangolo con lo stesso lato.
+	Consideriamo il piano $x+y+z=1$ di $\R^3$ e in particolare il triangolo di tale piano formato dalla base canonica di $\R^3$. Tale triangolo è un triangolo equilatero di lato $\sqrt{2}$, vorremmo quindi che la sua misura (cioè la sua ``area'') sia quella di un triangolo equilatero in $\R^2$ con lo stesso lato. Questo però è ovvio per quanto appena detto, poichè la misura del triangolo equivale alla misura di un suo isometrico, che quindi è un triangolo con lo stesso lato.
 \end{example}
