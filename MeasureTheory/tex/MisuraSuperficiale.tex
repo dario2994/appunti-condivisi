@@ -18,7 +18,7 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 \end{definition}
 
 \begin{definition}\label{def:BorelianiVarieta}
-	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ come la \sigalg\ generata dagli aperti di $\Sigma$ nella topologia indotta.
+	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ come la \sigalg\ generata dagli aperti di $\Sigma$ nella topologia indotta e li indichiamo con $\Borel(\Sigma)$.
 \end{definition}
 
 Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che però non ci soffermeremo a dimostrare e che ci serviranno poi per dimostrare alcune proprietà delle varietà differenziabili.
@@ -81,9 +81,9 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 \end{remark}
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
-	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E$ Boreliano di $M$ sono definiti i seguenti integrali e vale che 
+	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\Borel(M)$ sono definiti i seguenti integrali e vale che 
 	\begin{equation*}
-		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x
+		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x\punto
 	\end{equation*}
 \end{lemma}
 \begin{proof}
@@ -98,7 +98,7 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 \end{proof}
 
 \begin{definition}\label{def:MisuraKDimensionale}
-	Sia $E$ Boreliano di $\Sigma$, varietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
 	
 	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
 	\begin{equation*}
@@ -106,9 +106,9 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 	\end{equation*}
 	dove $E_i=E\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
 \end{definition}
-\begin{theorem}
+\begin{remark}
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
-\end{theorem}
+\end{remark}
 \begin{proof}
 	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
@@ -136,6 +136,15 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 
 	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
 \end{proof}
+
+\begin{theorem}
+	La misura di Lebesgue $k$-dimensionale definita sui Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ è effettivamente una misura, cioè $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura.
+\end{theorem}
+\begin{proof}
+	I Boreliani di $\Sigma$ sono per definizione una \sigalg\ e $\sigma(\emptyset)=0$ banalmente, quindi per dimostrare che $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura ci rimane solo da verificare che $\sigma$ sia \sigadd.
+\end{proof}
+
+
 
 Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la varietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
 
