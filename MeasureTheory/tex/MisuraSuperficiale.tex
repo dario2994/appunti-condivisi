@@ -1,23 +1,34 @@
-\section{Misura superficiale}
+\section{Misura su varietà differenziabili}
 Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``superficie'', ``volume'', utilizzando gli strumenti di teoria della misura affrontati finora. 
 
 \begin{definition}
-	Una funzione $f:\Omega \subseteq \R^k\to\R^n$ si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con $Df(x)$ inettivo per ogni $x\in\Omega$. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
+	Una funzione $f:\Omega \subseteq \R^k\to\R^n$, con $\Omega$ aperto, si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con differenziale inettivo in ogni punto. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
 \end{definition}
+
+\begin{remark}\label{nota:TopologiaIndotta}
+	Dato un sottoinsieme $Y$ di uno spazio topologico $X$, esiste una naturale topologia indotta su $Y$. In particolare un sottoinsieme $U$ di $Y$ è un aperto di $Y$ nella topologia indotta se e solo esiste un aperto $V$ di $X$ tale che $U=V\cap Y$. 
+	
+	Si verifica facilmente che questa topologia indotta è effettivamente una topologia su $Y$.
+\end{remark}
+
+D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di star considerando la topologia indotta su quel sottoinsieme, come definita nella \cref{nota:TopologiaIndotta}.
 
 \begin{definition}
-	$\Sigma\subseteq\R^n$ è una sottovarietà $C^1$ $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno di $x$ in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
+	Un sottoinsieme $\Sigma$ di $\R^n$ è una varietà differenziabile $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno aperto (nella topologia indotta) di $x$ in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
 \end{definition}
 
-La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli aperti di $\R^n$ intersecati con $\Sigma$. D'ora in poi sottoinderemo di star considerando questa topologia. Inoltre chiamiamo Boreliani di $\Sigma$ la \sigalg\ generata dagli aperti di $\Sigma$.
+\begin{definition}\label{def:BorelianiVarieta}
+	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ come la \sigalg\ generata dagli aperti di $\Sigma$ nella topologia indotta.
+\end{definition}
+
 
 \begin{proposition}\label{prop:SottovarietaUnioneNumerabile}
-	Data $\Sigma$ sottovarietà $C^1$ $k$-dimensionale di $\R^n$, esistono $\{\Sigma_i\}_{i\in\N}\subseteq\Sigma$, aperti nella topologia di $\Sigma$, tali che $\cup_{i\in\N}\Sigma_i=\Sigma$ e $\Sigma_i$ ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$, per ogni $i\in\N$.
+	Data $\Sigma$ varietà $C^1$ $k$-dimensionale di $\R^n$, esistono $\{\Sigma_i\}_{i\in\N}\subseteq\Sigma$, aperti nella topologia di $\Sigma$, tali che $\cup_{i\in\N}\Sigma_i=\Sigma$ e $\Sigma_i$ ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$, per ogni $i\in\N$.
 \end{proposition}
 \begin{proof}
-	$\Sigma$ è separabile in quanto sottoinsieme di $\R^n$ che è separabile, ma di conseguenza è anche Lindelöf, poichè in uno spazio metrico la separabilità e la proprietà di Lindelöf sono equivalenti.
+	La varietà $\Sigma$ è separabile in quanto sottoinsieme di $\R^n$ che è separabile, ma di conseguenza è anche Lindelöf, poichè in uno spazio metrico la separabilità e la proprietà di Lindelöf sono equivalenti.
 	
-	Per la definizione stessa di sottovarietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
+	Per la definizione stessa di varietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
 
 \begin{lemma}\label{lemma:ImmagineApertiContinua}
@@ -66,7 +77,7 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 \end{proof}
 
 \begin{definition}\label{def:MisuraKDimensionale}
-	Sia $E$ Boreliano di $\Sigma$, sottovarietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	Sia $E$ Boreliano di $\Sigma$, varietà $C^1$ $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
 	
 	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
 	\begin{equation*}
@@ -105,9 +116,9 @@ La topologia naturalmente indotta su $\Sigma$ è quella che ha come aperti gli a
 	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
 \end{proof}
 
-Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la sottovarietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
+Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la varietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
 
-In particolare prendiamo ora in considerazione il caso ancora più semplice in cui la sottovarietà è uno spazio affine $k$-dimensionale di $\R^n$, che chiameremo $V$.
+In particolare prendiamo ora in considerazione il caso ancora più semplice in cui la varietà è uno spazio affine $k$-dimensionale di $\R^n$, che chiameremo $V$.
 
 \begin{remark}\label{nota:IsometriaSottospazio}
 	Dato $V$ sottospazio affine $k$-dimensionale di $\R^n$, allora esiste $U:\R^k\to V$ isometria lineare.
