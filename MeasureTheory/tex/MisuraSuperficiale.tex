@@ -21,38 +21,59 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ come la \sigalg\ generata dagli aperti di $\Sigma$ nella topologia indotta.
 \end{definition}
 
+Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che però non ci soffermeremo a dimostrare e che ci serviranno poi per dimostrare alcune proprietà delle varietà differenziabili.
+
+\begin{definition}
+	Uno spazio topologico si dice spazio di Lindelöf se ogni suo ricoprimento aperto ammette un sottoricoprimento numerabile. 
+\end{definition}
+
+\begin{definition}
+	Uno spazio topologico si dice separabile se contiene un sottoinsieme numerabile denso.
+\end{definition}
+
+\begin{proposition}\label{prop:SottoinsiemeSeparabile}
+	Ogni sottoinsieme di uno spazio metrico (con topologia indotta dalla metrica) separabile è separabile.
+\end{proposition}
+
+\begin{proposition}\label{prop:SeparabileLindelofMetrico}
+	Per uno spazio metrico sono equivalenti essere separabile ed essere uno spazio di Lindelöf.
+\end{proposition}
 
 \begin{proposition}\label{prop:SottovarietaUnioneNumerabile}
-	Data $\Sigma$ varietà $C^1$ $k$-dimensionale di $\R^n$, esistono $\{\Sigma_i\}_{i\in\N}\subseteq\Sigma$, aperti nella topologia di $\Sigma$, tali che $\cup_{i\in\N}\Sigma_i=\Sigma$ e $\Sigma_i$ ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$, per ogni $i\in\N$.
+	Data $\Sigma$ varietà differenziabile $k$-dimensionale di $\R^n$, esiste un ricoprimento numerabile  $\{\Sigma_i\}_{i\in\N}$ di $\Sigma$ tale che, per ogni $i\in\N$, $\Sigma_i$ è aperto nella topologia di $\Sigma$ e ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$.
 \end{proposition}
 \begin{proof}
-	La varietà $\Sigma$ è separabile in quanto sottoinsieme di $\R^n$ che è separabile, ma di conseguenza è anche Lindelöf, poichè in uno spazio metrico la separabilità e la proprietà di Lindelöf sono equivalenti.
+	La varietà $\Sigma$ è separabile per la \cref{prop:SottoinsiemeSeparabile}, in quanto sottoinsieme di $\R^n$ che è uno spazio metrico separabile, e di conseguenza è anche uno spazio di Lindelöf con la sua topologia indotta per la \cref{prop:SeparabileLindelofMetrico}.
 	
-	Per la definizione stessa di varietà $C^1$ $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò per la proprietà di Lindelöf possiamo estrarne un ricoprimento numerabile, da cui la tesi.
+	Per la definizione stessa di varietà differenziabile $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò, poichè $\Sigma$ è uno spazio di Lindelöf, possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
+
+\begin{proposition}\label{prop:ApertoUnioneCompatti}
+	Ogni aperto $A$ di $\R^n$ si può scrivere come unione numerabile crescente di compatti.
+\end{proposition}
 
 \begin{lemma}\label{lemma:ImmagineApertiContinua}
 	Sia $f:\R^k\to\R^n$ una funzione continua, allora $f$ manda aperti di $\R^k$ in Boreliani di $\R^n$.
 \end{lemma}
 \begin{proof}
-	Consideriamo $A$ aperto di $\R^k$ e definiamo $K_n=\{x\in A\ |\ d_{A^c}(x)\ge\frac 1n\ \wedge\ |x|\le n\}$, dove $d_{A^c}(x)$ indica la distanza del punto $x\in\R^k$ dal chiuso $A^c$. $K_n$ è facilmente chiuso e limitato, quindi è compatto, e inoltre vale che  $A=\bigcup_{n\in\N}K_n$.
-	
-	Abbiamo quindi che
+	Dato $A$ aperto di $\R^k$, per la \cref{prop:ApertoUnioneCompatti} esiste una successione numerabile crescente di compatti $\{K_n\}_{n\in\N}$ tale che $A=\bigcup_{n\in\N}K_n$. Perciò abbiamo che
 	\begin{equation*}
-		f(A)=f(\bigcup_{n\in\N}K_n)=\bigcup_{n\in\N}f(K_n)\punto
+		f(A)=f\left(\bigcup_{n\in\N}K_n\right)=\bigcup_{n\in\N}f(K_n)\punto
 	\end{equation*}
-	$f(K_n)$ è però compatto per ogni $n\in\N$, in quanto immagine continua di un compatto, e di conseguenza è anche un Boreliano di $\R^n$. Quindi $f(A)$ è anch'esso un Boreliano in quanto unione numerabile di Boreliani.	
+	L'immagine tramite una funzione continua di un compatto è compatta, quindi $f(K_n)$ è compatto per ogni $n\in\N$ e di conseguenza è anche un Boreliano di $\R^n$.
+	
+	Abbiamo ottenuto perciò che $f(A)$ si può scrivere come unione numerabile di Boreliani, quindi è anch'esso un Boreliano, come volevamo dimostrare.	
 \end{proof}
 
 \begin{lemma}\label{lemma:ContinuaImplicaBoreliana}
-	Sia $f:X\to Y$ una funzione continua, dove $(X,\A,\mu)$ e $(Y;\mathscr{B},\nu)$ sono spazi di misura, allora $f$ è Boreliana, cioè controimmagine di Boreliani è Boreliana. 
+	Sia $f:X\to Y$ una funzione continua, dove $(X,\A,\mu)$ e $(Y,\mathscr{B},\nu)$ sono spazi di misura, allora $f$ è Boreliana, cioè controimmagine di Boreliani è Boreliana. 
 \end{lemma}
 \begin{proof}
 	La dimostrazione ricalca fondamentalmente quella della \cref{prop:CounterImgMis}, sfruttando che controimmagine di aperti tramite funzioni continue è aperta.
 \end{proof}
 
 \begin{remark}\label{nota:SigmaBoreliano}
-	Utilizzando la stessa notazione del \cref{prop:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione di Boreliani.  
+	Utilizzando la stessa notazione della \cref{prop:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} l'insieme $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione numerabile di Boreliani.  
 \end{remark}
 
 \begin{remark}\label{nota:BorelianiSottovarieta}
