@@ -1,6 +1,9 @@
 \section{Misura su varietà differenziabili}
 Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``superficie'', ``volume'', utilizzando gli strumenti di teoria della misura affrontati finora. 
 
+Vogliamo introdurre innanzitutto il concetto di varietà differenziabile $k$-dimensionale di $\R^n$, che sarà la struttura che generalizza la nostra idea di ``superficie'' e su cui definiremo una misura. In particolare una varietà differenziabile sarà parametrizzata da funzioni, chiamate immersioni iniettive, che gli conferiscono le proprietà di regolarità necessarie a definire la misura.
+Per fare tutto ciò sfrutteremo la topologia naturalmente indotta da $\R^n$ sui suoi sottoinsiemi.
+
 \begin{definition}
 	Una funzione $f:\Omega \subseteq \R^k\to\R^n$, con $\Omega$ aperto, si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con differenziale inettivo in ogni punto. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
 \end{definition}
@@ -13,15 +16,15 @@ Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``super
 
 D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di star considerando la topologia indotta su quel sottoinsieme, come definita nella \cref{nota:TopologiaIndotta}.
 
+\begin{definition}\label{def:BorelianiSottoinsieme}
+	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di un sottoinsieme $X$ di $\R^n$ come la \sigalg\ generata dagli aperti di $X$ nella topologia indotta e li indichiamo con $\Borel(X)$.
+\end{definition}
+
 \begin{definition}
 	Un sottoinsieme $\Sigma$ di $\R^n$ è una varietà differenziabile $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno aperto (nella topologia indotta) di $x$ in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
 \end{definition}
 
-\begin{definition}\label{def:BorelianiVarieta}
-	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ come la \sigalg\ generata dagli aperti di $\Sigma$ nella topologia indotta e li indichiamo con $\Borel(\Sigma)$.
-\end{definition}
-
-Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che però non ci soffermeremo a dimostrare e che ci serviranno poi per dimostrare alcune proprietà delle varietà differenziabili.
+Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base non del tutto banali, che però non ci soffermeremo a dimostrare in quanto non strettamente pertinenti alla trattazione. Tali fatti ci serviranno a dimostrare alcuni lemmi utili ad arrivare alla definizione di misura su una varietà differenziabile di $\R^n$.
 
 \begin{definition}
 	Uno spazio topologico si dice spazio di Lindelöf se ogni suo ricoprimento aperto ammette un sottoricoprimento numerabile. 
@@ -32,16 +35,16 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 \end{definition}
 
 \begin{proposition}\label{prop:SottoinsiemeSeparabile}
-	Ogni sottoinsieme di uno spazio metrico (con topologia indotta dalla metrica) separabile è separabile.
+	Ogni sottoinsieme di uno spazio metrico (con topologia indotta dalla metrica) separabile è separabile (nella sua topologia indotta).
 \end{proposition}
 
 \begin{proposition}\label{prop:SeparabileLindelofMetrico}
 	Per uno spazio metrico sono equivalenti essere separabile ed essere uno spazio di Lindelöf.
 \end{proposition}
 
-\begin{proposition}\label{prop:SottovarietaUnioneNumerabile}
+\begin{lemma}\label{lemma:SottovarietaUnioneNumerabile}
 	Data $\Sigma$ varietà differenziabile $k$-dimensionale di $\R^n$, esiste un ricoprimento numerabile  $\{\Sigma_i\}_{i\in\N}$ di $\Sigma$ tale che, per ogni $i\in\N$, $\Sigma_i$ è aperto nella topologia di $\Sigma$ e ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$.
-\end{proposition}
+\end{lemma}
 \begin{proof}
 	La varietà $\Sigma$ è separabile per la \cref{prop:SottoinsiemeSeparabile}, in quanto sottoinsieme di $\R^n$ che è uno spazio metrico separabile, e di conseguenza è anche uno spazio di Lindelöf con la sua topologia indotta per la \cref{prop:SeparabileLindelofMetrico}.
 	
@@ -66,14 +69,14 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 \end{proof}
 
 \begin{lemma}\label{lemma:ContinuaImplicaBoreliana}
-	Sia $f:X\to Y$ una funzione continua, dove $(X,\A,\mu)$ e $(Y,\mathscr{B},\nu)$ sono spazi di misura, allora $f$ è Boreliana, cioè controimmagine di Boreliani è Boreliana. 
+	Sia $f:X\subseteq\R^k\to Y\subseteq\R^n$ una funzione continua, allora $f$ è Boreliana, cioè controimmagine di Boreliani è Boreliana, dove si intendono come Boreliani quelli ottenuti dalla topologia indotta, come nella \cref{def:BorelianiSottoinsieme}. 
 \end{lemma}
 \begin{proof}
 	La dimostrazione ricalca fondamentalmente quella della \cref{prop:CounterImgMis}, sfruttando che controimmagine di aperti tramite funzioni continue è aperta.
 \end{proof}
 
 \begin{remark}\label{nota:SigmaBoreliano}
-	Utilizzando la stessa notazione della \cref{prop:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} l'insieme $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione numerabile di Boreliani.  
+	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} l'insieme $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione numerabile di Boreliani.  
 \end{remark}
 
 \begin{remark}\label{nota:BorelianiSottovarieta}
@@ -97,8 +100,10 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
 \end{proof}
 
+Abbiamo finalmente tutti gli strumenti per definire la misura di Lebesgue $k$-dimensionale su una varietà differenziabile $k$-dimensionale di $\R^n$.
+
 \begin{definition}\label{def:MisuraKDimensionale}
-	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{prop:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
 	
 	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
 	\begin{equation*}
@@ -112,7 +117,7 @@ Qui di seguito enunceremo alcuni fatti di topologia non del tutto banali, che pe
 \begin{proof}
 	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
-	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{prop:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
+	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
 	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
 	\begin{equation*}
