@@ -5,7 +5,7 @@ Vogliamo introdurre innanzitutto il concetto di varietà differenziabile $k$-dim
 Per fare tutto ciò sfrutteremo la topologia naturalmente indotta da $\R^n$ sui suoi sottoinsiemi.
 
 \begin{definition}
-	Una funzione $f:\Omega \subseteq \R^k\to\R^n$, con $\Omega$ aperto, si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con differenziale inettivo in ogni punto. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
+	Una funzione $f:\Omega \subseteq \R^k\to\R^n$, con $\Omega$ aperto, si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con differenziale iniettivo in ogni punto. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
 \end{definition}
 
 \begin{remark}\label{nota:TopologiaIndotta}
@@ -21,7 +21,7 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 \end{definition}
 
 \begin{definition}
-	Un sottoinsieme $\Sigma$ di $\R^n$ è una varietà differenziabile $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno aperto (nella topologia indotta) di $x$ in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
+	Un sottoinsieme $\Sigma$ di $\R^n$ è una varietà differenziabile $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno aperto di $x$ (nella topologia indotta) in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
 \end{definition}
 
 Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base non del tutto banali, che però non ci soffermeremo a dimostrare in quanto non strettamente pertinenti alla trattazione. Tali fatti ci serviranno a dimostrare alcuni lemmi utili ad arrivare alla definizione di misura su una varietà differenziabile di $\R^n$.
@@ -83,6 +83,35 @@ Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base n
 	Per la \cref{nota:SigmaBoreliano}, abbiamo che gli aperti di $\Sigma$ sono anche Boreliani di $\R^n$, poichè sono intersezione fra aperti di $\R^n$ e $\Sigma$, che è un Boreliano di $\R^n$. Perciò in particolare otteniamo che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$.
 \end{remark}
 
+Abbiamo finalmente tutti gli strumenti per definire la misura di Lebesgue $k$-dimensionale su una varietà differenziabile $k$-dimensionale di $\R^n$. Prima di dare la definizione vera e propria cerchiamo però di capire quale è la forma che ci aspettiamo da questa misura su delle strutture più semplici di una varietà differenziabile. A prima vista infatti la definizione di misura $k$-dimensionale su una varietà differenziabile può sembrare del tutto controintuitiva, senza aver studiato precedentemente dei casi più semplici.
+
+Consideriamo quindi il caso di un sottospazio vettoriale $k$-dimensionale $V$ di $\R^n$. Questo è un esempio speciale di varietà differenziabile $k$-dimensionale di $\R^n$, in quando esiste una funzione lineare $L:\R^k\to \R^n$, tale che $L(\R^k)=V$, $L$ è bigettiva con la sua immagine e ha facilmente differenziale iniettivo, in quanto il differenziale di una funzione lineare è la funzione stessa, quindi $L$ è una parametrizzazione $C^1$ di $V$.
+
+Data $L:\R^k\to\R^n$ applicazione lineare, esiste sempre la decomposizione polare della matrice $L$ che è della forma $L=U\cdot S$, con $S=(L^T\cdot L)^{\frac 12}:\R^k\to\R^k$ matrice simmetrica invertibile (perchè $L$ ha rango $k$ essendo iniettiva) e $U=L\cdot (L^T\cdot L)^{-\frac 12}:\R^k\to\R^n$ ortogonale, cioè tale che $U^T\cdot U=I$.
+
+Quello che ci aspettiamo da una misura su $V$ è che dipenda dalla metrica di $V$, cioè vorremmo che data $U:\R^k\to V$ isometria lineare (come quella che abbiamo ottenuto dalla decomposizione polare di $L$), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\Borel(V)$, dove abbiamo chiamato $\sigma$ la misura su $V$. Questo concetto si può comprendere meglio con un semplice esempio. Consideriamo infatti un sottospazio di dimensione 2 in $\R^3$ e prendiamo tre punti sul sottospazio alla stessa distanza uno dall'altro, che formano quindi un triangolo equilatero. Quello che vorremmo è che la misura di questo triangolo sia la stessa di un triangolo equilatero con lo stesso lato in $\R^2$, ma questo equivale esattamente a dire che vogliamo che la misura dipenda fondamentalmente dalla metrica del sottospazio.
+
+Calcoliamo quindi a quanto equivale $m_k(U^{-1}(E))$, dato $E\in\Borel(V)$, in funzione della nostra ``immersione iniettiva'' $L$. Sfruttando la \cref{prop:MisuraImmagineLineare} e le proprietà del determinante, otteniamo
+\begin{equation*}
+	m_k(U^{-1}(E))=m_k(S\cdot L^{-1}(E))=|\det S |\cdot m_k(L^{-1}(E))=\sqrt{\det(L^T\cdot L)}\cdot m_k(L^{-1}(E))\virgola
+\end{equation*}
+in particolare ci possiamo quindi riscrivere $m_k(U^{-1}(E))$ come
+\begin{equation*}
+	m_k(U^{-1}(E))=\int_{L^{-1}(E)}\sqrt{\det(L^T\cdot L)}\de x\punto
+\end{equation*}
+
+
+
+\begin{definition}\label{def:MisuraKDimensionale}
+	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
+	
+	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
+	\begin{equation*}
+		\sigma(E)=\sum_{i\in\N} \sigma_i(E_i\cap \Sigma_i)\virgola
+	\end{equation*}
+	dove $E_i=E\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
+\end{definition}
+
 \begin{lemma}\label{lemma:InvarianzaImmersione}
 	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\Borel(M)$ sono definiti i seguenti integrali e vale che 
 	\begin{equation*}
@@ -100,17 +129,6 @@ Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base n
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
 \end{proof}
 
-Abbiamo finalmente tutti gli strumenti per definire la misura di Lebesgue $k$-dimensionale su una varietà differenziabile $k$-dimensionale di $\R^n$.
-
-\begin{definition}\label{def:MisuraKDimensionale}
-	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
-	
-	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
-	\begin{equation*}
-		\sigma(E)=\sum_{i\in\N} \sigma_i(E_i\cap \Sigma_i)\virgola
-	\end{equation*}
-	dove $E_i=E\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
-\end{definition}
 \begin{remark}
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
 \end{remark}
