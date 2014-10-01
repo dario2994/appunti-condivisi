@@ -89,75 +89,81 @@ Consideriamo quindi il caso di un sottospazio vettoriale $k$-dimensionale $V$ di
 
 Data $L:\R^k\to\R^n$ applicazione lineare, esiste sempre la decomposizione polare della matrice $L$ che è della forma $L=U\cdot S$, con $S=(L^T\cdot L)^{\frac 12}:\R^k\to\R^k$ matrice simmetrica invertibile (perchè $L$ ha rango $k$ essendo iniettiva) e $U=L\cdot (L^T\cdot L)^{-\frac 12}:\R^k\to\R^n$ ortogonale, cioè tale che $U^T\cdot U=I$.
 
-Quello che ci aspettiamo da una misura su $V$ è che dipenda dalla metrica di $V$, cioè vorremmo che data $U:\R^k\to V$ isometria lineare (come quella che abbiamo ottenuto dalla decomposizione polare di $L$), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\Borel(V)$, dove abbiamo chiamato $\sigma$ la misura su $V$. Questo concetto si può comprendere meglio con un semplice esempio. Consideriamo infatti un sottospazio di dimensione 2 in $\R^3$ e prendiamo tre punti sul sottospazio alla stessa distanza uno dall'altro, che formano quindi un triangolo equilatero. Quello che vorremmo è che la misura di questo triangolo sia la stessa di un triangolo equilatero con lo stesso lato in $\R^2$, ma questo equivale esattamente a dire che vogliamo che la misura dipenda fondamentalmente dalla metrica del sottospazio.
+Quello che ci aspettiamo da una misura su $V$ è che dipenda dalla metrica di $V$, cioè vorremmo che data $U:\R^k\to V$ isometria lineare (come quella che abbiamo ottenuto dalla decomposizione polare di $L$), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\Borel(V)$, dove abbiamo chiamato $\sigma$ la misura su $V$. Questo concetto si può comprendere meglio con un semplice esempio. Consideriamo infatti un sottospazio di dimensione 2 in $\R^3$ e prendiamo tre punti sul sottospazio alla stessa distanza uno dall'altro, in modo che formino quindi un triangolo equilatero. Quello che vorremmo è che la misura di questo triangolo sia la stessa di un triangolo equilatero con lo stesso lato in $\R^2$, ma questo equivale esattamente a dire che vogliamo che la misura dipenda fondamentalmente dalla metrica del sottospazio.
 
 Calcoliamo quindi a quanto equivale $m_k(U^{-1}(E))$, dato $E\in\Borel(V)$, in funzione della nostra ``immersione iniettiva'' $L$. Sfruttando la \cref{prop:MisuraImmagineLineare} e le proprietà del determinante, otteniamo
 \begin{equation*}
-	m_k(U^{-1}(E))=m_k(S\cdot L^{-1}(E))=|\det S |\cdot m_k(L^{-1}(E))=\sqrt{\det(L^T\cdot L)}\cdot m_k(L^{-1}(E))\virgola
+	m_k(U^{-1}(E))=m_k(S\cdot L^{-1}(E))=\lvert\det S\rvert\cdot m_k(L^{-1}(E))=\sqrt{\det(L^T\cdot L)}\cdot m_k(L^{-1}(E))\virgola
 \end{equation*}
-in particolare ci possiamo quindi riscrivere $m_k(U^{-1}(E))$ come
+in particolare vorremmo quindi che la misura $k$-dimensionale di $E$ sia uguale a
 \begin{equation*}
-	m_k(U^{-1}(E))=\int_{L^{-1}(E)}\sqrt{\det(L^T\cdot L)}\de x\punto
+	\sigma(E)=m_k(U^{-1}(E))=\int_{L^{-1}(E)}\sqrt{\det(L^T\cdot L)}\de x\punto
 \end{equation*}
 
-
+Dopo questa breve digressione, la definizione che stiamo per dare sembrerà meno arbitraria.
 
 \begin{definition}\label{def:MisuraKDimensionale}
 	Sia $E\in\Borel(\Sigma$), dove $\Sigma$ è una varietà differenziabile $k$-dimensionale di $\R^n$, e siano $\{\Sigma_i\}_{i\in\N}$ e $\{\Omega_i\}_{i\in\N}$ come nel \cref{lemma:SottovarietaUnioneNumerabile}. Chiamiamo inoltre, per ogni $i\in\N$, $f_i:\Omega_i\to\Sigma_i$ l'immersione iniettiva che parametrizza $\Sigma_i$.
 	
 	Definiamo la misura di Lebesgue $k$-dimensionale di $E$ come
 	\begin{equation*}
-		\sigma(E)=\sum_{i\in\N} \sigma_i(E_i\cap \Sigma_i)\virgola
+		\sigma(E)=\sum_{i\in\N} \sigma_i(E\cap F_i)\virgola
 	\end{equation*}
-	dove $E_i=E\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x$.
+	dove $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x$.
 \end{definition}
+
+Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè tutte le quantità sono ben definite, la definizione non dipende dalla scelta di $\{\Sigma_i\}_{i\in\N}$ e delle parametrizzazioni e che quella definita è veramente una misura.
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
 	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\Borel(M)$ sono definiti i seguenti integrali e vale che 
 	\begin{equation*}
-		\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x\punto
+		\int_{g^{-1}(E)}\sqrt{\det(\Diff g(x)^T\Diff g(x))}\de x=\int_{f^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x\punto
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Innanzitutto notiamo che, dato $E$ Boreliano di $M$, i due integrali sono definiti, in quanto $Df(x)$ e $Dg(x)$ sono continue e $f^{-1}(E)$ e $g^{-1}(E)$ sono Boreliani di $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni continue e di conseguenza sono Boreliani di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana}.
+	Innanzitutto notiamo che, dato $E\in\Borel(M)$, i due integrali sono definiti, in quanto $\Diff f(x)$ e $\Diff g(x)$ sono continue e $f^{-1}(E)$ e $g^{-1}(E)$ sono Boreliani di $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni continue e di conseguenza sono Boreliani di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana}.
 
 	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
-		\int_{f^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(Df(x)^TDf(x))}\de x=\\
-		=\int_{g^{-1}(E)}\sqrt{\det(Df(\varphi(x))^TDf(\varphi(x)))}\ |\det D\varphi(x)|\de x=\int_{g^{-1}(E)}\sqrt{\det(Dg(x)^TDg(x))}\de x\virgola
+		\int_{f^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\\
+		=\int_{g^{-1}(E)}\sqrt{\det(\Diff f(\varphi(x))^T\Diff f(\varphi(x)))}\ \lvert\det \Diff \varphi(x)\rvert\de x=\int_{g^{-1}(E)}\sqrt{\det(\Diff g(x)^T\Diff g(x))}\de x\virgola
 	\end{multline*}
-	dove abbiamo usato che se $g=f\circ \varphi$, allora $Dg(x)=Df(\varphi(x))\cdot D\varphi(x)$.
+	dove abbiamo usato che se $g=f\circ \varphi$, allora $\Diff g(x)=\Diff f(\varphi(x))\cdot \Diff\varphi(x)$.
 \end{proof}
 
 \begin{remark}
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
 \end{remark}
 \begin{proof}
-	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $Df_i(x)$ è continua per ogni $i\in\N$ e inoltre si dimostra facilmente per induzione su $i$ che $E_i\cap\Sigma_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}. Quindi $f_i^{-1}(E_i\cap\Sigma_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
+	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $\Diff f_i(x)$ è continua per ogni $i\in\N$ e inoltre è facile verificare che $E\cap F_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}, in quanto intersezione di Boreliani. Quindi $f_i^{-1}(E\cap F_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
 	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
-	Sia $B_{i,j}=(\Sigma_i\setminus (\cup_{k<i}\Sigma_k))\cap (\Sigma_j'\setminus (\cup_{k<j}\Sigma_j'))$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
+	Chiamiamo $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ ed $F_i'=\Sigma_i'\setminus (\cup_{j<i}\Sigma_j')$, come nella \cref{def:MisuraKDimensionale}. Sia poi $B_{i,j}=F_i \cap F_j'$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
 	\begin{equation*}
-		E_i\cap\Sigma_i=(E\setminus (\cup_{j<i}\Sigma_j))\cap \Sigma_i=E\cap (\Sigma_i\setminus (\cup_{k<i}\Sigma_k))=E\cap (\cup_{j\in\N}B_{i,j})=\cup_{j\in\N}(E\cap B_{i,j})\virgola
+		E\cap F_i=E\cap (\cup_{j\in\N}B_{i,j})=\cup_{j\in\N}(E\cap B_{i,j})\virgola
 	\end{equation*}
 	abbiamo che
 	\begin{equation*}
-		\sigma_i(E_i\cap \Sigma_i)=\sigma_i(\cup_{j\in\N}(E\cap B_{i,j}))=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\virgola
+		\sigma_i(E\cap F_i)=\sigma_i(\cup_{j\in\N}(E\cap B_{i,j}))=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\virgola
 	\end{equation*}
 	dove l'ultima uguaglianza è vera perchè dati $A_j=E\cap B_{i,j}$, che sono disgiunti fra loro, risulta
 	\begin{align*}
-		\sigma_i(\cup_{j\in\N}A_j)& =\int_{f_i^{-1}(\cup_{j\in\N}A_j)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x\\
-		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(Df_i(x)^TDf_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\punto
+		\sigma_i(\cup_{j\in\N}A_j)& =\int_{f_i^{-1}(\cup_{j\in\N}A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x\\
+		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\punto
 	\end{align*}
 	
 	Otteniamo quindi che
 	\begin{equation*}
 		\sigma(E)=\sum_{i\in\N}\sigma_i(E_i\cap \Sigma_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
 	\end{equation*}
-	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$.
+	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$. In queste sommatorie a due indici non mi devo preoccupare dell'ordine in cui faccio le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
 
-	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo quindi che $\sigma(E)=\sigma'(E)$.
+	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo però che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo proprio che 
+	\begin{equation*}
+		\sigma(E)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})=\sigma'(E)\punto
+	\end{equation*}
+
 \end{proof}
 
 \begin{theorem}
