@@ -131,7 +131,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $\Diff g(x)=\Diff f(\varphi(x))\cdot \Diff\varphi(x)$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{nota:DefMisuraKDimBuona}
 	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
 \end{remark}
 \begin{proof}
@@ -155,9 +155,9 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 	
 	Otteniamo quindi che
 	\begin{equation*}
-		\sigma(E)=\sum_{i\in\N}\sigma_i(E_i\cap \Sigma_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
+		\sigma(E)=\sum_{i\in\N}\sigma_i(E \cap F_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
 	\end{equation*}
-	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$. In queste sommatorie a due indici non mi devo preoccupare dell'ordine in cui faccio le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
+	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$. Da notare che in queste sommatorie a due indici non ci dobbiamo preoccupare dell'ordine in cui si fanno le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
 
 	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo però che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo proprio che 
 	\begin{equation*}
@@ -171,6 +171,13 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 \end{theorem}
 \begin{proof}
 	I Boreliani di $\Sigma$ sono per definizione una \sigalg\ e $\sigma(\emptyset)=0$ banalmente, quindi per dimostrare che $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura ci rimane solo da verificare che $\sigma$ sia \sigadd.
+	
+	Per la \sigadd[ità] di $\sigma_i$, già mostrata nella dimostrazione della \cref{nota:DefMisuraKDimBuona}, abbiamo che
+	\begin{multline*}
+		\sigma(\cup_{k\in\N}E_k)=\sum_{i\in\N}\sigma_i((\cup_{k\in\N}E_k)\cap F_i)=\sum_{i\in\N}\sigma_i(\cup_{k\in\N}(E_k\cap F_i))\\
+		=\sum_{i\in\N}\sum_{k\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sum_{i\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sigma(E_k)\virgola
+	\end{multline*}
+	che è proprio quello che volevamo dimostrare.
 \end{proof}
 
 
