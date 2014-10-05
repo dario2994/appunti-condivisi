@@ -179,23 +179,3 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 	\end{multline*}
 	che è proprio quello che volevamo dimostrare.
 \end{proof}
-
-
-
-Cerchiamo ora di capire il perchè di questa definizione, studiando alcuni casi particolari. Innanzitutto ci riduciamo al caso in cui la varietà $C^1$ $k$-dimensionale che consideriamo è parametrizzata da un'unica funzione $f:\Omega\subseteq \R^k\to\Sigma$. Possiamo infatti limitarci a studiare questa situazione in quanto in generale la misura superficiale è semplicemente ``un'incollamento'' delle misure su superfici $k$-dimensionali parametrizzate. 
-
-In particolare prendiamo ora in considerazione il caso ancora più semplice in cui la varietà è uno spazio affine $k$-dimensionale di $\R^n$, che chiameremo $V$.
-
-\begin{remark}\label{nota:IsometriaSottospazio}
-	Dato $V$ sottospazio affine $k$-dimensionale di $\R^n$, allora esiste $U:\R^k\to V$ isometria lineare.
-\end{remark}
-
-Quello che ci aspettiamo da una misura su $V$ è che si comporti come la misura di Lebesgue su $\R^k$, cioè che dipenda dalla metrica del sottospazio $V$. Perciò vorremmo che data $U:\R^k\to V$ isometria lineare (che esiste per la \cref{nota:IsometriaSottospazio}), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\mathcal{B}(V)$. Ma questo risulta immediato in quanto
-\begin{equation*}
-	\sigma(E)=\int_{U^{-1}(E)}\sqrt{\det(DU(x)^TDU(x))}\de x=\int_{U^{-1}(E)}\sqrt{\det(U^TU)}\de x=m_k(U^{-1}(E))\virgola
-\end{equation*}
-dove abbiamo utilizzato che $DU(x)=U$, in quanto $U$ è lineare, e che $U$ è ortogonale e quindi $U^TU=I$.
-
-\begin{example}
-	Consideriamo il piano $x+y+z=1$ di $\R^3$ e in particolare il triangolo di tale piano formato dalla base canonica di $\R^3$. Tale triangolo è un triangolo equilatero di lato $\sqrt{2}$, vorremmo quindi che la sua misura (cioè la sua ``area'') sia quella di un triangolo equilatero in $\R^2$ con lo stesso lato. Questo però è ovvio per quanto appena detto, poichè la misura del triangolo equivale alla misura di un suo isometrico, che quindi è un triangolo con lo stesso lato.
-\end{example}
