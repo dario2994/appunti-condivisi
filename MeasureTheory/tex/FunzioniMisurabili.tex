@@ -26,10 +26,13 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \begin{proof}
 	Sfruttando le proprietà di $\A$ come \sigalg, mostriamo a catena tutte le implicazioni:
 	\begin{description}
-	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}([-\infty,a))\in \A$,
-		perché $[-\infty,a)$ è aperto;
-	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $[-\infty,a]=\bigcap_{n\in \N}[-\infty,a+\frac{1}{n})$, allora otteniamo che
-		$\{f\leq a\}=f^{-1}([-\infty,a])=\bigcap_{n\in \N}f^{-1}([-\infty,a+\frac{1}{n}))\in \A$;
+	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}\left(\oo{-\infty}{a}\right)\in \A$,
+		perché $\oo{-\infty}{a}$ è aperto;
+	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $\oc{-\infty}{a}=\bigcap_{n\in \N}\oc{-\infty}{a+\frac{1}{n}}$, allora otteniamo
+		\begin{equation*}
+			\{f\leq a\}=f^{-1}\left(\oc{-\infty}{a}\right)=\bigcap_{n\in \N}f^{-1}\left(\co{-\infty}{a+\frac{1}{n}}\right)\in \A	
+		\end{equation*}
+
 	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\leq a\}\in \A$;
 	\item[\ImplicationProof{BM:sov}{BM:soveq}] analogamente a \ImplicationProof{BM:sot}{BM:soteq}; 
 	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
@@ -263,10 +266,10 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \end{proof}
 
 \begin{theorem}\label{thm:ChiusuraMonotonaFunzioni}
-	Sia $\mathcal F$ una famiglia di funzioni da $X$ a $\Rbar$, dove $(X,\A,\mu)$ è uno spazio di misura tale che
+	Se $\mathcal F$ è una famiglia di funzioni da $X$ a $\Rbar$, dove $(X,\A,\mu)$ è uno spazio di misura, tale che
 	\begin{itemize}
-	 \item è uno spazio vettoriale;
-	 \item contiene le funzioni $\chi_A$ $\forall A\in \A$;
+	 \item $\mathcal F$ è uno spazio vettoriale;
+	 \item $\mathcal F$ contiene le funzioni $\chi_A$ $\forall A\in \A$;
 	 \item se $(f_n)\subseteq \mathcal F$ è una successione monotona che converge a $f$, allora $f\in \mathcal F$;
 	\end{itemize}
 	allora $\mathcal F$ contiene tutte le funzioni misurabili.

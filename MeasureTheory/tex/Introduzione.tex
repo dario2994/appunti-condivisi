@@ -311,14 +311,15 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono le identità
-	\begin{align*}
+	\begin{gather*}
 		A_n= A'_n\sqcup \bigsqcup_{i\in\N}E^n_i=\bigsqcup_{i\in\N}C_{ni}\sqcup \bigsqcup_{i\in\N}E^n_i
-		=\bigsqcup_{i,j\in\N}F^{ni}_j\sqcup \bigsqcup_{i\in\N}E^n_i
-		&\implies \mu(A_n)\ge\sum_{i,j\in\N}\mu(F^{ni}_j)+\sum_{i\in\N}\mu(E^n_i) \puntovirgola\\
+		=\bigsqcup_{i,j\in\N}F^{ni}_j\sqcup \bigsqcup_{i\in\N}E^n_i\\
+		\Downarrow\\
+		\mu(A_n)=\sum_{i,j\in\N}\mu(F^{ni}_j)+\sum_{i\in\N}\mu(E^n_i) \puntovirgola\\
 		B_n=\bigsqcup_{i\in\N}C_{in}=\bigsqcup_{i,j\in\N}F^{in}_j
-		&\implies \mu(B_n)=\sum_{i,j\in\N}\mu(F^{in}_j) \virgola
-	\end{align*}
-	quindi sommando su $n$ arriviamo alle disuguaglianze
+		\implies  \mu(B_n)=\sum_{i,j\in\N}\mu(F^{in}_j) \virgola
+	\end{gather*}
+	quindi sommando su $n\in\N$ arriviamo alle disuguaglianze
 	\begin{align*}
 		\sum_{n\in\N}\mu(A_n)&\ge \sum_{n\in\N}\sum_{i,j\in\N}\mu(F^{ni}_j)
 		=\sum_{i,n,j\in\N}\mu(F^{ni}_j) \puntovirgola\\

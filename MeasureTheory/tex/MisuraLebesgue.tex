@@ -552,15 +552,15 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 \begin{proof}
 	Dato $A$, notiamo che per la \sigadd[ità] della misura vale
 	\begin{equation*}
-		0<m_n(A)=\sum_{(i_1,i_2,\dots,i_n)\in\mathbb Z^n} m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)
+		0<m_n(A)=\sum_{(i_1,i_2,\dots,i_n)\in\mathbb Z^n} m_n\Big(A\cap\big(\co{i_1}{i_1+1}\times\cdots\times\co{i_n}{i_n+1}\big)\Big)
 	\end{equation*}
-	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esistono $(i_1,\dots,i_n)\in \mathbb Z^n$ tali che
+	e perciò in particolare, visto che la serie ha somma positiva, ne ricaviamo che esiste una $n$-upla $(i_1,\dots,i_n)$ di interi tali che
 	\begin{equation*}
-		0<m_n\left(A\cap\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)\right)\le
-		m_n\left(\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}\right)=1 \virgola
+		0<m_n\Big(A\cap\big(\co{i_1}{i_1+1}\times\cdots\times\co{i_n}{i_n+1}\big)\Big)\le
+		m_n\Big(\co{i_1}{i_1+1}\times\cdots\times\co{i_n}{i_n+1}\Big)=1 \virgola
 	\end{equation*}
-	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poiché l'ipotesi di misura non nulla non si perde. 
-	In particolare, poiché la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\co{0}{1}$.
+	quindi, a meno di intersecare con $\co{i_1}{i_1+1}\times\cdots\times\co{i_n}{i_n+1}$, possiamo assumere che $A$ sia contenuto in tale $n$-parallelepipedo poiché l'ipotesi di misura non nulla non si perde. 
+	In particolare, poiché la misura di Lebesgue è invariante per traslazione come mostrato nella \cref{nota:LebesgueProprieta}, senza perdita di generalità assumeremo $A\subseteq \co{0}{1}\times\cdots\times\co{0}{1}$.
 	
 	Poniamo su $\R^n$ la relazione di equivalenza 
 	\begin{equation*}

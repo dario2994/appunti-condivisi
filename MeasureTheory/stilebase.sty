@@ -89,8 +89,13 @@
 \newcommand{\co}[2]{\ensuremath{\left[\,#1,\,#2\,\right)}}
 \newcommand{\oo}[2]{\ensuremath{\left(\,#1,\,#2\,\right)}}
 \newcommand{\cc}[2]{\ensuremath{\left[\,#1,\,#2\,\right]}}
+\newcommand{\oc}[2]{\ensuremath{\left(\,#1,\,#2\,\right]}}
 
 %Punteggiatura nelle formule
-\newcommand{\virgola}{\ensuremath{\, \text{, }}}
+\ifdefined\virgola 
+	\renewcommand{\virgola}{\ensuremath{\, \text{, }}}
+\else 
+	\newcommand{\virgola}{\ensuremath{\, \text{, }}}
+\fi
 \newcommand{\puntovirgola}{\ensuremath{\, \text{; }}}
 \newcommand{\punto}{\ensuremath{\, \text{. }}}
