@@ -1,4 +1,4 @@
-\section{Misura su varietà differenziabili}
+\section{Misura su varietà differenziabili \texorpdfstring{di $\R^n$}{}}
 Obiettivo di questa sezione è formalizzare i concetti di ``lunghezza'', ``superficie'', ``volume'', utilizzando gli strumenti di teoria della misura affrontati finora. 
 
 Vogliamo introdurre innanzitutto il concetto di varietà differenziabile $k$-dimensionale di $\R^n$, che sarà la struttura che generalizza la nostra idea di ``superficie'' e su cui definiremo una misura. In particolare una varietà differenziabile sarà parametrizzata da funzioni, chiamate immersioni iniettive, che gli conferiscono le proprietà di regolarità necessarie a definire la misura.
@@ -112,7 +112,7 @@ Dopo questa breve digressione, la definizione che stiamo per dare sembrerà meno
 	dove $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x$.
 \end{definition}
 
-Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè tutte le quantità sono ben definite, la definizione non dipende dalla scelta di $\{\Sigma_i\}_{i\in\N}$ e delle parametrizzazioni e che quella definita è veramente una misura.
+Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè tutte le quantità sono ben definite, la definizione non dipende dalla scelta di $\{\Sigma_i\}_{i\in\N}$ e dalle parametrizzazioni e che quella definita è veramente una misura.
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
 	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\Borel(M)$ sono definiti i seguenti integrali e vale che 
