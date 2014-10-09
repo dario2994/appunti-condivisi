@@ -87,9 +87,10 @@ Abbiamo finalmente tutti gli strumenti per definire la misura di Lebesgue $k$-di
 
 Consideriamo quindi il caso di un sottospazio vettoriale $k$-dimensionale $V$ di $\R^n$. Questo è un esempio speciale di varietà differenziabile $k$-dimensionale di $\R^n$, in quando esiste una funzione lineare $L:\R^k\to \R^n$, tale che $L(\R^k)=V$, $L$ è bigettiva con la sua immagine e ha facilmente differenziale iniettivo, in quanto il differenziale di una funzione lineare è la funzione stessa, quindi $L$ è una parametrizzazione $C^1$ di $V$.
 
-Data $L:\R^k\to\R^n$ applicazione lineare, esiste sempre la decomposizione polare della matrice $L$ che è della forma $L=U\cdot S$, con $S=(L^T\cdot L)^{\frac 12}:\R^k\to\R^k$ matrice simmetrica invertibile (perchè $L$ ha rango $k$ essendo iniettiva) e $U=L\cdot (L^T\cdot L)^{-\frac 12}:\R^k\to\R^n$ ortogonale, cioè tale che $U^T\cdot U=I$.
+Data $L:\R^k\to\R^n$ applicazione lineare, esiste sempre la decomposizione polare della matrice $L$ che è della forma $L=U\cdot S$, con $S=(L^T\cdot L)^{\frac 12}:\R^k\to\R^k$ matrice simmetrica invertibile \footnote{Data $A$ matrice simmetrica definita positiva (che nel nostro caso è $L^T\cdot L$), esiste sempre una matrice denotata con $A^\frac 12$ che elevata al quadrato dà $A$.} e $U=L\cdot (L^T\cdot L)^{-\frac 12}:\R^k\to\R^n$ ortogonale, cioè tale che $U^T\cdot U=I$.
 
-Quello che ci aspettiamo da una misura su $V$ è che dipenda dalla metrica di $V$, cioè vorremmo che data $U:\R^k\to V$ isometria lineare (come quella che abbiamo ottenuto dalla decomposizione polare di $L$), valga che $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\Borel(V)$, dove abbiamo chiamato $\sigma$ la misura su $V$. Questo concetto si può comprendere meglio con un semplice esempio. Consideriamo infatti un sottospazio di dimensione 2 in $\R^3$ e prendiamo tre punti sul sottospazio alla stessa distanza uno dall'altro, in modo che formino quindi un triangolo equilatero. Quello che vorremmo è che la misura di questo triangolo sia la stessa di un triangolo equilatero con lo stesso lato in $\R^2$, ma questo equivale esattamente a dire che vogliamo che la misura dipenda fondamentalmente dalla metrica del sottospazio.
+Quello che vogliamo da una misura su $V$ è che coincida con quella che potremmo costruire imitando quello che abbiamo fatto su $\R^k$. Infatti data una base ortonormale di $V$ nessuno ci vieta di definire l'insieme dei parallelepipedi $k$-dimensionali di $V$, come nella \cref{def:LebesgueSemiaperti}, e i loro volumi, come nella \cref{def:LebesgueElementare}, e procedere quindi alla costruzione della misura su $V$ esattamente come abbiamo fatto nella \cref{sezione:MisuraLebesgue}.
+Questo equivale a dire che data $U:\R^k\to V$ isometria lineare (come quella che abbiamo ottenuto dalla decomposizione polare di $L$), vorremo che valga $\sigma(E)=m_k(U^{-1}(E))$ per ogni $E\in\Borel(V)$, dove abbiamo chiamato $\sigma$ la misura su $V$. Infatti scegliere $U:\R^k\to V$ isometria lineare equivale a prendere una base ortonormale di $V$, mentre imporre $\sigma(E)=m_k(U^{-1}(E))$ vuol dire ``copiare'' la misura di $\R^k$ su $V$.
 
 Calcoliamo quindi a quanto equivale $m_k(U^{-1}(E))$, dato $E\in\Borel(V)$, in funzione della nostra ``immersione iniettiva'' $L$. Sfruttando la \cref{prop:MisuraImmagineLineare} e le proprietà del determinante, otteniamo
 \begin{equation*}
@@ -109,10 +110,14 @@ Dopo questa breve digressione, la definizione che stiamo per dare sembrerà meno
 	\begin{equation*}
 		\sigma(E)=\sum_{i\in\N} \sigma_i(E\cap F_i)\virgola
 	\end{equation*}
-	dove $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i(F)=\int_{f_i^{-1}(F)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x$.
+	dove $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ e $\sigma_i$ è una funzione definita sui Boreliani di $\Sigma$ a valori in $\Rpiu$ tale che, dato $B\in\Borel(\Sigma)$, vale
+	\begin{equation*}
+		\sigma_i(B)=\int_{f_i^{-1}(B)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x\punto
+	\end{equation*}
+
 \end{definition}
 
-Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè tutte le quantità sono ben definite, la definizione non dipende dalla scelta di $\{\Sigma_i\}_{i\in\N}$ e dalle parametrizzazioni e che quella definita è veramente una misura.
+Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè non dipende dalla scelta di $\{\Sigma_i\}_{i\in\N}$ e dalle parametrizzazioni, tutte le quantità sono ben definite e $\sigma$ è veramente una misura.
 
 \begin{lemma}\label{lemma:InvarianzaImmersione}
 	Date $f:\Omega\subseteq\R^k\to M$ e $g:\Omega'\subseteq\R^k\to M$ parametrizzazioni $C^1$ della superficie $k$-dimensionale $M$, per ogni $E\in\Borel(M)$ sono definiti i seguenti integrali e vale che 
@@ -123,7 +128,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 \begin{proof}
 	Innanzitutto notiamo che, dato $E\in\Borel(M)$, i due integrali sono definiti, in quanto $\Diff f(x)$ e $\Diff g(x)$ sono continue e $f^{-1}(E)$ e $g^{-1}(E)$ sono Boreliani di $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni continue e di conseguenza sono Boreliani di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana}.
 
-	Sia $\varphi=g\circ f^{-1}$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
+	Sia $\varphi=f^{-1}\circ g$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
 		\int_{f^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\\
 		=\int_{g^{-1}(E)}\sqrt{\det(\Diff f(\varphi(x))^T\Diff f(\varphi(x)))}\ \lvert\det \Diff \varphi(x)\rvert\de x=\int_{g^{-1}(E)}\sqrt{\det(\Diff g(x)^T\Diff g(x))}\de x\virgola
@@ -131,37 +136,44 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $\Diff g(x)=\Diff f(\varphi(x))\cdot \Diff\varphi(x)$.
 \end{proof}
 
-\begin{remark}\label{nota:DefMisuraKDimBuona}
-	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
+\begin{remark}
+	Notiamo che la funzione $\sigma_i:\Borel(\Sigma)\to\Rpiu$, introdotta nella \cref{def:MisuraKDimensionale}, è una misura sui Boreliani di $\Sigma$. DA SISTEMARE
 \end{remark}
+\begin{proof}
+	Sia $f_i:\Omega_i\to\Sigma_i\subseteq\Sigma$ l'immersione iniettiva con cui definisco $\sigma_i$. La funzione $f_i$ è differenziabile con continuità
+\end{proof}
+
+\begin{proposition}\label{prop:DefMisuraKDimBuona}
+	La \cref{def:MisuraKDimensionale} è una buona definizione e non dipende dalla scelta del ricoprimento $\{\Sigma_i\}_{i\in\N}$ e delle immersioni iniettive $\{f_i\}_{i\in\N}$.
+\end{proposition}
 \begin{proof}
 	Innanzitutto notiamo che la definizione è ben posta, in quanto tutti gli integrali sono ben definiti. Infatti $\Diff f_i(x)$ è continua per ogni $i\in\N$ e inoltre è facile verificare che $E\cap F_i$ è un Boreliano di $\R^n$, utilizzando la \cref{nota:BorelianiSottovarieta}, in quanto intersezione di Boreliani. Quindi $f_i^{-1}(E\cap F_i)$ è un Boreliano di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana} (analogamente a quanto detto nel \cref{lemma:InvarianzaImmersione}).
 
-	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, che rispettano le ipotesi del \cref{lemma:SottovarietaUnioneNumerabile} e che ammettono rispettivamente parametrizzazioni $\{f_i\}_{i\in\N}$ e $\{g_i\}_{i\in\N}$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
+	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, tali che per ogni $i\in\N$ $\Sigma_i$ e $\Sigma_i'$ sono aperti nella topologia di $\Sigma$ e ammettono rispettivamente parametrizzazioni $f_i$ e $g_i$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
-	Chiamiamo $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ ed $F_i'=\Sigma_i'\setminus (\cup_{j<i}\Sigma_j')$, come nella \cref{def:MisuraKDimensionale}. Sia poi $B_{i,j}=F_i \cap F_j'$, allora $\{B_{i,j}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{i,j}\cap B_{i',j'}=\emptyset$ per ogni $i,j,i',j'\in\N$). In particolare, poichè
+	Chiamiamo $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ ed $F_i'=\Sigma_i'\setminus (\cup_{j<i}\Sigma_j')$, come nella \cref{def:MisuraKDimensionale}. Sia poi $B_{ij}=F_i \cap F_j'$, allora $\{B_{ij}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{ij}\cap B_{i'j'}=\emptyset$ per ogni scelta degli indici in $\N$). In particolare, poichè
 	\begin{equation*}
-		E\cap F_i=E\cap (\cup_{j\in\N}B_{i,j})=\cup_{j\in\N}(E\cap B_{i,j})\virgola
+		E\cap F_i=E\cap (\sqcup_{j\in\N}B_{ij})=\sqcup_{j\in\N}(E\cap B_{ij})\virgola
 	\end{equation*}
 	abbiamo che
 	\begin{equation*}
-		\sigma_i(E\cap F_i)=\sigma_i(\cup_{j\in\N}(E\cap B_{i,j}))=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\virgola
+		\sigma_i(E\cap F_i)=\sigma_i(\sqcup_{j\in\N}(E\cap B_{ij}))=\sum_{j\in\N}\sigma_i(E\cap B_{ij})\virgola
 	\end{equation*}
-	dove l'ultima uguaglianza è vera perchè dati $A_j=E\cap B_{i,j}$, che sono disgiunti fra loro, risulta
+	dove l'ultima uguaglianza è vera perchè dati $A_j=E\cap B_{ij}$, che sono disgiunti fra loro, risulta
 	\begin{align*}
 		\sigma_i(\cup_{j\in\N}A_j)& =\int_{f_i^{-1}(\cup_{j\in\N}A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x\\
-		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{i,j})\punto
+		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{ij})\punto
 	\end{align*}
 	
 	Otteniamo quindi che
 	\begin{equation*}
-		\sigma(E)=\sum_{i\in\N}\sigma_i(E \cap F_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})
+		\sigma(E)=\sum_{i\in\N}\sigma_i(E \cap F_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{ij})
 	\end{equation*}
-	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})$. Da notare che in queste sommatorie a due indici non ci dobbiamo preoccupare dell'ordine in cui si fanno le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
+	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{ij})$. Da notare che in queste sommatorie a due indici non ci dobbiamo preoccupare dell'ordine in cui si fanno le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
 
-	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{i,j}$, abbiamo però che $\sigma_i(E\cap B_{i,j})=\sigma_j'(E\cap B_{i,j})$, da cui otteniamo proprio che 
+	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{ij}$, abbiamo però che $\sigma_i(E\cap B_{ij})=\sigma_j'(E\cap B_{ij})$, da cui otteniamo proprio che 
 	\begin{equation*}
-		\sigma(E)=\sum_{i,j\in\N} \sigma_i(E\cap B_{i,j})=\sum_{i,j\in\N} \sigma_i'(E\cap B_{i,j})=\sigma'(E)\punto
+		\sigma(E)=\sum_{i,j\in\N} \sigma_i(E\cap B_{ij})=\sum_{i,j\in\N} \sigma_i'(E\cap B_{ij})=\sigma'(E)\punto
 	\end{equation*}
 
 \end{proof}
@@ -172,7 +184,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè t
 \begin{proof}
 	I Boreliani di $\Sigma$ sono per definizione una \sigalg\ e $\sigma(\emptyset)=0$ banalmente, quindi per dimostrare che $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura ci rimane solo da verificare che $\sigma$ sia \sigadd.
 	
-	Per la \sigadd[ità] di $\sigma_i$, già mostrata nella dimostrazione della \cref{nota:DefMisuraKDimBuona}, abbiamo che
+	Per la \sigadd[ità] di $\sigma_i$, già mostrata nella dimostrazione della \cref{prop:DefMisuraKDimBuona}, abbiamo che
 	\begin{multline*}
 		\sigma(\cup_{k\in\N}E_k)=\sum_{i\in\N}\sigma_i((\cup_{k\in\N}E_k)\cap F_i)=\sum_{i\in\N}\sigma_i(\cup_{k\in\N}(E_k\cap F_i))\\
 		=\sum_{i\in\N}\sum_{k\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sum_{i\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sigma(E_k)\virgola

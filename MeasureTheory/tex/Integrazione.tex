@@ -206,7 +206,23 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che è proprio quello che volevamo dimostrare.
 \end{proof}
 
-
+\begin{lemma}\label{lemma:MisuraIntegrale}
+	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, allora la funzione $\nu:\A\to\Rpiu$ tale che dato $A\in\A$ vale
+	\begin{equation*}
+		\nu(A)=\int_{A}f\de\mu\virgola 
+	\end{equation*}
+	è una misura su $\A$.
+\end{lemma}
+\begin{proof}
+	Per dimostrare che $(X,\A,\nu)$ è uno spazio di misura ci basta dimostrare che $\nu$ è \sigadd, in quanto sappiamo già che $\A$ è una \sigalg\ e $\nu(\emptyset)=0$.
+	
+	Consideriamo quindi una sottofamiglia numerabile $(A_n)_{n\in\N}$ di $\A$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
+	\begin{multline*}
+		\nu\left(\bigsqcup_{n\in\N}A_n\right)=\int_{\sqcup A_n}f\de\mu=\int_{\sqcup A_n}\sum_{n\in\N}\chi(A_n)\cdot f\de\mu\\
+		=\sum_{n\in\N}\int_{\sqcup A_n}\chi(A_n)\cdot f\de\mu=\sum_{n\in\N}\int_{A_n}f\de\mu=\sum_{n\in\N}\nu(A_n)\virgola
+	\end{multline*}
+	che dimostra proprio la \sigadd\ di $\nu$.
+\end{proof}
 
 \begin{lemma}[Fatou] \label{lemma:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
