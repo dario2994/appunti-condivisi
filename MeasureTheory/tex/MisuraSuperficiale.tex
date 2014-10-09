@@ -128,7 +128,9 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 \begin{proof}
 	Innanzitutto notiamo che, dato $E\in\Borel(M)$, i due integrali sono definiti, in quanto $\Diff f(x)$ e $\Diff g(x)$ sono continue e $f^{-1}(E)$ e $g^{-1}(E)$ sono Boreliani di $\R^k$. Infatti per la \cref{nota:BorelianiSottovarieta} $E$ è un Boreliano di $\R^n$, quindi $f^{-1}(E)$ e $g^{-1}(E)$ sono controimmagini di un Boreliano tramite funzioni continue e di conseguenza sono Boreliani di $\R^k$ per il \cref{lemma:ContinuaImplicaBoreliana}.
 
-	Sia $\varphi=f^{-1}\circ g$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega$ e $\Omega'$. Quindi per il \cref{thm:CambioVariabile} otteniamo
+	Sia $\varphi=f^{-1}\circ g$, allora $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega'$ e $\Omega$ (PERCHÈ?)
+	
+	Quindi per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
 		\int_{f^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\\
 		=\int_{g^{-1}(E)}\sqrt{\det(\Diff f(\varphi(x))^T\Diff f(\varphi(x)))}\ \lvert\det \Diff \varphi(x)\rvert\de x=\int_{g^{-1}(E)}\sqrt{\det(\Diff g(x)^T\Diff g(x))}\de x\virgola
@@ -136,11 +138,11 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 	dove abbiamo usato che se $g=f\circ \varphi$, allora $\Diff g(x)=\Diff f(\varphi(x))\cdot \Diff\varphi(x)$.
 \end{proof}
 
-\begin{remark}
-	Notiamo che la funzione $\sigma_i:\Borel(\Sigma)\to\Rpiu$, introdotta nella \cref{def:MisuraKDimensionale}, è una misura sui Boreliani di $\Sigma$. DA SISTEMARE
+\begin{remark}\label{nota:SigmaIMisura}
+	La funzione $\sigma_i:\Borel(\Sigma)\to\Rpiu$, introdotta nella \cref{def:MisuraKDimensionale}, è una misura sui Boreliani di $\Sigma$.
 \end{remark}
 \begin{proof}
-	Sia $f_i:\Omega_i\to\Sigma_i\subseteq\Sigma$ l'immersione iniettiva con cui definisco $\sigma_i$. La funzione $f_i$ è differenziabile con continuità
+	Sia $f_i:\Omega_i\to\Sigma_i\subseteq\Sigma$ l'immersione iniettiva con cui definisco $\sigma_i$. La funzione $f_i^{-1}$ manda Boreliani di $\Sigma$ in Boreliani di $\R^k$, quindi per il \cref{lemma:MisuraIntegrale} $(\Sigma,\Borel(\Sigma),\sigma_i)$ è uno spazio di misura.
 \end{proof}
 
 \begin{proposition}\label{prop:DefMisuraKDimBuona}
@@ -159,11 +161,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 	\begin{equation*}
 		\sigma_i(E\cap F_i)=\sigma_i(\sqcup_{j\in\N}(E\cap B_{ij}))=\sum_{j\in\N}\sigma_i(E\cap B_{ij})\virgola
 	\end{equation*}
-	dove l'ultima uguaglianza è vera perchè dati $A_j=E\cap B_{ij}$, che sono disgiunti fra loro, risulta
-	\begin{align*}
-		\sigma_i(\cup_{j\in\N}A_j)& =\int_{f_i^{-1}(\cup_{j\in\N}A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x\\
-		&=\sum_{j\in\N}\int_{f_i^{-1}(A_j)}\sqrt{\det(\Diff f_i(x)^T\Diff f_i(x))} \de x=\sum_{j\in\N}\sigma_i(E\cap B_{ij})\punto
-	\end{align*}
+	in quanto $\sigma_i$ è una misura per la \cref{nota:SigmaIMisura}.
 	
 	Otteniamo quindi che
 	\begin{equation*}
@@ -179,15 +177,8 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 \end{proof}
 
 \begin{theorem}
-	La misura di Lebesgue $k$-dimensionale definita sui Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ $\Sigma$ è effettivamente una misura, cioè $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura.
+	La misura di Lebesgue $k$-dimensionale definita sui Boreliani di una varietà differenziabile $k$-dimensionale di $\R^n$ è effettivamente una misura; cioè, chiamata $\Sigma$ la varietà differenziabile, $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura.
 \end{theorem}
 \begin{proof}
-	I Boreliani di $\Sigma$ sono per definizione una \sigalg\ e $\sigma(\emptyset)=0$ banalmente, quindi per dimostrare che $(\Sigma,\Borel(\Sigma),\sigma)$ è uno spazio di misura ci rimane solo da verificare che $\sigma$ sia \sigadd.
-	
-	Per la \sigadd[ità] di $\sigma_i$, già mostrata nella dimostrazione della \cref{prop:DefMisuraKDimBuona}, abbiamo che
-	\begin{multline*}
-		\sigma(\cup_{k\in\N}E_k)=\sum_{i\in\N}\sigma_i((\cup_{k\in\N}E_k)\cap F_i)=\sum_{i\in\N}\sigma_i(\cup_{k\in\N}(E_k\cap F_i))\\
-		=\sum_{i\in\N}\sum_{k\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sum_{i\in\N}\sigma_i(E_k\cap F_i)=\sum_{k\in\N}\sigma(E_k)\virgola
-	\end{multline*}
-	che è proprio quello che volevamo dimostrare.
+	Per la \cref{nota:SigmaIMisura}, $(\Sigma,\Borel(\Sigma),\sigma_i)$ è uno spazio di misura, per ogni $i\in\N$. Inoltre $\sigma=\sum_{i\in\N}\sigma_i$, quindi è facile verificare che $\sigma$ è a sua volta una misura essendo somma di misure.
 \end{proof}

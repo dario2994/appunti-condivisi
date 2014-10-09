@@ -207,19 +207,20 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{lemma}\label{lemma:MisuraIntegrale}
-	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, allora la funzione $\nu:\A\to\Rpiu$ tale che dato $A\in\A$ vale
+	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, e sia $g:X\to Y$, con $(Y,\B)$ spazio misurabile, tale che $g^{-1}(B)\in\A$ per ogni $B\in\B$. Definiamo la funzione $\nu:\mathscr B\to\Rpiu$ ponendo, per ogni $B\in\B$,
 	\begin{equation*}
-		\nu(A)=\int_{A}f\de\mu\virgola 
+		\nu(B)=\int_{g^{-1}(B)}f\de\mu\punto
 	\end{equation*}
-	è una misura su $\A$.
+	Allora $\nu$ è una misura su $\B$.
 \end{lemma}
 \begin{proof}
-	Per dimostrare che $(X,\A,\nu)$ è uno spazio di misura ci basta dimostrare che $\nu$ è \sigadd, in quanto sappiamo già che $\A$ è una \sigalg\ e $\nu(\emptyset)=0$.
+	Per dimostrare che $(Y,\B,\nu)$ è uno spazio di misura ci basta dimostrare che $\nu$ è \sigadd, in quanto sappiamo già che $\B$ è una \sigalg\ e $\nu(\emptyset)=0$.
 	
-	Consideriamo quindi una sottofamiglia numerabile $(A_n)_{n\in\N}$ di $\A$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
+	Consideriamo quindi una sottofamiglia numerabile $(B_n)_{n\in\N}$ di $\B$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
 	\begin{multline*}
-		\nu\left(\bigsqcup_{n\in\N}A_n\right)=\int_{\sqcup A_n}f\de\mu=\int_{\sqcup A_n}\sum_{n\in\N}\chi(A_n)\cdot f\de\mu\\
-		=\sum_{n\in\N}\int_{\sqcup A_n}\chi(A_n)\cdot f\de\mu=\sum_{n\in\N}\int_{A_n}f\de\mu=\sum_{n\in\N}\nu(A_n)\virgola
+		\nu\left(\bigsqcup_{n\in\N}B_n\right)=\int_{g^{-1}(\sqcup B_n)}f\de\mu=\int_{\sqcup g^{-1}(B_n)}\sum_{n\in\N}\chi(g^{-1}(B_n))\cdot f\de\mu\\
+		=\sum_{n\in\N}\int_{\sqcup g^{-1}(B_n)}\chi(g^{-1}(B_n))\cdot f\de\mu=
+		\sum_{n\in\N}\int_{g^{-1}(B_n)}f\de\mu=\sum_{n\in\N}\nu(B_n)\virgola
 	\end{multline*}
 	che dimostra proprio la \sigadd\ di $\nu$.
 \end{proof}
