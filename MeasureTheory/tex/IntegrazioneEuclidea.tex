@@ -348,7 +348,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation}\label{eq:ContenimentoPallaLineare}
 		\varphi(B_r(\bar x))\subseteq \varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right).
 	\end{equation}
-	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, purché $r$ sia sufficientemente piccolo, la funzione è Lipschitziana in $B_r(\bar x)$ e quindi, per la \cref{prop:LipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
+	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, per il \cref{cor:LocLipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
 	Allora possiamo applicare la misura di Lebesgue ad entrambi i membri del contenimento mostrato nell'\cref{eq:ContenimentoPallaLineare} ottenendo
 	\begin{equation}\label{eq:StimaImmaginePalla}
 		m_n\left( \varphi(B_r(\bar x)) \right)\le m_n\left(\varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right)\right)
@@ -386,13 +386,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
 \end{lemma}
 \begin{proof}
-	Innanzitutto scriviamo $\Omega=\bigcup_{n\in\N} K_n$ dove $(K_n)_{n\in\N}$ è una successione di compatti. 
-	Allora, dato un insieme $N\subset\Omega$ trascurabile, vale
-	\begin{equation*}
-		\varphi(N)=\bigcup_{n\in\N} \varphi\left(N\cap K_n\right)\virgola
-	\end{equation*}
-	ma nei compatti $K_n$ la funzione $\varphi$, essendo $C^1$, è Lipschitziana e quindi per la \cref{prop:LipschitzTengonoMisurabili} manda trascurabili in trascurabili e perciò $\varphi\left(N\cap K_n\right)$ è trascurabile e da questo ne segue che $\varphi(N)$ è trascurabile in quanto unione numerabile di trascurabili.
-	Riassumendo, la funzione $\varphi$ manda trascurabili in trascurabili e per la \cref{prop:ContinueSpecialiTengonoMisurabili} questo implica che manda misurabili in misurabili.
+	La funzione $\varphi$, essendo $C^1$, è localmente Lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
 	
 	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
 	Perciò, per il \cref{thm:RadonNikodym}, esiste $\rho:\Omega\to\Rpiu$ integrabile tale che

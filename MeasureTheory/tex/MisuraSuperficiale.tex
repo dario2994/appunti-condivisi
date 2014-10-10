@@ -7,14 +7,14 @@ Per fare tutto ciò sfrutteremo la topologia naturalmente indotta da $\R^n$ sui 
 \begin{definition}
 	Una funzione $f:\Omega \subseteq \R^k\to\R^n$, con $\Omega$ aperto, si dice immersione iniettiva se è differenziabile con continuità ed è iniettiva con differenziale iniettivo in ogni punto. In tal caso si dice che $f$ è una parametrizzazione $C^1$ della superficie $k$-dimensionale $f(\Omega)$.
 \end{definition}
+% 
+% \begin{remark}\label{nota:TopologiaIndotta}
+% 	Dato un sottoinsieme $Y$ di uno spazio topologico $X$, esiste una naturale topologia indotta su $Y$. In particolare un sottoinsieme $U$ di $Y$ è un aperto di $Y$ nella topologia indotta se e solo esiste un aperto $V$ di $X$ tale che $U=V\cap Y$. 
+% 	
+% 	Si verifica facilmente che questa topologia indotta è effettivamente una topologia su $Y$.
+% \end{remark}
 
-\begin{remark}\label{nota:TopologiaIndotta}
-	Dato un sottoinsieme $Y$ di uno spazio topologico $X$, esiste una naturale topologia indotta su $Y$. In particolare un sottoinsieme $U$ di $Y$ è un aperto di $Y$ nella topologia indotta se e solo esiste un aperto $V$ di $X$ tale che $U=V\cap Y$. 
-	
-	Si verifica facilmente che questa topologia indotta è effettivamente una topologia su $Y$.
-\end{remark}
-
-D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di star considerando la topologia indotta su quel sottoinsieme, come definita nella \cref{nota:TopologiaIndotta}.
+D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di star considerando la topologia di sottospazio indotta su quel sottoinsieme.
 
 \begin{definition}\label{def:BorelianiSottoinsieme}
 	Ricalcando la \cref{def:Boreliani}, definiamo Boreliani di un sottoinsieme $X$ di $\R^n$ come la \sigalg\ generata dagli aperti di $X$ nella topologia indotta e li indichiamo con $\Borel(X)$.
@@ -25,7 +25,7 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 \end{definition}
 
 % DA AGGIUSTARE
-Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base non del tutto banali, che però non ci soffermeremo a dimostrare in quanto non strettamente pertinenti alla trattazione. Tali fatti ci serviranno a dimostrare alcuni lemmi utili ad arrivare alla definizione di misura su una varietà differenziabile di $\R^n$.
+% Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base non del tutto banali, che però non ci soffermeremo a dimostrare in quanto non strettamente pertinenti alla trattazione. Tali fatti ci serviranno a dimostrare alcuni lemmi utili ad arrivare alla definizione di misura su una varietà differenziabile di $\R^n$.
 
 \begin{lemma}\label{lemma:SottovarietaUnioneNumerabile}
 	Data $\Sigma$ varietà differenziabile $k$-dimensionale di $\R^n$, esiste un ricoprimento numerabile  $\{\Sigma_i\}_{i\in\N}$ di $\Sigma$ tale che, per ogni $i\in\N$, $\Sigma_i$ è aperto nella topologia di $\Sigma$ e ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$.
