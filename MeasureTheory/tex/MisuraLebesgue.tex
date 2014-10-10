@@ -344,7 +344,7 @@ Continueremo dimostrando le proprietà dei misurabili in questa nuova misura per
 
 Ora passiamo a dimostrare che la misura di Lebesgue è anche invariante per isometria, oltre che per rotazione, e che gli insiemi intuitivamente \emph{piccoli} sono trascurabili secondo Lebesgue.
 
-In particolare le prime due proposizioni tecniche, concernenti le funzioni che mandano misurabili in misurabili, oltre ad avere una veloce applicazione nel dimostrare che la misura di Lebesgue è invariante per isometria, torneranno utili quando si vorranno studiare i cambi di variabili lineari nella teoria dell'integrazione.
+In particolare le prime tre proposizioni tecniche, concernenti le funzioni che mandano misurabili in misurabili, oltre ad avere una veloce applicazione nel dimostrare che la misura di Lebesgue è invariante per isometria, torneranno utili quando si vorranno studiare i cambi di variabili lineari nella teoria dell'integrazione.
 
 \begin{proposition}\label{prop:ContinueSpecialiTengonoMisurabili}
 	Data una funzione $f:E\subseteq\R^n\to\R^n$ continua tale che per ogni $N\subseteq E$ trascurabile anche l'immagine $f(N)$ è trascurabile, risulta vero che per ogni $A\subseteq E$ misurabile anche $f(A)$ è misurabile.
@@ -382,6 +382,27 @@ In particolare le prime due proposizioni tecniche, concernenti le funzioni che m
 	
 	Per concludere basta notare che l'\cref{eq:StimaMisuraEsternaLipschitz} ci assicura la stima richiesta dal testo, visto che nel caso in cui $A$ sia misurabile anche $f(A)$ lo è e perciò le misure esterne coincidono con le misure.
 \end{proof}
+
+% SPOSTARE QUI I FATTI SU LINDELOF
+
+\begin{corollary}\label{cor:LocLipschitzTengonoMisurabili}
+	Data una funzione $f:E\subseteq \R^n\to\R^n$ localmente Lipschitziana, per ogni $A\subseteq E$ misurabile anche l'immagine $f(A)$ è misurabile.
+\end{corollary}
+\begin{proof}
+	Poichè $\R^n$ ammette una base numerabile, anche $E$ la ammette e di conseguenza il sottospazio topologico $E$ risulta avere la proprietà di Lindelöf.
+	
+	L'ipotesi di locale Lipschitzianità e equivalente ad affermare che esista un ricoprimento di $E$ con aperti (nella topologia di sottospazio) tale che in ognuno di tali aperti la funzione $f$ sia Lipschitziana. 
+	Da un tale ricoprimento, per la proprietà di Lindelöf, estraiamo un ricoprimento numerabile $(A_n)_{n\in\N}\subseteq E$ tale che, per ogni $n\in\N$, la funzione $f$ ridotta su $A_n$ è Lipschitziana.
+	
+	A questo punto, fissato $N\subseteq E$ trascurabile, l'insieme $f(N\cap A_n)$ è trascurabile per ogni $n\in\N$ in virtù della \cref{prop:LipschitzTengonoMisurabili} e allora,  considerando l'identità
+	\begin{equation*}
+		f(N)=f\left(\bigcup_{n\in\N} N\cap A_n \right)= \bigcup_{n\in\N} f\left(N\cap A_n\right)\virgola
+	\end{equation*}
+	ne deduciamo che $f(N)$ è trascurabile in quanto unione numerabile di trascurabili.
+	
+	A questo punto per concludere è sufficiente applicare la \cref{prop:ContinueSpecialiTengonoMisurabili} notando che sono rispettate tutte le ipotesi, visto che ovviamente una funzione localmente Lipschitziana è anche continua.
+\end{proof}
+
 
 \begin{proposition}\label{prop:LebesgueProprietaIsometria}
 	La misura di Lebesgue su $\R^n$ è invariante per isometria.
