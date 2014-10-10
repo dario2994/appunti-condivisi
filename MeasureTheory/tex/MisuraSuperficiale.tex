@@ -24,29 +24,14 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 	Un sottoinsieme $\Sigma$ di $\R^n$ è una varietà differenziabile $k$-dimensionale di $\R^n$ se per ogni $x\in\Sigma$ esiste un intorno aperto di $x$ (nella topologia indotta) in $\Sigma$ che ammette una parametrizzazione $C^1$ definita su un aperto di $\R^k$.
 \end{definition}
 
+% DA AGGIUSTARE
 Di seguito enunceremo, fra gli altri risultati, dei fatti di topologia di base non del tutto banali, che però non ci soffermeremo a dimostrare in quanto non strettamente pertinenti alla trattazione. Tali fatti ci serviranno a dimostrare alcuni lemmi utili ad arrivare alla definizione di misura su una varietà differenziabile di $\R^n$.
-
-\begin{definition}
-	Uno spazio topologico si dice spazio di Lindelöf se ogni suo ricoprimento aperto ammette un sottoricoprimento numerabile. 
-\end{definition}
-
-\begin{definition}
-	Uno spazio topologico si dice separabile se contiene un sottoinsieme numerabile denso.
-\end{definition}
-
-\begin{proposition}\label{prop:SottoinsiemeSeparabile}
-	Ogni sottoinsieme di uno spazio metrico separabile (con topologia indotta dalla metrica) è separabile (nella sua topologia indotta).
-\end{proposition}
-
-\begin{proposition}\label{prop:SeparabileLindelofMetrico}
-	Per uno spazio metrico sono equivalenti essere separabile ed essere uno spazio di Lindelöf.
-\end{proposition}
 
 \begin{lemma}\label{lemma:SottovarietaUnioneNumerabile}
 	Data $\Sigma$ varietà differenziabile $k$-dimensionale di $\R^n$, esiste un ricoprimento numerabile  $\{\Sigma_i\}_{i\in\N}$ di $\Sigma$ tale che, per ogni $i\in\N$, $\Sigma_i$ è aperto nella topologia di $\Sigma$ e ammette una parametrizzazione $C^1$ definita su un aperto $\Omega_i$ di $\R^k$.
 \end{lemma}
 \begin{proof}
-	La varietà $\Sigma$ è separabile per la \cref{prop:SottoinsiemeSeparabile}, in quanto sottoinsieme di $\R^n$ che è uno spazio metrico separabile, e di conseguenza è anche uno spazio di Lindelöf con la sua topologia indotta per la \cref{prop:SeparabileLindelofMetrico}.
+	Per il \cref{cor:RLindelof} la varietà $\Sigma$ è uno spazio di Lindelöf con la sua topologia di sottospazio.
 	
 	Per la definizione stessa di varietà differenziabile $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò, poichè $\Sigma$ è uno spazio di Lindelöf, possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
