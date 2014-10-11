@@ -33,7 +33,7 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 \begin{proof}
 	Per il \cref{cor:RLindelof} la varietà $\Sigma$ è uno spazio di Lindelöf con la sua topologia di sottospazio.
 	
-	Per la definizione stessa di varietà differenziabile $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò, poichè $\Sigma$ è uno spazio di Lindelöf, possiamo estrarne un ricoprimento numerabile, da cui la tesi.
+	Per la definizione stessa di varietà differenziabile $k$-dimensionale, per ogni punto $P\in\Sigma$ esiste un suo intorno aperto $\Sigma_P$ (nella topologia di $\Sigma$) che ammette parametrizzazione $C^1$. Abbiamo quindi che $\{\Sigma_P\}_{P\in\Sigma}$ è un ricoprimento aperto di $\Sigma$ e perciò, poiché $\Sigma$ è uno spazio di Lindelöf, possiamo estrarne un ricoprimento numerabile, da cui la tesi.
 \end{proof}
 
 \begin{proposition}\label{prop:ApertoUnioneCompatti}
@@ -61,11 +61,11 @@ D'ora in poi, quando lavoreremo su un sottoinsieme di $\R^n$, sottoinderemo di s
 \end{proof}
 
 \begin{remark}\label{nota:SigmaBoreliano}
-	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} l'insieme $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poichè unione numerabile di Boreliani.  
+	Utilizzando la stessa notazione del \cref{lemma:SottovarietaUnioneNumerabile}, notiamo che per il \cref{lemma:ImmagineApertiContinua} l'insieme $\Sigma_i$ è un Boreliano di $\R^n$, per ogni $i\in\N$, in quanto immagine di un aperto tramite la funzione continua $f_i$. Di conseguenza abbiamo anche che $\Sigma=\cup_{i\in\N}\Sigma_i$ è un Boreliano, poiché unione numerabile di Boreliani.  
 \end{remark}
 
 \begin{remark}\label{nota:BorelianiSottovarieta}
-	Per la \cref{nota:SigmaBoreliano}, abbiamo che gli aperti di $\Sigma$ sono anche Boreliani di $\R^n$, poichè sono intersezione fra aperti di $\R^n$ e $\Sigma$, che è un Boreliano di $\R^n$. Perciò in particolare otteniamo che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$.
+	Per la \cref{nota:SigmaBoreliano}, abbiamo che gli aperti di $\Sigma$ sono anche Boreliani di $\R^n$, poiché sono intersezione fra aperti di $\R^n$ e $\Sigma$, che è un Boreliano di $\R^n$. Perciò in particolare otteniamo che i Boreliani di $\Sigma$ sono un sottoinsieme dei Boreliani di $\R^n$.
 \end{remark}
 
 Abbiamo finalmente tutti gli strumenti per definire la misura di Lebesgue $k$-dimensionale su una varietà differenziabile $k$-dimensionale di $\R^n$. Prima di dare la definizione vera e propria cerchiamo però di capire quale è la forma che ci aspettiamo da questa misura su delle strutture più semplici di una varietà differenziabile. A prima vista infatti la definizione di misura $k$-dimensionale su una varietà differenziabile può sembrare del tutto controintuitiva, senza aver studiato precedentemente dei casi più semplici.
@@ -138,7 +138,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 
 	Consideriamo ora due diversi ricoprimenti $\{\Sigma_i\}_{i\in\N}$ e $\{\Sigma_i'\}_{i\in\N}$ di $\Sigma$, tali che per ogni $i\in\N$ $\Sigma_i$ e $\Sigma_i'$ sono aperti nella topologia di $\Sigma$ e ammettono rispettivamente parametrizzazioni $f_i$ e $g_i$. Vogliamo dimostrare che le misure $\sigma$ e $\sigma'$ indotte dai due ricoprimenti coincidono.
 	
-	Chiamiamo $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ ed $F_i'=\Sigma_i'\setminus (\cup_{j<i}\Sigma_j')$, come nella \cref{def:MisuraKDimensionale}. Sia poi $B_{ij}=F_i \cap F_j'$, allora $\{B_{ij}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{ij}\cap B_{i'j'}=\emptyset$ per ogni scelta degli indici in $\N$). In particolare, poichè
+	Chiamiamo $F_i=\Sigma_i\setminus (\cup_{j<i}\Sigma_j)$ ed $F_i'=\Sigma_i'\setminus (\cup_{j<i}\Sigma_j')$, come nella \cref{def:MisuraKDimensionale}. Sia poi $B_{ij}=F_i \cap F_j'$, allora $\{B_{ij}\}_{i,j\in\N}$ è una partizione di $\Sigma$ con elementi disgiunti (è facile verificare che $B_{ij}\cap B_{i'j'}=\emptyset$ per ogni scelta degli indici in $\N$). In particolare, poiché
 	\begin{equation*}
 		E\cap F_i=E\cap (\sqcup_{j\in\N}B_{ij})=\sqcup_{j\in\N}(E\cap B_{ij})\virgola
 	\end{equation*}
@@ -152,7 +152,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 	\begin{equation*}
 		\sigma(E)=\sum_{i\in\N}\sigma_i(E \cap F_i)=\sum_{i,j\in\N} \sigma_i(E\cap B_{ij})
 	\end{equation*}
-	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{ij})$. Da notare che in queste sommatorie a due indici non ci dobbiamo preoccupare dell'ordine in cui si fanno le somme, perchè tutti i termini della sommatoria sono positivi (poichè integrali di funzioni positive).
+	e analogamente $\sigma'(E)=\sum_{i,j\in\N} \sigma_i'(E\cap B_{ij})$. Da notare che in queste sommatorie a due indici non ci dobbiamo preoccupare dell'ordine in cui si fanno le somme, perché tutti i termini della sommatoria sono positivi (poiché integrali di funzioni positive).
 
 	Per il \cref{lemma:InvarianzaImmersione} applicato alle parametrizzazioni $f_i$ e $g_j$ e al Boreliano $E\cap B_{ij}$, abbiamo però che $\sigma_i(E\cap B_{ij})=\sigma_j'(E\cap B_{ij})$, da cui otteniamo proprio che 
 	\begin{equation*}
