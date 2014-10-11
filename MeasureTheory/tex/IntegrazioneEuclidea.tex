@@ -286,7 +286,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 
 
 \begin{lemma}\label{lemma:ContinuitaL1Palle}
-	Fissato $E\in\M_n$ un insieme misurabile e $f:E\to\Rbar$ una funzione misurabile, definiamo, per ogni $r>0$, la funzione $f_r:E\to\R$ come
+	Fissato $E\in\M_n$ un insieme misurabile e $f:E\to\Rbar$ una funzione integrabile, definiamo, per ogni $r>0$, la funzione $f_r:E\to\Rbar$ come
 	\begin{equation*}
 		\forall x\in E:\ f_r(x)=\frac{\int_{B_r(x)\cap E}f(t)\de t}{m_n\left(B_r(x)\right)}\virgola
 	\end{equation*}
@@ -302,7 +302,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	Vale facilmente, per ogni $x,y\in E$, l'identità
 	\begin{equation*}
 		\lvert f_r(x)-f_r(y)\rvert %= \left\lvert \aint_{B_r(x)}f(t)\de t-\aint_{B_r(y)} f(t)\de t\right\rvert 
-		\le \aint_{B_r(x)}\lvert f(t)-f(t+(y-x))\rvert \de t \le \frac{ \LNorm{f({}\cdot{})-f({}\cdot{}+(y-x)} }{ m_n(B_r(0)) } \virgola
+		\le \aint_{B_r(x)}\lvert f(t)-f(t+(y-x))\rvert \de t \le \frac{ \LNorm{f({}\cdot{})-f({}\cdot{}+(y-x))} }{ m_n(B_r(0)) } \virgola
 	\end{equation*}
 	che grazie alla \cref{prop:ContinuitaL1} implica la continuità delle funzioni $f_r$.
 	
@@ -431,7 +431,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 
 \begin{theorem}\label{thm:CambioVariabile}
 	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
-	Allora, per ogni $E\subseteq \Omega$ misurabile e $f:\Omega'\to\R$ integrabile, vale
+	Allora, per ogni $E\subseteq \Omega$ misurabile e $f:\Omega'\to\Rbar$ integrabile, vale
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
@@ -444,7 +444,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 Ci si accorge subito, svolgendo qualche esercizio in cui è richiesto di applicare il cambio di variabile, che è spesso ostico applicare il \cref{thm:CambioVariabile} in quanto richiede ipotesi molto stringenti (in particolare il fatto che $\varphi$ sia un diffeomorfismo tra aperti). 
 Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, del medesimo teorema mettendo in luce una delle idee chiave della teoria della misura: gli insiemi trascurabili sono davvero trascurabili.
 
-\begin{corollary}\label{thm:CambioVariabileSporco}
+\begin{corollary}\label{cor:CambioVariabileSporco}
 	Sia $\varphi:A\to\R^n$ una funzione localmente Lipschitziana con $A$ sottoinsieme di $\R^n$.
 	Assumiamo che esista un aperto $\Omega\subseteq A$ tale che valgano le seguenti proprietà:
 	\begin{enumerate}
@@ -453,7 +453,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 		\item I punti $x\in\Omega$ tali che il differenziale di $\varphi$ non sia iniettivo formano un insieme trascurabile.
 	\end{enumerate}
 	
-	Allora, per ogni insieme misurabile $E\subseteq \varphi(A)$ e per ogni $f:E\to\R$ integrabile, vale la formula per il cambio di variabile
+	Allora, per ogni insieme misurabile $E\subseteq \varphi(A)$ e per ogni $f:E\to\Rbar$ integrabile, vale la formula per il cambio di variabile
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
@@ -493,4 +493,44 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 		 \int_{E\setminus\overline E}f(\varphi(x))\lvert \det D\varphi(x) \rvert \de x=\int_{E}f(\varphi(x))\lvert \det D\varphi(x) \rvert \de x \punto
 	\end{multline*}
 \end{proof}
+
+\begin{exercise}
+	Calcolare il volume della palla di raggio $1$ in $\R^3$.
+\end{exercise}
+\begin{proof}
+	Chiamiamo $B$ la palla chiusa di raggio $1$ centrata nell'origine di $\R^3$.
+	Chiamiamo $\varphi:\cc{0}{1}\times\cc{0}{\pi}\times\cc{0}{2\pi}\to B$ la funzione definita come
+	\begin{equation*}
+		\varphi(r,\theta,\phi)=(r\cos\theta,r\sin\theta\cos\phi,r\sin\theta\sin\phi)\punto
+	\end{equation*}
+	La funzione $\varphi$ è suriettiva, ed è anche iniettiva a meno di non considerare i punti $(r,\theta,\phi$ in cui una delle variabili assume uno dei suoi due valori estramali.
+	
+	Facendo qualche derivata parziale, calcoliamo che il Jacobiano vale
+	\begin{equation*}
+		D\varphi=
+		\begin{pmatrix}
+		\cos\theta 			&	-r\sin\theta		&	0						\\
+		\sin\theta\cos\phi	&	r\cos\theta\cos\phi	&	-r\sin\theta\sin\phi	\\
+		\sin\theta\sin\phi	&	r\cos\theta\sin\phi	&	r\sin\theta\cos\phi
+		\end{pmatrix}
+	\end{equation*}
+	e di conseguenza otteniamo
+	\begin{equation*}
+		\det D\varphi(r,\theta,\phi)= r^2\sin\theta \punto
+	\end{equation*}
+	
+	Ora è facile verificare che la funzione $\varphi$ rispetta tutte le richieste del \cref{cor:CambioVariabileSporco} e di conseguenza, applicando la formula per il cambio di variabile ed il \cref{thm:TonelliCompleto}, otteniamo
+	\begin{multline*}
+		m_3(B)=\int_B \de(x,y,z)=\int_{\varphi\left(\cc{0}{1}\times\cc{0}{\pi}\times\cc{0}{2\pi}\right)}\de(x,y,z)\\
+		=\int_{\cc{0}{1}\times\cc{0}{\pi}\times\cc{0}{2\pi}} \lvert r^2\sin\theta\rvert\de(r,\theta,\phi)=\int_0^1\int_0^\pi\int_0^{2\pi}\lvert r^2\sin\theta\rvert\de r\de\theta\de\phi\\
+		=2\pi\left(\int_0^1 r^2\de r\right)\left(\int_0^\pi\sin\theta\de\theta\right)=2\pi\cdot\frac 13\cdot 2=\frac 43\pi
+	\end{multline*}
+	che è proprio il volume richiesto dall'esercizio.
+\end{proof}
+\begin{remark}\label{nota:CoordinateSferiche}
+	Il cambio di variabile che associa alla tripla $(r,\theta,\phi)$ il punto di $\R^3$ con coordinate $(r\cos\theta,r\sin\theta\cos\phi,r\sin\theta\sin\phi)$ è noto con il nome di coordinate sferiche.
+	
+	Questo cambio di variabile è spesso utile nel calcolo di integrali in $\R^3$ poichè il determinante del Jacobiano è straordinariamente semplice e permette quindi di sfruttare, evitando lunghi conti, le eventuali simmetrie che un problema può presentare.
+\end{remark}
+
 
