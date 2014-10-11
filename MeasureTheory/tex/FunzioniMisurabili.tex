@@ -4,6 +4,12 @@ In questa sezione daremo la definizione di funzione misurabile e dimostreremo al
 La teoria delle funzioni misurabili, oltre ad essere strettamente necessaria per la successiva teoria dell'integrazione, ci permetterà di dimostrare che i misurabili secondo Lebesgue, introdotti nella sezione precedente, non coincidono con i Boreliani usando strumenti propri della teoria della misura.
 Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il risultato è già stato dimostrato, sia perché la dimostrazione si adatta facilmente in dimensione maggiore e sia perché troviamo importante rendere chiara l'idea piuttosto che celarla in una notazione troppo pesante.
 
+\begin{definition}[Retta reale estesa]
+	Indichiamo con $\Rbar$ l'insieme $\R\cup\{-\infty,+\infty\}$ munito della topologia che ha come base tutti gli aperti tipici di $\R$ e gli insiemi del tipo $\{-\infty\}\cup\oo{-\infty}a$ e $\{+\infty\}\cup\oo{a}{+\infty}$ dove $a$ è un numero reale. 
+	Quest'ultima categoria di insiemi aperti verrà indicata tramite la notazione $\co{-\infty}a$ e $\oc a{+\infty}$.
+\end{definition}
+
+
 \begin{definition}[Funzione misurabile]
 	Dato uno spazio di misura $(X,\A,\mu)$, una funzione $f:X\rightarrow \Rbar$ si dice misurabile se
 	$\forall A \subseteq \Rbar$ aperto si ha $f^{-1}(A)\in \A$.
@@ -26,11 +32,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 \begin{proof}
 	Sfruttando le proprietà di $\A$ come \sigalg, mostriamo a catena tutte le implicazioni:
 	\begin{description}
-	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}\left(\oo{-\infty}{a}\right)\in \A$,
-		perché $\oo{-\infty}{a}$ è aperto;
-	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $\oc{-\infty}{a}=\bigcap_{n\in \N}\oc{-\infty}{a+\frac{1}{n}}$, allora otteniamo
+	\item[\ImplicationProof{BM:mis}{BM:sot}] per definizione di misurabile, $\{f<a\}=f^{-1}\left(\co{-\infty}{a}\right)\in \A$,
+		perché $\co{-\infty}{a}$ è aperto;
+	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $\cc{-\infty}{a}=\bigcap_{n\in \N}\co{-\infty}{a+\frac{1}{n}}$, allora otteniamo
 		\begin{equation*}
-			\{f\leq a\}=f^{-1}\left(\oc{-\infty}{a}\right)=\bigcap_{n\in \N}f^{-1}\left(\co{-\infty}{a+\frac{1}{n}}\right)\in \A	
+			\{f\leq a\}=f^{-1}\left(\cc{-\infty}{a}\right)=\bigcap_{n\in \N}f^{-1}\left(\co{-\infty}{a+\frac{1}{n}}\right)\in \A	
 		\end{equation*}
 
 	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\leq a\}\in \A$;
@@ -38,9 +44,9 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
 	\item[$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$] perché
 		$\{a<f<b\}=\{a<f\}\cap\{f<b\}\in \A$;
-	\item[\ImplicationProof{BM:int}{BM:mis}] perché un aperto $A\subseteq\Rbar$ si può scrivere come
-		$A=\bigcup_{n\in \N}A_n$ dove ciascun $A_n$ è un intervallo aperto di $\Rbar$ (o una semiretta aperta);
-		quindi $f^{-1}(A)=\bigcup_{n\in \N}f^{-1}(A_n)\in \A$, perché per il punto \ref{BM:int} $f^{-1}(A_n)\in \A\ \ \forall n$.
+	\item[\ImplicationProof{BM:int}{BM:mis}] dato che un aperto $A\subseteq\Rbar$ si può scrivere come
+		$A=\bigcup_{n\in \N}A_n$ dove ciascun $A_n$ è un intervallo aperto di $\Rbar$ (o una semiretta aperta),
+		allora $f^{-1}(A)=\bigcup_{n\in \N}f^{-1}(A_n)\in \A$, dove abbiamo sfruttato che per il punto \ref{BM:int} $f^{-1}(A_n)\in \A\ \ \forall n$.
 	\end{description}
 \end{proof}
 
