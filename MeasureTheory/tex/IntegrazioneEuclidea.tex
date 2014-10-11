@@ -84,13 +84,13 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	
 	Per la linearità dell'operatore integrale è chiaro che l'insieme delle funzioni che rispettano è uno spazio vettoriale.
 	
-	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni che converge monotonamente alla funzione integrabile $f$. Posso assumere senza perdità di generalità, visto che basterebbe cambiare segno, che la convergenza sia crescente.
+	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni che converge monotonamente alla funzione integrabile $f$. Possiamo assumere senza perdità di generalità, visto che basterebbe cambiare segno, che la convergenza sia crescente.
 	
 	Dall'ipotesi $f_n\in\mathcal F$ ne ricaviamo facilmente
 	\begin{equation}\label{eq:IMICV_UguaglianzaFinita}
 		\int_{\varphi(E)} f_n(y)\de y = \int_E f_n(\varphi(x))\rho(x)\de x\punto
 	\end{equation}
-	Notando poi che le funzioni $f_n$ sono dominate, grazie all'ipotesi di convergenza crescente, dalla funzione integrabile $|f|$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
+	Notando che, per l'ipotesi di convergenza crescente, le funzioni $f_n$ sono dominate dalla funzione integrabile $|f|$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
 	\begin{equation}\label{eq:IMICV_LimiteFacile}
 		\lim_{n\to\infty} \int_{\varphi(E)} f_n(y)\de y = \int_{\varphi(E)} f(y) \de y\punto
 	\end{equation}
@@ -113,8 +113,6 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
 	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
 \end{proof}
-
-
 
 \begin{proposition}\label{prop:MisuraImmagineLineare}
 	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
