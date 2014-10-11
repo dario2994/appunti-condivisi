@@ -62,6 +62,60 @@ Proviamo la formula per il cambio di variabile lineare che verrà poi sfruttata,
 
 In particolare, e tale procedimento verrà ripetuto varie volte in questa sezione, prima otterremo un risultato sulla misura di un insieme trasformato da un'applicazione lineare per poi ricavarne facilmente la formula per il cambio di variabile. L'idea che sta alla base di questo è che l'identità riguardante le misure è in realtà un cambio di variabile riguardante le funzioni indicatrici.
 
+\begin{proposition}\label{prop:IdentitaMisuraImplicaCambioVariabile}
+	Fissato $A\in\M_n$, siano $\varphi:A\subseteq\to\R^n$ una funzione che manda misurabili in misurabili e $\rho:A\to\Rpiu$ una funzione misurabile positiva tali che per ogni $E\subseteq A$ misurabile valga
+	\begin{equation*}
+		m_n\left(\varphi(E)\right)=\int_E\rho(x)\de x \punto
+	\end{equation*}
+	Allora per ogni funzione integrabile $f:\R^n\to\Rbar$ ed $E\subseteq A$ misurabile sono definiti i seguenti integrali e vale l'identità
+	\begin{equation*}
+		\int_{\varphi(E)}f(y)\de m_n(y)=\int_E f(\varphi(x))\rho(x)\de m_n(x)\punto
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Fissato $E\subseteq A$ misurabile, sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni che rispettano l'enunciato con tale $E$.
+	
+	Assumendo che $f$ sia l'indicatrice di un insieme finito $I\subseteq A$, applicando l'ipotesi sulla relazione tra $\varphi$ e $\rho$, otteniamo
+	\begin{multline*}
+		\int_{\varphi(E)} f(y)\de m_n(y)=\int_{\varphi(E)} \chi_I(y)\de m_n(y)=m_n(\varphi(E)\cap I)=m_n\left(\varphi(E\cap \varphi^{-1}(I))\right) \\
+		=\int_{\varphi^{-1}(I)\cap E}\rho(x)\de m_n(x)=\int_E \chi_{\varphi^-1(I)}(x)\rho(x)\de m_n(x)=\int_E f(\varphi(x))\rho(x)\de m_n(x) \virgola
+	\end{multline*}
+	cioè $f$ appartiene a $\mathcal F$ e, vista la scelta arbitraria di $f$, tutte le funzioni indicatrici di insiemi finiti appartengono a $\mathcal F$.
+	
+	Per la linearità dell'operatore integrale è chiaro che l'insieme delle funzioni che rispettano è uno spazio vettoriale.
+	
+	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni che converge monotonamente alla funzione integrabile $f$. Posso assumere senza perdità di generalità, visto che basterebbe cambiare segno, che la convergenza sia crescente.
+	
+	Dall'ipotesi $f_n\in\mathcal F$ ne ricaviamo facilmente
+	\begin{equation}\label{eq:IMICV_UguaglianzaFinita}
+		\int_{\varphi(E)} f_n(y)\de y = \int_E f_n(\varphi(x))\rho(x)\de x\punto
+	\end{equation}
+	Notando poi che le funzioni $f_n$ sono dominate, grazie all'ipotesi di convergenza crescente, dalla funzione integrabile $|f|$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
+	\begin{equation}\label{eq:IMICV_LimiteFacile}
+		\lim_{n\to\infty} \int_{\varphi(E)} f_n(y)\de y = \int_{\varphi(E)} f(y) \de y\punto
+	\end{equation}
+	Definiamo ora, per ogni $n\in\N$, la funzione misurabile positiva $g_n(x)=f_n(\varphi(x))\rho(x)-f_1(\varphi(x))\rho(x)$ e definiamo anche la funzione $g(x)=f(\varphi(x))\rho(x)-f_1(\varphi(x))\rho(x)$.
+	La successione $(g_n)_{n\in\N}$, in virtù del fatto che le funzioni $f_n$ convergono crescentemente a $f$, converge crescentemente alla funzione $g$.
+	Allora, applicando il \cref{thm:BeppoLevi}, possiamo affermare
+	\begin{equation*}
+		\int_E g(x)\de x=\lim_{n\in\N} \int_E g_n(x)\de x
+	\end{equation*}
+	e sommando ad ambo i membri l'integrale di $f_1(\varphi(x))\rho(x)$, che esiste finito poichè $f_1\in\mathcal F$, otteniamo
+	\begin{equation}\label{eq:IMICV_LimiteDifficile}
+		\int_E f(\varphi(x))\rho(x)\de x=\lim_{n\in\N} \int_E f_n(\varphi(x))\rho(x)\de x \punto
+	\end{equation}
+	A questo punto, unendo le \cref{eq:IMICV_UguaglianzaFinita,eq:IMICV_LimiteFacile,eq:IMICV_LimiteDifficile}, arriviamo a
+	\begin{equation*}
+		\int_{\varphi(E)} f(y)\de y=\int_E f(\varphi(x))\rho(x)\de x\virgola
+	\end{equation*}
+	cioè $f\in\mathcal F$ e quindi, per l'arbitrarietà della successione $f_n$ scelta, abbiamo dimostrato che $\mathcal F$ è chiuso per convergenza monotona (ammesso di rimanere nelle integrabili).
+	
+	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
+	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
+\end{proof}
+
+
+
 \begin{proposition}\label{prop:MisuraImmagineLineare}
 	Fissata un'applicazione lineare $L:\R^n\to\R^n$, per ogni $E\in\M_n$ misurabile secondo Lebesgue risulta che $L(E)$ è misurabile e rispetta
 	\begin{equation}
@@ -126,19 +180,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	Sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni che rispettano l'enunciato.
-	
-	Assumendo che $f$ sia l'indicatrice di un insieme $A\in\M_n$, applicando la \cref{prop:MisuraImmagineLineare}, otteniamo
-	\begin{multline*}
-		\int_{L(E)}f(y)\de m_n(y)=m_n\left( A\cap L(E) \right)=m_n\left(L(L^{-1}(A)\cap E)\right)\\
-		=\left\lvert\det L\right\rvert m_n\left(L^{-1}(A)\cap E\right)=\int_E f(L(x))\left\lvert\det L\right\rvert \de m_n(x) \virgola
-	\end{multline*}
-	cioè le indicatrici appartengono a $\mathcal F$.
-	
-	Per la linearità dell'operatore integrale è chiaro che l'insieme delle funzioni che rispettano è uno spazio vettoriale ed inoltre per il \cref{thm:BeppoLevi} è ovvio che $\mathcal F$ è chiuso per convergenza monotona (ammesso di rimanere nelle integrabili).
-	
-	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
-	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
+	È un'ovvia conseguenza della \cref{prop:IdentitaMisuraImplicaCambioVariabile}, visto che le ipotesi di quest'ultima sono verificate dalla \cref{prop:MisuraImmagineLineare}.
 \end{proof}
 
 I fatti seguenti sono tutti mirati a fornire basi solide ai vari procedimenti di limite necessari per ottenere la formula per il cambio di variabile.
@@ -393,11 +435,11 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation*}
 		\forall E\in \M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
 	\end{equation*}
-	Con una dimostrazione del tutto analoga a quella del \cref{cor:CambioVariabileLineare} questo implica che vale anche la formula
+	Per la \cref{prop:IdentitaMisuraImplicaCambioVariabile} questo implica che vale anche la formula
 	\begin{equation}\label{eq:CambioRadonNikodym}
 		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
 	\end{equation}
-	per ogni $f:\Omega\to\Rbar$ integrabile.
+	per ogni $f:\Omega'\to\Rbar$ integrabile.
 	
 	A questo punto, usando la medesima notazione dell'enunciato del \cref{lemma:ContinuitaL1Palle}, notiamo che
 	\begin{equation*}
@@ -438,7 +480,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
 \end{theorem}
 \begin{proof}
-	La dimostrazione è completamente analoga a quella del \cref{cor:CambioVariabileLineare}, solo che al posto di sfruttare la \cref{prop:MisuraImmagineLineare} si sfrutta il \cref{lemma:MisuraImmagine}.
+	È un'ovvia conseguenza della \cref{prop:IdentitaMisuraImplicaCambioVariabile}, visto che le ipotesi di questa sono verificate dal \cref{lemma:MisuraImmagine}.
 \end{proof}
 
 Ci si accorge subito, svolgendo qualche esercizio in cui è richiesto di applicare il cambio di variabile, che è spesso ostico applicare il \cref{thm:CambioVariabile} in quanto richiede ipotesi molto stringenti (in particolare il fatto che $\varphi$ sia un diffeomorfismo tra aperti). 
