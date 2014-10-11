@@ -429,7 +429,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	La funzione $\varphi$, essendo $C^1$, è localmente Lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
 	
 	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
-	Perciò, per il \cref{thm:RadonNikodym}, esiste $\rho:\Omega\to\Rpiu$ integrabile tale che
+	Perciò, per il \cref{thm:RadonNikodym}, esiste una funzione $\rho:\Omega\to\Rpiu$ misurabile positiva tale che
 	\begin{equation*}
 		\forall E\in \M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
 	\end{equation*}
@@ -439,24 +439,45 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\end{equation}
 	per ogni $f:\Omega'\to\Rbar$ integrabile.
 	
-	A questo punto, usando la medesima notazione dell'enunciato del \cref{lemma:ContinuitaL1Palle}, notiamo che
-	\begin{equation*}
-		\rho_r(x)=\aint_{B_r(x)}\rho(t)\de t=\frac{\int_{B_r(x)} \rho(t)\de t}{m_n(B_r(0))}=\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\virgola
-	\end{equation*}
-	e quindi, applicando proprio il \cref{lemma:ContinuitaL1Palle}, otteniamo che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge a $\rho$ in norma $L^1$ per $r$ che tende a $0$.
-	Ricordando però la \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque}, abbiamo anche che $\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}$ converge puntualmente quasi ovunque a $\rho$. Perciò, notando che se esiste il limite coincide con il limite superiore, possiamo applicare il \cref{lemma:LimiteDeterminante} ed ottenere che per quasi ogni $x\in\Omega$ vale
-	\begin{equation}\label{eq:DisuguaglianzaRadonNikodym}
-		\rho(x)=\limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \punto
-	\end{equation}
+	Fissato $K\subseteq\Omega$ compatto, poichè $\varphi$ è continua, anche $\varphi(K)$ è compatto e perciò in particolare ha misura finita.
+	Allora, per la definizione stessa di $\rho$, la funzione $\bar\rho(x)=\chi_K\cdot\rho$ è integrabile.
 	
-	Ora, unendo le due \cref{eq:CambioRadonNikodym,eq:DisuguaglianzaRadonNikodym}, arriviamo a dire che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
+	A questo punto, usando la medesima notazione dell'enunciato del \cref{lemma:ContinuitaL1Palle}, definiamo le funzioni $\rho_r, \bar\rho_r$ e notiamo che
+	\begin{equation*}
+		\rho_r(x)=\aint_{B_r(x)}\rho(t)\de t=\frac{\int_{B_r(x)} \rho(t)\de t}{m_n(B_r(0))}=\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\punto
+	\end{equation*}
+	
+	Applichiamo allora il \cref{lemma:ContinuitaL1Palle} alla funzione $\bar\rho$ ottenendo che $\bar\rho_r$ converge a $\bar\rho$ in norma $L^1$.
+	E di conseguenza, per la \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque}, questo implica che, a meno di estrarre sottosuccessioni, $\bar\rho_r$ converge puntualmente quasi ovunque a $\bar\rho$.
+	Allora, visto che il limite superiore è maggiore del limite di ogni sottosuccessione, abbiamo ottenuto che per quasi ogni $x\in K$ vale
+	\begin{equation*}
+		\bar\rho(x)\le \limsup_{r\to 0} \bar\rho_r(x)\virgola
+	\end{equation*}
+	ma per $x$ nella parte interna di $K$ i valori $\bar\rho_r(x)$ e $\rho_r(x)$ coincidono per $r$ sufficientemente piccolo, quindi per quasi ogni $x$ nella parte interna di $K$ abbiamo la disuguaglianza
+	\begin{equation*}
+		\rho(x)\le \limsup_{r\to 0} \rho_r(x)=\limsup_{r\to 0} \frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\virgola
+	\end{equation*}
+	da cui, applicando il \cref{lemma:LimiteDeterminante}, otteniamo che per quasi ogni $x$ nella parte interna di $K$
+	\begin{equation}\label{eq:DisuguaglianzaRadonNikodym}
+		\rho(x)\le \lvert \det D\varphi(x)\rvert \punto
+	\end{equation}
+	Vista l'arbitrarietà della scelta di $K$ abbiamo dimostrato che fissato un qualunque compatto, per quasi ogni valore $x$ nella sua parte interna, vale l'\cref{eq:DisuguaglianzaRadonNikodym}. 
+	
+	Chiamiamo $N\subseteq\Omega$ l'insieme degli $x$ per cui non è valida l'\cref{eq:DisuguaglianzaRadonNikodym} e sia $(K_n)_{n\in\N}$ una successione di compatti, tali che $K_n\subseteq \mathring K_{n+1}$, la cui unione \emph{crescente} è $\Omega$\footnote{È un risultato noto di topologia reale l'esistenza di una tale successione di compatti per ogni aperto.}.
+	Ogni elemento $x\in\Omega$ è definitivamente contenuto nella parte interna di $K_n$, quindi risulta
+	\begin{equation*}
+		N=N\cap\Omega=N\cap\bigcup_{n\in\N} \mathring K_n=\bigcup_{n\in\N}N\cap\mathring K_n\virgola
+	\end{equation*}
+	che, poiché $N\cap\mathring{K_n}$ è trascurabile per quanto affermato sopra, dimostra che $N$ è trascurabile.
+	
+	Ma il fatto che $N$ sia trascurabile implica che l'\cref{eq:DisuguaglianzaRadonNikodym} vale per quasi ogni $x\in\Omega$ e ciò, unito all'\cref{eq:CambioRadonNikodym}, implica che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
 	\begin{equation*}
 		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
 		\int_E f(\varphi(x))\left\lvert\det D\varphi(x)\right\rvert\de x \punto
 	\end{equation*}
 	
-	Ora giungiamo alla disuguaglianza conclusiva applicando quest'ultima stima sia alla funzione $\varphi$ sia alla funzione $\varphi^{-1}$ che essendo per ipotesi anch'esso un diffeomorfismo $C^1$ rispetterà un analogo enunciato.
-	Seguendo lo schema enunciato otteniamo che per ogni $E\subseteq\Omega$ misurabile vale
+	Ora giungiamo alla disuguaglianza conclusiva applicando quest'ultima stima sia alla funzione $\varphi$ sia alla funzione $\varphi^{-1}$ che, essendo per ipotesi anch'esso un diffeomorfismo $C^1$, rispetterà un analogo enunciato.
+	Seguendo lo schema annunciato otteniamo che per ogni $E\subseteq\Omega$ misurabile vale
 	\begin{multline*}
 		m_n(E) =\int_{\varphi(\varphi^{-1}(E))}1\de x\le \int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \\
  		\le \int_E \left\lvert\det D\varphi(\varphi^{-1}(x))\right\rvert \cdot \left\lvert\det D\varphi^{-1}(x)\right\rvert\de x =\int_E 1\de x=m_n(E) \virgola
