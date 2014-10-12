@@ -60,7 +60,7 @@ La seconda parte della sezione sarà completamente votata alla dimostrazione del
 Dimostriamo ora un caso particolare, ma molto significativo, della formula del cambio di variabile. 
 Proviamo la formula per il cambio di variabile lineare che verrà poi sfruttata, attraverso una sorta di passaggio al limite, per dimostrare la formula più generale.
 
-In particolare, e tale procedimento verrà ripetuto varie volte in questa sezione, prima otterremo un risultato sulla misura di un insieme trasformato da un'applicazione lineare per poi ricavarne facilmente la formula per il cambio di variabile. L'idea che sta alla base di questo è che l'identità riguardante le misure è in realtà un cambio di variabile riguardante le funzioni indicatrici.
+In particolare, e tale procedimento verrà ripetuto varie volte in questa sezione, prima otterremo un risultato sulla misura di un insieme trasformato da un'applicazione lineare per poi ricavarne facilmente la formula per il cambio di variabile attraverso l'applicazione della \cref{prop:IdentitaMisuraImplicaCambioVariabile}. L'idea che sta alla base di questo ragionamento è che l'identità riguardante le misure è in realtà un cambio di variabile riguardante le funzioni indicatrici.
 
 \begin{proposition}\label{prop:IdentitaMisuraImplicaCambioVariabile}
 	Fissato $A\in\M_n$, siano $\varphi:A\subseteq\to\R^n$ una funzione che manda misurabili in misurabili e $\rho:A\to\Rpiu$ una funzione misurabile positiva tali che per ogni $E\subseteq A$ misurabile valga
@@ -75,10 +75,10 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 \begin{proof}
 	Fissato $E\subseteq A$ misurabile, sia $\mathcal F\subseteq \L(\R^n,\M_n,m_n)$ l'insieme delle funzioni che rispettano l'enunciato con tale $E$.
 	
-	Assumendo che $f$ sia l'indicatrice di un insieme finito $I\subseteq A$, applicando l'ipotesi sulla relazione tra $\varphi$ e $\rho$, otteniamo
+	Assumendo che $f$ sia l'indicatrice di un insieme misurabile finito $I\subseteq A$, applicando l'ipotesi sulla relazione tra $\varphi$ e $\rho$, otteniamo
 	\begin{multline*}
 		\int_{\varphi(E)} f(y)\de m_n(y)=\int_{\varphi(E)} \chi_I(y)\de m_n(y)=m_n(\varphi(E)\cap I)=m_n\left(\varphi(E\cap \varphi^{-1}(I))\right) \\
-		=\int_{\varphi^{-1}(I)\cap E}\rho(x)\de m_n(x)=\int_E \chi_{\varphi^-1(I)}(x)\rho(x)\de m_n(x)=\int_E f(\varphi(x))\rho(x)\de m_n(x) \virgola
+		=\int_{\varphi^{-1}(I)\cap E}\rho(x)\de m_n(x)=\int_E \chi_{\varphi^{-1}(I)}(x)\rho(x)\de m_n(x)=\int_E f(\varphi(x))\rho(x)\de m_n(x) \virgola
 	\end{multline*}
 	cioè $f$ appartiene a $\mathcal F$ e, vista la scelta arbitraria di $f$, tutte le funzioni indicatrici di insiemi finiti appartengono a $\mathcal F$.
 	
@@ -90,7 +90,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	\begin{equation}\label{eq:IMICV_UguaglianzaFinita}
 		\int_{\varphi(E)} f_n(y)\de y = \int_E f_n(\varphi(x))\rho(x)\de x\punto
 	\end{equation}
-	Notando che, per l'ipotesi di convergenza crescente, le funzioni $f_n$ sono dominate dalla funzione integrabile $|f|$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
+	Notando che, per l'ipotesi di convergenza monotona, le funzioni $f_n$ sono dominate dalla funzione integrabile $\max(|f_1|,|f|)$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
 	\begin{equation}\label{eq:IMICV_LimiteFacile}
 		\lim_{n\to\infty} \int_{\varphi(E)} f_n(y)\de y = \int_{\varphi(E)} f(y) \de y\punto
 	\end{equation}
