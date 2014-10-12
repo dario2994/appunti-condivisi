@@ -17,9 +17,9 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 
 \begin{proposition}\label{prop:BasicMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $f:X\rightarrow \Rbar$ una funzione, sono equivalenti i seguenti fatti
-	\footnote{qui introduciamo la notazione per i \textit{sovralivelli} di una funzione che useremo in tutti gli appunti:
+	\footnote{Qui introduciamo la notazione per i \textit{sovralivelli} di una funzione che useremo in tutti gli appunti:
 		data una funzione $f$ di codominio reale e un certo reale $k$ indichiamo con $\{f>k\}$ l'insieme
-		$\{x:f(x)>k\}=f^{-1}((k,+\infty])$; stessa notazione verrà usata anche per il sottolivello}:
+		$\{x:f(x)>k\}=f^{-1}((k,+\infty])$; stessa notazione verrà usata anche per il sottolivello.}:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f$ è misurabile; \label{BM:mis}
 		\item $\{f<a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sot}
@@ -94,8 +94,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 
 \begin{proposition}\label{prop:AlgMis}
 	Dato uno spazio di misura $(X,\A,\mu)$, sia $\mathcal{M}$ l'insieme delle funzioni misurabili da $X$ in $\Rbar$.
-	Allora $\mathcal{M}$ è un'algebra nel senso che, dove sono definite \footnote{Nel definire le operazioni algebriche su $\mathcal{M}$ adottiamo le seguenti convenzioni: la somma è definita
-		se non accade che entrambe $f$ e $-g$ siano $\pm\infty$, per la moltiplicazione $0\cdot \infty = 0$.},
+	Allora $\mathcal{M}$ è un'algebra nel senso che, dove sono definite\footnote{Nel definire le operazioni algebriche su $\mathcal{M}$ adottiamo le seguenti convenzioni: la somma è definita se non accade che entrambe $f$ e $-g$ siano $\pm\infty$, per la moltiplicazione $0\cdot \infty = 0$.} ,
 	valgono le seguenti:
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f,g\in \mathcal{M} \Rightarrow f+g\in \mathcal{M}$; \label{AlM:sum}
@@ -157,7 +156,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Fissato $A\subseteq \R$ misurabile, ogni funzione $f:A\to\R$ monotona è misurabile, munendo $\R$ della misura di Lebesgue definita nella precedente sezione.
 \end{remark}
 \begin{proof}
-	È sufficiente notare che la controimmagine di un intervallo\footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di \R.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{prop:BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{nota:RiduzioneMisura}).
+	È sufficiente notare che la controimmagine di un intervallo\footnote{Definiamo, unicamente in questa dimostrazione, un intervallo come un generico sottoinsieme connesso di $\R$.} è a sua volta un intervallo intersecato $A$ poiché la funzione è monotona, perciò applicando la \cref{prop:BasicMis} ricaviamo che la funzione è misurabile visto che gli intervalli sono misurabili secondo Lebesgue (e lo è la loro interesezione con $A$, per la \cref{nota:RiduzioneMisura}).
 \end{proof}
 
 \begin{proposition}\label{prop:BorelianiNonMisurabili2}
