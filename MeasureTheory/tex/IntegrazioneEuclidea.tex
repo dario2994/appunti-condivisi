@@ -63,7 +63,7 @@ Proviamo la formula per il cambio di variabile lineare che verrà poi sfruttata,
 In particolare, e tale procedimento verrà ripetuto varie volte in questa sezione, prima otterremo un risultato sulla misura di un insieme trasformato da un'applicazione lineare per poi ricavarne facilmente la formula per il cambio di variabile attraverso l'applicazione della \cref{prop:IdentitaMisuraImplicaCambioVariabile}. L'idea che sta alla base di questo ragionamento è che l'identità riguardante le misure è in realtà un cambio di variabile riguardante le funzioni indicatrici.
 
 \begin{proposition}\label{prop:IdentitaMisuraImplicaCambioVariabile}
-	Fissato $A\in\M_n$, siano $\varphi:A\subseteq\to\R^n$ una funzione che manda misurabili in misurabili e $\rho:A\to\Rpiu$ una funzione misurabile positiva tali che per ogni $E\subseteq A$ misurabile valga
+	Fissato $A\in\M_n$, siano $\varphi:A\to\R^n$ una funzione che manda misurabili in misurabili e $\rho:A\to\Rpiu$ una funzione misurabile positiva tali che per ogni $E\subseteq A$ misurabile valga
 	\begin{equation*}
 		m_n\left(\varphi(E)\right)=\int_E\rho(x)\de x \punto
 	\end{equation*}
@@ -86,7 +86,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	
 	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni che converge monotonamente alla funzione integrabile $f$. Possiamo assumere senza perdità di generalità, visto che basterebbe cambiare segno, che la convergenza sia crescente.
 	
-	Dall'ipotesi $f_n\in\mathcal F$ ne ricaviamo facilmente
+	Dall'ipotesi $f_n\in\mathcal F$ abbiamo che
 	\begin{equation}\label{eq:IMICV_UguaglianzaFinita}
 		\int_{\varphi(E)} f_n(y)\de y = \int_E f_n(\varphi(x))\rho(x)\de x\punto
 	\end{equation}
@@ -98,17 +98,17 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	La successione $(g_n)_{n\in\N}$, in virtù del fatto che le funzioni $f_n$ convergono crescentemente a $f$, converge crescentemente alla funzione $g$.
 	Allora, applicando il \cref{thm:BeppoLevi}, possiamo affermare
 	\begin{equation*}
-		\int_E g(x)\de x=\lim_{n\in\N} \int_E g_n(x)\de x
+		\int_E g(x)\de x=\lim_{n\to\infty} \int_E g_n(x)\de x
 	\end{equation*}
 	e sommando ad ambo i membri l'integrale di $f_1(\varphi(x))\rho(x)$, che esiste finito poiché $f_1\in\mathcal F$, otteniamo
 	\begin{equation}\label{eq:IMICV_LimiteDifficile}
-		\int_E f(\varphi(x))\rho(x)\de x=\lim_{n\in\N} \int_E f_n(\varphi(x))\rho(x)\de x \punto
+		\int_E f(\varphi(x))\rho(x)\de x=\lim_{n\to\infty} \int_E f_n(\varphi(x))\rho(x)\de x \punto
 	\end{equation}
 	A questo punto, unendo le \cref{eq:IMICV_UguaglianzaFinita,eq:IMICV_LimiteFacile,eq:IMICV_LimiteDifficile}, arriviamo a
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de y=\int_E f(\varphi(x))\rho(x)\de x\virgola
 	\end{equation*}
-	cioè $f\in\mathcal F$ e quindi, per l'arbitrarietà della successione $f_n$ scelta, abbiamo dimostrato che $\mathcal F$ è chiuso per convergenza monotona (ammesso di rimanere nelle integrabili).
+	cioè $f\in\mathcal F$ e quindi, per l'arbitrarietà della successione $f_n$ scelta, abbiamo dimostrato che $\mathcal F$ è chiusa per convergenza monotona (ammesso di rimanere nelle integrabili).
 	
 	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
 	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
@@ -374,7 +374,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation*}
 		\forall x\in\Omega:\ \limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \virgola 
 	\end{equation*}
-	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $D\varphi$ è la matrice Jacobiana della funzione $\varphi$.
+	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $D\varphi$ è la matrice jacobiana della funzione $\varphi$.
 \end{lemma}
 \begin{proof}
 	Fissiamo $\bar x\in\Omega$ e chiamiamo $A=D \varphi(\bar x)$.
@@ -423,7 +423,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation*}
 		m_n(\varphi(E))=\int_E\left\lvert \det D\varphi(x) \right\rvert \de m_n(x)\virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
+	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{lemma}
 \begin{proof}
 	La funzione $\varphi$, essendo $C^1$, è localmente Lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
@@ -431,23 +431,23 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
 	Perciò, per il \cref{thm:RadonNikodym}, esiste una funzione $\rho:\Omega\to\Rpiu$ misurabile positiva tale che
 	\begin{equation*}
-		\forall E\in \M_n\text{ t.c. } E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
+		\forall E\in \M_n\virgola E\subseteq \Omega:\ m_n(\varphi(E))=\int_E \rho \de x \punto
 	\end{equation*}
 	Per la \cref{prop:IdentitaMisuraImplicaCambioVariabile} questo implica che vale anche la formula
 	\begin{equation}\label{eq:CambioRadonNikodym}
-		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
+		\forall E\in \M_n\virgola E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y = \int_{E} f(\varphi(x))\rho(x) \de x
 	\end{equation}
 	per ogni $f:\Omega'\to\Rbar$ integrabile.
 	
 	Fissato $K\subseteq\Omega$ compatto, poichè $\varphi$ è continua, anche $\varphi(K)$ è compatto e perciò in particolare ha misura finita.
-	Allora, per la definizione stessa di $\rho$, la funzione $\bar\rho(x)=\chi_K\cdot\rho$ è integrabile.
+	Allora, per la definizione stessa di $\rho$, la funzione $\bar\rho=\chi_K\cdot\rho$ è integrabile.
 	
 	A questo punto, usando la medesima notazione dell'enunciato del \cref{lemma:ContinuitaL1Palle}, definiamo le funzioni $\rho_r, \bar\rho_r$ e notiamo che
 	\begin{equation*}
 		\rho_r(x)=\aint_{B_r(x)}\rho(t)\de t=\frac{\int_{B_r(x)} \rho(t)\de t}{m_n(B_r(0))}=\frac{m_n(\varphi(B_r(x)))}{m_n(B_r(0))}\punto
 	\end{equation*}
 	
-	Applichiamo allora il \cref{lemma:ContinuitaL1Palle} alla funzione $\bar\rho$ ottenendo che $\bar\rho_r$ converge a $\bar\rho$ in norma $L^1$.
+	Applichiamo allora il \cref{lemma:ContinuitaL1Palle} alla funzione $\bar\rho$, ottenendo che $\bar\rho_r$ converge a $\bar\rho$ in norma $L^1$.
 	E di conseguenza, per la \cref{prop:L1ImplicaSottosuccessioneQuasiOvunque}, questo implica che, a meno di estrarre sottosuccessioni, $\bar\rho_r$ converge puntualmente quasi ovunque a $\bar\rho$.
 	Allora, visto che il limite superiore è maggiore del limite di ogni sottosuccessione, abbiamo ottenuto che per quasi ogni $x\in K$ vale
 	\begin{equation*}
@@ -472,7 +472,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	
 	Ma il fatto che $N$ sia trascurabile implica che l'\cref{eq:DisuguaglianzaRadonNikodym} vale per quasi ogni $x\in\Omega$ e ciò, unito all'\cref{eq:CambioRadonNikodym}, implica che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
 	\begin{equation*}
-		\forall E\in \M_n\text{ t.c. } E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
+		\forall E\in \M_n\virgola E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
 		\int_E f(\varphi(x))\left\lvert\det D\varphi(x)\right\rvert\de x \punto
 	\end{equation*}
 	
@@ -496,7 +496,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
+	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{theorem}
 \begin{proof}
 	È un'ovvia conseguenza della \cref{prop:IdentitaMisuraImplicaCambioVariabile}, visto che le ipotesi di questa sono verificate dal \cref{lemma:MisuraImmagine}.
@@ -518,7 +518,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice Jacobiana del diffeomorfismo $\varphi$.
+	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{corollary}
 \begin{proof}
 	Definiamo $C\subseteq\Omega$ l'insieme di punti $x\in\Omega$ tali che il differenziale di $\varphi$ in $x$ non è iniettivo. 
