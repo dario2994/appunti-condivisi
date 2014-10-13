@@ -121,7 +121,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	La funzione $L$ essendo lineare è in particolare Lipschitziana (con costante la propria norma) quindi, applicando la \cref{prop:LipschitzTengonoMisurabili}, otteniamo che per ogni $E$ misurabile, $L(E)$ è anch'esso misurabile.
+	La funzione $L$ essendo lineare è in particolare lipschitziana (con costante la propria norma) quindi, applicando la \cref{prop:LipschitzTengonoMisurabili}, otteniamo che per ogni $E$ misurabile, $L(E)$ è anch'esso misurabile.
 	
 	Consideriamo ora la funzione $\mu_L:\M_n\to\Rpiu$ definita come $\mu_L(E)=m_n(L(E))$. Per quanto appena mostrato questa è una buona definizione.
 	Per la \cref{prop:BigettivaInduceMisura} la $\mu_L$ è una misura.
@@ -388,7 +388,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\begin{equation}\label{eq:ContenimentoPallaLineare}
 		\varphi(B_r(\bar x))\subseteq \varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right).
 	\end{equation}
-	Essendo però $\varphi$ differenziabile con continuità, è anche localmente Lipschitziana e perciò, per il \cref{cor:LocLipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
+	Essendo però $\varphi$ differenziabile con continuità, è anche localmente lipschitziana e perciò, per il \cref{cor:LocLipschitzTengonoMisurabili}, l'insieme $\varphi(B_r(\bar x))$ è misurabile.
 	Allora possiamo applicare la misura di Lebesgue ad entrambi i membri del contenimento mostrato nell'\cref{eq:ContenimentoPallaLineare} ottenendo
 	\begin{equation}\label{eq:StimaImmaginePalla}
 		m_n\left( \varphi(B_r(\bar x)) \right)\le m_n\left(\varphi(\bar x)+A\left(B_{r+\smallO(r)}(0)\right)\right)
@@ -426,7 +426,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{lemma}
 \begin{proof}
-	La funzione $\varphi$, essendo $C^1$, è localmente Lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
+	La funzione $\varphi$, essendo $C^1$, è localmente lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
 	
 	Allora per la \cref{prop:BigettivaInduceMisura} la funzione di insiemi $\nu=m_n\circ \varphi$ è una misura, che risulta essere assolutamente continua rispetto alla misura di Lebesgue poiché $\varphi$ manda trascurabili in trascurabili.
 	Perciò, per il \cref{thm:RadonNikodym}, esiste una funzione $\rho:\Omega\to\Rpiu$ misurabile positiva tale che
@@ -506,7 +506,7 @@ Ci si accorge subito, svolgendo qualche esercizio in cui è richiesto di applica
 Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, del medesimo teorema mettendo in luce una delle idee chiave della teoria della misura: gli insiemi trascurabili sono davvero trascurabili.
 
 \begin{corollary}\label{cor:CambioVariabileSporco}
-	Sia $\varphi:A\to\R^n$ una funzione localmente Lipschitziana con $A$ sottoinsieme di $\R^n$.
+	Sia $\varphi:A\to\R^n$ una funzione localmente lipschitziana con $A$ sottoinsieme di $\R^n$.
 	Assumiamo che esista un aperto $\Omega\subseteq A$ tale che valgano le seguenti proprietà:
 	\begin{enumerate}
 		\item L'insieme $A\setminus \Omega$ è trascurabile;
@@ -540,7 +540,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\end{equation*}
 	e questa dimostra che $E\setminus\overline E$ è trascurabile in quanto sottoinsieme di un trascurabile.
 	
-	Inoltre, essendo $\varphi$ localmente Lipschitziana per ipotesi, in virtù del \cref{cor:LocLipschitzTengonoMisurabili}, anche l'immagine di $E\setminus\overline E$ tramite $\varphi$ risulta essere trascurabile. Di conseguenza anche l'insieme $\varphi(E)\setminus\varphi(\overline E)$ è trascurabile in quanto è un sottoinsieme di $\varphi(E\setminus\overline E)$.
+	Inoltre, essendo $\varphi$ localmente lipschitziana per ipotesi, in virtù del \cref{cor:LocLipschitzTengonoMisurabili}, anche l'immagine di $E\setminus\overline E$ tramite $\varphi$ risulta essere trascurabile. Di conseguenza anche l'insieme $\varphi(E)\setminus\varphi(\overline E)$ è trascurabile in quanto è un sottoinsieme di $\varphi(E\setminus\overline E)$.
 	
 	Per concludere le definizioni, chiamiamo $\overline\varphi:\overline\Omega\to\overline\Omega'=\varphi(\overline\Omega)$ la restrizione di $\varphi$ all'aperto $\overline\Omega$.
 	La funzione $\overline\varphi$ è $C^1$ in quanto restrizione ad un aperto di una $C^1$ e, per la definizione di $\overline\Omega$, ha differenziale iniettivo in ogni punto.
@@ -566,7 +566,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\end{equation*}
 	La funzione $\varphi$ è suriettiva, ed è anche iniettiva a meno di non considerare i punti $(r,\theta,\phi)$ in cui una delle variabili assume uno dei suoi due valori estramali.
 	
-	Facendo qualche derivata parziale, calcoliamo che il Jacobiano vale
+	Facendo qualche derivata parziale, calcoliamo che lo Jacobiano vale
 	\begin{equation*}
 		D\varphi=
 		\begin{pmatrix}
@@ -591,7 +591,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 \begin{remark}\label{nota:CoordinateSferiche}
 	Il cambio di variabile che associa alla tripla $(r,\theta,\phi)$ il punto di $\R^3$ con coordinate $(r\cos\theta,r\sin\theta\cos\phi,r\sin\theta\sin\phi)$ è noto con il nome di coordinate sferiche.
 	
-	Questo cambio di variabile è spesso utile nel calcolo di integrali in $\R^3$ poiché il determinante del Jacobiano è straordinariamente semplice e permette quindi di sfruttare, evitando lunghi conti, le eventuali simmetrie che un problema può presentare.
+	Questo cambio di variabile è spesso utile nel calcolo di integrali in $\R^3$ poiché il determinante dello Jacobiano è straordinariamente semplice e permette quindi di sfruttare, evitando lunghi conti, le eventuali simmetrie che un problema può presentare.
 \end{remark}
 
 

@@ -218,9 +218,9 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	
 	Consideriamo quindi una sottofamiglia numerabile $(B_n)_{n\in\N}$ di $\B$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
 	\begin{multline*}
-		\nu\left(\bigsqcup_{n\in\N}B_n\right)=\int_{g^{-1}(\sqcup B_n)}f\de\mu=\int_{\sqcup g^{-1}(B_n)}\sum_{n\in\N}\chi_{g^{-1}(B_n)}\cdot f\de\mu\\
-		=\sum_{n\in\N}\int_{\sqcup g^{-1}(B_n)}\chi_{g^{-1}(B_n)}\cdot f\de\mu=
-		\sum_{n\in\N}\int_{g^{-1}(B_n)}f\de\mu=\sum_{n\in\N}\nu(B_n)\virgola
+		\nu\left(\bigsqcup_{n\in\N}B_n\right)=\int_{g^{-1}(\sqcup B_n)}f\de\mu=\int_{\sqcup g^{-1}(B_n)}\sum_{k\in\N}\chi_{g^{-1}(B_k)}\cdot f\de\mu\\
+		=\sum_{k\in\N}\int_{\sqcup g^{-1}(B_n)}\chi_{g^{-1}(B_k)}\cdot f\de\mu=
+		\sum_{k\in\N}\int_{g^{-1}(B_k)}f\de\mu=\sum_{k\in\N}\nu(B_k)\virgola
 	\end{multline*}
 	che dimostra proprio la \sigadd\ di $\nu$.
 \end{proof}

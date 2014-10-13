@@ -360,7 +360,7 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 \end{proof}
 
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
-	Data una funzione $f:E\subseteq \R^n\to\R^n$ Lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
+	Data una funzione $f:E\subseteq \R^n\to\R^n$ lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
 	\begin{equation*}
 		\forall A\in\M_n, A\subseteq E:\ \lambda^n m_n(A) \ge m_n(f(A)) \punto
 	\end{equation*}
@@ -406,11 +406,11 @@ Considerata la scarsa inerenza con l'argomento qui trattato, nonché il fatto ch
 \end{proof}
 
 \begin{corollary}\label{cor:LocLipschitzTengonoMisurabili}
-	Data una funzione $f:E\subseteq \R^n\to\R^n$ localmente Lipschitziana, per ogni $A\subseteq E$ misurabile anche l'immagine $f(A)$ è misurabile e, nel caso $A$ sia trascurabile, lo è anche la sua immagine.
+	Data una funzione $f:E\subseteq \R^n\to\R^n$ localmente lipschitziana, per ogni $A\subseteq E$ misurabile anche l'immagine $f(A)$ è misurabile e, nel caso $A$ sia trascurabile, lo è anche la sua immagine.
 \end{corollary}
 \begin{proof}
-	L'ipotesi di locale Lipschitzianità è equivalente ad affermare che esista un ricoprimento di $E$ con aperti (nella topologia di sottospazio) tale che in ognuno di tali aperti la funzione $f$ sia Lipschitziana. 
-	Da un tale ricoprimento, applicando il \cref{cor:RLindelof}, estraiamo un ricoprimento numerabile $(A_n)_{n\in\N}\subseteq E$ tale che, per ogni $n\in\N$, la funzione $f$ ridotta su $A_n$ è Lipschitziana.
+	L'ipotesi di locale Lipschitzianità è equivalente ad affermare che esista un ricoprimento di $E$ con aperti (nella topologia di sottospazio) tale che in ognuno di tali aperti la funzione $f$ sia lipschitziana. 
+	Da un tale ricoprimento, applicando il \cref{cor:RLindelof}, estraiamo un ricoprimento numerabile $(A_n)_{n\in\N}\subseteq E$ tale che, per ogni $n\in\N$, la funzione $f$ ridotta su $A_n$ è lipschitziana.
 	
 	A questo punto, fissato $N\subseteq E$ trascurabile, l'insieme $f(N\cap A_n)$ è trascurabile per ogni $n\in\N$ in virtù della \cref{prop:LipschitzTengonoMisurabili} e allora,  considerando l'identità
 	\begin{equation*}
@@ -418,7 +418,7 @@ Considerata la scarsa inerenza con l'argomento qui trattato, nonché il fatto ch
 	\end{equation*}
 	ne deduciamo che $f(N)$ è trascurabile in quanto unione numerabile di trascurabili.
 	
-	A questo punto per concludere è sufficiente applicare la \cref{prop:ContinueSpecialiTengonoMisurabili} notando che sono rispettate tutte le ipotesi, visto che ovviamente una funzione localmente Lipschitziana è anche continua.
+	A questo punto per concludere è sufficiente applicare la \cref{prop:ContinueSpecialiTengonoMisurabili} notando che sono rispettate tutte le ipotesi, visto che ovviamente una funzione localmente lipschitziana è anche continua.
 \end{proof}
 
 
@@ -427,7 +427,7 @@ Considerata la scarsa inerenza con l'argomento qui trattato, nonché il fatto ch
 \end{proposition}
 \begin{proof}
 	Poiché ogni isometria si scrive come una applicazione ortogonale composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per traslazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per applicazioni ortogonali.
-	Sia $O:\R^n\to\R^n$ una applicazione ortogonale. Questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche Lipschitziana (si può dimostrare anche più facilmente in questo caso).
+	Sia $O:\R^n\to\R^n$ una applicazione ortogonale. Questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche lipschitziana (si può dimostrare anche più facilmente in questo caso).
 	
 	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
 	Se dimostriamo che $\mu\equiv m_n$ abbiamo proprio che $m_n$ è invariante per applicazioni ortogonali.
