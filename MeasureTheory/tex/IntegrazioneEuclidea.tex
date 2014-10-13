@@ -14,7 +14,7 @@ La seconda parte della sezione sarà completamente votata alla dimostrazione del
 	Ricordando la \cref{def:LebesgueSemiaperti}, poiché valgono ovviamente i contenimenti $S_n\subseteq \M_n$ e $S_m\subseteq \M_m$, è facile ricavarne che $S_{n+m}\subseteq \M_n\otimes \M_m$.
 	Ma allora, applicando la \cref{prop:SigAlgUgualeBoreliani} e ricordando che $\M_n\otimes \M_m$ è una \sigalg{}, otteniamo che i Boreliani sono contenuti in $\M_n\otimes\M_m$.
 	
-	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $B_1,B_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $\R^n$ e $\R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
+	Sia $E_1\times E_2\in \M_n\times\M_m$. Per il \cref{thm:LebesgueEquivalenzeMisurabilita}, esistono $A_1,A_2$ Boreliani e $N_1,N_2$ trascurabili, rispettivamente in $\R^n$ e $\R^m$, tali che $E_1=A_1\sqcup N_1$ e $E_2=A_2\sqcup N_2$.
 	Perciò, grazie alla distributività del prodotto insiemistico rispetto all'unione disgiunta, otteniamo
 	\begin{equation*}
 		E_1\times E_2=(A_1\sqcup N_1)\times(A_2\sqcup N_2)=\left(A_1\times A_2\right)\sqcup\left(A_1\times N_2\sqcup A_2\times N_1 \sqcup N_1\times N_2\right) \punto
@@ -138,7 +138,7 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	
 	Mostriamo ora che $c(\cdot)$ è moltiplicativa e che coindice con il valore assoluto del determinante sulle applicazioni diagonali e ortogonali. Da questo, sfruttando una decomposizione nota delle applicazioni lineari di $\R^n$, seguirà che coincide con il valore assoluto del determinante su ogni applicazione lineare e questo è proprio quanto richiesto dalla tesi. 
 	
-	Fissate $A,B\in \linR$ applicazioni lineari ed $E\in\M_n$ un misurabili non trascurabile, applicando unicamente l'\cref{eq:DefQuasiDet} risulta
+	Fissate $A,B\in \linR$ applicazioni lineari ed $E\in\M_n$ un misurabile non trascurabile, applicando unicamente l'\cref{eq:DefQuasiDet} risulta
 	\begin{align*}
 		c(AB)m_n(E)&=\mu_{AB}(E)=m_n(AB(E))=m_n(A(B(E))\\
 		&=\mu_A(B(E))=c(A)m_n(B(E))=c(A)\mu_B(E)=c(A)c(B)m_n(E)\virgola
@@ -191,7 +191,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 \begin{lemma}\label{lemma:ContinuitaL1Semianello}
 	Dato $T=\co{a_1}{b_1}\times\cdots\times\co{a_n}{b_n}\in\S_n$ e $c=(c_1,\dots,c_n)\in\R^n$, vale la stima
 	\begin{equation*}
-		\LNorm{\chi_T({}\cdot{}+c)-\chi_T({}\cdot{})}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_j\rvert }{b_i-a_i} \punto
+		\LNorm{\chi_T({}\cdot{}+c)-\chi_T({}\cdot{})}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_i\rvert }{b_i-a_i} \punto
 	\end{equation*}
 \end{lemma}
 \begin{proof}
@@ -232,7 +232,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	
 	Unendo le \cref{eq:IdentitaIntegraleContinuitaL1,eq:StimaInsiemeConPezzettiContinuitaL1,eq:StimaFinalePezzettoContinuitaL1} arriviamo finalmente ad avere
 	\begin{equation*}
-		\LNorm{s_c}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_j\rvert }{b_i-a_i}\virgola
+		\LNorm{s_c}\le 2m_n(T)\sum_{i=1}^n \frac{\lvert c_i\rvert }{b_i-a_i}\virgola
 	\end{equation*}
 	che implica che la tesi per definizione di $s_c$.
 \end{proof}
@@ -252,8 +252,8 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	
 	Il fatto che $\mathcal F$ sia uno spazio vettoriale discende direttamente dalla linearità dell'integrale e dal fatto che il limite di una somma è la somma dei limiti.
 	
-	Sia $(f_n)_{n\in\N}$ una successione di funzioni integrabili che appartengono ad $\mathcal F$ e sia $f$ il limite puntuale di tale successione, che assumiamo essere integrabile.
-	Per il \cref{thm:ConvergenzaDominata}, le cui ipotesi sono facilmente verificate poiché $f$ è integrabile, le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
+	Sia $(f_n)_{n\in\N}$ una successione di funzioni integrabili che appartengono ad $\mathcal F$ convergenti monotonamente alla funzione $f$, che assumiamo essere integrabile.
+	Per il \cref{thm:ConvergenzaDominata}, le cui ipotesi sono facilmente verificate poiché le funzioni sono dominate dalla funzione integrabile $\max(f,f_1)$, le $f_n$ convergono ad $f$ anche in norma $L^1$ e perciò, per ogni $\epsilon>0$, esiste $m\in\N$ tale che $\LNorm{f_m-f}<\epsilon$. 
 	Inoltre, una facile conseguenza dell'invarianza per traslazione della misura di Lebesgue è 
 	\begin{equation*}
 		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola

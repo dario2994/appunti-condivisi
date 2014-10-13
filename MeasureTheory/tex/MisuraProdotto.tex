@@ -78,7 +78,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 \begin{proposition}\label{prop:TrascurabiliProdotto}
 	Dato lo spazio di premisura $(X\times Y,\A\times\B,\overline{\mu\nu})$, che si è mostrato essere di premisura nel \cref{thm:PremisuraProdotto}, sia $\mu\nu^*:\mathcal P(X\times Y)\to\Rpiu$ la misura esterna associata a $\overline{\mu\nu}$.
 	
-	Se $E\subseteq X\times Y$ è trascurabile rispetto a $\mu\nu^*$, allora per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(E)$ è trascurabile\footnote{Il fatto che un insieme sia trascurabile non implica che sia misurabile come osservato nella \cref{def:TrascurabiliMisura}.} rispetto alla misura $\mu$.
+	Se $E\subseteq X\times Y$ è trascurabile rispetto a $\mu\nu^*$, allora per $\mu$-quasi ogni $x\in X$ l'insieme $J_x^X(E)$ è trascurabile\footnote{Il fatto che un insieme sia trascurabile non implica che sia misurabile come osservato nella \cref{def:TrascurabiliMisura}.} rispetto alla misura $\nu$.
 \end{proposition}
 \begin{proof}
 	Chiamiamo $\mu^*,\nu^*$ le misure esterne, definite come nella \cref{prop:MisuraEsternaDiPremisura}, associate alle misure\footnote{Uno spazio di misura è sempre ovviamente anche uno spazio di premisura.} $\mu,\nu$.
@@ -101,7 +101,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	\end{equation*}
 	poiché i $B_i$, tali che i rispettivi $A_i$ contengano $x$, sono un ricoprimento numerabile di $J_x^X(E)$.
 	
-	Allora, applicando quest'ultima disuguaglianza aggiungengo l'ipotesi $x\in X_\delta$, otteniamo il contenimento $X_\delta\subseteq \{x\in X:f(x)\ge\delta\}$ e quindi ne ricaviamo che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poiché $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
+	Allora, applicando quest'ultima disuguaglianza aggiungendo l'ipotesi $x\in X_\delta$, otteniamo il contenimento $X_\delta\subseteq \{x\in X:f(x)\ge\delta\}$ e quindi ne ricaviamo che l'insieme $\{x\in X:f(x)\ge\delta\}$ ha misura\footnote{Qui si può parlare di misura e non di misura esterna poiché $f$ è una funzione misurabile.} maggiore o uguale a $m_\delta$.
 	Quindi il \cref{thm:DisuguaglianzaChebyshev} ci assicura che $\LNorm f\ge \delta m_\delta$.
 
 	Però, applicando il \cref{cor:IntegrazionePerSeriePositive}, otteniamo
@@ -129,7 +129,7 @@ La proposizione seguente è la prima che rende chiaro il fatto che l'ambiente di
 	Sia $\C\subset\mathcal P(X\times Y)$, l'insieme dei sottoinsiemi di $X\times Y$ tali che tutte le sezioni trasversali (come definite implicitamente nell'enunciato) sono misurabili.
 	Dimostriamo ora che $\A\times\B\subseteq \C$ e che $\C$ è una \sigalg{}.
 	
-	Dato un rettangolo $A\times B\in\A\times B$, è chiaro che le sue sezioni trasversali o sono $A$ o $B$ o vuote e in ogni caso risultano misurabili, perciò vale $A\times B\in\C$ e visto che il rettangolo è stato scelto arbitrariamente se ne ricava $\A\times\B\subseteq \C$.
+	Dato un rettangolo $A\times B\in\A\times\B$, è chiaro che le sue sezioni trasversali o sono $A$ o $B$ o vuote e in ogni caso risultano misurabili, perciò vale $A\times B\in\C$ e visto che il rettangolo è stato scelto arbitrariamente se ne ricava $\A\times\B\subseteq \C$.
 	
 	Dato $E\in\C$, è chiaro che $E^\mathsf{c}\in\C$, visto che le sezioni del complementare sono il complementare delle sezioni e perciò sono anch'esse misurabili.
 	
@@ -182,7 +182,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	
 	Sfruttando solo le definizioni degli operatori in gioco, si ha
 	\begin{equation*}
-		\forall A\times B\in\A\times\B:\ \mu\nu(A\times B)=\mu(A)\nu(B)=\int_X \chi_A(x)\nu(B)\de\mu(x)=\int_X\nu\left(J_x^X(E)\right)\de\mu(x)
+		\forall A\times B\in\A\times\B:\ \mu\nu(A\times B)=\mu(A)\nu(B)=\int_X \chi_A(x)\nu(B)\de\mu(x)=\int_X\nu\left(J_x^X(A\times B)\right)\de\mu(x)
 	\end{equation*}
 	e questo dimostra che $\A\times\B\subseteq \E$ come voluto.
 	
@@ -209,7 +209,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	dove nei vari passaggi abbiamo usato implicitamente che gli $E_i$ si contengono vicendevolmente.
 	È facile verificare che quanto scritto equivale a dire $\bigcap_{i\in\N}E_i\in\E$, perciò, sempre per l'arbitrarietà della scelta degli $E_i$, ne segue che $\E$ è chiuso per intersezione monotona.
 	
-	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}$ è un sottoinsieme di $E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo \carat{}, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
+	Per quanto detto, seguendo la notazione del \cref{cor:ChiusuraMonotonaInsiemiFiniti}, abbiamo dimostrato che $\widehat{\widehat{{\A\times\B}^F}^F}$ è un sottoinsieme di $\E$ e perciò appunto per il \cref{cor:ChiusuraMonotonaInsiemiFiniti} fissato $F\in\A\otimes\B$ di misura finita, visto che $\A\otimes\B$ è un sottoinsieme dei misurabili secondo \carat{}, esiste $E\in\E$ che contiene $F$ e tale che $\mu\nu(E\setminus F)=0$. 
 	
 	Però per la \cref{prop:TrascurabiliProdotto} l'insieme trascurabile $E\setminus F$ ha quasi ogni sezione trascurabile a sua volta.
 	Allora applicando la \cref{prop:SezioniMisurabili} e ricordando il \cref{lemma:L1NullaAlloraNulla} ne discende banalmente che $E\setminus F\in\E$.
@@ -246,7 +246,7 @@ D'ora in poi parleremo dello spazio di misura prodotto dando per scontato la not
 	Inoltre, per la linearità dell'operatore di integrale, è facile convincersi che $\E$, visto che contiene le indicatrici degli insiemi misurabili \sigfin[i], contiene anche le funzioni semplici positive a supporto \sigfin[o].
 	
 	Per concludere sia $f:X\times Y\to\Rbar$ una funzione misurabile a supporto \sigfin[o].
-	Per il \cref{cor:LimSemCrescMis} esiste una famiglia crescente $(f_i)_{i\in\N}$ di funzioni misurabili positive che convergono puntualmente ad $f$. Essendo $f$ a supporto \sigfin[o] ed essendo le $f_i$ sempre minori di $f$ anche il loro supporto è \sigfin[o] e perciò $f_i\in\E$ per ogni $i\in\N$.
+	Per il \cref{cor:LimSemCrescMis} esiste una famiglia crescente $(f_i)_{i\in\N}$ di funzioni semplici positive che convergono puntualmente ad $f$. Essendo $f$ a supporto \sigfin[o] ed essendo le $f_i$ sempre minori di $f$ anche il loro supporto è \sigfin[o] e perciò $f_i\in\E$ per ogni $i\in\N$.
 	
 	Infine, applicando ripetutamente il \cref{thm:BeppoLevi} e ricordando la monotonia dell'integrale, otteniamo
 	\begin{align*}
