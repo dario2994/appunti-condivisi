@@ -372,12 +372,12 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Fissato $\Omega\subseteq\R^n$ un aperto, sia $\varphi:\Omega\to\R^n$ una funzione differenziabile con continuità.
 	Allora vale la seguente disuguaglianza:
 	\begin{equation*}
-		\forall x\in\Omega:\ \limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det D\varphi(x)\rvert \virgola 
+		\forall x\in\Omega:\ \limsup_{r\to 0} \frac{ m_n\left(\varphi\left(B_r(x)\right)\right)} {m_n\left(B_r(x)\right)}\le \lvert\det \Diff \varphi(x)\rvert \virgola 
 	\end{equation*}
-	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $D\varphi$ è la matrice jacobiana della funzione $\varphi$.
+	dove $B_r(x)$ è la palla aperta di raggio $r$ e centro $x$ e $\Diff \varphi$ è la matrice jacobiana della funzione $\varphi$.
 \end{lemma}
 \begin{proof}
-	Fissiamo $\bar x\in\Omega$ e chiamiamo $A=D \varphi(\bar x)$.
+	Fissiamo $\bar x\in\Omega$ e chiamiamo $A=\Diff  \varphi(\bar x)$.
 	Allora, per definizione di differenziale, risulta vero che
 	\begin{equation*}
 		\varphi(\bar x+h)=\varphi(\bar x)+Ah+\smallO(h)=\varphi(\bar x)+A(h+\smallO(h))\in \varphi(\bar x)+A\left(B_{|h|+\smallO(h)}(0)\right) \virgola
@@ -421,9 +421,9 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
 	Allora, per ogni $E\subseteq \Omega$ misurabile vale
 	\begin{equation*}
-		m_n(\varphi(E))=\int_E\left\lvert \det D\varphi(x) \right\rvert \de m_n(x)\virgola
+		m_n(\varphi(E))=\int_E\left\lvert \det \Diff \varphi(x) \right\rvert \de m_n(x)\virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
+	dove $\Diff \varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{lemma}
 \begin{proof}
 	La funzione $\varphi$, essendo $C^1$, è localmente lipschitziana e di conseguenza, applicando il \cref{cor:LocLipschitzTengonoMisurabili}, manda misurabili in misurabili e trascurabili in trascurabili.
@@ -459,7 +459,7 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	\end{equation*}
 	da cui, applicando il \cref{lemma:LimiteDeterminante}, otteniamo che per quasi ogni $x$ nella parte interna di $K$
 	\begin{equation}\label{eq:DisuguaglianzaRadonNikodym}
-		\rho(x)\le \lvert \det D\varphi(x)\rvert \punto
+		\rho(x)\le \lvert \det \Diff \varphi(x)\rvert \punto
 	\end{equation}
 	Vista l'arbitrarietà della scelta di $K$ abbiamo dimostrato che fissato un qualunque compatto, per quasi ogni valore $x$ nella sua parte interna, vale l'\cref{eq:DisuguaglianzaRadonNikodym}. 
 	
@@ -473,19 +473,19 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Ma il fatto che $N$ sia trascurabile implica che l'\cref{eq:DisuguaglianzaRadonNikodym} vale per quasi ogni $x\in\Omega$ e ciò, unito all'\cref{eq:CambioRadonNikodym}, implica che per ogni $f:\Omega\to\Rbar$ misurabile positiva vale
 	\begin{equation*}
 		\forall E\in \M_n\virgola E\subseteq\Omega:\ \int_{\varphi(E)} f(y)\de y\le 
-		\int_E f(\varphi(x))\left\lvert\det D\varphi(x)\right\rvert\de x \punto
+		\int_E f(\varphi(x))\left\lvert\det \Diff \varphi(x)\right\rvert\de x \punto
 	\end{equation*}
 	
 	Ora giungiamo alla disuguaglianza conclusiva applicando quest'ultima stima sia alla funzione $\varphi$ sia alla funzione $\varphi^{-1}$ che, essendo per ipotesi anch'esso un diffeomorfismo $C^1$, rispetterà un analogo enunciato.
 	Seguendo lo schema annunciato otteniamo che per ogni $E\subseteq\Omega$ misurabile vale
 	\begin{multline*}
-		m_n(E) =\int_{\varphi(\varphi^{-1}(E))}1\de x\le \int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \\
- 		\le \int_E \left\lvert\det D\varphi(\varphi^{-1}(x))\right\rvert \cdot \left\lvert\det D\varphi^{-1}(x)\right\rvert\de x =\int_E 1\de x=m_n(E) \virgola
+		m_n(E) =\int_{\varphi(\varphi^{-1}(E))}1\de x\le \int_{\varphi^{-1}(E)} \left\lvert\det \Diff \varphi(x)\right\rvert\de x \\
+ 		\le \int_E \left\lvert\det \Diff \varphi(\varphi^{-1}(x))\right\rvert \cdot \left\lvert\det \Diff \varphi^{-1}(x)\right\rvert\de x =\int_E 1\de x=m_n(E) \virgola
 	\end{multline*}
 	dove abbiamo applicato implicitamente la formula del differenziale dell'inversa e la moltiplicatività del determinante.
 	Però, poiché primo e ultimo membro coincidono, tutte le disuguaglianze della catena devono essere uguaglianze e da questo ricaviamo
 	\begin{equation*}
-		m_n(E)=\int_{\varphi^{-1}(E)} \left\lvert\det D\varphi(x)\right\rvert\de x \virgola
+		m_n(E)=\int_{\varphi^{-1}(E)} \left\lvert\det \Diff \varphi(x)\right\rvert\de x \virgola
 	\end{equation*}
 	che implica banalmente la tesi.
 \end{proof}
@@ -494,9 +494,9 @@ Tale teorema lo lasciamo indimostrato fondamentalmente per la non banalità dell
 	Fissati $\Omega,\Omega'\subseteq\R^n$ due aperti, sia $\varphi:\Omega\to\Omega'$ un diffeomorfismo $C^1$.
 	Allora, per ogni $E\subseteq \Omega$ misurabile e $f:\Omega'\to\Rbar$ integrabile, vale
 	\begin{equation*}
-		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
+		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
+	dove $\Diff \varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{theorem}
 \begin{proof}
 	È un'ovvia conseguenza della \cref{prop:IdentitaMisuraImplicaCambioVariabile}, visto che le ipotesi di questa sono verificate dal \cref{lemma:MisuraImmagine}.
@@ -516,18 +516,18 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	
 	Allora, per ogni insieme misurabile $E\subseteq \varphi(A)$ e per ogni $f:E\to\Rbar$ integrabile, vale la formula per il cambio di variabile
 	\begin{equation*}
-		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det D\varphi(x) \rvert \de m_n(x) \virgola
+		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
-	dove $D\varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
+	dove $\Diff \varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
 \end{corollary}
 \begin{proof}
 	Definiamo $C\subseteq\Omega$ l'insieme di punti $x\in\Omega$ tali che il differenziale di $\varphi$ in $x$ non è iniettivo. 
 	L'insieme $C$ è per ipotesi trascurabile.
 	Inoltre, per le proprietà del determinante, vale l'identità insiemistica
 	\begin{equation*}
-		C=\left\{x\in\Omega:\det D\varphi(x)=0\right\}
+		C=\left\{x\in\Omega:\det \Diff \varphi(x)=0\right\}
 	\end{equation*}
-	e perciò l'insieme $C$ risulta essere chiuso in quanto coincide con l'insieme degli zeri di una funzione continua (il determinante è continuo, ed anche $D\varphi$ lo è per ipotesi).
+	e perciò l'insieme $C$ risulta essere chiuso in quanto coincide con l'insieme degli zeri di una funzione continua (il determinante è continuo, ed anche $\Diff \varphi$ lo è per ipotesi).
 	Allora abbiamo dimostrato che $C$ è un chiuso trascurabile.
 	
 	Definiamo ora $\overline\Omega=\Omega\setminus C$. 
@@ -549,9 +549,9 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	Ricordando le proprietà di $\overline\varphi$, $\overline\Omega$ e $\overline E$ evidenziate, il \cref{cor:IntegraleAMenoDiTrascurabili} e, nell'identità centrale, il \cref{thm:CambioVariabile} (di cui abbiamo verificato tutte le ipotesi), otteniamo la tesi attraverso la catena d'uguaglianze
 	\begin{multline*}
 		\int_{\varphi(E)} f(y)\de y=\int_{\varphi(\overline E)} f(y)\de y+\int_{\varphi(\overline E)\setminus\varphi(E)}f(y)\de y \\
-		=\int_{\overline\varphi(\overline E)} f(y)\de y=\int_{\overline E} f(\overline\varphi(x))\lvert \det D\overline\varphi(x) \rvert \de x \\
-		=\int_{\overline E}f(\varphi(x))\lvert \det D\varphi(x) \rvert \de x+
-		 \int_{E\setminus\overline E}f(\varphi(x))\lvert \det D\varphi(x) \rvert \de x=\int_{E}f(\varphi(x))\lvert \det D\varphi(x) \rvert \de x \punto
+		=\int_{\overline\varphi(\overline E)} f(y)\de y=\int_{\overline E} f(\overline\varphi(x))\lvert \det \Diff \overline\varphi(x) \rvert \de x \\
+		=\int_{\overline E}f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de x+
+		 \int_{E\setminus\overline E}f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de x=\int_{E}f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de x \punto
 	\end{multline*}
 \end{proof}
 
@@ -564,11 +564,11 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\begin{equation*}
 		\varphi(r,\theta,\phi)=(r\cos\theta,r\sin\theta\cos\phi,r\sin\theta\sin\phi)\punto
 	\end{equation*}
-	La funzione $\varphi$ è suriettiva, ed è anche iniettiva a meno di non considerare i punti $(r,\theta,\phi)$ in cui una delle variabili assume uno dei suoi due valori estramali.
+	La funzione $\varphi$ è suriettiva, ed è anche iniettiva a meno di non considerare i punti $(r,\theta,\phi)$ in cui una delle variabili assume uno dei suoi due valori estremali.
 	
 	Facendo qualche derivata parziale, calcoliamo che lo Jacobiano vale
 	\begin{equation*}
-		D\varphi=
+		\Diff\varphi=
 		\begin{pmatrix}
 		\cos\theta 			&	-r\sin\theta		&	0						\\
 		\sin\theta\cos\phi	&	r\cos\theta\cos\phi	&	-r\sin\theta\sin\phi	\\
@@ -577,7 +577,7 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\end{equation*}
 	e di conseguenza otteniamo
 	\begin{equation*}
-		\det D\varphi(r,\theta,\phi)= r^2\sin\theta \punto
+		\det \Diff\varphi(r,\theta,\phi)= r^2\sin\theta \punto
 	\end{equation*}
 	
 	Ora è facile verificare che la funzione $\varphi$ rispetta tutte le richieste del \cref{cor:CambioVariabileSporco} e di conseguenza, applicando la formula per il cambio di variabile ed il \cref{thm:TonelliCompleto}, otteniamo
