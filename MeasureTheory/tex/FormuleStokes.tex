@@ -30,8 +30,10 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 	\begin{description}
 		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $Df(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita di
 			generalità che sia l'ultima. Allora le ipotesi del teorema della funzione implicita del Dini sono applicabili, per cui
-			otteniamo che il luogo degli zeri di $f$ si scrive come il grafico di una funzione $\psi$ che soddisfa esattamente le condizioni
-			del punto \ref{PRE:iii}.
+			otteniamo che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^{-1}(V,I)$ tale che $f(v,\psi(v))=0$
+			e $\psi(v)$ è l'unico punto $t'\in I$ tale che $f(v,t')=0$. Quindi per tutti i $t'>\psi(v)$, $f(v,t')$ non cambia segno e,
+			per continuità di $f$, $f(v',t')$ non cambia segno al variare di $v'$ e $t'$ tali che $t'>\psi(v')$. Lo stesso si ha con 
+			$t'<\psi(v')$. 
 		\item [\ImplicationProof{PRE:iii}{PRE:ii}]
 		\item [\ImplicationProof{PRE:ii}{PRE:i}]
 	\end{description}
