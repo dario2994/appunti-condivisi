@@ -1,0 +1,50 @@
+\section{Formule di Stokes}\label{sezione:FormuleStokes}
+
+Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
+
+\begin{theorem}\label{thm:PtRegEquiv}
+	Per un punto $x\in \partial \Omega$ le seguenti $3$ condizioni sono equivalenti:
+	\begin{enumerate}
+		\item esistono $U$ intorno di $x$ e $f\in C^1(U,\R)$ tale che si abbia
+			\begin{itemize}
+				\item $U\cap \partial \Omega=f^{-1}(0)$,
+				\item $U\cap \Omega=f^{-1}(]-\infty,0[)$,
+			\end{itemize}
+			e tale che $Df(x)\neq 0$ se $f(x)=0$;\label{PRE:i}
+		\item esistono $U$ intorno di $x$ e $f$ diffeomorfismo da $\R^n$ in $U$ tale che\label{PRE:ii}
+			\begin{itemize}
+				\item $U\cap \partial \Omega = f(\R^{n-1}\times\{0\})$,
+				\item $U\cap \Omega = f(\R^{n-1}\times]-\infty,0[)$;
+			\end{itemize}
+		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $x=(y,t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
+			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
+			\begin{itemize}
+				\item $U\cap \partial \Omega = \{(z,s):\psi(z)=s\}$,
+				\item $U\cap \Omega = \{(z,s):\psi(z)<s\}$.
+			\end{itemize}\label{PRE:iii}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Dimostriamo la catena in ordine inverso:
+	\begin{description}
+		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $Df(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita di
+			generalità che sia l'ultima. Allora le ipotesi del teorema della funzione implicita del Dini sono applicabili, per cui
+			otteniamo che il luogo degli zeri di $f$ si scrive come il grafico di una funzione $\psi$ che soddisfa esattamente le condizioni
+			del punto \ref{PRE:iii}.
+		\item [\ImplicationProof{PRE:iii}{PRE:ii}]
+		\item [\ImplicationProof{PRE:ii}{PRE:i}]
+	\end{description}
+
+\end{proof}
+
+
+\begin{definition}[punto regolare]
+	Diremo che un punto $x\in \partial \Omega$ è un punto regolare del bordo se verifica una delle $3$ condizioni di cui
+	al \cref{thm:PtRegEquiv}.
+\end{definition}
+
+\begin{definition}[aperto regolare]
+	Diremo che $\Omega$ è un aperto regolare se tutti i punti del suo bordo sono regolari.
+\end{definition}
+
