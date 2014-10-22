@@ -66,7 +66,8 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 
 
 \begin{theorem}[Partizione dell'unità]\label{thm:PartizioneUnita}
-	Dato un ricoprimento di $\R^n$ con aperti $(\Omega_i)_{i\in I}$, esiste una famiglia di funzioni $f_i:\R^n\to\R$ infinitamente derivabili e non negative tali che:
+	Dato un ricoprimento di $\R^n$ con aperti $(\Omega_i)_{i\in I}$, esiste una famiglia di funzioni $f_i:\R^n\to\Rpiu$ infinitamente derivabili
+	e non negative tali che:
 	\begin{itemize}
 		\item la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $\Omega_i$ per ogni $i\in I$,
 		\item per ogni $x\in\R^n$ vale che $\sum_{i\in I} f_i(x)=1$\footnote{La serie la definiamo come il $\sup$ delle somme finite}.
@@ -74,5 +75,34 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{theorem}
 \begin{proof}
 	TODO
+\end{proof}
+
+\begin{lemma}
+	$\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $Df(x)\neq 0$ se $f(x)=0$ e tale che
+	\begin{itemize}
+		\item $\Omega = f^{-1}(]-\infty,0[)$,
+		\item $\partial \Omega = f^{-1}(0)$.
+	\end{itemize}
+\end{lemma}
+
+\begin{proof}
+	L'implicazione del ``se'' è banale; per l'altra implicazione, per la regolarità dei punti del bordo di $\Omega$, consideriamo per ogni
+	$x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$ come nel \cref{thm:PtRegEquiv} e prendiamo
+	anche $U_0 = \R^n \setminus \partial \Omega$. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento
+	aperto; quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$. Il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni
+	$f_x$ per ogni $x\in\{0,\dots, n\}$. Definiamo quindi $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$
+	altrimenti. Sia ora 
+	\[
+		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x),
+	\]
+	con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
+	$C^1$ in tutto $\R^n$, infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
+	Ora abbiamo che chiaramente $\phi\in C^1$ perchè somma di funzioni $C^1$ $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
+	$\psi_i$ aveva questa proprietà se era definita in $x$ e la $\phi$ è una combinazione convessa di $\psi_i$;
+	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni non positive e, per ciascun $x \in \Omega$,
+	almeno di una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \bar{\Omega}$.
+	
+	Rimane da mostrare che $Df(x)\neq 0$ se $f(x)=0$.
+	
 \end{proof}
 
