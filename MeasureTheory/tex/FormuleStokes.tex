@@ -1,6 +1,6 @@
 \section{Formule di Stokes}\label{sezione:FormuleStokes}
 
-Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
+Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto.
 
 \begin{theorem}\label{thm:PtRegEquiv}
 	Per un punto $x\in \partial \Omega$ le seguenti $3$ condizioni sono equivalenti:
@@ -20,7 +20,7 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
 			\begin{itemize}
 				\item $U\cap \partial \Omega = \{(z,s):\psi(z)=s\}$,
-				\item $U\cap \Omega = \{(z,s):\psi(z)<s\}$.
+				\item $U\cap \Omega = \{(z,s):\psi(z)>s\}$.
 			\end{itemize}\label{PRE:iii}
 	\end{enumerate}
 \end{theorem}
@@ -29,11 +29,20 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 	Dimostriamo la catena in ordine inverso:
 	\begin{description}
 		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $Df(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita di
-			generalità che sia l'ultima. Allora le ipotesi del teorema della funzione implicita del Dini sono applicabili, per cui
-			otteniamo che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^{-1}(V,I)$ tale che $f(v,\psi(v))=0$
-			e $\psi(v)$ è l'unico punto $t'\in I$ tale che $f(v,t')=0$. Quindi per tutti i $t'>\psi(v)$, $f(v,t')$ non cambia segno e,
-			per continuità di $f$, $f(v',t')$ non cambia segno al variare di $v'$ e $t'$ tali che $t'>\psi(v')$. Lo stesso si ha con 
-			$t'<\psi(v')$. 
+			generalità che sia l'ultima e che sia positiva (se negativa il ragionamento è lo stesso).
+			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, per cui otteniamo
+			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che $f(v,\psi(v))=0$ e $\psi(v)$
+			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
+			Inoltre, per la continuità di $Df(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $Df(v')_n>\frac{1}{2}Df(x)_n$ per tutti
+			i $v'\in V'$. Ora, per la differenziabilità di $f$ in $V'$ si ha che
+			\[
+				f(v',\psi(v')+\delta)=f(v', \psi(v'))+Df(v')_n\delta+\smallO(\delta)=Df(v')\delta+\smallO(\delta),
+			\]
+			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{4}Df(x)_n\delta>0$. Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
+			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
+			che sia zero per la funzione $f(v',\cdot)$, contraddicendo il teorema della funzione implicita del Dini.
+			Per $\delta<0$ si ha lo stesso risultato. Questo ci dice che $f^{-1}(0)\cap (V'\times I)=\{(v',s):s=\psi(v')\}$ e
+			$f^{-1}(]-\infty,0[)\cap (V'\times I)=\{(v',s):s<\psi(v')\}$, che conclude per le ipotesi sulle controimmagini di $f$.
 		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi$, detto $J=]-\varepsilon,\varepsilon[$
 			possiamo ottenere un diffeomorfismo $g:V\times J \rightarrow V\times J$ ponendo $g(z,s)=(z,\psi(z)-s)$. Allora,
 			$g(V\times \{0\})=$graf$(\psi)=U\cap \partial \Omega$ e $g(V\times ]-\varepsilon,0[)=\{(z,s):\psi(z)<s\}=U\cap \Omega$.
@@ -41,7 +50,6 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			di $x$ e $\R^n$.
 		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione basta considerare$f=g^{-1}_n$ l'ultima componente di $g^{-1}$.
 	\end{description}
-
 \end{proof}
 
 
@@ -50,7 +58,10 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 	al \cref{thm:PtRegEquiv}.
 \end{definition}
 
+D'ora in poi assumeremo che $\Omega$ sia anche limitato.
+
 \begin{definition}[aperto regolare]
 	Diremo che $\Omega$ è un aperto regolare se tutti i punti del suo bordo sono regolari.
 \end{definition}
+
 
