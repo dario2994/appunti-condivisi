@@ -11,10 +11,10 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 				\item $U\cap \Omega=f^{-1}(]-\infty,0[)$,
 			\end{itemize}
 			e tale che $Df(x)\neq 0$ se $f(x)=0$;\label{PRE:i}
-		\item esistono $U$ intorno di $x$ e $f$ diffeomorfismo da $\R^n$ in $U$ tale che\label{PRE:ii}
+		\item esistono $U$ intorno di $x$ e $g$ diffeomorfismo da $\R^n$ in $U$ tale che\label{PRE:ii}
 			\begin{itemize}
-				\item $U\cap \partial \Omega = f(\R^{n-1}\times\{0\})$,
-				\item $U\cap \Omega = f(\R^{n-1}\times]-\infty,0[)$;
+				\item $U\cap \partial \Omega = g(\R^{n-1}\times\{0\})$,
+				\item $U\cap \Omega = g(\R^{n-1}\times]-\infty,0[)$;
 			\end{itemize}
 		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $x=(y,t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
 			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
@@ -34,8 +34,12 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			e $\psi(v)$ è l'unico punto $t'\in I$ tale che $f(v,t')=0$. Quindi per tutti i $t'>\psi(v)$, $f(v,t')$ non cambia segno e,
 			per continuità di $f$, $f(v',t')$ non cambia segno al variare di $v'$ e $t'$ tali che $t'>\psi(v')$. Lo stesso si ha con 
 			$t'<\psi(v')$. 
-		\item [\ImplicationProof{PRE:iii}{PRE:ii}]
-		\item [\ImplicationProof{PRE:ii}{PRE:i}]
+		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi$, detto $J=]-\varepsilon,\varepsilon[$
+			possiamo ottenere un diffeomorfismo $g:V\times J \rightarrow V\times J$ ponendo $g(z,s)=(z,\psi(z)-s)$. Allora,
+			$g(V\times \{0\})=$graf$(\psi)=U\cap \partial \Omega$ e $g(V\times ]-\varepsilon,0[)=\{(z,s):\psi(z)<s\}=U\cap \Omega$.
+			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
+			di $x$ e $\R^n$.
+		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione basta considerare$f=g^{-1}_n$ l'ultima componente di $g^{-1}$.
 	\end{description}
 
 \end{proof}
