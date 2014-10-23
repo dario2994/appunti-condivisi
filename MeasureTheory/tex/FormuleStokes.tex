@@ -77,7 +77,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	TODO
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:EquivRegolare}
 	$\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $Df(x)\neq 0$ se $f(x)=0$ e tale che
 	\begin{itemize}
 		\item $\Omega = f^{-1}(]-\infty,0[)$,
@@ -119,3 +119,27 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	poiché $\psi_i\equiv 0$ sul bordo; quindi $D\phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di $D\psi_i(x)_j$.
 \end{proof}
 
+\begin{definition}
+	Chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
+	\[
+		\nu(x)=\frac{\nabla \phi(x)}{||\nabla \phi(x)||}.
+	\]
+\end{definition}
+
+\begin{remark}
+	Il \cref{lem:EquivRegolare}, oltre che a fornire la funzione $\phi$ per l'aperto regolare $\Omega$, dice anche che $\nu(x)$ è ben definita
+	su tutto $\partial \Omega$ e che è continua.
+\end{remark}
+
+\begin{remark}
+	Si ha che per $t>0$ e $x\in\partial\Omega$, $x+t\nu(x)\notin \Omega$ per $t$ abbastanza piccoli e per $t<0$, $x+t\nu(x)\in \Omega$ per $t$
+	abbastanza piccoli.
+\end{remark}
+\begin{proof}
+	Stesso ragionamento fatto nella dimostrazione di \cref{lem:EquivRegolare}.
+\end{proof}
+
+\begin{remark}
+	Per ogni $v$ tangente a $\partial\Omega$ in $x$ si ha che $<v,\nu(x)>=0$. Ma qui bisognerebbe spendere un paio di parole su cosa significhi
+	essere tangente a $\partial\Omega$.
+\end{remark}
