@@ -86,23 +86,36 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{lemma}
 
 \begin{proof}
-	L'implicazione del ``se'' è banale; per l'altra implicazione, per la regolarità dei punti del bordo di $\Omega$, consideriamo per ogni
+	L'implicazione del ``se'' è banale. Per l'altra implicazione, per la regolarità dei punti del bordo di $\Omega$, consideriamo per ogni
 	$x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$ come nel \cref{thm:PtRegEquiv} e prendiamo
 	anche $U_0 = \R^n \setminus \partial \Omega$. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento
-	aperto; quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$. Il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni
-	$f_x$ per ogni $x\in\{0,\dots, n\}$. Definiamo quindi $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$
-	altrimenti. Sia ora 
+	aperto; quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$. Ora abbiamo che gli aperti $U_0,\dots,U_n$ sono un ricoprimento
+	di $\R^n$; il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_x$ per ogni $x\in\{0,\dots, n\}$.
+	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. Sia ora 
 	\[
 		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x),
 	\]
 	con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
 	$C^1$ in tutto $\R^n$, infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
-	Ora abbiamo che chiaramente $\phi\in C^1$ perchè somma di funzioni $C^1$ $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
+	Ora abbiamo che chiaramente $\phi\in C^1$ perchè somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
 	$\psi_i$ aveva questa proprietà se era definita in $x$ e la $\phi$ è una combinazione convessa di $\psi_i$;
 	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni non positive e, per ciascun $x \in \Omega$,
 	almeno di una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \bar{\Omega}$.
 	
-	Rimane da mostrare che $Df(x)\neq 0$ se $f(x)=0$.
-	
+	Rimane da mostrare che $Df(x)\neq 0$ se $f(x)=0$. Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando
+	sono definite in $x$. Esisterà quindi una direzione $e_j$ per la quale esiste almeno un $i$ tale che $D\psi_i(x)_j\neq 0$. Dato che le $\psi_i$
+	sono differenziabili, si ha che
+	\[
+		\psi_i(x+\delta e_j)=\psi_i(x)+D\psi_i(x)_j \delta + \smallO(\delta) = D\psi_i(x)_j \delta + \smallO(\delta)
+	\]
+	per cui, dato che $\psi_i(x+\delta e_j)<0$ solo se $x+\delta e_j\in \Omega$, per $\delta$ uguali si deve avere che i $D\psi_i(x)_j$ non possono
+	essere discordi al variare di $i$, altrimenti si avrebbe che per degli indici $i,i'$ si ha $\psi_i(x+\delta e_j)=
+	D\psi_i(x)_j \delta + \smallO(\delta)>0$ e $\psi_i'(x+\delta e_j)=D\psi_i'(x)_j \delta + \smallO(\delta)<0$ pur avendo in entrambi i casi
+	che $x+\delta e_j$ sta in $\Omega$. Quindi, sempre per lo stesso $x\in\partial \Omega$,
+	\[ 
+		D\phi(x)=\sum_{i=0}^n D(f_i \cdot\psi_i)(x)=\sum_{i=0}^n Df_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot D \psi_i(x)=
+		\sum_{i=0}^n f_i(x)\cdot D \psi_i(x)
+	\]
+	poiché $\psi_i\equiv 0$ sul bordo; quindi $D\phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di $D\psi_i(x)_j$.
 \end{proof}
 
