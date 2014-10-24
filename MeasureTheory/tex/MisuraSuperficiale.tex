@@ -171,13 +171,17 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trattati.
 
 \begin{exercise}
-	Calcolare il volume di un tetraedro $n$-dimensionale di lato 1\footnote{Per tetraedro $n$-dimensionale di lato $d$ definiamo l'inviluppo convesso di $n+1$ punti in $\R^n$ a distanza $d$ uno dall'altro.}.
+	Calcolare la misura di un tetraedro $n$-dimensionale di lato 1\footnote{Il tetraedro $n$-dimensionale di lato $d$ è l'inviluppo convesso di $n+1$ punti in $\R^n$ a distanza $d$ uno dall'altro.}.
 \end{exercise}
 \begin{proof}
 	Innanzitutto notiamo che un tetraedro $n$-dimensionale è misurabile in $\R^n$ in quanto è chiuso.
-	Inoltre  dati due tetraedri $n$-dimensionali $T$ e $T'$ di lato rispettivamente $d$ e $d'$, per la \cref{nota:LebesgueInvarianteNormalizzazione}, vale che $m_n(T')=(\frac{d'}{d})^nm_n(T)$. Infatti possiamo ottenere un tetraedro dall'altro tramite una traslazione e un'omotetia.
+	Inoltre  dati due tetraedri $n$-dimensionali $T$ e $T'$ di lato rispettivamente $d$ e $d'$, poichè possiamo ottenere l'uno dall'altro con un'isometria composta un'omotetia di fattore $\frac{d'}d$, grazie alla \cref{prop:LebesgueProprietaIsometria} e alla $n$-omogeneità della misura di Lebesgue, vale che 
+	\begin{equation*} 
+		m_n(T')=\left(\frac{d'}{d}\right)^nm_n(T)\punto
+	\end{equation*}
 
-	Consideriamo ora il piano affine $A=\{(x_1,x_2,\ldots,x_{n+1}) \mid x_1+x_2+\ldots +x_{n+1}=1\}$ in $\R^{n+1}$, in particolare consideriamo i punti $e_1,e_2,\ldots,e_{n+1}$ della base canonica di $\R^{n+1}$ su di esso e chiamiamo $T$ l'inviluppo convesso di questi $n+1$ punti. L'insieme $T$ si trova sul piano $A$ ed è l'inviluppo convesso di $n+1$ punti a distanza $\sqrt 2$ uno dall'altro, quindi per quanto detto sulla misura superficiale, $\sigma(T)$ equivale alla misura di un tetraedro $n$-dimensionale di lato $\sqrt 2$.
+	Definiamo l'iperpiano affine $A=\{(x_1,x_2,\ldots,x_{n+1}) \mid x_1+x_2+\ldots +x_{n+1}=1\}$ in $\R^{n+1}$, consideriamo su di esso i punti $e_1,e_2,\ldots,e_{n+1}$ della base canonica di $\R^{n+1}$ e chiamiamo $T$ l'inviluppo convesso di questi $n+1$ punti. 
+	L'insieme $T$ si trova sull iperpiano $A$ ed è l'inviluppo convesso di $n+1$ punti a distanza $\sqrt 2$ uno dall'altro, quindi, per quanto detto sulla misura superficiale, $\sigma(T)$ equivale alla misura di un tetraedro $n$-dimensionale di lato $\sqrt 2$. %TODO: Perché è vero questo?
 
 	Perciò ci siamo ricondotti a calcolare $\sigma(T)$, poichè il volume di un tetraedro $n$-dimensionale di lato 1 sarà poi dato da $2^{-\frac n2}\sigma(T)$.
 
@@ -195,18 +199,19 @@ Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trat
 	\begin{equation*}
 		\sigma(T)=\int_{L^{-1}(T)}\sqrt{\det(\Diff L^T\Diff L)}\de x=\int_{L^{-1}(T)}\sqrt{\det(I_n+vv^T)}\de x\virgola
 	\end{equation*}
-	dove $I_n$ è la matrice identità $n\times n$ e $v$ è il vettore in cui tutte le $n$ entrate sono uguali a -1. Lasciando al lettore la dimostrazione del fatto che $\det(I_n+vv^T)=1+n$, otteniamo quindi
+	dove $I_n$ è la matrice identità $n\times n$ e $v$ è il vettore in cui tutte le $n$ entrate sono uguali a -1. Lasciando al lettore la dimostrazione del fatto che $\det(I_n+vv^T)=1+n$, otteniamo quindi %TODO: La dimostrazione lasciata al lettore probabilmente comparirà nella sezione su Stokes!
 	\begin{equation*}
 		\sigma(T)=\int_{L^{-1}(T)}\sqrt{1+n}\de x=m_n(L^{-1}(T))\sqrt{1+n}\punto
 	\end{equation*}
 
 	È molto facile verificare che $L^{-1}(T)$ è il poliedro che ha come vertici la base canonica e lo zero di $\R^n$. Perciò per trovare $m_n(L^{-1}(T))$, calcoliamo la misura del poliedro in $\R^m$ che ha come vertici la base canonica e lo zero. Chiamiamo tale misura $A_m$ e dimostriamo per induzione su $m$ che $A_m=1/m!$.
 	
-	Per $m=1$ il poliedro è semplicemente il segmento di lato 1 in $\R$, quindi è verificato che $A_1=1$. Dimostriamo ora che se la tesi vale per $m=k$, allora vale per $m=k+1$. Se consideriamo il poliedro in $\R^{k+1}$ formato dallo zero e da tutti i vertici della base canonica tranne uno, otteniamo un poliedro che sta su un iperpiano di $\R^{k+1}$ e che equivale al poliedro nella dimensione precedente a meno dell'identificazione fra l'iperpiano e $\R^k$. Integrando sulla componente perpendicolare a tale piano otteniamo quindi
+	Per $m=1$ il poliedro è semplicemente il segmento di lato 1 in $\R$, quindi è verificato che $A_1=1$. Dimostriamo ora che se la tesi vale per $m=k$, allora vale per $m=k+1$. Se consideriamo il poliedro in $\R^{k+1}$ formato dallo zero e da tutti i vertici della base canonica tranne $e_{k+1}$, otteniamo un poliedro che sta sull'iperpiano $\{x_{k+1}=0\}\subseteq\R^{k+1}$ e che equivale al poliedro nella dimensione precedente a meno dell'identificazione fra l'iperpiano e $\R^k$. 
+	Integrando sulla componente $x_{k+1}$, ricordando il teorema di Tonelli, otteniamo quindi
 	\begin{equation*}
 		A_{k+1}=\int_0^1t^kA_k\de x=\int_0^1t^k\frac 1{k!}\de x=\frac 1{(k+1)!}\virgola
 	\end{equation*}
-	poichè ad altezza $t$ la misura della sezione del poliedro è $t^kA_k$, in quanto tale sezione è un poliedro nella dimensione minore (infatti la misura è quella superficiale sull'iperpiano) di lato $t$.
+	poichè ad altezza $t$ la misura della sezione del poliedro è $t^kA_k$, in quanto tale sezione è un poliedro nella dimensione minore di lato $t$ (per definizione di inviluppo convesso la \emph{fetta} deve essere un'omotetia di fattore $t$ della base).
 	
 	Riunendo quanto detto, abbiamo che il volume di un tetraedro $n$-dimensionale di lato 1 è
 	\begin{equation*}
