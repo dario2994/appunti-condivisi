@@ -36,7 +36,7 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			Inoltre, per la continuità di $\Diff f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\Diff f(v')_n>\frac{1}{2}\Diff f(x)_n$ per tutti
 			i $v'\in V'$. Ora, per la differenziabilità di $f$ in $V'$ si ha che
 			\[
-				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\Diff f(v')_n\delta+\smallO(\delta)=\Diff f(v')\delta+\smallO(\delta),
+				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\Diff f(v')_n\delta+\smallO(\delta)=\Diff f(v')\delta+\smallO(\delta)\virgola
 			\]
 			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{4}\Diff f(x)_n\delta>0$. Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
 			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
@@ -93,7 +93,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	di $\R^n$; il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_x$ per ogni $x\in\{0,\dots, n\}$.
 	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. Sia ora 
 	\[
-		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x),
+		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x)\virgola
 	\]
 	con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
 	$C^1$ in tutto $\R^n$, infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
@@ -114,7 +114,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	che $x+\delta e_j$ sta in $\Omega$. Quindi, sempre per lo stesso $x\in\partial \Omega$,
 	\[ 
 		\Diff \phi(x)=\sum_{i=0}^n \Diff (f_i \cdot\psi_i)(x)=\sum_{i=0}^n \Diff f_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot \Diff  \psi_i(x)=
-		\sum_{i=0}^n f_i(x)\cdot \Diff  \psi_i(x)
+		\sum_{i=0}^n f_i(x)\cdot \Diff  \psi_i(x)\virgola
 	\]
 	poiché $\psi_i\equiv 0$ sul bordo; quindi $\Diff \phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di $\Diff \psi_i(x)_j$.
 \end{proof}
@@ -122,7 +122,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \begin{definition}
 	Chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
 	\[
-		\nu(x)=\frac{\nabla \phi(x)}{||\nabla \phi(x)||}.
+		\nu(x)=\frac{\nabla \phi(x)}{||\nabla \phi(x)||}\punto
 	\]
 \end{definition}
 
@@ -169,7 +169,7 @@ Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial
 
 Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
 \[
-	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x.
+	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x\punto
 \]
 
 
