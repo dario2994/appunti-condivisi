@@ -147,7 +147,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 
 Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial\Omega$ sfruttando anche i risultati della sezione precedente.
 
-\begin{lemma}
+\begin{lemma}\label{lem:GrapVar}
 	Sia $V\in\R^{n-1}$ aperto e $f\in C^1(V,\R)$, allora il grafico di $f$ è una varietà differenziabile di dimensione $n-1$ immersa in $\R^n$.
 \end{lemma}
 \begin{proof}
@@ -166,3 +166,29 @@ Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial
 	I+\nabla f(x)^T\nabla f(x)$, quindi gli autovalori di questa matrice sono $1$, con molteplicità $n-1$, e $1+\nabla f(x)^T\nabla f(x)$, con 
 	molteplicità $1$. Tutto ciò per dire che $\det (\Diff g(x)^T \Diff g(x)) = 1+||\nabla f(x)||^2$. 
 \end{remark}
+
+Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
+\[
+	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x.
+\]
+
+
+\begin{proposition}\label{prop:FormulaStokes}
+	Sia $u\in C^1(\bar \Omega)$ (ossia $u$ è la restrizione a $\bar \Omega$ di una funzione $C^1$ definita su un aperto
+	$\Omega'\supseteq \bar \Omega$), sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
+	\begin{equation}\label{equ:FormulaStokes}
+		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(x)\nu(x) \de \sigma(y)\punto
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Per la dimostrazione si procederà in 2 step:
+	\begin{enumerate}
+		\item per ogni $p\in \bar \Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
+			tale che la \cref{equ:FormulaStokes} vale per ogni funzione $u$ tale che $supp(u)\subseteq U_p$;
+		\item ricoprire $\bar \Omega$ con un numero finito di intorni come sopra per poi applicare il \cref{thm:PartizioneUnita} per ottenere
+			la tesi per ogni $u$.
+	\end{enumerate}
+
+\end{proof}
+
