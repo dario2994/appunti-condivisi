@@ -168,9 +168,43 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 	Per la \cref{nota:SigmaIMisura}, $(\Sigma,\Borel(\Sigma),\sigma_i)$ è uno spazio di misura, per ogni $i\in\N$. Inoltre $\sigma=\sum_{i\in\N}\sigma_i$, quindi è facile verificare che $\sigma$ è a sua volta una misura essendo somma di misure.
 \end{proof}
 
+Mostriamo ora degli esempi e delle formule utili per il calcolo della misura $k$-dimensionale nella pratica. In particolare trattiamo dei casi particolare del calcolo di $\det(L^TL)$ per una data funzione lineare $L:\R^k\to\R^n$, in quanto ciò risulta spesso utile (come vedremo poi nell'\cref{es:MisuraTetraedro}) per il calcolo della misura $k$-dimensionale su una varietà.
+
+\begin{lemma}\label{lemma:DeterminanteProdottoTrasposta}
+	Sia $L:\R^k\to\R^n$ lineare con $k\le n$, allora $\det(L^TL)$ equivale alla somma dei quadrati dei determinanti dei minori massimali di $L$.
+\end{lemma}
+\begin{proof}
+	TODO
+\end{proof}
+
+\begin{remark}\label{nota:DeterminanteMatriceQuasiIdentita}
+	Sia $L:\R^n\to\R^{n+1}$ lineare tale che $L=\begin{pmatrix} v^T \\ I_n \end{pmatrix}$, dove $v$ è un vettore colonna e $I_n$ è la matrice identità $n\times n$. Allora $\det(L^TL)=1+\lvert v \rvert ^2$.
+\end{remark}
+\begin{proof}
+	Lasciamo al lettore la dimostrazione, che segue dal \cref{lemma:DeterminanteProdottoTrasposta} con un facile conto.
+\end{proof}
+
+\begin{lemma}
+	Sia $L:\R^2\to\R^3$ lineare e siano $u$ ed $v$ le colonne di $L$, vista come matrice. Allora $\det(L^TL)=\lvert u\rvert^2\cdot\lvert v \rvert^2- <u,v>^2$.
+\end{lemma}
+\begin{proof}
+	Sfruttando che $L=\begin{pmatrix}u& v\end{pmatrix}$, otteniamo
+	\begin{equation*}
+		L^TL=\begin{pmatrix}u^T\\v^T\end{pmatrix}\begin{pmatrix}u&v\end{pmatrix}=\begin{pmatrix}
+		                                                                         	u^Tu & u^Tv\\
+		                                                                         	v^Tu & v^Tv
+		                                                                         \end{pmatrix}\virgola
+	\end{equation*}
+	da cui ricaviamo che
+	\begin{equation*}
+		\det(L^TL)=\det\begin{pmatrix}u^Tu & u^Tv\\v^Tu & v^Tv\end{pmatrix}=\lvert u \rvert^2\cdot \lvert v \rvert^2-<u,v>^2\punto
+	\end{equation*}
+\end{proof}
+
+
 Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trattati.
 
-\begin{exercise}
+\begin{exercise}\label{es:MisuraTetraedro}
 	Calcolare la misura di un tetraedro $n$-dimensionale di lato 1\footnote{Il tetraedro $n$-dimensionale di lato $d$ è l'inviluppo convesso di $n+1$ punti in $\R^n$ a distanza $d$ uno dall'altro.}.
 \end{exercise}
 \begin{proof}
