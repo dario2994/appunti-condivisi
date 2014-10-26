@@ -62,6 +62,49 @@
 \crefname{definition}{Definizione}{Definizioni}
 \crefname{section}{Sezione}{Sezioni}
 
+\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}% ref speciale per implicazioni X => Y
+
+%Qui di seguito ridefiniamo il comando cref per piazzare pure i nomi dei teoremi quando presenti.
+\makeatletter
+\ExplSyntaxOn
+\usepackage{ifthen}
+\usepackage{xstring}
+\let\@tempcref\cref
+\newcommand{\myref}[1]{
+	\ifthenelse{\equal{\clist_count:n {#1}}{1}}{%C'è una sola reference?
+		\ifcsname r@#1\endcsname%La reference è definita?
+			\edef\@mytxt{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
+			\edef\@CompleteCounter{\expandafter\@fourthoffive\@mytxt}%Contiene il nome espanso del contatore
+			\expandafter\IfBeginWith{\@CompleteCounter}{equation}{%La reference è un'equazione?
+				\@tempcref{#1}%
+			}
+			{
+				\edef\@mytst{\expandafter\@thirdoffive\@mytxt}%Contiene, se definito, il nome della reference
+				\ifx\@mytst\empty\relax%La reference ammette un nome?
+					\@tempcref{#1}%
+				\else
+					\@tempcref{#1}~(\nameref*{#1})%
+				\fi
+			}
+% 			\begin{itemize}
+% 				\item \expandafter\@firstoffive\@mytxt
+% 				\item \expandafter\@secondoffive\@mytxt
+% 				\item \expandafter\@thirdoffive\@mytxt
+% 				\item \expandafter\@fourthoffive\@mytxt
+% 				\item \expandafter\@fifthoffive\@mytxt
+% 			\end{itemize}
+		\else
+			\@tempcref{#1}
+		\fi
+	}
+	{
+		\@tempcref{#1}%
+	}
+}
+% \renewcommand{\cref}{\myref}
+\ExplSyntaxOff
+\makeatother
+
 \numberwithin{equation}{section}
 
 \newcommand{\sigalg}[1][a]{$\sigma$-algebr#1}
