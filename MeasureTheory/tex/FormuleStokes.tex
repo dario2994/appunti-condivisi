@@ -192,6 +192,13 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	
 	Dimostriamo quindi il primo punto, distinguendo i casi in cui $p\in \Omega$ e $p\in \partial \Omega$.
 	Se $p\in \Omega$ esisterà un intorno rettangolare $U_p$ contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $supp(u)\subseteq U_p$,
-	$u(\partial \Omega)=0$.
+	$u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'intregrale a sinistra, invece, abbiamo che esiste un intorno
+	$V\times \oo{a}{b} \supseteq U_p$ in modo che $u(x)=0$ per ogni $x\in \partial V\times \oo{a}{b}$. Allora, per il teorema di Fubini e il
+	teorema fondamentale del calcolo integrale,
+	\[
+		\int_{\Omega} \Diff u(x)_n \de x = \int_{V\times \cc{a}{b}} \Diff u(v,t)_n \de (v,t) =
+		\int_V \int_{\cc{a}{b}} \Diff u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
+	\]
+	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$.
 \end{proof}
 
