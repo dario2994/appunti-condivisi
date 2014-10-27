@@ -19,8 +19,8 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $x=(y,t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
 			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
 			\begin{itemize}
-				\item $U\cap \partial \Omega = \{(z,s):\psi(z)=s\}$,
-				\item $U\cap \Omega = \{(z,s):\psi(z)>s\}$.
+				\item $U\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
+				\item $U\cap \Omega = \{(z,s):s<\psi(z)\}$.
 			\end{itemize}\label{PRE:iii}
 	\end{enumerate}
 \end{theorem}
@@ -78,10 +78,10 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{proof}
 
 \begin{lemma}\label{lem:EquivRegolare}
-	$\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $\Diff f(x)\neq 0$ se $f(x)=0$ e tale che
+	$\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $\Diff \phi(x)\neq 0$ se $\phi(x)=0$ e tale che
 	\begin{itemize}
-		\item $\Omega = f^{-1}(\oo{-\infty}{0})$,
-		\item $\partial \Omega = f^{-1}(0)$.
+		\item $\Omega = \phi^{-1}(\oo{-\infty}{0})$,
+		\item $\partial \Omega = \phi^{-1}(0)$.
 	\end{itemize}
 \end{lemma}
 
@@ -168,9 +168,9 @@ Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial
 \end{remark}
 
 Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
-\[
+\begin{equation}\label{equ:MisuraSuperficialeGrafico}
 	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x\punto
-\]
+\end{equation}
 
 
 \begin{proposition}\label{prop:FormulaStokes}
@@ -193,12 +193,75 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	Dimostriamo quindi il primo punto, distinguendo i casi in cui $p\in \Omega$ e $p\in \partial \Omega$.
 	Se $p\in \Omega$ esisterà un intorno rettangolare $U_p$ contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $supp(u)\subseteq U_p$,
 	$u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'intregrale a sinistra, invece, abbiamo che esiste un intorno
-	$V\times \oo{a}{b} \supseteq U_p$ in modo che $u(x)=0$ per ogni $x\in \partial V\times \oo{a}{b}$. Allora, per il teorema di Fubini e il
+	$V\times \oo{a}{b} \supseteq U_p$ in modo che $u(x)=0$ per ogni $x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il
 	teorema fondamentale del calcolo integrale,
-	\[
-		\int_{\Omega} \Diff u(x)_n \de x = \int_{V\times \cc{a}{b}} \Diff u(v,t)_n \de (v,t) =
-		\int_V \int_{\cc{a}{b}} \Diff u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
-	\]
-	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$.
+	\begin{align*}
+		\int_{\Omega} \Diff u(x)_n \de x &= \int_{V\times \cc{a}{b}} \Diff u(v,t)_n \de (v,t) = \\
+		& = \int_V \int_{\cc{a}{b}} \Diff u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
+	\end{align*}
+	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$. Se invece $p\in \partial \Omega$, allora $p$ è un punto regolare, cioè esiste
+	un intorno $U=V\times I$ di $p$ e una $\phi\in C^1(V,I)$ tale che
+	\begin{itemize}
+		\item $U\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
+		\item $U\cap \Omega = \{(z,s):s<\psi(z)\}$.
+	\end{itemize}
+	Distinguiamo ora i casi $j=n$ e $j\neq n$.
+	\begin{description}
+		\item [$j=n$:] Dato che stiamo supponendo che $supp(u)\subseteq U$ e per il \cref{thm:Fubini} abbiamo che
+			\begin{align*}
+				\int_{\Omega} \Diff u(x)_n \de x  &= \int_{\Omega\cap U} \Diff u(v,t)_n\de x =
+				\int_{U} \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de (v,t) = \\
+				& = \int_V \int_I \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v = \int_V \int_{-\infty}^{\psi(v)} = \\
+				& = \int_V (u(v,\psi(v)) - 0) \de v = \int_V u(v,\psi(v)) \de v\punto
+			\end{align*}
+			Ora abbiamo che la funzione $g:V\rightarrow \R^n$ data da $g(v)=(v,\psi(v))$ parametrizza l'ipersuperfice data dal grafico di
+			$\psi$, quindi la misura superficiale è data da \cref{equ:MisuraSuperficialeGrafico}.
+			Inoltre, detta $\nu:\partial \Omega \cap U \rightarrow \R^n$ la normale uscente da $\Omega$, sappiamo che
+			$\nu(v,\psi(v))_n=(1+\psi(v)^2)^{-\frac{1}{2}}$. Quindi per ... abbiamo che
+			\begin{align*}
+				\int_V u(v,\psi(v)) \de v &= \int_V u(v,\psi(v)) (1+\psi(v)^2)^{-\frac{1}{2}} (1+\psi(v)^2)^{\frac{1}{2}} \de v = \\
+				& = \int_V u(v,\psi(v)) \nu(v,\psi(v))_n (1+\psi(v)^2)^{\frac{1}{2}} \de v = \\
+				& = \int_{\partial \Omega \cap U} u(x) \nu(x)_n \de \sigma(x) = \\
+				& = \int_{\partial \Omega} u(x) \nu(x)_n \de \sigma(x)\virgola
+			\end{align*}
+			dove nell'ultimo passaggio si è usato che $supp(u)\subseteq U$.
+		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e che $V=W \times J$. Ora, per il
+			\cref{thm:Fubini} abbiamo che
+			\[
+				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\virgola
+			\]
+			inoltre, assumendo che
+			\[
+				\Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
+				\int_{-\infty}^{\psi(w,s)} \Diff_s u(w,s,t) \de t + u(w,s\psi(w,s))\Diff_s \psi (w,s)\virgola
+			\]
+			abbiamo che, integrando il termine a sinistra su $V=W\times J=W\times \oo{a}{b}$, per il teorema fondamentale del
+			calcolo integrale,
+			\begin{align*}
+				&\int_W \int_a^b \Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t \de s \de w = \\
+				&\int_W \left(\int_{-\infty}^{\psi(w,b)} u(w,b,t) \de t - \int_{-\infty}^{\psi(w,a)} u(w,a,t) \de t\right) \de w
+				= 0\virgola
+			\end{align*}
+			poiché i punti $(w,b,t)$ e $(w,a,t)$ sono sul bordo di $U$, dove la funzione $u$ è nulla per ipotesi. Usando questa relazione
+			otteniamo che
+			\[
+				\int_W\int_J\int_I\Diff_s u(w,s,t) \de t \de s \de w =-\int_W \int_J u(w,s,\psi(w,s))\Diff_s \psi (w,s)\de s\de w\punto
+			\]
+			Ora, dato che $\nu(x)_{n-1}=\nu(v,\psi(v))_{n-1}=-\Diff\psi(v)_{n-1}(1+\psi(v)^2)^{-\frac{1}{2}}$, otteniamo
+			\begin{align*}
+				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x & = -\int_W \int_J u(w,s,\psi(w,s))\Diff_s \psi (w,s) \de s \de w\\
+				& = -\int_V u(v,\psi(v))\Diff_{n-1} \psi(v) \de v\\
+				& = -\int_V u(v,\psi(v))(-\nu(v,\psi(v))_{n-1})(1+\psi(v)^2)^{\frac{1}{2}} \de v\\
+				& = \int_{\partial \Omega \cap U} u(x)\nu(x)_{n-1} \de \sigma(x)\punto
+			\end{align*}
+	\end{description}
+	Questo conclude il primo punto.
+	
+	Per la seconda parte procediamo in questo modo. Intanto, se $f\in C^1(\R^n)$ ha supporto $U\cap \bar\Omega = \emptyset$, la
+	\cref{equ:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
+	Consideriamo ora, per ogni punto $p\in \bar\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}$ è un
+	ricoprimento aperto del compatto $\bar \Omega$, quindi consideriamo un sottoricoprimento finito $U_1,\dots,U_n$; consideriamo anche
+	$U_0=\R^n \setminus \bar\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^\{\infty\}$ tali che la loro somma è
+	la funzione costante $1$.
 \end{proof}
 
