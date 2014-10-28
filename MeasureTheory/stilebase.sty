@@ -76,20 +76,23 @@
 		\@tempcref{#1}%
 	}
 	{
-% 	\ifthenelse{\equal{\clist_count:n {#1}}{1}}{%C'è una sola reference?
 		\ifcsname r@#1\endcsname%La reference è definita?
-			\edef\@mytxt{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
-			\edef\@CompleteCounter{\expandafter\@fourthoffive\@mytxt}%Contiene il nome espanso del contatore
+			\edef\@RefInfo{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
+			\edef\@CompleteCounter{\expandafter\@fourthoffive\@RefInfo}%Contiene il nome espanso del contatore
+			
 			\expandafter\IfBeginWith{\@CompleteCounter}{equation}{%La reference è un'equazione?
 				\@tempcref{#1}%
 			}
 			{
-				\edef\@mytst{\expandafter\@thirdoffive\@mytxt}%Contiene, se definito, il nome della reference
-				\ifx\@mytst\empty\relax%La reference è senza un nome?
+				\edef\@RefName{\expandafter\@thirdoffive\@RefInfo}%Contiene, se definito, il nome della reference
+				\StrLen{\@RefName}[\@RefNameLen]
+				
+				\ifthenelse{\@RefNameLen<2}{%Il nome è vuoto o di un solo carattere? (tocca lasciare la possibilità che sia di un solo carattere sennò al carducci non va)
 					\@tempcref{#1}%
-				\else
+				}
+				{
 					\@tempcref{#1}~(\nameref*{#1})%
-				\fi
+				}
 			}
 % 			\begin{itemize}
 % 				\item \expandafter\@firstoffive\@mytxt

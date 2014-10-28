@@ -170,18 +170,20 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 
 Mostriamo ora degli esempi e delle formule utili per il calcolo della misura $k$-dimensionale nella pratica. In particolare trattiamo dei casi particolare del calcolo di $\det(L^TL)$ per una data funzione lineare $L:\R^k\to\R^n$, in quanto ciò risulta spesso utile (come vedremo poi nell'\cref{es:MisuraTetraedro}) per il calcolo della misura $k$-dimensionale su una varietà.
 
-\begin{lemma}\label{lemma:DeterminanteProdottoTrasposta}
+\begin{proposition}\label{prop:DeterminanteProdottoTrasposta}
 	Sia $L:\R^k\to\R^n$ lineare con $k\le n$, allora $\det(L^TL)$ equivale alla somma dei quadrati dei determinanti dei minori massimali di $L$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	TODO
 \end{proof}
 
-\begin{remark}\label{nota:DeterminanteMatriceQuasiIdentita}
+\begin{lemma}\label{lemma:DeterminanteMatriceQuasiIdentita}
 	Sia $L:\R^n\to\R^{n+1}$ lineare tale che $L=\begin{pmatrix} v^T \\ I_n \end{pmatrix}$, dove $v$ è un vettore colonna e $I_n$ è la matrice identità $n\times n$. Allora $\det(L^TL)=1+\lvert v \rvert ^2$.
-\end{remark}
+\end{lemma}
 \begin{proof}
-	Lasciamo al lettore la dimostrazione, che segue dal \cref{lemma:DeterminanteProdottoTrasposta} con un facile conto.
+	Poichè $L^TL=\begin{pmatrix} v & I_n \end{pmatrix}\begin{pmatrix} v^T \\ I_n \end{pmatrix}=I_n+vv^T$, un autovettore $x$ di $L^TL$ relativo all'autovalore $\lambda$ deve rispettare di $(I_n+vv^T)x=\lambda x$, cioè $(\lambda-1)x=(v^Tx)v$. Da questo otteniamo facilmente che tutti i vettori ortogonali a $v$ sono autovettori per $L^TL$ relativi all'autovalore 1, che quindi ha molteplicità $n-1$, e $v$ è un autovettore di $L^TL$ relativo all'autovalore $1+v^Tv$.
+	
+	Abbiamo perciò trovato tutti gli autovalori della matrice $L^TL$ e quindi $\det(L^TL)=1+v^Tv=1+\lvert v \rvert ^2$, poichè il determinante di una matrice è il prodotto dei suoi autovalori.
 \end{proof}
 
 \begin{lemma}
@@ -227,15 +229,17 @@ Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trat
 					 & 1 & & \\
 					 & &\ddots& \\
 					 & & & 1
+		        \end{pmatrix}=
+		        \begin{pmatrix}
+		        	v^T\\
+		        	I_n
 		        \end{pmatrix}\virgola
 	\end{equation*}
-	quindi per la definizione di misura $n$-dimensionale abbiamo che
+	dove $I_n$ è la matrice identità $n\times n$ e $v$ è il vettore in cui tutte le $n$ entrate sono uguali a -1.
+	
+	Quindi per la definizione di misura $n$-dimensionale e per il \cref{lemma:DeterminanteMatriceQuasiIdentita}, che ci dice che $\det(\Diff L^T\Diff L)=\det\left(\begin{pmatrix}v& I_n\end{pmatrix}\begin{pmatrix}v^T\\I_n\end{pmatrix}\right)=1+\lvert v\rvert^2=1+n$, abbiamo che
 	\begin{equation*}
-		\sigma(T)=\int_{L^{-1}(T)}\sqrt{\det(\Diff L^T\Diff L)}\de x=\int_{L^{-1}(T)}\sqrt{\det(I_n+vv^T)}\de x\virgola
-	\end{equation*}
-	dove $I_n$ è la matrice identità $n\times n$ e $v$ è il vettore in cui tutte le $n$ entrate sono uguali a -1. Lasciando al lettore la dimostrazione del fatto che $\det(I_n+vv^T)=1+n$, otteniamo quindi %TODO: La dimostrazione lasciata al lettore probabilmente comparirà nella sezione su Stokes!
-	\begin{equation*}
-		\sigma(T)=\int_{L^{-1}(T)}\sqrt{1+n}\de x=m_n(L^{-1}(T))\sqrt{1+n}\punto
+		\sigma(T)=\int_{L^{-1}(T)}\sqrt{\det(\Diff L^T\Diff L)}\de x= \int_{L^{-1}(T)}\sqrt{1+n}\de x=m_n(L^{-1}(T))\sqrt{1+n}\punto
 	\end{equation*}
 
 	È molto facile verificare che $L^{-1}(T)$ è il poliedro che ha come vertici la base canonica e lo zero di $\R^n$. Perciò per trovare $m_n(L^{-1}(T))$, calcoliamo la misura del poliedro in $\R^m$ che ha come vertici la base canonica e lo zero. Chiamiamo tale misura $A_m$ e dimostriamo per induzione su $m$ che $A_m=1/m!$.

@@ -70,7 +70,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	e non negative tali che:
 	\begin{itemize}
 		\item la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $\Omega_i$ per ogni $i\in I$,
-		\item per ogni $x\in\R^n$ vale che $\sum_{i\in I} f_i(x)=1$\footnote{La serie la definiamo come il $\sup$ delle somme finite}.
+		\item per ogni $x\in\R^n$ vale che $\sum_{i\in I} f_i(x)=1$\footnote{La serie la definiamo come il $\sup$ delle somme finite.}.
 	\end{itemize}
 \end{theorem}
 \begin{proof}
@@ -122,7 +122,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \begin{definition}
 	Chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
 	\[
-		\nu(x)=\frac{\nabla \phi(x)}{||\nabla \phi(x)||}\punto
+		\nu(x)=\frac{\nabla \phi(x)}{\lVert\nabla \phi(x)\rVert}\punto
 	\]
 \end{definition}
 
@@ -162,14 +162,12 @@ Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial
 	\left(\begin{smallmatrix}
 	I \\
 	\nabla f(x)
-	\end{smallmatrix}\right)=
-	I+\nabla f(x)^T\nabla f(x)$, quindi gli autovalori di questa matrice sono $1$, con molteplicità $n-1$, e $1+\nabla f(x)^T\nabla f(x)$, con 
-	molteplicità $1$. Tutto ciò per dire che $\det (\Diff g(x)^T \Diff g(x)) = 1+||\nabla f(x)||^2$. 
+	\end{smallmatrix}\right)$, quindi per il \cref{lemma:DeterminanteMatriceQuasiIdentita} vale che $\det (\Diff g(x)^T \Diff g(x)) = 1+\lVert\nabla f(x)\rVert^2$. 
 \end{remark}
 
 Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
 \begin{equation}\label{eq:MisuraSuperficialeGrafico}
-	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x\punto
+	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+\lVert\nabla f(x)\rVert^2} \de x\punto
 \end{equation}
 
 
@@ -185,7 +183,7 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	Per la dimostrazione si procederà in 2 step:
 	\begin{enumerate}
 		\item per ogni $p\in \bar \Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
-			tale che la \cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $supp(u)\subseteq U_p$;
+			tale che l'\cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $supp(u)\subseteq U_p$;
 		\item $\bar \Omega$ è ricoperto con un numero finito di intorni come sopra, quindi si applica il \cref{thm:PartizioneUnita} per ottenere
 			la tesi per ogni $u$.
 	\end{enumerate}
