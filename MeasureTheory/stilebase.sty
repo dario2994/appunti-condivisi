@@ -81,7 +81,7 @@
 			}
 			{
 				\edef\@mytst{\expandafter\@thirdoffive\@mytxt}%Contiene, se definito, il nome della reference
-				\ifx\@mytst\empty\relax%La reference ammette un nome?
+				\ifx\@mytst\empty\relax%La reference è senza un nome?
 					\@tempcref{#1}%
 				\else
 					\@tempcref{#1}~(\nameref*{#1})%
