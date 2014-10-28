@@ -168,7 +168,7 @@ Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial
 \end{remark}
 
 Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
-\begin{equation}\label{equ:MisuraSuperficialeGrafico}
+\begin{equation}\label{eq:MisuraSuperficialeGrafico}
 	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+||\nabla f(x)||^2} \de x\punto
 \end{equation}
 
@@ -176,7 +176,7 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 \begin{proposition}\label{prop:FormulaStokes}
 	Sia $u\in C^1(\bar \Omega)$ (ossia $u$ è la restrizione a $\bar \Omega$ di una funzione $C^1$ definita su un aperto
 	$\Omega'\supseteq \bar \Omega$), sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
-	\begin{equation}\label{equ:FormulaStokes}
+	\begin{equation}\label{eq:FormulaStokes}
 		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(x)\nu(x) \de \sigma(y)\punto
 	\end{equation}
 \end{proposition}
@@ -185,7 +185,7 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	Per la dimostrazione si procederà in 2 step:
 	\begin{enumerate}
 		\item per ogni $p\in \bar \Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
-			tale che la \cref{equ:FormulaStokes} vale per ogni funzione $u$ tale che $supp(u)\subseteq U_p$;
+			tale che la \cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $supp(u)\subseteq U_p$;
 		\item ricoprire $\bar \Omega$ con un numero finito di intorni come sopra per poi applicare il \cref{thm:PartizioneUnita} per ottenere
 			la tesi per ogni $u$.
 	\end{enumerate}
@@ -215,7 +215,7 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 				& = \int_V (u(v,\psi(v)) - 0) \de v = \int_V u(v,\psi(v)) \de v\punto
 			\end{align*}
 			Ora abbiamo che la funzione $g:V\rightarrow \R^n$ data da $g(v)=(v,\psi(v))$ parametrizza l'ipersuperfice data dal grafico di
-			$\psi$, quindi la misura superficiale è data da \cref{equ:MisuraSuperficialeGrafico}.
+			$\psi$, quindi la misura superficiale è data da \cref{eq:MisuraSuperficialeGrafico}.
 			Inoltre, detta $\nu:\partial \Omega \cap U \rightarrow \R^n$ la normale uscente da $\Omega$, sappiamo che
 			$\nu(v,\psi(v))_n=(1+\psi(v)^2)^{-\frac{1}{2}}$. Quindi per ... abbiamo che
 			\begin{align*}
@@ -257,11 +257,20 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	\end{description}
 	Questo conclude il primo punto.
 	
-	Per la seconda parte procediamo in questo modo. Intanto, se $f\in C^1(\R^n)$ ha supporto $U\cap \bar\Omega = \emptyset$, la
-	\cref{equ:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
+	Per la seconda parte procediamo in questo modo. Intanto, osserviamo che se $f\in C^1(\R^n)$ ha supporto $U\cap \bar\Omega = \emptyset$, la
+	\cref{eq:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
 	Consideriamo ora, per ogni punto $p\in \bar\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}$ è un
 	ricoprimento aperto del compatto $\bar \Omega$, quindi consideriamo un sottoricoprimento finito $U_1,\dots,U_n$; consideriamo anche
-	$U_0=\R^n \setminus \bar\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^\{\infty\}$ tali che la loro somma è
-	la funzione costante $1$.
+	$U_0=\R^n \setminus \bar\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^\{\infty\}$, per $0\leq i \leq n$,
+	tali che la loro somma è la funzione costante $1$.
+	Sia ora $u\in C^1(\R^n,\R)$ una qualsiasi funzione. Otteniamo che
+	\[
+		u = \sum_{i=0}^n f_i\cdot u\virgola
+	\]
+	ma ora abbiamo che $f_i \cdot u$ soddisfa la \cref{eq:FormulaStokes} per ogni $i$; infatti, per $i=0$ è vero per quanto appena osservato,
+	per $i>0$, la funzione $f_i \cdot u$ ha supporto contenuto in $U_p$ per qualche $p\in \bar\Omega$ e, per quanto dimostrato nel punto precedente,
+	abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ soddisfa \cref{eq:FormulaStokes}. Per linearità degli integrali e quindi dei membri che
+	compaiono in questa equazione, è chiaro che le funzioni che soddisfano formano un sottospazio vettoriale di $C^1$. In particolare $u$
+	soddisfa la formula di Stokes.
 \end{proof}
 
