@@ -85,32 +85,45 @@
 			}
 			{
 				\edef\@RefName{\expandafter\@thirdoffive\@RefInfo}%Contiene, se definito, il nome della reference
+				\StrLen{\@RefName}[\@RefNameLen]
 % 				\edef\@staminchia{\expandafter\StrLen{\@mytst}}
 % 				\let\@tstlen\StrLen{\@mytst}
 % 				\IfNoText{\@mytst}
 % 				\newline azzo\ \StrLen{\@mytst}\ \@mytst\ azzo \newline
 % 				\ifthenelse{1=1\relax}{ %La reference è senza un nome?
-				\ifdefempty{\@RefName}{Funziona}{}
-				\IfStrEqCase{\@RefName}{
-				{}{
+% 				\ifdefempty{\@RefName}{Funziona}{}
+% 				\ifdefvoid{\@RefName}{Funge}{}
+% 				\ifdefstring{\@RefName}{}{Alleluia}{}
+% 				\ifstrempty{\@RefName}{DIOGRAZIE}{}
+% 				\ifblank{\@RefName}{SIIII}{}
+				
+				\ifthenelse{\@RefNameLen=0}{
 					\@tempcref{#1}%
 				}
-				{\empty}{
-					\@tempcref{#1}%
-				}
-				{{\empty}}{
-					\@tempcref{#1}%
-				}
-				{ }{
-					\@tempcref{#1}%
-				}
-				{\ }{
-					\@tempcref{#1}%
-				}
-				}
-				[
+				{
 					\@tempcref{#1}~(\nameref*{#1})%
-				]
+				}
+				
+% 				\IfStrEqCase{\@RefName}{
+% 				{}{
+% 					\@tempcref{#1}%
+% 				}
+% 				{\empty}{
+% 					\@tempcref{#1}%
+% 				}
+% 				{{\empty}}{
+% 					\@tempcref{#1}%
+% 				}
+% 				{ }{
+% 					\@tempcref{#1}%
+% 				}
+% 				{\ }{
+% 					\@tempcref{#1}%
+% 				}
+% 				}
+% 				[
+% 					\@tempcref{#1}~(\nameref*{#1})%
+% 				]
 			}
 % 			\begin{itemize}
 % 				\item \expandafter\@firstoffive\@mytxt
