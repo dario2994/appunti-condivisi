@@ -283,11 +283,11 @@ Un'immediata del teorema appena dimostrato è la seguente:ù
 	\begin{equation}\label{eq:thDivergenza}
 		\int_{\Omega} \text{div}u (x) \de x = \int_{\partial \Omega} <u(y),\nu(y)> \de \sigma(y)\puntovirgola
 	\end{equation}
-	dove l'operatore $\text{div}u=\text{tr}\Diff u$
+	dove l'operatore di divergenza è definito da $\text{div}u=\text{tr}\Diff u$.
 \end{corollary}
 
 \begin{proof}
-	Utilizzando il \cref{prop:FormulaStokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $0\leq j\leq n$,
+	Utilizzando la \cref{prop:FormulaStokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $0\leq j\leq n$,
 	\[
 		\int_{\Omega} \Diff u^j(x)_j \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
 	\]
@@ -298,4 +298,32 @@ Un'immediata del teorema appena dimostrato è la seguente:ù
 	Ma ora, $\text{div}u (x)= \text{tr}\Diff u(x) = \sum_{j=0}^n \Diff u^j(x)_j$ e $<u(x),\nu(x)>=\sum_{j=0}^n u^j(y)\nu(y)_j$,
 	quindi si ha la tesi.
 \end{proof}
+
+Giocherellando ancora con queste equazioni si ottengono anche le seguenti formule dette di Green:
+
+\begin{corollary}(Prima formula di Green)
+	Siano $u\in C^1(\bar\Omega, \R)$ e $v\in C^2(\bar\Omega, \R)$, allora si ha
+	\[
+		\int_{\Omega}\left(u\Delta v+<\text{grad}u,\text{grad}>\right)de x=\int_{\bar\Omega}u\frac{\partial v}{\partial\nu}\de\sigma(y)\virgola
+	\]
+	dove l'operatore $\Delta v = \sum_{j=1}^n \Diff_{jj} v$ è il laplaciano.
+\end{corollary}
+
+\begin{proof}
+	Applicando la \cref{prop:FormulaStokes} sulle funzioni $v(x)\Diff u(x)_j$, dato che abbiamo 
+	$\Diff_j (v(x)\Diff u(x)_j ) = \Diff v(x)_j \Diff u(x)_j + v(x)\Diff_{jj} u(x)$, sommando su $j$ otteniamo la tesi.
+\end{proof}
+
+\begin{corollary}(Seconda formula di Green)
+	Siano $u,v\in C^2(\bar\Omega, \R)$ allora si ha che
+	\[
+		\int_{\Omega}\left(u\Delta v-v\Delta u\right)de x=
+		\int_{\bar\Omega}u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu}\de\sigma(y)\punto
+	\]
+\end{corollary}
+
+\begin{proof}
+	Immediata conseguenza della prima formula applicata a $u,v$ e a $v,u$; poi basta sottrarre membro a membro.
+\end{proof}
+
 
