@@ -72,7 +72,11 @@
 \usepackage{xstring}
 \let\@tempcref\cref
 \newcommand{\myref}[1]{
-	\ifthenelse{\equal{\clist_count:n {#1}}{1}}{%C'è una sola reference?
+	\IfSubStr{#1}{,}{
+		\@tempcref{#1}%
+	}
+	{
+% 	\ifthenelse{\equal{\clist_count:n {#1}}{1}}{%C'è una sola reference?
 		\ifcsname r@#1\endcsname%La reference è definita?
 			\edef\@mytxt{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
 			\edef\@CompleteCounter{\expandafter\@fourthoffive\@mytxt}%Contiene il nome espanso del contatore
@@ -97,9 +101,6 @@
 		\else
 			\@tempcref{#1}
 		\fi
-	}
-	{
-		\@tempcref{#1}%
 	}
 }
 % \renewcommand{\cref}{\myref}
