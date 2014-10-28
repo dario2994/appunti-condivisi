@@ -90,6 +90,7 @@
 % 				\IfNoText{\@mytst}
 % 				\newline azzo\ \StrLen{\@mytst}\ \@mytst\ azzo \newline
 % 				\ifthenelse{1=1\relax}{ %La reference è senza un nome?
+				\ifdefempty{\@RefName}{Funziona}{}
 				\IfStrEqCase{\@RefName}{
 				{}{
 					\@tempcref{#1}%
@@ -123,7 +124,7 @@
 		\fi
 	}
 }
-% \renewcommand{\cref}{\myref}
+\renewcommand{\cref}{\myref}
 \ExplSyntaxOff
 \makeatother
 
