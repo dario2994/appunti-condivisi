@@ -177,7 +177,7 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	Sia $u\in C^1(\bar \Omega)$ (ossia $u$ è la restrizione a $\bar \Omega$ di una funzione $C^1$ definita su un aperto
 	$\Omega'\supseteq \bar \Omega$), sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
 	\begin{equation}\label{eq:FormulaStokes}
-		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(x)\nu(x) \de \sigma(y)\punto
+		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
 	\end{equation}
 \end{proposition}
 
@@ -273,5 +273,29 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ soddisfa l'\cref{eq:FormulaStokes}. Per linearità degli integrali e quindi dei membri
 	che compaiono in questa equazione, è chiaro che le funzioni che soddisfano formano un sottospazio vettoriale di $C^1$. In particolare $u$
 	soddisfa la formula di Stokes.
+\end{proof}
+
+Un'immediata del teorema appena dimostrato è la seguente:ù
+
+\begin{corollary}(Teorema della divergenza)
+	\label{cor:thDivergenza}
+	Sia $u:\bar\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
+	\begin{equation}\label{eq:thDivergenza}
+		\int_{\Omega} \text{div}u (x) \de x = \int_{\partial \Omega} <u(y),\nu(y)> \de \sigma(y)\puntovirgola
+	\end{equation}
+	dove l'operatore $\text{div}u=\text{tr}\Diff u$
+\end{corollary}
+
+\begin{proof}
+	Utilizzando il \cref{prop:FormulaStokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $0\leq j\leq n$,
+	\[
+		\int_{\Omega} \Diff u^j(x)_j \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
+	\]
+	da cui sommando otteniamo, per linearità degli integrali:
+	\[
+		\int_{\Omega} \sum_{j=0}^n\Diff u^j(x)_j \de x = \int_{\partial \Omega} \sum_{j=0}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
+	\]
+	Ma ora, $\text{div}u (x)= \text{tr}\Diff u(x) = \sum_{j=0}^n \Diff u^j(x)_j$ e $<u(x),\nu(x)>=\sum_{j=0}^n u^j(y)\nu(y)_j$,
+	quindi si ha la tesi.
 \end{proof}
 
