@@ -78,19 +78,19 @@
 	{
 % 	\ifthenelse{\equal{\clist_count:n {#1}}{1}}{%C'è una sola reference?
 		\ifcsname r@#1\endcsname%La reference è definita?
-			\edef\@mytxt{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
-			\edef\@CompleteCounter{\expandafter\@fourthoffive\@mytxt}%Contiene il nome espanso del contatore
+			\edef\@RefInfo{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
+			\edef\@CompleteCounter{\expandafter\@fourthoffive\@RefInfo}%Contiene il nome espanso del contatore
 			\expandafter\IfBeginWith{\@CompleteCounter}{equation}{%La reference è un'equazione?
 				\@tempcref{#1}%
 			}
 			{
-				\edef\@mytst{\expandafter\@thirdoffive\@mytxt}%Contiene, se definito, il nome della reference
+				\edef\@RefName{\expandafter\@thirdoffive\@RefInfo}%Contiene, se definito, il nome della reference
 % 				\edef\@staminchia{\expandafter\StrLen{\@mytst}}
 % 				\let\@tstlen\StrLen{\@mytst}
 % 				\IfNoText{\@mytst}
 % 				\newline azzo\ \StrLen{\@mytst}\ \@mytst\ azzo \newline
 % 				\ifthenelse{1=1\relax}{ %La reference è senza un nome?
-				\IfStrEqCase{\@mytst}{
+				\IfStrEqCase{\@RefName}{
 				{}{
 					\@tempcref{#1}%
 				}
@@ -123,7 +123,7 @@
 		\fi
 	}
 }
-\renewcommand{\cref}{\myref}
+% \renewcommand{\cref}{\myref}
 \ExplSyntaxOff
 \makeatother
 
