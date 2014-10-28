@@ -97,7 +97,7 @@
 % 				\ifstrempty{\@RefName}{DIOGRAZIE}{}
 % 				\ifblank{\@RefName}{SIIII}{}
 				
-				\ifthenelse{\@RefNameLen=0}{
+				\ifthenelse{\@RefNameLen<2}{
 					\@tempcref{#1}%
 				}
 				{
