@@ -85,11 +85,31 @@
 			}
 			{
 				\edef\@mytst{\expandafter\@thirdoffive\@mytxt}%Contiene, se definito, il nome della reference
-				\ifx\@mytst\empty\relax%La reference è senza un nome?
+% 				\edef\@staminchia{\expandafter\StrLen{\@mytst}}
+% 				\let\@tstlen\StrLen{\@mytst}
+% 				\IfNoText{\@mytst}
+% 				\newline azzo\ \StrLen{\@mytst}\ \@mytst\ azzo \newline
+% 				\ifthenelse{1=1\relax}{ %La reference è senza un nome?
+				\IfStrEqCase{\@mytst}{
+				{}{
 					\@tempcref{#1}%
-				\else
+				}
+				{\empty}{
+					\@tempcref{#1}%
+				}
+				{{\empty}}{
+					\@tempcref{#1}%
+				}
+				{ }{
+					\@tempcref{#1}%
+				}
+				{\ }{
+					\@tempcref{#1}%
+				}
+				}
+				[
 					\@tempcref{#1}~(\nameref*{#1})%
-				\fi
+				]
 			}
 % 			\begin{itemize}
 % 				\item \expandafter\@firstoffive\@mytxt
@@ -103,7 +123,7 @@
 		\fi
 	}
 }
-% \renewcommand{\cref}{\myref}
+\renewcommand{\cref}{\myref}
 \ExplSyntaxOff
 \makeatother
 
