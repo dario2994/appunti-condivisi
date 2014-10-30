@@ -11,7 +11,7 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 				\item $U\cap \Omega=f^{-1}(\oo{-\infty}{0})$,
 			\end{itemize}
 			e tale che $\Diff f(x)\neq 0$ se $f(x)=0$;\label{PRE:i}
-		\item esistono $U$ intorno di $x$ e $g$ diffeomorfismo da $\R^n$ in $U$ tale che\label{PRE:ii}
+		\item esistono $U$ intorno di $x$ e $g$ diffeomorfismo $C^1$ da $\R^n$ in $U$ tale che\label{PRE:ii}
 			\begin{itemize}
 				\item $U\cap \partial \Omega = g(\R^{n-1}\times\{0\})$,
 				\item $U\cap \Omega = g(\R^{n-1}\times\oo{-\infty}{0})$;
@@ -28,27 +28,28 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 \begin{proof}
 	Dimostriamo la catena in ordine inverso:
 	\begin{description}
-		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $\Diff f(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita di
-			generalità che sia l'ultima e che sia positiva (se negativa il ragionamento è lo stesso).
+		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $\Diff f(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita
+			di generalità che sia l'ultima e che sia positiva (se negativa il ragionamento è lo stesso).
 			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, per cui otteniamo
 			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che $f(v,\psi(v))=0$ e $\psi(v)$
 			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
-			Inoltre, per la continuità di $\Diff f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\Diff f(v')_n>\frac{1}{2}\Diff f(x)_n$ per tutti
-			i $v'\in V'$. Ora, per la differenziabilità di $f$ in $V'$ si ha che
+			Inoltre, per la continuità di $\Diff f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\Diff f(v')_n>\frac{1}{2}
+			\Diff f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $v'$ si ha che
 			\[
 				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\Diff f(v')_n\delta+\smallO(\delta)=\Diff f(v')\delta+\smallO(\delta)\virgola
 			\]
-			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{4}\Diff f(x)_n\delta>0$. Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
+			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{2}\Diff f(v')_n\geq \frac{1}{4}\Diff
+			f(x)_n\delta>0$. Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
 			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
 			che sia zero per la funzione $f(v',\cdot)$, contraddicendo il teorema della funzione implicita del Dini.
 			Per $\delta<0$ si ha lo stesso risultato. Questo ci dice che $f^{-1}(0)\cap (V'\times I)=\{(v',s):s=\psi(v')\}$ e
 			$f^{-1}(\oo{-\infty}{0})\cap (V'\times I)=\{(v',s):s<\psi(v')\}$, che conclude per le ipotesi sulle controimmagini di $f$.
 		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi$, detto $J=\oo{-\varepsilon}{\varepsilon}$
-			possiamo ottenere un diffeomorfismo $g:V\times J \rightarrow V\times J$ ponendo $g(z,s)=(z,\psi(z)-s)$. Allora,
-			$g(V\times \{0\})=$graf$(\psi)=U\cap \partial \Omega$ e $g(V\times \oo{-\varepsilon}{0})=\{(z,s):\psi(z)<s\}=U\cap \Omega$.
+			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(z,s)=(z,s-\psi(z))$. Allora,
+			$g(V\times \{0\})=$graf$(\psi)=U\cap \partial \Omega$ e $g(V\times \oo{-\varepsilon}{0})=\{(z,s):s<\psi(z)\}=U\cap \Omega$.
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
 			di $x$ e $\R^n$.
-		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione basta considerare$f=g^{-1}_n$ l'ultima componente di $g^{-1}$.
+		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione basta considerare$f=(g^{-1})_n$ l'ultima componente di $g^{-1}$.
 	\end{description}
 \end{proof}
 
@@ -86,37 +87,39 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{lemma}
 
 \begin{proof}
-	L'implicazione del ``se'' è banale. Per l'altra implicazione, per la regolarità dei punti del bordo di $\Omega$, consideriamo per ogni
-	$x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$ come nel \cref{thm:PtRegEquiv} e prendiamo
-	anche $U_0 = \R^n \setminus \partial \Omega$. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento
-	aperto; quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$. Ora abbiamo che gli aperti $U_0,\dots,U_n$ sono un ricoprimento
-	di $\R^n$; il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_x$ per ogni $x\in\{0,\dots, n\}$.
+	L'implicazione del ``se'' è banale per la caraterizzazione del punto \cref{PRE:i}. Per l'altra implicazione, per la regolarità dei punti
+	del bordo di $\Omega$, consideriamo per ogni $x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$
+	come nel \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto;
+	quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$  e prendiamo anche $U_0 = \R^n \setminus \partial \Omega$.
+	Ora abbiamo che gli aperti $U_0,\dots,U_n$ sono un ricoprimento di $\R^n$;
+	il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_i$ per ogni $i\in\{0,\dots, n\}$.
 	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. Sia ora 
 	\[
 		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x)\virgola
 	\]
-	con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
-	$C^1$ in tutto $\R^n$, infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
-	Ora abbiamo che chiaramente $\phi\in C^1$ perché somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
+	dove, con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
+	$C^1$ in tutto $\R^n$. Infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
+	Ora abbiamo che $\phi\in C^1$ perché somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
 	$\psi_i$ aveva questa proprietà se era definita in $x$ e la $\phi$ è una combinazione convessa di $\psi_i$;
-	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni non positive e, per ciascun $x \in \Omega$,
+	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni che, per ciascun $x\in\Omega$, sono non positive e
 	almeno di una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \bar{\Omega}$.
 	
-	Rimane da mostrare che $\Diff f(x)\neq 0$ se $f(x)=0$. Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando
-	sono definite in $x$. Esisterà quindi una direzione $e_j$ per la quale esiste almeno un $i$ tale che $\Diff \psi_i(x)_j\neq 0$. Dato che le $\psi_i$
-	sono differenziabili, si ha che
+	Rimane da mostrare che $\Diff f(x)\neq 0$ se $f(x)=0$. Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo
+	quando sono definite in $x$. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\Diff \psi_i(x)_k\neq 0$. Dato che
+	le $\psi_i$ sono differenziabili, si ha che
 	\[
-		\psi_i(x+\delta e_j)=\psi_i(x)+\Diff \psi_i(x)_j \delta + \smallO(\delta) = \Diff \psi_i(x)_j \delta + \smallO(\delta)
+		\psi_i(x+\delta e_k)=\psi_i(x)+\Diff \psi_i(x)_k \delta + \smallO(\delta) = \Diff \psi_i(x)_k \delta + \smallO(\delta)
 	\]
-	per cui, dato che $\psi_i(x+\delta e_j)<0$ solo se $x+\delta e_j\in \Omega$, per $\delta$ uguali si deve avere che i $\Diff \psi_i(x)_j$ non possono
-	essere discordi al variare di $i$, altrimenti si avrebbe che per degli indici $i,i'$ si ha $\psi_i(x+\delta e_j)=
-	\Diff \psi_i(x)_j \delta + \smallO(\delta)>0$ e $\psi_i'(x+\delta e_j)=\Diff \psi_i'(x)_j \delta + \smallO(\delta)<0$ pur avendo in entrambi i casi
-	che $x+\delta e_j$ sta in $\Omega$. Quindi, sempre per lo stesso $x\in\partial \Omega$,
+	per cui, dato che $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$, quindi, per $u\neq i'$, $\Diff \psi_i(x)_k$ e
+	$\Diff \psi_{i'}(x)_k$ non possono essere discordi, altrimenti si ha $\psi_i(x+\delta e_k)= \Diff \psi_i(x)_k \delta + \smallO(\delta)>0$ e
+	$\psi_i'(x+\delta e_k)=\Diff \psi_i'(x)_k \delta + \smallO(\delta)<0$ pur avendo in entrambi i casi
+	che $x+\delta e_k$ sta in $\Omega$. Quindi, sempre per lo stesso $x\in\partial \Omega$,
 	\[ 
-		\Diff \phi(x)=\sum_{i=0}^n \Diff (f_i \cdot\psi_i)(x)=\sum_{i=0}^n \Diff f_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot \Diff  \psi_i(x)=
+		\Diff \phi(x)=\sum_{i=0}^n \Diff (f_i \cdot\psi_i)(x)=\sum_{i=0}^n \Diff f_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot \Diff \psi_i(x)=
 		\sum_{i=0}^n f_i(x)\cdot \Diff  \psi_i(x)\virgola
 	\]
-	poiché $\psi_i\equiv 0$ sul bordo; quindi $\Diff \phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di $\Diff \psi_i(x)_j$.
+	poiché $\psi_i\equiv 0$ sul bordo; quindi $\Diff \phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di
+	$\Diff \psi_i(x)_k$ che sono non discordi.
 \end{proof}
 
 \begin{definition}
@@ -136,7 +139,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	abbastanza piccoli.
 \end{remark}
 \begin{proof}
-	Stesso ragionamento fatto nella dimostrazione di \cref{lem:EquivRegolare}.
+	Stesso ragionamento fatto nella dimostrazione del \cref{lem:EquivRegolare}.
 \end{proof}
 
 \begin{remark}
@@ -189,9 +192,9 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	\end{enumerate}
 	
 	Dimostriamo quindi il primo punto, distinguendo i casi in cui $p\in \Omega$ e $p\in \partial \Omega$.
-	Se $p\in \Omega$ esisterà un intorno rettangolare $U_p$ contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $supp(u)\subseteq U_p$,
-	$u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'intregrale a sinistra, invece, abbiamo che esiste un intorno
-	$V\times \oo{a}{b} \subseteq U_p$. Ora, una funzione $u$ con supporto contenut in $V\times \oo{a}{b}$ è tale che $u(x)=0$ per ogni
+	Se $p\in \Omega$ esisterà un intorno rettangolare $U_p=V\times \oo{a}{b}$ contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $supp(u)\subseteq U_p$,
+	$u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'intregrale a sinistra, invece, abbiamo che una funzione $u$
+	con supporto contenuto in $V\times \oo{a}{b}$ è tale che $u(x)=0$ per ogni
 	$x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il teorema fondamentale del calcolo integrale,
 	\begin{align*}
 		\int_{\Omega} \Diff u(x)_n \de x &= \int_{V\times \cc{a}{b}} \Diff u(v,t)_n \de (v,t) = \\
@@ -209,11 +212,12 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 			\begin{align*}
 				\int_{\Omega} \Diff u(x)_n \de x  &= \int_{\Omega\cap U} \Diff u(v,t)_n\de x =
 				\int_{U} \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de (v,t) = \\
-				& = \int_V \int_I \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v = \int_V \int_{-\infty}^{\psi(v)} \Diff u(v,t)_n = \\
+				& = \int_V \int_I \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v =
+				\int_V \int_{-\infty}^{\psi(v)} \Diff u(v,t)_n \de t \de v = \\
 				& = \int_V (u(v,\psi(v)) - 0) \de v = \int_V u(v,\psi(v)) \de v\punto
 			\end{align*}
 			Ora abbiamo che la funzione $g:V\rightarrow \R^n$ data da $g(v)=(v,\psi(v))$ parametrizza l'ipersuperfice data dal grafico di
-			$\psi$, quindi la misura superficiale è data da \cref{eq:MisuraSuperficialeGrafico}.
+			$\psi$, quindi la misura superficiale è data dall' \cref{eq:MisuraSuperficialeGrafico}.
 			Inoltre, detta $\nu:\partial \Omega \cap U \rightarrow \R^n$ la normale uscente da $\Omega$, sappiamo che
 			$\nu(v,\psi(v))_n=(1+\psi(v)^2)^{-\frac{1}{2}}$. Quindi per definizione di integrale superficiale abbiamo che
 			\begin{align*}
@@ -223,8 +227,8 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 				& = \int_{\partial \Omega} u(x) \nu(x)_n \de \sigma(x)\virgola
 			\end{align*}
 			dove nell'ultimo passaggio si è usato che $supp(u)\subseteq U$.
-		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e che $V=W \times J$. Ora, per il
-			\cref{thm:Fubini} abbiamo che
+		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e, a meno di considerare un intorno più piccolo,
+			che $V=W \times J$. Ora, per il \cref{thm:Fubini} abbiamo che
 			\[
 				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\virgola
 			\]
@@ -232,9 +236,9 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 			utilizzando le regole di composizione del differenziale, abbiamo che
 			\[
 				\Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
-				\int_{-\infty}^{\psi(w,s)} \Diff_s u(w,s,t) \de t + u(w,s,\psi(w,s))\Diff_s \psi (w,s)\virgola
+				\int_{-\infty}^{\psi(w,s)} \Diff_s u(w,s,t) \de t + u(w,s,\psi(w,s))\Diff_s \psi (w,s)\punto
 			\]
-			per cui, integrando il termine a sinistra su $V=W\times J=W\times \oo{a}{b}$, per il teorema fondamentale del
+			Per cui, integrando il termine a sinistra su $V=W\times J=W\times \oo{a}{b}$, per il teorema fondamentale del
 			calcolo integrale,
 			\begin{align*}
 				&\int_W \int_a^b \Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t \de s \de w = \\
@@ -256,32 +260,32 @@ Il \cref{lem:GrapVar} ci permette quindi di costruire un misura superficiale su 
 	\end{description}
 	Questo conclude il primo punto.
 	
-	Per la seconda parte procediamo in questo modo. Intanto, osserviamo che se $f\in C^1(\R^n)$ ha supporto $U\cap \bar\Omega = \emptyset$, la
-	\cref{eq:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
+	Per la seconda parte procediamo in questo modo. Intanto, osserviamo che se $f\in C^1(\R^n)$ ha supporto $U$ tale che $U\cap \bar\Omega =
+	\emptyset$, la \cref{eq:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
 	Consideriamo ora, per ogni punto $p\in \bar\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}$ è un
 	ricoprimento aperto del compatto $\bar \Omega$, quindi consideriamo un sottoricoprimento finito $U_1,\dots,U_n$; consideriamo anche
-	$U_0=\R^n \setminus \bar\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^\{\infty\}$, per $0\leq i \leq n$,
+	$U_0=\R^n \setminus \bar\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^{\infty}$, per $0\leq i \leq n$,
 	tali che la loro somma è la funzione costante $1$.
 	Sia ora $u\in C^1(\R^n,\R)$ una qualsiasi funzione. Otteniamo che
 	\[
 		u = \sum_{i=0}^n f_i\cdot u\virgola
 	\]
-	ma ora abbiamo che $f_i \cdot u$ soddisfa l'\cref{eq:FormulaStokes} per ogni $i$; infatti, per $i=0$ è vero per quanto appena osservato,
-	per $i>0$, la funzione $f_i \cdot u$ ha supporto contenuto in $U_p$ per qualche $p\in \bar\Omega$ e, per quanto dimostrato nel punto precedente,
-	abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ soddisfa l'\cref{eq:FormulaStokes}. Per linearità degli integrali e quindi dei membri
-	che compaiono in questa equazione, è chiaro che le funzioni che soddisfano formano un sottospazio vettoriale di $C^1$. In particolare $u$
-	soddisfa la formula di Stokes.
+	ma ora abbiamo che $f_i \cdot u$ (che è una funzione $C^1$) soddisfa l'\cref{eq:FormulaStokes} per ogni $i$; infatti, per $i=0$ è vero
+	per quanto appena osservato, per $i>0$, la funzione $f_i \cdot u$ ha supporto contenuto in $U_p$ per qualche $p\in \bar\Omega$ e, per quanto
+	dimostrato nel punto precedente, abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ soddisfa l'\cref{eq:FormulaStokes}.
+	Per linearità degli integrali e quindi dei membri che compaiono in questa equazione, è chiaro che le funzioni che soddisfano formano
+	un sottospazio vettoriale di $C^1$. In particolare $u$ soddisfa la formula di Stokes.
 \end{proof}
 
-Un'immediata del teorema appena dimostrato è la seguente:ù
+Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 
 \begin{corollary}(Teorema della divergenza)
 	\label{cor:thDivergenza}
 	Sia $u:\bar\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
 	\begin{equation}\label{eq:thDivergenza}
-		\int_{\Omega} \text{div}u (x) \de x = \int_{\partial \Omega} <u(y),\nu(y)> \de \sigma(y)\puntovirgola
+		\int_{\Omega} \text{div }u (x) \de x = \int_{\partial \Omega} <u(y),\nu(y)> \de \sigma(y)\puntovirgola
 	\end{equation}
-	dove l'operatore di divergenza è definito da $\text{div}u=\text{tr}\Diff u$.
+	dove l'operatore di divergenza è definito da $\text{div }u(x==\text{tr }\Diff u(x)$.
 \end{corollary}
 
 \begin{proof}
@@ -302,9 +306,10 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \begin{corollary}(Prima formula di Green)
 	Siano $u\in C^1(\bar\Omega, \R)$ e $v\in C^2(\bar\Omega, \R)$, allora si ha
 	\[
-		\int_{\Omega}\left(u\Delta v+<\text{grad}u,\text{grad}>\right)de x=\int_{\bar\Omega}u\frac{\partial v}{\partial\nu}\de\sigma(y)\virgola
+		\int_{\Omega} \left( u \Delta v+< \text{grad }u,\text{grad }v> \right) de x=
+		\int_{\bar \Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
 	\]
-	dove l'operatore $\Delta v = \sum_{j=1}^n \Diff_{jj} v$ è il laplaciano.
+	dove l'operatore $\Delta v = \sum_{j=1}^n \Diff_{jj} v$ è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\Diff v(x)[\nu]$.
 \end{corollary}
 
 \begin{proof}
@@ -315,8 +320,8 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \begin{corollary}(Seconda formula di Green)
 	Siano $u,v\in C^2(\bar\Omega, \R)$ allora si ha che
 	\[
-		\int_{\Omega}\left(u\Delta v-v\Delta u\right)de x=
-		\int_{\bar\Omega}u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu}\de\sigma(y)\punto
+		\int_{\Omega}\left(u\Delta v-v\Delta u\right) \de x=
+		\int_{\bar\Omega}u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu} \de \sigma(y)\punto
 	\]
 \end{corollary}
 
