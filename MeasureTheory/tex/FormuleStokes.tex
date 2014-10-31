@@ -38,7 +38,7 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			\[
 				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\Diff f(v')_n\delta+\smallO(\delta)=\Diff f(v')\delta+\smallO(\delta)\virgola
 			\]
-			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{2}\Diff f(v')_n\geq \frac{1}{4}\Diff
+			che, per $\delta>0$ e abbastanza piccolo, dà $f(v',\psi(v')+\delta)\geq \frac{1}{2}\Diff f(v')_n\delta\geq \frac{1}{4}\Diff
 			f(x)_n\delta>0$. Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
 			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
 			che sia zero per la funzione $f(v',\cdot)$, contraddicendo il teorema della funzione implicita del Dini.
@@ -87,7 +87,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{lemma}
 
 \begin{proof}
-	L'implicazione del ``se'' è banale per la caraterizzazione del punto \cref{PRE:i}. Per l'altra implicazione, per la regolarità dei punti
+	L'implicazione del ``se'' è banale per la caratterizzazione del punto \cref{PRE:i}. Per l'altra implicazione, per la regolarità dei punti
 	del bordo di $\Omega$, consideriamo per ogni $x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$
 	come nel \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto;
 	quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$  e prendiamo anche $U_0 = \R^n \setminus \partial \Omega$.
@@ -143,7 +143,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \end{proof}
 
 \begin{remark}
-	Per ogni $v$ tangente a $\partial\Omega$ in $x$ si ha che $<v,\nu(x)>=0$. Ma qui bisognerebbe spendere un paio di parole su cosa significhi
+	Per ogni $v$ tangente a $\partial\Omega$ in $x$ si ha che $v\cdot\nu(x)=0$. Ma qui bisognerebbe spendere un paio di parole su cosa significhi
 	essere tangente a $\partial\Omega$.
 \end{remark}
 
@@ -283,9 +283,9 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 	\label{cor:thDivergenza}
 	Sia $u:\bar\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
 	\begin{equation}\label{eq:thDivergenza}
-		\int_{\Omega} \text{div }u (x) \de x = \int_{\partial \Omega} <u(y),\nu(y)> \de \sigma(y)\puntovirgola
+		\int_{\Omega} \text{div }u (x) \de x = \int_{\partial \Omega} u(y)\cdot\nu(y) \de \sigma(y)\puntovirgola
 	\end{equation}
-	dove l'operatore di divergenza è definito da $\text{div }u(x==\text{tr }\Diff u(x)$.
+	dove l'operatore di divergenza è definito da $\text{div }u(x)=\text{tr }\Diff u(x)$.
 \end{corollary}
 
 \begin{proof}
@@ -297,7 +297,7 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 	\[
 		\int_{\Omega} \sum_{j=0}^n\Diff u^j(x)_j \de x = \int_{\partial \Omega} \sum_{j=0}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
 	\]
-	Ma ora, $\text{div}u (x)= \text{tr}\Diff u(x) = \sum_{j=0}^n \Diff u^j(x)_j$ e $<u(x),\nu(x)>=\sum_{j=0}^n u^j(y)\nu(y)_j$,
+	Ma ora, $\text{div}u (x)= \text{tr}\Diff u(x) = \sum_{j=0}^n \Diff u^j(x)_j$ e $u(x)\cdot\nu(x)=\sum_{j=0}^n u^j(y)\nu(y)_j$,
 	quindi si ha la tesi.
 \end{proof}
 
@@ -306,7 +306,7 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \begin{corollary}(Prima formula di Green)
 	Siano $u\in C^1(\bar\Omega, \R)$ e $v\in C^2(\bar\Omega, \R)$, allora si ha
 	\[
-		\int_{\Omega} \left( u \Delta v+< \text{grad }u,\text{grad }v> \right) de x=
+		\int_{\Omega} \left( u \Delta v+ \text{grad }u\cdot\text{grad }v \right) \de x=
 		\int_{\bar \Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
 	\]
 	dove l'operatore $\Delta v = \sum_{j=1}^n \Diff_{jj} v$ è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\Diff v(x)[\nu]$.
