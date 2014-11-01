@@ -133,10 +133,16 @@
 \newcommand{\simp}{\ensuremath{\varphi}}%Funzione semplice
 \newcommand{\Borel}{\ensuremath{\mathcal B}}%Boreliani
 
+
 \newcommand{\de}{\ensuremath{\,\mathrm d}}%Il de degli integrali
 \newcommand{\Diff}{\ensuremath{\mathrm D}}%Simbolo del differenziale
-\newcommand{\LNorm}[1]{\ensuremath{\Vert #1\Vert_1}}
-\newcommand{\aint}{\ensuremath{\fint}}
+\newcommand{\LNorm}[1]{\ensuremath{\Vert #1\Vert_1}}%Norma L^1
+\newcommand{\aint}{\ensuremath{\fint}}%Integrale mediato
+% \newcommand{\div}{\mathop{\mathrm{div}}\nolimits}
+\let\divsymb\div
+\let\div\undefined
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\tr}{tr}
 
 \newcommand{\bigO}{\ensuremath{\mathcal{O}}}
 \newcommand{\smallO}{\ensuremath{\mathrm{o}}}
