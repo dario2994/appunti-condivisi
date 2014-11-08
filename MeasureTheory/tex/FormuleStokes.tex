@@ -1,6 +1,7 @@
 \section{Formule di Stokes}\label{sezione:FormuleStokes}
 
-Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto.
+Iniziamo con lo studio degli insiemi regolari che ci interessano per il teorema di Stokes.
+A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
 
 \begin{theorem}\label{thm:PtRegEquiv}
 	Per un punto $x\in \partial \Omega$ le seguenti $3$ condizioni sono equivalenti:
@@ -34,7 +35,7 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che $f(v,\psi(v))=0$ e $\psi(v)$
 			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
 			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\grad f(v')_n>\frac{1}{2}
-			\grad f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $v'$ si ha che %TODO: Chi è \delta?
+			\grad f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $v'$ si ha, per $\delta\in \R$,
 			\[
 				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\grad f(v')_n\delta+\smallO(\delta)=\grad f(v')_n\delta+\smallO(\delta)\virgola
 			\]
@@ -60,7 +61,12 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 			\end{align*}
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
 			di $x$ e $\R^n$.
-		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione è sufficiente scegliere $f=(g^{-1})_n$. %TODO: Perchè funziona questa scelta?
+		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione è sufficiente scegliere $f=(g^{-1})_n$, infatti, $g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
+			In particolare, ogni riga della matrice del differenziale non è nulla (quindi neanche $\nabla f$) e le condizioni sulla $g$ si traducono immediatamente in quelle chieste alla $f$:
+			\[
+				U\cap \partial \Omega = g(\R^{n-1}\times\{0\}) \Rightarrow g^{-1}(U\cap \partial \Omega) = \R^{n-1}\times\{0\}
+			\]
+			cioè, $(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per i negativi.
 	\end{description}
 \end{proof}
 
@@ -70,12 +76,15 @@ Durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aper
 	al \cref{thm:PtRegEquiv}.
 \end{definition}
 
-D'ora in poi assumeremo che $\Omega$ sia anche limitato.
+Abbiamo quindi definito il tipo di regolarità che ci serve per i nostri scopi. Ma questa, ancora, è una nozione locale. Diamo allora la definizione globale.
 
 \begin{definition}[Aperto regolare]
 	Diremo che $\Omega$ è un aperto regolare se tutti i punti del suo bordo sono regolari.
 \end{definition}
 
+Questi insiemi saranno di cruciale importanza perché i principali risultati di questa sezione riguardano tutti insiemi di questo tipo.
+
+Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per estendere funzioni definite solo localmente a funzioni in tutto lo spazio. Tale teorema sarà utilizzato in più punti lungo la sezione.
 
 \begin{theorem}[Partizione dell'unità]\label{thm:PartizioneUnita}
 	Dato un ricoprimento di $\R^n$ con aperti $(\Omega_i)_{i\in I}$, esiste una famiglia di funzioni $f_i:\R^n\to\Rpiu$ infinitamente derivabili
@@ -89,8 +98,10 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	TODO
 \end{proof}
 
+Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizione di aperto regolare che coinvolga una sola funzione definita in tutto lo spazio.
+
 \begin{lemma}\label{lemma:EquivRegolare}
-	$\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $\grad \phi(x)\neq 0$ se $\phi(x)=0$ e tale che
+	Abbiamo che $\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $\grad \phi(x)\neq 0$ se $\phi(x)=0$ e tale che
 	\begin{itemize}
 		\item $\Omega = \phi^{-1}(\oo{-\infty}{0})$,
 		\item $\partial \Omega = \phi^{-1}(0)$.
@@ -100,14 +111,14 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 \begin{proof}
 	L'implicazione del ``se'' è banale per la caratterizzazione del punto \ref{PRE:i}. Per l'altra implicazione, per la regolarità dei punti
 	del bordo di $\Omega$, consideriamo per ogni $x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$
-	come nel \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto;
+	come nel \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto di $\partial \Omega$;
 	quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$  e prendiamo anche $U_0 = \R^n \setminus \partial \Omega$.
 	Ora abbiamo che gli aperti $U_0,\dots,U_n$ sono un ricoprimento di $\R^n$;
 	il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_i$ per ogni $i\in\{0,\dots, n\}$.
-	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. Sia ora 
+	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. (Avevamo già delle funzioni $\psi_i$ per ognuno degli altri $U_i$). Sia ora 
 	\[
 		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x)\virgola
-	\] %TODO: Chi cazzo è \psi_i?
+	\]
 	dove, con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
 	$C^1$ in tutto $\R^n$. Infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
 	Ora abbiamo che $\phi\in C^1$ perché somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
@@ -115,16 +126,15 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni che, per ciascun $x\in\Omega$, sono non positive e
 	almeno di una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \overline\Omega$.
 	
-	Rimane da mostrare che $\grad f(x)\neq 0$ se $f(x)=0$. Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo
-	quando sono definite in $x$. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$. Dato che
-	le $\psi_i$ sono differenziabili, si ha che
+	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente è non nullo per ciascuna di queste e che nei punti di sovrapposizione sono concordi a 2 a 2.
+	Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$.
+	Dato che le $\psi_i$ sono differenziabili, si ha che
 	\[
 		\psi_i(x+\delta e_k)=\psi_i(x)+\grad \psi_i(x)_k \delta + \smallO(\delta) = \grad \psi_i(x)_k \delta + \smallO(\delta)
 	\]
-	per cui, dato che $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$, quindi, per $u\neq i'$, $\grad \psi_i(x)_k$ e
-	$\grad \psi_{i'}(x)_k$ non possono essere discordi, altrimenti si ha $\psi_i(x+\delta e_k)= \grad \psi_i(x)_k \delta + \smallO(\delta)>0$ e
-	$\psi_i'(x+\delta e_k)=\grad \psi_i'(x)_k \delta + \smallO(\delta)<0$ pur avendo in entrambi i casi
-	che $x+\delta e_k$ sta in $\Omega$. %TODO: Questa frase è incomprensibile. Suggerimento generale: Spendi più tempo e più righe e vai a capo e dì cosa stai facendo.
+	ma sapevamo che, per ciascun indice $i$, $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$.
+	Quindi, per $i\neq i'$, $\grad \psi_i(x)_k$ e $\grad \psi_{i'}(x)_k$ non possono essere discordi, altrimenti si ha che uno tra $\psi_i(x+\delta e_k)= \grad \psi_i(x)_k \delta + \smallO(\delta)$ e
+	$\psi_i'(x+\delta e_k)=\grad \psi_i'(x)_k \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo. In entrambi i casi, però, $x+\delta e_k$ sta in $\Omega$.
 	
 	Quindi, sempre per lo stesso $x\in\partial \Omega$,
 	\[ 
@@ -135,11 +145,13 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	$\grad \psi_i(x)_k$ che sono non discordi.
 \end{proof}
 
+La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che discrimina punti interni ed esterni ad $\Omega$ è certamente la seguente
+
 \begin{definition}
-	Chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
+	Data la $\phi$ di cui al \cref{lemma:EquivRegolare}, chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
 	\[
 		\nu(x)=\frac{\grad \phi(x)}{\lVert\grad \phi(x)\rVert}\punto
-	\] %TODO: Ma chi cazzo è \phi?
+	\]
 \end{definition}
 
 \begin{remark}
@@ -155,13 +167,7 @@ D'ora in poi assumeremo che $\Omega$ sia anche limitato.
 	Stesso ragionamento fatto nella dimostrazione del \cref{lemma:EquivRegolare}.
 \end{proof}
 
-\begin{remark}
-	Per ogni $v$ tangente a $\partial\Omega$ in $x$ si ha che $v\cdot\nu(x)=0$. Ma qui bisognerebbe spendere un paio di parole su cosa significhi
-	essere tangente a $\partial\Omega$. %TODO: Questa nota, scritta così, è controproducente. O la si toglie, o la si scrive diversamente o si approfondisce un poco la questione. Così non si capisce se è lasciata qui per sbaglio o no
-\end{remark}
-
-
-Vogliamo ora formalizzare la definizione di integrale sulla superficie $\partial\Omega$ sfruttando anche i risultati della sezione precedente.
+Forti di una solida definizione di campo normale uscente possiamo procedere con il formalizzare la definizione di integrale sulla superficie $\partial\Omega$ sfruttando anche i risultati della sezione precedente.
 
 \begin{lemma}\label{lemma:GrapVar}
 	Sia $V\in\R^{n-1}$ aperto e $f\in C^1(V,\R)$, allora il grafico di $f$ è una varietà differenziabile di dimensione $n-1$ immersa in $\R^n$.
@@ -186,6 +192,9 @@ Il \cref{lemma:GrapVar} ci permette quindi di costruire un misura superficiale s
 	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+\lVert\grad f(x)\rVert^2} \de x\punto
 \end{equation}
 
+
+Ora che sappiamo cos'è la normale uscente a $\Omega$ e come intendere l'integrale sulla superficie di questo
+abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principale risultato della sezione. Possiamo quindi enunciare 
 
 \begin{theorem}[Formula di Stokes]\label{thm:Stokes}
 	Sia $u\in C^1(\overline\Omega)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
@@ -290,6 +299,8 @@ Il \cref{lemma:GrapVar} ci permette quindi di costruire un misura superficiale s
 	un sottospazio vettoriale di $C^1$. In particolare $u$ soddisfa la formula di Stokes.
 \end{proof}
 
+Questo teorema generalizza molti risultati di calcolo vettoriale. Vediamone alcuni.
+
 Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 
 \begin{corollary}(Teorema della divergenza)
@@ -322,15 +333,25 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 		\int_{\Omega} \left( u \Delta v+ \grad u\cdot\grad v \right) \de x=
 		\int_{\overline\Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
 	\]
-	dove l'operatore $\Delta v = \sum_{j=1}^n \Diff_{jj} v$ %TODO: Questa definizione del Laplaciano o è sbagliata oppure usa una notazione tipo quella di gtd... in ogni caso non si capisce.
-	è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\Diff v(x)[\nu]$.
+	dove l'operatore $\Delta v = \div \grad v$ è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\Diff v(x)[\nu]$.
 \end{corollary}
 \begin{proof}
 	Dato che abbiamo 
 	\begin{equation*}
-		\Diff_j (v(x)\Diff u(x)_j ) = \Diff v(x)_j \Diff u(x)_j + v(x)\Diff_{jj} u(x)\virgola
-	\end{equation*} %TODO: Stesso problema dell'enunciato... non si capisce cosa vuol dire questa notazione compatta.
-	applicando il \cref{thm:Stokes} sulle funzioni $v(x)\Diff u(x)_j$ e sommando su $j$ otteniamo la tesi. %TODO: Troppo conciso.
+		\frac{\partial }{\partial j} (u(x)\nabla v(x)_j ) = \frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j\virgola
+	\end{equation*}
+	applicando il \cref{thm:Stokes} sulle funzioni $u(x)\nabla v(x)_j$ otteniamo
+	\[
+		\int_{\Omega} \left(\frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j \right)\de x = 
+		\int_{\Omega} \frac{\partial }{\partial j} (u(x)\nabla v(x)_j) \de x =
+		\int_{\partial \Omega} u(y)\nabla v(y)_j\nu(y)_j \de \sigma(y)\virgola
+	\]
+	e sommando su $j$ otteniamo la tesi dato che
+	\begin{align*}
+		&\sum_{j=1}^n \frac{\partial u}{\partial j}(x) \nabla v(x)_j = \sum_{j=1}^n \nabla u(x)_j \nabla v(x)_j = \grad u\cdot\grad v \virgola\\
+		&\sum_{j=1}^n u(x)\frac{\partial}{\partial j}\nabla v(x)_j = u \Delta v\virgola\\
+		&\sum_{j=1}^n u(y)\nabla v(y)_j\nu(y)_j = u \frac{\partial v}{\partial \nu}\punto
+	\end{align*}
 \end{proof}
 
 \begin{corollary}(Seconda formula di Green)
