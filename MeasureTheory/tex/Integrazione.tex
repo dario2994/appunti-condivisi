@@ -233,7 +233,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{lemma}
 
 \begin{proof}
-	Applichiamo il \cref{thm:BeppoLevi} alla successione di funzioni $(\inf_{k\ge n}f_k(x))_{n\in\N}$ che converge puntalmente in modo crescente alla funzione $\liminf_{n\to\infty}f_n(x)$ e otteniamo
+	Applicando il \cref{thm:BeppoLevi} alla successione $\left(\inf_{k\ge n}f_k(x)\right)_{n\in\N}$ di funzioni convergente puntalmente in modo crescente alla funzione $\liminf_{n\to\infty}f_n(x)$, otteniamo
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\virgola
 	\end{equation*}
@@ -316,7 +316,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, allora l'insieme degli $x\in X$ in cui $f$ non si annulla\footnote{In teoria della misura chiamiamo tale insieme supporto.} è \sigfin[o].
 \end{corollary}
 \begin{proof}
-	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora per il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
+	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora applicando il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
 \end{proof}
 
 
