@@ -178,6 +178,8 @@ Mostriamo ora, tramite lemmi ed esercizi, degli esempi e delle formule utili per
 	Sia $L:\R^n\to\R^{n+1}$ lineare tale che $L=\begin{pmatrix} v^T \\ I_n \end{pmatrix}$, dove $v$ è un vettore colonna e $I_n$ è la matrice identità $n\times n$. Allora $\det(L^TL)=1+\lvert v \rvert ^2$.
 \end{lemma}
 \begin{proof}
+	Per $v=0$ la tesi è ovvia, perciò assumiamo da subito $v$ diverso da 0.
+	
 	Poichè $L^TL=\begin{pmatrix} v & I_n \end{pmatrix}\begin{pmatrix} v^T \\ I_n \end{pmatrix}=I_n+vv^T$, un autovettore $x$ di $L^TL$ relativo all'autovalore $\lambda$ deve rispettare di $(I_n+vv^T)x=\lambda x$, cioè $(\lambda-1)x=(v^Tx)v$. Da questo otteniamo facilmente che tutti i vettori ortogonali a $v$ sono autovettori per $L^TL$ relativi all'autovalore 1, che quindi ha molteplicità $n-1$, e $v$ è un autovettore di $L^TL$ relativo all'autovalore $1+v^Tv$.
 	
 	Abbiamo perciò trovato tutti gli autovalori della matrice $L^TL$ e quindi $\det(L^TL)=1+v^Tv=1+\lvert v \rvert ^2$, poichè il determinante di una matrice è il prodotto dei suoi autovalori.
