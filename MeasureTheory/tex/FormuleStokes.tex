@@ -4,7 +4,7 @@ Iniziamo con lo studio degli insiemi regolari che ci interessano per il teorema 
 A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
 
 \begin{theorem}\label{thm:PtRegEquiv}
-	Per un punto $x\in \partial \Omega$ le seguenti $3$ condizioni sono equivalenti:
+	Per un punto $x\in \partial \Omega$ le seguenti tre condizioni sono equivalenti:
 	\begin{enumerate}
 		\item esistono $U$ intorno di $x$ e $f\in C^1(U,\R)$ tale che si abbia
 			\begin{itemize}
@@ -31,17 +31,17 @@ A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subse
 	\begin{description}
 		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $\grad f(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita
 			di generalità che sia l'ultima e che sia positiva (se negativa il ragionamento è lo stesso).
-			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, per cui otteniamo
-			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che $f(v,\psi(v))=0$ e $\psi(v)$
+			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, otteniamo quindi
+			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che, per ogni $v\in V$, $f(v,\psi(v))=0$ e $\psi(v)$
 			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
-			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\grad f(v')_n>\frac{1}{2}
-			\grad f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $v'$ si ha, per $\delta\in \R$,
+			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\grad f(v',\psi(v'))_n>\frac{1}{2}
+			\grad f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $(v',\psi(v'))$ si ha, per $\delta\in \R$,
 			\[
-				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\grad f(v')_n\delta+\smallO(\delta)=\grad f(v')_n\delta+\smallO(\delta)\virgola
+				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\grad f(v',\psi(v'))_n\delta+\smallO(\delta)=\grad f(v',\psi(v'))_n\delta+\smallO(\delta)\virgola
 			\]
 			che, per $\delta>0$ e abbastanza piccolo, dà
 			\begin{equation*}
-				f(v',\psi(v')+\delta)\geq \frac{1}{2}\grad f(v')_n\delta\geq \frac{1}{4}\grad f(x)_n\delta>0\punto
+				f(v',\psi(v')+\delta)\geq \frac{1}{2}\grad f(v',\psi(v'))_n\delta\geq \frac{1}{4}\grad f(x)_n\delta>0\punto
 			\end{equation*}
 			Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
 			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
@@ -52,7 +52,7 @@ A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subse
 				f^{-1}(\oo{-\infty}{0})\cap (V'\times I)&=\{(v',s):s<\psi(v')\}\virgola
 			\end{align*}
 			che conclude per le ipotesi sulle controimmagini di $f$.
-		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi$, detto $J=\oo{-\varepsilon}{\varepsilon}$
+		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\varepsilon}{\varepsilon}$
 			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(z,s)=(z,s-\psi(z))$. 
 			Di conseguenza otteniamo
 			\begin{align*}
@@ -61,22 +61,22 @@ A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subse
 			\end{align*}
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
 			di $x$ e $\R^n$.
-		\item [\ImplicationProof{PRE:ii}{PRE:i}] Per la prima condizione è sufficiente scegliere $f=(g^{-1})_n$, infatti, $g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
+		\item [\ImplicationProof{PRE:ii}{PRE:i}] È sufficiente scegliere $f=(g^{-1})_n$; infatti, $g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
 			In particolare, ogni riga della matrice del differenziale non è nulla (quindi neanche $\nabla f$) e le condizioni sulla $g$ si traducono immediatamente in quelle chieste alla $f$:
 			\[
-				U\cap \partial \Omega = g(\R^{n-1}\times\{0\}) \Rightarrow g^{-1}(U\cap \partial \Omega) = \R^{n-1}\times\{0\}
+				U\cap \partial \Omega = g(\R^{n-1}\times\{0\}) \Rightarrow g^{-1}(U\cap \partial \Omega) = \R^{n-1}\times\{0\}\virgola
 			\]
-			cioè, $(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per i negativi.
+			cioè $(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per i negativi.
 	\end{description}
 \end{proof}
 
 
 \begin{definition}[Punto regolare]
-	Diremo che un punto $x\in \partial \Omega$ è un punto regolare del bordo se verifica una delle $3$ condizioni di cui
+	Diremo che un punto $x\in \partial \Omega$ è un punto regolare del bordo se verifica una delle tre condizioni di cui
 	al \cref{thm:PtRegEquiv}.
 \end{definition}
 
-Abbiamo quindi definito il tipo di regolarità che ci serve per i nostri scopi. Ma questa, ancora, è una nozione locale. Diamo allora la definizione globale.
+Abbiamo quindi definito il tipo di regolarità che serve ai nostri scopi. Ma questa, ancora, è una nozione locale. Diamo allora la definizione globale.
 
 \begin{definition}[Aperto regolare]
 	Diremo che $\Omega$ è un aperto regolare se tutti i punti del suo bordo sono regolari.
@@ -84,7 +84,7 @@ Abbiamo quindi definito il tipo di regolarità che ci serve per i nostri scopi. 
 
 Questi insiemi saranno di cruciale importanza perché i principali risultati di questa sezione riguardano tutti insiemi di questo tipo.
 
-Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per estendere funzioni definite solo localmente a funzioni in tutto lo spazio. Tale teorema sarà utilizzato in più punti lungo la sezione.
+Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per estendere funzioni definite solo localmente a funzioni in tutto lo spazio. Tale teorema sarà utilizzato in più punti della sezione.
 
 \begin{theorem}[Partizione dell'unità]\label{thm:PartizioneUnita}
 	Dato un ricoprimento di $\R^n$ con aperti $(\Omega_i)_{i\in I}$, esiste una famiglia di funzioni $f_i:\R^n\to\Rpiu$ infinitamente derivabili
@@ -98,7 +98,7 @@ Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per 
 	TODO
 \end{proof}
 
-Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizione di aperto regolare che coinvolga una sola funzione definita in tutto lo spazio.
+Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizione di aperto regolare che coinvolga una sola funzione definita globalmente.
 
 \begin{lemma}\label{lemma:EquivRegolare}
 	Abbiamo che $\Omega$ è un aperto regolare se e solo se esiste una funzione $\phi\in C^1(\R^n,\R)$ tale che $\grad \phi(x)\neq 0$ se $\phi(x)=0$ e tale che
@@ -109,22 +109,25 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 \end{lemma}
 
 \begin{proof}
-	L'implicazione del ``se'' è banale per la caratterizzazione del punto \ref{PRE:i}. Per l'altra implicazione, per la regolarità dei punti
+	L'implicazione del ``se'' è banale per la caratterizzazione del punto \ref{PRE:i}, dimostriamo quindi l'altra implicazione. 
+	
+	Per la regolarità dei punti
 	del bordo di $\Omega$, consideriamo per ogni $x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$
-	come nel \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto di $\partial \Omega$;
-	quindi consideriamo un sottoricoprimento finito $U_1, \dots, U_n$  e prendiamo anche $U_0 = \R^n \setminus \partial \Omega$.
-	Ora abbiamo che gli aperti $U_0,\dots,U_n$ sono un ricoprimento di $\R^n$;
-	il \cref{thm:PartizioneUnita} fornisce quindi delle funzioni $f_i$ per ogni $i\in\{0,\dots, n\}$.
-	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti. (Avevamo già delle funzioni $\psi_i$ per ognuno degli altri $U_i$). Sia ora 
+	come nel punto \ref{PRE:iii} del \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto di $\partial \Omega$; possiamo
+	quindi estrarre un sottoricoprimento finito $U_1, \dots, U_n$ di $\partial\Omega$. Chiamando $U_0 = \R^n \setminus \partial \Omega$,
+	abbiamo perciò che gli aperti $U_0,\dots,U_n$ sono un ricoprimento di $\R^n$ e di conseguenza
+	il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i$ per ogni $i\in\{0,\dots, n\}$ con tutte le proprietà descritte.
+	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti (per ognuno degli altri $U_i$ abbiamo già delle funzioni $\psi_i$). Sia ora 
 	\[
 		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x)\virgola
 	\]
 	dove, con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
-	$C^1$ in tutto $\R^n$. Infatti, in $U_i$, $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$, altrove l'abbiamo posta uguale a zero.
+	$C^1$ in tutto $\R^n$. Infatti, dove sono definite entrambe (cioè in $U_i$), $f_i(x)\psi_i(x)$ è $C^1$, perchè $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$; inoltre la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $U_i$ e perciò non ci sono problemi nel passaggio all'esterno di $U_i$, dove abbiamo posto il prodotto uguale a 0.
+	
 	Ora abbiamo che $\phi\in C^1$ perché somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
-	$\psi_i$ aveva questa proprietà se era definita in $x$ e la $\phi$ è una combinazione convessa di $\psi_i$;
+	$\psi_i$ aveva questa proprietà se era definita in $x$;
 	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni che, per ciascun $x\in\Omega$, sono non positive e
-	almeno di una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \overline\Omega$.
+	delle quali almeno una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \overline\Omega$.
 	
 	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente è non nullo per ciascuna di queste e che nei punti di sovrapposizione sono concordi a 2 a 2.
 	Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$.
@@ -145,7 +148,7 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 	$\grad \psi_i(x)_k$ che sono non discordi.
 \end{proof}
 
-La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che discrimina punti interni ed esterni ad $\Omega$ è certamente la seguente
+La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che discrimina punti interni ed esterni ad $\Omega$ è certamente la seguente.
 
 \begin{definition}[Campo normale esterno]
 	Data la $\phi$ di cui al \cref{lemma:EquivRegolare}, chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
