@@ -1,5 +1,5 @@
 \section{Definizioni e fatti introduttivi}
-In questa sezione definiremo tutti gli oggetti necessari per fondare la teoria della misura e dimostreremo alcuni fatti, perlopiù di carattere insiemistico su di essi.
+In questa sezione definiremo tutti gli oggetti necessari per fondare la teoria della misura e dimostreremo alcuni fatti, perlopiù di carattere insiemistico, su di essi.
 
 In particolare definiremo alcune strutture insiemistiche (algebre, \sigalg[e], \semiring[i]) e ne dimostreremo alcune proprietà. Poi passeremo a trattare gli spazi di misura ed alcune loro \emph{versioni più deboli} come le misure esterne e le premisure.
 
@@ -106,7 +106,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 \begin{definition}[{\sigadd[ità]}]
 	Una funzione $\mu:\mathcal F\to \Rpiu$, dove $\mathcal F$ è una famiglia di insiemi, si dice \sigadd{} se per ogni sottofamiglia numerabile $(F_n)_{n\in\N}\subseteq \mathcal F$ a due a due disgiunta, tale che l'unione appartiene a $\mathcal F$, vale
 	\begin{equation*}
-		\mu\left(\bigcup_{n\in\N}F_n \right)=\sum_{n\in\N} \mu(F_n) \punto
+		\mu\left(\bigsqcup_{n\in\N}F_n \right)=\sum_{n\in\N} \mu(F_n) \punto
 	\end{equation*}
 \end{definition}
 
@@ -153,14 +153,14 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Più in generale si diranno trascurabili tutti gli insiemi, eventualmente non misurabili, che sono sottoinsieme di un insieme di misura nulla.
 \end{definition}
 \begin{remark}\label{nota:UnioneTrascurabili}
-	Unione numerabile di insiemi trascurabile è a sua volta trascurabile.
+	Unione numerabile di insiemi trascurabili è a sua volta trascurabile.
 \end{remark}
 \begin{proof}
 	È un'ovvia conseguenza della \sigsubadd[ità] della misura dimostrata nella \cref{nota:SubAdditivitaMisura}.
 \end{proof}
 
 \begin{definition}\label{def:QuasiOvunque}
-	Nel seguito i termini \emph{quasi ovunque} e \emph{quasi sempre} e \emph{quasi per ogni}, implicitamente riferiti ad uno spazio di misura, definiranno proposizioni che valgono per ogni elemento tranne alpiù per un sottoinsieme trascurabile di elementi.
+	Nel seguito i termini \emph{quasi ovunque} e \emph{quasi sempre} e \emph{quasi per ogni}, implicitamente riferiti ad uno spazio di misura, definiranno proposizioni che valgono per ogni elemento tranne al più per un sottoinsieme trascurabile di elementi.
 \end{definition}
 
 
@@ -308,7 +308,7 @@ Da notare infine che la definizione di \semiring{} non è quella canonica (né f
 	Sia $A'_n=A_n\setminus\bigcup_{i<n}A_i$. La successione $(A'_n)_{n\in\N}$ è disgiunta a due a due e ogni singolo elemento appartiene a $\sqcup \S$ visto che vale $A'_n=\bigcap_{i<n}A_n\setminus A_i$ e $\sqcup \S$ è chiuso per intersezione finita, come mostrato nella \cref{prop:UnioneDisgiuntaQuasiAlgebra}. Infine è chiaro che l'unione della nuova famiglia è uguale a quella di $(A_n)_{n\in\N}$.
 	È importante notare che $A_n\setminus A'_n=A_n\cap\bigcup_{i<n}A_i\in\sqcup\S$ dove l'ultima appartenenza è vera per la stabilità di $\sqcup\S$ per unioni e intersezioni finite. Allora esistono $(E^n_i)_{i\in\N}\subseteq\S$ tali che in unione disgiunta realizzano $A_n\setminus A'_n$.
 	
-	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\S$ poiché intersezione di elementi che vi appartengono. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\S$ la cui unione disgiunta realizza $C_{ij}$.
+	Siano quindi $C_{ij}=A'_i\cap B_j$. Ovviamente la successione $(C_{ij})_{i,j\in\N}$ è disgiunta a due a due (perché lo sono sia $(A'_n)_{n\in\N}$ che $(B_n)_{n\in\N}$) ed è un sottoinsieme di $\sqcup\S$ poiché ogni $C_{ij}$ è intersezione di elementi in $\sqcup\S$. Quindi esiste la famiglia $(F^{ij}_n)_{n\in\N}\subseteq\S$ la cui unione disgiunta realizza $C_{ij}$.
 	
 	Ora per costruzione e per le osservazioni fatte valgono le identità
 	\begin{gather*}
