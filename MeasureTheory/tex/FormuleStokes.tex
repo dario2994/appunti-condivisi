@@ -129,22 +129,23 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni che, per ciascun $x\in\Omega$, sono non positive e
 	delle quali almeno una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \overline\Omega$.
 	
-	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente è non nullo per ciascuna di queste e che nei punti di sovrapposizione sono concordi a 2 a 2.
-	Ma in ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$.
+	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente di ciascuna di queste è non nullo e che nei punti di sovrapposizione tali gradienti sono concordi a due a due.
+	
+	In ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$.
 	Dato che le $\psi_i$ sono differenziabili, si ha che
 	\[
-		\psi_i(x+\delta e_k)=\psi_i(x)+\grad \psi_i(x)_k \delta + \smallO(\delta) = \grad \psi_i(x)_k \delta + \smallO(\delta)
+		\psi_i(x+\delta e_k)=\psi_i(x)+\grad \psi_i(x)_k \delta + \smallO(\delta) = \grad \psi_i(x)_k \delta + \smallO(\delta)\punto
 	\]
-	ma sapevamo che, per ciascun indice $i$, $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$.
+	Sapevamo però che, per ciascun indice $i$, $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$.
 	Quindi, per $i\neq i'$, $\grad \psi_i(x)_k$ e $\grad \psi_{i'}(x)_k$ non possono essere discordi, altrimenti si ha che uno tra $\psi_i(x+\delta e_k)= \grad \psi_i(x)_k \delta + \smallO(\delta)$ e
-	$\psi_i'(x+\delta e_k)=\grad \psi_i'(x)_k \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo. In entrambi i casi, però, $x+\delta e_k$ sta in $\Omega$.
+	$\psi_i'(x+\delta e_k)=\grad \psi_i'(x)_k \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo, ma questo sarebbe assurdo perchè in entrambi i casi $x+\delta e_k$ sta in $\Omega$.
 	
-	Quindi, sempre per lo stesso $x\in\partial \Omega$,
+	Quindi, sempre per lo stesso $x\in\partial \Omega$, utilizzando che $\psi_i\equiv 0$ sul bordo, otteniamo
 	\[ 
 		\grad \phi(x)=\sum_{i=0}^n \grad (f_i \cdot\psi_i)(x)=\sum_{i=0}^n \grad f_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot \grad \psi_i(x)=
-		\sum_{i=0}^n f_i(x)\cdot \grad  \psi_i(x)\virgola
+		\sum_{i=0}^n f_i(x)\cdot \grad  \psi_i(x)\punto
 	\]
-	poiché $\psi_i\equiv 0$ sul bordo; quindi $\grad \phi(x)$ non è nullo perché la $j$-esima componente è combinazione convessa di
+	Perciò $\grad \phi(x)$ non è nullo perché la $k$-esima componente è combinazione convessa di
 	$\grad \psi_i(x)_k$ che sono non discordi.
 \end{proof}
 
@@ -176,9 +177,9 @@ Forti di una solida definizione di campo normale uscente possiamo procedere con 
 	Sia $V\in\R^{n-1}$ aperto e $f\in C^1(V,\R)$, allora il grafico di $f$ è una varietà differenziabile di dimensione $n-1$ immersa in $\R^n$.
 \end{lemma}
 \begin{proof}
-	Sia $g:V\rightarrow \R^n$ data da $g(x)=(x,f(x))$. Ora è chiaro che graf$(f)$ è l'immagine di $g$; inoltre $g$ è banalmente di classe $C^1$
-	e, se vista come funzione da $V$ in graf$(f)$ è anche un omeomorfismo. Inoltre $\Diff g(x)[h]=(h,\Diff f(x)[h])$, in particolare il differenziale è
-	iniettivo in ogni punto, quindi $g$ è una immersione iniettiva, cioè è una parametrizzazione $C^1$ di graf$(f)$.
+	Sia $g:V\rightarrow \R^n$ data da $g(x)=(x,f(x))$. Ora è chiaro che $\graf(f)$ è l'immagine di $g$; inoltre $g$ è banalmente di classe $C^1$
+	e, se vista come funzione da $V$ in $\graf(f)$, è anche un omeomorfismo. Infine $\Diff g(x)[h]=(h,\Diff f(x)[h])$, perciò in particolare il differenziale di $g$ è
+	iniettivo in ogni punto. Quindi $g$ è una immersione iniettiva, cioè è una parametrizzazione $C^1$ di $\graf(f)$.
 \end{proof}
 
 \begin{remark}
@@ -190,25 +191,25 @@ Forti di una solida definizione di campo normale uscente possiamo procedere con 
 	\end{smallmatrix}\right)$, quindi per il \cref{lemma:DeterminanteMatriceQuasiIdentita} vale che $\det (\Diff g(x)^T \Diff g(x)) = 1+\lVert\grad f(x)\rVert^2$. 
 \end{remark}
 
-Il \cref{lemma:GrapVar} ci permette quindi di costruire un misura superficiale su graf$(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
+Il \cref{lemma:GrapVar} ci permette quindi di costruire un misura superficiale su $\graf(f)$ in accordo con la \cref{def:MisuraKDimensionale}:
 \begin{equation}\label{eq:MisuraSuperficialeGrafico}
 	\sigma(E)=\int_{g^{-1}(E)} \sqrt{1+\lVert\grad f(x)\rVert^2} \de x\punto
 \end{equation}
 
 
-Ora che sappiamo cos'è la normale uscente a $\Omega$ e come intendere l'integrale sulla superficie di questo
-abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principale risultato della sezione. Possiamo quindi enunciare 
+Ora che sappiamo cos'è la normale uscente ad un aperto regolare e sappiamo come intendere l'integrale sulla sua superficie,
+abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principale risultato della sezione. Possiamo quindi enunciare il teorema di Stokes.
 
 \begin{theorem}[Formula di Stokes]\label{thm:Stokes}
-	Sia $u\in C^1(\overline\Omega)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
-	$\Omega'\supseteq \overline\Omega$), sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
+	Sia $u\in C^1(\overline\Omega,\R)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
+	$\Omega'\supseteq \overline\Omega$) e sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
 	\begin{equation}\label{eq:FormulaStokes}
 		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	Per la dimostrazione si procederà in 2 step:
+	Per la dimostrazione si procederà in due step:
 	\begin{enumerate}
 		\item per ogni $p\in \overline\Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
 			tale che l'\cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $\supp(u)\subseteq U_p$;
