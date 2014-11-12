@@ -204,7 +204,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	Sia $u\in C^1(\overline\Omega,\R)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
 	$\Omega'\supseteq \overline\Omega$) e sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
 	\begin{equation}\label{eq:FormulaStokes}
-		\int_{\Omega} \Diff u(x)_j \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
+		\int_{\Omega} \grad u(x)_j \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
 	\end{equation}
 \end{theorem}
 
@@ -218,43 +218,44 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	\end{enumerate}
 	
 	Dimostriamo quindi il primo punto, distinguendo i casi in cui $p\in \Omega$ e $p\in \partial \Omega$.
-	Se $p\in \Omega$ esisterà un intorno rettangolare $U_p=V\times \oo{a}{b}$ contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $\supp(u)\subseteq U_p$,
-	$u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'integrale a sinistra, invece, abbiamo che una funzione $u$
+	Se $p\in \Omega$ esiste un intorno rettangolare $U_p=V\times \oo{a}{b}$ di $p$ (con $V\subseteq \R^{n-1}$) contenuto in $\Omega$, poiché quest'ultimo è un aperto. Se ora $\supp(u)\subseteq U_p$,
+	allora $u(\partial \Omega)=0$; quindi abbiamo che l'integrale a destra è $0$. Per l'integrale a sinistra, invece, abbiamo che una funzione $u$
 	con supporto contenuto in $V\times \oo{a}{b}$ è tale che $u(x)=0$ per ogni
-	$x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il teorema fondamentale del calcolo integrale,
+	$x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il teorema fondamentale del calcolo integrale, vale che
 	\begin{align*}
-		\int_{\Omega} \Diff u(x)_n \de x &= \int_{V\times \cc{a}{b}} \Diff u(v,t)_n \de (v,t) = \\
-		& = \int_V \int_{\cc{a}{b}} \Diff u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
+		\int_{\Omega} \grad u(x)_n \de x &= \int_{V\times \cc{a}{b}} \grad u(v,t)_n \de (v,t) = \\
+		& = \int_V \int_{\cc{a}{b}} \grad u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
 	\end{align*}
 	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$. Se invece $p\in \partial \Omega$, allora $p$ è un punto regolare, cioè esiste
-	un intorno $U=V\times I$ di $p$ e una $\phi\in C^1(V,I)$ tale che
+	un intorno $U_p=V\times I$ di $p$ e una $\psi\in C^1(V,I)$ tale che
 	\begin{itemize}
-		\item $U\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
-		\item $U\cap \Omega = \{(z,s):s<\psi(z)\}$.
+		\item $U_p\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
+		\item $U_p\cap \Omega = \{(z,s):s<\psi(z)\}$.
 	\end{itemize}
 	Distinguiamo ora i casi $j=n$ e $j\neq n$.
 	\begin{description}
-		\item [$j=n$:] Dato che stiamo supponendo che $\supp(u)\subseteq U$, per il \cref{thm:Fubini} abbiamo che
+		\item [$j=n$:] Dato che stiamo supponendo che $\supp(u)\subseteq U_p$, per il \cref{thm:Fubini} abbiamo che
 			\begin{align*}
-				\int_{\Omega} \Diff u(x)_n \de x  &= \int_{\Omega\cap U} \Diff u(v,t)_n\de x =
-				\int_{U} \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de (v,t) = \\
-				& = \int_V \int_I \Diff u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v =
-				\int_V \int_{-\infty}^{\psi(v)} \Diff u(v,t)_n \de t \de v = \\
+				\int_{\Omega} \grad u(x)_n \de x  &= \int_{\Omega\cap U_p} \grad u(v,t)_n\de (v,t) =
+				\int_{U_p} \grad u(v,t)_n \chi_{\{t<\psi(v)\}} \de (v,t) = \\
+				& = \int_V \int_I \grad u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v =
+				\int_V \int_{-\infty}^{\psi(v)} \grad u(v,t)_n \de t \de v = \\
 				& = \int_V (u(v,\psi(v)) - 0) \de v = \int_V u(v,\psi(v)) \de v\punto
 			\end{align*}
+			
 			Ora abbiamo che la funzione $g:V\rightarrow \R^n$ data da $g(v)=(v,\psi(v))$ parametrizza l'ipersuperfice data dal grafico di
 			$\psi$, quindi la misura superficiale è data dall' \cref{eq:MisuraSuperficialeGrafico}.
-			Inoltre, detta $\nu:\partial \Omega \cap U \rightarrow \R^n$ la normale uscente da $\Omega$, sappiamo che
-			$\nu(v,\psi(v))_n=(1+\psi(v)^2)^{-\frac{1}{2}}$. Quindi per definizione di integrale superficiale abbiamo che
+			Inoltre, detta $\nu:\partial \Omega \cap U_p \rightarrow \R^n$ la normale uscente da $\Omega$, sappiamo che
+			$\nu(v,\psi(v))_n=(1+\lVert\grad\psi(v)\rVert^2)^{-\frac{1}{2}}$. Quindi per definizione di integrale superficiale abbiamo che
 			\begin{align*}
-				\int_V u(v,\psi(v)) \de v &= \int_V u(v,\psi(v)) (1+\psi(v)^2)^{-\frac{1}{2}} (1+\psi(v)^2)^{\frac{1}{2}} \de v = \\
-				& = \int_V u(v,\psi(v)) \nu(v,\psi(v))_n (1+\psi(v)^2)^{\frac{1}{2}} \de v = \\
-				& = \int_{\partial \Omega \cap U} u(x) \nu(x)_n \de \sigma(x) = \\
+				\int_V u(v,\psi(v)) \de v &= \int_V u(v,\psi(v)) (1+\lVert\grad\psi(v)\rVert^2)^{-\frac{1}{2}} (1+\lVert\grad\psi(v)\rVert^2)^{\frac{1}{2}} \de v = \\
+				& = \int_V u(v,\psi(v)) \nu(v,\psi(v))_n (1+\lVert\grad\psi(v)\rVert^2)^{\frac{1}{2}} \de v = \\
+				& = \int_{\partial \Omega \cap U_p} u(x) \nu(x)_n \de \sigma(x) = \\
 				& = \int_{\partial \Omega} u(x) \nu(x)_n \de \sigma(x)\virgola
 			\end{align*}
-			dove nell'ultimo passaggio si è usato che $\supp(u)\subseteq U$.
+			dove nell'ultimo passaggio si è usato che $\supp(u)\subseteq U_p$.
 		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e, a meno di considerare un intorno più piccolo,
-			che $V=W \times J$. Ora, per il \cref{thm:Fubini} abbiamo che
+			che $V=W \times J$. Ora, per il \cref{thm:Fubini}, abbiamo che
 			\[
 				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\virgola
 			\]
@@ -286,21 +287,21 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	\end{description}
 	Questo conclude il primo punto.
 	
-	Per la seconda parte procediamo in questo modo. Intanto, osserviamo che se $f\in C^1(\R^n)$ ha supporto $U$ tale che $U\cap \overline\Omega =
-	\emptyset$, la \cref{eq:FormulaStokes} è banalmente vera in quanto entrabi i membri sono banalmente nulli.
-	Consideriamo ora, per ogni punto $p\in \overline\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}$ è un
-	ricoprimento aperto del compatto $\overline\Omega$, quindi consideriamo un sottoricoprimento finito $U_1,\dots,U_n$; consideriamo anche
+	Per la seconda parte procediamo in questo modo.
+	Consideriamo, per ogni punto $p\in \overline\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}_{p\in\overline\Omega}$ è un
+	ricoprimento aperto del compatto $\overline\Omega$, quindi possiamo estrarne un sottoricoprimento finito $U_1,\dots,U_n$, a cui aggiungiamo anche
 	$U_0=\R^n \setminus \overline\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^{\infty}$, per $0\leq i \leq n$,
 	tali che la loro somma è la funzione costante $1$.
 	Sia ora $u\in C^1(\R^n,\R)$ una qualsiasi funzione. Otteniamo che
 	\[
-		u = \sum_{i=0}^n f_i\cdot u\virgola
+		u = \sum_{i=0}^n f_i\cdot u\punto
 	\]
-	ma ora abbiamo che $f_i \cdot u$ (che è una funzione $C^1$) soddisfa l'\cref{eq:FormulaStokes} per ogni $i$; infatti, per $i=0$ è vero
-	per quanto appena osservato, per $i>0$, la funzione $f_i \cdot u$ ha supporto contenuto in $U_p$ per qualche $p\in \overline\Omega$ e, per quanto
-	dimostrato nel punto precedente, abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ soddisfa l'\cref{eq:FormulaStokes}.
-	Per linearità degli integrali e quindi dei membri che compaiono in questa equazione, è chiaro che le funzioni che soddisfano formano
-	un sottospazio vettoriale di $C^1$. In particolare $u$ soddisfa la formula di Stokes.
+	Ma quindi ora abbiamo che $f_i \cdot u$ (che è una funzione $C^1$) soddisfa l'\cref{eq:FormulaStokes} per ogni $i$.
+	Infatti, per $i=0$, la funzione $f_0\cdot u$ è nulla all'interno di $\overline\Omega$, quindi l'\cref{eq:FormulaStokes} è banalmente soddisfatta; per $i>0$, la funzione $f_i \cdot u$ ha supporto contenuto in $U_p$ per qualche $p\in \overline\Omega$ e, per quanto
+	dimostrato nel punto precedente, abbiamo che per questo intorno $U_p$ ogni funzione $C^1$ con supporto al suo interno soddisfa l'\cref{eq:FormulaStokes}.
+	
+	Per linearità di tutte le espressioni in gioco è chiaro che le funzioni che soddisfano la tesi formano
+	un sottospazio vettoriale di $C^1$. Quindi in particolare $u$, essendo combinazione lineare di funzioni appartenenti a questo spazio, soddisfa la formula di Stokes.
 \end{proof}
 
 Questo teorema generalizza molti risultati di calcolo vettoriale. Vediamone alcuni.
@@ -311,21 +312,21 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 	\label{cor:thDivergenza}
 	Sia $u:\overline\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
 	\begin{equation}\label{eq:thDivergenza}
-		\int_{\Omega} \div u (x) \de x = \int_{\partial \Omega} u(y)\cdot\nu(y) \de \sigma(y)\puntovirgola
+		\int_{\Omega} \div u (x) \de x = \int_{\partial \Omega} u(y)\cdot\nu(y) \de \sigma(y)\virgola
 	\end{equation}
 	dove l'operatore di divergenza è definito da $\div u(x)=\tr\Diff u(x)$.
 \end{corollary}
 
 \begin{proof}
-	Utilizzando il \cref{thm:Stokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $0\leq j\leq n$,
+	Utilizzando il \cref{thm:Stokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $1\leq j\leq n$,
 	\[
 		\int_{\Omega} \Diff u^j(x)_j \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
 	\]
 	da cui sommando otteniamo, per linearità degli integrali:
 	\[
-		\int_{\Omega} \sum_{j=0}^n\Diff u^j(x)_j \de x = \int_{\partial \Omega} \sum_{j=0}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
+		\int_{\Omega} \sum_{j=1}^n\Diff u^j(x)_j \de x = \int_{\partial \Omega} \sum_{j=1}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
 	\]
-	Ma ora, $\div u (x)= \tr\Diff u(x) = \sum_{j=0}^n \Diff u^j(x)_j$ e $u(x)\cdot\nu(x)=\sum_{j=0}^n u^j(y)\nu(y)_j$,
+	Ma ora, $\div u (x)= \tr\Diff u(x) = \sum_{j=1}^n \Diff u^j(x)_j$ e $u(x)\cdot\nu(x)=\sum_{j=1}^n u^j(y)\nu(y)_j$,
 	quindi si ha la tesi.
 \end{proof}
 
@@ -335,12 +336,12 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 	Siano $u\in C^1(\overline\Omega, \R)$ e $v\in C^2(\overline\Omega, \R)$, allora si ha
 	\[
 		\int_{\Omega} \left( u \Delta v+ \grad u\cdot\grad v \right) \de x=
-		\int_{\overline\Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
+		\int_{\partial\Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
 	\]
-	dove l'operatore $\Delta v = \div \grad v$ è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\Diff v(x)[\nu]$.
+	dove l'operatore $\Delta v = \div \grad v$ è il laplaciano e $\frac{\partial v}{\partial \nu}(x)=\grad v(x)[\nu]$.
 \end{corollary}
 \begin{proof}
-	Dato che abbiamo 
+	Dato che
 	\begin{equation*}
 		\frac{\partial }{\partial j} (u(x)\nabla v(x)_j ) = \frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j\virgola
 	\end{equation*}
@@ -359,10 +360,10 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \end{proof}
 
 \begin{corollary}(Seconda formula di Green)
-	Siano $u,v\in C^2(\overline\Omega, \R)$ allora si ha che
+	Siano $u,v\in C^2(\overline\Omega, \R)$, allora si ha che
 	\[
 		\int_{\Omega}\left(u\Delta v-v\Delta u\right) \de x=
-		\int_{\overline\Omega}u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu} \de \sigma(y)\punto
+		\int_{\partial\Omega}\left(u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu}\right) \de \sigma(y)\punto
 	\]
 \end{corollary}
 
