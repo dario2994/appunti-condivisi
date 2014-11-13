@@ -6,3 +6,4 @@ La struttura da seguire è:
 DATA IN CUI È STATO DATO
 DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
 
+Potenziale Q exp(-r/l)/r | Claudio | Non fatto
