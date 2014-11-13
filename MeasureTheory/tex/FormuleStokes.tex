@@ -4,24 +4,24 @@ Iniziamo con lo studio degli insiemi regolari che ci interessano per il teorema 
 A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
 
 \begin{theorem}\label{thm:PtRegEquiv}
-	Per un punto $x\in \partial \Omega$ le seguenti tre condizioni sono equivalenti:
+	Per un punto $\bar x\in \partial \Omega$ le seguenti tre condizioni sono equivalenti:
 	\begin{enumerate}
-		\item esistono $U$ intorno di $x$ e $f\in C^1(U,\R)$ tale che si abbia
+		\item esistono $U$ intorno di $\bar x$ e $f\in C^1(U,\R)$ tale che si abbia
 			\begin{itemize}
 				\item $U\cap \partial \Omega=f^{-1}(0)$,
 				\item $U\cap \Omega=f^{-1}(\oo{-\infty}{0})$,
 			\end{itemize}
 			e tale che $\grad f(x)\neq 0$ se $f(x)=0$;\label{PRE:i}
-		\item esistono $U$ intorno di $x$ e $g$ diffeomorfismo $C^1$ da $\R^n$ in $U$ tale che\label{PRE:ii}
+		\item esistono $U$ intorno di $\bar x$ e $g$ diffeomorfismo $C^1$ da $\R^n$ in $U$ tale che\label{PRE:ii}
 			\begin{itemize}
 				\item $U\cap \partial \Omega = g(\R^{n-1}\times\{0\})$,
 				\item $U\cap \Omega = g(\R^{n-1}\times\oo{-\infty}{0})$;
 			\end{itemize}
-		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $x=(y,t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
+		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $\bar x=(\bar v,\bar t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
 			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
 			\begin{itemize}
-				\item $U\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
-				\item $U\cap \Omega = \{(z,s):s<\psi(z)\}$.
+				\item $U\cap \partial \Omega = \{(v,t)\in V\times I: t=\psi(v)\}$,
+				\item $U\cap \Omega = \{(v,t)\in V\times I:t<\psi(v)\}$.
 			\end{itemize}\label{PRE:iii}
 	\end{enumerate}
 \end{theorem}
@@ -29,38 +29,41 @@ A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subse
 \begin{proof}
 	Dimostriamo la catena in ordine inverso:
 	\begin{description}
-		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $\grad f(x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita
+		\item [\ImplicationProof{PRE:i}{PRE:iii}] Dato che $\grad f(\bar x)\neq 0$, esiste una derivata parziale non nulla, supponiamo senza perdita
 			di generalità che sia l'ultima e che sia positiva (se negativa il ragionamento è lo stesso).
 			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, otteniamo quindi
-			che esiste un intorno $V\times I\subseteq U$ di $x$ per cui esiste $\psi\in C^1(V,I)$ tale che, per ogni $v\in V$, $f(v,\psi(v))=0$ e $\psi(v)$
+			che esiste un intorno $V\times I\subseteq U$ di $\bar x$, con $V\in\R^{n-1}$ e $I\in\R$, per cui esiste $\psi\in C^1(V,I)$ tale che, per ogni $v\in V$, $f(v,\psi(v))=0$ e $\psi(v)$
 			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
-			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $v$ tale che $\grad f(v',\psi(v'))_n>\frac{1}{2}
-			\grad f(x)_n$ per tutti i $v'\in V'$. Ora, per la differenziabilità di $f$ in $(v',\psi(v'))$ si ha, per $\delta\in \R$,
+			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $\bar v$, con $\bar x=(\bar v, \psi(\bar v))$, tale che $\grad f(v',\psi(v'))_n>\frac{1}{2}
+			\grad f(\bar x)_n$ per tutti i $v'\in V'$. 
+			
+			Ora, per la differenziabilità di $f$ in $(v',\psi(v'))$ si ha, per $\delta\in \R$,
 			\[
 				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\grad f(v',\psi(v'))_n\delta+\smallO(\delta)=\grad f(v',\psi(v'))_n\delta+\smallO(\delta)\virgola
 			\]
 			che, per $\delta>0$ e abbastanza piccolo, dà
 			\begin{equation*}
-				f(v',\psi(v')+\delta)\geq \frac{1}{2}\grad f(v',\psi(v'))_n\delta\geq \frac{1}{4}\grad f(x)_n\delta>0\punto
+				f(v',\psi(v')+\delta)\geq \frac{1}{2}\grad f(v',\psi(v'))_n\delta\geq \frac{1}{4}\grad f(\bar x)_n\delta>0\punto
 			\end{equation*}
+			
 			Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
 			$f(v',\psi(v')+\delta)<0$, altrimenti per la continuità di $f$ si avrebbe che esiste un punto $\psi(v')+\delta'\neq \psi(v')$
 			che sia zero per la funzione $f(v',\cdot)$, contraddicendo il teorema della funzione implicita del Dini.
 			Per $\delta<0$ si ha lo stesso risultato. Questo ci dice che 
 			\begin{align*}
-				f^{-1}(0)\cap (V'\times I)&=\{(v',s):s=\psi(v')\} \virgola\\
-				f^{-1}(\oo{-\infty}{0})\cap (V'\times I)&=\{(v',s):s<\psi(v')\}\virgola
+				f^{-1}(0)\cap (V'\times I)&=\{(v',t)\in V'\times I:t=\psi(v')\} \virgola\\
+				f^{-1}(\oo{-\infty}{0})\cap (V'\times I)&=\{(v',t)\in V'\times I:t<\psi(v')\}\virgola
 			\end{align*}
 			che conclude per le ipotesi sulle controimmagini di $f$.
-		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\varepsilon}{\varepsilon}$
-			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(z,s)=(z,s-\psi(z))$. 
+		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $\bar x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\varepsilon}{\varepsilon}$
+			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(v,t)=(v,t-\psi(v))$. 
 			Di conseguenza otteniamo
 			\begin{align*}
 				g(V\times \{0\})&=\graf(\psi)=U\cap \partial \Omega \virgola\\
-				g(V\times \oo{-\varepsilon}{0})&=\{(z,s):s<\psi(z)\}=U\cap \Omega\punto
+				g(V\times \oo{-\varepsilon}{0})&=\{(v,t)\in V\times I:t<\psi(v)\}=U\cap \Omega\punto
 			\end{align*}
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
-			di $x$ e $\R^n$.
+			di $\bar x$ e $\R^n$.
 		\item [\ImplicationProof{PRE:ii}{PRE:i}] È sufficiente scegliere $f=(g^{-1})_n$; infatti, $g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
 			In particolare, ogni riga della matrice del differenziale non è nulla (quindi neanche $\nabla f$) e le condizioni sulla $g$ si traducono immediatamente in quelle chieste alla $f$:
 			\[
@@ -209,11 +212,11 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 \end{theorem}
 
 \begin{proof}
-	Per la dimostrazione si procederà in due step:
+	Per la dimostrazione procederà in due step:
 	\begin{enumerate}
 		\item per ogni $p\in \overline\Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
 			tale che l'\cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $\supp(u)\subseteq U_p$;
-		\item $\overline\Omega$ è ricoperto con un numero finito di intorni come sopra, quindi si applica il \cref{thm:PartizioneUnita} per ottenere
+		\item il compatto $\overline\Omega$ si può ricoprire con un numero finito di intorni come sopra, quindi si applica il \cref{thm:PartizioneUnita} per ottenere
 			la tesi per ogni $u$.
 	\end{enumerate}
 	
@@ -223,14 +226,14 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	con supporto contenuto in $V\times \oo{a}{b}$ è tale che $u(x)=0$ per ogni
 	$x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il teorema fondamentale del calcolo integrale, vale che
 	\begin{align*}
-		\int_{\Omega} \grad u(x)_n \de x &= \int_{V\times \cc{a}{b}} \grad u(v,t)_n \de (v,t) = \\
-		& = \int_V \int_{\cc{a}{b}} \grad u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
+		\int_{\Omega} \grad u(x)_n \de x &= \int_{V\times \oo{a}{b}} \grad u(v,t)_n \de (v,t) = \\
+		& = \int_V \int_a^b \grad u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
 	\end{align*}
 	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$. Se invece $p\in \partial \Omega$, allora $p$ è un punto regolare, cioè esiste
 	un intorno $U_p=V\times I$ di $p$ e una $\psi\in C^1(V,I)$ tale che
 	\begin{itemize}
-		\item $U_p\cap \partial \Omega = \{(z,s):s=\psi(z)\}$,
-		\item $U_p\cap \Omega = \{(z,s):s<\psi(z)\}$.
+		\item $U_p\cap \partial \Omega = \{(v,t)\in V\times I:t=\psi(v)\}$,
+		\item $U_p\cap \Omega = \{(v,t)\in V\times I:t<\psi(v)\}$.
 	\end{itemize}
 	Distinguiamo ora i casi $j=n$ e $j\neq n$.
 	\begin{description}
@@ -257,9 +260,9 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e, a meno di considerare un intorno più piccolo,
 			che $V=W \times J$. Ora, per il \cref{thm:Fubini}, abbiamo che
 			\[
-				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\virgola
+				\int_{\Omega} \Diff u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\punto
 			\]
-			inoltre, dato che $\Diff_s \int_X u(v,s)\de v = \int_X \Diff_s u(v,s)\de v$ e che $\Diff_y \int_a^y u(v,t)\de t=u(v,y)$,
+			Inoltre, dato che $\Diff_s \int_X u(v,s)\de v = \int_X \Diff_s u(v,s)\de v$ e che $\Diff_y \int_a^y u(v,t)\de t=u(v,y)$,
 			utilizzando le regole di composizione del differenziale, abbiamo che
 			\[
 				\Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
@@ -349,9 +352,10 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 	\[
 		\int_{\Omega} \left(\frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j \right)\de x = 
 		\int_{\Omega} \frac{\partial }{\partial j} (u(x)\nabla v(x)_j) \de x =
-		\int_{\partial \Omega} u(y)\nabla v(y)_j\nu(y)_j \de \sigma(y)\virgola
+		\int_{\partial \Omega} u(y)\nabla v(y)_j\nu(y)_j \de \sigma(y)\punto
 	\]
-	e sommando su $j$ otteniamo la tesi dato che
+	
+	Quindi sommando su $j$ otteniamo la tesi, visto che
 	\begin{align*}
 		&\sum_{j=1}^n \frac{\partial u}{\partial j}(x) \nabla v(x)_j = \sum_{j=1}^n \nabla u(x)_j \nabla v(x)_j = \grad u\cdot\grad v \virgola\\
 		&\sum_{j=1}^n u(x)\frac{\partial}{\partial j}\nabla v(x)_j = u \Delta v\virgola\\
