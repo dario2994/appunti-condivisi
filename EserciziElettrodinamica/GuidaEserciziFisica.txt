@@ -1,0 +1,81 @@
+Questa guida spiega come modificare correttamente il progetto EserciziElettrodinamica.
+
+Per prenotarsi per un problema esiste l'apposito file PrenotazioneProblemi.txt
+
+La struttura è questa:
+main.tex
+	Questo file è il tex fondamentale, che contiene tutto il progetto.
+	Quando volete vedere il pdf nel suo complesso dovete trasformare questo
+	file in pdf. 
+	È importante compilare 2 volte di seguito e POI aprire il pdf. Questo serve
+	perchè altrimenti tutte le reference nel documento appariranno rotte.
+	Tendenzialmente non dovete modificare questo file.
+	
+elencoesercizi.tex
+	Questo tex contiene una lista degli esercizi da includere.
+	Il formato di questo documento è:
+		\subfile{./tex/NOMEFILE.tex}
+	Quindi quando avete finito di lavorare ad un esercizio e tutto compila
+	correttamente (non per forza l'esercizio deve essere completo... può esserci
+	anche solo il testo) aggiungete la riga relativa al file in elencoesercizi.tex
+	e da quel momento l'esercizio entrerà nel progetto più grande
+	
+La cartella tex/
+	Questa cartella contiene tutti i file.tex dei singoli esercizi.
+	Quando volete creare un nuovo esercizio dovete creare dentro questa cartella
+	un file con un titolo esplicativo (non chiamatelo esercizio1.tex, piuttosto
+	nominatelo PendoloSferico.tex). In generale evitate gli spazi nei nomi dei file,
+	generano casino.
+	
+I file .tex nella cartella tex/
+	Questi file devono avere questa struttura:
+	
+		\documentclass[../main.tex]{subfiles} 
+		\begin{document}
+		
+		\exercise[Data]{NOME PROBLEMA} %CODICE PROBLEMA
+		
+		\textex
+		Testo del problema.
+		
+		\sol
+		Soluzione del problema
+		
+		\sol[2]
+		Seconda soluzione
+		
+		end{document}	
+	
+	La Data è opzionale, se messa deve essere in questa forma giorno/mese/anno (es. 13/01/2014)
+	Trovate degli esempi nella cartella tex/
+	In particolare è obbligatorio il commento %CODICE PROBLEMA.
+	Il codice del problema deve essere una stringa di 2-3 caratteri che identifica
+	il problema (ad esempio le iniziali del titolo?). Questo codice serve perchè
+	quando poi userete dei label nelle equazioni questi avranno la forma
+		codiceproblema:nomelabel
+	Questo serve perchè altrimenti capiterebbe di sicuro che uno usa il label
+		ConservazioneEnergia
+	E nessuno potrebbe più usarlo.
+	
+	Quindi in un problema che si chiama
+		Palla che rotola
+	Il codice del problema potrebbe essere pcr. Scegliendo questo codice il tex sarà così:
+		\exercise[Palla che rotola] %pcr
+	E poi quando vorrete labellare un'equazione come Conservazione dell'energia:
+		\begin{equation}\label{pcr:ConservazioneEnergia}
+	Quando poi vorrete riferirvi ad essa, userete:
+		\cref{pcr:ConservazioneEnergia}
+	Da notare che dovete usare \cref al posto di \ref. I due comandi fanno la stessa cosa,
+	ma il primo la fa meglio.
+	
+	Questi file .tex potranno essere compilati (cioè trasformati in pdf) da soli,
+	senza dover ogni volta compilare main.tex (attenzione perchè le reference daranno
+	warning, non ve ne preoccupate, quei warning spariranno quando compilerete il 
+	main.tex) e questo è molto comodo... sfruttatelo ;)
+	Da notare che compilano benissimo anche se non sono inclusi in elencoesercizi.tex ;)
+	
+	Se volete esempi di documenti basta che guardate nella cartella tex/ ;) (provate anche
+	a compilarli e scoprite quanto è figo che si compilano da soli :) )
+	
+Ovviamente tutti hanno il diritto di modificare, completare, correggere tutto quello
+che viene fatto (anche da altri).

@@ -1,0 +1,167 @@
+
+\ProvidesPackage{CommandsAndStyle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[a4paper,twoside,top=0.7in, bottom=1in, left=0.7in, right=0.7in]{geometry} %top,bottom,left,right are margins
+\usepackage{graphicx}
+\usepackage{hyperref} %References become hyperlinks.
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {blue},
+	urlcolor = {red}
+}
+
+% In short documents, to remove page numbers.
+% \pagenumbering{gobble}
+% \hypersetup{
+% 	pageanchor=false
+% }
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{esint} %For the average integral
+\usepackage{mathrsfs} %Just for cool sigma-algebra
+\usepackage{color}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage{enumitem} %Customize enumerate and itemize
+\usepackage{imakeidx} %Analytical index
+\usepackage{xparse} %In order to use ExplSyntax (in old latex)
+\usepackage{mathtools}
+\usepackage{fancyhdr} %Header and footer of pages
+
+%Possible customization of header and footer
+% \setlength{\headheight}{16pt} 
+% \pagestyle{fancy}
+% \fancyhead{}
+% \fancyhead[LE,RO]{\slshape\nouppercase{\leftmark}}
+
+\usepackage[nameinlink]{cleveref} %References show what kind of thing is being referenced (theorem, lemma, proposition...)
+\newcommand{\crefpairconjunction}{ e }
+\newcommand{\crefrangepreconjunction}{da }
+\newcommand{\crefrangeconjunction}{ a }
+\newcommand{\creflastconjunction}{ e }
+
+\newcounter{Results}[section] %Uniform counters for lemmas, theorems, propositions etc
+\renewcommand{\theResults}{\thesection.\arabic{Results}}
+
+%Definition of theorem-like environments
+\newtheorem{theorem}[Results]{Teorema}
+\newtheorem{lemma}[Results]{Lemma}
+\newtheorem{proposition}[Results]{Proposizione}
+\newtheorem{corollary}[Results]{Corollario}
+% \newtheorem{exercise}[Results]{Esercizio}
+
+\theoremstyle{remark}
+\newtheorem{remark}[Results]{Nota}
+
+\theoremstyle{definition}
+\newtheorem{definition}[Results]{Definizione}
+\newtheorem*{example}{Esempio}
+
+% \numberwithin{equation}{section}
+
+%Names used in references
+\crefname{equation}{Equazione}{Equazioni}
+\crefname{theorem}{Teorema}{Teoremi}
+\crefname{lemma}{Lemma}{Lemmi}
+\crefname{proposition}{Proposizione}{Proposizioni}
+\crefname{corollary}{Corollario}{Corollari}
+% \crefname{exercise}{Esercizio}{Esercizi}
+\crefname{remark}{Nota}{Note}
+\crefname{definition}{Definizione}{Definizioni}
+\crefname{section}{Sezione}{Sezioni}
+
+\newcommand{\ImplicationProof}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$} %Special reference for implication of propositions
+
+%Redefinition of cref, in order to have the name of the theorem in case it has one.
+%It's hardcoded and not exactly clean and easy.
+\makeatletter
+\ExplSyntaxOn
+\usepackage{ifthen}
+\usepackage{xstring}
+\let\@tempcref\cref
+\newcommand{\myref}[1]{
+	\IfSubStr{#1}{,}{
+		\@tempcref{#1}%
+	}
+	{
+		\ifcsname r@#1\endcsname%La reference è definita?
+			\edef\@RefInfo{\csname r@#1\endcsname}%Contiene tutte le informazioni sulla reference
+			\edef\@CompleteCounter{\expandafter\@fourthoffive\@RefInfo}%Contiene il nome espanso del contatore
+			
+			\expandafter\IfBeginWith{\@CompleteCounter}{equation}{%La reference è un'equazione?
+				\@tempcref{#1}%
+			}
+			{
+				\edef\@RefName{\expandafter\@thirdoffive\@RefInfo}%Contiene, se definito, il nome della reference
+				\StrLen{\@RefName}[\@RefNameLen]
+				
+				\ifthenelse{\@RefNameLen<2}{%Il nome è vuoto o di un solo carattere? (tocca lasciare la possibilità che sia di un solo carattere sennò al carducci non va)
+					\@tempcref{#1}%
+				}
+				{
+					\@tempcref{#1}~(\nameref*{#1})%
+				}
+			}
+% 			\begin{itemize}
+% 				\item \expandafter\@firstoffive\@mytxt
+% 				\item \expandafter\@secondoffive\@mytxt
+% 				\item \expandafter\@thirdoffive\@mytxt
+% 				\item \expandafter\@fourthoffive\@mytxt
+% 				\item \expandafter\@fifthoffive\@mytxt
+% 			\end{itemize}
+		\else
+			\@tempcref{#1}
+		\fi
+	}
+}
+\renewcommand{\cref}{\myref}
+\ExplSyntaxOff
+\makeatother
+
+%Short commands for frequently used number sets.
+\newcommand{\N}{\ensuremath{\mathbb N}}%Natural numbers
+\newcommand{\Z}{\ensuremath{\mathbb Z}}%Integers
+\newcommand{\Q}{\ensuremath{\mathbb Q}}%Rationals
+\newcommand{\R}{\ensuremath{\mathbb R}}%Real numbers
+\newcommand{\C}{\ensuremath{\mathbb C}}%Complex numbers
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %Absolute value
+
+
+\newcommand{\de}{\ensuremath{\,\mathrm d}}%Il de degli integrali
+\newcommand{\Diff}{\ensuremath{\mathrm D}}%Simbolo del differenziale
+\newcommand \eps{\ensuremath{\epsilon}}
+
+%Divergence
+\let\divsymb\div
+\let\div\undefined
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\tr}{tr}
+
+\newcommand{\grad}{\ensuremath{\nabla}}
+\DeclareMathOperator{\graf}{graf}
+\DeclareMathOperator{\supp}{supp}
+\newcommand \lapl{\ensuremath{\grad^2}}
+
+\newcommand{\bigO}{\ensuremath{\mathcal{O}}}
+\newcommand{\smallO}{\ensuremath{\mathrm{o}}}
+
+%Definiamo gli intervalli semiaperti, aperti, chiusi.
+\newcommand{\co}[2]{\ensuremath{\left[\,#1,\,#2\,\right)}}
+\newcommand{\oo}[2]{\ensuremath{\left(\,#1,\,#2\,\right)}}
+\newcommand{\cc}[2]{\ensuremath{\left[\,#1,\,#2\,\right]}}
+\newcommand{\oc}[2]{\ensuremath{\left(\,#1,\,#2\,\right]}}
+
+%Punteggiatura nelle formule
+\ifdefined\virgola 
+	\renewcommand{\virgola}{\ensuremath{\, \text{, }}}
+\else 
+	\newcommand{\virgola}{\ensuremath{\, \text{, }}}
+\fi
+\newcommand{\puntovirgola}{\ensuremath{\, \text{; }}}
+\newcommand{\punto}{\ensuremath{\, \text{. }}}
+

@@ -1,0 +1,8 @@
+Lista di prenotazione per i problemi
+
+Scrivete accanto al problema il vostro nome, e scrivete fatto quando avete finito.
+Se vi ricordate un problema che non e' in questa lista, aggiungetelo grazie!
+La struttura da seguire è:
+DATA IN CUI È STATO DATO
+DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
+
