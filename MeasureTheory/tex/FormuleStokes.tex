@@ -3,6 +3,8 @@
 Iniziamo con lo studio degli insiemi regolari che ci interessano per il teorema di Stokes.
 A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subseteq\R^n$ sia un aperto limitato.
 
+Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$ indicheremo inoltre con $\partial_i f=\frac{\partial f}{\partial x_i}$ la derivata parziale di $f$ rispetto all'$i$-esima componente e similmente indicheremo $\partial_{ij}f=\frac{\partial^2 f}{\partial x_j\partial x_i}$. 
+
 \begin{theorem}\label{thm:PtRegEquiv}
 	Per un punto $\bar x\in \partial \Omega$ le seguenti tre condizioni sono equivalenti:
 	\begin{enumerate}
@@ -34,16 +36,16 @@ A questo proposito, durante tutta la sezione assumeremo sempre che $\Omega\subse
 			Allora le ipotesi del teorema della funzione implicita del Dini sono verificate, otteniamo quindi
 			che esiste un intorno $V\times I\subseteq U$ di $\bar x$, con $V\in\R^{n-1}$ e $I\in\R$, per cui esiste $\psi\in C^1(V,I)$ tale che, per ogni $v\in V$, $f(v,\psi(v))=0$ e $\psi(v)$
 			è l'unico punto $t'\in I$ tale che $f(v,t')=0$.
-			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $\bar v$, con $\bar x=(\bar v, \psi(\bar v))$, tale che $\grad f(v',\psi(v'))_n>\frac{1}{2}
-			\grad f(\bar x)_n$ per tutti i $v'\in V'$. 
+			Inoltre, per la continuità di $\grad f(x)$, esiste un intorno $V'\subseteq V$ di $\bar v$, con $\bar x=(\bar v, \psi(\bar v))$, tale che $\partial_n f(v',\psi(v'))>\frac{1}{2}
+			\partial_n f(\bar x)$ per tutti i $v'\in V'$. 
 			
 			Ora, per la differenziabilità di $f$ in $(v',\psi(v'))$ si ha, per $\delta\in \R$,
 			\[
-				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\grad f(v',\psi(v'))_n\delta+\smallO(\delta)=\grad f(v',\psi(v'))_n\delta+\smallO(\delta)\virgola
+				f(v',\psi(v')+\delta)=f(v', \psi(v'))+\partial_n f(v',\psi(v'))\delta+\smallO(\delta)=\partial_n f(v',\psi(v'))\delta+\smallO(\delta)\virgola
 			\]
 			che, per $\delta>0$ e abbastanza piccolo, dà
 			\begin{equation*}
-				f(v',\psi(v')+\delta)\geq \frac{1}{2}\grad f(v',\psi(v'))_n\delta\geq \frac{1}{4}\grad f(\bar x)_n\delta>0\punto
+				f(v',\psi(v')+\delta)\geq \frac{1}{2}\partial_n f(v',\psi(v'))\delta\geq \frac{1}{4}\partial_n f(\bar x)\delta>0\punto
 			\end{equation*}
 			
 			Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
@@ -134,14 +136,14 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 	
 	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente di ciascuna di queste è non nullo e che nei punti di sovrapposizione tali gradienti sono concordi a due a due.
 	
-	In ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\grad \psi_i(x)_k\neq 0$.
+	In ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\partial_k \psi_i(x)\neq 0$.
 	Dato che le $\psi_i$ sono differenziabili, si ha che
 	\[
-		\psi_i(x+\delta e_k)=\psi_i(x)+\grad \psi_i(x)_k \delta + \smallO(\delta) = \grad \psi_i(x)_k \delta + \smallO(\delta)\punto
+		\psi_i(x+\delta e_k)=\psi_i(x)+\partial_k \psi_i(x)\cdot \delta + \smallO(\delta) = \partial_k \psi_i(x)\cdot \delta + \smallO(\delta)\punto
 	\]
 	Sapevamo però che, per ciascun indice $i$, $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$.
-	Quindi, per $i\neq i'$, $\grad \psi_i(x)_k$ e $\grad \psi_{i'}(x)_k$ non possono essere discordi, altrimenti si ha che uno tra $\psi_i(x+\delta e_k)= \grad \psi_i(x)_k \delta + \smallO(\delta)$ e
-	$\psi_i'(x+\delta e_k)=\grad \psi_i'(x)_k \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo, ma questo sarebbe assurdo perchè in entrambi i casi $x+\delta e_k$ sta in $\Omega$.
+	Quindi, per $i\neq i'$, $\partial_k \psi_i(x)$ e $\partial_k \psi_{i'}(x)$ non possono essere discordi, altrimenti si ha che uno tra $\psi_i(x+\delta e_k)= \partial_k \psi_i(x) \delta + \smallO(\delta)$ e
+	$\psi_i'(x+\delta e_k)=\partial_k \psi_i'(x) \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo, ma questo sarebbe assurdo perchè in entrambi i casi $x+\delta e_k$ sta in $\Omega$.
 	
 	Quindi, sempre per lo stesso $x\in\partial \Omega$, utilizzando che $\psi_i\equiv 0$ sul bordo, otteniamo
 	\[ 
@@ -149,7 +151,7 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 		\sum_{i=0}^n f_i(x)\cdot \grad  \psi_i(x)\punto
 	\]
 	Perciò $\grad \phi(x)$ non è nullo perché la $k$-esima componente è combinazione convessa di
-	$\grad \psi_i(x)_k$ che sono non discordi.
+	$\partial_k \psi_i(x)$ che sono non discordi.
 \end{proof}
 
 La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che discrimina punti interni ed esterni ad $\Omega$ è certamente la seguente.
@@ -207,7 +209,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	Sia $u\in C^1(\overline\Omega,\R)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
 	$\Omega'\supseteq \overline\Omega$) e sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
 	\begin{equation}\label{eq:FormulaStokes}
-		\int_{\Omega} \grad u(x)_j \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
+		\int_{\Omega} \partial_j u(x) \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
 	\end{equation}
 \end{theorem}
 
@@ -226,8 +228,8 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	con supporto contenuto in $V\times \oo{a}{b}$ è tale che $u(x)=0$ per ogni
 	$x\in \partial (V\times \oo{a}{b})$. Allora, per il \cref{thm:Fubini} e il teorema fondamentale del calcolo integrale, vale che
 	\begin{align*}
-		\int_{\Omega} \grad u(x)_n \de x &= \int_{V\times \oo{a}{b}} \grad u(v,t)_n \de (v,t) = \\
-		& = \int_V \int_a^b \grad u(v,t)_n \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
+		\int_{\Omega} \partial_n u(x) \de x &= \int_{V\times \oo{a}{b}} \partial_n u(v,t) \de (v,t) = \\
+		& = \int_V \int_a^b \frac{\partial}{\partial t} u(v,t) \de t \de v = \int_V (u(v,b) - u(v,a)) \de v = 0\punto
 	\end{align*}
 	Quindi abbiamo la tesi del primo punto quando $p\in\Omega$. Se invece $p\in \partial \Omega$, allora $p$ è un punto regolare, cioè esiste
 	un intorno $U_p=V\times I$ di $p$ e una $\psi\in C^1(V,I)$ tale che
@@ -239,10 +241,10 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	\begin{description}
 		\item [$j=n$:] Dato che stiamo supponendo che $\supp(u)\subseteq U_p$, per il \cref{thm:Fubini} abbiamo che
 			\begin{align*}
-				\int_{\Omega} \grad u(x)_n \de x  &= \int_{\Omega\cap U_p} \grad u(v,t)_n\de (v,t) =
-				\int_{U_p} \grad u(v,t)_n \chi_{\{t<\psi(v)\}} \de (v,t) = \\
-				& = \int_V \int_I \grad u(v,t)_n \chi_{\{t<\psi(v)\}} \de t \de v =
-				\int_V \int_{-\infty}^{\psi(v)} \grad u(v,t)_n \de t \de v = \\
+				\int_{\Omega} \partial_n u(x) \de x  &= \int_{\Omega\cap U_p} \partial_n u(v,t)\de (v,t) =
+				\int_{U_p} \partial_n u(v,t) \chi_{\{t<\psi(v)\}} \de (v,t) = \\
+				& = \int_V \int_I \partial_n u(v,t) \chi_{\{t<\psi(v)\}} \de t \de v =
+				\int_V \int_{-\infty}^{\psi(v)} \frac{\partial}{\partial t} u(v,t) \de t \de v = \\
 				& = \int_V (u(v,\psi(v)) - 0) \de v = \int_V u(v,\psi(v)) \de v\punto
 			\end{align*}
 			
@@ -260,30 +262,30 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e, a meno di considerare un intorno più piccolo,
 			che $V=W \times J$. Ora, per il \cref{thm:Fubini}, abbiamo che
 			\[
-				\int_{\Omega} \Diff u(x)_{n-1} \de x = \int_W \int_J \int_I \Diff_s u(w,s,t) \de t \de s \de w\punto
+				\int_{\Omega} \partial_{n-1} u(x) \de x = \int_W \int_J \int_I \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w\punto
 			\]
-			Inoltre, dato che $\Diff_s \int_X u(v,s)\de v = \int_X \Diff_s u(v,s)\de v$ e che $\Diff_y \int_a^y u(v,t)\de t=u(v,y)$,
+			Inoltre, dato che $\frac\partial{\partial s} \int_X u(v,s)\de v = \int_X \frac\partial{\partial s} u(v,s)\de v$ e che $\frac{\partial}{\partial y} \int_a^y u(v,t)\de t=u(v,y)$,
 			utilizzando le regole di composizione del differenziale, abbiamo che
 			\[
-				\Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
-				\int_{-\infty}^{\psi(w,s)} \Diff_s u(w,s,t) \de t + u(w,s,\psi(w,s))\Diff_s \psi (w,s)\punto
+				\frac{\partial}{\partial s} \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
+				\int_{-\infty}^{\psi(w,s)} \frac\partial{\partial s} u(w,s,t) \de t + u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s)\punto
 			\]
 			Per cui, integrando il termine a sinistra su $V=W\times J=W\times \oo{a}{b}$, per il teorema fondamentale del
 			calcolo integrale,
 			\begin{align*}
-				&\int_W \int_a^b \Diff_s \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t \de s \de w = \\
+				&\int_W \int_a^b \frac\partial{\partial s} \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t \de s \de w = \\
 				&\int_W \left(\int_{-\infty}^{\psi(w,b)} u(w,b,t) \de t - \int_{-\infty}^{\psi(w,a)} u(w,a,t) \de t\right) \de w
 				= 0\virgola
 			\end{align*}
 			poiché i punti $(w,b,t)$ e $(w,a,t)$ sono sul bordo di $U$, dove la funzione $u$ è nulla per ipotesi. Usando questa relazione
 			otteniamo che
 			\[
-				\int_W\int_J\int_I\Diff_s u(w,s,t) \de t \de s \de w =-\int_W \int_J u(w,s,\psi(w,s))\Diff_s \psi (w,s)\de s\de w\punto
+				\int_W\int_J\int_I\frac\partial{\partial s} u(w,s,t) \de t \de s \de w =-\int_W \int_J u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s)\de s\de w\punto
 			\]
-			Ora, dato che $\nu(x)_{n-1}=\nu(v,\psi(v))_{n-1}=-\Diff\psi(v)_{n-1}(1+\psi(v)^2)^{-\frac{1}{2}}$, otteniamo
+			Ora, dato che $\nu(x)_{n-1}=\nu(v,\psi(v))_{n-1}=-\partial_{n-1}\psi(v)(1+\psi(v)^2)^{-\frac{1}{2}}$, otteniamo
 			\begin{align*}
-				\int_{\Omega} \Diff_{n-1} u(x)_{n-1} \de x & = -\int_W \int_J u(w,s,\psi(w,s))\Diff_s \psi (w,s) \de s \de w\\
-				& = -\int_V u(v,\psi(v))\Diff_{n-1} \psi(v) \de v\\
+				\int_{\Omega} \partial_{n-1} u(x) \de x & = -\int_W \int_J u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s) \de s \de w\\
+				& = -\int_V u(v,\psi(v))\partial_{n-1} \psi(v) \de v\\
 				& = -\int_V u(v,\psi(v))(-\nu(v,\psi(v))_{n-1})(1+\psi(v)^2)^{\frac{1}{2}} \de v\\
 				& = \int_{\partial \Omega \cap U} u(x)\nu(x)_{n-1} \de \sigma(x)\punto
 			\end{align*}
@@ -323,13 +325,13 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 \begin{proof}
 	Utilizzando il \cref{thm:Stokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $1\leq j\leq n$,
 	\[
-		\int_{\Omega} \Diff u^j(x)_j \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
+		\int_{\Omega} \partial_j u^j(x) \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
 	\]
 	da cui sommando otteniamo, per linearità degli integrali:
 	\[
-		\int_{\Omega} \sum_{j=1}^n\Diff u^j(x)_j \de x = \int_{\partial \Omega} \sum_{j=1}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
+		\int_{\Omega} \sum_{j=1}^n\partial_j u^j(x) \de x = \int_{\partial \Omega} \sum_{j=1}^n u^j(y)\nu(y)_j \de \sigma(y)\punto
 	\]
-	Ma ora, $\div u (x)= \tr\Diff u(x) = \sum_{j=1}^n \Diff u^j(x)_j$ e $u(x)\cdot\nu(x)=\sum_{j=1}^n u^j(y)\nu(y)_j$,
+	Ma ora, $\div u (x)= \tr\Diff u(x) = \sum_{j=1}^n \partial_j u^j(x)$ e $u(x)\cdot\nu(x)=\sum_{j=1}^n u^j(y)\nu(y)_j$,
 	quindi si ha la tesi.
 \end{proof}
 
@@ -346,20 +348,20 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \begin{proof}
 	Dato che
 	\begin{equation*}
-		\frac{\partial }{\partial j} (u(x)\nabla v(x)_j ) = \frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j\virgola
+		\partial_j (u(x)\cdot\partial_j v(x) ) = \partial_j u(x)\cdot \partial_j v(x) + u(x)\cdot\partial_{jj} v(x)\virgola
 	\end{equation*}
-	applicando il \cref{thm:Stokes} sulle funzioni $u(x)\nabla v(x)_j$ otteniamo
+	applicando il \cref{thm:Stokes} sulle funzioni $u(x)\cdot\partial_j v(x)$ otteniamo
 	\[
-		\int_{\Omega} \left(\frac{\partial u}{\partial j}(x) \nabla v(x)_j + u(x)\frac{\partial}{\partial j}\nabla v(x)_j \right)\de x = 
-		\int_{\Omega} \frac{\partial }{\partial j} (u(x)\nabla v(x)_j) \de x =
-		\int_{\partial \Omega} u(y)\nabla v(y)_j\nu(y)_j \de \sigma(y)\punto
+		\int_{\Omega} \left(\partial_j u(x)\cdot \partial_j v(x) + u(x)\cdot\partial_{jj} v(x) \right)\de x = 
+		\int_{\Omega} \partial_j (u(x)\cdot\partial_j v(x)) \de x =
+		\int_{\partial \Omega} u(y)\cdot\partial_j v(y)\cdot\nu(y)_j \de \sigma(y)\punto
 	\]
 	
 	Quindi sommando su $j$ otteniamo la tesi, visto che
 	\begin{align*}
-		&\sum_{j=1}^n \frac{\partial u}{\partial j}(x) \nabla v(x)_j = \sum_{j=1}^n \nabla u(x)_j \nabla v(x)_j = \grad u\cdot\grad v \virgola\\
-		&\sum_{j=1}^n u(x)\frac{\partial}{\partial j}\nabla v(x)_j = u \Delta v\virgola\\
-		&\sum_{j=1}^n u(y)\nabla v(y)_j\nu(y)_j = u \frac{\partial v}{\partial \nu}\punto
+		&\sum_{j=1}^n \partial_j u(x) \cdot\partial_j v(x) = \sum_{j=1}^n \partial_j u(x) \cdot\partial_j v(x) = \grad u\cdot\grad v \virgola\\
+		&\sum_{j=1}^n u(x)\cdot\partial_{jj} v(x) = u \cdot\Delta v\virgola\\
+		&\sum_{j=1}^n u(y)\cdot\partial_j v(y)\cdot\nu(y)_j = u\cdot (\grad v\cdot \nu)=u \cdot\frac{\partial v}{\partial \nu}\punto
 	\end{align*}
 \end{proof}
 
