@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[29 ottobre 2014]{Potenziale a simmetria sferica}
+
+\textex
+
+Si determini la distribuzione di carica $\rho(\vec{r})$ che induce il potenziale
+\begin{displaymath}
+V(\vec{r})=Q\frac{1}{r}e^{-\frac{r}{l}}.
+\end{displaymath}
+
+
+\solution
+
+ Al di fuori dell'origine il potenziale è senza dubbio differenziabile, dunque si può applicare la legge di Gau\ss\ in forma
+ differenziale, ricordandosi che, essendo il potenziale a simmetria sferica, vale che
+ $\nabla^2V=\frac{1}{r}\frac{\partial^2}{\partial r^2}rV$:
+ 
+ $$-4\pi\rho(\vec{r})=\nabla^2V=\frac{1}{r}\frac{\partial^2}{\partial r^2}rV=
+ \frac{1}{r}\frac{\partial^2 }{\partial r^2}Qe^{-\frac{r}{l} }=\frac{Q}{l^2}\frac{1}{r}e^{- \frac{r}{l}}$$
+ 
+ pertanto, per $\vec{r}\ne 0$,
+ 
+  \begin{equation}\label{baba}
+  \rho(\vec{r})=-\frac{Q}{4\pi l^2}\frac{1}{r}e^{- \frac{r}{l}}.
+  \end{equation}
+ 
+ Per trovare la densità di carica nell'origine, applichiamo il teorema di Gau\ss\ in forma integrale ad una sfera centrata
+ nell'origine e di raggio $r$.
+
+ Dato che $\vec{E}=-\vec{\nabla}V$ e che, essendo il potenziale in questione è a simmetria sferica, vale che
+ $\vec{\nabla}V(\vec{r})=\frac{\partial f}{\partial r}\hat{r}$, si ha che
+
+  $$\vec{E}=-\vec{\nabla}V=-Q \frac{-\frac{r}{l}e^{-\frac{r}{l}}\frac{1}{r}-e^{-\frac{r}{l}}}{r^2}\hat{r}=
+  Q\frac{e^{-\frac{r}{l}}}{r^2}\left(1+\frac{r}{l}\right)\hat{r}$$
+  
+ Essendo il campo perpendicolare alla superficie della sfera vale che $\Phi(\vec{E})=4\pi r^2 E$, e dunque
+ 
+  $$4\pi r^2Q\frac{e^{-\frac{r}{l}}}{r^2}\left(1+\frac{r}{l}\right)=4\pi\, Q_{int}(r)$$
+ 
+ ove $Q_{int}(r)$ rappresenta la carica contenuta nella sfera di raggio $r$ centrata nell'origine. Da ciò si ottiene che
+ 
+ $$Q_{int}(r)=Q\, e^{-\frac{r}{l}}\left(1+\frac{r}{l}\right).$$
+ 
+ Giacché per $r\to 0$ tale espressione mostra che $Q_{int}(r)\to Q$, nell'origine è posta una carica puntiforme $Q$.
+ 
+ Di conseguenza la densità di carica è data da
+ 
+ $$\rho(\vec{r})=Q\cdot\delta(\vec{r})-\frac{Q}{4\pi l^2}\frac{1}{r}e^{- \frac{r}{l}}.$$
+ 
+ Si noti che se nella soluzione del problema si fosse erroneamente applicata la legge di Gau\ss\ in forma differenziale anche
+ nell'origine, ci si sarebbe dovuti accorgere dell'errore in quanto l'equazione \ref{baba} non può essere soluzione del
+ problema, in quanto fisicamente priva di senso: infatti tale distribuzione di carica è ovunque negativa, mentre il potenziale
+ è ovunque positivo.
+
+\end{document}
