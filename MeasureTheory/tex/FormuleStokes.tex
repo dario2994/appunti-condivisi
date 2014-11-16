@@ -279,33 +279,35 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 			\end{align*}
 			dove nell'ultimo passaggio si è usato che $\supp(u)\subseteq U_p$.
 		\item [$j\neq n$:] Possiamo assumere (a meno di riordinare le coordinate) che $j=n-1$ e, a meno di considerare un intorno più piccolo,
-			che $V=W \times J$. Ora, per il \cref{thm:Fubini}, abbiamo che
+			che $V=W \times J$, con $W\subseteq \R^{n-1}$ limitato e $J=\oo{a}{b}\subseteq \R$. Ora, per il \cref{thm:Fubini}, abbiamo che
 			\[
-				\int_{\Omega} \partial_{n-1} u(x) \de x = \int_W \int_J \int_I \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w\punto
+				\int_{\Omega} \partial_{n-1} u(x) \de x = \int_W \int_J \int_I \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w=\int_W \int_J \int_{-\infty}^{\psi(w,s)} \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w\punto
 			\]
-			Inoltre, dato che $\frac\partial{\partial s} \int_X u(v,s)\de v = \int_X \frac\partial{\partial s} u(v,s)\de v$ e che $\frac{\partial}{\partial y} \int_a^y u(v,t)\de t=u(v,y)$,
-			utilizzando le regole di composizione del differenziale, abbiamo che
+			
+			Dato che $u$ è una funzione $C^1$ definita su un compatto che contiene $W\times J\times I$, rispetta facilmente le ipotesi del \cref{thm:CommutazioneDerivataIntegrale}, quindi utilizzando le regole di composizione del differenziale (la variabile $s$ compare anche agli estremi di integrazione) otteniamo che
 			\[
 				\frac{\partial}{\partial s} \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
 				\int_{-\infty}^{\psi(w,s)} \frac\partial{\partial s} u(w,s,t) \de t + u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s)\punto
 			\]
+			
 			Per cui, integrando il termine a sinistra su $V=W\times J=W\times \oo{a}{b}$, per il teorema fondamentale del
-			calcolo integrale,
+			calcolo integrale, abbiamo 
 			\begin{align*}
 				&\int_W \int_a^b \frac\partial{\partial s} \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t \de s \de w = \\
 				&\int_W \left(\int_{-\infty}^{\psi(w,b)} u(w,b,t) \de t - \int_{-\infty}^{\psi(w,a)} u(w,a,t) \de t\right) \de w
 				= 0\virgola
 			\end{align*}
-			poiché i punti $(w,b,t)$ e $(w,a,t)$ sono sul bordo di $U$, dove la funzione $u$ è nulla per ipotesi. Usando questa relazione
-			otteniamo che
+			poiché i punti $(w,b,t)$ e $(w,a,t)$ sono sul bordo di $U_p$, dove la funzione $u$ è nulla per ipotesi. 
+			
+			Usando quindi le due relazioni appena trovate otteniamo che
 			\[
 				\int_W\int_J\int_I\frac\partial{\partial s} u(w,s,t) \de t \de s \de w =-\int_W \int_J u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s)\de s\de w\punto
 			\]
-			Ora, dato che $\nu(x)_{n-1}=\nu(v,\psi(v))_{n-1}=-\partial_{n-1}\psi(v)(1+\psi(v)^2)^{-\frac{1}{2}}$, otteniamo
+			Ora, dato che $\nu(x)_{n-1}=\nu(v,\psi(v))_{n-1}=-\partial_{n-1}\psi(v)(1+\lVert\grad\psi(v)\rVert^2)^{-\frac{1}{2}}$, otteniamo
 			\begin{align*}
 				\int_{\Omega} \partial_{n-1} u(x) \de x & = -\int_W \int_J u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s) \de s \de w\\
 				& = -\int_V u(v,\psi(v))\partial_{n-1} \psi(v) \de v\\
-				& = -\int_V u(v,\psi(v))(-\nu(v,\psi(v))_{n-1})(1+\psi(v)^2)^{\frac{1}{2}} \de v\\
+				& = -\int_V u(v,\psi(v))(-\nu(v,\psi(v))_{n-1})(1+\lVert\grad\psi(v)\rVert^2)^{\frac{1}{2}} \de v\\
 				& = \int_{\partial \Omega \cap U} u(x)\nu(x)_{n-1} \de \sigma(x)\punto
 			\end{align*}
 	\end{description}
