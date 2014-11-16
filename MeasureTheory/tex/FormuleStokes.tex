@@ -162,7 +162,7 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 		\phi(x)=\sum_{i=0}^n f_i(x) \psi_i(x)\virgola
 	\]
 	dove, con una leggera imprecisione formale, poniamo $f_i(x) \psi_i(x) = 0$ se $x\notin U_i$, in modo che $f_i(x) \psi_i(x)$ sia una funzione
-	$C^1$ in tutto $\R^n$. Infatti, dove sono definite entrambe (cioè in $U_i$), $f_i(x)\psi_i(x)$ è $C^1$, perchè $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$; inoltre la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $U_i$ e perciò non ci sono problemi nel passaggio all'esterno di $U_i$, dove abbiamo posto il prodotto uguale a 0.
+	$C^1$ in tutto $\R^n$. Infatti, dove sono definite entrambe (cioè in $U_i$), $f_i(x)\psi_i(x)$ è $C^1$, perché $\psi_i$ è $C^1$ e $f_i$ è addirittura $C^{\infty}$; inoltre la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $U_i$ e perciò non ci sono problemi nel passaggio all'esterno di $U_i$, dove abbiamo posto il prodotto uguale a 0.
 	
 	Ora abbiamo che $\phi\in C^1$ perché somma di funzioni $C^1$; $\phi(x)=0$ per ogni $x\in \partial\Omega$, dato che ognuna delle
 	$\psi_i$ aveva questa proprietà se era definita in $x$;
@@ -293,7 +293,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 				\int_{\Omega} \partial_{n-1} u(x) \de x = \int_W \int_J \int_I \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w=\int_W \int_J \int_{-\infty}^{\psi(w,s)} \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w\punto
 			\]
 			
-			Dato che $u$ è una funzione $C^1$ definita su un compatto che contiene $W\times J\times I$, rispetta facilmente le ipotesi\footnote{L'unica ipotesi non ovvia è che la derivata parziale sia maggiorata da una funzione integrabile. Ma ciò è vero poichè la derivata parziale, essendo continua su un compatto, è maggiorata da una costante.} del \cref{thm:CommutazioneDerivataIntegrale}, quindi sfruttando che
+			Dato che $u$ è una funzione $C^1$ definita su un compatto che contiene $W\times J\times I$, rispetta facilmente le ipotesi\footnote{L'unica ipotesi non ovvia è che la derivata parziale sia maggiorata da una funzione integrabile. Ma ciò è vero poiché la derivata parziale, essendo continua su un compatto, è maggiorata da una costante.} del \cref{thm:CommutazioneDerivataIntegrale}, quindi sfruttando che
 			\begin{multline*}
 				 \int_{-\infty}^{\psi(w,s+\de s)} u(w,s+\de s,t) \de t- \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t\\ =\int_{-\infty}^{\psi(w,s)} u(w,s+\de s,t)- u(w,s,t) \de t+  \int_{\psi(w,s)}^{\psi(w,s+\de s)} u(w,s+\de s,t) \de t\virgola
 			\end{multline*}

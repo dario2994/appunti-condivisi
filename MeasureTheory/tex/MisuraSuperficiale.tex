@@ -115,7 +115,7 @@ Vogliamo ora dimostrare che quella appena data è una buona definizione, cioè n
 
 	Sia $\varphi=f^{-1}\circ g$, allora è ovvio che $\varphi$ è una funzione bigettiva tra $\Omega'$ e $\Omega$. Inoltre, se dimostrassimo che $\varphi$ è differenziabile con continuità,  ne seguirebbe, per assoluta simmetria tra $f$ e $g$, che anche $\varphi^{-1}=g^{-1}\circ f$ è differenziabile con continuità e perciò avremmo ottenuto che $\varphi$ è un diffeomorfismo $C^1$ fra gli aperti $\Omega'$ e $\Omega$. Il fatto che $\varphi$ sia differenziabile con continuità lo lasciamo da dimostrare al lettore poiché è non banale con strumenti elementari\footnote{Un modo per dimostrarlo può essere mostrare che la mappa $f^{-1}$ si estende in ogni punto ad una funzione da un intorno del punto in $\Omega'$ che sia differenziabile con continuità. Avendo dimostrato questo, $\varphi$ sarebbe $C^1$ in quanto composizione di funzioni $C^1$.} e centra ben poco con la teoria che stiamo costruendo.
 	
-	Quindi, poichè $\varphi$ è un diffeomorfismo $C^1$, per il \cref{thm:CambioVariabile} otteniamo
+	Quindi, poiché $\varphi$ è un diffeomorfismo $C^1$, per il \cref{thm:CambioVariabile} otteniamo
 	\begin{multline*}
 		\int_{f^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\int_{\varphi\circ g^{-1}(E)}\sqrt{\det(\Diff f(x)^T\Diff f(x))}\de x=\\
 		=\int_{g^{-1}(E)}\sqrt{\det(\Diff f(\varphi(x))^T\Diff f(\varphi(x)))}\ \lvert\det \Diff \varphi(x)\rvert\de x=\int_{g^{-1}(E)}\sqrt{\det(\Diff g(x)^T\Diff g(x))}\de x\virgola
@@ -180,9 +180,9 @@ Mostriamo ora, tramite lemmi ed esercizi, degli esempi e delle formule utili per
 \begin{proof}
 	Per $v=0$ la tesi è ovvia, perciò assumiamo da subito $v$ diverso da 0.
 	
-	Poichè $L^TL=\begin{pmatrix} v & I_n \end{pmatrix}\begin{pmatrix} v^T \\ I_n \end{pmatrix}=I_n+vv^T$, un autovettore $x$ di $L^TL$ relativo all'autovalore $\lambda$ deve rispettare di $(I_n+vv^T)x=\lambda x$, cioè $(\lambda-1)x=(v^Tx)v$. Da questo otteniamo facilmente che tutti i vettori ortogonali a $v$ sono autovettori per $L^TL$ relativi all'autovalore 1, che quindi ha molteplicità $n-1$, e $v$ è un autovettore di $L^TL$ relativo all'autovalore $1+v^Tv$.
+	Poiché $L^TL=\begin{pmatrix} v & I_n \end{pmatrix}\begin{pmatrix} v^T \\ I_n \end{pmatrix}=I_n+vv^T$, un autovettore $x$ di $L^TL$ relativo all'autovalore $\lambda$ deve rispettare di $(I_n+vv^T)x=\lambda x$, cioè $(\lambda-1)x=(v^Tx)v$. Da questo otteniamo facilmente che tutti i vettori ortogonali a $v$ sono autovettori per $L^TL$ relativi all'autovalore 1, che quindi ha molteplicità $n-1$, e $v$ è un autovettore di $L^TL$ relativo all'autovalore $1+v^Tv$.
 	
-	Abbiamo perciò trovato tutti gli autovalori della matrice $L^TL$ e quindi $\det(L^TL)=1+v^Tv=1+\lvert v \rvert ^2$, poichè il determinante di una matrice è il prodotto dei suoi autovalori.
+	Abbiamo perciò trovato tutti gli autovalori della matrice $L^TL$ e quindi $\det(L^TL)=1+v^Tv=1+\lvert v \rvert ^2$, poiché il determinante di una matrice è il prodotto dei suoi autovalori.
 \end{proof}
 
 \begin{lemma}
@@ -210,7 +210,7 @@ Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trat
 \end{exercise}
 \begin{proof}
 	Innanzitutto notiamo che un tetraedro $n$-dimensionale è misurabile in $\R^n$ in quanto è chiuso.
-	Inoltre  dati due tetraedri $n$-dimensionali $T$ e $T'$ di lato rispettivamente $d$ e $d'$, poichè possiamo ottenere l'uno dall'altro con un'isometria composta un'omotetia di fattore $\frac{d'}d$, grazie alla \cref{prop:LebesgueProprietaIsometria} e alla $n$-omogeneità della misura di Lebesgue, vale che 
+	Inoltre  dati due tetraedri $n$-dimensionali $T$ e $T'$ di lato rispettivamente $d$ e $d'$, poiché possiamo ottenere l'uno dall'altro con un'isometria composta un'omotetia di fattore $\frac{d'}d$, grazie alla \cref{prop:LebesgueProprietaIsometria} e alla $n$-omogeneità della misura di Lebesgue, vale che 
 	\begin{equation*} 
 		m_n(T')=\left(\frac{d'}{d}\right)^nm_n(T)\punto
 	\end{equation*}
@@ -218,7 +218,7 @@ Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trat
 	Definiamo l'iperpiano affine $A=\{(x_1,x_2,\ldots,x_{n+1}) \mid x_1+x_2+\ldots +x_{n+1}=1\}$ in $\R^{n+1}$, consideriamo su di esso i punti $e_1,e_2,\ldots,e_{n+1}$ della base canonica di $\R^{n+1}$ e chiamiamo $T$ l'inviluppo convesso di questi $n+1$ punti. 
 	L'insieme $T$ si trova sull iperpiano $A$ ed è l'inviluppo convesso di $n+1$ punti a distanza $\sqrt 2$ uno dall'altro, quindi, per quanto detto sulla misura superficiale, $\sigma(T)$ equivale alla misura di un tetraedro $n$-dimensionale di lato $\sqrt 2$. %TODO: Perché è vero questo?
 
-	Perciò ci siamo ricondotti a calcolare $\sigma(T)$, poichè il volume di un tetraedro $n$-dimensionale di lato 1 sarà poi dato da $2^{-\frac n2}\sigma(T)$.
+	Perciò ci siamo ricondotti a calcolare $\sigma(T)$, poiché il volume di un tetraedro $n$-dimensionale di lato 1 sarà poi dato da $2^{-\frac n2}\sigma(T)$.
 
 	Sia $L:\R^n\to\R^{n+1}$ la funzione tale che $L(x_1,x_2,\ldots,x_n)=(1-\sum_ix_i,x_1,x_2,\ldots,x_n)$, allora banalmente $L$ è un'immersione iniettiva che parametrizza $A$. Inoltre vale facilmente che 
 	\begin{equation*}
@@ -248,7 +248,7 @@ Concludiamo questa sezione con un esercizio, per chiarire i concetti appena trat
 	\begin{equation*}
 		A_{k+1}=\int_0^1t^kA_k\de x=\int_0^1t^k\frac 1{k!}\de x=\frac 1{(k+1)!}\virgola
 	\end{equation*}
-	poichè ad altezza $t$ la misura della sezione del poliedro è $t^kA_k$, in quanto tale sezione è un poliedro nella dimensione minore di lato $t$ (per definizione di inviluppo convesso la \emph{fetta} deve essere un'omotetia di fattore $t$ della base).
+	poiché ad altezza $t$ la misura della sezione del poliedro è $t^kA_k$, in quanto tale sezione è un poliedro nella dimensione minore di lato $t$ (per definizione di inviluppo convesso la \emph{fetta} deve essere un'omotetia di fattore $t$ della base).
 	
 	Riunendo quanto detto, abbiamo che il volume di un tetraedro $n$-dimensionale di lato 1 è
 	\begin{equation*}
