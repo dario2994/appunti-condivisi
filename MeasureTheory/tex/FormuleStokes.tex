@@ -293,7 +293,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 				\int_{\Omega} \partial_{n-1} u(x) \de x = \int_W \int_J \int_I \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w=\int_W \int_J \int_{-\infty}^{\psi(w,s)} \frac{\partial}{\partial s} u(w,s,t) \de t \de s \de w\punto
 			\]
 			
-			Dato che $u$ è una funzione $C^1$ definita su un compatto che contiene $W\times J\times I$, rispetta facilmente le ipotesi del \cref{thm:CommutazioneDerivataIntegrale}, quindi utilizzando le regole di composizione del differenziale (la variabile $s$ compare anche agli estremi di integrazione) otteniamo che
+			Dato che $u$ è una funzione $C^1$ definita su un compatto che contiene $W\times J\times I$, rispetta facilmente le ipotesi\footnote{L'unica ipotesi non ovvia è che la derivata parziale sia maggiorata da una funzione integrabile. Ma ciò è vero poichè la derivata parziale, essendo continua su un compatto, è maggiorata da una costante.} del \cref{thm:CommutazioneDerivataIntegrale}, quindi utilizzando le regole di composizione del differenziale (la variabile $s$ compare anche agli estremi di integrazione) otteniamo che
 			\[
 				\frac{\partial}{\partial s} \int_{-\infty}^{\psi(w,s)} u(w,s,t) \de t =
 				\int_{-\infty}^{\psi(w,s)} \frac\partial{\partial s} u(w,s,t) \de t + u(w,s,\psi(w,s))\frac\partial{\partial s} \psi (w,s)\punto
