@@ -95,12 +95,26 @@ Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per 
 	Dato un ricoprimento di $\R^n$ con aperti $(\Omega_i)_{i\in I}$, esiste una famiglia di funzioni $f_i:\R^n\to\Rpiu$ infinitamente derivabili
 	e non negative tali che:
 	\begin{itemize}
-		\item la chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $\Omega_i$ per ogni $i\in I$,
-		\item per ogni $x\in\R^n$ vale che $\sum_{i\in I} f_i(x)=1$\footnote{La serie la definiamo come il $\sup$ delle somme finite.}.
+		\item La chiusura dell'insieme in cui $f_i$ non si annulla è contenuta in $\Omega_i$ per ogni $i\in I$;
+		\item Per ogni $x\in\R^n$, solo per un numero finito di $i\in I$ la quantità $f_i(x)$ non si annulla;
+		\item Per ogni $x\in\R^n$, vale $\sum_{i\in I} f_i(x)=1$.
 	\end{itemize}
 \end{theorem}
 \begin{proof}
-	TODO
+	Non proponiamo una dimostrazione completa di questo teorema poiché risulterebbe eccessivamente lunga rispetto all'inerenza che ha con la teoria della misura. Il teorema qui enunciato è infatti dal carattere fortemente topologico ed è la sua applicazione ad avere grande valore in teoria della misura, piuttosto che la sua dimostrazione.
+	
+	In ogni caso, per completezza, proponiamo al lettore interessato una via dimostrativa guidata, da considerare come un esercizio.
+	Ci saranno utili i seguenti due lemmi, topologicamente interessanti anche di per sè.
+	\begin{enumerate}
+		\item Dati due aperti $A,B\subseteq \R^n$ tali che $A\cup B=\R^n$, esiste un aperto $C$ tale che $\overline{C}\subseteq A$ e $C\cup B=\R^n$.
+		\item Dato un chiuso $C\subseteq \R^n$, esiste una funzione $f:\R^n\to\R$ derivabile infinite volte che come supporto ha esattamente $C$.
+	\end{enumerate}
+	
+	Il primo passo della dimostrazione della Partizione dell'unità è notare che se si dimostra la tesi per un sottoricoprimento, anche ammettendo di poter ``rimpicciolire gli aperti'', la tesi generale segue facilmente. 
+	Allora, ricordando la \cref{prop:BaseNumerabileLindelof}, si può assumere che $I$ sia numerabile e, a meno di rimpicciolire adeguatamente gli aperti $\Omega_i$, si può assumere che ogni compatto intersechi solo un numero finito di aperti del ricoprimento.
+	
+	A questo punto applicando i due lemmi enunciati, è facile trovare delle funzioni $(f_i)_{i\in I}$ che rispettano tutte le richieste tranne che, al posto di valere $\sum_{i\in I} f_i(x)=1$, abbiamo soltanto che vale $\sum_{i\in I} f_i(x)>0$.
+	Per concludere basta dimostrare che $\sum_{i\in I}f_i$ è infinitamente derivabile e dividere ogni $f_i$ per tale funzione.
 \end{proof}
 
 Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizione di aperto regolare che coinvolga una sola funzione definita globalmente.
