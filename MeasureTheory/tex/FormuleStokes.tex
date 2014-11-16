@@ -75,6 +75,24 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$ indicheremo i
 			cioè $(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per $U\cap\Omega$.
 	\end{description}
 \end{proof}
+\begin{lemma}\label{lemma:BuonaDefinizioneNormale}
+	Fissato $\bar x\in\partial\Omega$, se $(U_1,f_1)$ e $(U_2,f_2)$ sono due coppie di aperto e funzione che rispettano le richieste enunciate in \ref{PRE:i} allora i vettori $\grad f_1(\bar x)$ e $\grad f_2(\bar x)$ sono paralleli ed hanno lo stesso verso.
+\end{lemma}
+\begin{proof}
+	Possiamo assumere $U_1=U_2=U$ visto che se così non fosse basterebbe sostituirli con la loro intersezione. Fissiamo un generico vettore $v\in\R^n$.
+	
+	Per ogni reale positivo $\lambda>0$ sufficientemente piccolo risulta $x+\lambda v\in U$ e perciò $f_1(x+\lambda v)$ e $f_2(x+\lambda v)$ hanno lo stesso segno, poiché tale segno dipende unicamente dall'appartenenza o meno di $x+\lambda v$ ad $\Omega$. 
+	
+	Sempre scegliendo $\lambda$ tale che $x+\lambda v\in U$, per definizione di gradiente abbiamo
+	\begin{equation*}
+		f_1(\bar x+\lambda v)=f_1(\bar x)+\grad f_1(\bar x)\cdot \lambda v+\smallO(\lambda)=\lambda \grad f_1(\bar x)\cdot v+\smallO(\lambda)
+	\end{equation*}
+	e allora, supponendo $\lambda$ sufficientemente piccolo e $\grad f_1(\bar x)\cdot v\not =0$, il segno di $f_1(\bar x+\lambda v)$ è lo stesso di $\grad f_1(\bar x)\cdot v$.
+	Ovviamente un risultato analogo vale anche per $f_2$.
+	
+	Unendo quanto detto si ha che $\grad f_1(\bar x)\cdot v$ ha lo stesso segno di $\grad f_2(\bar x)\cdot v$ e ciò vale per ogni $v\in\R^n$. 
+	Se per assurdo i gradienti non sono paralleli, scegliendo $v$ nell'ortogonale di $\grad f_1(\bar x)$ ma \emph{non} nell'ortogonale di $\grad f_2(\bar x)$ è facile notare che la condizione non è verificata e ciò implica il parallelismo dei gradienti. Per quanto riguardo il verso, basta scegliere $v=\grad f_1(\bar x)$ per ottenere che devono avere lo stesso verso.
+\end{proof}
 
 
 \begin{definition}[Punto regolare]
@@ -134,7 +152,9 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 	Per la regolarità dei punti
 	del bordo di $\Omega$, consideriamo per ogni $x\in\partial \Omega$ un intorno $U_x$ tale che esista una funzione $\psi_x:U_x\rightarrow \R$
 	come nel punto \ref{PRE:iii} del \cref{thm:PtRegEquiv}. Dato che $\Omega$ è limitato, $\partial\Omega$ è compatto e gli $U_x$ sono un ricoprimento aperto di $\partial \Omega$; possiamo
-	quindi estrarre un sottoricoprimento finito $U_1, \dots, U_n$ di $\partial\Omega$. Chiamando $U_0 = \R^n \setminus \partial \Omega$,
+	quindi estrarre un sottoricoprimento finito $U_1, \dots, U_n$ di $\partial\Omega$, dove per comodità di notazione abbiamo sostituito $U_{x_i}$ con $U_i$ ed analogamente $f_{x_i}$ con $f_i$. 
+	
+	Chiamando $U_0 = \R^n \setminus \partial \Omega$,
 	abbiamo perciò che gli aperti $U_0,\dots,U_n$ sono un ricoprimento di $\R^n$ e di conseguenza
 	il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i$ per ogni $i\in\{0,\dots, n\}$ con tutte le proprietà descritte.
 	Infine, definiamo $\psi_0:U_0\rightarrow \R$ tale che $\psi_0(x)=1$ se $x\notin \Omega$, $\psi_0(x)=-1$ altrimenti (per ognuno degli altri $U_i$ abbiamo già delle funzioni $\psi_i$). Sia ora 
@@ -149,38 +169,26 @@ Mostriamo ora, facendo uso di questo teorema, che è possibile dare una definizi
 	$\phi(x)<0$ per ogni $x \in \Omega$, perché $\phi$ è combinazione convessa di funzioni che, per ciascun $x\in\Omega$, sono non positive e
 	delle quali almeno una strettamente negativa; similmente, $\phi(x)>0$ per ogni $x \notin \overline\Omega$.
 	
-	Rimane da mostrare che $\grad \phi(x)\neq 0$ se $\phi(x)=0$. Ancora una volta utilizzeremo che $\phi$ è una combinazione convessa delle $\psi_i$, quindi vorremmo mostrare che il gradiente di ciascuna di queste è non nullo e che nei punti di sovrapposizione tali gradienti sono concordi a due a due.
-	
-	In ciascun punto $x$ del bordo, le funzioni $\psi_i$ non hanno differenziale nullo quando sono definite in $x$, per la regolarità dei punti del bordo. Esisterà quindi una direzione $e_k$ per la quale esiste almeno un $i$ tale che $\partial_k \psi_i(x)\neq 0$.
-	Dato che le $\psi_i$ sono differenziabili, si ha che
-	\[
-		\psi_i(x+\delta e_k)=\psi_i(x)+\partial_k \psi_i(x)\cdot \delta + \smallO(\delta) = \partial_k \psi_i(x)\cdot \delta + \smallO(\delta)\punto
-	\]
-	Sapevamo però che, per ciascun indice $i$, $\psi_i(x+\delta e_k)<0$ solo se $x+\delta e_k\in \Omega$.
-	Quindi, per $i\neq i'$, $\partial_k \psi_i(x)$ e $\partial_k \psi_{i'}(x)$ non possono essere discordi, altrimenti si ha che uno tra $\psi_i(x+\delta e_k)= \partial_k \psi_i(x) \delta + \smallO(\delta)$ e
-	$\psi_i'(x+\delta e_k)=\partial_k \psi_i'(x) \delta + \smallO(\delta)$ è positivo per $\delta$ sufficientemente piccolo, ma questo sarebbe assurdo perchè in entrambi i casi $x+\delta e_k$ sta in $\Omega$.
-	
-	Quindi, sempre per lo stesso $x\in\partial \Omega$, utilizzando che $\psi_i\equiv 0$ sul bordo, otteniamo
-	\[ 
-		\grad \phi(x)=\sum_{i=0}^n \grad (f_i \cdot\psi_i)(x)=\sum_{i=0}^n \grad f_i(x)\cdot \psi_i(x)+\sum_{i=0}^n f_i(x)\cdot \grad \psi_i(x)=
-		\sum_{i=0}^n f_i(x)\cdot \grad  \psi_i(x)\punto
-	\]
-	Perciò $\grad \phi(x)$ non è nullo perché la $k$-esima componente è combinazione convessa di
-	$\partial_k \psi_i(x)$ che sono non discordi.
+	Rimane da mostrare che $\grad \phi(x)\neq 0$ per ogni $x$ tale che $\phi(x)=0$. 
+	Per quanto già detto, se $\phi(x)=0$ allora $x\in\partial\Omega$ e perciò, scelto un tale $x$, in un suo intorno $f_0=0$. 
+	Quindi, ricordando la definizione di $\phi$, è facile ottenere (ancora abusando lievemente di notazione)
+	\begin{equation*}
+		\grad\phi(x)=\sum_{i=1}^n\grad f_i(x)\psi_i(x)+\sum_{i=1}^n f_i(x)\grad\psi_i(x)=\sum_{i=1}^n f_i(x)\grad\psi_i(x)\virgola
+	\end{equation*}
+	cioè $\grad\phi(x)$ è una combinazione convessa dei $\grad\psi_i(x)$ (se definiti), che sono paralleli e concordi per il \cref{lemma:BuonaDefinizioneNormale}. 
+	Perciò $\grad\phi(x)$ non si annulla poiché è una combinazione convessa di vettori paralleli e concordi, di cui almeno uno non nullo.
 \end{proof}
 
 La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che discrimina punti interni ed esterni ad $\Omega$ è certamente la seguente.
 
 \begin{definition}[Campo normale esterno]
-	Data la $\phi$ di cui al \cref{lemma:EquivRegolare}, chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
+	Fissato $\Omega\subseteq\R^n$ aperto regolare, sia $\phi$ come nel \cref{lemma:EquivRegolare}. Chiamiamo campo normale esterno la funzione $\nu:\partial\Omega\rightarrow \R^n$ tale che
 	\[
 		\nu(x)=\frac{\grad \phi(x)}{\lVert\grad \phi(x)\rVert}\punto
 	\]
 \end{definition}
-
 \begin{remark}
-	Il \cref{lemma:EquivRegolare}, oltre che a fornire la funzione $\phi$ per l'aperto regolare $\Omega$, dice anche che $\nu(x)$ è ben definita
-	su tutto $\partial \Omega$ e che è continua.
+	Il \cref{lemma:BuonaDefinizioneNormale}, assicura che $\nu(x)$ è ben definita.
 \end{remark}
 
 \begin{remark}
@@ -188,7 +196,7 @@ La conseguenza più importante dell'esistenza di un'unica funzione $\phi$ che di
 	abbastanza piccoli.
 \end{remark}
 \begin{proof}
-	Stesso ragionamento fatto nella dimostrazione del \cref{lemma:EquivRegolare}.
+	Stesso ragionamento fatto nella dimostrazione del \cref{lemma:BuonaDefinizioneNormale}.
 \end{proof}
 
 Forti di una solida definizione di campo normale uscente possiamo procedere con il formalizzare la definizione di integrale sulla superficie $\partial\Omega$ sfruttando anche i risultati della sezione precedente.
