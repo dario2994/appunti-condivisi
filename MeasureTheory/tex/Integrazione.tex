@@ -225,7 +225,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che dimostra proprio la \sigadd\ di $\nu$.
 \end{proof}
 
-\begin{lemma}[Fatou] \label{lemma:Fatou}
+\begin{lemma}[Lemma di Fatou] \label{lemma:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\punto
@@ -540,7 +540,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	È facile verificare che in $\L(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
 \end{proof}
 
-\begin{proposition}[Derivata sotto il segno d'integrale] \label{prop:CommutazioneDerivataIntegrale}%TODO: Forse si può togliere l'ipotesi di C^1... o forse si può togliere qualche altra ipotesi.
+\begin{theorem}[Derivata sotto il segno d'integrale] \label{th:CommutazioneDerivataIntegrale}
 	Fissato uno spazio di misura $(X,\A,\mu)$ e $\Omega\subseteq\R$ un aperto, sia $f:X\times\Omega\to\R$ una funzione tale che:
 	\begin{enumerate}
 		\item Per ogni $t\in\Omega$, la funzione $f({}\cdot,t):X\to\R$ è integrabile; \label{it:CommutazioneIntegrabile}
@@ -550,14 +550,14 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 			g(x)\ge \sup_{t\in\Omega}\left\lvert \frac{\partial f}{\partial t}(x,t)\right\rvert \punto
 		\end{equation*}
 	\end{enumerate}
-	Allora gli operatori di derivata e integrale commutano, cioè, per ogni $t\in\Omega$, tutti le espressioni che compaiono nella formula esistono e vale
+	Allora gli operatori di derivata e integrale commutano, cioè, per ogni $t\in\Omega$, tutte le espressioni che compaiono nella formula esistono e vale
 	\begin{equation*}
 		\frac{\de}{\de t}\int_X f(x,t)\de \mu(x)=\int_X\frac{\partial f}{\partial t}(x,t)\de\mu(x) \punto
 	\end{equation*}
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	Fissiamo $t\in\Omega$ ed una successione $(h_n)_{n\in\N}\subseteq\R$ che converge a $0$ e tale che $t+h_n$ sta nella stessa componente connessa di $t$ in $\Omega$\footnote{Questa richiesta è sempre verificata a meno di escludere i primi termini della successione.}.
-	Per ogni $n\in\N$ definiamo $f_n:X\to\R$ come il rapporto incrementale relativo a $h_i$:
+	Per ogni $n\in\N$ definiamo $f_n:X\to\R$ come il rapporto incrementale relativo a $h_n$:
 	\begin{equation*}
 		f_n(x)=\frac{f(x,t+h_n)-f(x,t)}{h_n} \punto
 	\end{equation*}
