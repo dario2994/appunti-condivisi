@@ -538,8 +538,44 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	Sia $(f_n)$ la successione di funzioni integrabili definita da $f_n=\chi_{I_n}$, dove $I_n=\left[\frac{n-2^k}{2^k},\frac{n-2^k+1}{2^k}\right]$ se $2^k\le n<2^{k+1}$. In particolare quindi i primi termini della successione $(I_n)$ sono $I_1=\left[0,1\right],I_2=\left[0,\frac 12\right],I_3=\left[\frac 12,1\right],I_4=\left[0,\frac 14\right],\cdots$. 
 	
 	È facile verificare che in $\L(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
-
 \end{proof}
+
+\begin{proposition}[Derivata sotto il segno d'integrale] \label{prop:CommutazioneDerivataIntegrale}%TODO: Forse si può togliere l'ipotesi di C^1... o forse si può togliere qualche altra ipotesi.
+	Fissato uno spazio di misura $(X,\A,\mu)$ e $\Omega\subseteq\R$ un aperto, sia $f:X\times\Omega\to\R$ una funzione tale che:
+	\begin{enumerate}
+		\item Per ogni $t\in\Omega$, la funzione $f({}\cdot,t):X\to\R$ è integrabile; \label{it:CommutazioneIntegrabile}
+		\item La funzione $f$ è derivabile nella seconda variabile; \label{it:CommutazioneDerivabile}
+		\item Esiste una funzione $g:X\to\R$ integrabile tale che \label{it:CommutazioneDominazione}
+		\begin{equation*}
+			g(x)\ge \sup_{t\in\Omega}\left\lvert \frac{\partial f}{\partial t}(x,t)\right\rvert \punto
+		\end{equation*}
+	\end{enumerate}
+	Allora gli operatori di derivata e integrale commutano, cioè, per ogni $t\in\Omega$, tutti le espressioni che compaiono nella formula esistono e vale
+	\begin{equation*}
+		\frac{\de}{\de t}\int_X f(x,t)\de \mu(x)=\int_X\frac{\partial f}{\partial t}(x,t)\de\mu(x) \punto
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Fissiamo $t\in\Omega$ ed una successione $(h_n)_{n\in\N}\subseteq\R$ che converge a $0$ e tale che $t+h_n$ sta nella stessa componente connessa di $t$ in $\Omega$\footnote{Questa richiesta è sempre verificata a meno di escludere i primi termini della successione.}.
+	Per ogni $n\in\N$ definiamo $f_n:X\to\R$ come il rapporto incrementale relativo a $h_i$:
+	\begin{equation*}
+		f_n(x)=\frac{f(x,t+h_n)-f(x,t)}{h_n} \punto
+	\end{equation*}
+	Per l'assunzione \ref{it:CommutazioneIntegrabile}, le funzioni $f_n$ sono integrabili, essendo combinazione lineare di funzioni integrabili, e grazie all'ipotesi \ref{it:CommutazioneDerivabile} deduciamo che le funzioni $f_n$ convergono puntualmente alla funzione $\frac{\partial f}{\partial t}({}\cdot,t)$.
+	
+	Per il teorema di Lagrange, per ogni $x\in X$ ed $n\in\N$, esiste $t'\in\Omega$ tale che valga
+	\begin{equation*}
+		\lvert f_n(x)\rvert=\left\lvert\frac{\partial f}{\partial t}(x,t')\right\rvert\le \sup_{t\in\Omega}\left\lvert \frac{\partial f}{\partial t}(x,t)\right\rvert
+	\end{equation*}
+	e perciò le funzioni $f_n$ sono dominate dalla funzione integrabile $g$ grazie all'ipotesi \ref{it:CommutazioneDominazione}.
+	
+	Unendo le proprietà della successione $(f_n)_{n\in\N}$ si trovano le ipotesi necessarie per applicare il \cref{thm:ConvergenzaDominata} ed ottenere perciò
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{\int_X f(x,t+h_n)\de \mu(x)-\int_X f(x,t)\de\mu(x)}{h_n}=\lim_{n\to\infty} \int_X f_n(x)\de\mu(x)=\int_X \frac{\partial f}{\partial t}(x,t)\de\mu(x)\virgola
+	\end{equation*}
+	che è equivalente alla tesi cercata.
+\end{proof}
+
 
 
 
