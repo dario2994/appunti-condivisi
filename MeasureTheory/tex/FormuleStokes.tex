@@ -17,7 +17,7 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$ indicheremo i
 		\item esistono $U$ intorno di $\bar x$ e $g$ diffeomorfismo $C^1$ da $\R^n$ in $U$ tale che\label{PRE:ii}
 			\begin{itemize}
 				\item $U\cap \partial \Omega = g(\R^{n-1}\times\{0\})$,
-				\item $U\cap \Omega = g(\R^{n-1}\times\oo{0}{\infty})$;
+				\item $U\cap \Omega = g(\R^{n-1}\times\oo{-\infty}{0})$;
 			\end{itemize}
 		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $\bar x=(\bar v,\bar t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
 			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
@@ -58,20 +58,21 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$ indicheremo i
 			\end{align*}
 			che conclude per le ipotesi sulle controimmagini di $f$.
 		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $\bar x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\varepsilon}{\varepsilon}$
-			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(v,t)=(v,\psi(v)-t)$. 
+			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(v,t)=(v,\psi(v)+t)$. 
 			Di conseguenza otteniamo
 			\begin{align*}
 				g(V\times \{0\})&=\graf(\psi)=U\cap \partial \Omega \virgola\\
-				g(V\times \oo{0}{\varepsilon})&=\{(v,\psi(v)-t)\in V\times I:t>0\}=\{(v,s)\in V\times I:s<\psi(v)\}=U\cap \Omega\punto
+				g(V\times \oo{-\varepsilon}{0})&=\{(v,\psi(v)+t)\in V\times I:t<0\}=\\
+												&=\{(v,s)\in V\times I:s<\psi(v)\}=U\cap \Omega\punto
 			\end{align*}
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
 			di $\bar x$ e $\R^n$.
-		\item [\ImplicationProof{PRE:ii}{PRE:i}] È sufficiente scegliere $f=-(g^{-1})_n$; infatti, $-g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
+		\item [\ImplicationProof{PRE:ii}{PRE:i}] È sufficiente scegliere $f=(g^{-1})_n$; infatti, $g^{-1}$ va da $U$ in $\R^n$ e, essendo un diffeomorfismo, ha differenziale invertibile in ogni punto.
 			In particolare, ogni riga della matrice del differenziale non è nulla (quindi neanche $\nabla f$) e le condizioni sulla $g$ si traducono immediatamente in quelle chieste alla $f$:
 			\[
 				U\cap \partial \Omega = g(\R^{n-1}\times\{0\}) \Rightarrow g^{-1}(U\cap \partial \Omega) = \R^{n-1}\times\{0\}\virgola
 			\]
-			cioè $-(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per i negativi.
+			cioè $(g^{-1})_n(\R^{n-1}\times\{0\}) = \{0\}$. E lo stesso per $U\cap\Omega$.
 	\end{description}
 \end{proof}
 
@@ -110,7 +111,7 @@ Facciamo ora una piccola parentesi per introdurre uno strumento molto utile per 
 		\item Dato un chiuso $C\subseteq \R^n$, esiste una funzione $f:\R^n\to\R$ derivabile infinite volte che come supporto ha esattamente $C$.
 	\end{enumerate}
 	
-	Il primo passo della dimostrazione della Partizione dell'unità è notare che se si dimostra la tesi per un sottoricoprimento, anche ammettendo di poter ``rimpicciolire gli aperti'', la tesi generale segue facilmente. 
+	Il primo passo della dimostrazione della partizione dell'unità è notare che se si dimostra la tesi per un sottoricoprimento, anche ammettendo di poter ``rimpicciolire gli aperti'', la tesi generale segue facilmente. 
 	Allora, ricordando la \cref{prop:BaseNumerabileLindelof}, si può assumere che $I$ sia numerabile e, a meno di rimpicciolire adeguatamente gli aperti $\Omega_i$, si può assumere che ogni compatto intersechi solo un numero finito di aperti del ricoprimento.
 	
 	A questo punto applicando i due lemmi enunciati, è facile trovare delle funzioni $(f_i)_{i\in I}$ che rispettano tutte le richieste tranne che, al posto di valere $\sum_{i\in I} f_i(x)=1$, abbiamo soltanto che vale $\sum_{i\in I} f_i(x)>0$.
@@ -220,8 +221,8 @@ Ora che sappiamo cos'è la normale uscente ad un aperto regolare e sappiamo come
 abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principale risultato della sezione. Possiamo quindi enunciare il teorema di Stokes.
 
 \begin{theorem}[Formula di Stokes]\label{thm:Stokes}
-	Sia $u\in C^1(\overline\Omega,\R)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
-	$\Omega'\supseteq \overline\Omega$) e sia $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
+	Sia $\Omega$ un aperto regolare e siano $u\in C^1(\overline\Omega,\R)$ (ossia $u$ è la restrizione a $\overline\Omega$ di una funzione $C^1$ definita su un aperto
+	$\Omega'\supseteq \overline\Omega$) e $\nu:\partial \Omega \rightarrow \R^n$ la normale uscente da $\Omega$, allora vale che
 	\begin{equation}\label{eq:FormulaStokes}
 		\int_{\Omega} \partial_j u(x) \de x = \int_{\partial \Omega} u(y)\nu(y)_j \de \sigma(y)\punto
 	\end{equation}
@@ -336,7 +337,7 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 
 \begin{corollary}(Teorema della divergenza)
 	\label{cor:thDivergenza}
-	Sia $u:\overline\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
+	Siano $\Omega$ un aperto regolare e $u:\overline\Omega \rightarrow \R^n$ una funzione $C^1$ (nello stesso senso di prima), allora si ha che
 	\begin{equation}\label{eq:thDivergenza}
 		\int_{\Omega} \div u (x) \de x = \int_{\partial \Omega} u(y)\cdot\nu(y) \de \sigma(y)\virgola
 	\end{equation}
@@ -359,7 +360,7 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 Giocherellando ancora con queste equazioni si ottengono anche le seguenti formule dette di Green:
 
 \begin{corollary}(Prima formula di Green)
-	Siano $u\in C^1(\overline\Omega, \R)$ e $v\in C^2(\overline\Omega, \R)$, allora si ha
+	Sia $\Omega$ un aperto regolare e siano $u\in C^1(\overline\Omega, \R)$ e $v\in C^2(\overline\Omega, \R)$, allora si ha
 	\[
 		\int_{\Omega} \left( u \Delta v+ \grad u\cdot\grad v \right) \de x=
 		\int_{\partial\Omega} u \frac{\partial v}{\partial \nu} \de \sigma(y) \virgola
@@ -387,7 +388,7 @@ Giocherellando ancora con queste equazioni si ottengono anche le seguenti formul
 \end{proof}
 
 \begin{corollary}(Seconda formula di Green)
-	Siano $u,v\in C^2(\overline\Omega, \R)$, allora si ha che
+	Sia $\Omega$ un aperto regolare e siano $u,v\in C^2(\overline\Omega, \R)$, allora si ha che
 	\[
 		\int_{\Omega}\left(u\Delta v-v\Delta u\right) \de x=
 		\int_{\partial\Omega}\left(u\frac{\partial v}{\partial\nu}-v\frac{\partial u}{\partial\nu}\right) \de \sigma(y)\punto
