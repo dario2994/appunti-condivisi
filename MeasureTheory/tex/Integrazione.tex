@@ -1,5 +1,9 @@
 \section{Integrazione secondo Lebesgue}
-In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi. In particolare definiremo inizialmente l'integrale di funzioni misurabili positive per poi estenderlo facilmente alle funzioni misurabili che hanno integrale del loro valore assoluto finito. Chiameremo queste ultime funzioni integrabili.
+In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostreremo alcuni risultati introduttivi.
+
+Definiremo innanzitutto l'integrale di funzioni caratteristiche e quindi di funzioni semplici, imponendo che l'integrale sia un funzionale lineare. Daremo poi la definizione di integrale di funzioni misurabili positive, per arrivare infine a definire il concetto di funzione integrabile e di integrale di una tale funzione. Noteremo inoltre che lo spazio delle funzioni integrabili ha una struttura di spazio vettoriale.
+
+Conclusa la parte di lemmi necessari a formulare tutte le definizioni, dimostreremo alcuni risultati di convergenza e commutazione che riguardano l'integrale di Lebesgue.
 
 \begin{remark}
 	Indicheremo l'integrale di $f$ su una spazio di misura $(X,\A,\mu)$ con 
@@ -74,10 +78,10 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{remark}
-	Osserviamo che data una funzione misurabile, semplice e positiva $\simp:X\to\Rpiu$, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$ misurabile, possiamo definire l'integrale di $\simp$ su $E$. 
-	
-	Infatti per la \cref{nota:RiduzioneMisura} anche $(E,\A_E,\mu|_{\A_E})$ (come definito nella \cref{nota:RiduzioneMisura}) è uno spazio di misura e vale facilmente che $\simp$ è misurabile, semplice e positiva anche ridotta su $(E,\A_E,\mu|_{\A_E})$.
+	Osserviamo che data una funzione misurabile, semplice e positiva $\simp:X\to\Rpiu$, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$ misurabile, possiamo definire l'integrale di $\simp$ su $E$. Infatti per la \cref{nota:RiduzioneMisura} anche $(E,\A_E,\mu|_{\A_E})$ (come definito nella \cref{nota:RiduzioneMisura}) è uno spazio di misura e vale facilmente che $\simp$ è misurabile, semplice e positiva anche ridotta su $(E,\A_E,\mu|_{\A_E})$.
 \end{remark}
+
+Ora mostreremo perciò qual è la relazione che intercorre fra l'integrale su un sottoinsieme misurabile e l'integrale su tutto il dominio, per poi notare che è possibile spezzare l'integrale su uno spazio di misura nella somma degli integrali su una sua partizione.
 
 \begin{proposition}\label{prop:IntegraleSempliciSuMisurabili}
 	Data una funzione $\simp:X\to\Rpiu$ misurabile, semplice e positiva, con $(X,\A,\mu)$ spazio di misura, e dato $E\in\A$, vale che
@@ -93,7 +97,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{proof}
 
 \begin{corollary}\label{cor:IntegraleSempliciSpezzato}
-	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\cup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
+	Siano $X_1,X_2,\dots,X_k$ misurabili e disgiunti tali che $X=\sqcup_{m=1}^kX_m$ e sia $\simp$ una funzione semplice e positiva, allora
 	\begin{equation*}
 		\int_X \simp \de \mu=\sum_{m=1}^k \int_{X_m}\simp\de \mu
 	\end{equation*}
@@ -105,7 +109,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{equation*}
 \end{proof}
 
-
+Diamo ora la definizione di integrale di una funzione misurabile positiva $f$ come estremo superiore degli integrali delle funzioni semplici e positive minori di $f$. Dimostriamo poi che lo stesso risultato si ottiene facendo questo estremo superiore su una famiglia più piccola di funzioni semplici, cioè in particolare su una successione crescente di funzioni semplici e positive che convergono puntualmente ad $f$.
 
 \begin{definition}\label{def:IntegralePositive}
 	Sia $f:X\to\Rpiu$ una funzione misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, allora definiamo l'integrale di $f$ come
@@ -178,6 +182,8 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	\end{description}
 \end{proof}
 
+Sfruttiamo ora la \cref{nota:ApprossimazioneIntegralePositiveConSemplici} per dimostrare il teorema di commutazione fra limite e integrale per funzioni misurabili positive, noto come teorema di Beppo Levi, e un suo corollario che ci dà invece la possiblità di scambiare serie e integrale.
+
 \begin{theorem}[Beppo Levi]\label{thm:BeppoLevi}
 	Sia $(f_n)$ una successione crescente di funzioni misurabili positive, definita su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rpiu$, convergenti puntualmente ad una funzione $f$. Allora 
 	\begin{equation*}
@@ -206,6 +212,8 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che è proprio quello che volevamo dimostrare.
 \end{proof}
 
+Il lemma che segue non è strettamente legato a questa sezione, ma è una conseguenza del \cref{cor:IntegrazionePerSeriePositive} che ci permette di costruire una misura su una spazio misurabile $(Y,\mathscr B)$, a partire da uno spazio di misura $(X,\A,\mu)$ e da funzione che mette in relazione i due spazi.
+
 \begin{lemma}\label{lemma:MisuraIntegrale}
 	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, e sia $g:X\to Y$, con $(Y,\B)$ spazio misurabile, tale che $g^{-1}(B)\in\A$ per ogni $B\in\B$. Definiamo la funzione $\nu:\mathscr B\to\Rpiu$ ponendo, per ogni $B\in\B$,
 	\begin{equation*}
@@ -225,7 +233,9 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 	che dimostra proprio la \sigadd\ di $\nu$.
 \end{proof}
 
-\begin{lemma}[Fatou] \label{lemma:Fatou}
+Concludiamo la parte legata alle funzioni misurabili positive con il lemma di Fatou, facile conseguenza del \cref{thm:BeppoLevi}, che ci permette ancora una volta di scambiare limite (inferiore) e integrale.
+
+\begin{lemma}[Lemma di Fatou] \label{lemma:Fatou}
 	Sia $(f_n)$ una successione di funzioni misurabili positive, allora 
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n(x)\right)\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\punto
@@ -242,6 +252,8 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 		\int_X \inf_{k\ge n}f_k\de\mu\le \int_Xf_k\de\mu \ \forall k\ge n \Longrightarrow \int_X \inf_{k\ge n}f_k\de\mu\le \inf_{k\ge n}\int_Xf_k\de\mu\punto
 	\end{equation*}
 \end{proof}
+
+Definiamo ora la nozione di funzione integrabile e di integrale di una tale funzione e dimostriamo qualche risultato preliminare.
 
 \begin{definition}
 	Una funzione misurabile $f:X\to\Rbar$, con $(X,\A,\mu)$ spazio di misura, si dice integrabile se 
@@ -294,6 +306,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 \end{remark}
 
 
+Mostriamo ora alcuni fatti che riguardano la misura di alcuni sottoinsiemi particolari del dominio di integrazione di una funzione integrabile. Nello specifico arriveremo a dimostrare che l'integrale non cambia a meno di un trascurabile.
 
 \begin{theorem}[Disuguaglianza di Chebyshev]\label{thm:DisuguaglianzaChebyshev}
 	Data una funzione $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, e dato $\lambda>0$ reale vale
@@ -373,6 +386,7 @@ In questa sezione definiremo la nozione di integrale secondo Lebesgue e dimostre
 
 Il fatto che l'integrale di una funzione integrabile sia invariante a meno di insiemi trascurabili sarà fondamentale e molto utilizzato nel resto della trattazione. Spesso parleremo infatti di integrale di una funzione anche se questa non è definita su un sottoinsieme trascurabile del dominio (infatti l'integrale sarebbe lo stesso per qualsiasi scelta di valori su quel trascurabile).
 
+Di seguito mostreremo alcune proprietà basilari dell'integrale di funzioni integrabili e della norma integrale. Definiremo poi lo spazio delle funzioni integrabili, che risulterà essere uno spazio vettoriale dotato di una seminorma, grazie per l'appunto a queste proprietà.
 
 \begin{proposition}\label{prop:IntegraleIntegrabili}
 	Date $f,g:X\to\Rbar$ funzioni integrabili con $(X,\A,\mu)$ spazio di misura e dati $a,b,\lambda\in\R$ valgono:
@@ -414,6 +428,8 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	Dato che $\LNorm{\cdot}$ è una seminorma sullo spazio $\L$, possiamo parlare di convergenza in tale spazio. In particolare diremo che una successione di funzioni integrabili $(f_n)\subseteq \L(X,\A,\mu)$ converge ad $f$ in $\L$ se $\lim_{n\to\infty}\LNorm{f-f_n}=0$.
 \end{remark}
 
+Mostriamo ora il teorema della convergenza dominata di Lebesgue, che è lo strumento di commutazione fra integrale e limite per le funzioni integrabili. A differenza del caso di funzioni misurabili positive, servirà aggiungere l'ipotesi di dominatezza perché il teorema possa valere.
+
 \begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
 	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
 	\begin{equation*}
@@ -442,6 +458,8 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	\end{equation*}
 \end{remark}
 
+Abbiamo già notato in precedenza che l'integrale di Lebesgue è invariante a meno di insieme trascurabili e che funzioni uguali quasi ovunque hanno la stessa norma integrale. Non sembrerà quindi assurda l'idea di considerare ``uguali'' funzioni uguali quasi ovunque, poiché ai fini dell'integrazione sono effettivamente indistinguibili. A tal proposito formalizziamo quindi di seguito lo spazio $L^1$ delle funzioni integrabili ``a meno di un trascurabile''.
+
 \begin{lemma}\label{lemma:SottospazioTrascurabili}
 	L'insieme definito da
 	\begin{equation*}
@@ -467,6 +485,7 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso. Questo è ovvio per il \cref{lemma:SottospazioTrascurabili} e per la definizion stessa di $L^1$
 \end{remark}
 
+Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni integrabili. Tale teorema, oltre ad essere importante di per sè, ci permetterà anche di concludere che lo spazio $L^1$ è completo.
 
 \begin{theorem}[Integrazione per serie]\label{thm:IntegrazionePerSerie}
 	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
@@ -519,8 +538,10 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	Segue immediatamente dal \cref{thm:IntegrazionePerSerie}, ricordando che uno spazio normato è completo se e solo se ogni serie totalmente convergente è convergente nello spazio.
 \end{proof}
 
+Studiamo ora la relazione che c'è fra convergenza nello spazio $\L$ e convergenza puntale, notando in particolare che tali nozioni in generale non coincidono.
+
 \begin{proposition}\label{prop:L1ImplicaSottosuccessioneQuasiOvunque}
-	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge quasi ovunque ad $f$ ed è dominata in $\L(X,\A,\mu)$.
+	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge puntalmente quasi ovunque ad $f$ ed è dominata in $\L(X,\A,\mu)$.
 \end{proposition}
 
 \begin{proof}
@@ -538,8 +559,46 @@ Il fatto che l'integrale di una funzione integrabile sia invariante a meno di in
 	Sia $(f_n)$ la successione di funzioni integrabili definita da $f_n=\chi_{I_n}$, dove $I_n=\left[\frac{n-2^k}{2^k},\frac{n-2^k+1}{2^k}\right]$ se $2^k\le n<2^{k+1}$. In particolare quindi i primi termini della successione $(I_n)$ sono $I_1=\left[0,1\right],I_2=\left[0,\frac 12\right],I_3=\left[\frac 12,1\right],I_4=\left[0,\frac 14\right],\cdots$. 
 	
 	È facile verificare che in $\L(X,\A,\mu)$ le $f_n$ convergono a $f=0$, ma è altrettanto facile vedere che non convergono quasi ovunque.
-
 \end{proof}
+
+Concludiamo la sezione con l'ultimo teorema di commutazione, quello fra derivata e integrale.
+
+\begin{theorem}[Derivata sotto il segno d'integrale] \label{thm:CommutazioneDerivataIntegrale}
+	Fissato uno spazio di misura $(X,\A,\mu)$ e $\Omega\subseteq\R$ un aperto, sia $f:X\times\Omega\to\R$ una funzione tale che:
+	\begin{enumerate}
+		\item Per ogni $t\in\Omega$, la funzione $f({}\cdot,t):X\to\R$ è integrabile; \label{it:CommutazioneIntegrabile}
+		\item La funzione $f$ è derivabile nella seconda variabile; \label{it:CommutazioneDerivabile}
+		\item Esiste una funzione $g:X\to\R$ integrabile tale che \label{it:CommutazioneDominazione}
+		\begin{equation*}
+			g(x)\ge \sup_{t\in\Omega}\left\lvert \frac{\partial f}{\partial t}(x,t)\right\rvert \punto
+		\end{equation*}
+	\end{enumerate}
+	Allora gli operatori di derivata e integrale commutano, cioè, per ogni $t\in\Omega$, tutte le espressioni che compaiono nella formula esistono e vale
+	\begin{equation*}
+		\frac{\de}{\de t}\int_X f(x,t)\de \mu(x)=\int_X\frac{\partial f}{\partial t}(x,t)\de\mu(x) \punto
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Fissiamo $t\in\Omega$ ed una successione $(h_n)_{n\in\N}\subseteq\R$ che converge a $0$ e tale che $t+h_n$ sta nella stessa componente connessa di $t$ in $\Omega$\footnote{Questa richiesta è sempre verificata a meno di escludere i primi termini della successione.}.
+	Per ogni $n\in\N$ definiamo $f_n:X\to\R$ come il rapporto incrementale relativo a $h_n$:
+	\begin{equation*}
+		f_n(x)=\frac{f(x,t+h_n)-f(x,t)}{h_n} \punto
+	\end{equation*}
+	Per l'assunzione \ref{it:CommutazioneIntegrabile}, le funzioni $f_n$ sono integrabili, essendo combinazione lineare di funzioni integrabili, e grazie all'ipotesi \ref{it:CommutazioneDerivabile} deduciamo che le funzioni $f_n$ convergono puntualmente alla funzione $\frac{\partial f}{\partial t}({}\cdot,t)$.
+	
+	Per il teorema di Lagrange, per ogni $x\in X$ ed $n\in\N$, esiste $t'\in\Omega$ tale che valga
+	\begin{equation*}
+		\lvert f_n(x)\rvert=\left\lvert\frac{\partial f}{\partial t}(x,t')\right\rvert\le \sup_{t\in\Omega}\left\lvert \frac{\partial f}{\partial t}(x,t)\right\rvert
+	\end{equation*}
+	e perciò le funzioni $f_n$ sono dominate dalla funzione integrabile $g$ grazie all'ipotesi \ref{it:CommutazioneDominazione}.
+	
+	Unendo le proprietà della successione $(f_n)_{n\in\N}$ si trovano le ipotesi necessarie per applicare il \cref{thm:ConvergenzaDominata} ed ottenere perciò
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{\int_X f(x,t+h_n)\de \mu(x)-\int_X f(x,t)\de\mu(x)}{h_n}=\lim_{n\to\infty} \int_X f_n(x)\de\mu(x)=\int_X \frac{\partial f}{\partial t}(x,t)\de\mu(x)\virgola
+	\end{equation*}
+	che è equivalente alla tesi cercata.
+\end{proof}
+
 
 
 
