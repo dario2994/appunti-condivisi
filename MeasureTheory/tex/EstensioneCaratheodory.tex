@@ -56,7 +56,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)+\sum_{m\le n}\mu(A\cap F_n) \virgola
 	\end{equation*}
-	ma per la convergenza di $\sum_{n\in \N}\mu(A\cap F_n)$, estraendo l'$\inf$ da entrambe le parti finalmente arriviamo a
+	ma per la convergenza di $\sum_{n\in \N}\mu(A\cap F_n)$, estraendo l'estremo inferiore per $m\in\N$ da entrambe le parti finalmente arriviamo a
 	\begin{equation*}
 		\mu\left(A\cap\bigcup_{n\in\N} E_n\right)+\mu\left(A\setminus\bigcup_{n\in\N} E_n\right)\le
 		\mu(A)
@@ -75,7 +75,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\end{equation*}
 	Se in quest'ultima disuguaglianza lasciamo andare $m$ all'infinito, per la definizione delle serie a termini positivi, ne ricaviamo che tutte le disuguaglianze diventano identità visto che il membro più a sinistra tende al membro più a destra, ma allora questo dimostra che $\mu$ è \sigadd{} su $\A$.
 	
-	Infine per dimostrare la completezza di $\mu|_{\A}$ basta mostrare che dato $E\in\mathcal P(X)$ trascurabile, vale $E\in\A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
+	Infine per dimostrare la completezza di $\mu|_{\A}$ basta mostrare che dato $N\in\mathcal P(X)$ trascurabile, vale $N\in\A$ (questo è sufficiente a mostrare la completezza, visto che per monotonia i sottinsiemi di un trascurabile sono a loro volta trascurabili).
 	
 	Fissato un generico $A\in\mathcal P(X)$, grazie alla monotonia di $\mu$, risulta
 	\begin{equation*}
@@ -94,7 +94,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 		\mu^*(A)=\inf\left\{\sum_{n\in\N} \mu(A_n)\ |\ (A_n)_{n\in\N}\subseteq\S\ \wedge
 		\ A\subseteq\bigcup_{n\in\N}A_n\right\} \punto
 	\end{equation*}
-	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ appartiene alla relativa \sigalg{} di \carat{} (come definita nel \cref{thm:RiduzionePreCaratheodory}).
+	Allora $\mu^*$ è una misura esterna che estende $\mu$ (cioè $\mu^*|_\S=\mu$) ed inoltre $\S$ è contenuto nella relativa \sigalg{} di \carat{} (come definita nel \cref{thm:RiduzionePreCaratheodory}).
 \end{proposition}
 \begin{proof}
 	Per affermare che $\mu^*$ è una misura esterna sono sufficienti le seguenti verifiche.
@@ -136,7 +136,7 @@ L'obiettivo ora è riuscire ad estendere una premisura definita su un semianello
 	\begin{equation*}
 		\sum_{n\in\N}\mu(S_n)=\sum_{n\in\N}\mu'(S_n)\ge \mu'\left(\bigcup_{n\in\N}S_n\right)\ge \mu'(A) \virgola
 	\end{equation*}
-	che, passando all'estremo superiore sui ricoprimenti di $A$, dimostra $\mu^*(A)\ge\mu'(A)$ che è la tesi, visto che la dimostrazione vale per ogni $A\in\A$.
+	che, passando all'estremo inferiore sui ricoprimenti di $A$, dimostra $\mu^*(A)\ge\mu'(A)$ che è la tesi, visto che la dimostrazione vale per ogni $A\in\A$.
 \end{proof}
 
 
