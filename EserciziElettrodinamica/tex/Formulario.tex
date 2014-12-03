@@ -5,6 +5,24 @@
 \renewcommand{\theequation}{F.\arabic{equation}}
 
 Se qualcuno vuole scrivere un po' di formulario questo è il posto giusto.
+
+\subsection{Legge di Coulomb, campo elettrico e potenziale}\label{Preliminari}
+La carica elettrica in unit\`a cgs \`e definita dalla legge di Coulomb, che esprime la forza tra due cariche:
+\begin{equation}
+	\label{Coulomb}
+	F_{ab}=\frac{q_aq_b}{\abs{\vec r_a -\vec r_b}^2}
+\end{equation}
+Il campo elettrico \`e definito a partire da una ``carica di prova''
+\begin{equation}
+	\label{CampoElettrico}
+	\vec E_{a}(\vec r)=\frac{\vec F_{ab}}{q_b}=\frac{q_a}{\abs{\vec r}^2}\hat r
+\end{equation}
+Il potenziale elettrico \`e un campo scalare $V$ tale che
+\begin{equation}
+	\label{Potenziale}
+	\vec E(\vec r) = - \vec \nabla \cdot V(\vec r) = - \div (V(\vec r))
+\end{equation}
+
 \subsection{Legge di Gauss}\label{Gauss}
 La legge di Gauss pu\`o essere espressa in due forme.\newline
 Forma integrale: lega la quantit\`a di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
@@ -17,13 +35,18 @@ Forma differenziale: lega campo elettrico e densit\`a di carica in un punto
 	\label{GaussDifferenziale}
 	\div \vec E=-4\pi\rho
 \end{equation}
-
 Come diretta conseguenza si ha anche l'equazione di Poisson:
 \begin{equation}
 	\label{Poisson}
 	\nabla^2V= -4\pi \rho
 \end{equation}
 
+\subsection{Energia elettrostatica}\label{EnergiaElettrostatica}
+Distribuzione discreta di cariche puntiformi:
+\begin{equation}
+	\label{EEDiscreta}
+	U= \frac{1}{2} \sum_{i\neq j} \frac{q_iq_j}{\abs{\vec r_i -\vec r_j}}
+\end{equation}
 
 
 \end{document}
