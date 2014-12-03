@@ -15,12 +15,12 @@ La carica elettrica in unit\`a cgs \`e definita dalla legge di Coulomb, che espr
 Il campo elettrico \`e definito a partire da una ``carica di prova''; si verifica sperimentalmente che il campo non dipende dalla carica utilizzata, purch\'e abbastanza piccola:
 \begin{equation}
 	\label{CampoElettrico}
-	\vec E(\vec r)=\lim_{q_a \to 0} \frac{\vec F_a(\vec r)}{q_a}
+	\vec E(\vec r)=\lim_{q \to 0} \frac{\vec F_q(\vec r)}{q}
 \end{equation}
 Il potenziale elettrico \`e un campo scalare $V$ tale che
 \begin{equation}
 	\label{Potenziale}
-	\vec E(\vec r) = - \vec \nabla \cdot V(\vec r) = - \div (V(\vec r))
+	\vec E(\vec r) = - \vec \nabla V(\vec r)
 \end{equation}
 
 \subsection{Legge di Gauss}\label{Gauss}
@@ -35,7 +35,7 @@ Forma differenziale: lega campo elettrico e densit\`a di carica in un punto
 	\label{GaussDifferenziale}
 	\div \vec E=-4\pi\rho
 \end{equation}
-Come diretta conseguenza si ha anche l'equazione di Poisson:
+Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e dell'\cref{GaussIntegrale} si ha anche l'equazione di Poisson:
 \begin{equation}
 	\label{Poisson}
 	\nabla^2V= -4\pi \rho
