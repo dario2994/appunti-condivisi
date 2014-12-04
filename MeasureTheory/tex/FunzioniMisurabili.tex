@@ -23,9 +23,9 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
 		\item $f$ è misurabile; \label{BM:mis}
 		\item $\{f<a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sot}
-		\item $\{f\leq a\}\in \A \quad \forall a\in \Rbar$; \label{BM:soteq}
+		\item $\{f\le a\}\in \A \quad \forall a\in \Rbar$; \label{BM:soteq}
 		\item $\{f>a\}\in \A \quad \forall a\in \Rbar$; \label{BM:sov}
-		\item $\{f\geq a\}\in \A \quad \forall a\in \Rbar$;  \label{BM:soveq}
+		\item $\{f\ge a\}\in \A \quad \forall a\in \Rbar$;  \label{BM:soveq}
 		\item $\{a<f<b\}\in \A \quad \forall a,b\in \Rbar$. \label{BM:int}
 	\end{enumerate}
 \end{proposition}
@@ -36,10 +36,10 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 		perché $\co{-\infty}{a}$ è aperto;
 	\item[\ImplicationProof{BM:sot}{BM:soteq}] poiché $\cc{-\infty}{a}=\bigcap_{n\in \N}\co{-\infty}{a+\frac{1}{n}}$, allora otteniamo
 		\begin{equation*}
-			\{f\leq a\}=f^{-1}\left(\cc{-\infty}{a}\right)=\bigcap_{n\in \N}f^{-1}\left(\co{-\infty}{a+\frac{1}{n}}\right)\in \A	
+			\{f\le a\}=f^{-1}\left(\cc{-\infty}{a}\right)=\bigcap_{n\in \N}f^{-1}\left(\co{-\infty}{a+\frac{1}{n}}\right)\in \A	
 		\end{equation*}
 
-	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\leq a\}\in \A$;
+	\item[\ImplicationProof{BM:soteq}{BM:sov}] passando al complementare, $\{f>a\}^\mathsf{c}=\{f\le a\}\in \A$;
 	\item[\ImplicationProof{BM:sov}{BM:soveq}] analogamente a \ImplicationProof{BM:sot}{BM:soteq}; 
 	\item[\ImplicationProof{BM:soveq}{BM:sot}] analogamente a \ImplicationProof{BM:soteq}{BM:sov};
 	\item[$\text{\ref{BM:sot}}\ +\ \text{\ref{BM:sov}}\implies\text{\ref{BM:int}}$] perché
@@ -120,11 +120,11 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 		\{\lambda f>a\}=\left\{\begin{array}{ll}
 			\left\{f<\frac{a}{\lambda}\right\}\in \A &\qquad \text{se}\ \lambda<0;\\
 			X \in \A &\qquad \text{se}\ \lambda=0\ \text{e}\ a< 0;\\
-			\emptyset \in \A &\qquad \text{se}\ \lambda=0\ \text{e}\ a\geq 0;\\
+			\emptyset \in \A &\qquad \text{se}\ \lambda=0\ \text{e}\ a\ge 0;\\
 			\left\{f>\frac{a}{\lambda}\right\}\in \A &\qquad \text{se}\ \lambda>0.
 		\end{array}\right.
 	\]
-	\item[\ref{AlM:pro}] Scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni misurabili non negative (abbiamo già dimostrato nella \cref{nota:ProprietaFpiuFmeno} le proprietà di $f^+,f^-,g^+,g^-$ che ci servono). Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\geq0$:
+	\item[\ref{AlM:pro}] Scomponiamo $f=f^+ - f^-$, $g=g^+- g^-$, quindi la funzione prodotto $fg$ si scrive come una qualche combinazione di prodotti di funzioni misurabili non negative (abbiamo già dimostrato nella \cref{nota:ProprietaFpiuFmeno} le proprietà di $f^+,f^-,g^+,g^-$ che ci servono). Grazie ai punti \ref{AlM:sum} e \ref{AlM:sca} e a questa osservazione ci basta mostrare il caso in cui $f,g\ge0$:
 	\[
 		\{fg>a\}=\left\{\begin{array}{ll}
 			X\in \A &\quad se\ a<0;\\
@@ -140,8 +140,8 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	È facile vedere che le funzioni caratteristiche degli insiemi misurabili sono misurabili.
 \end{remark}
 \begin{proof}
-	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può valere solo $\emptyset$, $A$, $X$ (tutti e 3 misurabili) a seconda che
-	$a\geq 1$, $a\geq 0$ oppure $a < 0$ rispettivamente.
+	Basta osservare che se $A\in \A$ è misurabile, $\{ \chi_A > a\}$ può essere solo $\emptyset$, $A$, $X$ (tutti e tre misurabili) a seconda che
+	$a\ge 1$, $0\le a< 1$ oppure $a < 0$ rispettivamente.
 \end{proof}
 
 \begin{remark}\label{nota:ContinueMisurabili}
@@ -174,9 +174,9 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 
 	La funzione $f$ appena definita è strettamente crescente, poiché lo è la funzione che associa ad un numero $x$ la sua lettura in qualche base (dove le sequenze di cifre sono ordinate lessicograficamente). Allora per la \cref{nota:MonotoneMisurabili} $f$ è misurabile.
 	
-	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con i numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ e questo è facile dimostrare che è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
+	Inoltre l'immagine di $f$ è un insieme trascurabile, infatti questa coincide con l'insieme dei numeri tra $0$ e $1$ che si scrivono unicamente usando cifre $0,1$ in base $3$ ed è facile dimostrare che questo è trascurabile (esercizio per il lettore molto simile all'\cref{ex:CantorTrascurabile}).
 	
-	Per il \cref{thm:InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non sia misurabile.
+	Per il \cref{thm:InsiemeVitali} esiste $A\subseteq \co{0}{1}$ che non è misurabile.
 	Sia $B=f(A)$.
 	
 	Poiché $f$ è strettamente crescente è in particolare iniettiva e perciò $A=f^{-1}(B)$.
@@ -205,7 +205,7 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 	Allora $F:X\rightarrow \Rbar$ definita da $F(x)=\sup\{f_n(x):n\in \N\}$ è misurabile.
 \end{proposition}
 \begin{proof}
-	Consideriamo il sovralivello della funzione $F$: $\{F>a\}=\bigcup_{n\in \N}\{f_n>a\}$, ma allora $\{F>a\}\in \A$ per le proprietà 
+	Consideriamo il sovralivello della funzione $F$: $\{F>a\}=\bigcup_{n\in \N}\{f_n>a\}$, allora è evidente che $\{F>a\}\in \A$ per le proprietà 
 	di chiusura della \sigalg.
 \end{proof}
 
@@ -240,20 +240,20 @@ Questo fatto lo dimostriamo però solo nel caso unidimensionale sia perché il r
 		\simp_n(x) =
 		\left\{ \begin{array}{ll}
 			n &\qquad se\ f(x)>n;\\
-			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\leq \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\
-			-n &\qquad se\ f(x)\leq-n;
+			\frac{k}{2^n} &\qquad se\ \frac{k}{2^n}<f(x)\le \frac{k+1}{2^n} \qquad k=-n2^n,-n2^n+1,\dots,n2^n;\\
+			-n &\qquad se\ f(x)\le-n;
 		\end{array} \right.\ .
 	\]
 	Prima di tutto abbiamo 
 	\[\simp_n=
 		n\chi_{\{f>n\}}+
-		\sum_{k=-n2^n}^{n2^n}\frac{k}{2^n}\chi_{\left\{ \frac{k}{2^n}<f\leq \frac{k+1}{2^n} \right\}}
+		\sum_{k=-n2^n}^{n2^n}\frac{k}{2^n}\chi_{\left\{ \frac{k}{2^n}<f\le \frac{k+1}{2^n} \right\}}
 		-n\chi_{\{f<-n\}},
 	\]
 	che mostra che le $\simp_n$ sono funzioni semplici.
 	
 	Per mostrare la convergenza puntuale distinguiamo $f(x)$ a seconda che sia un numero finito o meno:
-	nel primo caso abbiamo che $|f(x)-\simp_n(x)|\leq \frac{1}{2^n}$ definitivamente, cioè $\forall n\geq |f(x)|$,
+	nel primo caso abbiamo che $|f(x)-\simp_n(x)|\le \frac{1}{2^n}$ definitivamente, cioè $\forall n\ge |f(x)|$,
 	nel secondo caso $\simp_n(x)=\pm n\rightarrow \pm\infty = f(x)$;
 	quindi $\simp_n(x)\rightarrow f(x)$, $\forall x\in X$.
 \end{proof}

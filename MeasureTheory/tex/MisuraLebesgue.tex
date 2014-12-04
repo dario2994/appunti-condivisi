@@ -179,7 +179,7 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 \end{proposition}
 \begin{proof}
 	Dato un aperto $A$, consideriamo tutti gli $n$-cubi con centro razionale e lato razionale contenuti in $A$.
-	È facile vedere che l'unione di questi, che è ovviamente numerabile visto che $\mathbb Q^2$ lo è, è tutto l'aperto.
+	È facile vedere che l'unione di questi, che è ovviamente numerabile visto che $\mathbb Q^{n+1}$ lo è, è tutto l'aperto.
 	
 	Per ottenere che si può scrivere $A$ come unione disgiunta è sufficiente applicare la \cref{prop:UnioneDisgiuntaQuasiAlgebra} ricordando che $\S_n$ è un \semiring{} come dimostrato nel \cref{lemma:SemianelloSemiAperti}.
 \end{proof}
@@ -430,7 +430,7 @@ Considerata la scarsa inerenza con l'argomento qui trattato, nonché il fatto ch
 	Poiché ogni isometria si scrive come una applicazione ortogonale composta con una traslazione e sappiamo già grazie alla \cref{nota:LebesgueProprieta} che la misura di Lebesgue è invariante per traslazione, è sufficiente dimostrare che la misura di Lebesgue è invariante per applicazioni ortogonali.
 	Sia $O:\R^n\to\R^n$ una applicazione ortogonale. Questa è in particolare un'applicazione lineare continua di un Banach in se stesso ed è perciò anche lipschitziana (si può dimostrare anche più facilmente in questo caso).
 	
-	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\M_n$. 
+	Allora per quanto visto nella \cref{prop:LipschitzTengonoMisurabili} la funzione $O$ manda misurabili in misurabili e perciò ha senso definire la funzione di insiemi $m_n \circ O=\mu:\M_n\to\Rpiu$. 
 	Se dimostriamo che $\mu\equiv m_n$ abbiamo proprio che $m_n$ è invariante per applicazioni ortogonali.
 	
 	È facile notare che $\mu$ è invariante per traslazione, visto che, dati $A\in \M_n$ e $v\in\R^n$, vale
@@ -457,7 +457,7 @@ Considerata la scarsa inerenza con l'argomento qui trattato, nonché il fatto ch
 \end{proof}
 
 \begin{proposition}\label{prop:TrascurabilePerInsiemeTrascurabile}
-	Dato $N\in M_n$ un insieme trascurabile e $X\subseteq \R^m$ un sottoinsieme qualunque, l'insieme $N\times X$ è trascurabile secondo Lebesgue nello spazio $\R^{n+m}$.
+	Dato $N\in \M_n$ un insieme trascurabile e $X\subseteq \R^m$ un sottoinsieme qualunque, l'insieme $N\times X$ è trascurabile secondo Lebesgue nello spazio $\R^{n+m}$.
 \end{proposition}
 \begin{proof}
 	Denotiamo con $(A^{x}_i)_{i\in\N}\subseteq \S_n$ un ricoprimento di $N$ tale che $\sum_{i\in\N}m_n(A^x_i)\le x$.
@@ -522,7 +522,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 		\begin{array}{ll}
 			\tau & \quad se\ \alpha=0 \virgola \\
 			f(\beta)_{\delta}\cup f(\beta)_{\mathsf{c}} & \quad se\ \alpha=\beta+1 \virgola\\
-			\bigcup_{\beta < \alpha}f(\alpha) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite \punto
+			\bigcup_{\beta < \alpha}f(\beta) & \quad se\ \alpha\ \grave{e}\ un\ ordinale\ limite \punto
 		\end{array}
 	\right.
 	\]
@@ -531,7 +531,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	
 	Per prima cosa osserviamo che se $\beta < \alpha$, $f(\beta)\subseteq f(\alpha)$. Altrimenti, consideriamo il più piccolo $\alpha$
 	tale che esiste $\beta<\alpha$ per cui non vale questa proposizione. Chiaramente $\alpha\neq 0$ e $\alpha$ non è un ordinale limite,
-	quindi è successore di un ordinale $\gamma\geq \beta$. Per minimalità di $\alpha$, $f(\beta)\subseteq f(\gamma)$, tuttavia è sempre vero
+	quindi è successore di un ordinale $\gamma\ge \beta$. Per minimalità di $\alpha$, $f(\beta)\subseteq f(\gamma)$, tuttavia è sempre vero
 	che $A\subseteq A_{\delta}$ (basta considerare intersezione di famiglie costanti), allora si ottiene $f(\gamma)\subseteq f(\alpha)$, assurdo.
 	
 	Ora dimostriamo che $f(\omega_1)$\footnote{Ricordiamo che $\omega_1$ è il primo ordinale più che numerabile.} è una \sigalg.
@@ -552,22 +552,22 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	È però ovvio che la \sigalg \ generata dagli aperti soddisfi tutte queste proprietà.
 	
 	Ora che sappiamo che $f(\omega_1)$ sono i Boreliani, calcoliamone la cardinalità.
-	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\leq |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
-	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \leq |E||\alpha|$, con $|E_{\beta}|\leq |E|$ per ogni $\beta < \alpha$. Tutto ciò, porta a dire che
+	Intanto, $|f(0)|=|\tau|=|\R|$\footnote{È fatto noto che gli aperti di $\R^n$ si scrivono come unione numerabile di palle di centro e raggio razionali e da questa osservazione discende che hanno la cardinalità del continuo.}. Poi, $|A_{\delta}|\le |A|^{|\N|}$ e $|A_{\mathsf{c}}|=|A|$.
+	Infine $|\bigsqcup_{\beta<\alpha}E_{\beta}| \le |E||\alpha|$, con $|E_{\beta}|\le |E|$ per ogni $\beta < \alpha$. Tutto ciò porta a dire che
 	\begin{equation}\label{eq:CardBorel}
-		|\R|=|f(0)|\leq |f(\omega_1)| \leq |\omega_1||E| \leq |E| \virgola
+		|\R|=|f(0)|\le |f(\omega_1)| \le |\omega_1||E| \le |E| \virgola
 	\end{equation}
 	purché $E$ sia un insieme di cardinalità maggiore od uguale a quella di tutti gli $f(\alpha)$ con $\alpha<\omega_1$;
-	l'ultima disuguaglianza si ha perché è sicuramente vero che $|E|\geq |f(0)| = |\R| \geq |\omega_1|$.
+	l'ultima disuguaglianza si ha perché è sicuramente vero che $|E|\ge |f(0)| = |\R| \ge |\omega_1|$.
 	Ma ora, per tutti gli ordinali $\alpha$ al più numerabili, dimostriamo $|f(\alpha)|=|\R|$. 
-	Se fosse falso,consideriamo il più piccolo ordinale per cui non vale;
+	Se fosse falso, consideriamo il più piccolo ordinale per cui non vale;
 	non può essere $0$, non può essere un successore
 	\[
-		|f(\alpha+1)|\leq |f(\alpha)|+|f(\alpha)|^{\N} = |\R|^{|\N|} = |\R|
+		|f(\alpha+1)|\le |f(\alpha)|+|f(\alpha)|^{\N} = |\R|^{|\N|} = |\R|
 	\]
 	e non può essere un ordinale limite
 	\[
-		|f(\alpha)|\leq |\alpha| |\R| \leq |\N||\R| = |\R| \punto
+		|f(\alpha)|\le |\alpha| |\R| \le |\N||\R| = |\R| \punto
 	\]
 	Quindi $E$ basta che sia $\R$, allora dall'\cref{eq:CardBorel} si ha che i Boreliani hanno la cardinalità del continuo.
 \end{proof}
@@ -659,7 +659,7 @@ In questa sezione mostriamo che i Boreliani non coincidono con i misurabili, rag
 	$(C+B_{\rho}(0)) \cap H^\mathsf{c} = \emptyset$ (basta prendere $\rho = \frac{1}{2}\inf\{|c-h|:c\in C\virgola\ h\in H\}$, che è maggiore di 0 per la compattezza di $C$).
 	Allora si ha che $\forall x\in B_{\rho}(0)$, $C \cap (C+x) \neq \emptyset$; altrimenti per monotonia della misura si avrebbe
 	\[
-		2m_n(C) = m_n(C)+m_n(C+x) \leq m_n(C+B_{\rho}(0)) \leq m_n(H)\virgola
+		2m_n(C) = m_n(C)+m_n(C+x) \le m_n(C+B_{\rho}(0)) \le m_n(H)\virgola
 	\]
 	ma questo contraddirebbe la disuguaglianza precedente, pur di considerare $\epsilon< \frac{1}{2}m_n(C)$. E ciò è sempre possibile, dato che
 	$m_n(A) > 0$ per ipotesi.
