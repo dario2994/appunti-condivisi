@@ -119,7 +119,7 @@ Diamo ora la definizione di integrale di una funzione misurabile positiva $f$ co
 \end{definition}
 
 \begin{proposition} \label{prop:DefinizioneEquivalenteIntegralePositive}
-	Data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, e data una successione crescente di funzioni semplici e positive $(\simp_n)$ tali che convergono puntualmente a $f$, vale 
+	Data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, e data una successione crescente di funzioni semplici e positive $(\simp_n)$ convergenti puntualmente a $f$, vale 
 	\begin{equation*}
 		\int_X f\de\mu=\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}\punto
 	\end{equation*}
@@ -154,7 +154,7 @@ Diamo ora la definizione di integrale di una funzione misurabile positiva $f$ co
 \end{proof}
 
 \begin{remark}\label{nota:ApprossimazioneIntegralePositiveConSemplici}
-	Sfruttando la \cref{prop:DefinizioneEquivalenteIntegralePositive}, notiamo che data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, possiamo sempre scrivere l'integrale di $f$ come $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}$, per qualche successione crescente $(\simp_n)$ di funzioni semplici e positive che converge puntalmente ad $f$, che esiste per il \cref{cor:LimSemCrescMis}.
+	Sfruttando la \cref{prop:DefinizioneEquivalenteIntegralePositive}, notiamo che data una funzione $f:X\to\Rpiu$ misurabile e positiva, con $(X,\A,\mu)$ spazio di misura, possiamo sempre scrivere l'integrale di $f$ come $\sup_{n\in\N}\left\{\int_X\simp_n\de\mu\right\}$, per qualche successione crescente $(\simp_n)$ di funzioni semplici e positive che converge puntualmente ad $f$, che esiste per il \cref{cor:LimSemCrescMis}.
 \end{remark}
 
 
@@ -194,9 +194,9 @@ Sfruttiamo ora la \cref{nota:ApprossimazioneIntegralePositiveConSemplici} per di
 \begin{proof}
 	Innanzitutto notiamo che ha senso parlare dell'integrale di $f$, perché essendo $f(x)=\sup_{n\in\N}f_n(x)$ per ogni $x\in X$, per la \cref{prop:SupDiMisurabili} $f$ è una funzione misurabile e positiva.
 	
-	Come osservato nella \cref{nota:ApprossimazioneIntegralePositiveConSemplici}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntalmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntalmente a $f$. Di conseguenza otteniamo proprio
+	Come osservato nella \cref{nota:ApprossimazioneIntegralePositiveConSemplici}, per ogni $n$ esiste una successione crescente di funzioni semplici positive $(\simp_{n,k})_{k\in\N}$ che converge puntualmente a $f_n$. In particolare utilizzando la stessa costruzione del \cref{cor:LimSemCrescMis} notiamo che è possibile scegliere le $\simp_{n,k}$ crescenti anche rispetto a $n$. Allora la successione $(\simp_{n,n})$ converge puntualmente a $f$. Di conseguenza otteniamo proprio
 	\begin{equation*}
-		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X\punto f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu\punto
+		\int_X f\de\mu=\sup_{n\in\N}\int_X\simp_{n,n}\de\mu=\sup_{k,n\in\N}\int_X \simp_{n,k}\de\mu=\sup_{n\in\N}\int_X f_n\de\mu=\lim_{n\to\infty}\int_Xf_n\de\mu\punto
 	\end{equation*}
 \end{proof}
 
@@ -205,7 +205,7 @@ Sfruttiamo ora la \cref{nota:ApprossimazioneIntegralePositiveConSemplici} per di
 \end{corollary}
 
 \begin{proof}
-	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{prop:SupDiMisurabili}. Dato che le $s_n$ covergono puntalmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
+	Per ogni $x\in X$, sia $s_n(x)=\sum_{k=0}^nf_n(x)$. Innanzitutto $(s_n)$ è una successione crescente di funzioni misurabili positive e $f(x)=\sum_{n=0}^\infty f_n(x)=\sup_{n\in\N}s_n(x)$, quindi $f$ è una funzione misurabile e positiva per la \cref{prop:SupDiMisurabili}. Dato che le $s_n$ convergono puntualmente a $f$, sono rispettate tutte le ipotesi del \cref{thm:BeppoLevi} e perciò vale
 	\begin{equation*}
 		\int f \de\mu=\lim_{n\to\infty}\int s_n\de\mu=\lim_{n\to\infty}\int \sum_{k=0}^nf_n\de\mu=\lim_{n\to\infty}\sum_{k=0}^n \int f_n\de\mu=\sum_{k=0}^\infty\int f_n\de\mu\virgola
 	\end{equation*}
@@ -224,13 +224,13 @@ Il lemma che segue non è strettamente legato a questa sezione, ma è una conseg
 \begin{proof}
 	Per dimostrare che $(Y,\B,\nu)$ è uno spazio di misura ci basta dimostrare che $\nu$ è \sigadd, in quanto sappiamo già che $\B$ è una \sigalg\ e $\nu(\emptyset)=0$.
 	
-	Consideriamo quindi una sottofamiglia numerabile $(B_n)_{n\in\N}$ di $\B$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
+	Consideriamo quindi una sottofamiglia numerabile disgiunta $(B_n)_{n\in\N}$ di $\B$, allora utilizzando il \cref{cor:IntegrazionePerSeriePositive} otteniamo
 	\begin{multline*}
 		\nu\left(\bigsqcup_{n\in\N}B_n\right)=\int_{g^{-1}(\sqcup B_n)}f\de\mu=\int_{\sqcup g^{-1}(B_n)}\sum_{k\in\N}\chi_{g^{-1}(B_k)}\cdot f\de\mu\\
 		=\sum_{k\in\N}\int_{\sqcup g^{-1}(B_n)}\chi_{g^{-1}(B_k)}\cdot f\de\mu=
 		\sum_{k\in\N}\int_{g^{-1}(B_k)}f\de\mu=\sum_{k\in\N}\nu(B_k)\virgola
 	\end{multline*}
-	che dimostra proprio la \sigadd\ di $\nu$.
+	che dimostra proprio la \sigadd[ità]\ di $\nu$.
 \end{proof}
 
 Concludiamo la parte legata alle funzioni misurabili positive con il lemma di Fatou, facile conseguenza del \cref{thm:BeppoLevi}, che ci permette ancora una volta di scambiare limite (inferiore) e integrale.
@@ -243,7 +243,7 @@ Concludiamo la parte legata alle funzioni misurabili positive con il lemma di Fa
 \end{lemma}
 
 \begin{proof}
-	Applicando il \cref{thm:BeppoLevi} alla successione $\left(\inf_{k\ge n}f_k(x)\right)_{n\in\N}$ di funzioni convergente puntalmente in modo crescente alla funzione $\liminf_{n\to\infty}f_n(x)$, otteniamo
+	Applicando il \cref{thm:BeppoLevi} alla successione $\left(\inf_{k\ge n}f_k(x)\right)_{n\in\N}$ di funzioni convergente puntualmente in modo crescente alla funzione $\liminf_{n\to\infty}f_n(x)$, otteniamo
 	\begin{equation*}
 		\int_X\left(\liminf_{n\to\infty}f_n\right)\de\mu=\int_X \sup_{n\in\N}\left\{\inf_{k\ge n}f_k\right\}\de\mu=\sup_{n\in\N}\int_X \inf_{k\ge n}f_k\de\mu\le \liminf_{n\to\infty}\int_Xf_n\de\mu\virgola
 	\end{equation*}
@@ -350,7 +350,7 @@ Mostriamo ora alcuni fatti che riguardano la misura di alcuni sottoinsiemi parti
 		\mu\left(\left\{x:\ f(x)\not=0\right\}\right)=\mu\left(\bigcup_{n\in\N}\left\{x:\ |f(x)|>\frac1n\right\}\right)\le\sum_{n\in\N}\mu(A_n)=0\punto
 	\end{equation*}
 	
-	Dimostriamo ora invece la freccia opposta dell'implicazione.
+	Dimostriamo ora invece l'implicazione opposta.
 	
 	Per ogni $0\le \simp \le |f|$ con $\simp$ semplice, vale che $\left\{x:\ \simp(x)\not=0\right\}\subseteq\left\{x:\ f(x)\not=0\right\}$ e quindi $\mu\left(\left\{x:\ \simp(x)\not=0\right\}\right)=0$. 
 	
@@ -431,7 +431,7 @@ Di seguito mostreremo alcune proprietà basilari dell'integrale di funzioni inte
 Mostriamo ora il teorema della convergenza dominata di Lebesgue, che è lo strumento di commutazione fra integrale e limite per le funzioni integrabili. A differenza del caso di funzioni misurabili positive, servirà aggiungere l'ipotesi di dominatezza perché il teorema possa valere.
 
 \begin{theorem}[Convergenza dominata di Lebesgue]\label{thm:ConvergenzaDominata}
-	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntalmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
+	Sia $(f_n)$ una successione di funzioni integrabili su $(X,\A,\mu)$ spazio di misura convergenti puntualmente a $f$ e sia $g$ integrabile tale che $|f_n(x)|\le g(x)$ per ogni $x\in X$ e per ogni $n\in\N$. Allora
 	\begin{equation*}
 		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu\punto
 	\end{equation*}
@@ -482,7 +482,7 @@ Abbiamo già notato in precedenza che l'integrale di Lebesgue è invariante a me
 \end{definition}
 
 \begin{remark}
-	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso. Questo è ovvio per il \cref{lemma:SottospazioTrascurabili} e per la definizion stessa di $L^1$
+	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso. Questo è ovvio per il \cref{lemma:SottospazioTrascurabili} e per la definizione stessa di $L^1$
 \end{remark}
 
 Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni integrabili. Tale teorema, oltre ad essere importante di per sè, ci permetterà anche di concludere che lo spazio $L^1$ è completo.
@@ -512,7 +512,7 @@ Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni
 	\end{equation*}
 	quindi la successione $(s_n)$ è dominata dalla funzione $g$.
 	
-	Inoltre, poiché $\sum_{n=0}^\infty f_n(x)$ converge assolutamente in $X\setminus N$, $s_n=\sum_{k=0}^n f_k$ converge puntalmente alla funzione $f(x)=\sum_{n=0}^\infty f_n(x)$ nello stesso insieme.
+	Inoltre, poiché $\sum_{n=0}^\infty f_n(x)$ converge assolutamente in $X\setminus N$, $s_n=\sum_{k=0}^n f_k$ converge puntualmente alla funzione $f(x)=\sum_{n=0}^\infty f_n(x)$ nello stesso insieme.
 	
 	Sono quindi rispettate tutte le ipotesi del \cref{thm:ConvergenzaDominata} per la successione di funzioni $(s_n)$ con dominio $X\setminus N$, perciò
 	\begin{equation*}
@@ -541,7 +541,7 @@ Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni
 Studiamo ora la relazione che c'è fra convergenza nello spazio $\L$ e convergenza puntale, notando in particolare che tali nozioni in generale non coincidono.
 
 \begin{proposition}\label{prop:L1ImplicaSottosuccessioneQuasiOvunque}
-	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge puntalmente quasi ovunque ad $f$ ed è dominata in $\L(X,\A,\mu)$.
+	Sia $(f_n)$ una successione di funzioni integrabili convergenti ad $f$ nello spazio $\L(X,\A,\mu)$. Allora esiste una sottosuccessione $(f_{n_k})_{k\in\N}$ che converge puntualmente quasi ovunque ad $f$ ed è dominata in $\L(X,\A,\mu)$.
 \end{proposition}
 
 \begin{proof}
