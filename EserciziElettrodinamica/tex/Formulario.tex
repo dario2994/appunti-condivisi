@@ -73,7 +73,19 @@ Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e d
 \end{equation}
 
 \subsection{Teorema di Green}\label{Green}
+\begin{theorem}[Prima identit\`a di Green]
+  \label{Green1}
+  \begin{equation}
+  \int_V (f \lapl g + \grad f \cdot \grad g) \de^3 r = \oint_S f \frac{\partial g}{\partial n} \de a
+  \end{equation}
+\end{theorem}
 
+\begin{theorem}[Seconda identit\`a di Green o Teorema di Green]
+  \label{Green2}
+  \begin{equation}
+  \int_V \de^3 r (f \lapl g - g \lapl f) = \oint_S \left( f \frac{\partial g}{\partial n} - g \frac{\partial f}{\partial n} \right) \de a
+  \end{equation}
+\end{theorem}
 
 \subsection{Energia elettrostatica}\label{EnergiaElettrostatica}
 Distribuzione discreta di cariche puntiformi:
