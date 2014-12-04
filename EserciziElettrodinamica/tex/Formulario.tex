@@ -9,53 +9,87 @@ Se qualcuno vuole scrivere un po' di formulario questo è il posto giusto.
 \subsection{Legge di Coulomb, campo elettrico e potenziale}\label{Preliminari}
 La carica elettrica in unit\`a cgs \`e definita dalla legge di Coulomb, che esprime la forza tra due cariche:
 \begin{equation}
-	\label{Coulomb}
-	F_{ab}=\frac{q_aq_b}{\abs{\vec r_a -\vec r_b}^2}
+  \label{Coulomb}
+  F_{ab}=\frac{q_aq_b}{\abs{\vec r_a -\vec r_b}^2}
 \end{equation}
 Il campo elettrico \`e definito a partire da una ``carica di prova''; si verifica sperimentalmente che il campo non dipende dalla carica utilizzata, purch\'e abbastanza piccola:
 \begin{equation}
-	\label{CampoElettrico}
-	\vec E(\vec r)=\lim_{q \to 0} \frac{\vec F_q(\vec r)}{q}
+  \label{CampoElettrico}
+  \vec E(\vec r)=\lim_{q \to 0} \frac{\vec F_q(\vec r)}{q}
 \end{equation}
 Il potenziale elettrico \`e un campo scalare $V$ tale che
 \begin{equation}
-	\label{Potenziale}
-	\vec E(\vec r) = - \vec \nabla V(\vec r)
+  \label{Potenziale}
+  \vec E(\vec r) = - \vec \nabla V(\vec r)
 \end{equation}
+
+\subsection{Matematica utile}\label{Matematica}
+\begin{theorem}[Teorema della media]
+  \label{ThMedia}
+  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di $f$ sulla sfera \`e uguale al valore al centro, cio\`e
+  \begin{equation}
+    \int_{S^2} f(x) \de x = f(0,0)
+  \end{equation}
+\end{theorem}
+
+\begin{theorem}[Teorema della divergenza]
+  \label{ThDivergenza}
+  \begin{equation}
+    \int_V \de^3 r \div(\vec A) = \oint_S \vec A \cdot \hat n \de a
+  \end{equation}
+\end{theorem}
+
+\begin{definition}[Delta di Dirac]
+La fuzione delta di Dirac \`e in realt\`a una pseudofunzione, tale che
+  \begin{subequations}
+    \label{DeltaDirac}
+    \begin{align}
+      \delta(x-a)=
+      \begin{cases}
+	\infty,	& \text{se $x=a$,} \\
+	0, 	& \text{se $x \neq a$.}
+      \end{cases}\\
+      \int \delta (x-a) \de x =1
+    \end{align}
+  \end{subequations}
+\end{definition}
 
 \subsection{Legge di Gauss}\label{Gauss}
 La legge di Gauss pu\`o essere espressa in due forme.\newline
 Forma integrale: lega la quantit\`a di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
 \begin{equation}
-	\label{GaussIntegrale}
-	\Phi(S)= \oint_S \vec E \de \vec S=-4\pi Q_{interna}
+  \label{GaussIntegrale}
+  \Phi(S)= \oint_S \vec E \hat n \de \vec a=-4\pi Q_{interna}
 \end{equation}
 Forma differenziale: lega campo elettrico e densit\`a di carica in un punto 
 \begin{equation}
-	\label{GaussDifferenziale}
-	\div \vec E=-4\pi\rho
+  \label{GaussDifferenziale}
+  \div \vec E=-4\pi\rho
 \end{equation}
 Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e dell'\cref{GaussIntegrale} si ha anche l'equazione di Poisson:
 \begin{equation}
-	\label{Poisson}
-	\lapl V= -4\pi \rho
+  \label{Poisson}
+  \lapl V= -4\pi \rho
 \end{equation}
+
+\subsection{Teorema di Green}\label{Green}
+
 
 \subsection{Energia elettrostatica}\label{EnergiaElettrostatica}
 Distribuzione discreta di cariche puntiformi:
 \begin{equation}
-	\label{EEDiscreta}
-	U= \frac{1}{2} \sum_{i\neq j} \frac{q_iq_j}{\abs{\vec r_i -\vec r_j}}
+  \label{EEDiscreta}
+  U= \frac{1}{2} \sum_{i\neq j} \frac{q_iq_j}{\abs{\vec r_i -\vec r_j}}
 \end{equation}
 Distribuzione continua di carica:
 \begin{equation}
-	\label{EEContinua}
-	U= \frac{1}{8\pi} \int \de^3 r \abs{\vec E}^2
+  \label{EEContinua}
+  U= \frac{1}{8\pi} \int \de^3 r \abs{\vec E}^2
 \end{equation}
 Le due formule \cref{EEDiscreta} e \cref{EEContinua} \emph{non} sono equivalenti; in particolare indicando una carica puntiforme $q$ in posizione $\vec {r'}$ come una distribuzione di carica $\rho(\vec r)=\delta(\vec r - \vec {r'})$ ottengo in genere risultati diversi. Questo accade perch\'e l'autoenergia di una carica puntiforme \`e infinita, come mostra l'\cref{EEContinua} applicata ad una sola carica.
 
 \subsection{Conduttori}\label{Conduttori}
-\begin{definition}[conduttore]
+\begin{definition}[Conduttore]
   Un conduttore in elettrostatica \`e ``un mezzo in cui all'equilibrio il campo elettrco \`e nullo'' 
 \end{definition}
 La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`a superficiale $\sigma$ vale
@@ -64,17 +98,5 @@ La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`
   \Delta E = 4 \pi \sigma
 \end{equation}
 
-\subsection{Teoremi utili}\label{Teoremi}
-\begin{theorem}[Teorema della media]
-  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di $f$ sulla sfera \`e uguale al valore al centro, cio\`e
-  \begin{equation}
-    \int_{S^2} f(x) \de x = f(0,0)
-  \end{equation}
-\end{theorem}
-\begin{theorem}[Teorema della divergenza]
-  \begin{equation}
-    \int \de^3 r \div(f \vec \nabla g) = \oint_S f \frac{\partial g}{\partial n} \de S
-  \end{equation}
-\end{theorem}
 
 \end{document}
