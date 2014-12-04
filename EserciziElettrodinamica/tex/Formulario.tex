@@ -28,7 +28,7 @@ La legge di Gauss pu\`o essere espressa in due forme.\newline
 Forma integrale: lega la quantit\`a di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
 \begin{equation}
 	\label{GaussIntegrale}
-	\Phi(S)= \oint_S \vec E d\vec S=-4\pi Q_{interna}
+	\Phi(S)= \oint_S \vec E \de \vec S=-4\pi Q_{interna}
 \end{equation}
 Forma differenziale: lega campo elettrico e densit\`a di carica in un punto 
 \begin{equation}
@@ -38,7 +38,7 @@ Forma differenziale: lega campo elettrico e densit\`a di carica in un punto
 Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e dell'\cref{GaussIntegrale} si ha anche l'equazione di Poisson:
 \begin{equation}
 	\label{Poisson}
-	\nabla^2V= -4\pi \rho
+	\lapl V= -4\pi \rho
 \end{equation}
 
 \subsection{Energia elettrostatica}\label{EnergiaElettrostatica}
@@ -50,7 +50,7 @@ Distribuzione discreta di cariche puntiformi:
 Distribuzione continua di carica:
 \begin{equation}
 	\label{EEContinua}
-	U= \frac{1}{8\pi} \int d^3 r \abs{\vec E}^2
+	U= \frac{1}{8\pi} \int \de^3 r \abs{\vec E}^2
 \end{equation}
 Le due formule \cref{EEDiscreta} e \cref{EEContinua} \emph{non} sono equivalenti; in particolare indicando una carica puntiforme $q$ in posizione $\vec {r'}$ come una distribuzione di carica $\rho(\vec r)=\delta(\vec r - \vec {r'})$ ottengo in genere risultati diversi. Questo accade perch\'e l'autoenergia di una carica puntiforme \`e infinita, come mostra l'\cref{EEContinua} applicata ad una sola carica.
 
@@ -58,22 +58,22 @@ Le due formule \cref{EEDiscreta} e \cref{EEContinua} \emph{non} sono equivalenti
 \begin{definition}[conduttore]
   Un conduttore in elettrostatica \`e ``un mezzo in cui all'equilibrio il campo elettrco \`e nullo'' 
 \end{definition}
-La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`a superficiale \sigma vale
+La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`a superficiale $\sigma$ vale
 \begin{equation}
   \label{DiscontinuitaSigma}
-  \delta E = 4 \pi \sigma
+  \Delta E = 4 \pi \sigma
 \end{equation}
 
 \subsection{Teoremi utili}\label{Teoremi}
 \begin{theorem}[Teorema della media]
-  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di f sulla sfera \`e uguale al valore al centro, cio\`e
+  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di $f$ sulla sfera \`e uguale al valore al centro, cio\`e
   \begin{equation}
-    \int_{S^2} f(x) dx = f(0,0)
+    \int_{S^2} f(x) \de x = f(0,0)
   \end{equation}
 \end{theorem}
 \begin{theorem}[Teorema della divergenza]
   \begin{equation}
-    \int d^3 r div(f \vec \nabla g} = \oint_S f \frac{\partial g}{\partial n} \de S
+    \int \de^3 r \div(f \vec \nabla g) = \oint_S f \frac{\partial g}{\partial n} \de S
   \end{equation}
 \end{theorem}
 
