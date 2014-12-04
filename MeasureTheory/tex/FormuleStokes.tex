@@ -46,7 +46,7 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$, indicheremo 
 			\]
 			che, per $\delta>0$ e abbastanza piccolo, dà
 			\begin{equation*}
-				f(v',\psi(v')+\delta)\geq \frac{1}{2}\partial_n f(v',\psi(v'))\delta\geq \frac{1}{4}\partial_n f(\bar x)\delta>0\punto
+				f(v',\psi(v')+\delta)\ge \frac{1}{2}\partial_n f(v',\psi(v'))\delta\ge \frac{1}{4}\partial_n f(\bar x)\delta>0\punto
 			\end{equation*}
 			
 			Infine, non può esistere un $\delta>0$ tale che $\psi(v')+\delta\in I$ e
@@ -330,7 +330,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 	Per la seconda parte procediamo in questo modo.
 	Consideriamo, per ogni punto $p\in \overline\Omega$, un intorno $U_p$ della forma richiesta al punto precedente. È chiaro che $\{U_p\}_{p\in\overline\Omega}$ è un
 	ricoprimento aperto del compatto $\overline\Omega$, quindi possiamo estrarne un sottoricoprimento finito $U_1,\dots,U_n$, a cui aggiungiamo anche
-	$U_0=\R^n \setminus \overline\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^{\infty}$, per $0\leq i \leq n$,
+	$U_0=\R^n \setminus \overline\Omega$. Il \cref{thm:PartizioneUnita} ci fornisce delle funzioni $f_i\in C^{\infty}$, per $0\le i \le n$,
 	tali che la loro somma è la funzione costante $1$.
 	Sia ora $u\in C^1(\R^n,\R)$ una qualsiasi funzione. Otteniamo che
 	\[
@@ -358,7 +358,7 @@ Un'immediata conseguenza del teorema appena dimostrato è la seguente:
 \end{corollary}
 
 \begin{proof}
-	Utilizzando il \cref{thm:Stokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $1\leq j\leq n$,
+	Utilizzando il \cref{thm:Stokes} sulla componente $j$-esima di $u$ che indichiamo con $u^j$ si ha che, per ogni $1\le j\le n$,
 	\[
 		\int_{\Omega} \partial_j u^j(x) \de x = \int_{\partial \Omega} u^j(y)\nu(y)_j \de \sigma(y)\virgola
 	\]
