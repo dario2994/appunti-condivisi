@@ -148,15 +148,17 @@ Queste vengono omesse in quanto, oltre ad essere molto pesanti notazionalmente e
 	
 	Fissiamo $\epsilon>0$ arbitrario.
 	
-	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che la successione composta dalle parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ è un ricoprimento del compatto $S$. %TODO: S non è compatto, tocca rimpicciolirlo
-	Perciò esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S$.
+	In modo del tutto analogo a come abbiamo definito $F_{\lambda}$\footnote{Tutto è uguale, solo che gli intervalli vanno rimpiccioliti \emph{dalla parte aperta}.}, costruiamo $S'\in\S_n$ tale che la sua chiusura sia contenuta in $S$ e valga la disuguaglianza $m_n(S')\ge m_n(S)-\epsilon$.
+	
+	Grazie alla \cref{nota:ParteInternaAllargamento} abbiamo che la successione composta dalle parti interne degli elementi della successione $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in\N}$ è un ricoprimento aperto di $S$ e quindi, per quanto detto, della chiusura di $S'$ che è compatta essendo chiusa e limitata. 
+	Perciò, per compattezza, esiste un insieme finito di indici $I\subseteq \N$ tale che $\left(F_{\frac\epsilon{2^i}}(S_i)\right)_{i\in I}$ è un ricoprimento finito di $S'$.
 	
 	Sfruttando ancora il \cref{lemma:LebesgueElementareFinita} e applicando la \cref{prop:MisuraAllargamento} otteniamo
-	\begin{equation*}
-		\sum_{i\in\N}m_n(S_i)\ge \sum_{i\in I}m_n(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)
-		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S)-\epsilon
-	\end{equation*}
-	e visto che questo vale per ogni $\epsilon>0$ ne ricaviamo
+	\begin{multline*}
+		\sum_{i\in\N}m_n(S_i)\ge \sum_{i\in I}m_n(S_i)\ge \sum_{i\in I}\left(m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)-\frac\epsilon{2^i}\right)\\
+		\ge -\epsilon+\sum_{i\in I}m_n\left(F_{\frac\epsilon{2^i}}(S_i)\right)\ge m_n(S')-\epsilon \ge m_n(S)-2\epsilon
+	\end{multline*}
+	e visto che questa vale per ogni $\epsilon>0$ ne ricaviamo
 	\begin{equation*}
 		\sum_{i\in\N}m_n(S_i)\ge m_n(S) \virgola
 	\end{equation*}
