@@ -80,6 +80,12 @@ Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e d
   \label{Poisson}
   \lapl V= -4\pi \rho
 \end{equation}
+E se $\rho=0$ si ottiene l'equazione di Laplace:
+\begin{equation}
+  \label{Laplace}
+  \lapl V= 0
+\end{equation}
+
 
 \subsection{Teorema di Green}\label{Green}
 \begin{theorem}[Prima identit\`a di Green]
@@ -119,8 +125,30 @@ La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`
   \Delta E = 4 \pi \sigma
 \end{equation}
 
-\subsection{Separazione delle variabili}\label{Separazione}
-(Da scrivere)
+\subsection{Separazione delle variabili in coordinate cartesiane}\label{Separazione}
+Se si cerca una soluzione del potenziale $V(x, y, z)=X(x)Y(y)Z(z)$
+Dall'equazione di Laplace (\cref{Laplace}) in coordinate cartesiane, dividendo per V si ottiene:
+\begin{equation}
+  \frac{1}{X(x)}\frac{\de^2X(x)}{\de x^2}+\frac{1}{Y(y)}\frac{\de^2Y(y)}{\de y^2}+\frac{1}{Z(z)}\frac{\de^2Z(z)}{\de z^2}=0
+\end{equation}
+da cui il sistema (in cui eventualmente $a, b, c \in \mathbb{C}$)
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      \frac{1}{X(x)}\frac{\de^2X(x)}{\de x^2}=a^2\\
+      \frac{1}{Y(y)}\frac{\de^2Y(y)}{\de y^2}=b^2\\
+      \frac{1}{Z(z)}\frac{\de^2Z(z)}{\de z^2}=c^2\\
+      a^2+b^2+c^2=0
+    \end{aligned}
+  \right.
+\end{equation}
+e quindi
+\begin{equation}
+  V(x, y, z)=e^{\pm ax}e^{\pm by}e^{\pm cz}
+\end{equation}
+e combinazioni lineari dell'espressione sopra al variare di $a, b, c$
+
+
 
 \subsection{Espansioni in serie}
 \subsubsection{Armoniche sferiche}
@@ -132,7 +160,7 @@ Una funzione arbitraria $g(r, \theta, \phi)$ si pu\`o sviluppare in armoniche sf
 \subsubsection{Siluppo in multipoli}
 \begin{equation}
   \label{Multipoli}
-  
+  V(r, \theta, \phi)=\sum_{l=0}^\infty \sum_{m=-l}^l \frac{4 \pi}{2l+1}q_{lm} \frac{Y_{lm}(\theta, \phi)}{r^{l+1}}
 \end{equation}
 
 
