@@ -7,3 +7,5 @@ DATA IN CUI È STATO DATO
 DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
 
 Potenziale Q exp(-r/l)/r | Claudio | Non fatto
+2014/12/09
+Differenza di potenziale massima e minima tra due sfere cariche | Francesco
