@@ -6,6 +6,57 @@ La struttura da seguire è:
 DATA IN CUI È STATO DATO
 DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
 
+09/10/14
+Campo generato da una sfera con un buco sferico
+Campo generato su z da un anello e un disco nel piano xy
+Forza sul tappo di una sfera
+
+20/10/14
+Potenziale generato da carica e piano conduttore
+Cariche immagine con la sfera
+Quando posso risolvere con cariche immagine il potenziale di due piani conduttori ad angolo alfa?
+
+29/10/14
+Piano zebrato
 Potenziale Q exp(-r/l)/r | Claudio | Non fatto
-2014/12/09
+
+04/11/14
+Potenziale di un'asticella piccola
+
+10/11/14
+Potenziale di una sfera con +V0 sopra e -V0 sotto
+Potenziale di due sfere concentriche fatte come quella sopra (quella dentro invertita)
+Cubo con V1, V2, ... sulle facce, trovare il potenziale
+
+11/11/14
++q, -q, +q, -q quadrato, trovare il potenziale
+
+17/11/14
+Potenziale in una sfera con +q e -q simmetriche rispetto al centro
+Potenziale in una sfera con -q e -q simmetriche e 2q nel centro
+Potenziale in una sfera con buco a forma di cono
+Potenziale generato dalla distribuzione ro orrenda
+
+18/11/14
+Anello carico, calcolare il potenziale vicino all'origine
+Sfera con 8 spicchi -V0, +V0 alternati, trovare il potenziale
+Sfera di cariche puntiformi che si espande
+
+24/11/14
+Particelle che formano la densità di corrente tra due piani
+
+25/11/14
+Solenoide tagliato a metà
+Corrente sul mappamondo
+
+01/12/14
+Trovare il potenziale vettore per il campo magnetico costante fuori da un cilindro
+
+03/12/14
+Trovare il potenziale vettore di un filo percorso da corrente
+Esercizio del solenoide difficile
+
+Potenziale Q exp(-r/l)/r | Claudio | Non fatto
+09/12/14
 Differenza di potenziale massima e minima tra due sfere cariche | Francesco
+Trovare J per un campo magnetico in uno spessore di piano
