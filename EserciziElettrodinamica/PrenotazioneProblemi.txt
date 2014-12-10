@@ -40,7 +40,7 @@ Potenziale generato dalla distribuzione ro orrenda
 18/11/14
 Anello carico, calcolare il potenziale vicino all'origine
 Sfera con 8 spicchi -V0, +V0 alternati, trovare il potenziale
-Sfera di cariche puntiformi che si espande
+Sfera di cariche puntiformi che si espande | Federico
 
 24/11/14
 Particelle che formano la densità di corrente tra due piani
