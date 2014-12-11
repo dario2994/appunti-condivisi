@@ -20,13 +20,13 @@ Il campo elettrico è definito a partire da una ``carica di prova''; si verifica
 Il potenziale elettrico è un campo scalare $V$ tale che
 \begin{equation}
   \label{Potenziale}
-  \vec E(\vec r) = - \vec \nabla V(\vec r)
+  \vec E(\vec r) = - \grad V(\vec r)
 \end{equation}
 Le due leggi fondamentali dell'elettrostatica sono, in forma differenziale:
 \begin{subequations}
   \label{DifferenzialiElettrostatica}
   \begin{align}
-    \vec \nabla \cdot \vec E = 4 \pi \rho\\
+    \div \vec E = 4 \pi \rho\\
     \rot \vec E = 0
   \end{align}
 \end{subequations}
@@ -163,13 +163,46 @@ Una funzione arbitraria $g(r, \theta, \phi)$ si può sviluppare in armoniche sfe
   \label{Armoniche}
   g(r, \theta, \phi)= \sum_{l=0}^\infty \sum_{m=-l}^l (A_{lm}r^l+B_{lm}r^{-l-1}) Y_{lm}(\theta,\phi)
 \end{equation}
-\subsubsection{Siluppo in multipoli}
+\subsubsection{Sviluppo in multipoli}
 \begin{equation}
   \label{Multipoli}
   V(r, \theta, \phi)=\sum_{l=0}^\infty \sum_{m=-l}^l \frac{4 \pi}{2l+1}q_{lm} \frac{Y_{lm}(\theta, \phi)}{r^{l+1}}
 \end{equation}
 
+\subsection{Leggi di Maxwell della magnetostatica}
+Il campo magnetico è uno pseudovettore indicato con $\vec B$.
 
+Il campo magnetico rispetta, ed è da esse definito, le due leggi di Maxwell:
+\begin{align}
+	\div \vec B &=0 \label{DivergenzaMagnetostatica} \\
+	\rot \vec B &=\frac{4\pi}c\vec J \label{LeggeAmpere}
+\end{align}
+Queste due formule, riscritte in forma integrale divengono delle affermazioni sul flusso del campo magnetico e sulla sua circuitazione:
+\begin{align}
+	\oint_S \vec B\cdot \de \vec S&=0 \label{NoMonopoliMagnetici} \\
+	\oint_{\partial S} \vec B \cdot \de \vec l &= \frac{4\pi}c \int_S \vec J\cdot \de \vec S = I_{\text{concatenata}}\label{CircuitazioneMagnetico}
+\end{align}
+dove nella seconda formula si orienta la normale alla superficie $S$ in modo che sia rispettata la regola della mano destra: se il pollice è la normale le restanti dita descrivono come si percorre il bordo $\partial S$ nell'integrale curvilineo.
+
+\subsection{Potenziale vettore}
+Dalle sole leggi di Maxwell per il campo magnetico, si ottiene l'esistenza di un campo $\vec A$, detto potenziale vettore, a divergenza nulla e tale che il suo rotore sia $\vec B$; in formule:
+\begin{align}
+	\div \vec A &=0 \label{DivPotVettore} \\
+	\rot \vec A &=\vec B \label{RotPotVettore}
+\end{align}
+Da queste formule, ricordando le leggi di Maxwell, è facile ricavare, tramite semplici calcoli vettoriali, l'equazione
+\begin{equation*}  \label{PoissonMagnetico}
+	\lapl \vec A=-\frac{4\pi}c\vec J
+\end{equation*}
+che è in forte analogia (in realtà uguale a meno di cambio di nomi) con l'\cref{Poisson}.
+Quest'analogia con l'equazione di Poisson permette di applicare molti dei metodi sfruttati per risolvere tale equazione anche quando si cerca il potenziale vettore di una distrubuzione di correnti.
+
+\subsection{Formula di Biot-Savart}
+Nel caso in cui la distribuzione di corrente sia sufficientemente localizzata è possibile scrivere in forma esplicita sia il campo magnetico che il potenziale vettore tramite le formule di Biot-Savart:
+\begin{align*}
+	\vec B(\vec r)&=\int \frac{\vec J(\pvec r')\times(\vec r-\pvec r')}{\abs{\vec r-\pvec r'}^3}\de \pvec r' \label{BiotSavartB} \\
+	\vec A(\vec r)&=\int \frac{\vec J}{\abs{\vec r-\pvec r'}}\de \pvec r'
+\end{align*}
 
 
 \end{document}
