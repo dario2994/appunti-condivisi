@@ -1,0 +1,46 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Potenziale vicino al centro di un anello carico} %pca
+
+\textex
+È dato un anello sul piano $xy$ centrato nell'origine e con raggio $a$. Sull'anello vi è anche una distribuzione di carica uniforme e lineare $\lambda$. Determinare il potenziale per punti $\vec{r}$ con $r<<a$ al secondo ordine.
+
+\solution
+
+In generale, possiamo sviluppare una funzione scalare sufficientemente liscia in un intorno di $0$ al secondo ordine nella forma
+\begin{equation}\label{pca:sviluppoII}
+	V(\vec{r})\approx V(0) + \vec{\nabla}V \cdot \vec{r} + \frac{1}{2}H V (\vec{r})\virgola
+\end{equation}
+dove $\vec{\nabla}V$ è il gradiente di $V$ e $H V$ è l'hessiana di $V$.
+
+Nel nostro caso, $V(\vec{r})$ è il potenziale. Procediamo dunque allo studio dei 3 termini che compaiono nell'\cref{pca:sviluppoII}.
+\begin{description}
+	\item [termine di monopolo] Il primo termine si calcola semplicemente guardando il potenziale nell'origine. Dato che le cariche sono localizzate, infatti, per convenzione la determinazione del potenziale ha zero all'infinito, quindi non consideriamo arbitraria la scelta di questo primo termine. In ogni caso, con l'\cref{PotenzialeLocalizzato}, otteniamo immediatamente che $V(0)=2\pi\lambda$.
+	\item [termine di dipolo] Il secondo termine è il gradiente $\vec{\nabla}V$, che è un vettore. Per questioni di simmetria del sistema, tale vettore è ovviamente nullo: una riflessione rispetto il piano $xy$ lascia invariato il sistema e ci dice che $\vec{\nabla}V$ giace su tale piano; una rotazione attorno all'asse $z$, ancora lascia invariato il sistema e ci dice che $\vec{\nabla}V$ deve stare lungo l'asse. Dunque è nullo.
+	\item [termine di tripolo] Il terzo termine è l'Hessiana $H V$. Fatti di matematica ci permettono di affermare che $H V$, se scritta in coordinate cartesiane, è una matrice simmetrica, quindi diagonalizzabile lungo 3 direzioni ortonormali. Sappiamo, inoltre, che tale oggetto è un tensore a 2 indici, di conseguenza ci è lecito effettuare ragionamenti di simmetria: possiamo affermare che queste 3 direzioni sono (possono anche essere scelte) lungo i 3 assi cartesiani, data la simmetria descritta al punto precedente. Pertanto, scritta in coordinate cartesiane si ha che
+	\[
+		H V = \text{diag}(v_{xx},v_{yy},v_{zz})\virgola
+	\]
+	e che $v_{yy}=v_{zz}$. Inoltre, dato che in un intorno dell'origine non è presente carica, vale l'\cref{Laplace} che diventa
+	\[
+		v_{xx}+v_{yy}+v_{zz}=0\punto
+	\]
+	Tutto ciò ha ricondotto la determinazione del terzo termine al calcolo di una sola quantità. Se ora guardiamo il problema ???? (del campo sull'asse $z$), abbiamo che
+	\[
+		V_z(z)=\frac{2\pi\lambda a}{\sqrt{z^2+a^2}} \approx 2 \pi \lambda - \frac{\pi \lambda z^2}{a^2}\virgola
+	\]
+	cioè
+	\begin{align*}
+		&v_{xx}= \frac{4\pi\lambda}{a^2}\\
+		&v_{yy}= -\frac{2\pi\lambda}{a^2}\\
+		&v_{zz}= -\frac{2\pi\lambda}{a^2}\punto
+	\end{align*}
+\end{description}
+
+\begin{remark}
+	Volevo mettere anche un modo più fisico per mostrare che il termine di monopolo è 0. Inoltre, c'è la soluzione in armoniche sferiche.
+\end{remark}
+
+
+\end{document}
