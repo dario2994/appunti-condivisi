@@ -157,6 +157,20 @@ e combinazioni lineari dell'espressione sopra al variare di $a, b, c$
 
 
 \subsection{Espansioni in serie}
+\subsubsection{Sviluppo con i polinomi di Legendre}
+Se il potenziale non dipende da $\phi$, si può esprimere attraverso i polinomi di Legendre nella forma 
+\begin{equation}
+  \label{Legendre}
+  V(r, \theta) = \sum_{l=0}^{\infty} \left ( A_l r^l + B_l \frac{1}{r^{l+1}} \right ) P_l (\cos\theta)
+\end{equation}
+In particolare è comodo ricordare che
+\begin{equation}
+  \label{rR} % r minore R maggiore
+  \frac{1}{|\vec r - \vec r'|} = \sum_{l=0}^{\infty} \frac{r_{minore}^l}{r_{maggiore}^{l+1}} P_l (\cos\gamma)
+\end{equation}
+dove $\gamma$ è l'angolo compreso tra i vettori $\vec r$ e $\vec r'$.
+
+
 \subsubsection{Armoniche sferiche}
 Una funzione arbitraria $g(r, \theta, \phi)$ si può sviluppare in armoniche sferiche come
 \begin{equation}
