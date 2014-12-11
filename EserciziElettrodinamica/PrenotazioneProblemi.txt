@@ -38,7 +38,7 @@ Potenziale in una sfera con buco a forma di cono
 Potenziale generato dalla distribuzione ro orrenda
 
 18/11/14
-Anello carico, calcolare il potenziale vicino all'origine
+Anello carico, calcolare il potenziale vicino all'origine | Marco
 Sfera con 8 spicchi -V0, +V0 alternati, trovare il potenziale
 Sfera di cariche puntiformi che si espande | Federico
 
