@@ -7,17 +7,17 @@
 Se qualcuno vuole scrivere un po' di formulario questo è il posto giusto.
 
 \subsection{Legge di Coulomb, campo elettrico e potenziale}\label{Preliminari}
-La carica elettrica in unit\`a cgs \`e definita dalla legge di Coulomb, che esprime la forza tra due cariche:
+La carica elettrica in unità cgs è definita dalla legge di Coulomb, che esprime la forza tra due cariche:
 \begin{equation}
   \label{Coulomb}
   F_{ab}=\frac{q_aq_b}{\abs{\vec r_a -\vec r_b}^2}
 \end{equation}
-Il campo elettrico \`e definito a partire da una ``carica di prova''; si verifica sperimentalmente che il campo non dipende dalla carica utilizzata, purch\'e abbastanza piccola:
+Il campo elettrico è definito a partire da una ``carica di prova''; si verifica sperimentalmente che il campo non dipende dalla carica utilizzata, purché abbastanza piccola:
 \begin{equation}
   \label{CampoElettrico}
   \vec E(\vec r)=\lim_{q \to 0} \frac{\vec F_q(\vec r)}{q}
 \end{equation}
-Il potenziale elettrico \`e un campo scalare $V$ tale che
+Il potenziale elettrico è un campo scalare $V$ tale che
 \begin{equation}
   \label{Potenziale}
   \vec E(\vec r) = - \vec \nabla V(\vec r)
@@ -35,7 +35,7 @@ Le due leggi fondamentali dell'elettrostatica sono, in forma differenziale:
 \subsection{Matematica utile}\label{Matematica}
 \begin{theorem}[Teorema della media]
   \label{ThMedia}
-  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di $f$ sulla sfera \`e uguale al valore al centro, cio\`e
+  Se $f:S^2 \to \mathbb{R}$ \`e una funzione armonica la media di $f$ sulla sfera è uguale al valore al centro, cioè
   \begin{equation}
     \int_{S^2} f(x) \de x = f(0,0)
   \end{equation}
@@ -49,7 +49,7 @@ Le due leggi fondamentali dell'elettrostatica sono, in forma differenziale:
 \end{theorem}
 
 \begin{definition}[Delta di Dirac]
-La fuzione delta di Dirac \`e in realt\`a una pseudofunzione, tale che
+La fuzione delta di Dirac è in realtà una pseudofunzione, tale che
   \begin{subequations}
     \label{DeltaDirac}
     \begin{align}
@@ -64,13 +64,13 @@ La fuzione delta di Dirac \`e in realt\`a una pseudofunzione, tale che
 \end{definition}
 
 \subsection{Legge di Gauss}\label{Gauss}
-La legge di Gauss pu\`o essere espressa in due forme.\newline
-Forma integrale: lega la quantit\`a di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
+La legge di Gauss può essere espressa in due forme.\newline
+Forma integrale: lega la quantità di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
 \begin{equation}
   \label{GaussIntegrale}
   \Phi(S)= \oint_S \vec E \hat n \de \vec a=-4\pi Q_{interna}
 \end{equation}
-Forma differenziale: lega campo elettrico e densit\`a di carica in un punto 
+Forma differenziale: lega campo elettrico e densità di carica in un punto 
 \begin{equation}
   \label{GaussDifferenziale}
   \div \vec E=-4\pi\rho
@@ -88,14 +88,14 @@ E se $\rho=0$ si ottiene l'equazione di Laplace:
 
 
 \subsection{Teorema di Green}\label{Green}
-\begin{theorem}[Prima identit\`a di Green]
+\begin{theorem}[Prima identità di Green]
   \label{Green1}
   \begin{equation}
   \int_V (f \lapl g + \grad f \cdot \grad g) \de^3 r = \oint_S f \frac{\partial g}{\partial n} \de a
   \end{equation}
 \end{theorem}
 
-\begin{theorem}[Seconda identit\`a di Green o Teorema di Green]
+\begin{theorem}[Seconda identità di Green o Teorema di Green]
   \label{Green2}
   \begin{equation}
   \int_V \de^3 r (f \lapl g - g \lapl f) = \oint_S \left( f \frac{\partial g}{\partial n} - g \frac{\partial f}{\partial n} \right) \de a
@@ -117,9 +117,9 @@ Le due formule \cref{EEDiscreta} e \cref{EEContinua} \emph{non} sono equivalenti
 
 \subsection{Conduttori}\label{Conduttori}
 \begin{definition}[Conduttore]
-  Un conduttore in elettrostatica \`e ``un mezzo in cui all'equilibrio il campo elettrio \`e nullo'' 
+  Un conduttore in elettrostatica è ``un mezzo in cui all'equilibrio il campo elettrio è nullo'' 
 \end{definition}
-La discontinuit\`a del campo elettrico a cavallo di un piano carico con densit\`a superficiale $\sigma$ vale
+La discontinuità del campo elettrico a cavallo di un piano carico con densità superficiale $\sigma$ vale
 \begin{equation}
   \label{DiscontinuitaSigma}
   \Delta E = 4 \pi \sigma
@@ -152,7 +152,7 @@ e combinazioni lineari dell'espressione sopra al variare di $a, b, c$
 
 \subsection{Espansioni in serie}
 \subsubsection{Armoniche sferiche}
-Una funzione arbitraria $g(r, \theta, \phi)$ si pu\`o sviluppare in armoniche sferiche come
+Una funzione arbitraria $g(r, \theta, \phi)$ si può sviluppare in armoniche sferiche come
 \begin{equation}
   \label{Armoniche}
   g(r, \theta, \phi)= \sum_{l=0}^\infty \sum_{m=-l}^l (A_{lm}r^l+B_{lm}r^{-l-1}) Y_{lm}(\theta,\phi)
