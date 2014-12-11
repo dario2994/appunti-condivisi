@@ -8,7 +8,7 @@ DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
 
 09/10/14
 Campo generato da una sfera con un buco sferico
-Campo generato su z da un anello e un disco nel piano xy | Marco
+Campo generato su z da un anello e un disco nel piano xy | Marco | fatto
 Forza sul tappo di una sfera
 
 20/10/14
