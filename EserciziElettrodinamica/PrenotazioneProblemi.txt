@@ -8,7 +8,7 @@ DESCRIZIONE BREVE PROBLEMA | NOME DI CHI LO FA | FATTO
 
 09/10/14
 Campo generato da una sfera con un buco sferico
-Campo generato su z da un anello e un disco nel piano xy
+Campo generato su z da un anello e un disco nel piano xy | Marco
 Forza sul tappo di una sfera
 
 20/10/14
@@ -56,7 +56,6 @@ Trovare il potenziale vettore per il campo magnetico costante fuori da un cilind
 Trovare il potenziale vettore di un filo percorso da corrente
 Esercizio del solenoide difficile
 
-Potenziale Q exp(-r/l)/r | Claudio | Non fatto
 09/12/14
 Differenza di potenziale massima e minima tra due sfere cariche | Francesco
 Trovare J per un campo magnetico in uno spessore di piano
