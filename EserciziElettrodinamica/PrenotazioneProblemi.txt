@@ -33,7 +33,7 @@ Cubo con V1, V2, ... sulle facce, trovare il potenziale
 
 17/11/14
 Potenziale in una sfera con +q e -q simmetriche rispetto al centro
-Potenziale in una sfera con -q e -q simmetriche e 2q nel centro
+Potenziale in una sfera con -q e -q simmetriche e 2q nel centro | Alice
 Potenziale in una sfera con buco a forma di cono
 Potenziale generato dalla distribuzione ro orrenda
 
