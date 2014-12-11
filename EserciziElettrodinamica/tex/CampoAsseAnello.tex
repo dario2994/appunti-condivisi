@@ -18,10 +18,10 @@ Per fare ciò calcoliamo il potenziale $V(z)$ solo lungo l'asse, infatti ciò è
 	E_z(z)=-\frac{dV(z)}{dz}\punto
 \]
 
-Dato che le cariche sono localizzate, siamo autorizzati a scrivere
-\begin{equation}\label{caa:potenziale}
-	V(\vec{r})=\int d\vec{r'}^3 \frac{\rho(\vec{r'})}{|\vec{r}-\vec{r'}|}
-\end{equation}
+Dato che le cariche sono localizzate, siamo autorizzati ad usare l'\cref{PotenzialeLocalizzato}
+\[
+	V(\vec{r})=\int d'r^3 \frac{\rho(\vec{r'})}{|\vec{r}-\vec{r'}|}
+\]
 che, per $\vec{r}=z\hat{z}$, cioè sull'asse $z$, dato che $|\vec{r}-\vec{r'}|=\sqrt{z^2+a^2}$, diventa
 \[
 	V(z)=\lambda 2\pi a \frac{1}{\sqrt{z^2+a^2}}\virgola
@@ -31,7 +31,7 @@ da cui, derivando lungo $z$,
 	E_z(z)=\frac{2\pi a\lambda z}{(z^2+a^2)^{\frac{3}{2}}}\punto
 \]
 
-Passando al problema del disco pieno, dato che le cariche sono ancora localizzate, possiamo ancora usare l'\cref{caa:potenziale}. Per calcolare l'integrale sul disco, sviluppiamo in coordinate polari:
+Passando al problema del disco pieno, dato che le cariche sono ancora localizzate, possiamo ancora usare l'\cref{PotenzialeLocalizzato}. Per calcolare l'integrale sul disco, sviluppiamo in coordinate polari:
 \[
 	V(z)=\int_0^a \int_0^{2\pi} \frac{\sigma r}{\sqrt{z^2+r^2}}\de \theta \de r = \int_0^a \frac{2\pi\sigma r}{\sqrt{z^2+r^2}}\de r = 2\pi\sigma (\sqrt{z^2+a^2}-z)\punto
 \]
