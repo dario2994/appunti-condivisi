@@ -10,31 +10,49 @@ Se qualcuno vuole scrivere un po' di formulario questo è il posto giusto.
 La carica elettrica in unità cgs è definita dalla legge di Coulomb, che esprime la forza tra due cariche:
 \begin{equation}
   \label{Coulomb}
-  F_{ab}=\frac{q_aq_b}{\abs{\vec r_a -\vec r_b}^2}
+  \vec F_{ab}=\frac{q_aq_b(\vec r_a-\vec r_b)}{\abs{\vec r_a -\vec r_b}^3}
 \end{equation}
 Il campo elettrico è definito a partire da una ``carica di prova''; si verifica sperimentalmente che il campo non dipende dalla carica utilizzata, purché abbastanza piccola:
 \begin{equation}
   \label{CampoElettrico}
   \vec E(\vec r)=\lim_{q \to 0} \frac{\vec F_q(\vec r)}{q}
 \end{equation}
-Il potenziale elettrico è un campo scalare $V$ tale che
-\begin{equation}
-  \label{Potenziale}
-  \vec E(\vec r) = - \grad V(\vec r)
-\end{equation}
+
 Le due leggi fondamentali dell'elettrostatica sono, in forma differenziale:
 \begin{subequations}
   \label{DifferenzialiElettrostatica}
   \begin{align}
-    \div \vec E = 4 \pi \rho\\
-    \rot \vec E = 0
+    \div \vec E &= 4 \pi \rho\label{GaussDifferenziale}\\
+    \rot \vec E &= 0
   \end{align}
 \end{subequations}
+dove $\rho$ è la densità di carica.
 
-Nel caso di una distribuzione di cariche localizzata è norma porre lo zero del potenziale all'infinito. Con questa convenzione si ha
-\begin{equation}\label{PotenzialeLocalizzato}
-	V(\vec{r})=\int \de' r^3 \frac{\rho(\vec{r'})}{|\vec{r}-\vec{r'}|}
+La prima delle due equazioni equivale alla legge di Gauss:
+\begin{equation}\label{GaussIntegrale}
+	\Phi(S)= \oint_S \vec E \cdot \de \vec S=-4\pi Q_{interna}\\
 \end{equation}
+Mentre la seconda equazione equivale a dire che $\vec E$ è un campo conservativo, cioè all'esistenza di un potenziale $V$ tale che
+\begin{equation}
+  \label{Potenziale}
+  \vec E(\vec r) = - \grad V(\vec r)
+\end{equation}
+
+Una conseguenza diretta della definizione di potenziale e delle leggi fondamentali è l'equazione di Poisson:
+\begin{equation}\label{Poisson}
+	\lapl V=-4\pi \rho
+\end{equation}
+e quindi, dove non c'è carica, il potenziale è una funzione armonica, cioè rispetta l'equazione di Laplace
+\begin{equation}\label{Laplace}
+	\lapl V=0
+\end{equation}
+
+Nel caso di una distribuzione di cariche localizzata è norma porre lo zero del potenziale all'infinito. 
+Con questa convenzione si hanno le identità:
+\begin{align}
+	E(\vec r)&=\int \de^3 r' \frac{\rho(\pvec r')(\vec r-\pvec r')}{\abs{\vec{r}-\pvec r'}^3}\\
+	V(\vec{r})&=\int \de^3 r' \frac{\rho(\pvec r')}{\abs{\vec{r}-\pvec r'}}\label{PotenzialeLocalizzato}
+\end{align}
 
 
 
@@ -50,7 +68,7 @@ Nel caso di una distribuzione di cariche localizzata è norma porre lo zero del 
 \begin{theorem}[Teorema della divergenza]
   \label{ThDivergenza}
   \begin{equation}
-    \int_V \de^3 r \div(\vec A) = \oint_S \vec A \cdot \hat n \de a
+    \int_V \de^3 r \div(\vec A) = \oint_S \vec A \cdot \de \vec S
   \end{equation}
 \end{theorem}
 
@@ -68,29 +86,6 @@ La fuzione delta di Dirac è in realtà una pseudofunzione, tale che
     \end{align}
   \end{subequations}
 \end{definition}
-
-\subsection{Legge di Gauss}\label{Gauss}
-La legge di Gauss può essere espressa in due forme.\newline
-Forma integrale: lega la quantità di carica contenuta all'interno di una superficie chiusa S e il flusso uscente da S
-\begin{equation}
-  \label{GaussIntegrale}
-  \Phi(S)= \oint_S \vec E \hat n \de \vec a=-4\pi Q_{interna}
-\end{equation}
-Forma differenziale: lega campo elettrico e densità di carica in un punto 
-\begin{equation}
-  \label{GaussDifferenziale}
-  \div \vec E=-4\pi\rho
-\end{equation}
-Come diretta conseguenza della definizione di potenziale (\cref{Potenziale}) e dell'\cref{GaussIntegrale} si ha anche l'equazione di Poisson:
-\begin{equation}
-  \label{Poisson}
-  \lapl V= -4\pi \rho
-\end{equation}
-E se $\rho=0$ si ottiene l'equazione di Laplace:
-\begin{equation}
-  \label{Laplace}
-  \lapl V= 0
-\end{equation}
 
 
 \subsection{Teorema di Green}\label{Green}
@@ -166,7 +161,7 @@ Se il potenziale non dipende da $\phi$, si può esprimere attraverso i polinomi 
 In particolare è comodo ricordare che
 \begin{equation}
   \label{rR} % r minore R maggiore
-  \frac{1}{|\vec r - \vec r'|} = \sum_{l=0}^{\infty} \frac{r_{minore}^l}{r_{maggiore}^{l+1}} P_l (\cos\gamma)
+  \frac{1}{|\vec r - \vec r'|} = \sum_{l=0}^{\infty} \frac{r_{min}^l}{r_{max}^{l+1}} P_l (\cos\gamma)
 \end{equation}
 dove $\gamma$ è l'angolo compreso tra i vettori $\vec r$ e $\vec r'$.
 
