@@ -29,7 +29,7 @@ Potenziale di due sfere concentriche fatte come quella sopra (quella dentro inve
 Cubo con V1, V2, ... sulle facce, trovare il potenziale
 
 11/11/14
-+q, -q, +q, -q quadrato, trovare il potenziale | Marco
++q, -q, +q, -q quadrato, trovare il potenziale | Marco | Fatto
 
 17/11/14
 Potenziale in una sfera con +q e -q simmetriche rispetto al centro
