@@ -1,0 +1,43 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Potenziale massimo e minimo tra due sfere cariche} %dsc
+
+\textex
+Sono date nello spazio una sfera di raggio $a$ con il centro in $(-2a,0,0)$ e uniformemente carica con densita $\rho_a<0$ e una di raggio $b$ con il centro in $(2b,0,0)$ e uniformemente carica con densita $\rho_b>0$. Si chiede di trovare il massimo e il minimo lavoro da compiere du una carica puntiforme $q>0$ per portarla da un punto sulla superficie della prima sfera ad uno sulla superficie della seconda.
+
+\solution
+\`E evidente che il lavoro richiesto \`e proporzionale alla differenza di potenziale tra due punti sulle superfici delle sfere, e che quindi, visto che non ci sono cariche puntiformi, non dipende in alcun modo dal percorso tra il punto iniziale e quello finale.
+
+Per calcolare questa differenza di potenziale uso il principio di sovrapposizione lineare, e calcolo separatamente il potenziale dovuto a ciascuna sfera. Dato che le sfere sono disgiunte, i punti iniziale e finale sono esterni ad entrambe le sfere (o al pi\`u sul bordo) e quindi per il teorema di Gauss posso limitarmi al caso di due cariche puntiformi $Q_a=\frac{3}{4} \pi a^3 \rho_a $ e $Q_b=\frac{3}{4} \pi b^3 \rho_b $  poste nei centri.
+
+\begin{subequations}
+  \label{dsc:potenziali}
+  \begin{align}
+    %V=
+    %\begin{cases}
+      V_{ia}=\frac{Q_a}{a},	& \text{(Prima sfera, istante iniziale)} \\
+      V_{ib}=\frac{Q_b}{d_{ib}},	& \text{(Seconda sfera, istante iniziale)} \\
+      V_{fa}=\frac{Q_a}{d_{fa}},	& \text{(Prima sfera, istante finale)} \\
+      V_{fb}=\frac{Q_b}{b},	& \text{(Seconda sfera, istante finale)}
+    %\end{cases}\\
+  \end{align}
+\end{subequations}
+La differenza di potenziale richiesta \`e $V_{fa}+V_{fb}-V_{ia}-V_{ib}$.
+Evidentemente $V_{ia}$ e $V_{fb}$ nn dipendono dalle posizioni iniziali e finali. Bisogna quindi massimizzare (risp. minimizzare) $V_{fa}-V_{ib}$, ossia bisogna massimizzare (risp. minimizzare), $f_{ib}$ e $V_{fa}$
+
+
+\begin{description}
+\item[Prima sfera]
+  \begin{description}
+  \item[Istante iniziale]
+
+    V
+  \end{description}
+
+
+
+
+\end{description}
+
+\end{document}
