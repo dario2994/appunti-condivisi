@@ -17,7 +17,7 @@ Cariche immagine con la sfera
 Quando posso risolvere con cariche immagine il potenziale di due piani conduttori ad angolo alfa?
 
 29/10/14
-Piano zebrato
+Piano zebrato | Francesco
 Potenziale Q exp(-r/l)/r | Claudio | Non fatto
 
 04/11/14
