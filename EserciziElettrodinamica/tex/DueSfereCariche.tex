@@ -9,7 +9,8 @@ Sono date nello spazio una sfera di raggio $a$ con il centro in $(-2a,0,0)$ e un
 \solution
 \`E evidente che il lavoro richiesto \`e proporzionale alla differenza di potenziale tra due punti sulle superfici delle sfere, e che quindi, visto che non ci sono cariche puntiformi, non dipende in alcun modo dal percorso tra il punto iniziale e quello finale.
 
-Per calcolare questa differenza di potenziale uso il principio di sovrapposizione lineare, e calcolo separatamente il potenziale dovuto a ciascuna sfera. Dato che le sfere sono disgiunte, i punti iniziale e finale sono esterni ad entrambe le sfere (o al pi\`u sul bordo) e quindi per il teorema di Gauss posso limitarmi al caso di due cariche puntiformi $Q_a=\frac{3}{4} \pi a^3 \rho_a $ e $Q_b=\frac{3}{4} \pi b^3 \rho_b $  poste nei centri.
+Per calcolare questa differenza di potenziale uso il principio di sovrapposizione lineare, e calcolo separatamente il potenziale dovuto a ciascuna sfera. Dato che le sfere sono disgiunte, i punti iniziale e finale sono esterni ad entrambe le sfere (o al pi\`u sul bordo) e quindi per il teorema di Gauss posso limitarmi al caso di due cariche puntiformi $Q_a=\frac{3}{4} \pi a^3 \rho_a $ e $Q_b=\frac{3}{4} \pi b^3 \rho_b $  poste nei centri.\newline
+I potenziali da calcolare sono, al variare della distanza $d_{ib}$ di un punto sulla prima sfera dal centro della seconda e di $d_{fa}$, distanza di un punto sulla seconda sfera dal centro della prima,
 
 \begin{subequations}
   \label{dsc:potenziali}
@@ -21,6 +22,10 @@ Per calcolare questa differenza di potenziale uso il principio di sovrapposizion
   \end{align}
 \end{subequations}
 La differenza di potenziale richiesta \`e $V_{fa}+V_{fb}-V_{ia}-V_{ib}$.
-Evidentemente $V_{ia}$ e $V_{fb}$ non dipendono dalle posizioni iniziali e finali. Bisogna quindi massimizzare (risp. minimizzare) $V_{fa}-V_{ib}$, ossia bisogna massimizzare (risp. minimizzare), $f_{ib}$ e $V_{fa}$
+Evidentemente $V_{ia}$ e $V_{fb}$ non dipendono dalle posizioni iniziali e finali. Bisogna quindi massimizzare (risp. minimizzare) $V_{fa}-V_{ib}$, che sono chiaramante indipendenti.
+
+$Q_a<0$, quindi il valore massimo (risp. minimo) di $V_{fa}$ si ottiene massimizzando (risp. minimizzando) $d_{fa}$; $Q_b>0$, quindi il valore massimo (risp. minimo) di $V_{ib}$ si ottiene minimizzando (risp. massimizzando) $d_{ib}$.
+
+Dato che $V_{ib}$ va sottratto, $V_{min}=Q_a(\frac{1}{2a+b}- \frac{1}{a})+Q_b(\frac{1}{b}-\frac{1}{a+2b})$; $V_{max}=Q_a(\frac{1}{2a+3b}- \frac{1}{a})+Q_b(\frac{1}{b}-\frac{1}{3a+2b})$
 
 \end{document}
