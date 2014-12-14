@@ -5,7 +5,7 @@
 
 \textex
 
-Si determini il potenziale dovuto al piano $xy$ a strisce di larghezza $a/2$ parallelle all'asse $y$ cariche alternatamente con densità superficiale $\sigma_0$  e $0$.\newline inoltre
+Si determini il potenziale dovuto al piano $xy$ a strisce di larghezza $a/2$ parallelle all'asse $y$ cariche alternatamente con densità superficiale $\sigma_0$  e $0$.\newline
 Si determini inoltre, per $\abs{z} \gg 1$ il termine dominante dipendente da $x$.
 
 \solution
@@ -28,7 +28,6 @@ Per il problema del piano a strisce cerco un potenziale del tipo
 \end{equation*}
 quindi noto che, data l'invarianza per traslazione lungo $y$, posso supporre $Y(y)=1$.
 Inoltre $X$ deve essere invariante per traslazioni di $a$ (una striscia positiva e una negativa) lungo $x$.
-$Z$ invece deve essere invariante per simmetria rispetto al piano $xy$ ($z \to -z$), quindi posso limitarmi a considerare il caso $z > 0$.
 Dall'\cref{EquazioniSeparazione}, con $\displaystyle\frac{\de^2Y}{\de y^2}=0$, ottengo
 
 \begin{equation}
@@ -56,20 +55,22 @@ dalla condizione che $X$ sia periodica di periodo $a$ si ottiene che
 \begin{equation}
   b=\frac{2k \pi}{a}
 \end{equation}
-Se l'origine \`e messa in modo tale che . Allora posso scivere:
+Se l'origine \`e messa in modo tale che l'asse $y$ sia la separazione tra due striscie, $X$ \`e dispari; . Allora posso scivere:
 
 \begin{equation}
   \left\{
     \begin{aligned}
-      X(x)=e^{\frac{2 k \pi i}{a}x} \\
+      X(x)=\sin \left(\frac{2 k \pi}{a}x \right) \\
       Z(z)=e^{\pm \frac{2 k \pi}{a}z}
     \end{aligned}
   \right.
 \end{equation}
+$Z$ invece deve essere invariante per simmetria rispetto al piano $xy$ ($z \to -z$), quindi posso limitarmi a considerare il caso $z > 0$.
+
 con $k\in \mathbb Z$. Quindi
 
 \begin{equation}
-  V(x,y,z)=\sum_{k=-\infty}^\infty A_k e^{\frac{2 k \pi i}{a} x \pm \frac{2 k \pi}{a} z }
+  V(x,y,z)=\sum_{k=-\infty}^\infty A_k \sin \left(\frac{2 k \pi}{a}x \right) e^{\frac{2 k \pi}{a} z } + \sum_{k=-\infty}^\infty B_k \sin \left(\frac{2 k \pi}{a}x \right) e^{- \frac{2 k \pi}{a} z }
 \end{equation}
 
 Per trovare gli $A_k$ calcolo il potenziale in qualche punto particolare, per esempio sull'asse $z$, avendo messo l'oigine in modo tale che l'asse $y$ sia una separazione tra due striscie. Allora 
