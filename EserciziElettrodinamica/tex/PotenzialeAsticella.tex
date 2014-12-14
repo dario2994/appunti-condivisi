@@ -1,0 +1,26 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Potenziale di un'asticella carica} %pac
+
+\textex
+
+È data un'asta di lunghezza $2a$ posta lungo l'asse $z$ con centro nell'origine. L'asta è uniformemente carica con densità lineare $\lambda$. Determinare i primi 2 termini dello sviluppo per $r>>a$.
+
+\solution
+
+Consideriamo, in coordinate sferiche, lo sviluppo del potenziale in serie. Dato che il sistema è invariante per rotazioni lungo l'asse $z$, tale sviluppo sarà dato da una serie contenente i polinomi di Legendre. Inoltre, dato che le cariche sono localizzate, possiamo imporre che $V(r)\rightarrow 0$ per $r\rightarrow \infty$. Fatte queste considerazioni preliminari, abbiamo ottenuto che il potenziale si esprime
+\[
+	V(r,\theta)=\sum_{l=0}^{\infty} B_l\frac{1}{r^{l+1}}P_l(cos \theta)\virgola
+\]
+con opportuni coefficienti $B_l$.
+
+Osserviamo che il sistema è simmetrico per riflessioni lungo l'asse $z$. In particolare $V(r,\theta)=V(r,\pi-\theta)$. Questo ci dice che in particolare sono nulli tutti i termini $B_l$ con $l$ dispari.
+
+Passiamo quindi a calcolare i primi termini. $B_0$ è il termine di monopolo, quindi fornisce il potenziale generato dal sistema in cui tutta la carica è concentrata nell'origine. Questo ci dice che $B_0=2a\lambda$. Per quanto riguarda il secondo termine da calcolare, cioè $B_2$, calcoliamo il potenziale lungo l'asse $z$:
+\[
+	V(z)=\int_{-a}^a \frac{\lambda}{z-s}ds=\lambda [-ln(z-s)]_{-a}^a
+\]
+
+
+\end{document}
