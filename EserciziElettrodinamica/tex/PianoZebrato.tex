@@ -29,8 +29,49 @@ Per il problema del piano a strisce cerco un potenziale del tipo
 quindi noto che, data l'invarianza per traslazione lungo $y$, posso supporre $Y(y)=1$.
 Inoltre $X$ deve essere invariante per traslazioni di $a$ (una striscia positiva e una negativa) lungo $x$.
 $Z$ invece deve essere invariante per simmetria rispetto al piano $xy$ ($z \to -z$), quindi posso limitarmi a considerare il caso $z > 0$.
+Dall'\cref{EquazioniSeparazione}, con $\displaystyle\frac{\de^2Y}{\de y^2}=0$, ottengo
 
-Se ricavassi il potenziale integrando su tuttto il piano il potenziale dovuto ad un punto, otterrei che il termine di monopolo \`e nullo, perch\'e la carica complessiva del piano \`e nulla, %TODO: \`e vero?
-e il termine di dipolo a grandi distanze \`e proporzionale a $r^{-3}$, quindi integrato su tutto il piano darebbe un termine proporzionale a $r^{-1}$, ossia il potenziale va a $0$ all'infinito.
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      \frac{1}{X(x)}\frac{\de^2X(x)}{\de x^2}=-b^2\\
+      \frac{1}{Z(z)}\frac{\de^2Z(z)}{\de z^2}=c^2\\
+      c^2=b^2
+    \end{aligned}
+  \right.
+\end{equation}
+che ha come soluzione 
+
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      X(x)=e^{bix} \\
+      Z(z)=e^c \\
+      c^2=b^2 
+    \end{aligned}
+  \right.
+\end{equation}
+dalla condizione che $X$ sia periodica di periodo $a$ si ottiene che
+
+\begin{equation}
+  b=\frac{2k \pi}{a}
+\end{equation}
+Se l'origine \`e messa in modo tale che . Allora posso scivere:
+
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      X(x)=e^{\frac{2 k \pi i}{a}x} \\
+      Z(z)=e^{\pm \frac{2 k \pi}{a}z}
+    \end{aligned}
+  \right.
+\end{equation}
+con $k\in \mathbb Z$. Quindi
+
+\begin{equation}
+  V(x,y,z)=\sum_{k=-\infty}^\infty A_k e^{\frac{2 k \pi i}{a} x \pm \frac{2 k \pi}{a} z }
+\end{equation}
+
+Per trovare gli $A_k$ calcolo il potenziale in qualche punto particolare, per esempio sull'asse $z$, avendo messo l'oigine in modo tale che l'asse $y$ sia una separazione tra due striscie. Allora 
 
 \end{document}
