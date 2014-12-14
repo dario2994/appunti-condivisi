@@ -57,5 +57,5 @@ Trovare il potenziale vettore di un filo percorso da corrente
 Esercizio del solenoide difficile
 
 09/12/14
-Differenza di potenziale massima e minima tra due sfere cariche | Francesco
+Differenza di potenziale massima e minima tra due sfere cariche | Francesco |Fatto
 Trovare J per un campo magnetico in uno spessore di piano
