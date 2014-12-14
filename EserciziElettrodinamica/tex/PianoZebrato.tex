@@ -23,9 +23,10 @@ e quindi il potenziale, posto a $0$ sul piano, vale
 \end{equation}
 Per il problema del piano a strisce cerco un potenziale del tipo
 
-\begin{equation*}
+\begin{equation}
+  \label{pz:formapotenziale}
   V(x, y, z)=X(x)Y(y)Z(z)
-\end{equation*}
+\end{equation}
 quindi noto che, data l'invarianza per traslazione lungo $y$, posso supporre $Y(y)=1$.
 Inoltre $X$ deve essere invariante per traslazioni di $a$ (una striscia positiva e una negativa) lungo $x$.
 Dall'\cref{EquazioniSeparazione}, con $\displaystyle\frac{\de^2Y}{\de y^2}=0$, ottengo
@@ -55,25 +56,33 @@ dalla condizione che $X$ sia periodica di periodo $a$ si ottiene che
 \begin{equation}
   b=\frac{2k \pi}{a}
 \end{equation}
-Inolttre se l'origine \`e messa in modo tale che l'asse $y$ sia la separazione tra due striscie, $X$ \`e dispari; . Allora posso scivere:
+Inolttre se l'origine \`e messa in modo tale che l'asse $y$ al centro di una striscia, $X$ \`e pari; . Allora posso scivere:
 
 \begin{equation}
   \left\{
     \begin{aligned}
-      X(x)=\sin \left(\frac{2 k \pi}{a}x \right) \\
+      X(x)=\cos \left(\frac{2 k \pi}{a}x \right) \\
       Z(z)=e^{\pm \frac{2 k \pi}{a}z}
     \end{aligned}
   \right.
 \end{equation}
-con $k\in \mathbb Z$. Quindi
+con $k\in \mathbb Z$. Considerando combinazioni lineari delle espressioni sopra e ricordando l'\cref{pz:formapotenziale},
 
 \begin{equation}
-  V(x,y,z)=\sum_{k=-\infty}^\infty A_k \sin \left(\frac{2 k \pi}{a}x \right) e^{\frac{2 k \pi}{a} z } + \sum_{k=-\infty}^\infty B_k \sin \left(\frac{2 k \pi}{a}x \right) e^{- \frac{2 k \pi}{a} z }
+  V(x,y,z)=\sum_{k=-\infty}^\infty A_k \cos \left(\frac{2 k \pi}{a}x \right) e^{\frac{2 k \pi}{a} z } + \sum_{k=-\infty}^\infty B_k \cos \left(\frac{2 k \pi}{a}x \right) e^{- \frac{2 k \pi}{a} z }
 \end{equation}
-Ma $Z$ deve essere invariante per simmetria rispetto al piano $xy$ ($z \to -z$), quindi $A_k=B_k \ \forall k$
+Ma $Z$ deve essere invariante per simmetria rispetto al piano $xy$ ($z \to -z$), quindi $A_k=B_k \ \forall k$; %TODO: non del tutto corretto
+inoltre a questo punto posso considerare solo i termini con $k>0$ perch\'e l'espressione \`e pari.
 
-
+\begin{equation}
+  V(x,y,z)=\sum_{k=0}^\infty A_k \cos \left(\frac{2 k \pi}{a}x \right) \left(e^{\frac{2 k \pi}{a} z } + e^{- \frac{2 k \pi}{a} z } \right)
+\end{equation}
 Per trovare gli $A_k$ calcolo il potenziale in qualche punto particolare, per esempio sull'asse $z$.
-In questo caso il potenziale non dipende da $x$ e $X$ \`e costante.
+In questo caso il potenziale non dipende da $x$ e tutti i coseni valgono $1$.
+
+\begin{equation}
+  V(0,0,z)=\sum_{k=0}^\infty A_k \left( e^{\frac{2 k \pi}{a} z } + e^{- \frac{2 k \pi}{a} z } \right)
+\end{equation}
+
 
 \end{document}
