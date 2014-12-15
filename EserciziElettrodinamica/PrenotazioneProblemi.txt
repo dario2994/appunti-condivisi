@@ -18,13 +18,13 @@ Quando posso risolvere con cariche immagine il potenziale di due piani conduttor
 
 29/10/14
 Piano zebrato | Francesco
-Potenziale Q exp(-r/l)/r | Claudio | Non fatto
+Potenziale Q exp(-r/l)/r | Claudio | Fatto
 
 04/11/14
 Potenziale di un'asticella piccola | Marco
 
 10/11/14
-Potenziale di una sfera con +V0 sopra e -V0 sotto
+Potenziale di una sfera con +V0 sopra e -V0 sotto | Claudio | Non fatto
 Potenziale di due sfere concentriche fatte come quella sopra (quella dentro invertita)
 Cubo con V1, V2, ... sulle facce, trovare il potenziale
 
