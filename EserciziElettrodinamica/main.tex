@@ -38,6 +38,8 @@
 \fancyhead{}
 \fancyhead[LE,RO]{\slshape\nouppercase{\leftmark}}
 
+\numberwithin{equation}{section}
+
 \usepackage[nameinlink]{cleveref} %References show what kind of thing is being referenced (theorem, lemma, proposition...)
 \newcommand{\crefpairconjunction}{ e }
 \newcommand{\crefrangepreconjunction}{da }
@@ -60,8 +62,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}[Results]{Definizione}
 \newtheorem*{example}{Esempio}
-
-% \numberwithin{equation}{section}
 
 %Names used in references
 \crefname{equation}{Equazione}{Equazioni}
