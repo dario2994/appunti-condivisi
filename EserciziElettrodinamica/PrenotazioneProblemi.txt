@@ -21,7 +21,7 @@ Piano zebrato | Francesco
 Potenziale Q exp(-r/l)/r | Claudio | Fatto
 
 04/11/14
-Potenziale di un'asticella piccola | Marco
+Potenziale di un'asticella piccola | Marco | Fatto
 
 10/11/14
 Potenziale di una sfera con +V0 sopra e -V0 sotto | Claudio | Non fatto
