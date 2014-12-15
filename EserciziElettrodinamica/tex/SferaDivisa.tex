@@ -1,0 +1,70 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[10 novembre 2014]{Sfera con potenziale opposto in due emisferi}
+
+\textex
+
+L'emisfero con $z>0$ di una sfera di raggio $a$ centrata nell'origine è a potenziale $V_0$, l'altro è a potenziale $-V_0$.
+Si trovino i primi due termini non nulli dello sviluppo in serie di potenze di $r$ del potenziale all'interno e all'esterno
+della sfera.
+
+\solution
+
+Poiché il sistema è a simmetria azimutale, si possono calcolare i coefficienti dello sviluppo del potenziale tramite i
+polinomî di Legendre.
+Bisogna distinguere l'interno e l'esterno della sfera.
+All'esterno della sfera i termini $A_l$ dell'equazione \ref{Legendre} sono nulli in quanto il potenziale all'infinito tende a
+zero.
+Dunque per $r>a$ si ha che
+
+\begin{equation}\label{sd:sviluppo}
+V(r,\theta)=\sum_{l=0}^{\infty}B_l\frac{1}{r^{l+1}}P_l(\cos\theta).
+\end{equation}
+
+Per trovare i coefficienti $B_l$ imponiamo la condizione al contorno del potenziale sulla sfera.
+Notiamo che $V(a,\theta)=V_0\sgn(\cos\theta)$, e pertanto cerchiamo lo sviluppo in polinomî di
+Legendre di tale funzione:
+
+\begin{equation}\label{sd:segno}
+V_0\sgn(\cos\theta)=\sum_{l=0}^{\infty}B'_lP_l(\cos\theta).
+\end{equation}
+
+Poiché $V_0\sgn(\cos\theta)$ è una funzione dispari, per $l$ pari si ha che $B'_l=0$.
+Per trovare gli altri coefficienti sfruttiamo il fatto che i polinomî di Legendre sono ortogonali, e che
+
+$$\int_{-1}^1P_l^2(\cos\theta)\de\cos\theta=\frac{2}{2l+1}.$$
+
+Si ha dunque che
+
+$$B'_l=\frac{\int_{-1}^1P_l(\cos\theta)V_0\sgn(\cos\theta)\de \cos\theta}{\int_{-1}^1P_l^2(\cos\theta)\de\cos\theta}=
+V_0\frac{2l+1}{2}\left[\int_{-1}^0P_l(x)\sgn(x)\de x+\int_{0}^1P_l(x)\sgn(x)\de x\right]=$$
+$$=V_0(2l+1)\int_{0}^1P_l(x)\de x$$
+
+(dove l'ultimo passaggio è giustificato dal fatto che, se $l$ è dispari, anche $P_l$ è dispari).
+
+Usando tale formula ed eguagliando le equazioni \ref{sd:sviluppo} e \ref{sd:segno} si ottiene che per $r>a$ vale che
+
+\begin{equation*}
+ V(r,\theta)=V_0\sum_{\substack{l=1\\ l\ dispari}}^{\infty}\left(\frac{a}{r}\right)^{l+1}P_l(\cos\theta)(2l+1)
+ \int_{0}^1P_l(x)\de x
+\end{equation*}
+
+e dunque con qualche calcolo si può rispondere alla richiesta del problema:
+
+$$V(r,\theta)\approx\frac{3}{2}V_0\frac{a^2}{r^2}P_1(\cos\theta)-\frac{7}{8}V_0\frac{a^4}{r^4}P_1(\cos\theta)=
+\frac{3}{2}V_0\frac{a^2}{r^2}\cos\theta-\frac{7}{16}V_0\frac{a^4}{r^4}(5\cos^3\theta-3\cos\theta).$$
+
+Analoghi conti permettono di trovare il potenziale all'interno della sfera (notando che in questo caso sono i coefficienti
+$B_l$ ad annullarsi):
+
+\begin{equation*}
+ V(r,\theta)=V_0\sum_{\substack{l=1\\ l\ dispari}}^{\infty}\left(\frac{r}{a}\right)^lP_l(\cos\theta)(2l+1)\int_{0}^1P_l(x)
+ \de x
+\end{equation*}
+
+dando luogo all'approssimazione
+
+$$V(r,\theta)\approx\frac{3}{2}V_0\frac{r}{a}\cos\theta-\frac{7}{16}V_0\frac{r^3}{a^3}(5\cos^3\theta-3\cos\theta).$$
+
+\end{document}
