@@ -10,16 +10,22 @@
 \solution
 
 Consideriamo, in coordinate sferiche, lo sviluppo del potenziale in serie. Dato che il sistema è invariante per rotazioni lungo l'asse $z$, tale sviluppo sarà dato da una serie contenente i polinomi di Legendre. Inoltre, dato che le cariche sono localizzate, possiamo imporre che $V(r)\rightarrow 0$ per $r\rightarrow \infty$. Fatte queste considerazioni preliminari, abbiamo ottenuto che il potenziale si esprime
-\[
-	V(r,\theta)=\sum_{l=0}^{\infty} B_l\frac{1}{r^{l+1}}P_l(cos \theta)\virgola
-\]
+\begin{equation}\label{pac:Legendre}
+	V(r,\theta)=\sum_{l=0}^{\infty} B_l\frac{1}{r^{l+1}}P_l(\cos \theta)\virgola
+\end{equation}
 con opportuni coefficienti $B_l$.
 
 Osserviamo che il sistema è simmetrico per riflessioni lungo l'asse $z$. In particolare $V(r,\theta)=V(r,\pi-\theta)$. Questo ci dice che in particolare sono nulli tutti i termini $B_l$ con $l$ dispari.
 
 Passiamo quindi a calcolare i primi termini. $B_0$ è il termine di monopolo, quindi fornisce il potenziale generato dal sistema in cui tutta la carica è concentrata nell'origine. Questo ci dice che $B_0=2a\lambda$. Per quanto riguarda il secondo termine da calcolare, cioè $B_2$, calcoliamo il potenziale lungo l'asse $z$:
 \[
-	V(z)=\int_{-a}^a \frac{\lambda}{z-s}ds=\lambda [-ln(z-s)]_{-a}^a
+	V(z)=\int_{-a}^a \frac{\lambda}{z-s}ds=\lambda [-ln(z-s)]_{-a}^a= \lambda ln\left(1+\frac{2a}{z-a}\right)\approx \lambda \left(\frac{2a}{z}+\frac{2a^3}{3z^3}\right)\punto
+\]
+Confrontando tale sviluppo lungo $z$, che è come dire lungo $\theta=0$, con lo sviluppo dato dall'\cref{pac:Legendre} otteniamo che $B_2=\frac{2}{3}\lambda a^3$.
+
+Riepilogando, il potenziale approssimato ai primi 2 ordini non nulli è
+\[
+	V(r,\theta)\approx2\lambda \frac{a}{r}+2\lambda\frac{a^2}{3r^3}P_2(\cos \theta)=2\lambda \frac{a}{r}+\lambda(3\cos\theta -1)\frac{a^2}{3r^3}\punto
 \]
 
 
