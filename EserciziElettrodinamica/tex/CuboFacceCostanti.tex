@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise{Cubo con potenziale assegnato sulle facce} %cfc
+
+\textex
+Sullo spazio vuoto è assegnato il potenziale elettrostatico sulle facce del cubo di lato $l$ che ha un vertice nell'origine e le facce parallele agli assi (e un altro vertice del cubo risulta stare a $(l,l,l)$). Sulla faccia $i$ è assegnato il potenziale $V_i$ costante nella medesima. Determinare il potenziale dentro il cubo.
+
+\solution
+
+Per il principio di sovrapposizione lineare, ci limitiamo a trovare la soluzione con $V_i=0$ su tutte le facce meno quella con $z=l$. La soluzione generale sarà data, quindi, dalla somma delle soluzioni per ciascuna faccia, le quali si troveranno da quella che andiamo a cercare semplicemente cambiando opportunamente le variabili $x,y,z$.
+
+Scriviamo il potenziale nello sviluppo in funzioni armoniche a variabili separate come nella formula \cref{EquazioniSeparazione}
+\[
+	V(x,y,z)=X(x)Y(y)Z(z)\virgola
+\]
+dalla quale si ricava facilmente che
+\begin{align*}
+	&X''(x)=aX(x)\\
+	&Y''(y)=bY(y)\\
+	&Z''(z)=cZ(z)
+\end{align*}
+con $a+b+c=0$. Prendiamo quindi, per ovvie ragioni, $a,b<0$. Dato che il potenziale è nullo a tappeto su $x=0$, su $y=0$ e su $z=0$, le soluzioni del sistema appena trovato che sono plausibili col nostro sistema sono
+\begin{align*}
+	&X(x)=\sin(\alpha x)\\
+	&Y(y)=\sin(\beta y)\\
+	&Z(z)=\sinh(\sqrt{\alpha^2+\beta^2} z)\punto
+\end{align*}
+Se imponiamo anche che il potenziale è nullo su $x=l$ e su $y=l$ otteniamo che
+\begin{align*}
+	&\alpha l = n\pi\\
+	&\beta l = m\pi\virgola
+\end{align*}
+con $n,m$ interi, anzi, basta considerare $n,m$ interi positivi, dato che l'espressione che ricaviamo per $V$ usando $(n,m)$ non è indipendente da quella che ricaviamo usando $(-n,-m)$; ed è inutile considerare uno tra $n,m$ nulli.
+
+Abbiamo finalmente scritto il potenziale come serie:
+\begin{equation}\label{cfc:seriePotenziale}
+	V(x,y,z)=\sum_{n\geq 1} \sum_{m\geq 1} A_{n,m} \sin\left( \frac{n\pi}{l}x\right) \sin \left(\frac{m\pi}{l}y\right) \sinh\left(\frac{\sqrt{n^2+m^2}\pi}{l}z\right)\virgola
+\end{equation}
+per opportuni $A_{n,m}$ che ora andiamo a determinare. Ciascuno di questi coefficienti si trova imponendo che $V(x,y,l)=V_0$, quindi, dato che il sistema di funzioni $\{\sin\left( \frac{n\pi}{l}x\right) \sin \left(\frac{m\pi}{l}y\right)\}_{n,m}$ è ortogonale, abbiamo che
+\begin{align}\label{cfc:coefficienti}
+	A_{n,m}\sinh\left(\sqrt{n^2+m^2}\pi\right)&=\frac{4}{l^2}\int_0^l\int_0^l V(x,y,l)\sin\left( \frac{n\pi}{l}x\right) \sin \left(\frac{m\pi}{l}y\right)\\
+	&=\frac{4V_0}{l^2}\int_0^l \sin\left( \frac{n\pi}{l}x\right) \int_0^l \sin \left(\frac{m\pi}{l}y\right)\punto
+\end{align}
+Nota: il coefficiente $\frac{4}{l^2}$ serve per la normalizzazione del sistema ortogonale che abbiamo descritto.
+
+Prima di passare ai conti, notiamo alcune simmetrie del problema. Se scambiamo $x$ e $y$ il problema rimane invariato, in particolare, per ogni $n,m$, $A_{n,m}=A_{m,n}$. Se mandiamo $x$ in $l-x$, il problema rimane invariato. Questo ci dice che per gli $n$ tali che $\sin \left( \frac{n\pi}{l}(l-x)\right) = - \sin\left( \frac{n\pi}{l}x\right)$, ovvero per gli $n$ pari, $A_{n,m}=0$. Lo stesso discorso per la variabile $y$ dice che gli $m$ che contano sono solo quelli dispari.
+
+Determiniamo finalmente i coefficienti. Riprendendo l'integrale dell'\cref{cfc:coefficienti} abbiamo, per $n,m$ entrambi dispari,
+\[
+	A_{n,m}=\frac{4V_0}{l^2}\frac{1}{\sinh\left(\sqrt{n^2+m^2}\pi\right)}\cdot 2l \cdot 2l=\frac{16V_0}{\sinh\left(\sqrt{n^2+m^2}\pi\right)}\virgola
+\]
+quindi abbiamo determinato il potenziale in tutti i punti interni al cubo, a meno di dimostrare che la serie dell'\cref{cfc:seriePotenziale} converga a $V(x,y,z)$.
+
+
+
+\end{document}
