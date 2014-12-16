@@ -24,7 +24,7 @@ Potenziale Q exp(-r/l)/r | Claudio | Fatto
 Potenziale di un'asticella piccola | Marco | Fatto
 
 10/11/14
-Potenziale di una sfera con +V0 sopra e -V0 sotto | Claudio | Non fatto
+Potenziale di una sfera con +V0 sopra e -V0 sotto | Claudio | Fatto
 Potenziale di due sfere concentriche fatte come quella sopra (quella dentro invertita)
 Cubo con V1, V2, ... sulle facce, trovare il potenziale
 
@@ -58,4 +58,4 @@ Esercizio del solenoide difficile
 
 09/12/14
 Differenza di potenziale massima e minima tra due sfere cariche | Francesco |Fatto
-Trovare J per un campo magnetico in uno spessore di piano
+Trovare J per un campo magnetico in uno spessore di piano | Claudio
