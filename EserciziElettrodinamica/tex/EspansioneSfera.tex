@@ -1,0 +1,62 @@
+\documentclass[../main.tex]{subfiles} 
+\begin{document}
+
+\exercise[18 Novembre 2014]{Espansione di una sfera carica} %esc
+
+\textex
+All'interno di una sfera di raggio $a$ sono uniformemente distribuite $N \gg 1$ cariche tutte uguali, ognuna di massa $m$ e carica totale $Q$.
+Istantaneamente, al tempo $t=0$, le cariche diventano libere di muoversi.
+
+Studiare l'evoluzione del sistema.
+
+\solution
+Trascuriamo la granularità della carica, poiché il numero enorme di particelle ci consente di farlo.
+
+Inizialmente il sistema gode di simmetria sferica e di conseguenza tale simmetria rimarrà anche in seguito.
+
+Consideriamo due particelle che inizialmente distano dal centro $r_1<r_2$. Assumiamo, più o meno in maniera immotivata, se non a posteriori, che le particelle non invertano mai la propria posizione, cioè che la prima rimanga sempre la più vicina all'origine.
+
+A questo punto consideriamo una particella che inizialmente dista $r_0$ dal centro, e sia $r(t)$ la sua distanza dal centro al tempo $t$.
+Per la simmetria sferica e per quanto detto in precedenza sull'ordine che non si inverte, al tempo $t$ applicando Gauss sulla sfera centrata nell'origine di raggio $r(t)$ otteniamo che il campo elettrico presente nel punto in cui si trova la particella considerata è radiale e con modulo $Q\frac{r_0^3}{a^3}\frac 1{r^2(t)}$; perciò ricordando il secondo principio della dinamica otteniamo:
+\begin{equation*}
+	\frac QN Q\frac{r_0^3}{a^3}\frac 1{r^2} =m \ddot{r} \iff 
+	\frac {Q^2}{mNa^3}\left(\frac{r}{r_0}\right)^{-2} =\frac{\ddot r}{r_0}
+\end{equation*}
+e quindi chiamando $y=\frac r{r_0}$ e $k^2=\frac {2Q^2}{mNa^3}$, otteniamo la differenziale
+\begin{equation}\label{esc:differenziale}
+	\frac {k^2}{2y^2}=\ddot y
+\end{equation}
+con condizioni iniziali $y(0)=1$ e $\dot y(0)=0$.
+
+È importante notare che risolvere l'\cref{esc:differenziale} permette di trovare la posizione di una qualunque carica ad ogni istante, infatti è sufficiente moltiplicare $y(t)$ per la posizione iniziale per ottenere la posizione al tempo $t$.
+Quindi, scelte due cariche all'inizio, il rapporto tra le loro distanze dal centro non cambia e cioè il sistema si evolve semplicemente tramite un'omotetia e nient'altro. In particolare allora al tempo $t$ il sistema sarà ancora formato da $N$ particelle uniformemente distrubuite all'interno di una sfera, ma tale sfera avrà raggio $ay(t)$.
+
+Per risolvere la differenziale, troviamone innanzitutto un integrale primo. 
+Notando l'analogia con la legge di Coulomb, è facile trovare l'integrale primo $\dot y^2+\frac{k^2}y$. Per verificare che sia un integrale primo è sufficiente il calcolo esplicito
+\begin{equation*}
+ 	\frac{\de}{\de t}\left(\dot y^2+\frac{k^2}y\right)=2\dot y\left(\ddot y-\frac{k^2}{2y^2}\right)=0
+\end{equation*}
+e da questo ricaviamo allora
+\begin{equation}\label{esc:Integrale}
+	\dot y^2+\frac{k^2}y=k^2 \iff \dot y=k\sqrt{1-\frac 1y}
+\end{equation}
+
+Studiando qualitativamente l'\cref{esc:differenziale} è facile accorgersi che $\ddot y$ è sempre positiva e di conseguenza $\dot y$ è crescente e quindi $y$ tende ad infinito. 
+Allora l'\cref{esc:Integrale} ci assicura che, per tempi molto grandi, vale $\dot y(t)\approx k$ e perciò la velocità con cui si allarga il raggio della sfera asintoticamente è $ak$.
+
+Infine l'\cref{esc:Integrale} può essere ``risolta'' attraverso i seguenti passaggi (tipici in dinamica classica):
+\begin{equation*}
+	\dot y=k\sqrt{1-\frac 1y} \iff \frac{\dot y}{\sqrt{1-\frac 1y}}=k \iff
+	\int_0^T \frac{\dot y}{\sqrt{1-\frac 1y}} \de t=kT \iff \int_0^{y(T)} \left(1-\frac 1y\right)^{-\frac12} \de y=kT
+\end{equation*}
+ma poiché vale
+\begin{equation*}
+	\int \left(1-\frac 1y\right)^{-\frac12}=\sqrt{y(y-1)}+\log\left(\sqrt{y}+\sqrt{y-1}\right)
+\end{equation*}
+riusciamo a concludere, ricordando $y(0)=1$, che
+\begin{equation*}
+	\sqrt{y(y-1)}+\log\left(\sqrt{y}+\sqrt{y-1}\right)=kt
+\end{equation*}
+
+
+\end{document}
