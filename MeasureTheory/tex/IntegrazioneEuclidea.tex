@@ -84,31 +84,17 @@ In particolare, e tale procedimento verrà ripetuto varie volte in questa sezion
 	
 	Per la linearità dell'operatore integrale è chiaro che l'insieme delle funzioni che rispettano è uno spazio vettoriale.
 	
-	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni che converge monotonamente alla funzione integrabile $f$. Possiamo assumere senza perdità di generalità, visto che basterebbe cambiare segno, che la convergenza sia crescente.
+	Sia ora $(f_n)_{n\in\N}\subseteq \mathcal F$ una successione di funzioni integrabili positive che converge crescentemente alla funzione integrabile $f$.
 	
 	Dall'ipotesi $f_n\in\mathcal F$ abbiamo che
 	\begin{equation}\label{eq:IMICV_UguaglianzaFinita}
 		\int_{\varphi(E)} f_n(y)\de y = \int_E f_n(\varphi(x))\rho(x)\de x\punto
 	\end{equation}
-	Notando che, per l'ipotesi di convergenza monotona, le funzioni $f_n$ sono dominate dalla funzione integrabile $\max(|f_1|,|f|)$, applicando il \cref{thm:ConvergenzaDominata}, ricaviamo il limite
-	\begin{equation}\label{eq:IMICV_LimiteFacile}
-		\lim_{n\to\infty} \int_{\varphi(E)} f_n(y)\de y = \int_{\varphi(E)} f(y) \de y\punto
-	\end{equation}
-	Definiamo ora, per ogni $n\in\N$, la funzione misurabile positiva $g_n(x)=f_n(\varphi(x))\rho(x)-f_1(\varphi(x))\rho(x)$ e definiamo anche la funzione $g(x)=f(\varphi(x))\rho(x)-f_1(\varphi(x))\rho(x)$.
-	La successione $(g_n)_{n\in\N}$, in virtù del fatto che le funzioni $f_n$ convergono crescentemente a $f$, converge crescentemente alla funzione $g$.
-	Allora, applicando il \cref{thm:BeppoLevi}, possiamo affermare
+	È evidente però che sia le funzioni $f_n$ che le funzioni $f_n\circ\varphi\cdot\rho$ sono funzioni misurabili positive che convergono in modo crescente. Allora passando al limite l'\cref{eq:IMICV_UguaglianzaFinita}, e applicando il \cref{thm:BeppoLevi}, ricaviamo
 	\begin{equation*}
-		\int_E g(x)\de x=\lim_{n\to\infty} \int_E g_n(x)\de x
+		\int_{\varphi(E)} f(y) \de y= \int_{E} f(\varphi(x))\rho(x)\de x \virgola
 	\end{equation*}
-	e sommando ad ambo i membri l'integrale di $f_1(\varphi(x))\rho(x)$, che esiste finito poiché $f_1\in\mathcal F$, otteniamo
-	\begin{equation}\label{eq:IMICV_LimiteDifficile}
-		\int_E f(\varphi(x))\rho(x)\de x=\lim_{n\to\infty} \int_E f_n(\varphi(x))\rho(x)\de x \punto
-	\end{equation}
-	A questo punto, unendo le \cref{eq:IMICV_UguaglianzaFinita,eq:IMICV_LimiteFacile,eq:IMICV_LimiteDifficile}, arriviamo a
-	\begin{equation*}
-		\int_{\varphi(E)} f(y)\de y=\int_E f(\varphi(x))\rho(x)\de x\virgola
-	\end{equation*}
-	cioè $f\in\mathcal F$ e quindi, per l'arbitrarietà della successione $f_n$ scelta, abbiamo dimostrato che $\mathcal F$ è chiusa per convergenza monotona (ammesso di rimanere nelle integrabili).
+	cioè $f\in\mathcal F$ e quindi, per l'arbitrarietà della successione $f_n$ scelta, abbiamo dimostrato che $\mathcal F$ è chiusa per convergenza crescente di funzioni integrabili positive (ammesso di rimanere nelle integrabili).
 	
 	Unendo quanto detto, abbiamo tutte le ipotesi per applicare il \cref{thm:ChiusuraMonotonaFunzioni}\footnote{Bisogna notare che qui sfruttiamo una versione leggermente diversa dell'enunciato, la cui dimostrazione è analoga. Infatti noi ci interessiamo ad ottenere che $\mathcal F$ coincida con le funzioni integrabili, non con tutte le misurabili. 
 	Perciò l'enunciato del teorema utilizzato andrebbe modificato aggiungendo il fatto che la convergenza monotona sia ristretta nelle integrabili.} e ottenerne quindi che $\mathcal F=\L(\R^n,\M_n,m_n)$, cioè la tesi.
