@@ -497,19 +497,17 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	\begin{enumerate}
 		\item L'insieme $A\setminus \Omega$ è trascurabile;
 		\item La funzione $\varphi$ ridotta su $\Omega$ ha regolarità $C^1$;
-		\item I punti $x\in\Omega$ tali che il differenziale di $\varphi$ non sia iniettivo formano un insieme trascurabile.
+		\item Chiamando $C$ l'insieme dei punti in $\Omega$ tali che il differenziale di $\varphi$ non sia iniettivo, risulta che $C$ è un insieme trascurabile e $\varphi$ ridotta su $\Omega\setminus C$ è un omeomorfismo con l'immagine.
 	\end{enumerate}
 	
 	Allora, per ogni insieme misurabile $E\subseteq \varphi(A)$ e per ogni $f:E\to\Rbar$ integrabile, vale la formula per il cambio di variabile
 	\begin{equation*}
 		\int_{\varphi(E)} f(y)\de m_n(y) = \int_{E} f(\varphi(x))\lvert \det \Diff \varphi(x) \rvert \de m_n(x) \virgola
 	\end{equation*}
-	dove $\Diff \varphi$ è la matrice jacobiana del diffeomorfismo $\varphi$.
+	dove $\Diff \varphi$ è la matrice jacobiana di $\varphi$.
 \end{corollary}
 \begin{proof}
-	Definiamo $C\subseteq\Omega$ l'insieme di punti $x\in\Omega$ tali che il differenziale di $\varphi$ in $x$ non è iniettivo. 
-	L'insieme $C$ è per ipotesi trascurabile.
-	Inoltre, per le proprietà del determinante, vale l'identità insiemistica
+	Per le proprietà del determinante, vale l'identità insiemistica
 	\begin{equation*}
 		C=\left\{x\in\Omega:\det \Diff \varphi(x)=0\right\}
 	\end{equation*}
@@ -529,8 +527,8 @@ Diamo quindi ora una versione più \emph{sporca}, ma più utile nella pratica, d
 	Inoltre, essendo $\varphi$ localmente lipschitziana per ipotesi, in virtù del \cref{cor:LocLipschitzTengonoMisurabili}, anche l'immagine di $E\setminus\overline E$ tramite $\varphi$ risulta essere trascurabile. Di conseguenza anche l'insieme $\varphi(E)\setminus\varphi(\overline E)$ è trascurabile in quanto è un sottoinsieme di $\varphi(E\setminus\overline E)$.
 	
 	Per concludere le definizioni, chiamiamo $\overline\varphi:\overline\Omega\to\overline\Omega'=\varphi(\overline\Omega)$ la restrizione di $\varphi$ all'aperto $\overline\Omega$.
-	La funzione $\overline\varphi$ è $C^1$ in quanto restrizione ad un aperto di una $C^1$ e, per la definizione di $\overline\Omega$, ha differenziale iniettivo in ogni punto.
-	Ma allora, per il teorema di inversione locale\footnote{Tale teorema, vero in una forma più generale di quelle qui usata, afferma che una funzione $C^1$ con differenziale bigettivo in un punto ammette un'inversa locale in quel punto anch'essa $C^1$.} applicato a $\overline\varphi$ in ogni punto di $\overline\Omega$, ne deduciamo che $\overline\Omega'$ è un aperto e $\overline\varphi$ è un diffeomorfismo $C^1$.
+	La funzione $\overline\varphi$ è $C^1$ in quanto restrizione ad un aperto di una $C^1$ e, per la definizione di $\overline\Omega$, ha differenziale iniettivo in ogni punto ed è un omeomorfismo con l'immagine.
+	Ma allora, per un corollario del teorema di inversione locale\footnote{Tale teorema, vero in una forma più generale di quella qui usata, afferma che una funzione $C^1$ con differenziale bigettivo in un punto ammette un'inversa locale in quel punto anch'essa $C^1$.}, ne deduciamo che $\overline\Omega'$ è un aperto e $\overline\varphi$ è un diffeomorfismo $C^1$.
 	
 	Ricordando le proprietà di $\overline\varphi$, $\overline\Omega$ e $\overline E$ evidenziate, il \cref{cor:IntegraleAMenoDiTrascurabili} e, nell'identità centrale, il \cref{thm:CambioVariabile} (di cui abbiamo verificato tutte le ipotesi), otteniamo la tesi attraverso la catena d'uguaglianze
 	\begin{multline*}
