@@ -244,11 +244,11 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	\begin{equation*}
 		\LNorm{f_m\circ\tau_c-f\circ\tau_c}=\LNorm{f_m-f} \virgola
 	\end{equation*}
-	da cui, poiché $\LNorm{{}\cdot{}}$ rispetta la triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
+	da cui, poiché $\LNorm{{}\cdot{}}$ rispetta la disuguaglianza triangolare come mostrato nella \cref{prop:L1VettorialeConSeminorma}, ne otteniamo
 	\begin{equation*}
 		\LNorm{f\circ\tau_c-f}\le \LNorm{f_m\circ\tau_c-f\circ\tau_c}+\LNorm{f_m-f}+\LNorm{f_m\circ\tau_c-f_m} \le 2\epsilon+\LNorm{f_m\circ\tau_c-f_m}\virgola
 	\end{equation*}
-	che passando al massimo limite entrambi i membri e ricordando che $f_n\in\mathcal F$, implica la disuguaglianza
+	che passando al massimo limite entrambi i membri e ricordando che $f_m\in\mathcal F$, implica la disuguaglianza
 	\begin{equation*}
 		\limsup_{c\to 0} \LNorm{f\circ\tau_c-f} \le 2\epsilon \punto
 	\end{equation*}
@@ -265,7 +265,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	Sia $\mathcal E$ la famiglia degli insiemi tali che le loro indicatrici appartengono ad $\mathcal F$. 
 	
 	Abbiamo mostrato che $\S_n\subseteq \mathcal E$. 
-	Inoltre il fatto che $\mathcal F$ sia uno spazio vettoriale implica che $\mathcal E$ sia stabile per unione disgiunta e, essendo $\mathcal F$ chiuso per convergenza puntuale nelle funzioni integrabile, $\mathcal E$ risulta stabile per unione e intersezione monotona numerabile negli insiemi finiti.
+	Inoltre il fatto che $\mathcal F$ sia uno spazio vettoriale implica che $\mathcal E$ sia stabile per unione disgiunta e, essendo $\mathcal F$ chiuso per convergenza puntuale nelle funzioni integrabili, $\mathcal E$ risulta stabile per unione e intersezione monotona numerabile negli insiemi finiti.
 	Quindi risultano verificate le ipotesi del \cref{cor:ChiusuraMonotonaInsiemiFiniti} e ne deduciamo che $\mathcal E$ contiene ogni misurabile finito a meno di un trascurabile. Ma il fatto che se $\mathcal F$ contiene una funzione allora contiene ogni funzione che coincide quasi ovunque con essa implica che $\mathcal E$ se contiene un insieme allora contiene anche quelli che coincidono con lui a meno di un trascurabile.
 	Quindi questo implica $\mathcal E$ contiene tutti gli insiemi misurabili finiti e perciò $\mathcal F$ contiene le loro indicatrici.
 	
@@ -338,7 +338,7 @@ Bisogna porre un accento sul fatto che la dimostrazione della continuità $L^1$ 
 	Calcoliamo ora la norma $L^1$ della differenza tra $f$ e $f_r$:
 	\begin{multline}\label{eq:ContinuitaPalleDis}
 		\LNorm{f-f_r}=\int_E \left\lvert f(x)-\aint_{B_r(x)}f(t)\de t\right\rvert\de x\\
-		=\int_E\left\lvert\aint_{B_r(x)}f(x)-f(t)\de x\right\rvert\de t\le \int_E\aint_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de x\de t\\
+		=\int_E\left\lvert\aint_{B_r(x)}f(x)-f(t)\de t\right\rvert\de x\le \int_E\aint_{B_r(x)}\left\lvert f(x)-f(t)\right\rvert\de t\de x\\
 		=\int_E\aint_{B_r(0)}\left\lvert f(x)-f(x+h)\right\rvert\de h\de x
 		=\aint_{B_r(0)}\int_E \left\lvert f(x)-f(x+h)\right\rvert\de x\de h\\
 		= \aint_{B_r(0)}\LNorm{f(\cdot)-f(\cdot+h)}\de h\le \sup_{h\in B_r(0)} \LNorm{f(\cdot)-f(\cdot+h)}\virgola

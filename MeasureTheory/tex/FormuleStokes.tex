@@ -20,8 +20,8 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$, indicheremo 
 				\item $U\cap \partial \Omega = g(\R^{n-1}\times\{0\})$,
 				\item $U\cap \Omega = g(\R^{n-1}\times\oo{-\infty}{0})$;
 			\end{itemize}
-		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $\bar x=(\bar v,\bar t)$ tale che $V\in\R^{n-1}$ è intorno di $y$
-			e $I\in\R$ è intorno di $t$ e una funzione $\psi\in C^1(V,I)$ tale che
+		\item esistono, a meno di riordinare le coordinate, un intorno $U=V\times I$ di $\bar x=(\bar v,\bar t)$ tale che $V\subseteq\R^{n-1}$ è intorno di $\bar v$
+			e $I\subseteq\R$ è intorno di $\bar t$ e una funzione $\psi\in C^1(V,I)$ tale che
 			\begin{itemize}
 				\item $U\cap \partial \Omega = \{(v,t)\in V\times I: t=\psi(v)\}$,
 				\item $U\cap \Omega = \{(v,t)\in V\times I:t<\psi(v)\}$.
@@ -238,7 +238,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 \end{theorem}
 
 \begin{proof}
-	Per la dimostrazione procederà in due step:
+	La dimostrazione procederà in due passi:
 	\begin{enumerate}
 		\item per ogni $p\in \overline\Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
 			tale che l'\cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $\supp(u)\subseteq U_p$;
