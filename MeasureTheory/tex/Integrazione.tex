@@ -6,7 +6,7 @@ Definiremo innanzitutto l'integrale di funzioni caratteristiche e quindi di funz
 Conclusa la parte di lemmi necessari a formulare tutte le definizioni, dimostreremo alcuni risultati di convergenza e commutazione che riguardano l'integrale di Lebesgue.
 
 \begin{remark}
-	Indicheremo l'integrale di $f$ su una spazio di misura $(X,\A,\mu)$ con 
+	Indicheremo l'integrale di $f$ su uno spazio di misura $(X,\A,\mu)$ con 
 	\begin{equation*}
 		\int_X f(x) \de \mu(x)=\int_X f \de \mu=\int f \de \mu=\int f
 	\end{equation*}
@@ -212,7 +212,7 @@ Sfruttiamo ora la \cref{nota:ApprossimazioneIntegralePositiveConSemplici} per di
 	che è proprio quello che volevamo dimostrare.
 \end{proof}
 
-Il lemma che segue non è strettamente legato a questa sezione, ma è una conseguenza del \cref{cor:IntegrazionePerSeriePositive} che ci permette di costruire una misura su una spazio misurabile $(Y,\mathscr B)$, a partire da uno spazio di misura $(X,\A,\mu)$ e da funzione che mette in relazione i due spazi.
+Il lemma che segue non è strettamente legato a questa sezione, ma è una conseguenza del \cref{cor:IntegrazionePerSeriePositive} che ci permette di costruire una misura su uno spazio misurabile $(Y,\mathscr B)$, a partire da uno spazio di misura $(X,\A,\mu)$ e da funzione che mette in relazione i due spazi.
 
 \begin{lemma}\label{lemma:MisuraIntegrale}
 	Sia $f:X\to\Rpiu$ una funzione misurabile positiva, con $(X,\A,\mu)$ spazio di misura, e sia $g:X\to Y$, con $(Y,\B)$ spazio misurabile, tale che $g^{-1}(B)\in\A$ per ogni $B\in\B$. Definiamo la funzione $\nu:\mathscr B\to\Rpiu$ ponendo, per ogni $B\in\B$,
@@ -485,7 +485,7 @@ Abbiamo già notato in precedenza che l'integrale di Lebesgue è invariante a me
 	$L^1(X,\A,\mu)$, con la norma appena definita, è uno spazio vettoriale normato, cioè $\LNorm{\cdot}$ è effettivamente una norma su di esso. Questo è ovvio per il \cref{lemma:SottospazioTrascurabili} e per la definizione stessa di $L^1$
 \end{remark}
 
-Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni integrabili. Tale teorema, oltre ad essere importante di per sè, ci permetterà anche di concludere che lo spazio $L^1$ è completo.
+Dimostriamo ora il teorema di commutazione fra serie e integrale per le funzioni integrabili. Tale teorema, oltre ad essere importante di per sé, ci permetterà anche di concludere che lo spazio $L^1$ è completo.
 
 \begin{theorem}[Integrazione per serie]\label{thm:IntegrazionePerSerie}
 	Sia $(f_n)$ una successione di funzioni integrabili definite su uno spazio di misura $(X,\A,\mu)$ e a valori in $\Rbar$, tale che $\sum_{n=0}^{\infty}\LNorm{f_n}<\infty$. Allora vale che per quasi ogni $x\in X$ la serie $\sum_{n=0}^\infty f_n(x)$ è assolutamente convergente. 
