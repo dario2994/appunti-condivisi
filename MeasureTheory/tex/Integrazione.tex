@@ -326,7 +326,11 @@ Mostriamo ora alcuni fatti che riguardano la misura di alcuni sottoinsiemi parti
 \end{proof}
 
 \begin{corollary}\label{cor:SupportoIntegrabile}
-	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, allora l'insieme degli $x\in X$ in cui $f$ non si annulla\footnote{In teoria della misura chiamiamo tale insieme supporto.} è \sigfin[o].
+	Sia $f:X\to\Rbar$ integrabile, dove $(X,\A,\mu)$ è uno spazio di misura, 
+	allora il supporto\footnote{In teoria della misura, con la parola supporto si indica l'insieme dei punti in cui una funzione non si annulla. 
+	In ambito topologico invece, il supporto indica la \emph{chiusura} dell'insieme dei punti in cui non si annulla. 
+	Nella sezione conclusiva di queste note il supporto assumerà il significato topologico (sarà facile distinguere tra i due concetti in base al contesto).}
+	di $f$ è \sigfin[o].
 \end{corollary}
 \begin{proof}
 	Sia $A_n=\left\{x:\ |f(x)|>\frac 1n \right\}$, allora applicando il \cref{thm:DisuguaglianzaChebyshev} vale che $\mu(A_n)\le n \LNorm f$, quindi $A_n$ ha misura finita. Vale inoltre che $A\doteqdot\left\{x:\ f(x)\not=0 \right\}=\bigcup_{n\in\N}A_n$, quindi $A$ si scrive come unione numerabile di misurabili con misura finita e perciò è \sigfin[o], che è quello che volevamo.
