@@ -456,13 +456,10 @@ Mostriamo ora il teorema della convergenza dominata di Lebesgue, che è lo strum
 \end{proof}
 
 \begin{remark}\label{nota:ConvergenzaL1Dominata}
-	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$. Infatti abbiamo che
-	\begin{equation*}
-		\int f \de\mu=\lim_{n\to\infty}\int f_n\de\mu \Longrightarrow \LNorm{f-f_n}=\int |f-f_n|\de\mu\to 0\punto
-	\end{equation*}
+	Nelle stesse ipotesi del teorema precedente (\cref{thm:ConvergenzaDominata}), vale in particolare che $f_n\to f$ in $\L(X,\A,\mu)$. Infatti $|f-f_n|$ è dominata da $2g$ e converge puntualmente alla funzione nulla e allora, applicando il \cref{thm:ConvergenzaDominata}, otteniamo proprio che $\LNorm{f-f_n}$ converge a $0$.
 \end{remark}
 
-Abbiamo già notato in precedenza che l'integrale di Lebesgue è invariante a meno di insieme trascurabili e che funzioni uguali quasi ovunque hanno la stessa norma integrale. Non sembrerà quindi assurda l'idea di considerare ``uguali'' funzioni uguali quasi ovunque, poiché ai fini dell'integrazione sono effettivamente indistinguibili. A tal proposito formalizziamo quindi di seguito lo spazio $L^1$ delle funzioni integrabili ``a meno di un trascurabile''.
+Abbiamo già notato in precedenza che l'integrale di Lebesgue è invariante a meno di insiemi trascurabili e che funzioni uguali quasi ovunque hanno la stessa norma integrale. Non sembrerà quindi assurda l'idea di considerare ``uguali'' funzioni uguali quasi ovunque, poiché ai fini dell'integrazione sono effettivamente indistinguibili. A tal proposito formalizziamo quindi di seguito lo spazio $L^1$ delle funzioni integrabili ``a meno di un trascurabile''.
 
 \begin{lemma}\label{lemma:SottospazioTrascurabili}
 	L'insieme definito da
@@ -551,7 +548,7 @@ Studiamo ora la relazione che c'è fra convergenza nello spazio $\L$ e convergen
 \begin{proof}
 	Per la \cref{nota:ConvergenzaL1IntegrazionePerSerie} $\LNorm{f-f_n}\to 0$, quindi possiamo definire $(f_{n_k})_{k\in\N}$ tale che $\LNorm{f-f_{n_k}}<2^{-k}$ e la successione $(n_k)_{k\in\N}$ sia crescente.
 	
-	Sia ora $h_k=f_{n_{k+1}}-f_{n_k}$ per ogni $k\in\N$. La successione $(h_k)$ rispetta le ipotesi del \cref{thm:IntegrazionePerSerie}, in quanto $\sum_{k=0}^\infty \LNorm {h_k}\le \sum_{k=0}^\infty 2^{-k}$, quindi la serie $\sum_{k=0}^\infty h_k$ converge quasi ovunque ed è dominata in $\L(X,\A,\mu)$.
+	Sia ora $h_k=f_{n_{k+1}}-f_{n_k}$ per ogni $k\in\N$. Notiamo che, per la disuguaglianza triangolare, vale $\LNorm{h_k}\le 2^{-(k-1)}$ e perciò la successione $(h_k)$ rispetta le ipotesi del \cref{thm:IntegrazionePerSerie}, in quanto $\sum_{k=0}^\infty 2^{-(k-1)}=4$, quindi la serie $\sum_{k=0}^\infty h_k$ converge quasi ovunque ed è dominata in $\L(X,\A,\mu)$.
 	
 	Abbiamo quindi ottenuto che $f_{n_k}=f_{n_0}+\sum_{i=0}^{k-1}(f_{n_{i+1}}-f_{n_i})=f_{n_0}+\sum_{i=0}^{k-1} h_i$ converge quasi ovunque alla funzione $f$ e la successione $(f_{n_k})_{k\in\N}$ è dominata.
 \end{proof}
