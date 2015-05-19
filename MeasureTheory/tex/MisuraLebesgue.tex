@@ -369,10 +369,23 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	In virtù della \cref{nota:LebesgueProprieta} è sufficiente dimostrare l'enunciato nel caso particolare in cui $S=\co01^n$, infatti dato un elemento generico di $\S_n$ si può facilmente ricoprirlo, sprecando pochissima misura, con insiemi della forma $\co{a}{b}^n$ e poi coprire questi con palle esattamente come si coprirebbe l'insieme $\co01^n$.
+	Senza perdità di generalità possiamo assumere $S=\co{0}{l_1}\times\cdots\times\co{0}{l_n}$ e sia $B$ una palla contenuta in $S$ con centro $c$ e raggio $r$, cioè $B=B_r(x)$. Sia $u=m_n(B)$.
 	
-	Ci riduciamo quindi al caso $S=\co01^n$ e chiamiamo $B=B_{\frac12}\left(\left(\frac12,\dots,\frac12\right)\right)$ e $u=m_n(B)$.
-	L'idea è che se realizziamo $\epsilon$ allora, attraverso un procedimento ``frattale'', riusciamo a realizzare anche $\epsilon(1-u)+k$, dove $k$ è un numero arbitrariamente piccolo, e quindi è chiaro che riusciamo ad avere ricoprimenti con palle che ``sprecano'' misura piccola a piacere. %TODO: Da finire la dimostrazione!
+	L'idea è che se realizziamo un ricoprimento con palle la cui somma delle misure sia alpiù $m_n(S)(1+\epsilon)$ allora, attraverso un procedimento ``frattale'', riusciamo a costruire un ricoprimento con palle la cui misura totale sia $m_n(S)\left(1+\epsilon(1-u)+\epsilon'\right)$, dove $\epsilon'$ è un numero positivo arbitrariamente piccolo. Se mostriamo questo è evidente che riusciamo a costruire ricoprimenti con palle che realizzano la richiesta dell'enunciato.
+	Assumiamo allora di avere un ricoprimento che realizza misura totale $m_n(S)(1+\epsilon)$.
+	
+	Fissato $\delta>0$, definiamo $B_{\delta}=B_{r+\delta}(x)\setminus B_{r-\delta}(x)$ e notiamo che, scegliendo $\delta$ piccolo a sufficienza, la quantità  $m_n(S_\delta)$ diviene piccola a piacere in virtù dell'omogeneità della misura di Lebesgue.
+	
+	Fissato un intero $k\in\N$, chiamiamo $P:\Z^n\to\S_n$ la funzione così definita:
+	\begin{equation*}
+		P(a_1,a_2,\dots,a_n)=\co{\frac{a_1l_1}k}{\frac{(a_1+1)l_1}k}\times\cdots\times\co{\frac{a_nl_n}k}{\frac{(a_n+1)l_n}k} \punto
+	\end{equation*}
+	Intuitivamente quello che faremo è \emph{ricopiare} il ricoprimento che realizza $m_n(S)(1+\epsilon)$ su tutti i $P(v)$ che intersecano $S\setminus B$.
+	
+	Chiamiamo $v\in\Z^n$ interessante se $P(v)\cap S\setminus B\not=\emptyset$. 
+	Dalla definizione di $P(v)$ si ricava che se $v$ è interessante allora o $P(V)\subseteq S\setminus B$ oppure $P(V)\cap\partial B\not=\emptyset$, dove con $\partial B$ indichiamo l'ipersfera che forma il bordo di $B$. Nel primo di questi casi chiamiamo $v$ \emph{interno}, altrimenti lo definiamo \emph{confinante}.
+	
+	%TODO: Da finire la dimostrazione!
 \end{proof}
 
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
