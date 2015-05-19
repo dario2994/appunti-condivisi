@@ -362,25 +362,47 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 	Allora abbiamo scritto anche $f(A)$ come unione di un trascurabile e di un'unione crescente di compatti e questo, ancora per il \cref{thm:LebesgueEquivalenzeMisurabilita}, implica che $f(A)$ è misurabile come voluto.
 \end{proof}
 
+\begin{lemma}\label{lemma:CoperturaPalle}
+	Dato $S\in\S_n$, per ogni $\epsilon>0$, esiste una famiglia finita di palle $B_1,\dots,B_k$ tali che la loro unione contiene $S$ ed inoltre rispettano la disuguaglianza
+	\begin{equation*}
+		\sum_{i=1}^k m_n(B_i)\le (1+\epsilon)m_n(S)\punto
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	In virtù della \cref{nota:LebesgueProprieta} è sufficiente dimostrare l'enunciato nel caso particolare in cui $S=\co01^n$, infatti dato un elemento generico di $\S_n$ si può facilmente ricoprirlo, sprecando pochissima misura, con insiemi della forma $\co{a}{b}^n$ e poi coprire questi con palle esattamente come si coprirebbe l'insieme $\co01^n$.
+	
+	Ci riduciamo quindi al caso $S=\co01^n$ e chiamiamo $B=B_{\frac12}\left(\left(\frac12,\dots,\frac12\right)\right)$ e $u=m_n(B)$.
+	L'idea è che se realizziamo $\epsilon$ allora, attraverso un procedimento ``frattale'', riusciamo a realizzare anche $\epsilon(1-u)+k$, dove $k$ è un numero arbitrariamente piccolo, e quindi è chiaro che riusciamo ad avere ricoprimenti con palle che ``sprecano'' misura piccola a piacere. %TODO: Da finire la dimostrazione!
+\end{proof}
+
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
 	Data una funzione $f:E\subseteq \R^n\to\R^n$ lipschitziana di costante $\lambda$, la funzione $f$ manda misurabili in misurabili ed in particolare vale la seguente stima sulla misura:
 	\begin{equation*}
-		\forall A\in\M_n, A\subseteq E:\ \lambda^n m_n(A) \ge m_n(f(A)) \punto
+		\forall A\in\M_n, A\subseteq E:\ m_n(f(A)) \le \lambda^n m_n(A) \punto
 	\end{equation*}
 \end{proposition}
 \begin{proof}
 	Dimostriamo innanzitutto la stima richiesta nel caso della misura esterna piuttosto che della misura.
 	
-	Dato un ricoprimento $(S_i)_{i\in\N}\subseteq \S_n$ di un insieme $A\subseteq E$ misurabile, siano $(v_i)_{i\in\N}$ i centri degli $n$-parallelepipedi.
-	Chiamiamo $S'_i=\lambda(S_i-v_i)+f(v_i)$.
-	Allora è facile convincersi, sfruttando la lipschitzianità della funzione, che l'immagine di $S_i\cap E$ tramite $f$ è un sottoinsieme di $S'_i$, cioè $f(S_i\cap E)\subseteq S'_i$.
+	Fissiamo un ricoprimento $(S_i)_{i\in\N}\subseteq \S_n$ di un insieme $A\subseteq E$ misurabile ed un $\epsilon>0$.
+	Il \cref{lemma:CoperturaPalle} ci assicura che per ogni $S_i$ esiste una famiglia finita di palle $(B^i_j)_{1\le j\le k_i}$ che lo ricopre e tale che $\sum_{j=1}^{k_i}m_n(B^i_j)\le(1+\epsilon)m_n(S_i)$.
 	
-	Inoltre per la \cref{nota:LebesgueElementareProprieta} abbiamo anche che $m_n(S'_i)=\lambda^n m_n(S_i)$. 
-	E quindi unendo quanto detto arriviamo ad avere
+	In virtù della lipschitzianità di $f$ e dell'omogeneità della misura di Lebesque mostrata nella \cref{nota:LebesgueProprieta}, se $B$ è una palla qualunque, risulta evidente che 
+	\begin{equation*}
+		m_n^*(f(B))\le \lambda^n m_n(B)\virgola
+	\end{equation*}
+	perciò, ricordando come sono state scelte le famiglie di palle $(B^i_j)$, è facile dedurre
+	\begin{align*}
+		m_n^*(f(A))= m_n^*\left(f\left(A\cap\bigcup_{\substack{i\in\N\\1\le j\le k_i}}B^i_j\right)\right)
+		&\le \sum_{\substack{i\in\N\\1\le j\le k_i}} m_n^*\left(f\left( A\cap B^i_j\right)\right) \\
+		&\le \sum_{\substack{i\in\N\\1\le j\le k_i}} \lambda^n m_n(B^i_j)\le \lambda^n(1+\epsilon)\sum_{i\in\N} m_n(S_i)\punto
+	\end{align*}
+	Quest'ultima equazione è vera per ogni $\epsilon>0$ e allora, per la definizione di misura esterna, ne segue
 	\begin{equation}\label{eq:StimaMisuraEsternaLipschitz}
-		\lambda^n m_n^*(A) \ge m_n^*(f(A))  \virgola
+		m_n^*(f(A)) \le \lambda^n m_n^*(A) \virgola
 	\end{equation}
 	che implica in particolare che se $A$ è trascurabile, anche $f(A)$ è trascurabile.
+	
 	Rientriamo perciò nelle ipotesi della \cref{prop:ContinueSpecialiTengonoMisurabili} e quindi otteniamo che $f$ manda misurabili in misurabili, cioè $f(A)$ è misurabile.
 	
 	Per concludere basta notare che l'\cref{eq:StimaMisuraEsternaLipschitz} ci assicura la stima richiesta dal testo, visto che nel caso in cui $A$ sia misurabile anche $f(A)$ lo è e perciò le misure esterne coincidono con le misure.
