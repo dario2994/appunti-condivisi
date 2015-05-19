@@ -363,29 +363,52 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 \end{proof}
 
 \begin{lemma}\label{lemma:CoperturaPalle}
-	Dato $S\in\S_n$, per ogni $\epsilon>0$, esiste una famiglia finita di palle $B_1,\dots,B_k$ tali che la loro unione contiene $S$ ed inoltre rispettano la disuguaglianza
+	Dato $S\in\S_n$, per ogni $\epsilon>0$, esiste una famiglia finita di palle aperte $B_1,\dots,B_k$ tali che la loro unione contiene $S$ ed inoltre rispettano la disuguaglianza
 	\begin{equation*}
 		\sum_{i=1}^k m_n(B_i)\le (1+\epsilon)m_n(S)\punto
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Senza perdità di generalità possiamo assumere $S=\co{0}{l_1}\times\cdots\times\co{0}{l_n}$ e sia $B$ una palla contenuta in $S$ con centro $c$ e raggio $r$, cioè $B=B_r(x)$. Sia $u=m_n(B)$.
+	Grazie alla \cref{nota:LebesgueProprieta} possiamo assumere senza perdità di generalità che $S=\co{0}{l_1}\times\cdots\times\co{0}{l_n}$ e che $m_n(S)=1$. 
+	Fissiamo arbitrariamente una palla $B$ contenuta in $S$ con centro $c$ e raggio $r$, cioè $B=B_r(c)$. Per comodità denotiamo $A=m_n(B)$.
+	Quando parleremo di \emph{misura totale} di un ricoprimento, ci riferiremo alla somma delle misure degli elementi del ricoprimento.
 	
-	L'idea è che se realizziamo un ricoprimento con palle la cui somma delle misure sia alpiù $m_n(S)(1+\epsilon)$ allora, attraverso un procedimento ``frattale'', riusciamo a costruire un ricoprimento con palle la cui misura totale sia $m_n(S)\left(1+\epsilon(1-u)+\epsilon'\right)$, dove $\epsilon'$ è un numero positivo arbitrariamente piccolo. Se mostriamo questo è evidente che riusciamo a costruire ricoprimenti con palle che realizzano la richiesta dell'enunciato.
-	Assumiamo allora di avere un ricoprimento che realizza misura totale $m_n(S)(1+\epsilon)$.
+	L'idea è, dato un ricoprimento con palle la cui misura totale sia alpiù $1+\epsilon$, costruire, attraverso un procedimento ``frattale'', un ricoprimento con palle la cui misura totale sia $1+\epsilon(1-A)+\epsilon'$, dove $\epsilon'$ è un numero positivo arbitrariamente piccolo. Se mostriamo ciò, risulta evidente che riusciamo a costruire ricoprimenti con palle che realizzano la richiesta dell'enunciato.
+	Assumiamo allora di avere un ricoprimento che realizza la misura totale $1+\epsilon$.
 	
-	Fissato $\delta>0$, definiamo $B_{\delta}=B_{r+\delta}(x)\setminus B_{r-\delta}(x)$ e notiamo che, scegliendo $\delta$ piccolo a sufficienza, la quantità  $m_n(S_\delta)$ diviene piccola a piacere in virtù dell'omogeneità della misura di Lebesgue.
+	Fissato $\delta>0$, definiamo $B_{\delta}=B_{r+\delta}(c)\setminus B_{r-\delta}(c)$ e notiamo che, scegliendo $\delta$ piccolo a sufficienza, la quantità  $m_n(S_\delta)$ diviene piccola a piacere in virtù dell'omogeneità della misura di Lebesgue. Fondamentalmente $B_\delta$ è un ingrassamento, piccolo a piacere in funzione di $\delta$, del bordo di $B$.
 	
-	Fissato un intero $k\in\N$, chiamiamo $P:\Z^n\to\S_n$ la funzione così definita:
+	Dato un intero $k\in\N$, chiamiamo $P_k:\Z^n\to\S_n$ la funzione così definita:
 	\begin{equation*}
-		P(a_1,a_2,\dots,a_n)=\co{\frac{a_1l_1}k}{\frac{(a_1+1)l_1}k}\times\cdots\times\co{\frac{a_nl_n}k}{\frac{(a_n+1)l_n}k} \punto
+		P_k(a_1,a_2,\dots,a_n)=\co{\frac{a_1l_1}k}{\frac{(a_1+1)l_1}k}\times\cdots\times\co{\frac{a_nl_n}k}{\frac{(a_n+1)l_n}k} \punto
 	\end{equation*}
-	Intuitivamente quello che faremo è \emph{ricopiare} il ricoprimento che realizza $m_n(S)(1+\epsilon)$ su tutti i $P(v)$ che intersecano $S\setminus B$.
+	Intuitivamente quello che faremo sarà \emph{ricopiare} il ricoprimento che realizza $1+\epsilon$ su tutti i $P_k(v)$ che intersecano $S\setminus B$. Ciò è possibile perché il singolo $P_k(v)$ è un riscalamento traslato di $S$.
 	
-	Chiamiamo $v\in\Z^n$ interessante se $P(v)\cap S\setminus B\not=\emptyset$. 
-	Dalla definizione di $P(v)$ si ricava che se $v$ è interessante allora o $P(V)\subseteq S\setminus B$ oppure $P(V)\cap\partial B\not=\emptyset$, dove con $\partial B$ indichiamo l'ipersfera che forma il bordo di $B$. Nel primo di questi casi chiamiamo $v$ \emph{interno}, altrimenti lo definiamo \emph{confinante}.
+	Chiamiamo $v\in\Z^n$ \emph{interessante} se $P_k(v)\cap S\setminus B\not=\emptyset$. 
+	Dalla definizione di $P_k(v)$ si ricava che se $v$ è \emph{interessante} allora o $P_k(v)\subseteq S\setminus B$ oppure $P_k(V)\cap\partial B\not=\emptyset$\footnote{In realtà possono esistere $v$ che rientrano in entrambi i casi, ma ciò non è un problema nel seguito della dimostrazione.}, dove con $\partial B$ indichiamo l'ipersfera che forma il bordo di $B$. Nel primo di questi casi chiamiamo $v$ \emph{interno}, altrimenti lo definiamo \emph{confinante}. Notiamo che l'unione dei $P_k(v)$ con $v$ \emph{interessante} contiene $S\setminus B$.
 	
-	%TODO: Da finire la dimostrazione!
+	Il punto cruciale è accorgersi che, pur di scegliere $k$ sufficientemente grande, se $v$ è \emph{confinante} allora $P_k(v)\subseteq B_\delta$. 
+	Applicando quest'ultima osservazione e il fatto che se $u\not=v$ allora $P_k(u),P_k(v)$ sono disgiunti, si arriva alla seguente catena di disuguaglianze:
+	\begin{equation}\label{eq:CoperturaPalle}
+		\sum_{v\text{ \emph{interessante}}}m_n(P_k(v)) \le
+		\sum_{v\text{ \emph{interno}}}m_n(P_k(v))+
+		\sum_{v\text{ \emph{confinante}}}m_n(P_k(v))
+		\le
+		m_n(S\setminus B)+m_n(B_\delta) \punto
+	\end{equation}
+	
+	Quindi con tante copie di $S$ scalate e traslate abbiamo ricoperto $S\setminus B$. 
+	Grazie alla \cref{nota:LebesgueProprieta}, risulta chiaro che ognuno dei $P_k(v)$ può essere coperto con palle moltiplicando alpiù per $1+\epsilon$ la sua area (semplicemente riscalando e traslando il ricoprimento di $S$) e unendo questo all'\cref{eq:CoperturaPalle} arriviamo a trovare un ricoprimento con palle di $S\setminus B$ con misura totale minore o uguale a
+	\begin{equation*}
+		(1+\epsilon)\left(m_n(S\setminus B)+m_n(B_\delta)\right) \punto
+	\end{equation*}
+	Se a tale ricoprimento con palle aggiungiamo anche la palla $B$ ricopriamo interamente $S$ e realizziamo una misura totale minore o uguale a
+	\begin{equation*}
+		(1+\epsilon)\left(m_n(S\setminus B)+m_n(B_\delta)\right)+A
+		=1+\epsilon(1-A)+
+		(1+\epsilon)m_n(B_\delta)
+	\end{equation*}
+	e visto che $m_n(B_\delta)$ può essere scelto arbitrariamente piccolo, ciò coincide con la tesi.
 \end{proof}
 
 \begin{proposition}\label{prop:LipschitzTengonoMisurabili}
@@ -410,11 +433,11 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 		&\le \sum_{\substack{i\in\N\\1\le j\le k_i}} m_n^*\left(f\left( A\cap B^i_j\right)\right) \\
 		&\le \sum_{\substack{i\in\N\\1\le j\le k_i}} \lambda^n m_n(B^i_j)\le \lambda^n(1+\epsilon)\sum_{i\in\N} m_n(S_i)\punto
 	\end{align*}
-	Quest'ultima equazione è vera per ogni $\epsilon>0$ e allora, per la definizione di misura esterna, ne segue
+	Essendo quest'ultima equazione vera per ogni $\epsilon>0$, per la definizione di misura esterna, ne segue
 	\begin{equation}\label{eq:StimaMisuraEsternaLipschitz}
 		m_n^*(f(A)) \le \lambda^n m_n^*(A) \virgola
 	\end{equation}
-	che implica in particolare che se $A$ è trascurabile, anche $f(A)$ è trascurabile.
+	che implica in particolare che se $A$ è trascurabile anche $f(A)$ è trascurabile.
 	
 	Rientriamo perciò nelle ipotesi della \cref{prop:ContinueSpecialiTengonoMisurabili} e quindi otteniamo che $f$ manda misurabili in misurabili, cioè $f(A)$ è misurabile.
 	
