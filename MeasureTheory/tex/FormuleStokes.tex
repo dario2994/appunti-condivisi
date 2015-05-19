@@ -58,12 +58,12 @@ Per quanto riguarda la notazione, data una funzione $f:\R^n\to \R$, indicheremo 
 				f^{-1}(\oo{-\infty}{0})\cap (V'\times I)&=\{(v',t)\in V'\times I:t<\psi(v')\}\virgola
 			\end{align*}
 			che conclude per le ipotesi sulle controimmagini di $f$.
-		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $\bar x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\varepsilon}{\varepsilon}$
+		\item [\ImplicationProof{PRE:iii}{PRE:ii}] Se abbiamo $V\times I$ intorno di $\bar x$ e $\psi\in C^1(V,I)$ come nelle ipotesi, detto $J=\oo{-\epsilon}{\epsilon}$
 			possiamo ottenere un diffeomorfismo $g:V\times I \rightarrow V\times J$ ponendo $g(v,t)=(v,\psi(v)+t)$. 
 			Di conseguenza otteniamo
 			\begin{align*}
 				g(V\times \{0\})&=\graf(\psi)=U\cap \partial \Omega \virgola\\
-				g(V\times \oo{-\varepsilon}{0})&=\{(v,\psi(v)+t)\in V\times I:t<0\}=\\
+				g(V\times \oo{-\epsilon}{0})&=\{(v,\psi(v)+t)\in V\times I:t<0\}=\\
 												&=\{(v,s)\in V\times I:s<\psi(v)\}=U\cap \Omega\punto
 			\end{align*}
 			Per ottenere un diffeomorfismo di tutto $\R^n$ basta comporre $g$ con opportuni diffeomorfismi tra un intorno rettangolare
@@ -240,7 +240,7 @@ abbiamo ottenuto tutti gli strumenti che ci servono per formalizzare il principa
 \begin{proof}
 	La dimostrazione procederà in due passi:
 	\begin{enumerate}
-		\item per ogni $p\in \overline\Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\varepsilon_i}{p_i+\varepsilon_i}$
+		\item per ogni $p\in \overline\Omega$ esiste un intorno aperto rettangolare $U_p=\prod_{i=1}^n \oo{p_i-\epsilon_i}{p_i+\epsilon_i}$
 			tale che l'\cref{eq:FormulaStokes} vale per ogni funzione $u$ tale che $\supp(u)\subseteq U_p$;
 		\item il compatto $\overline\Omega$ si può ricoprire con un numero finito di intorni come sopra, quindi si applica il \cref{thm:PartizioneUnita} per ottenere
 			la tesi per ogni $u$.
