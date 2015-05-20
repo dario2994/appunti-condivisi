@@ -370,13 +370,13 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 \end{lemma}
 \begin{proof}
 	Grazie alla \cref{nota:LebesgueProprieta} possiamo assumere senza perdità di generalità che $S=\co{0}{l_1}\times\cdots\times\co{0}{l_n}$ e che $m_n(S)=1$. 
-	Fissiamo arbitrariamente una palla $B$ contenuta in $S$ con centro $c$ e raggio $r$, cioè $B=B_r(c)$. Per comodità denotiamo $A=m_n(B)$.
+	Fissiamo arbitrariamente una palla $B$ contenuta in $S$ con centro $c$ e raggio $r$, cioè $B=B_r(c)$. Per comodità denotiamo $\alpha=m_n(B)$.
 	Quando parleremo di \emph{misura totale} di un ricoprimento, ci riferiremo alla somma delle misure degli elementi del ricoprimento.
 	
-	L'idea è, dato un ricoprimento con palle la cui misura totale sia alpiù $1+\epsilon$, costruire, attraverso un procedimento ``frattale'', un ricoprimento con palle la cui misura totale sia $1+\epsilon(1-A)+\epsilon'$, dove $\epsilon'$ è un numero positivo arbitrariamente piccolo. Se mostriamo ciò, risulta evidente che riusciamo a costruire ricoprimenti con palle che realizzano la richiesta dell'enunciato.
-	Assumiamo allora di avere un ricoprimento che realizza la misura totale $1+\epsilon$.
+	L'idea è, dato un ricoprimento con palle la cui \emph{misura totale} sia al più $1+\epsilon$, costruire, attraverso un procedimento ``frattale'', un ricoprimento con palle la cui \emph{misura totale} sia $1+\epsilon(1-\alpha)+\epsilon'$, dove $\epsilon'$ è un numero positivo arbitrariamente piccolo. Se mostriamo ciò, risulta evidente che riusciamo a costruire ricoprimenti con palle che realizzano la richiesta dell'enunciato.
+	Assumiamo allora di avere un ricoprimento che realizza la \emph{misura totale} $1+\epsilon$.
 	
-	Fissato $\delta>0$, definiamo $B_{\delta}=B_{r+\delta}(c)\setminus B_{r-\delta}(c)$ e notiamo che, scegliendo $\delta$ piccolo a sufficienza, la quantità  $m_n(S_\delta)$ diviene piccola a piacere in virtù dell'omogeneità della misura di Lebesgue. Fondamentalmente $B_\delta$ è un ingrassamento, piccolo a piacere in funzione di $\delta$, del bordo di $B$.
+	Fissato $\delta>0$, definiamo $B_{\delta}=B_{r+\delta}(c)\setminus B_{r-\delta}(c)$ e notiamo che, scegliendo $\delta$ piccolo a sufficienza, la quantità  $m_n(B_\delta)$ diviene piccola a piacere in virtù dell'omogeneità della misura di Lebesgue. Fondamentalmente $B_\delta$ è un ingrassamento, piccolo a piacere in funzione di $\delta$, del bordo di $B$.
 	
 	Dato un intero $k\in\N$, chiamiamo $P_k:\Z^n\to\S_n$ la funzione così definita:
 	\begin{equation*}
@@ -384,8 +384,8 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 	\end{equation*}
 	Intuitivamente quello che faremo sarà \emph{ricopiare} il ricoprimento che realizza $1+\epsilon$ su tutti i $P_k(v)$ che intersecano $S\setminus B$. Ciò è possibile perché il singolo $P_k(v)$ è un riscalamento traslato di $S$.
 	
-	Chiamiamo $v\in\Z^n$ \emph{interessante} se $P_k(v)\cap S\setminus B\not=\emptyset$. 
-	Dalla definizione di $P_k(v)$ si ricava che se $v$ è \emph{interessante} allora o $P_k(v)\subseteq S\setminus B$ oppure $P_k(V)\cap\partial B\not=\emptyset$\footnote{In realtà possono esistere $v$ che rientrano in entrambi i casi, ma ciò non è un problema nel seguito della dimostrazione.}, dove con $\partial B$ indichiamo l'ipersfera che forma il bordo di $B$. Nel primo di questi casi chiamiamo $v$ \emph{interno}, altrimenti lo definiamo \emph{confinante}. Notiamo che l'unione dei $P_k(v)$ con $v$ \emph{interessante} contiene $S\setminus B$.
+	Chiamiamo $v\in\Z^n$ \emph{interessante} se $P_k(v)\cap (S\setminus B)\not=\emptyset$. 
+	Dalla definizione di $P_k(v)$ si ricava che se $v$ è \emph{interessante} allora o $P_k(v)\subseteq S\setminus B$ oppure $P_k(v)\cap\partial B\not=\emptyset$\footnote{In realtà possono esistere $v$ che rientrano in entrambi i casi, ma ciò non è un problema nel seguito della dimostrazione.}, dove con $\partial B$ indichiamo l'ipersfera che forma il bordo di $B$. Nel primo di questi casi chiamiamo $v$ \emph{interno}, altrimenti lo definiamo \emph{confinante}. Notiamo che l'unione dei $P_k(v)$ con $v$ \emph{interessante} contiene $S\setminus B$.
 	
 	Il punto cruciale è accorgersi che, pur di scegliere $k$ sufficientemente grande, se $v$ è \emph{confinante} allora $P_k(v)\subseteq B_\delta$. 
 	Applicando quest'ultima osservazione e il fatto che se $u\not=v$ allora $P_k(u),P_k(v)$ sono disgiunti, si arriva alla seguente catena di disuguaglianze:
@@ -397,15 +397,14 @@ In particolare le prime tre proposizioni tecniche, concernenti le funzioni che m
 		m_n(S\setminus B)+m_n(B_\delta) \punto
 	\end{equation}
 	
-	Quindi con tante copie di $S$ scalate e traslate abbiamo ricoperto $S\setminus B$. 
-	Grazie alla \cref{nota:LebesgueProprieta}, risulta chiaro che ognuno dei $P_k(v)$ può essere coperto con palle moltiplicando alpiù per $1+\epsilon$ la sua area (semplicemente riscalando e traslando il ricoprimento di $S$) e unendo questo all'\cref{eq:CoperturaPalle} arriviamo a trovare un ricoprimento con palle di $S\setminus B$ con misura totale minore o uguale a
+	Grazie alla \cref{nota:LebesgueProprieta}, risulta chiaro che ognuno dei $P_k(v)$ può essere coperto con palle moltiplicando al più per $1+\epsilon$ la sua area (semplicemente riscalando e traslando il ricoprimento di $S$) e unendo questo all'\cref{eq:CoperturaPalle} arriviamo a trovare un ricoprimento con palle di $S\setminus B$ con \emph{misura totale} minore o uguale a
 	\begin{equation*}
 		(1+\epsilon)\left(m_n(S\setminus B)+m_n(B_\delta)\right) \punto
 	\end{equation*}
-	Se a tale ricoprimento con palle aggiungiamo anche la palla $B$ ricopriamo interamente $S$ e realizziamo una misura totale minore o uguale a
+	Se a tale ricoprimento con palle aggiungiamo anche la palla $B$ ricopriamo interamente $S$ e realizziamo una \emph{misura totale} minore o uguale a
 	\begin{equation*}
-		(1+\epsilon)\left(m_n(S\setminus B)+m_n(B_\delta)\right)+A
-		=1+\epsilon(1-A)+
+		(1+\epsilon)\left(m_n(S\setminus B)+m_n(B_\delta)\right)+\alpha
+		=1+\epsilon(1-\alpha)+
 		(1+\epsilon)m_n(B_\delta)
 	\end{equation*}
 	e visto che $m_n(B_\delta)$ può essere scelto arbitrariamente piccolo, ciò coincide con la tesi.
