@@ -1,0 +1,148 @@
+\chapter{Lezione 24 novembre 2015}
+
+In coordinate sia $p\in M$ e $(U.\varphi)$ una carta, $p\in U$. Sia $(x^i)_{i=1,\ldots,n}$ il sistema di coordinate corrispondente.
+
+Data $F=(F^1,\ldots,F^n):\tilde U \subset\subset U \to U$, abbiamo che $F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}(x)\frac\partial{\partial x^l}F(x)$.
+
+Ci interessa $F=F_X^h$ con $h$ piccolo. Abbiamo che $F_X^h=Id+hX(x)+o(h)$, dove $\frac{o(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
+Allora $(F_X^h)_*\frac\partial{\partial x^j}(x)=h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+o(h))+o(h)$.
+Da cui
+\begin{equation*}
+	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
+\end{equation*}
+
+Se nelle coordinate $x^i$ indotte da $\varphi$, se $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
+\begin{equation*}
+	\Lie_XY=\sum_{j=1}^n\sum_{i=1}^n \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac\partial{\partial x^j}
+\end{equation*}
+Questo campo vettoriale risulta essere il commutatore di $X,Y$.
+
+\section{Parentesi di Lie}
+\begin{definition}
+Dati $X,Y\in\chi^r(M)$, definiamo un campo vettoriale $[X,Y]\in\chi^r(M)$ tale che $[X,Y]=XY-YX$, che si chiama commutatore o parentesi di Lie.
+
+Intendiamo che per ogni $f:M\to\R$ regolare, $[X,Y](f)=X(Y(f))-Y(X(f))$.
+\end{definition}
+
+In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i}$, allora
+\begin{multline*}
+	Y(X(f))=\sum_{j=1}^nY^j(x)\frac\partial{\partial x^j}\left( \sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i} \right)\\
+	= \sum_{j=1}^n \sum_{i=1}^n \left( Y^j(x) (\frac{\partial}{\partial x^j}X^i)\frac{\partial f}{\partial x^i} +Y^j(x)X^i(x)\frac{\partial^2 f}{\partial x^i\partial x^j} \right)
+\end{multline*}
+\begin{equation*}
+	(XY-YX)(f)=\sum_{i,j=1}^n\left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY
+\end{equation*}
+
+\begin{remark}
+	C'è un modo intrinseco per vedere che $\Lie_XY=[X,Y]$:
+	\begin{enumerate}
+	 \item $f\in C^\infty, X\in\chi(M)$, allora $\frac \de{\de t} ((F_X^t)_*f)=(F_X^t)_*\Lie_Xf$;
+	 \item $\frac\de{\de t} (F_X^t)_*Y)=(F_X^t)_*(\Lie_XY)$.
+	\end{enumerate}
+\end{remark}
+
+\begin{proposition}\label{prop:ProprietaParentesiLie}
+	La parentesi di Lie soddisfa le seguenti proprietà
+	\begin{enumerate}
+	 \item è bilineare; \label{PPL:bilineare}
+	 \item è antisimmetrica, cioè $[X,Y]=-[Y,X]$ per ogni $X,Y\in\chi(M)$; \label{PPL:antisimmetrica}
+	 \item (identità di Jacobi) per ogni $X,Y,X$ vale $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$. \label{PPL:SommaCiclica}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\ref{PPL:bilineare} e \ref{PPL:antisimmetrica} sono ovvie.
+	
+	Vediamo la \ref{PPL:SommaCiclica}. Sia $f\in C^\infty(M)$:
+	\begin{align*}
+		[X,[Y,Z]]f&=X[Y,Z]f-[Y,Z]Xf=X(YZ-ZY)f-(YZ-ZY)Xf=\\
+		&= XYZf-XZYf-YZXf+ZYXf\punto
+	\end{align*}
+	Risulta ora ovvio che sommando gli altri due termini si ha completa cancellazione.
+\end{proof}
+
+\begin{remark}
+	L'identità di Jacobi si interpreta anche nel modo seguente
+	\begin{equation*}
+		\Lie_X[Y,Z]=[\Lie_XY,Z]+[Y,\Lie_XZ]\punto
+	\end{equation*}
+\end{remark}
+
+
+\begin{lemma}\label{lem:PushFunzioni}
+	Sotto le stesse ipotesi vale per $f\in C^\infty(M)$ che
+	\begin{equation*}
+		\Lie_{\varphi_*X}(f\circ \varphi^{-1})=\varphi_*(\Lie_Xf)\punto
+	\end{equation*}
+	[Data $g\in C^\infty(M)$, per definizione $(\varphi_*g)(q)=g(\varphi^{-1}(q)).$]
+\end{lemma}
+
+\begin{proof}
+	Sia $n\in N$, allora
+	\begin{align*}
+		\Lie_{\varphi_*X}(f\circ \varphi^{-1})(n)&=\Diff_{(\varphi_*X)(n)}(f\circ \varphi^{-1})=\Diff_{(T\varphi \circ X \circ\varphi^{-1})(n)}(f\circ \varphi^{-1})=\\
+		&=D_{(X\circ \varphi^{-1})(n)} f(\varphi^{-1}(n))=\varphi_*(\Lie_Xf)(n)\punto
+	\end{align*}
+\end{proof}
+
+
+\begin{proposition}
+	Sia $\varphi:M\to N$ un diffeomorfismo e sia $X,Y\in\chi(M)$, allora $\Lie_X$ è naturale rispetto al push-forward, cioè
+	\begin{equation*}
+		\Lie_{\varphi_*X}(\varphi_*Y)=\varphi_*(\Lie_XY)\virgola
+	\end{equation*}
+	equivalentemente
+	\begin{equation*}
+		[\varphi_*X,\varphi_*Y]=\varphi_*[X,Y]\punto
+	\end{equation*}
+\end{proposition}
+
+\begin{proof}
+	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lem:PushFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
+	\begin{equation*}
+		((\varphi_*Z)[g])(n)=Z[g\circ \varphi](m)\virgola
+	\end{equation*}
+	dove $Z=X$ e $g=f\circ \varphi^{-1}$.
+	
+	Quindi, ponendo $Z=[X,Y]$:
+	\begin{align*}
+	((\varphi_*[X,Y])[g])(n)&=[X,Y][g\circ \varphi](m)=X[Y[g\circ \varphi]](m)-Y[X[g\circ \varphi]](m)=\\
+	&=X[(\varphi_*Y)[g]\circ \varphi](m)-Y[(\varphi_*X)[g]\circ \varphi](m) =\\
+	&= (\varphi_*X)[(\varphi_*Y)[g]](n)-(\varphi_*Y)[(\varphi_*X)[g]](n) = [\varphi_* X, \varphi_* Y][g](n)\punto
+	\end{align*}
+\end{proof}
+
+\begin{lemma}
+	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$; allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ F_X^t=F_Y^t\circ\varphi$.
+	
+	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che $F_Y^t=\varphi\circ F_X^t\circ \varphi^{-1}$.
+	
+	Inoltre $(F_X^t)_*X=X$ (dove i flussi sono definiti).
+\end{lemma}
+
+\begin{proof}
+	Supponiamo che $\varphi\circ F_X^t=F_Y^t\circ \varphi$. Sia $p\in M$, allora
+	\begin{equation*}
+		\varphi\circ F_X^t(p)=F_Y^t(\varphi(p))\punto
+	\end{equation*}
+	Derivando in $t$ otteniamo perciò
+	\begin{align*}
+		&T\varphi\left(\frac\de{\de t}F_X^t(p)\right)=\left(\frac\de{\de t}F_Y^t\right)(\varphi(p))\\
+		&\implies (T\varphi\circ X\circ F_X^t)(p) = Y \circ F_Y^t \circ \varphi(p) = Y\circ \varphi \circ F_X^t(p) \\
+		&\implies T\varphi (X)=Y\circ \varphi\punto
+	\end{align*}
+	
+	Ora viceversa supponiamo che $(T\varphi)X=Y\circ\varphi$. Sia $c(t)=F_X(p,t)$ (curva integrale di $X$ che passa per $p$ al tempo 0), allora
+	\begin{equation*}
+		\frac \de{\de t}(\varphi\circ c)(t) = T\varphi \left(\frac{\de c}{\de t}\right) = T\varphi(X(c(t))) = Y((\varphi\circ c)(t))\punto
+	\end{equation*}
+	Perciò $\varphi\circ c$ è una curva integrale per $Y$ che passa per $\varphi(p)$ al tempo 0. Di conseguenza, per unicità, $(\varphi \circ c)(t) = F_Y(\varphi(p),t)$.
+	
+	Per dimostrare che $(F_X^t)_*(X)=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $F_X^s$ con $s$ fissato. Per la prima parta della proposizione $(F_X^t)_*(X)=X$ se e solo se $F_X^s\circ F_X^t=F_X^t\circ F_X^s$, ma questo è vero per la commutatività.
+\end{proof}
+
+
+
+
+
+
