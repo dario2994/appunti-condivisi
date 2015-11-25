@@ -4,8 +4,8 @@ In coordinate sia $p\in M$ e $(U.\varphi)$ una carta, $p\in U$. Sia $(x^i)_{i=1,
 
 Data $F=(F^1,\ldots,F^n):\tilde U \subset\subset U \to U$, abbiamo che $F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}(x)\frac\partial{\partial x^l}F(x)$.
 
-Ci interessa $F=F_X^h$ con $h$ piccolo. Abbiamo che $F_X^h=Id+hX(x)+o(h)$, dove $\frac{o(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
-Allora $(F_X^h)_*\frac\partial{\partial x^j}(x)=h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+o(h))+o(h)$.
+Ci interessa $F=F_X^h$ con $h$ piccolo. Abbiamo che $F_X^h=Id+hX(x)+\smallO(h)$, dove $\frac{\smallO(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
+Allora $(F_X^h)_*\frac\partial{\partial x^j}(x)=h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+\smallO(h))+\smallO(h)$.
 Da cui
 \begin{equation*}
 	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
