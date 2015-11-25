@@ -177,10 +177,15 @@
 %Stile capitoli
 \usepackage{titlesec}
 
-\titleformat
-{\chapter} % command
-[display] % shape
-{\normalfont\Large\centering}{\chaptertitlename\ \thechapter}{0pt}{\Large\uppercase}
+\titleformat{\chapter}[display]
+{\normalfont\centering}{\MakeUppercase{\chaptertitlename\ \thechapter }}{0pt}{\Large\bfseries\uppercase}
+
+\titleformat{\section}
+{\normalfont\bfseries\uppercase}
+{\thesection.}{0.5em}{}
+
+% \titleformat{\section}[display]
+% {\normalfont\Large\centering}{\Large\uppercase}
 
 
 %Comandi di Claudio (Claudio metti i tuoi comandi qui, se non compila perché sono già definiti sistemo io)
