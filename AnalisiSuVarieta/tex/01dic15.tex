@@ -1,0 +1,152 @@
+\chapter{Lezione 1 dicembre 2015}
+
+Sia $\phi:M\to N$ una mapp $C^r$ tra varietà. Sia $X\in\chi^r(M),Y\in \chi^r(N)$. Allora $(T\phi)X=Y$ se e solo se $\phi\circ F_X^t=F_Y^t\circ \phi$. In particolare, se $\phi$ è un diffeomorfismo, allora $F_Y^t=\phi\circ F_X^t\phi^{-1}$. Inoltre $(F_X^t)_*X=X$.
+
+\begin{proposition}
+ Siano $X,Y\in\chi^r(M)$  siano $F_X^t,F_Y^t$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
+ \begin{enumerate}
+  \item $[X,Y]=0$,
+  \item $(F_X^t)_*Y=Y$, 
+  \item $(F_Y^t)_*X=X$, 
+  \item $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$.
+ \end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+ Abbiamo $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$ se e solo se $F_Y^S=F_X^t\circ F_Y^s\circ (F_X^t)^{-1}$. Per il lemma questo equivale a $Y=(F_X^t)_*Y$. Per il lemma questo equivale a $=(F_X^t)_*Y$. Quindi $4\iff 2$ e allo stesso modo $4\iff 3$. Se $(F_X^t)_*Y=Y$ allora $[X,Y]=\frac{d}{dt}|_{t=0}(F_X^t)_*Y=0$. Viceversa, se $[X,Y]=0$ allora $\Lie_XY=0$. \[\frac{d}{dt}(F_X^t)_*Y=\frac{d}{ds}F_X^{t+s}Y=(F_X^t)_*[X,Y]=0\]. Allora  $(F_X^t)_*Y$ è costante in $t$ e $(F_X^t)_*Y=Y$.
+\end{proof}
+
+Abbiamo visto che se $X(p)\neq 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$, $Y(p)$ linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tal che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$? Se consideriamo il commutatore di $[\frac{\partial}{\partial x^1},\frac{\partial}{\partial x^2}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, \[[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}-=0.\]
+
+\begin{proposition}
+ Siano $X_1,\dots X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $[X_\alpha,X_\beta]=0$ per ogni $\alpha,\beta=1,\dots ,k$ allora $\tilde{U}\subset\subset U$, $p\in \tilde{U}$, esistono coordinate $\tilde{U},x$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
+\end{proposition}
+
+\begin{proof}
+ Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e che in $X_\alpha(0)=\frac{\partial}{\partial Y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $F_{X_\alpha}^t$ il flusso generato da $X_\alpha$, e sia 
+ \[\Psi(a^1,\dots, a^n={F_{X_1}}^{a_1}(\dots ({F_{X_k}}^a_k(0,\dots,0,a^{k+1},\dots, a^n).\]
+ 
+ $\Psi_*(\frac{\partial}{\partial a^{\beta}})=\frac{\partial}{\partial Y^\beta}|_0$ per ogni $\beta=k+1,\dots,n$.
+ 
+ $\Psi_*\left(\frac{\partial}{\partial a^\alpha}|_0\right)=\frac{d}{dt}|_{t=0}\left(F_{X_\alpha}^t(0)\right)=X_\alpha(0)=\left(\frac{\partial}{\partial Y^{\alpha}}\right)(0)$.
+ 
+ Poiché $[X_i,X_j]=0$ per ogni $i,j$, possiamo scrivere (dato $\alpha=1,\dots, k$)
+ \[\Psi(a^1,\dots,a^n)={F_{X_\alpha}}^{a_\alpha}(F^{a_1}_{X_1}\dots (0\dots 0, a^{k+1},\dots a^n).\]
+ 
+ da cui $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
+\end{proof}
+
+Il commutatore dà una misura della non commutazione di due campi vettoriali.
+\begin{enumerate}
+ \item Seguo $X$ per un tempo $h$.
+ \item Seguo $Y$ per un tempo $h$.
+ \item Seguo $-X$ per un tempo $h$.
+ \item Seguo $-Y$ per un tempo $h$.
+\end{enumerate}
+
+
+\begin{proposition}
+ Dato $p\in M$, sia $c(h)$ la curva definita da $c(h)=F_Y^{-h}F_X^{-h}F_Y^hF_X^h$. Allora $c'(0)=0$
+\end{proposition}
+
+\begin{proof}
+ Definiamo $\alpha_1(t,h)=F_Y^tF_X^h(p)$, $\alpha_2(t,h)=F_X^{-t}F_Y^hF_X^h$, $\alpha_3(t,h)=F_Y^{-t}F_X^{-h}F_Y^hF_X^h$, $c(t)\alpha_3(t,t)$. Notiamo che
+ \begin{description}
+  \item[(a)] $\alpha_2(0,t)=\alpha_1(t,t)$.
+  \item[(b)] $\alpha_3(0,t)=\alpha_2(t,t)$.
+  \item[(c)] Data $f:M\to\mathbb{R}$ regolare, $\frac{\partial (f\circ\alpha_1}{\partial t}=(Yf)\circ\alpha_1$.
+  \item[(d)] $\partial{f\circ\alpha_2}{\partial t}=-(Xf)\circ \alpha_2$
+  \item[(e)] $\partial{f\circ\alpha_2}{\partial t}=-(Yf)\circ\alpha_3$
+  \item[(f)] $\partial{f\circ\alpha_2}{\partial t}=(Xf)(\alpha_1(0,h))$
+ \end{description}
+ 
+ \begin{align*} (f\circ c)1(0)&=\frac{d}{dt}|_{t=0}f\circ\alpha_3(t,t)
+ \\ &=\Diff_1(f\circ \alpha_3)(0,0)+\Diff_2(f\circ\alpha_3)(0,0)
+ \\ &=\Diff:1(f\circ\alpha_3)(0,0)+\left[D_1(f\circ\alpha_2)(0,0)+\Diff_2(f\circ\alpha_2)(0,0\right]
+ \\ &=\Diff_1(f\circ\alpha_3)(0,0)+\Diff_1(f\circ\alpha_2)(0,0)+\left[\Diff_1(f\circ\alpha_1)(0,0)+\Diff_2(f\circ\alpha_1)(0,0)\right]
+ \\ &=-(Yf)\circ\alpha_3(0,0)+(-Xf)\circ\alpha_2(0,0)+(Yf)\circ\alpha_1(0,0)+(Xf)(\alpha_1(0,0)
+ \\ &=0
+\end{align*}
+ usando nell'ordine le definizioni, $(b), (a), (c)-(f)$.
+ 
+\end{proof}
+
+\begin{proposition}
+ Data $c:(-\epsilon,\epsilon)\to M$ tale ce $c(0)=p$ e $c'(0)=0$, possiamo definire un vettore $c''(0)\in T_pM$ come $(c''(0))(f):=(f\circ c)''(0)$.
+\end{proposition}
+
+\begin{exercise}
+ Usando la condizione $c'(0)=0$, verificare che $c''(0)$  così definito è una derivazione (ovvero è lineare è verifica la regola di Leibniz).
+\end{exercise}
+
+\begin{theorem}
+ Se $c(t)$ è come sopra, $c''(0)=2[X,Y](p)$.
+\end{theorem}
+
+\begin{proof}
+Ricordiamo che $(f\circ c)(t)=(f\circ\alpha_3)(t,t)$. Dunque 
+\[(f\circ c)'(0)=\Diff_{1,1}(f\circ\alpha_3)(0,0)+2\Diff_{2,1}(f\circ\alpha_3)(0,0)+\Diff_{2,2}(f\circ\alpha_3)(0,0).\]
+D'altra parte
+\[\Diff_{1,1}(f\circ\alpha_3)(0,0)=\Diff_1(-Yf\circ\alpha_3)(0,0)=YYf(p).\]
+\begin{align*}
+\Diff_{2,1}(f\circ\alpha_3)(0,0)=&2D_2(-Yf\circ\alpha_3)(0,0)=2\left[\Diff_1(Yf\circ\alpha_2)+D_2(Yf\circ\alpha_2)\right](0,0)
+\\ =& 2XYf(p)-2\Diff_2(Yf\circ\alpha_2)(0,0)
+\\ =& 2XYf(p)-2[\Diff_1(Yf\circ\alpha_1)(0,0)+D_2(Yf\circ\alpha_1)(0,0)]
+\\ =& 2XY(p)-2YYf(p)-2XYf(p)
+ \end{align*}
+Allo stesso modo si dimostra \[\Diff_{2,2}(f\circ\alpha_3)(0,0)=YYf(p)+2XYf(p)+XXf(p)+XXf(p)-2YXf(p)-2XXf(p)\] e questo conclude. 
+\end{proof}
+
+\begin{exercise}
+ Sia $M$ compatta, $X,y\in\chi^r(M)$, $r\geq 2$. Siano $F_X^t,F_Y^t$ i flussi generati da $X$ e $Y$ (definiti globalmente). Dimostrare che se $[X,Y]=0$ allora $F_{X+Y}^t=F_X^t\circ F_Y^t$.
+\end{exercise}
+
+\begin{exercise}
+ Sia $f:M\to \mathbb{R}$ regolare e sia $p\in M$ tale che $\Lie_Xf(p)=0$ per ogni $X\in\chi(M)$. In particolare $p$ è un punto critico di $f$. Dati $X_p,Y_p\in T_pM$, siano $\tilde{X},\tilde{Y}\in\chi(M)$ tali che $\tilde{X}(p)=X_p$ e $\tilde{Y}(p)=Y_p$ (è facile costruirne). Definiamo $H_f(X_p,Y_p):=\tilde{X}(\tilde{Y}(f))(p)$. Mostrare che $H_f$ è ben definita (ovvero non dipende dalla scelta delle estensioni $\tilde{X},\tilde{Y}$) ed è simmetrica: $H_f(X_p,Y_p)=H_f(Y_p,X_p)$.
+\end{exercise}
+
+
+\section{Varietà integrali}
+
+Dato $X\in\chi(M)$ e $p\in M$, abbiamo chiamato $F_X^t(p)$ la curva integrale di $X$ passante per $p$ al tempo $0$. In particolare, se $X(p)\neq 0$, si ottiene una distribuzione.
+
+\begin{definition}
+ Una distribuzione unidimensionale $\Delta$ in un aperto $U$ di $M$ è una scelta regolare di un sottospazio $\Delta_p$ di $T_pM$ per ogni $p\in U$.
+\end{definition}
+
+\begin{definition}
+ Una varietà integrale per la distribuzione $\Delta$ è una sottovarietà $N$ di $M$ tale che, data l'inclusione $i:N\to M$, si abbia $Ti(T_pN)=\Delta_p$ per ogni $p\in N$.
+\end{definition}
+
+Se $X(p)\neq 0$ e se in $U$ intorno di $p$, $\Delta_p=\text{Span}\{X(p)\}$, la traiettoria di $F_X^t(p)$ è una varietà integrale di $\Delta$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
