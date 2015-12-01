@@ -1,0 +1,418 @@
+\documentclass{article}
+\usepackage[italian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb}
+\usepackage{mathrsfs}%Serve a poter scrivere in corsivo inglese
+\usepackage{enumitem}%Serve per gli elenchi numerati
+\usepackage{amsthm}%Serve per avere ambienti non numerati
+\usepackage{graphicx}
+
+\newcommand{\PHI}{\varphi}
+\newcommand{\incluso}{\subseteq}
+\newcommand{\composto}{\circ}
+\newcommand{\inv}{^{-1}}
+\newcommand{\intersez}{\cap}
+\newcommand{\cors}[1]{\textit{#1}}%corsivo
+\newcommand{\ci}[1]{\mathscr{#1}}%corsivo inglese
+\newcommand{\g}[1]{\mathfrak{#1}}
+\newcommand{\volte}{\times}
+\newcommand{\perogni}{\forall}
+\newcommand{\di}{\partial}
+\newcommand{\vuoto}{\emptyset}
+
+\newtheorem{definizione}{ Definizione}
+\newtheorem{oss}{ Osservazione}
+\newtheorem*{esempi}{ Esempi}
+\newtheorem{teor}{ Teorema}
+\newtheorem*{esercizi}{ Esercizi}
+\newtheorem{proposizione}{ Proposizione}
+\newtheorem*{lemma}{ Lemma}
+
+\title{ Appunti del corso di calcolo diffenziale su varietà}
+\author{}
+\date{}
+
+
+\begin{document}
+
+ \maketitle
+
+\section{ Varietà differenziabili}
+
+ 
+ 
+ Le varietà sono spazi localmente simili agli spazi euclidei, ma globalmente diversi.
+ 
+ Per motivi sia teorici che applicativi è utile sviluppare strumenti su «\cors{oggetti curvi}».
+ Ad esempio si possono studiare i sistemi dinamici sulle varietà, oppure ricavare
+ informazioni topologiche a partire da concetti analitici.
+ 
+ Il modello di riferimento sono le varietà immerse in ${\bf R }^m$, ma si può dare
+ una nozione intrinseca di varietà.
+ 
+ \begin{definizione}
+ Una spazio topologico $M$ è detto localmente euclideo se è
+ di Hausdorff ed è localmente omeomorfo ad un aperto di ${ \bf R}^m$.
+ \end{definizione}
+ 
+ \begin{definizione}
+ Se $U$ è un aperto di $M$ e $\PHI:U\to \PHI(U)\incluso {\bf R}^m$
+ è un omeomorfismo, la coppia $(U, \PHI)$ è detto carta, o sistema di coordinate.
+ Le componenti di $\PHI$ si dicono funzioni coordinate. Una famiglia di carte
+ che ricopre $M$ è detta atlante.
+ \end{definizione}
+ 
+ Se $(U_1, \PHI_1)$ e $(U_2, \PHI_2)$ sono carte, $\PHI_2\composto\PHI_1\inv:\PHI_1(U_1\cap U_2)\to\PHI_2(U_1\cap U_2)$
+ è un omeomorfismo tra aperti di ${\bf  R}^n$, detto \cors{cambio di carta} o \cors{transizione}.
+ Per poter fare uso degli strumenti del calcolo differenziale, si considera un insieme
+ di carte tale che i cambi di carta siano differenziabili.
+ 
+ \begin{definizione}
+ Una \cors{struttura differenziabile} di classe $\ci{C}^k$ su uno
+ spazio localmente euclideo è un atlante $\g{F}$ tale che tutti i cambi di carta siano
+ di classe $\ci{C}^k$, e massimale rispetto all'inclusione.
+ \end{definizione}
+ 
+ \begin{oss}
+  Se $\g{F}$ non è massimale esso è contenuto in un'unica struttura differenziabile $\ci{C}^k$,
+  formata da tutte le carte con transizioni di classe $\ci{C}^k$ rispetto ad $\g{F}$.
+ \end{oss}
+ 
+ \begin{definizione}
+  Una varietà differenziabile $n$-dimensionale di classe $\ci{C}^k$ è una coppia $(M, \g{F})$
+  tale che $M$ sia uno spazio topologico localmente euclideo a base numerabile e $\g{F}$ sia una struttura
+  differenziabile su $M$.
+ \end{definizione}
+ 
+ \begin{esempi}
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item ${ \bf R}^n$ con l'atlante formato da una sola carta (l'identità), o più in generale tutti gli aperti di ${\bf R }^n$.
+   \item ${\bf S}^n$, con un atlante formato da due carte, le proiezioni stereografiche.
+   \item Lo spazio proiettivo ${\bf RP}^n$ con l'atlante $(U_i,\PHI_i)_{i=0,\dots,n}$ tale che
+   $U_i=\{ [x_0,\dots,x_n]\; |\; x_i\neq 0\}$ e $\PHI([x_0,\dots,x_n])=\frac{1}{x_n}(x_0,\dots,\hat{x}_i,\dots,x_n)$.
+   \item La varietà graßmanniana $G_k({\bf  R}^n)$, formata dai sottospazi vettoriali $k$-dimensionali
+   di ${\bf R}^n$ si può dotare di una struttura differenziabile naturale (si veda, ad
+   esempio, il libro del Marsden citato in bibliografia, oppure il libro dell'Abate).
+  \end{enumerate}
+ \end{esempi}
+ 
+ \begin{oss}
+  Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoperse il Milnor, ci sono ventotto varietà
+  omeomorfe a ${\bf S}^7$ ma tra di loro non diffeomorfe, dette «sfere esotiche». Su ${\bf S}^1$, ${\bf S}^2$, ${\bf S}^3$, ${\bf S}^5$
+  ed ${\bf S}^6$ questo non accade, mentre per ${\bf S}^4$ il problema è tuttora aperto.
+ \end{oss}
+ 
+ \begin{oss}
+  La richiesta che le varietà siano a base numerabile ha alcune importanti conseguenze:
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item Le varietà sono metrizzabili
+   \item le varietà sono spazi topologici normali.
+   \item Le varietà sono paracompatte, e dunque esistono le partizioni dell'unità.
+   \item Le varietà sono $\sigma$-compatte, ossia sono un'unione numerabile di compatti.
+  \end{enumerate}
+ \end{oss}
+
+ \begin{esercizi}
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item Se $g:{\bf R}^n\to{\bf R}$ è di classe $\ci{C}^k$, $M=g\inv(\{0\})$ e $\nabla g\ne 0$
+   su $M$ allora $M$ è una varietà $\ci{C}^k$ di dimensione $n-1$.
+   \item $SL_n({\bf R})$ è una varietà di dimensione $n^2-1$.
+   \item La funzione $t\mapsto t^3$ induce su ${\bf R}$ una struttura differenziabile diversa
+   da quella ordinaria, ma le varietà ottenute sono diffeomorfe.
+  \end{enumerate}
+ \end{esercizi}
+ 
+ \subsection{ Prodotti e mappe}
+ 
+ Se $(M_1,\g{F}_1)$ e $(M_2,\g{F}_2)$ sono varietà $\ci{C}^k$ allora si può definire la
+ varietà prodotto $(M_1\volte M_2,\g{F}_1\volte\g{F}_2)$, dove $\g{F}_1\volte\g{F}_2)$
+ è la struttura differenziabile generata dai prodotti delle carte in $\g{F}_1$ e $\g{F}_2$.
+ Ovviamente si ha che $\dim(M_1\volte M_2)=\dim(M_1)+\dim(M_2)$.
+ 
+ In modo analogo si può definire il prodotto di più fattori.
+ 
+ \begin{definizione}
+  Se $M$ ed $N$ sono varietà $\ci{C}^k$ e $r\le k$, una funzione $f:M\to N$ si dice
+  di classe $\ci{C}^r$ se $\perogni x\in M$ ci sono una carta $(U,\PHI)$ di $M$ con
+  $x\in U$ ed una carta $(V,\psi)$ di $N$ con $f(U)\incluso V$ tali che $\psi\composto f\composto\PHI\inv$
+  sia di classe $\ci{C}^r$.
+ \end{definizione}
+ 
+ L'ipotesi che $r\le k$ serve affiché la definizione non dipenda dalle carte scelte, come
+ mostra la seguente proposizione.
+ 
+ \begin{proposizione}
+  $f:M\to N$ è $\ci{C}^r$ se e solo se tutti i suoi rappresentanti locali sono $\ci{C}^r$.
+ \end{proposizione}
+ 
+ \begin{proposizione}
+   La composizione di due funzioni $\ci{C}^r$ è $\ci{C}^r$.
+ \end{proposizione}
+ 
+ \begin{definizione}
+  Un diffeomorfismo $\ci{C}^r$ è una funzione $\ci{C}^r$ invertibile e con inversa $\ci{C}^r$.
+ \end{definizione}
+ 
+ \subsection{ Spazio tangente}
+ 
+ Data una varietà $n$-dimensionale immersa in ${\bf R}^m$, per ogni suo punto esiste
+ un sottospazio affine di dimensione $n$ detto «\cors{spazio tangente}». Vogliamo
+ mostrare come estendere questa costruzione alle varietà astratte. Vi sono diversi
+ approcci per fare ciò; noi vedremo lo spazio tangente ad un punto come «insieme delle
+ velocità delle curve passanti per quel punto».
+ 
+ \begin{definizione}
+  Siano $M$ una varietà, $x\in M$, $c,\tilde{c}:(-1,1)\to M$ di classe $\ci{C}^1$ tali che
+  $c(0)=\tilde{c}(0)=x$ e $(U,\PHI)$ una carta con $x\in U$. Allora diciamo che $c$ e
+  $\tilde{c}$ sono tangenti in $x$ rispetto a $\PHI$ se $(\PHI\composto c)'(0)=(\PHI\composto\tilde{c})'(0)$
+ \end{definizione}
+
+ \begin{proposizione}
+  La definizione precedente non dipende dalla carta.
+ \end{proposizione}
+
+ Dunque si può dare la seguente definizione.
+ 
+ \begin{definizione}
+  Due curve $c,\tilde{c}:(-1,1)\to M$ di classe $\ci{C}^1$ tali che $c(0)=\tilde{c}(0)=x$
+  si dicono tangenti se le loro espressioni locali in carta sono tangenti.
+ \end{definizione}
+
+ Tutto ciò ci permette di definire il piano tangente.
+ 
+ \begin{definizione}
+  Lo spazio tangente ad un punto $x\in M$, indicato con $T_xM$, è l'insieme delle classi di equivalenza delle
+  curve $c:(-1,1)\to M$ di classe $\ci{C}^1$ con $c(0)=x$ per la relazione «essere
+  tangenti in x». L'unione degli spazi tangenti ad $M$ è detta spazio tangente, o
+  fibrato tangente, ed è indicata con $TM$.
+ \end{definizione}
+ 
+ \begin{oss}
+  Su $T_xM$ c'è un'evidente struttura lineare che lo rende uno spazio vettoriale con la
+  stessa dimensione di $M$.
+ \end{oss}
+
+ Ora vediamo due definizioni alternative.
+ 
+ \begin{paragraph}
+  {\bf  Prima definizione alternativa: controvarianza} Per definire il tangente si possono
+  usare le proprietà di trasformazione dei vettori.
+  
+  Infatti, se $(U,\PHI)$ e $(\tilde{U},\tilde{\PHI})$ sono due carte, e chiamiamo
+  $(y^1,\dots,y^n)=(\PHI\composto c)(t)$ e $(\tilde{y}^1,\dots,\tilde{y}^n)=(\tilde{\PHI}\composto c)(t)$,
+  allora il vettore tangente associato a $c'(0)$ si scrive nei due sistemi di coordinate
+  come $(V^1,\dots,V^n)=(\frac{dy^1}{dt}(0),\dots,\frac{dy^n}{dt}(0))$ e
+  $(\tilde{V}^1,\dots,\tilde{V}^n)=(\frac{d\tilde{y}^1}{dt}(0),\dots,\frac{d\tilde{y}^n}{dt}(0))$.
+  Usando il cambio di carta si trova che la funzione $y\mapsto\tilde{y}$ è un diffeomorfismo
+  locale, e la relazione tra le due coordinate è
+  $$\tilde{V}^i=\frac{d\tilde{y}^i}{dt}(0)=\sum_{j=1}^n\frac{\di\tilde{y}^i}{\di y^j}(\PHI(x))
+  \frac{dy^j}{dt}(0)=\sum_{j=1}^n\frac{\di\tilde{y}^i}{\di y^j}(\PHI(x))V^j$$
+  Questo tipo di trasformazione è detto «\cors{controvarianza}», e può essere usato per
+  definire lo spazio tangente.
+  
+  Con questa notazione, dato un sistema di coordinate $(U,\PHI)$, un vettore $v\in T_x M$
+  (con $x\in U$) si scrive così:
+  $$v=\sum_{i=1}^nv^i\frac{\di}{\di y^i}(\PHI(x))$$
+  dove $\frac{\di}{\di y^i}(\PHI(x))=[\PHI(x)+te_i]_{\PHI(x)}$, essendo $e_i$ l'$i$-esimo
+  vettore della base canonica.
+ \end{paragraph}
+
+ \begin{paragraph}
+  {\bf  Seconda definizione alternativa: le derivazioni} Data $f:{bf R }^n\to{\bf R}$
+  e $v\in{\bf R}^n$ sia $D_vf$ la derivata direzionale lungo $v$. Allora $D_v$ è lineare
+  in $f$, ed inoltre vale la regola di Leibniz $D_v(fg)=fD_vg+gD_vf$. Si definiscono
+  «\cors{derivazioni}» gli operatori lineari $A:\ci{C}^r(U)\in{\bf R}$ che godono della
+  regola di Leibniz. Si può dimostrare che in questo modo si ottiene una definizione
+  equivalente di spazio tangente.
+  \end{paragraph}
+ 
+ \subsection{ Mappe tangenti}
+ 
+ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di estendere
+ il concetto di differenziale alle varietà.
+ 
+ \begin{lemma}
+  Se $c$ e $\tilde{c}$ sono curve tangenti in $x\in M$ e $f:M\to N$ è di classe $\ci{C}^1$
+  allora $f\composto c$ e $f\composto\tilde{c}$ sono curve tangenti in $f(x)$.
+ \end{lemma}
+
+ \begin{proof}
+  Basta passare in carta.
+ \end{proof}
+
+ \begin{definizione}
+  Data $f:M\to N$ di classe $\ci{C}^1$ si definisce mappa tangente, o differenziale,
+  di f, la mappa $Tf:TM\to TN$ (indicata anche con $df$) tale che $Tf([c]_x)=[f\composto c]_{f(x)}$
+  (la definizione è ben posta per il lemma precedente).
+  La restrizione di $Tf$ allo spazio tangente ad un punto x è indicata con $T_xf$.
+ \end{definizione}
+
+ \begin{proposizione}
+  $T_xf:T_xM\to T_xN$ è lineare.
+ \end{proposizione}
+ 
+ \begin{teor}
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item Se $f$ e $g$ sono $\ci{C}^r$ e la loro composizione ha senso allora $g\composto f$
+   è $\ci{C}^r$ e $T(g\composto f)=Tg\composto Tf$.
+   \item $T(id_M)=id_{TM}$.
+   \item Se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)\inv=T(f\inv)$.
+  \end{enumerate}
+ \end{teor}
+
+ \begin{proof}
+  Il primo punto si dimostra passando in carta, il secondo è banale, il terzo è
+  conseguenza immediata dei due precedenti.
+ \end{proof}
+
+ Ora vogliamo dotare il fibrato tangente di una struttura differenziabile.
+ 
+ Data una carta $(U,\PHI)$ definiamo $T\PHI:TU\to T(\PHI(U))$ così:
+ $T\PHI([c]_x)=[\PHI\composto c]_{\PHI(x)}$. Si verifica facilmente che $T\PHI$ è biunivoca.
+ 
+ \begin{proposizione}
+  Se $k\ge 1$ e $(M,\g{F})$ è una varietà $\ci{C}^{k+1}$ allora $T\g{F}=\{(Tu,T\PHI)\;|\;(U,\PHI)\in\g{F}\}$
+  è un atlante $\ci{C}^k$ su $TM$, detto atlante naturale.
+ \end{proposizione}
+
+ \begin{proof}
+  Dato che $\g{F}$ ricopre $M$, $T\g{F}$ ricopre $TM$. Inoltre si verifica che $T\PHI_i\composto(T\PHI_j)\inv=T(\PHI_i\composto\PHI_j)$,
+  che è un diffeomorfismo $\ci{C}^k$, nonché che con la topologia indotta da $T\g{F}$
+  $TM$ è di Hausdorff e a base numerabile.
+ \end{proof}
+
+ \begin{proposizione}
+  Se $f:M\to N$ è un diffeomorfismo $\ci{C}^{r+1}$, $Tf:TM\to TN$ è un diffeomorfismo $\ci{C}^r$.
+ \end{proposizione}
+
+ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
+ 
+ \begin{definizione}
+  Sia $f:M\to N$ di classe $\ci{C}^1$.
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item Se il diffenziale di $f$ è iniettivo in ogni punto, $f$ è detta immersione.
+   \item Se $f$ è un'immersione iniettiva, $(M,f)$ è detta sottovarietà.
+   \item Se $f$ è un'immersione ed un omeomorfismo con l'immagine, è detta embedding.
+  \end{enumerate}
+ \end{definizione}
+
+ \begin{proposizione}
+  Se $f:M\to N$ è di classe $\ci{C}^1$ e $T_xf$ è invertibile allora $f$ è localmente invertibile in $x$.
+ \end{proposizione}
+
+ \begin{proof}
+  Basta passare in carta ed applicare il teorema della funzione implicita.
+ \end{proof}
+
+ \begin{proposizione}
+  Se $f:M\to N$ è di classe $\ci{C}^1$ e $T_xf$ è iniettivo allora $f$ è localmente iniettiva.
+ \end{proposizione}
+
+ \begin{proof}
+  Passando in carta si può supporre $M={\bf R}^m$, $N={\bf R}^n$ e $x=0$. Allora, dato
+  che $Tf=Df$, si ha che
+  $$f(p)-f(q)=\int_0^1Df(q+s(p-q))[p-q]ds=(Df(0)+o(1))[p-q]$$
+  per $p,q\to 0$. Quindi $f(p)\ne f(q)$ per $p,q$ piccoli.
+ \end{proof}
+
+ \begin{esercizi}
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item Si dimostri che $U(n)$ (il gruppo delle trasformazioni unitarie di ${\bf C}^n$)
+   è una sottovarietà non compatta di $\ci{L}({\bf C}^n,{\bf C}^n)$.
+   \item Si dimostri che ${\bf RP}^1$ è una sottovarietà di ${\bf RP}^2$.
+   \item Si dimostri che $\g{P}=\{ Q\in O(3)\;|\;\det Q=1,\; Q=Q^T\}\backslash\{I\}$
+   è una sottovarietà compatta di $O(3)$. Si descrivano inoltre gli elementi di $\g{P}$ in
+   termini geometrici.
+  \end{enumerate}
+ \end{esercizi}
+
+ \subsection{ Campi vettoriali}
+ 
+ \begin{definizione}
+  Sia $M$ una varietà $\ci{C}^k$. Un campo vettoriale su $M$ è una funzione $X:M\to TM$
+  tale che $X(p)\in T_pM$ per ogni $p\in M$. Un campo vettoriale è detto di classe $\ci{C}^r$
+  (con $r\le k$) se le sue componenti sono di classe $\ci{C}^r$.
+ \end{definizione}
+
+ Se $(U,\PHI)$ è una carta e $(x^1,\dots,x^n)$ sono coordinate allora localmente
+ $$X=\sum_{i=1}^nX^i(x)\frac{\di}{\di x^i}$$
+ dove $(X_1,\dots,X_n)=T\PHI(X(\PHI\inv(X)))$.
+ 
+ Chiamiamo $\g{X}^r(M)$ l'insieme dei campi vettoriali $\ci{C}^r$ su $M$ (con $r$
+ eventualmente infinito).
+ 
+ \begin{definizione}
+  Una curva integrale di un campo vettoriale $X$ è una curva diffenziabile $c$ tale
+  che $c'(t)=X(c(t))$ per ogni $t$.
+ \end{definizione}
+
+ Se $(U,\PHI)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le equazioni
+ diffenziali $\frac{dc^i}{dt}=X^i(c^1(t),\dots,c^n(t))$ per $i=1,\dots,n$. Questo ha un
+ sistema autonomo, anche se in generale si possono considerare anche campi vettoriali
+ dipendenti dal tempo.
+ 
+ Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo per noti.
+ 
+ \begin{teor}[ Cauchy-Lipschitz]
+  Siano $U\incluso{\bf R}^n$ aperto e $X:U\to{\bf R}^n$ di classe $\ci{C}^1$. Allora
+  $\perogni x_0\in U$ esiste $I\incluso{\bf R}$ aperto con $0\in I$ e $c:I\to{\bf R}^n$
+  tali che $c(0)=x_0$, $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to{\bf R}^n$
+  come sopra, allora esse coincidono su $I_1\intersez I_1$.
+ \end{teor}
+
+ \begin{teor}[ differenziabilità del flusso]
+  Se, nelle stesse ipotesi del teorema precedente, $X$ è di classe $\ci{C}^k$, allora
+  esistono un intorno aperto $U_0\incluso U$, un numero $a>0$ ed una funzione
+  $\ci{F}:U_0\volte (-a,a)\to{\bf R}^n$ di classe $\ci{C}^k$ tali che $\perogni u\in U_0$ la curva $c_u(t)=\ci{F}(u,t)$
+  sia una curva integrale di $X$ tale che $c_u(0)=u$.
+ \end{teor}
+
+ \begin{definizione}
+  Sia $M$ una varietà e $X\in\g{X}^r(M)$. Allora un flusso locale di $X$ in $p\in M$ è
+  una tripla $(U_0,a,\ci{F})$ tale che:
+  \begin{enumerate}[label=\bf\Roman*)]
+   \item $p\in U_0\incluso M$, $U_0$ è aperto e $a>0$;
+   \item $\ci{F}:U_0\volte I\to M$ è di classe $\ci{C}^r$ (dove $I=(-a,a)$;
+   \item $\perogni u\in U_0$ si ha che $c_u:I\to M$ è una curva integrale di $X$
+   con dato iniziale $u$;
+   \item se, per $t\in I$ chiamiamo $\ci{F}_t(u)=\ci{F}(u,t)$ allora $\ci{F}_t(U_0)$ è aperto e
+   $\ci{F}_t$ è un diffeomorfismo $\ci{C}^r$ con l'immagine.
+  \end{enumerate}
+ \end{definizione}
+
+ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà di
+ unicità e di semigruppo.
+ 
+ \begin{proposizione}
+  Due curve integrali di un campo vettoriale con la stessa condizione iniziale
+  coincidono sull'intersezione dei loro dominî.
+ \end{proposizione}
+
+ \begin{proof}
+  Osserviamo che non si può applicare direttamente il teorema di Cauchy-Lipschitz
+  perché la curva potrebbe non appartenere ad una sola carta.
+  
+  Sia $\g{K}=\{ t\in I\;|\; c_1(t)=c_2(t)\}\incluso I$, dove $I$ è l'intersezione dei
+  dominî delle due curve (ed è dunque un intervallo di ${\bf R}$). Allora $\g{K}$ è chiuso perché $M$ è di
+  Hausdorff, aperto perché $\perogni t\in\g{K}$ si può prendere una carta che lo contiene
+  ed applicare in carta il teorema di Cauchy-Lipschitz, e non vuoto perché per ipotesi
+  $0\in\g{K}$. Dunque, dato che $I$ è connesso, $\g{K}=I$.
+ \end{proof}
+
+ \begin{proposizione}
+  Se la tripla $(U_0,a,\ci{F})$ soddisfa le ipotesi {\bf I}, {\bf II} e {\bf III} nella
+  definizione di curva integrale, e se $t,t,s+t\in I$, allora $\ci{F}_{s+t}=
+  \ci{F}_s\composto \ci{F}_t=\ci{F}_t\composto\ci{F}_s$, dove le composizioni sono definite.
+  Inoltre $\ci{F}_0$ è l'identità, e se $U_t=\ci{F}_t(U_0)$ e $U_t\intersez U_0\ne\vuoto$, si ha
+  che $\ci{F}_t|_{U_{-t}\intersez U_0}:U_{-t}\intersez U_0\to U_0\intersez U_t$ è un
+  diffeomorfismo con inverso $\ci{F}_{-t}|_{U_0\intersez U_t}$
+ \end{proposizione}
+
+ \begin{proof}
+  $\ci{F}_{s+t}(u)=c_u(s+t)$ e $\ci{F}_t(\ci{F}_s(u)=\ci{F}_t(c_u(s))$ sono entrambe
+  curve integrali che passano per $c_u(s)$ per $t=0$, dunque coincidono per la proposizione
+  precedente. Perciò $\ci{F}_{s+t}=\ci{F}_t\composto\ci{F}_s$ laddove la composizione
+  abbia senso. Da ciò si deduce facilmente il resto.
+ \end{proof}
+
+\end{document}
