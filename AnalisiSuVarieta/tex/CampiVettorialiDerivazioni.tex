@@ -1,0 +1,152 @@
+\chapter{Campi vettoriali e derivazioni}
+
+\section{Definizioni e richiami}
+
+\begin{definition}
+	Sia $M$ una varietà $C^k$. Un \emph{campo vettoriale} su $M$ è una funzione $X:M\to TM$ tale che $X(p)\in T_pM$ per ogni $p\in M$. Un campo vettoriale è detto di classe $C^r$ (con $r\le k$) se le sue componenti sono di classe $C^r$.
+\end{definition}
+
+Se $(U,\varphi)$ è una carta con $(x^1,\dots,x^n)$ coordinate locali, allora possiamo scrivere
+\begin{equation*}
+	X(x)=\sum_{i=1}^nX^i(x)\frac{\partial}{\partial x^i}\virgola
+\end{equation*}
+dove $(X_1,\dots,X_n)(x)=T\varphi(X(\varphi^{-1}(x)))$.
+ 
+Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indichiamo $\chi(M)$ l'insieme dei campi $C^\infty$ su $M$.
+ 
+\begin{definition}
+	Una \emph{curva integrale} di un campo vettoriale $X$ è una curva diffenziabile $c$ tale che $c'(t)=X(c(t))$ per ogni $t$.
+\end{definition}
+
+Se $(U,\varphi)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le equazioni diffenziali $\frac{\de c^i}{\de t}=X^i(c^1(t),\dots,c^n(t))$ per $i=1,\dots,n$. Questo è un sistema autonomo, anche se in generale si possono considerare anche campi vettoriali dipendenti dal tempo.
+ 
+Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo per noti.
+ 
+\begin{theorem}[Cauchy-Lipschitz] 
+	Siano $U\subseteq\R^n$ aperto e $X:U\to\R^n$ di classe $C^1$. Allora per ogni $x_0\in U$ esiste $I\subseteq\R$ aperto con $0\in I$ e $c:I\to\R^n$ tali che $c(0)=x_0$ e $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to\R^n$ come sopra, allora esse coincidono su $I_1\cap I_1$.
+\end{theorem}
+
+\begin{theorem}[Differenziabilità del flusso]
+	Se, nelle stesse ipotesi del teorema precedente, $X$ è di classe $C^k$, allora esistono un intorno aperto $U_0\subseteq U$, un numero $a>0$ ed una funzione $F:U_0\times (-a,a)\to\R^n$ di classe $C^k$ tali che per ogni $u\in U_0$ la curva $c_u(t)=F(u,t)$ sia una curva integrale di $X$ tale che $c_u(0)=u$.
+\end{theorem}
+
+\begin{definition}\label{def:FlussoLocale}
+	Sia $M$ una varietà e $X\in\chi^r(M)$. Allora un \emph{flusso locale} di $X$ in $p\in M$ è una tripla $(U_0,a,F)$ tale che:
+	\begin{enumerate}
+	\item $p\in U_0\subseteq M$, $U_0$ è aperto e $a>0$; \label{FL:aperto}
+	\item $F:U_0\times I\to M$ è di classe $C^r$, dove $I=(-a,a)$; \label{FL:Cr}
+	\item per ogni $u\in U_0$ si ha che $c_u=F(u,\cdot):I\to M$ è una curva integrale di $X$ con dato iniziale $u$; \label{FL:curvaintegrale}
+	\item se per $t\in I$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo}
+	\end{enumerate}
+\end{definition}
+
+\section{Proprietà}
+
+Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà di unicità e di semigruppo.
+ 
+\begin{proposition} \label{prop:UnicitaCurveIntegrali}
+	Due curve integrali di un campo vettoriale con la stessa condizione iniziale coincidono sull'intersezione dei loro dominî.
+\end{proposition}
+
+\begin{proof}
+	Osserviamo che non si può applicare direttamente il teorema di Cauchy-Lipschitz perché la curva potrebbe non appartenere ad una sola carta.
+	
+	Sia $K=\{ t\in I\ : \ c_1(t)=c_2(t)\}\subseteq I$, dove $I$ è l'intersezione dei domini delle due curve (ed è dunque un intervallo di $\R$). L'insieme $K$ è chiuso perché $M$ è di Hausdorff, è aperto perché per ogni $t\in K$ si può prendere una carta che lo contiene ed applicare in carta il teorema di Cauchy-Lipschitz, ed è non vuoto perché per ipotesi $0\in K$. Dunque, dato che $I$ è connesso, $K=I$.
+\end{proof}
+
+\begin{proposition}
+	Se la tripla $(U_0,a,F)$ soddisfa le ipotesi \ref{FL:aperto}, \ref{FL:Cr} e \ref{FL:curvaintegrale} nella \cref{def:FlussoLocale}, allora $F_{s+t}=F_s\circ F_t=F_t\circ F_s$ per ogni $t,s,t+s\in I_a$.
+	
+	Inoltre $F_0$ è l'identità e, se $U_t=F_t(U_0)$ e $U_t\cap U_0\ne\emptyset$, si ha che $F_t\restrict{U_{-t}\cap U_0}:U_{-t}\cap U_0\to U_0\cap U_t$ è un diffeomorfismo con inverso $F_{-t}\restrict{U_0\cap U_t}$.
+\end{proposition}
+
+\begin{proof}
+	Abbiamo che $F_{s+t}(u)=c_u(s+t)$ e $F_t(F_s(u))=F_t(c_u(s))$ sono entrambe curve integrali che passano per $c_u(s)$ per $t=0$, dunque coincidono per la \cref{prop:UnicitaCurveIntegrali}, perciò $F_{s+t}=F_t\circ F_s$. Da ciò si deduce facilmente il resto.
+\end{proof}
+
+
+\begin{proposition}[Esistenza e unicità di flussi locali]
+	Sia $X$ campo vettoriale di classe $C^r$, allora per ogni $p\in M$ esiste un flusso locale di $X$ in $p$. Inoltre se $(U_0,a,F)$, $(U_0',a',F')$ sono flussi locali devono coincidere su $(U_0\cap U_0')\times (I_a\cap I_{a'})$.
+\end{proposition}
+\begin{proof}
+	\begin{description}
+	\item [unicità]
+	per ogni $u\in U_0\cap U_0'$, sia $I=I_a\cap I_{a'}$. Allora $F\restrict{{u}\times I}=F'\restrict{{u}\times I}$ per la \cref{prop:UnicitaCurveIntegrali}.
+	
+	\item [esistenza]
+	Sia $(U,\varphi)$ carta di $M$, $u\in M$. Consideriamo il rappresentate locale $X_\varphi$ di $X$ ($X_\varphi(\varphi(q))=T\varphi(x)(q)$), che genera un flusso locale $(U_\varphi,a_\varphi,F_\varphi)$ per $X_\varphi$.
+	Supponiamo $U_\varphi\subseteq \varphi(U)$ e $F_\varphi(U_\varphi\times I_{a\varphi})\subseteq \varphi(U)$, $\tilde U=\varphi^{-1}(U_\varphi)$.
+	Poniamo  $F:\tilde U\times I_{a\varphi}\to M$ tale che $F(u,t)=\varphi^{-1}(F_\varphi(\varphi(u),t))$.
+	Per continuità esiste $b\in(0,a_\varphi)$, $V\subseteq \tilde U$, $p\in V$ tale che $F(V\times I_b)\subseteq \tilde U$.
+	
+	$F$ verifica \ref{FL:aperto}, \ref{FL:Cr}, \ref{FL:curvaintegrale}. Per avere \ref{FL:diffeo} notiamo che $F_t$ ha inversa $F_{-t}$ di classe $C^r$.
+	\end{description}
+\end{proof}
+
+\begin{exercise}
+	\begin{itemize}
+		\item Sia $M$ varietà $C^k$, $X\in\chi^k(M)$. Sia $p\in M$ tale che $X(p)\not=0$. Dimostrare che esiste $(U,\varphi)$ carta tale che $X\restrict U=\frac{\partial}{\partial x'}\restrict U$.
+		\item Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=Id_M$. Mostrare che esiste unico $X$ campo vettoriale tale che $F_t$ coincide con il flusso indotto da $X$.
+	\end{itemize}
+\end{exercise}
+
+\begin{definition}
+	Sia $M$ una varietà e $X$ un campo vettoriale. Sia $\mathcal D_X\subseteq M\times \R$ l'insieme degli $(x,t)$ tale che esiste $c:I\to M$ curva integrale, $c(0)=x$, e $t \in I$.
+	
+	$X$ è detto completo se $\mathcal D_X=M\times \R$ e completo per tempi positivi (negativi) se $\mathcal D_X\supseteq M\times\R^+$ ($\R^-$).
+	
+	Chiamiamo $(T(x)^-,T(x)^+)$ l'intervallo massimale di una curva che passa per $x$ al tempo 0. 
+\end{definition}
+
+\begin{example}
+\begin{itemize}
+	\item $M=\R^2$. $X=(1,0)$ è completo $(x,y)\to (x+t,y)$.
+	\item $M=\{(x,y):x>0\}$. $X=(1,0)$ è completo per tempi positivi
+	\item $M=\R$. $X(x)=1+x^2$, allora $c(t)=\tan t$ è una curva integrale, con $c(0)=0$, da cui $T^\pm(0)=\pm \frac \pi 2$.
+\end{itemize}
+\end{example}
+
+\begin{proposition}
+	Sia $M$ un varietà, $X\in \chi^r(M)$, $r\ge 1$. Allora:
+	\begin{enumerate}
+	 \item $M\times\{0\}\subseteq \mathcal D_X$;
+	 \item $\mathcal D_X$ aperto;
+	 \item esiste unico $F_X:\mathcal D_X\to M$ di classe $C^r$ tale che $t\mapsto F_X(p,t)$ è una curva integrale che passa per $p$ a tempo 0;
+	 \item per $(p,t),(p,t+s)\in\mathcal D_X$ vale che $F_X(p,t+s)=F_X(F_X(p,t),s)$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	1 e 2 seguono da esistenza e unicità delle curve integrali. L'esistenza di $F_X$ si ottiene incollando curve integrali e 4 segue dall'unicità globale.
+	
+	La regolarità $C^r$ globale, segue da quella locale ricoprendo una data traiettoria con un numero finito di piccoli intorni.
+\end{proof}
+
+\begin{definition}
+	Chiamiamo $t\mapsto F_X(p,t)$, con $(p,t)\in\mathcal D_X$, la curva integrale massimale passante per $p$ a tempo 0.
+	
+	Se $X$ è completo, $F_X$ è detto il flusso generato da $X$. In questo caso abbiamo una famiglia a un parametro di diffeomorfismi.
+\end{definition}
+
+\begin{proposition}
+	Supponiamo che $X$ sia a supporto compatto in $M$. Allora $X$ è completo.
+\end{proposition}
+
+\begin{proof}
+	Se $p\not \in\supp (X)$, allora $T^{\pm}(p)=\pm\infty$ con $F_X(p,t)=p$.
+	
+	Se $p\in\supp(X)$, supponiamo per assurdo $T^+(p)<\infty$. Sia $t_n$ una successione che converge crescendo a $T^+(p)$, allora per compatteza esiste $t_{n_k}$ tale che $F_X(p,t_{n_k})$ converge a $\bar p\in M$.
+	Ma $\mathcal D_X$ è aperto, quindi contiene un intorno di $(\bar p,0)$.
+	Cioè esiste $\tau >0$ (indipendente da $k$ sufficientemente grande) tale che il flusso che passa per $c(t_{n_k})$ a tempo 0 è definito almeno per un tempo $\tau$.
+	Allora potevamo estendere $c(t)$ fino a $t_{n_k}+\tau$, il che è assurdo per $k$ abbastanza grande.
+\end{proof}
+
+
+\begin{corollary}
+	Se $M$ è compatta, allora $X$ è completo.
+\end{corollary}
+
+
+\begin{exercise}
+	Sia $X$ campo vettoriale di classe $C^r(\R^n)$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria. Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$ \footnote{Osservazione: $X(f)=\Diff_X(f)$}. Dimostrare che $X$ è completo.
+\end{exercise}

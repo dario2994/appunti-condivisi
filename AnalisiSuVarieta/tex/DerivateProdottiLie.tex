@@ -1,0 +1,63 @@
+\chapter{Derivate e prodotti di Lie}
+
+\section{Derivata di Lie}
+Sia $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$.
+
+Si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
+
+Ora vogliamo studiare il caso generale su varietà.
+
+Sia $p\in M$ e $f$ una funzione regolare definita in un intorno di $p$, $v \in T_{p}M$. Per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
+
+\begin{definition}
+	Definiamo la derivata direzionale di $f$ in $p$ lungo $v$ come \\ $(v(f))(p)=\frac \de {\de t} f(c(t))\restrict{t=0}$.
+\end{definition}
+
+Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, allora: \\
+$\frac \de{\de t} (f\circ c)(t)\restrict{t=0}=\Diff_{[(c^1)'(0),\ldots(c^n)'(0)]}(f\circ\varphi^{-1})(\varphi(p))$. Quindi non dipende dalla scelta di $c\in[c]_p$.
+
+Proviamo ad usare invece le ``traslazioni''.
+
+Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo la curva integrale come $c(t)$, allora la formula precedente diventa:
+\begin{equation*}
+	(X(p))(f)(p)=\lim_{h\to 0} \frac 1h [f(F_X(p,h))-f(p)]
+\end{equation*}
+e si chiama derivata di Lie di $f$ rispetto ad $X$.
+
+Questo approccio consente di estendere la definizione ai campi vettoriali, e non solo...
+
+Sia $F_X^h(p)=F_X(p,h)$ la sezione del flusso locale in $p$ generato da $X$. Allora $F=F_X^h$ è di classe $C^r$ ed esiste la mappa tangente $F_*(v)=TF(v)\in T_{F(q)}M$, per $q\in M$, $v\in T_qM$.
+
+Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+$ abbastanza piccolo, abbiamo due vettori tangenti in $p$: $Y(p)$ e $(TF_X^h)(Y(F_X^{-h}(p)))$.
+
+\begin{definition}
+	Definiamo la derivata di Lie in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{[Y(p)-((F_X^h)_*Y)(p)]}h \punto
+	\end{equation*}
+\end{definition}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item $\Lie_XY$ è lineare in $Y$ ($X,Y\in\chi(M)$)
+		\item $\Lie_X(fY)=(Xf)Y+f\Lie_XY$ ($X,Y\in\chi(M)$, $f\in C^\infty(M)$).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+	 \item Ovvia
+	 \item 
+	 \begin{equation*}
+	 \begin{split}
+	 &(\Lie_X(fY))(p)=\lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(F_X^h)_*(fY)(F_X^{-h}(p))\right]\\
+	 &=\lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(F_X^{-h}(p)) ((F_X^h)_*(Y(F_X^{-h}(p)))\right]\\
+	 &=\lim_{h\to 0}\frac 1h \left\{f(p)[Y(p)-(F_X^h)_*(Y(F_X^{-h}(p)))]+[f(p)-f(F_X^{-h}(p))](F_X^h)_*(Y(F_X^{-h}(p))\right\}\\
+	 &=f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
+	 \end{split}
+	 \end{equation*}
+	 \end{enumerate}
+
+\end{proof}
+
+
+
+
