@@ -1,0 +1,115 @@
+\chapter{Lezione 3 dicembre 2015}
+
+\section{Distribuzioni e varietà integrali}
+
+\begin{definition}
+	Una distribuzione $k$-dimensionale in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare tale che $p\mapsto \Delta_p$ sottospazio $k$-dimensionale di $T_pM$.
+	
+	In questo caso, mappa regolare significa che esistono $X_1,\ldots,X_k\in \chi(U)$ tali che per ogni $q\in U$ $X_i(q)\ne 0$ e tale che $\Delta_q=span\{X_1(q),\ldots,X_k(q)\}$ per ogni $q \in U$.
+\end{definition}
+
+\begin{definition}
+	Una \emph{varietà integrale} per $\Delta$ è una sottovarietà $N$ di $M$ tale che, se $i:N\to M$, allora $(Ti)(T_pN)=\Delta_p$ per ogni $p\in N$.
+\end{definition}
+
+\begin{example}
+	Se $k=1$ e se $X\in\chi(U)$, $X(p)\ne 0$ per $p\in U$. $\Delta_q=span \{X(q)\}$, $q\in\tilde U\subset\subset U$ è una distribuzione 1-dimensionale.
+	
+	Curve integrali di $X$ sono varietà integrali di $\Delta$.
+\end{example}
+
+Invece per $k>1$ le distribuzioni $k$-dimenzionali non sempre ammettono varietà integrali (tranne per $k=n$).
+
+\begin{example}
+	Sia $M=\R^3$ e $k=2$ e consideriamo la distribuzione $\Delta_p=span\{\DerParz{}{x}(p)+y\DerParz{}{z}(p),\DerParz{}{y}(p)\}$.
+	
+	Se $p_0=(x_0,y_0,z_0)$, $\Delta_{p_0}$ è il piano di equazione $\{z-z_0=y_0(x-x_0)\}$.
+	
+	Vogliamo mostrare che per questa distribuzione non esista una varietà integrale.
+	
+	Supponiamo per assurdo che esista una varietà integrale $N$. Possiamo supporre $0\in N$.
+	
+	Consideriamo la curva $\gamma_1(s)=(0,s,0)$, allora per ogni $s$ abbastanza piccolo $\dot\gamma_1(s)$ appartiene a $\Delta_{\gamma_1(s)}=T_{\gamma_1(s)}N$ e perciò $\gamma_1$ è una curva in $N$\footnote{Sottovarietà regolari sono gli zeri di funzioni regolari con gradiente non nullo sulla varietà, perciò $N=\{g=0\}$ con $\grad g(q)\ne 0$ per ogni $q\in N$.
+	
+	Se la velocità di una curva $\gamma$ sta nel tangente, allora $\frac\de{\de s}g(\gamma(s))=0$ (perché $T_pN=\{v\ : \ scalar(\grad g(p),v)=0\}$.}.
+	Consideriamo ora un punto $(0,y_0,0)$ con $\abs{y_0}$ abbastanza piccolo e la curva $\gamma_2(s)=(0,y_0,0)+s(1,0,y_0)$. Allora $\dot\gamma_2(s)\in\Delta_{\gamma_2(s)}=T_{\gamma_2(s)}N$.
+	
+	Di conseguenza $N$ dovrebbe essere localmente unione di rette. Consideriamo allora $\bar p=(1,0,0)$ e sia $\gamma_3(s)$ la curva che descrive $N\cap\{x=1\}$.
+	Si ha che $\gamma_3(s)=(1,s,s)$; perciò $\dot\gamma_3(0)$ ha componente $z$ diversa da 0 e di conseguenza $\gamma_3(0)\ne \Delta_{\gamma_3(0)}$.
+\end{example}
+
+Ora vogliamo studiare quando una distribuzione proviene da una varietà integrale.
+
+\subsection{Condizioni necessarie per l'esistenza di varietà integrali}
+
+Sia $\Delta$ una distribuzione $k$-dimensionale in $M$.
+
+\begin{definition}
+	Un campo vettoriale $X\in\chi(M)$ è detto appartenere a $\Delta$ se $X(p)\in\Delta_p$ per ogni $p\in M$.
+\end{definition}
+
+Sia $N$ varietà integrale per $\Delta$ e sia $i:N \to M$ l'inclusione.
+Se $X,Y\in\chi(M)$ appartengono a $\Delta$, possiamo definire campi vettoriali corrispondenti su $N$.
+
+\begin{lemma}\label{lemma:RestrizioneCampoVettoriale}
+	Sia $i:N\to M$ un'immersione e sia $X\in\chi(M)$ tale che $X(i(p))\in (Ti)(T_pN)$. Allora esiste $\bar X\in\chi(N)$ tale che $(Ti)\bar X (p) = X(i(p))$.
+\end{lemma}
+
+\begin{proof}
+	Ricordiamo che $(Ti)(p)$ è iniettivo per ogni $p\in N$ e perciò $(Ti)(p)$ è un isomorfismo tra $T_pN$ e $(Ti)(T_pN)$. Quindi per ogni $p\in N$ esiste un unico $\bar X(p)$ tale che $(Ti)(\bar X(p)) = X(p)$. Basta perciò verificare che $\bar X(p)$ è regolare in $p\in N$.
+	
+	È facile vedere che esistono carte $(V,\psi)$ e $(U,\varphi)$ in $N$ ed $M$ tali che $\varphi\circ i \circ\psi^{-1}(a^1,\ldots, a^k) = (a^1,\ldots,a^k,0,\ldots,0)$. Questo mostra che $(Ti)(\DerParz{}{x^j}\restrict{p}) = \DerParz{}{y^j}\restrict{i(p)}$ per $j=1,\ldots,k$.
+	Allora, se $X=\sum_{j=1}^k\alpha_j\DerParz{}{y^j}$ con $\alpha_j\in C^\infty$, $\bar X = \sum_{j=1}^n\beta^j\DerParz{}{x^j}$. Per linearità di $Ti$, $\beta^j=\alpha^j$ per $j=1,\ldots,k$, quindi $\beta^j$ è regolare in $x$ e $\bar X\in\chi(N)$.
+\end{proof}
+
+Siano $X,Y\in\chi(M)$ che appartengono a $\Delta$, allora per il \cref{lemma:RestrizioneCampoVettoriale} esistono $\bar X,\bar Y\in\chi(N)$ tale che $(Ti)\bar X=X$ e $(Ti)\bar Y=Y$.
+
+Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$.
+
+Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$.
+
+\begin{definition}
+	Una distribuzione $k$-dimensionale $\Delta$ è detta \emph{integrabile} se per ogni $X,Y\in\Delta$ vale che $[X,Y]\in\Delta$.
+\end{definition}
+
+\begin{proposition}
+	Se $X_1,\ldots,X_k\in\chi(M)$ generano $\Delta$ distribuzione $k$-dimensionale in un intorno di un certo punto $p\in M$, allora $\Delta$ è integrabile se e solo se $[X_i,X_j]$ è una combinazione lineare del tipo $\sum_{\alpha=1}^kc_{ij}^\alpha X_\alpha$, per ogni $i,j=1,\ldots,k$.
+\end{proposition}
+
+\begin{proof}
+	L'integrabilità implica l'esistenza dei $c_{ij}^\alpha$ facilmente.
+	
+	Viceversa, supponiamo che $[X_i,X_j]=\sum_{\alpha=1}^kc_{ij}^\alpha X_\alpha$. Siano $X,Y\in\Delta$, allora $X=\sum_{i=1}^ka^iX_i$ e $Y=\sum_{j=1}^kb^jY_j$ con $a^i,b^j\in C^\infty(M)$. Per linearità, basta verificare che $[a^iX_i,b^jY_j]\in\Delta$.
+	Per Leibniz e poiché $[X,Y] = \Lie_XY$, vale che \begin{equation*}
+		[a^iX_i,b^jY_j] = a^ib^j[X_i,X_j]+a^i(X_ib^j)Y_j+b^j(Y_ja^i)X_i\virgola %TODO: questa formula ha dei problemi
+	\end{equation*}
+	dove la parte a destra appartiene a $\Delta$.
+\end{proof}
+
+\subsection{Condizione sufficiente per l'esistenza di varietà integrali}
+
+\begin{theorem}[Frobenius]
+	Sia $\Delta$ una distribuzione (regolare) $k$-dimensionale in $M$. Allora, se $\Delta$ è integrabile, per ogni $p\in M$ esiste una carta $(U,\varphi)$ tale che $\varphi(p) = 0\in\R^n$, $\varphi(U)=\oo{-\varepsilon}{\varepsilon}^n$ e tale che per ogni $a^{k+1},\ldots,a^n$ con $\abs{a^j}<\varepsilon$ l'insieme $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ è una varietà integrale di $\Delta$.
+	
+	Inoltre localmente vicino a $p$ ogni varietà integrale di $\Delta$ è di questo tipo.
+\end{theorem}
+
+\begin{proof}
+	Possiamo supporre $M=\R^n$ e $\Delta_0=span\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $\T\pi\restrict{\Delta_0}:\Delta_0\to \T_0\R^k$ è un isomorfismo.
+	Per continuità $\T_\pi\restrict{\Delta_q}:\Delta_q\in\R^k$ è un isomorfismo per $q$ vicino a 0.
+	Quindi possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(\T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
+	Perciò $(\T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$.
+	Poiché $\T\pi$ è un isomorfismo, $\comm{X_i}{X_j}(q)=0$ per ogni $q$ vicino a 0.
+	Quindi esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$.
+	Notiamo ora che gli insiemi $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ sono varietà integrali di $\Delta$, poiché i vettori tangenti sono combinazioni di $\DerParz{}{x^i}$ per $i=1,\ldots,k$ e quindi di $X_i$ con $i=1,\ldots,k$.
+	
+	Sia ora $N$ una varietà integrale connessa di $\Delta$ vicino a 0 e sia $i:N\in U$ la sua inclusione. Consideriamo (nelle coordinate $(x^i)$ definite sopra) la funzione $x^m\circ i:N\to \R$ per $m=k+1,\ldots,n$. Per ogni $v\in T_qN$ vale $v(x^m\circ i) = (\T i)(v)(x^m)=0$, perché $\Delta_q$ è generata da $\DerParz{}{x^i}(q)$ per $i=1,\ldots,k$. Quindi, dato che $N$ è connessa, $x^m$ è costante su $N$ per $m=k+1,\ldots,n$.
+\end{proof}
+
+\begin{exercise} [Parcheggio]
+	Consideriamo un'auto $m$ in un parcheggio infinito. La posizione è descritta da coordinate $(x,y,\theta)$ con $x,y\in\R$, $\theta\in S^1$.
+	Supponiamo di poter sterzare solo tutto a sinistra o tutto a destra, in modo che l'auto descriva (in avanti o indietro) delle traiettorie circolari di curvatura $\pm 1$.
+	Dimostrare che partendo da $(x,y,\theta)=(0,0,0)$ si può arrivare arbitrariamente vicini a configurazioni qualsiasi muovendosi come sopra (con traiettorie spezzate).
+\end{exercise}
+
+
