@@ -1,31 +1,36 @@
 \chapter{Lezione 1 dicembre 2015}
 
-Sia $\phi:M\to N$ una mapp $C^r$ tra varietà. Sia $X\in\chi^r(M),Y\in \chi^r(N)$. Allora $(T\phi)X=Y$ se e solo se $\phi\circ F_X^t=F_Y^t\circ \phi$. In particolare, se $\phi$ è un diffeomorfismo, allora $F_Y^t=\phi\circ F_X^t\phi^{-1}$. Inoltre $(F_X^t)_*X=X$.
-
-\begin{proposition}
- Siano $X,Y\in\chi^r(M)$  siano $F_X^t,F_Y^t$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
- \begin{enumerate}
-  \item $[X,Y]=0$,
-  \item $(F_X^t)_*Y=Y$, 
-  \item $(F_Y^t)_*X=X$, 
-  \item $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$.
- \end{enumerate}
-
+\begin{proposition} \label{prop:EquivalenzaParentesiZero}
+	Siano $X,Y\in\chi^r(M)$ e siano $F_X^t,F_Y^t$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
+	\begin{enumerate}
+	\item $[X,Y]=0$; \label{EPZ:ParentesiZero}
+	\item $(F_X^t)_*Y=Y$; \label{EPZ:FlussoY}
+	\item $(F_Y^t)_*X=X$; \label{EPZ:FlussoX}
+	\item $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$. \label{EPZ:Commutazione}
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
- Abbiamo $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$ se e solo se $F_Y^S=F_X^t\circ F_Y^s\circ (F_X^t)^{-1}$. Per il lemma questo equivale a $Y=(F_X^t)_*Y$. Per il lemma questo equivale a $=(F_X^t)_*Y$. Quindi $4\iff 2$ e allo stesso modo $4\iff 3$. Se $(F_X^t)_*Y=Y$ allora $[X,Y]=\frac{d}{dt}|_{t=0}(F_X^t)_*Y=0$. Viceversa, se $[X,Y]=0$ allora $\Lie_XY=0$. \[\frac{d}{dt}(F_X^t)_*Y=\frac{d}{ds}F_X^{t+s}Y=(F_X^t)_*[X,Y]=0\]. Allora  $(F_X^t)_*Y$ è costante in $t$ e $(F_X^t)_*Y=Y$.
+	Abbiamo $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$ se e solo se $F_Y^s=F_X^t\circ F_Y^s\circ (F_X^t)^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(F_X^t)_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
+	
+	Se ora supponiamo $(F_X^t)_*Y=Y$, allora $[X,Y]=\frac{\de}{\de t}\restrict{t=0}(F_X^t)_*Y=0$. Viceversa, se $[X,Y]=0$ allora $\Lie_XY=0$, da cui
+	\begin{equation*}
+		\frac{\de}{\de t}(F_X^t)_*Y=\frac{\de}{\de s}F_X^{t+s}Y=(F_X^t)_*[X,Y]=0\punto
+	\end{equation*}
+	Perciò  $(F_X^t)_*Y$ è costante in $t$ ed è uguale a Y, perché $(F_X^0)_*Y=Y$.
 \end{proof}
 
-Abbiamo visto che se $X(p)\neq 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$, $Y(p)$ linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tal che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$? Se consideriamo il commutatore di $[\frac{\partial}{\partial x^1},\frac{\partial}{\partial x^2}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, \[[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}-=0.\]
+Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$, $Y(p)$ linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tal che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$? Se consideriamo il commutatore di $[\frac{\partial}{\partial x^1},\frac{\partial}{\partial x^2}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, \[[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}-=0.\]
 
 \begin{proposition}
- Siano $X_1,\dots X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $[X_\alpha,X_\beta]=0$ per ogni $\alpha,\beta=1,\dots ,k$ allora $\tilde{U}\subset\subset U$, $p\in \tilde{U}$, esistono coordinate $\tilde{U},x$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
+	Siano $X_1,\dots X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $[X_\alpha,X_\beta]=0$ per ogni $\alpha,\beta=1,\dots ,k$ allora $\tilde{U}\subset\subset U$, $p\in \tilde{U}$, esistono coordinate $\tilde{U},x$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
 \end{proposition}
 
 \begin{proof}
- Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e che in $X_\alpha(0)=\frac{\partial}{\partial Y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $F_{X_\alpha}^t$ il flusso generato da $X_\alpha$, e sia 
- \[\Psi(a^1,\dots, a^n={F_{X_1}}^{a_1}(\dots ({F_{X_k}}^a_k(0,\dots,0,a^{k+1},\dots, a^n).\]
+	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e che in $X_\alpha(0)=\frac{\partial}{\partial Y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $F_{X_\alpha}^t$ il flusso generato da $X_\alpha$, e sia 
+	\begin{equation*}
+		\Psi(a^1,\dots, a^n={F_{X_1}}^{a_1}(\dots ({F_{X_k}}^a_k(0,\dots,0,a^{k+1},\dots, a^n)\punto 
+	\end{equation*}
  
  $\Psi_*(\frac{\partial}{\partial a^{\beta}})=\frac{\partial}{\partial Y^\beta}|_0$ per ogni $\beta=k+1,\dots,n$.
  
