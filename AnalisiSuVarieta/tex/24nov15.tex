@@ -1,6 +1,6 @@
 \chapter{Lezione 24 novembre 2015}
 
-In coordinate sia $p\in M$ e $(U.\varphi)$ una carta, $p\in U$. Sia $(x^i)_{i=1,\ldots,n}$ il sistema di coordinate corrispondente.
+In coordinate: sia $p\in M$ e $(U,\varphi)$ una carta, $p\in U$. Sia $(x^i)_{i=1,\ldots,n}$ il sistema di coordinate corrispondente.
 
 Data $F=(F^1,\ldots,F^n):\tilde U \subset\subset U \to U$, abbiamo che $F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}(x)\frac\partial{\partial x^l}F(x)$.
 
@@ -11,7 +11,7 @@ Da cui
 	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
 \end{equation*}
 
-Se nelle coordinate $x^i$ indotte da $\varphi$, se $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
+Se nelle coordinate $x^i$ indotte da $\varphi$, $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
 \begin{equation*}
 	\Lie_XY=\sum_{j=1}^n\sum_{i=1}^n \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac\partial{\partial x^j}
 \end{equation*}
@@ -19,7 +19,7 @@ Questo campo vettoriale risulta essere il commutatore di $X,Y$.
 
 \section{Parentesi di Lie}
 \begin{definition}
-Dati $X,Y\in\chi^r(M)$, definiamo un campo vettoriale $[X,Y]\in\chi^r(M)$ tale che $[X,Y]=XY-YX$, che si chiama commutatore o parentesi di Lie.
+Dati $X,Y\in\chi^r(M)$, definiamo un campo vettoriale $[X,Y]\in\chi^{r-1}(M)$ tale che $[X,Y]=XY-YX$, che si chiama commutatore o parentesi di Lie.
 
 Intendiamo che per ogni $f:M\to\R$ regolare, $[X,Y](f)=X(Y(f))-Y(X(f))$.
 \end{definition}
@@ -30,7 +30,7 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 	= \sum_{j=1}^n \sum_{i=1}^n \left( Y^j(x) (\frac{\partial}{\partial x^j}X^i)\frac{\partial f}{\partial x^i} +Y^j(x)X^i(x)\frac{\partial^2 f}{\partial x^i\partial x^j} \right)
 \end{multline*}
 \begin{equation*}
-	(XY-YX)(f)=\sum_{i,j=1}^n\left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY
+	(XY-YX)(f)=\sum_{i,j=1}^n\left((X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i})\frac{\partial f}{\partial x^j} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY
 \end{equation*}
 
 \begin{remark}
@@ -46,7 +46,8 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 	\begin{enumerate}
 	 \item è bilineare; \label{PPL:bilineare}
 	 \item è antisimmetrica, cioè $[X,Y]=-[Y,X]$ per ogni $X,Y\in\chi(M)$; \label{PPL:antisimmetrica}
-	 \item (identità di Jacobi) per ogni $X,Y,X$ vale $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$. \label{PPL:SommaCiclica}
+	 \item (identità di Jacobi) per ogni $X,Y,Z$ vale: \\
+	 $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0$. \label{PPL:SommaCiclica}
 	\end{enumerate}
 \end{proposition}
 
@@ -70,7 +71,7 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 
 
 \begin{lemma}\label{lem:PushFunzioni}
-	Sotto le stesse ipotesi vale per $f\in C^\infty(M)$ che
+	Sia $\varphi:M\to N$ un diffeomorfismo e sia $X\in\chi(M)$, allora per $f\in C^\infty(M)$ vale che
 	\begin{equation*}
 		\Lie_{\varphi_*X}(f\circ \varphi^{-1})=\varphi_*(\Lie_Xf)\punto
 	\end{equation*}
@@ -87,7 +88,7 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 
 
 \begin{proposition}
-	Sia $\varphi:M\to N$ un diffeomorfismo e sia $X,Y\in\chi(M)$, allora $\Lie_X$ è naturale rispetto al push-forward, cioè
+	Sia $\varphi:M\to N$ un diffeomorfismo e siano $X,Y\in\chi(M)$, allora $\Lie_X$ è naturale rispetto al push-forward, cioè
 	\begin{equation*}
 		\Lie_{\varphi_*X}(\varphi_*Y)=\varphi_*(\Lie_XY)\virgola
 	\end{equation*}
@@ -113,9 +114,10 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 \end{proof}
 
 \begin{lemma}
-	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$; allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ F_X^t=F_Y^t\circ\varphi$.
+	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ F_X^t=F_Y^t\circ\varphi$.
 	
-	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che $F_Y^t=\varphi\circ F_X^t\circ \varphi^{-1}$.
+	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che \\
+	$F_Y^t=\varphi\circ F_X^t\circ \varphi^{-1}$.
 	
 	Inoltre $(F_X^t)_*X=X$ (dove i flussi sono definiti).
 \end{lemma}
@@ -129,7 +131,7 @@ In una carta $(U,\varphi)$, $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial 
 	\begin{align*}
 		&T\varphi\left(\frac\de{\de t}F_X^t(p)\right)=\left(\frac\de{\de t}F_Y^t\right)(\varphi(p))\\
 		&\implies (T\varphi\circ X\circ F_X^t)(p) = Y \circ F_Y^t \circ \varphi(p) = Y\circ \varphi \circ F_X^t(p) \\
-		&\implies T\varphi (X)=Y\circ \varphi\punto
+		&\implies (T\varphi) X=Y\circ \varphi\punto
 	\end{align*}
 	
 	Ora viceversa supponiamo che $(T\varphi)X=Y\circ\varphi$. Sia $c(t)=F_X(p,t)$ (curva integrale di $X$ che passa per $p$ al tempo 0), allora
