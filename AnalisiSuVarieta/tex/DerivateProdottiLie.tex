@@ -103,6 +103,8 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{enumerate}
 \end{remark}
 
+\section{Proprietà}
+
 \begin{proposition}\label{prop:ProprietaParentesiLie}
 	La parentesi di Lie soddisfa le seguenti proprietà:
 	\begin{enumerate}
@@ -204,3 +206,125 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	
 	Per dimostrare che $(F_X^t)_*(X)=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $F_X^s$ con $s$ fissato. Per la prima parta della proposizione $(F_X^t)_*(X)=X$ se e solo se $F_X^s\circ F_X^t=F_X^t\circ F_X^s$, ma questo è vero per la commutatività.
 \end{proof}
+
+
+\section{Commutazione di cambi vettoriali}
+
+\begin{proposition} \label{prop:EquivalenzaParentesiZero}
+	Siano $X,Y\in\chi^r(M)$ e siano $F_X^t,F_Y^t$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
+	\begin{enumerate}
+	\item $\comm{X}{Y}=0$; \label{EPZ:ParentesiZero}
+	\item $(F_X^t)_*Y=Y$; \label{EPZ:FlussoY}
+	\item $(F_Y^t)_*X=X$; \label{EPZ:FlussoX}
+	\item $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$. \label{EPZ:Commutazione}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Abbiamo $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$ se e solo se $F_Y^s=F_X^t\circ F_Y^s\circ (F_X^t)^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(F_X^t)_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
+	
+	Se ora supponiamo $(F_X^t)_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}\restrict{t=0}(F_X^t)_*Y=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
+	\begin{equation*}
+		\frac{\de}{\de t}(F_X^t)_*Y=\frac{\de}{\de s}F_X^{t+s}Y=(F_X^t)_*\comm{X}{Y}=0\punto
+	\end{equation*}
+	Perciò  $(F_X^t)_*Y$ è costante in $t$ ed è uguale a Y, perché $(F_X^0)_*Y=Y$.
+\end{proof}
+
+Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$ e $Y(p)$ è linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tale che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$. Se consideriamo il commutatore $\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, abbiamo che
+\begin{equation*}
+	\left[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}\right]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}-=0\punto
+\end{equation*}
+
+\begin{proposition}
+	Siano $X_1,\dots ,X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $\comm{X_\alpha}{X_\beta}=0$ per ogni $\alpha,\beta=1,\ldots ,k$, allora in $\tilde{U}\Subset U$, con $p\in \tilde{U}$, esistono coordinate $(\tilde{U},x)$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
+\end{proposition}
+
+\begin{proof}
+	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $F_{X_\alpha}^t$ il flusso generato da $X_\alpha$, e sia 
+	\begin{equation*}
+		\Psi(a^1,\dots, a^n)={F_{X_1}}^{a_1}({F_{X_2}}^{a_2}(\dots ({F_{X_k}}^{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
+	\end{equation*}
+	Vale allora che
+	\begin{equation*}
+		\Psi_*\left(\frac{\partial}{\partial a^\alpha}\restrict{0}\right) = 
+		\begin{cases}
+			\frac{\partial}{\partial y^\alpha}\restrict{0}, &\text{per $\alpha=k+1,\dots,n$}\\
+			\frac{\de}{\de t}\restrict{t=0}\left({F_{X_\alpha}}^t(0)\right) = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
+		\end{cases}
+	\end{equation*}
+	
+	Poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per $\alpha=1,\dots, k$ possiamo scrivere
+	\begin{equation*}
+		\Psi(a^1,\dots,a^n)={F_{X_\alpha}}^{a_\alpha}({F_{X_1}}^{a_1}(\dots (0\dots 0, a^{k+1},\dots a^n)))\virgola
+	\end{equation*}
+	da cui $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
+\end{proof}
+
+Il commutatore dà una misura della non commutazione di due campi vettoriali. In particolare seguiamo in ordine $X$, $Y$, $-X$ e $-Y$ ciascuno per tempo $h$, allora il commutatore ci darà una stima di quanto il punto in cui arriviamo è lontano dal punto di partenza.
+
+\begin{proposition}
+	Dato $p\in M$, sia $c(h)={F_Y}^{-h}{F_X}^{-h}{F_Y}^h{F_X}^h(p)$. Allora $c'(0)=0$.
+\end{proposition}
+
+\begin{proof}
+	Definiamo $\alpha_1(t,h)={F_Y}^t{F_X}^h(p)$, $\alpha_2(t,h)={F_X}^{-t}{F_Y}^h{F_X}^h$, $\alpha_3(t,h)={F_Y}^{-t}{F_X}^{-h}{F_Y}^h{F_X}^h$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
+	Inoltre data $f:M\to\R$ regolare, vale che  
+	$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
+	
+	Utilizzando quanto detto abbiamo
+	\begin{align*} 
+	(f\circ c)'(0)&=\frac{\de}{\de t}\restrict{t=0}f\circ\alpha_3(t,t) =\Diff_1(f\circ \alpha_3)(0,0)+\Diff_2(f\circ\alpha_3)(0,0) =
+	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\left[D_1(f\circ\alpha_2)(0,0)+\Diff_2(f\circ\alpha_2)(0,0) \right] =
+	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\Diff_1(f\circ\alpha_2)(0,0)+\Diff_1(f\circ\alpha_1)(0,0)+\Diff_2(f\circ\alpha_1)(0,0) =
+	\\ &=-(Yf)\circ\alpha_3(0,0)-(Xf)\circ\alpha_2(0,0)+(Yf)\circ\alpha_1(0,0)+(Xf)\circ\alpha_1(0,0) =
+	\\ &=0 \punto
+	\end{align*}
+\end{proof}
+
+\begin{proposition} \label{prop:DefinizioneDerSeconda}
+	Data $c:\oo{-\varepsilon}{\varepsilon}\to M$ tale che $c(0)=p$ e $c'(0)=0$, possiamo definire un vettore $c''(0)\in T_pM$ come $(c''(0))(f)\coloneqq(f\circ c)''(0)$.
+\end{proposition}
+
+\begin{exercise}
+	Usando la condizione $c'(0)=0$, verificare che $c''(0)$  così definito è una derivazione.
+\end{exercise}
+
+\begin{theorem}
+	Se $c(t)$ è nella \cref{prop:DefinizioneDerSeconda}, $c''(0)=2\comm{X}{Y}(p)$.
+\end{theorem}
+
+\begin{proof}
+	Ricordiamo che $(f\circ c)(t)=(f\circ\alpha_3)(t,t)$. Dunque 
+	\begin{equation*}
+		(f\circ c)''(0)=\Diff_{1,1}(f\circ\alpha_3)(0,0)+2\Diff_{2,1}(f\circ\alpha_3)(0,0)+\Diff_{2,2}(f\circ\alpha_3)(0,0)\punto
+	\end{equation*}
+	D'altra parte, abbiamo che
+	\begin{itemize}
+	 \item il primo termine equivale a
+	\begin{equation*}
+		\Diff_{1,1}(f\circ\alpha_3)(0,0)=\Diff_1(-Yf\circ\alpha_3)(0,0)=YYf(p)\puntovirgola
+	\end{equation*}
+	\item il secondo termine invece
+	\begin{align*}
+		\Diff_{2,1}(f\circ\alpha_3)(0,0) &= D_2(-Yf\circ\alpha_3)(0,0) = \left[\Diff_1(Yf\circ\alpha_2)+D_2(Yf\circ\alpha_2)\right](0,0)
+		\\ &= XYf(p)-\Diff_2(Yf\circ\alpha_2)(0,0)
+		\\ &= XYf(p)-[\Diff_1(Yf\circ\alpha_1)(0,0)+D_2(Yf\circ\alpha_1)(0,0)]
+		\\ &= XY(p)-YYf(p)-XYf(p) \puntovirgola
+	\end{align*}
+	\item analogamente si dimostra che per il terzo termine vale
+	\begin{equation*}
+		\Diff_{2,2}(f\circ\alpha_3)(0,0)=YYf(p)+2XYf(p)-2YXf(p) \punto
+	\end{equation*}
+	\end{itemize}
+	E sommando i tre contributi otteniamo proprio quanto voluto.
+\end{proof}
+
+\begin{exercise}
+	Sia $M$ compatta e $X,Y\in\chi^r(M)$, con $r\ge 2$. Siano ${F_X}^t,{F_Y}^t$ i flussi generati da $X$ e $Y$ (definiti globalmente). Dimostrare che se $\comm{X}{Y}=0$ allora ${F_{X+Y}}^t={F_X}^t\circ {F_Y}^t$.
+\end{exercise}
+
+\begin{exercise}
+	Sia $f:M\to \R$ regolare e sia $p\in M$ tale che $\Lie_Xf(p)=0$ per ogni $X\in\chi(M)$ (cioè $p$ è un punto critico di $f$). Dati $X_p,Y_p\in T_pM$, siano $\tilde{X},\tilde{Y}\in\chi(M)$ tali che $\tilde{X}(p)=X_p$ e $\tilde{Y}(p)=Y_p$ (è facile costruirne). Definiamo $H_f(X_p,Y_p)\coloneqq\tilde{X}(\tilde{Y}(f))(p)$.
+	
+	Mostrare che $H_f$ è ben definita (ovvero non dipende dalla scelta delle estensioni $\tilde{X},\tilde{Y}$) ed è simmetrica: $H_f(X_p,Y_p)=H_f(Y_p,X_p)$.
+\end{exercise}
