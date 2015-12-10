@@ -62,7 +62,7 @@ Se $U_\alpha\cap U_\beta\ne \emptyset$ otteniamo mappe di transizione $\tilde\va
 \end{example}
 
 \begin{example}
-	Consideriamo la sfera $S^2$ come unione di $U_1 = S^2\setminus \{S\}$ e $U_2 = S^2\setminus \{N\}$. Usando le coordinate stereografiche, su $U_1\cap U_2\cong \R^2\setminus\{0\}$ definiamo in coordinate polari $\tilde\varphi_{21}(r,\theta) = r^k (\cos(k\theta), -\sin(k\theta); \sin(k\theta), \cos(k\theta) )$ con $k\in\N$. %TODO: fare la matrice bene
+	Consideriamo la sfera $S^2$ come unione di $U_1 = S^2\setminus \{S\}$ e $U_2 = S^2\setminus \{N\}$. Usando le coordinate stereografiche, su $U_1\cap U_2\cong \R^2\setminus\{0\}$ definiamo in coordinate polari $\tilde\varphi_{21}(r,\theta) = r^k \left(\begin{matrix} \cos(k\theta)& -\sin(k\theta)\\ \sin(k\theta)& \cos(k\theta) \end{matrix}\right)$ con $k\in\N$.
 	
 	Questa costruzione definisce un fibrato di rango 2 su $S^2$.
 \end{example}
@@ -102,7 +102,12 @@ Se $U_\alpha\cap U_\beta\ne \emptyset$ otteniamo mappe di transizione $\tilde\va
 	Sia $f:E \to E'$ una mappa di fibrato. Allora valgono le seguenti proprietà:
 	\begin{enumerate}
 	 \item $f$ preserva la sezione nulla (cioè, in modo improprio, $f(B)\subseteq B'$);
-	 \item $f$ induce univocamente una mappa $f_B:B \to B'$ tale che il seguente diagramma commuta: $E \to con f E'$ %TODO: fare il diagramma (si può fare bene in latex)
+	 \item $f$ induce univocamente una mappa $f_B:B \to B'$ tale che il seguente diagramma commuta: 
+	 $\begin{CD}
+	 	E	@>f>>	E' \\
+	 	@VV\pi V	@VV\pi' V \\
+	 	B	@> f_B >> B'
+	 \end{CD}\ \ $ %TODO: qui ho messo due spazi a mano che non sono granché belli
 	 (cioè $\pi'\circ f = f_B \circ \pi$);
 	 \item Una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
 	\end{enumerate}
