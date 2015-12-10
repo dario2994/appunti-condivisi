@@ -5,7 +5,7 @@
 \begin{definition}
 	Una distribuzione $k$-dimensionale in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare  $p\mapsto \Delta_p$ tale che $\forall p, \Delta_p$ è un sottospazio $k$-dimensionale di $T_pM$.
 	
-	In questo caso, mappa regolare significa che esistono $X_1,\ldots,X_k\in \chi(U)$ tali che per ogni $q\in U$ $X_i(q)\ne 0$ e $\Delta_q=span\{X_1(q),\ldots,X_k(q)\}$.
+	In questo caso, mappa regolare significa che esistono $X_1,\ldots,X_k\in \chi(U)$ tali che per ogni $q\in U$ $X_i(q)\ne 0$ e $\Delta_q=\spanrm\{X_1(q),\ldots,X_k(q)\}$.
 \end{definition}
 
 \begin{definition}
@@ -14,7 +14,7 @@
 \end{definition}
 
 \begin{example}
-	Se $k=1$ e se $X\in\chi(U)$, $X(p)\ne 0$ per $p\in U$. $\Delta_q=span \{X(q)\}$, $q\in\tilde U\subset\subset U$ è una distribuzione 1-dimensionale.
+	Se $k=1$ e se $X\in\chi(U)$, $X(p)\ne 0$ per $p\in U$. $\Delta_q=\spanrm \{X(q)\}$, $q\in\tilde U\subset\subset U$ è una distribuzione 1-dimensionale.
 	
 	Curve integrali di $X$ sono varietà integrali di $\Delta$.
 \end{example}
@@ -22,7 +22,7 @@
 Invece per $k>1$ le distribuzioni $k$-dimensionali non sempre ammettono varietà integrali (tranne per $k=n$).
 
 \begin{example}
-	Sia $M=\R^3$ e $k=2$ e consideriamo la distribuzione $\Delta_p=span\{\DerParz{}{x}(p)+y\DerParz{}{z}(p),\DerParz{}{y}(p)\}$.
+	Sia $M=\R^3$ e $k=2$ e consideriamo la distribuzione $\Delta_p=\spanrm\{\DerParz{}{x}(p)+y\DerParz{}{z}(p),\DerParz{}{y}(p)\}$.
 	
 	Se $p_0=(x_0,y_0,z_0)$, $\Delta_{p_0}$ è il piano di equazione $\{z-z_0=y_0(x-x_0)\}$.
 	
@@ -100,7 +100,7 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 \end{theorem}
 
 \begin{proof}
-	Possiamo supporre $M=\R^n$ e $\Delta_0=span\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $\T\pi\restrict{\Delta_0}:\Delta_0\to \T_0\R^k\cong \R^k$ è un isomorfismo.
+	Possiamo supporre $M=\R^n$ e $\Delta_0=\spanrm\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $\T\pi\restrict{\Delta_0}:\Delta_0\to \T_0\R^k\cong \R^k$ è un isomorfismo.
 	Per continuità $\T_\pi\restrict{\Delta_q}:\Delta_q\to\R^k $ è un isomorfismo per $q$ vicino a 0.
 	Quindi possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(\T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
 	Perciò $(\T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$.
