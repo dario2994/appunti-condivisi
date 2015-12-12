@@ -195,7 +195,7 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
 	Valgono le seguenti proprietà:
 	\begin{enumerate}
 	\item Se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$;
-	\item $T(\mathbb I_M)=\mathbb I_{T_M}$;
+	\item $T(\id_M)=\id_{T_M}$;
 	\item Se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)^{-1}=T(f^{-1})$.
 	\end{enumerate}
 \end{theorem}
@@ -250,7 +250,7 @@ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
 \begin{proof}
 	Passando in carta si può supporre $M=\R^m$, $N=\R^n$ e $x=0$. Allora, dato che $Tf=\Diff f$, si ha che
 	\begin{equation*}
-	f(p)-f(q)=\int_0^1\Diff f(q+s(p-q))[p-q]\de s=(\Diff f(0)+o(1))[p-q]\virgola
+	f(p)-f(q)=\int_0^1\Diff f(q+s(p-q))[p-q]\de s=(\Diff f(0)+\smallO(1))[p-q]\virgola
 	\end{equation*}
 	per $p,q\to 0$. Quindi $f(p)\ne f(q)$ per $p,q$ piccoli.
 \end{proof}
@@ -259,6 +259,6 @@ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
 	\begin{enumerate}
 	\item Si dimostri che $U(n)$ (il gruppo delle trasformazioni unitarie di $\C^n$) è una sottovarietà non compatta di $\mathscr L(\C^n,\C^n)$.
 	\item Si dimostri che $\R \mathbb P^1$ è una sottovarietà di $\R \mathbb P^2$.
-	\item Si dimostri che $P=\{ Q\in \mathrm O(3)\ :\ \det Q=1,\; Q=Q^T\}\setminus\{\mathbb I\}$ è una sottovarietà compatta di $\mathrm O(3)$. Si descrivano inoltre gli elementi di $P$ in termini geometrici.
+	\item Si dimostri che $P=\{ Q\in \mathrm O(3)\ :\ \det Q=1,\; Q=Q^T\}\setminus\{\id\}$ è una sottovarietà compatta di $\mathrm O(3)$. Si descrivano inoltre gli elementi di $P$ in termini geometrici.
 	\end{enumerate}
 \end{exercise}

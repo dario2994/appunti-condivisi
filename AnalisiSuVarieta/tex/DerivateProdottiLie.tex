@@ -26,12 +26,12 @@ e si chiama derivata di Lie di $f$ rispetto ad $X$.
 
 Questo approccio consente di estendere la definizione ai campi vettoriali, e non solo...
 
-Sia $F_X^h(p)=F_X(p,h)$ la sezione del flusso locale in $p$ generato da $X$. Allora $F=F_X^h$ è di classe $C^r$ ed esiste la mappa tangente $F_*(v)=TF(v)\in T_{F(q)}M$, per $q\in M$, $v\in T_qM$.
+Sia $\Fl{X}{h}(p)=F_X(p,h)$ la sezione del flusso locale in $p$ generato da $X$. Allora $F=\Fl{X}{h}$ è di classe $C^r$ ed esiste la mappa tangente $F_*(v)=TF(v)\in T_{F(q)}M$, per $q\in M$, $v\in T_qM$.
 
-Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+$ abbastanza piccolo, abbiamo due vettori tangenti in $p$: $Y(p)$ e $(TF_X^h)(Y(F_X^{-h}(p)))$.
+Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+$ abbastanza piccolo, abbiamo due vettori tangenti in $p$: $Y(p)$ e $(T\Fl{X}{h})(Y(\Fl{X}{-h}(p)))$.
 
 \begin{definition}
-	Definiamo la derivata di Lie in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{[Y(p)-((F_X^h)_*Y)(p)]}h \punto
+	Definiamo la derivata di Lie in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{Y(p)-((\Fl{X}{h})_*Y)(p)}h \punto
 	\end{equation*}
 \end{definition}
 
@@ -48,9 +48,9 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \item [\ref{DLP:Prodotto}] Vale la seguente catena di uguaglianze
 	 \begin{equation*}
 	 \begin{split}
-	 &(\Lie_X(fY))(p)=\lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(F_X^h)_*(fY)(F_X^{-h}(p))\right]\\
-	 &=\lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(F_X^{-h}(p)) ((F_X^h)_*(Y(F_X^{-h}(p)))\right]\\
-	 &=\lim_{h\to 0}\frac 1h \left\{f(p)[Y(p)-(F_X^h)_*(Y(F_X^{-h}(p)))]+[f(p)-f(F_X^{-h}(p))](F_X^h)_*(Y(F_X^{-h}(p))\right\}\\
+	 &(\Lie_X(fY))(p)=\lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]\\
+	 &=\lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))\right]\\
+	 &=\lim_{h\to 0}\frac 1h \left\{f(p)[Y(p)-(\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))]+[f(p)-f(\Fl{X}{-h}(p))](\Fl{X}{h})_*(Y(\Fl{X}{-h}(p))\right\}\\
 	 &=f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
 	 \end{split}
 	 \end{equation*}
@@ -65,7 +65,7 @@ Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset
 	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}(x)\frac\partial{\partial x^l}F(x)\punto
 \end{equation*}
 
-Ci interessa $F=F_X^h$ con $h$ piccolo. Abbiamo che $F(x)=x+hX(x)+\smallO(h)$, dove $\frac{\smallO(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
+Ci interessa $F=\Fl{X}{h}$ con $h$ piccolo. Abbiamo che $F(x)=x+hX(x)+\smallO(h)$, dove $\frac{\smallO(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
 Allora
 \begin{equation*}F_*\frac\partial{\partial x^j}(x)=h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+\smallO(h))+\smallO(h)\virgola\end{equation*}
 da cui
@@ -88,18 +88,18 @@ Intendiamo che per ogni $f:M\to\R$ regolare, $\comm{X}{Y}(f)=X(Y(f))-Y(X(f))$.
 In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i}$, allora
 \begin{multline*}
 	Y(X(f))=\sum_{j=1}^nY^j(x)\frac\partial{\partial x^j}\left( \sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i} \right)\\
-	= \sum_{j=1}^n \sum_{i=1}^n \left( Y^j(x) (\frac{\partial}{\partial x^j}X^i)\frac{\partial f}{\partial x^i} +Y^j(x)X^i(x)\frac{\partial^2 f}{\partial x^i\partial x^j} \right)
+	= \sum_{j=1}^n \sum_{i=1}^n \left( Y^j(x) \left(\frac{\partial}{\partial x^j}X^i\right)\frac{\partial f}{\partial x^i} +Y^j(x)X^i(x)\frac{\partial^2 f}{\partial x^i\partial x^j} \right)
 \end{multline*}
 \begin{multline*}
 	\implies \comm{X}{Y} = (XY-YX)(f)=\\
-	\sum_{i,j=1}^n\left((X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i})\frac{\partial f}{\partial x^j} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY \punto
+	\sum_{i,j=1}^n\left( \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial f}{\partial x^j} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY \punto
 \end{multline*}
 
 \begin{remark}
 	C'è un modo intrinseco per vedere che $\Lie_XY=\comm{X}{Y}$:
 	\begin{enumerate}
-	 \item $f\in C^\infty$ e $X\in\chi(M)$, allora $\frac \de{\de t} ((F_X^t)_*f)=(F_X^t)_*\Lie_Xf$;
-	 \item $\frac\de{\de t} (F_X^t)_*Y=(F_X^t)_*(\Lie_XY)$.
+	 \item $f\in C^\infty$ e $X\in\chi(M)$, allora $\frac \de{\de t} ((\Fl{X}{t})_*f)=(\Fl{X}{t})_*\Lie_Xf$;
+	 \item $\frac\de{\de t} (\Fl{X}{t})_*Y=(\Fl{X}{t})_*(\Lie_XY)$.
 	\end{enumerate}
 \end{remark}
 
@@ -178,23 +178,23 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proof}
 
 \begin{lemma} \label{lemma:FlussiEMappe}
-	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ F_X^t=F_Y^t\circ\varphi$.
+	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ \Fl{X}{t}=\Fl{Y}{t}\circ\varphi$.
 	
 	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che \\
-	$F_Y^t=\varphi\circ F_X^t\circ \varphi^{-1}$.
+	$\Fl{Y}{t}=\varphi\circ \Fl{X}{t}\circ \varphi^{-1}$.
 	
-	Inoltre $(F_X^t)_*X=X$ (dove i flussi sono definiti).
+	Inoltre $(\Fl{X}{t})_*X=X$ (dove i flussi sono definiti).
 \end{lemma}
 
 \begin{proof}
-	Supponiamo che $\varphi\circ F_X^t=F_Y^t\circ \varphi$. Sia $p\in M$, allora
+	Supponiamo che $\varphi\circ \Fl{X}{t}=\Fl{Y}{t}\circ \varphi$. Sia $p\in M$, allora
 	\begin{equation*}
-		\varphi\circ F_X^t(p)=F_Y^t(\varphi(p))\punto
+		\varphi\circ \Fl{X}{t}(p)=\Fl{Y}{t}(\varphi(p))\punto
 	\end{equation*}
 	Derivando in $t$ otteniamo perciò
 	\begin{align*}
-		&T\varphi\left(\frac\de{\de t}F_X^t(p)\right)=\left(\frac\de{\de t}F_Y^t\right)(\varphi(p))\\
-		&\implies (T\varphi\circ X\circ F_X^t)(p) = Y \circ F_Y^t \circ \varphi(p) = Y\circ \varphi \circ F_X^t(p) \\
+		&T\varphi\left(\frac\de{\de t}\Fl{X}{t}(p)\right)=\left(\frac\de{\de t}\Fl{Y}{t}\right)(\varphi(p))\\
+		&\implies (T\varphi\circ X\circ \Fl{X}{t})(p) = Y \circ \Fl{Y}{t} \circ \varphi(p) = Y\circ \varphi \circ \Fl{X}{t}(p) \\
 		&\implies (T\varphi) X=Y\circ \varphi\punto
 	\end{align*}
 	
@@ -204,30 +204,30 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{equation*}
 	Perciò $\varphi\circ c$ è una curva integrale per $Y$ che passa per $\varphi(p)$ al tempo 0. Di conseguenza, per unicità, $(\varphi \circ c)(t) = F_Y(\varphi(p),t)$.
 	
-	Per dimostrare che $(F_X^t)_*(X)=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $F_X^s$ con $s$ fissato. Per la prima parta della proposizione $(F_X^t)_*(X)=X$ se e solo se $F_X^s\circ F_X^t=F_X^t\circ F_X^s$, ma questo è vero per la commutatività.
+	Per dimostrare che $(\Fl{X}{t})_*(X)=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $\Fl{X}{s}$ con $s$ fissato. Per la prima parta della proposizione $(\Fl{X}{t})_*(X)=X$ se e solo se $\Fl{X}{s}\circ \Fl{X}{t}=\Fl{X}{t}\circ \Fl{X}{s}$, ma questo è vero per la commutatività.
 \end{proof}
 
 
 \section{Commutazione di cambi vettoriali}
 
 \begin{proposition} \label{prop:EquivalenzaParentesiZero}
-	Siano $X,Y\in\chi^r(M)$ e siano $F_X^t,F_Y^t$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
+	Siano $X,Y\in\chi^r(M)$ e siano $\Fl{X}{t},\Fl{Y}{t}$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
 	\begin{enumerate}
 	\item $\comm{X}{Y}=0$; \label{EPZ:ParentesiZero}
-	\item $(F_X^t)_*Y=Y$; \label{EPZ:FlussoY}
-	\item $(F_Y^t)_*X=X$; \label{EPZ:FlussoX}
-	\item $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$. \label{EPZ:Commutazione}
+	\item $(\Fl{X}{t})_*Y=Y$; \label{EPZ:FlussoY}
+	\item $(\Fl{Y}{t})_*X=X$; \label{EPZ:FlussoX}
+	\item $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$. \label{EPZ:Commutazione}
 	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	Abbiamo $F_X^t\circ F_Y^s=F_Y^s\circ F_X^t$ se e solo se $F_Y^s=F_X^t\circ F_Y^s\circ (F_X^t)^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(F_X^t)_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
+	Abbiamo $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ se e solo se $\Fl{Y}{s}=\Fl{X}{t}\circ \Fl{Y}{s}\circ (\Fl{X}{t})^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
 	
-	Se ora supponiamo $(F_X^t)_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}\restrict{t=0}(F_X^t)_*Y=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
+	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}\restrict{t=0}(\Fl{X}{t})_*Y=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
 	\begin{equation*}
-		\frac{\de}{\de t}(F_X^t)_*Y=\frac{\de}{\de s}F_X^{t+s}Y=(F_X^t)_*\comm{X}{Y}=0\punto
+		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}\Fl{X}{t+s}Y=(\Fl{X}{t})_*\comm{X}{Y}=0\punto
 	\end{equation*}
-	Perciò  $(F_X^t)_*Y$ è costante in $t$ ed è uguale a Y, perché $(F_X^0)_*Y=Y$.
+	Perciò  $(\Fl{X}{t})_*Y$ è costante in $t$ ed è uguale a Y, perché $(\Fl{X}{0})_*Y=Y$.
 \end{proof}
 
 Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$ e $Y(p)$ è linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tale che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$. Se consideriamo il commutatore $\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, abbiamo che
@@ -263,11 +263,11 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 Il commutatore dà una misura della non commutazione di due campi vettoriali. In particolare seguiamo in ordine $X$, $Y$, $-X$ e $-Y$ ciascuno per tempo $h$, allora il commutatore ci darà una stima di quanto il punto in cui arriviamo è lontano dal punto di partenza.
 
 \begin{proposition}
-	Dato $p\in M$, sia $c(h)={F_Y}^{-h}{F_X}^{-h}{F_Y}^h{F_X}^h(p)$. Allora $c'(0)=0$.
+	Dato $p\in M$, sia $c(h)=\Fl{Y}{-h}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}(p)$. Allora $c'(0)=0$.
 \end{proposition}
 
 \begin{proof}
-	Definiamo $\alpha_1(t,h)={F_Y}^t{F_X}^h(p)$, $\alpha_2(t,h)={F_X}^{-t}{F_Y}^h{F_X}^h$, $\alpha_3(t,h)={F_Y}^{-t}{F_X}^{-h}{F_Y}^h{F_X}^h$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
+	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$, $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
 	Inoltre data $f:M\to\R$ regolare, vale che  
 	$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
 	
