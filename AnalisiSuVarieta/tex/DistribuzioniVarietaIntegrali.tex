@@ -17,7 +17,7 @@ Se $X(p)\neq 0$ e se in $U$ intorno di $p$, $\Delta_p=\spanrm\{X(p)\}$, la traie
 
 
 \begin{definition}
-	Una distribuzione $k$-dimensionale in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare  $p\mapsto \Delta_p$ tale che $\forall p, \Delta_p$ è un sottospazio $k$-dimensionale di $T_pM$.
+	Una distribuzione $k$-dimensionale in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare  $p\mapsto \Delta_p$ tale che per ogni $p$, $\Delta_p$ è un sottospazio $k$-dimensionale di $T_pM$.
 	
 	In questo caso, mappa regolare significa che esistono $X_1,\ldots,X_k\in \chi(U)$ tali che per ogni $q\in U$ $X_i(q)\ne 0$ e $\Delta_q=\spanrm\{X_1(q),\ldots,X_k(q)\}$.
 \end{definition}
@@ -66,23 +66,23 @@ Sia $N$ una varietà integrale per $\Delta$ e sia $i:N \to M$ l'inclusione.
 Se $X,Y\in\chi(M)$ appartengono a $\Delta$, possiamo definire campi vettoriali corrispondenti su $N$.
 
 \begin{lemma}\label{lemma:RestrizioneCampoVettoriale}
-	Sia $i:N\to M$ un'immersione e sia $X\in\chi(M)$ tale che \\
+	Sia $i:N\to M$ un'immersione e sia $X\in\chi(M)$ tale che
 	$X(i(p))\in (Ti)(T_pN)$. Allora esiste $\bar X\in\chi(N)$ tale che $(Ti)\bar X (p) = X(i(p))$.
 \end{lemma}
 
 \begin{proof}
 	Ricordiamo che $(Ti)(p)$ è iniettivo per ogni $p\in N$ e perciò $(Ti)(p)$ è un isomorfismo tra $T_pN$ e $(Ti)(T_pN)$. Quindi per ogni $p\in N$ esiste un unico $\bar X(p)$ tale che $(Ti)(\bar X(p)) = X(p)$. Basta perciò verificare che $\bar X(p)$ è regolare in $p\in N$.
 	
-	È facile vedere che esistono carte $(V,\psi)$ e $(U,\varphi)$ in $N$ ed $M$ tali che \\
-	$\varphi\circ i \circ\psi^{-1}(a^1,\ldots, a^k) = (a^1,\ldots,a^k,0,\ldots,0)$. Questo mostra che \\
-	$(Ti)(\DerParz{}{x^j}\restrict{p}) = \DerParz{}{y^j}\restrict{i(p)}$ per $j=1,\ldots,k$.
+	È facile vedere che esistono carte $(V,\psi)$ e $(U,\varphi)$ in $N$ ed $M$ tali che
+	\begin{equation*}
+	\varphi\circ i \circ\psi^{-1}(a^1,\ldots, a^k) = (a^1,\ldots,a^k,0,\ldots,0)\punto
+	\end{equation*}
+	Questo mostra che $(Ti)(\DerParz{}{x^j}\restrict{p}) = \DerParz{}{y^j}\restrict{i(p)}$ per $j=1,\ldots,k$.
 	Allora, se $X=\sum_{j=1}^k\alpha_j\DerParz{}{y^j}$ con $\alpha_j\in C^\infty$, $\bar X = \sum_{j=1}^n\beta^j\DerParz{}{x^j}$. Per linearità di $Ti$, $\beta^j=\alpha^j$ per $j=1,\ldots,k$, quindi $\beta^j$ è regolare in $x$ e $\bar X\in\chi(N)$.
 \end{proof}
 
 Siano $X,Y\in\chi(M)$ che appartengono a $\Delta$, allora per il \cref{lemma:RestrizioneCampoVettoriale} esistono $\bar X,\bar Y\in\chi(N)$ tale che $(Ti)\bar X=X$ e $(Ti)\bar Y=Y$.
-
 Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$.
-
 Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$.
 
 \begin{definition}
@@ -106,7 +106,7 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 \section{Teorema di Frobenius}
 
 \begin{theorem}[Frobenius]
-	Sia $\Delta$ una distribuzione (regolare) $k$-dimensionale in $M$. Allora, se $\Delta$ è integrabile, per ogni $p\in M$ esiste una carta $(U,\varphi)$ tale che \\
+	Sia $\Delta$ una distribuzione (regolare) $k$-dimensionale in $M$. Allora, se $\Delta$ è integrabile, per ogni $p\in M$ esiste una carta $(U,\varphi)$ tale che
 	$\varphi(p) = 0\in\R^n$, $\varphi(U)=\oo{-\varepsilon}{\varepsilon}^n$ e tale che per ogni $a^{k+1},\ldots,a^n$ con $\abs{a^j}<\varepsilon$ l'insieme $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ è una varietà integrale di $\Delta$.
 	
 	Inoltre, localmente vicino a $p$, ogni varietà integrale di $\Delta$ è di questo tipo.
@@ -118,7 +118,7 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 	Quindi possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(\T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
 	Perciò $(\T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$.
 	Poiché $\T\pi$ è un isomorfismo, $\comm{X_i}{X_j}(q)=0$ per ogni $q$ vicino a 0 e per ogni $i,j=1,...k$.
-	Quindi esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$. \\
+	Quindi esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$.
 	Notiamo ora che gli insiemi $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ sono varietà integrali di $\Delta$, poiché i vettori tangenti sono combinazioni di $\DerParz{}{x^i}$ per $i=1,\ldots,k$ e quindi di $X_i$ con $i=1,\ldots,k$.
 	
 	Sia ora $N$ una varietà integrale connessa di $\Delta$ vicino a 0 e sia $i:N\to U$ la sua inclusione. Consideriamo (nelle coordinate $(x^i)$ definite sopra) la funzione $x^m\circ i:N\to \R$ per $m=k+1,\ldots,n$. Per ogni $v\in T_qN$ vale $v(x^m\circ i) = (\T i)(v)(x^m)=0$, perché $\Delta_q$ è generata da $\DerParz{}{x^i}(q)$ per $i=1,\ldots,k$. Quindi, dato che $N$ è connessa, $x^m$ è costante su $N$ per $m=k+1,\ldots,n$.
