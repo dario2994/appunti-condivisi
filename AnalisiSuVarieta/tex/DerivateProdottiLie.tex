@@ -46,12 +46,12 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	\begin{description}
 	 \item [\ref{DLP:Lineare}] Ovvia.
 	 \item [\ref{DLP:Prodotto}] Vale la seguente catena di uguaglianze
-	 \begin{equation*}
+	 \begin{equation*} %TODO: sistemare questa equazione
 	 \begin{split}
-	 &(\Lie_X(fY))(p)=\lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]\\
-	 &=\lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))\right]\\
-	 &=\lim_{h\to 0}\frac 1h \left\{f(p)[Y(p)-(\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))]+[f(p)-f(\Fl{X}{-h}(p))](\Fl{X}{h})_*(Y(\Fl{X}{-h}(p))\right\}\\
-	 &=f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
+	 (\Lie_X(fY))(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]\\
+	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))\right]\\
+	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-(\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))]\\ &+[f(p)-f(\Fl{X}{-h}(p))](\Fl{X}{h})_*(Y(\Fl{X}{-h}(p))\}\\
+	 = & f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
 	 \end{split}
 	 \end{equation*}
 	 \end{description}
@@ -240,22 +240,22 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 \end{proposition}
 
 \begin{proof}
-	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $F_{X_\alpha}^t$ il flusso generato da $X_\alpha$, e sia 
+	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$, e sia 
 	\begin{equation*}
-		\Psi(a^1,\dots, a^n)={F_{X_1}}^{a_1}({F_{X_2}}^{a_2}(\dots ({F_{X_k}}^{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
+		\Psi(a^1,\dots, a^n)=\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
 	\end{equation*}
 	Vale allora che
 	\begin{equation*}
 		\Psi_*\left(\frac{\partial}{\partial a^\alpha}\restrict{0}\right) = 
 		\begin{cases}
 			\frac{\partial}{\partial y^\alpha}\restrict{0}, &\text{per $\alpha=k+1,\dots,n$}\\
-			\frac{\de}{\de t}\restrict{t=0}\left({F_{X_\alpha}}^t(0)\right) = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
+			\frac{\de}{\de t}\restrict{t=0}\left(\Fl{X_\alpha}{t}(0)\right) = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
 		\end{cases}
 	\end{equation*}
 	
 	Poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per $\alpha=1,\dots, k$ possiamo scrivere
 	\begin{equation*}
-		\Psi(a^1,\dots,a^n)={F_{X_\alpha}}^{a_\alpha}({F_{X_1}}^{a_1}(\dots (0\dots 0, a^{k+1},\dots a^n)))\virgola
+		\Psi(a^1,\dots,a^n)=\Fl{X_\alpha}{a_\alpha}(\Fl{X_1}{a_1}(\dots (0\dots 0, a^{k+1},\dots a^n)))\virgola
 	\end{equation*}
 	da cui $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
 \end{proof}
@@ -267,7 +267,7 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{proposition}
 
 \begin{proof}
-	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$, $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
+	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
 	Inoltre data $f:M\to\R$ regolare, vale che  
 	$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
 	
@@ -320,7 +320,7 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{proof}
 
 \begin{exercise}
-	Sia $M$ compatta e $X,Y\in\chi^r(M)$, con $r\ge 2$. Siano ${F_X}^t,{F_Y}^t$ i flussi generati da $X$ e $Y$ (definiti globalmente). Dimostrare che se $\comm{X}{Y}=0$ allora ${F_{X+Y}}^t={F_X}^t\circ {F_Y}^t$.
+	Sia $M$ compatta e $X,Y\in\chi^r(M)$, con $r\ge 2$. Siano $\Fl Xt,\Fl Yt$ i flussi generati da $X$ e $Y$ (definiti globalmente). Dimostrare che se $\comm{X}{Y}=0$ allora $\Fl{X+Y}t=\Fl Xt\circ \Fl Yt$.
 \end{exercise}
 
 \begin{exercise}
