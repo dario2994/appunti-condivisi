@@ -11,26 +11,27 @@
  Il modello di riferimento sono le varietà immerse in $\R^m$, ma si può dare
  una nozione intrinseca di varietà.
  
- \begin{definition}
- Una spazio topologico $M$ è detto localmente euclideo di dimensione $n\in\N$ se è di Hausdorff ed è localmente omeomorfo ad un aperto di $\R^n$.
+ \begin{definition} \index{spazio!localmente euclideo}
+ Una spazio topologico $M$ è detto \emph{localmente euclideo} di dimensione $n\in\N$ se è di Hausdorff ed è localmente omeomorfo ad un aperto di $\R^n$.
  \end{definition}
  
- \begin{definition}
+ \begin{definition} \index{carta} \index{funzioni coordinate} \index{atlante}
  Se $U$ è un aperto di $M$ e $\varphi:U\to \varphi(U)\subseteq \R^n$
- è un omeomorfismo, la coppia $(U, \varphi)$ è detto carta, o sistema di coordinate.
- Le componenti di $\varphi$ si dicono funzioni coordinate. Una famiglia di carte
- che ricopre $M$ è detta atlante.
+ è un omeomorfismo, la coppia $(U, \varphi)$ è detto \emph{carta}, o sistema di coordinate.
+ Le componenti di $\varphi$ si dicono \emph{funzioni coordinate}. Una famiglia di carte
+ che ricopre $M$ è detta \emph{atlante}.
  \end{definition}
  
+ \index{cambio di carta}
  Se $(U_1, \varphi_1)$ e $(U_2, \varphi_2)$ sono carte, $\varphi_2\circ\varphi_1^{-1}:\varphi_1(U_1\cap U_2)\to\varphi_2(U_1\cap U_2)$
  è un omeomorfismo tra aperti di $\R^n$, detto \emph{cambio di carta} o \emph{transizione}.
  Per poter fare uso degli strumenti del calcolo differenziale, si considera un insieme
  di carte tale che i cambi di carta siano differenziabili.
  
- \begin{definition}
+ \begin{definition} \index{struttura differenziabile}
  Una \emph{struttura differenziabile} di classe $C^k$ su uno
- spazio localmente euclideo è un atlante $\mathcal F$ tale che tutti i cambi di carta siano
- di classe $C^k$, e massimale rispetto all'inclusione.
+ spazio localmente euclideo è un atlante $\mathcal F$ massimale rispetto all'inclusione e tale che tutti i cambi di carta siano
+ di classe $C^k$.
  \end{definition}
  
  \begin{remark}
@@ -38,8 +39,8 @@
   formata da tutte le carte con transizioni di classe $C^k$ rispetto ad $\mathcal F$.
  \end{remark}
  
- \begin{definition}
-  Una varietà differenziabile $n$-dimensionale di classe $C^k$ è una coppia $(M, \mathcal F)$ tale che $M$ sia uno spazio topologico localmente euclideo a base numerabile ed $\mathcal F$ sia una struttura differenziabile su $M$.
+ \begin{definition} \index{varietà!differenziabile}
+  Una \emph{varietà differenziabile} $n$-dimensionale di classe $C^k$ è una coppia $(M, \mathcal F)$ tale che $M$ sia uno spazio topologico localmente euclideo a base numerabile ed $\mathcal F$ sia una struttura differenziabile su $M$.
  \end{definition}
  
 \begin{example}
@@ -68,20 +69,20 @@
   \end{enumerate}
  \end{remark}
 
- \begin{exercise}
-  \begin{enumerate}
-   \item Se $g:\R^n\to\R$ è di classe $C^k$, $M=g^{-1}(\{0\})$ e $\grad g\ne 0$
-   su $M$ allora $M$ è una varietà $C^k$ di dimensione $n-1$.
-   \item $\mathrm{SL}_n(\R)$ è una varietà di dimensione $n^2-1$.
-   \item La funzione $t\mapsto t^3$ induce su $\R$ una struttura differenziabile diversa
-   da quella ordinaria, ma le varietà ottenute sono diffeomorfe.
-  \end{enumerate}
- \end{exercise}
+\begin{exercise}
+	Se $g:\R^n\to\R$ è di classe $C^k$, $M=g^{-1}(\{0\})$ e $\grad g\ne 0$ su $M$ allora $M$ è una varietà $C^k$ di dimensione $n-1$.
+\end{exercise}
+\begin{exercise}
+	$\mathrm{SL}_n(\R)$ è una varietà di dimensione $n^2-1$.
+\end{exercise}
+\begin{exercise}
+	La funzione $t\mapsto t^3$ induce su $\R$ una struttura differenziabile diversa da quella ordinaria, ma le varietà ottenute sono diffeomorfe.
+\end{exercise}
  
  \section{Prodotti e mappe}
  
-\begin{definition}
-	Date $(M_1,\mathcal F_1)$ e $(M_2,\mathcal F_2)$ varietà $C^k$, si può definire la varietà prodotto $(M_1\times M_2,\mathcal F_1\times\mathcal F_2)$, che è lo spazio topologico prodotto con la struttura differenziale generate dall'atlante $\{(U_1\times U_2,\varphi_1\times\varphi_2)\ :\ \text{$(U_i,\varphi_i)$ sono carte di $\mathcal F_i$}\}$.
+\begin{definition} \index{varietà!prodotto}
+	Date $(M_1,\mathcal F_1)$ e $(M_2,\mathcal F_2)$ varietà $C^k$, si può definire la \emph{varietà prodotto} $(M_1\times M_2,\mathcal F_1\times\mathcal F_2)$, che è lo spazio topologico prodotto con la struttura differenziale generate dall'atlante $\{(U_1\times U_2,\varphi_1\times\varphi_2)\ :\ \text{$(U_i,\varphi_i)$ sono carte di $\mathcal F_i$}\}$.
 \end{definition}
 
 \begin{remark}
@@ -90,7 +91,7 @@
 
 In modo analogo si può definire il prodotto di più fattori.
  
- \begin{definition}
+ \begin{definition} \index{mappa!$C^r$}
   Se $M$ ed $N$ sono varietà $C^k$ e $r\le k$, una funzione $f:M\to N$ si dice
   di classe $C^r$ se per ogni $x\in M$ ci sono una carta $(U,\varphi)$ di $M$ con
   $x\in U$ ed una carta $(V,\psi)$ di $N$ con $f(U)\subseteq V$ tali che $\psi\circ f\circ\varphi^{-1}$
@@ -108,8 +109,8 @@ In modo analogo si può definire il prodotto di più fattori.
    La composizione di due funzioni $C^r$ è $C^r$.
  \end{proposition}
  
- \begin{definition}
-  Un diffeomorfismo $C^r$ è una funzione $C^r$ invertibile e con inversa $C^r$.
+ \begin{definition} \index{diffeomorfismo $C^r$}
+  Un \emph{diffeomorfismo $C^r$} è una funzione $C^r$ invertibile e con inversa $C^r$.
  \end{definition}
  
  \section{Spazio tangente}
@@ -121,7 +122,7 @@ In modo analogo si può definire il prodotto di più fattori.
  velocità delle curve passanti per quel punto''.
  
 \begin{definition}
-	Siano $M$ una varietà, $x\in M$, $c,\tilde{c}:(-1,1)\to M$ curve di classe $C^1$ tali che $c(0)=\tilde{c}(0)=x$ e $(U,\varphi)$ una carta con $x\in U$. Allora diciamo che $c$ e $\tilde{c}$ sono tangenti in $x$ rispetto a $\varphi$ se $(\varphi\circ c)'(0)=(\varphi\circ\tilde{c})'(0)$.
+	Siano $M$ una varietà, $x\in M$, $c,\tilde{c}:(-1,1)\to M$ curve di classe $C^1$ tali che $c(0)=\tilde{c}(0)=x$ e $(U,\varphi)$ una carta con $x\in U$. Allora diciamo che $c$ e $\tilde{c}$ sono 	tangenti in $x$ rispetto a $\varphi$ se $(\varphi\circ c)'(0)=(\varphi\circ\tilde{c})'(0)$.
 \end{definition}
 
 \begin{proposition}
@@ -130,14 +131,14 @@ In modo analogo si può definire il prodotto di più fattori.
 
 Si può dunque dare la seguente definizione.
  
-\begin{definition}
-	Due curve $c,\tilde{c}:(-1,1)\to M$ di classe $C^1$ tali che $c(0)=\tilde{c}(0)=x$ si dicono tangenti se le loro espressioni locali in carta sono tangenti.
+\begin{definition} \index{curve tangenti}
+	Due curve $c,\tilde{c}:(-1,1)\to M$ di classe $C^1$ tali che $c(0)=\tilde{c}(0)=x$ si dicono \emph{tangenti} se le loro espressioni locali in carta sono tangenti.
 \end{definition}
 
 Tutto ciò ci permette di definire il piano tangente.
  
-\begin{definition}
-	Lo spazio tangente ad un punto $x\in M$, indicato con $T_xM$, è l'insieme delle classi di equivalenza delle curve $c:(-1,1)\to M$ di classe $C^1$ con $c(0)=x$ con la relazione ``essere tangenti in $x$''. L'unione degli spazi tangenti ad $M$ è detta spazio tangente, o fibrato tangente, ed è indicata con $TM$.
+\begin{definition} \index{spazio!tangente} \index{fibrato!tangente}
+	Lo spazio tangente ad un punto $x\in M$, indicato con $T_xM$, è l'insieme delle classi di equivalenza delle curve $c:(-1,1)\to M$ di classe $C^1$ con $c(0)=x$ con la relazione ``essere tangenti in $x$''. L'unione degli spazi tangenti ad $M$ è detta \emph{spazio tangente}, o fibrato tangente, ed è indicata con $TM$.
 \end{definition}
  
  \begin{remark}
@@ -150,12 +151,12 @@ Ora vediamo due definizioni alternative.
 \subsection{Controvarianza}
 Per definire il tangente si possono usare le proprietà di trasformazione dei vettori.
 
-Infatti, se $(U,\varphi)$ e $(\tilde{U},\tilde{\varphi})$ sono due carte e chiamiamo $(y^1,\dots,y^n)=(\varphi\circ c)(t)$ e $(\tilde{y}^1,\dots,\tilde{y}^n)=(\tilde{\varphi}\circ c)(t)$, allora il vettore tangente associato a $c'(0)$ si scrive nei due sistemi di coordinate come $(V^1,\dots,V^n)=(\frac{dy^1}{dt}(0),\dots,\frac{dy^n}{dt}(0))$ e $(\tilde{V}^1,\dots,\tilde{V}^n)=(\frac{\de\tilde{y}^1}{\de t}(0),\dots,\frac{\de\tilde{y}^n}{\de t}(0))$.
+Infatti, se $(U,\varphi)$ e $(\tilde{U},\tilde{\varphi})$ sono due carte e chiamiamo $(y^1,\dots,y^n)=(\varphi\circ c)(t)$ e $(\tilde{y}^1,\dots,\tilde{y}^n)=(\tilde{\varphi}\circ c)(t)$, allora il vettore tangente associato a $c'(0)$ si scrive nei due sistemi di coordinate come $(V^1,\dots,V^n)=(\frac{\de y^1}{\de t}(0),\dots,\frac{\de y^n}{\de t}(0))$ e $(\tilde{V}^1,\dots,\tilde{V}^n)=(\frac{\de\tilde{y}^1}{\de t}(0),\dots,\frac{\de\tilde{y}^n}{\de t}(0))$.
 Usando il cambio di carta si trova che la funzione $y\mapsto\tilde{y}$ è un diffeomorfismo locale, e la relazione tra le due coordinate è 
 \begin{equation*}
 	\tilde{V}^i=\frac{\de\tilde{y}^i}{\de t}(0)=\sum_{j=1}^n\frac{\partial\tilde{y}^i}{\partial y^j}(\varphi(x)) \frac{\de y^j}{\de t}(0)=\sum_{j=1}^n\frac{\partial\tilde{y}^i}{\partial y^j}(\varphi(x))V^j\punto
 \end{equation*}
-Questo tipo di trasformazione è detto \emph{controvarianza} e può essere usato per definire lo spazio tangente.
+Questo tipo di trasformazione è detto \emph{controvarianza} e può essere usato per definire lo spazio tangente. \index{controvarianza}
 
 Con questa notazione, dato un sistema di coordinate $(U,\varphi)$, un vettore $v\in T_x M$ (con $x\in U$) si scrive così:
 \begin{equation*}
@@ -163,7 +164,7 @@ Con questa notazione, dato un sistema di coordinate $(U,\varphi)$, un vettore $v
 \end{equation*}
 dove $\frac{\partial}{\partial y^i}(\varphi(x))=[\varphi(x)+te_i]_{\varphi(x)}$, essendo $e_i$ l'$i$-esimo vettore della base canonica.
 
-\subsection{Derivazioni}
+\subsection{Derivazioni} \index{derivazione}
 Data $f:\R^n\to\R$ e $v\in\R^n$ sia $\Diff_vf$ la derivata direzionale lungo $v$ di $f$. Allora $\Diff_v$ è lineare in $f$ ed vale la regola di Leibniz $\Diff_v(fg)=f\Diff_vg+g\Diff_vf$. Si definiscono \emph{derivazioni} gli operatori lineari $A:C^r(U)\to\R$ che godono della regola di Leibniz. Si può dimostrare che in questo modo si ottiene una definizione equivalente di spazio tangente.
  
 \section{Mappe tangenti}
@@ -177,13 +178,13 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
   Basta passare in carta.
  \end{proof}
 
-\begin{definition}
-	Data $f:M\to N$ di classe $C^1$ si definisce mappa tangente (o differenziale) di f la mappa $Tf:TM\to TN$ (indicata anche con $\de f$) tale che $Tf([c]_x)=[f\circ c]_{f(x)}$ (la definizione è ben posta per il lemma precedente).
+\begin{definition} \index{mappa!tangente}
+	Data $f:M\to N$ di classe $C^1$ si definisce \emph{mappa tangente} (o differenziale) di $f$ la mappa $Tf:TM\to TN$ (indicata anche con $\de f$) tale che $Tf([c]_x)=[f\circ c]_{f(x)}$ (la definizione è ben posta per il lemma precedente).
 	La restrizione di $Tf$ allo spazio tangente ad un punto $x$ è indicata con $T_xf$.
 \end{definition}
 
 \begin{remark}
-	Dato $v\in T_xM$, chiamiamo $Tf(v)$ il \emph{push-forward} di $v$ tramite $f$, che si indica anche come $f_*v$.
+	Dato $v\in T_xM$, chiamiamo $Tf(v)$ il \emph{push-forward} di $v$ tramite $f$, che si indica anche come $f_*v$. \index{push-forward}
 \end{remark}
 
 
@@ -191,7 +192,7 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
 	L'applicazione $T_xf:T_xM\to T_xN$ è lineare.
 \end{remark}
  
-\begin{theorem}[Mappe composte]\label{thm:MappeComposte}
+\begin{theorem}[Mappe composte] \label{thm:MappeComposte} \index{teorema!mappe composte}
 	Valgono le seguenti proprietà:
 	\begin{enumerate}
 	\item Se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$;
@@ -209,7 +210,7 @@ Ora vogliamo dotare il fibrato tangente di una struttura differenziabile.
  
 Data una carta $(U,\varphi)$ abbiamo le carte $T\varphi:TU\to T(\varphi(U))$ tale che $T\varphi([c]_x)=[\varphi\circ c]_{\varphi(x)}$. Si verifica facilmente che $T\varphi$ è biunivoca.
  
-\begin{proposition}
+\begin{proposition} \index{atlante!naturale}
 	Se $k\ge 1$ e $(M,\mathcal F)$ è una varietà $C^{k+1}$ allora $T\mathcal F=\{(Tu,T\varphi)\ :\ (U,\varphi)\in\mathcal F\}$ è un atlante $C^k$ su $TM$, detto \emph{atlante naturale}.
 \end{proposition}
 
@@ -223,15 +224,15 @@ Data una carta $(U,\varphi)$ abbiamo le carte $T\varphi:TU\to T(\varphi(U))$ tal
 	Se $f:M\to N$ è un diffeomorfismo $C^{r+1}$, $Tf:TM\to TN$ è un diffeomorfismo $C^r$.
 \end{proposition}
 
-\section{Funzioni speciali}
+\section{Funzioni tra varietà}
 Ora definiamo alcuni tipi particolari di funzioni tra varietà.
  
 \begin{definition}
 	Sia $f:M\to N$ di classe $C^1$.
 	\begin{enumerate}
-	\item Se il diffenziale di $f$ è iniettivo in ogni punto, $f$ è detta \emph{immersione}.
-	\item Se $f$ è un'immersione iniettiva, $(M,f)$ è detta \emph{sottovarietà}.
-	\item Se $f$ è un'immersione ed un omeomorfismo con l'immagine, $f$ è detta \emph{embedding}.
+	\item Se il diffenziale di $f$ è iniettivo in ogni punto, $f$ è detta \emph{immersione}. \index{immersione}
+	\item Se $f$ è un'immersione iniettiva, $(M,f)$ è detta \emph{sottovarietà}. \index{sottovarietà}
+	\item Se $f$ è un'immersione ed un omeomorfismo con l'immagine, $f$ è detta \emph{embedding}. \index{embedding}
 	\end{enumerate}
 \end{definition}
 
@@ -256,9 +257,11 @@ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
 \end{proof}
 
 \begin{exercise}
-	\begin{enumerate}
-	\item Si dimostri che $U(n)$ (il gruppo delle trasformazioni unitarie di $\C^n$) è una sottovarietà non compatta di $\mathscr L(\C^n,\C^n)$.
-	\item Si dimostri che $\R \mathbb P^1$ è una sottovarietà di $\R \mathbb P^2$.
-	\item Si dimostri che $P=\{ Q\in \mathrm O(3)\ :\ \det Q=1,\; Q=Q^T\}\setminus\{\id\}$ è una sottovarietà compatta di $\mathrm O(3)$. Si descrivano inoltre gli elementi di $P$ in termini geometrici.
-	\end{enumerate}
+	Si dimostri che $U(n)$ (il gruppo delle trasformazioni unitarie di $\C^n$) è una sottovarietà non compatta di $\mathscr L(\C^n,\C^n)$.
+\end{exercise}
+\begin{exercise}
+	Si dimostri che $\R \mathbb P^1$ è una sottovarietà di $\R \mathbb P^2$.
+\end{exercise}
+\begin{exercise}
+	Si dimostri che $P=\{ Q\in \mathrm O(3)\ :\ \det Q=1,\; Q=Q^T\}\setminus\{\id\}$ è una sottovarietà compatta di $\mathrm O(3)$. Si descrivano inoltre gli elementi di $P$ in termini geometrici.
 \end{exercise}

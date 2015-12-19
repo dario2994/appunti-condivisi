@@ -4,7 +4,7 @@
 
 L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spazio vettoriale opportuno.
 
-\begin{definition}
+\begin{definition} \index{fibrato!vettoriale}
 	Un \emph{fibrato vettoriale} di rango $k\in\N$ consiste di uno spazio totale $E$, una base $M$ ($E$ ed $M$ varietà) ed una proiezione $\pi:E\to M$ (mappa regolare) tale che per ogni $x\in M$ la sua fibra $E_x\coloneqq \pi^{-1}(x)$ ha una struttura di spazio vettoriale.
 	
 	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeo $\tilde\varphi:\pi^{-1}(U)\to U\times R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
@@ -23,8 +23,10 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 
 Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in A}$ un ricoprimento tramite aperti che banalizza localmente il fibrato e siano $\tilde\varphi_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times \R^k$ le banalizzazioni locali.
 
-Se $U_\alpha\cap U_\beta\ne \emptyset$ otteniamo mappe di transizione $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k,\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha} = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
-
+\begin{definition} \index{mappa!di transizione}
+	Se $U_\alpha\cap U_\beta\ne \emptyset$ definiamo la \emph{mappa di transizione} $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k,\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha} = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
+\end{definition}
+	
 \begin{proposition}
 	Valgono le seguenti proprietà della funzione di transizione
 	\begin{itemize}
@@ -70,21 +72,21 @@ Se $U_\alpha\cap U_\beta\ne \emptyset$ otteniamo mappe di transizione $\tilde\va
 
 \section{Mappe fra fibrati}
 
-\begin{definition}
+\begin{definition} \index{fibrato!vettoriale!mappa locale} \index{fibrato!vettoriale!isomorfismo locale}
 	Siano $U\times\R^k$ e $U'\times\R^l$ banalizzazioni locali di fibrati vettoriali $E$ ed $E'$. Una mappa $f:U\times\R^k\to U'\times\R^l$ è detta una \emph{mappa locale} di fibrati vettoriali se ha la forma $f(p,v) = (f_1(p), f_2(p)(v) )$, dove $f_1:U\to U'$ e $f_2:U \to \mathscr L(\R^k,\R^l)$ sono mappe regolari.
 	
 	Inoltre $f$ è detta un \emph{isomorfismo locale} di fibrati vettoriali se $f_2(p)\in \mathrm{GL}(\R^k,\R^l)$.
 \end{definition}
 
 
-\begin{definition}
+\begin{definition} \index{fibrato!vettoriale!mappa} \index{fibrato!vettoriale!isomorfismo}
 	Siano $E,E'$ due fibrati vettoriali. Una mappa $f:E \to E'$ è detta una \emph{mappa} (rispettivamente un \emph{isomorfismo locale}) di fibrati vettoriali se, per ogni $v \in E$ e per ogni banalizzazione locale $(W',\tilde\psi)$ di $E'$ tale che $\pi'(f(w))\in W'$, esiste una banalizzazione locale $(W,\tilde\varphi)$ con $\pi(f(W))\subseteq \pi'(W')$ tale che il rappresentante locale $f_{\tilde\psi\tilde\varphi}\coloneqq \tilde\psi\circ f \circ \tilde\varphi^{-1}$ è una mappa locale di fibrati vettoriali (rispettivamente un isomorfismo locale).
 	
 	Se la mappa $f$ è biettiva, $f$ è detta un \emph{isomorfismo} di fibrati vettoriali.
 \end{definition}
 
 
-\begin{definition}
+\begin{definition} \index{sezione!locale} \index{sezione!globale}
 	Sia $\pi:E\in B$ un fibrato vettoriale. Una \emph{sezione locale} di $\pi$ è una mappa (regolare) $\xi:U \to E$ ($U$ aperto in $B$) tale che $\pi(\xi(b)) = b$ per ogni $b\in U$.
 	
 	Se $U = B$, $\xi$ è detta \emph{sezione globale}.

@@ -1,26 +1,26 @@
 \chapter{Derivate e prodotti di Lie}
 
 \section{Derivata di Lie}
-Sia $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$.
+La derivata di Lie è uno strumento che ci permette di calcolare variazioni di varie continuità (per esempio funzioni) quando ci muoviamo sulla varietà.
 
-Si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
+Sia $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$. Questa si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
 
 Ora vogliamo studiare il caso generale su varietà.
+Sia $p\in M$ e $f$ una funzione regolare definita in un intorno di $p$, $v \in T_{p}M$. Osserviamo innanzitutto che per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
 
-Sia $p\in M$ e $f$ una funzione regolare definita in un intorno di $p$, $v \in T_{p}M$. Per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
-
-\begin{definition}
-	Definiamo la derivata direzionale di $f$ in $p$ lungo $v$ come \\ $(v(f))(p)=\frac \de {\de t} f(c(t))\restrict{t=0}$.
+\begin{definition} \index{derivata!direzionale}
+	Definiamo la \emph{derivata direzionale} di $f$ in $p$ lungo $v$ come $(v(f))(p)\coloneqq\frac \de {\de t} f(c(t))\restrict{t=0}$.
 \end{definition}
 
-Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, allora: \\
-$\frac \de{\de t} (f\circ c)(t)\restrict{t=0}=\Diff_{[(c^1)'(0),\ldots(c^n)'(0)]}(f\circ\varphi^{-1})(\varphi(p))$. Quindi non dipende dalla scelta di $c\in[c]_p$.
-
-Proviamo ad usare invece le ``traslazioni''.
-
-Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo la curva integrale come $c(t)$, allora la formula precedente diventa:
+Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, allora:
 \begin{equation*}
-	(X(p))(f)(p)=\lim_{h\to 0} \frac 1h [f(F_X(p,h))-f(p)]
+	\frac \de{\de t} (f\circ c)(t)\restrict{t=0}=\Diff_{[(c^1)'(0),\ldots(c^n)'(0)]}(f\circ\varphi^{-1})(\varphi(p)) \virgola
+\end{equation*}
+quindi la derivata direzionale non dipende dalla scelta di $c\in[c]_p$.
+
+Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo allora come $c(t)$ una curva integrale di $X$, allora la formula precedente diventa:
+\begin{equation*}
+	(X(p))(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right]
 \end{equation*}
 e si chiama derivata di Lie di $f$ rispetto ad $X$.
 
@@ -30,8 +30,8 @@ Sia $\Fl{X}{h}(p)=F_X(p,h)$ la sezione del flusso locale in $p$ generato da $X$.
 
 Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+$ abbastanza piccolo, abbiamo due vettori tangenti in $p$: $Y(p)$ e $(T\Fl{X}{h})(Y(\Fl{X}{-h}(p)))$.
 
-\begin{definition}
-	Definiamo la derivata di Lie in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{Y(p)-((\Fl{X}{h})_*Y)(p)}h \punto
+\begin{definition} \index{derivata!di Lie}
+	Definiamo la \emph{derivata di Lie} in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{Y(p)-((\Fl{X}{h})_*Y)(p)}h \punto
 	\end{equation*}
 \end{definition}
 
@@ -49,8 +49,8 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \begin{equation*} %TODO: sistemare questa equazione
 	 \begin{split}
 	 (\Lie_X(fY))(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]\\
-	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))\right]\\
-	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-(\Fl{X}{h})_*(Y(\Fl{X}{-h}(p)))]\\ &+[f(p)-f(\Fl{X}{-h}(p))](\Fl{X}{h})_*(Y(\Fl{X}{-h}(p))\}\\
+	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]\\
+	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}\\
 	 = & f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
 	 \end{split}
 	 \end{equation*}
@@ -79,8 +79,8 @@ Se nelle coordinate $x^i$ indotte da $\varphi$, $X=\sum_{i=1}^n X^i\frac\partial
 \end{equation*}
 Questo campo vettoriale risulta essere il commutatore di $X,Y$.
 
-\begin{definition}
-Dati $X,Y\in\chi^r(M)$, definiamo $\comm{X}{Y}\in\chi^{r-1}(M)$ il campo vettoriale tale che $\comm{X}{Y}=XY-YX$, che si chiama commutatore o parentesi di Lie.
+\begin{definition} \index{commutatore} \index{parentesi di Lie}
+Dati $X,Y\in\chi^r(M)$, definiamo $\comm{X}{Y}\in\chi^{r-1}(M)$ il campo vettoriale tale che $\comm{X}{Y}=XY-YX$, che si chiama \emph{commutatore} o \emph{parentesi di Lie}.
 
 Intendiamo che per ogni $f:M\to\R$ regolare, $\comm{X}{Y}(f)=X(Y(f))-Y(X(f))$.
 \end{definition}
@@ -110,13 +110,13 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\begin{enumerate}
 	 \item è bilineare; \label{PPL:bilineare}
 	 \item è antisimmetrica, cioè $\comm{X}{Y}=-\comm{Y}{X}$ per ogni $X,Y\in\chi(M)$; \label{PPL:antisimmetrica}
-	 \item (identità di Jacobi) per ogni $X,Y,Z$ vale:
+	 \item (identità di Jacobi) per ogni $X,Y,Z$ vale: \index{identità di Jacobi}
 	 \begin{equation*}\comm{X}{\comm{Y}{Z}}+\comm{Y}{\comm{Z}{X}}+\comm{Z}{\comm{X}{Y}}=0\punto\end{equation*} \label{PPL:SommaCiclica}
 	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	\ref{PPL:bilineare} e \ref{PPL:antisimmetrica} sono ovvie.
+	Le proprietà \ref{PPL:bilineare} e \ref{PPL:antisimmetrica} sono ovvie.
 	
 	Vediamo allora la \ref{PPL:SommaCiclica}. Sia $f\in C^\infty(M)$:
 	\begin{align*}

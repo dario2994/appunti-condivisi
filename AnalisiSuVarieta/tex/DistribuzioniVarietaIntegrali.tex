@@ -5,45 +5,36 @@
 
 Dato $X\in\chi(M)$ e $p\in M$, abbiamo chiamato $\Fl Xt(p)$ la curva integrale di $X$ passante per $p$ al tempo $0$. In particolare, se $X(p)\neq 0$, si ottiene una distribuzione.
 
-\begin{definition}
-	Una distribuzione unidimensionale $\Delta$ in un aperto $U$ di $M$ è una scelta regolare di un sottospazio $\Delta_p$ di $T_pM$ per ogni $p\in U$.
+\begin{definition} \index{distribuzione!unidimensionale}
+	Una \emph{distribuzione unidimensionale} $\Delta$ in un aperto $U$ di $M$ è una scelta regolare di un sottospazio $\Delta_p$ di $T_pM$ per ogni $p\in U$.
 \end{definition}
 
-\begin{definition}
-	Una varietà integrale per la distribuzione $\Delta$ è una sottovarietà $N$ di $M$ tale che, data l'inclusione $i:N\to M$, si abbia $Ti(T_pN)=\Delta_p$ per ogni $p\in N$.
-\end{definition}
+Più in generale possiamo definire distribuzioni $k$-dimensionale come segue.
 
-Se $X(p)\neq 0$ e se in $U$ intorno di $p$, $\Delta_p=\spanrm\{X(p)\}$, la traiettoria di $\Fl Xt(p)$ è una varietà integrale di $\Delta$. 
-
-
-\begin{definition}
-	Una distribuzione $k$-dimensionale in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare  $p\mapsto \Delta_p$ tale che per ogni $p$, $\Delta_p$ è un sottospazio $k$-dimensionale di $T_pM$.
+\begin{definition} \index{distribuzione! $k$-dimensionale}
+	Una \emph{distribuzione $k$-dimensionale} in $U\subseteq M^n$ aperto ($k,n\in\N$, $k\le n$) è una mappa regolare  $p\mapsto \Delta_p$ tale che per ogni $p$, $\Delta_p$ è un sottospazio $k$-dimensionale di $T_pM$.
 	
 	In questo caso, mappa regolare significa che esistono $X_1,\ldots,X_k\in \chi(U)$ tali che per ogni $q\in U$ $X_i(q)\ne 0$ e $\Delta_q=\spanrm\{X_1(q),\ldots,X_k(q)\}$.
 \end{definition}
 
-\begin{definition}
+\begin{definition} \index{varietà!integrale}
 	Una \emph{varietà integrale} per $\Delta$ è una sottovarietà $N$ di $M$ tale che, se $i:N\to M$ è l'inclusione,
 	allora $(Ti)(T_pN)=\Delta_p$ per ogni $p\in N$.
 \end{definition}
 
 \begin{example}
-	Se $k=1$ e se $X\in\chi(U)$, $X(p)\ne 0$ per $p\in U$. $\Delta_q=\spanrm \{X(q)\}$, $q\in\tilde U\Subset U$ è una distribuzione 1-dimensionale.
-	
-	Curve integrali di $X$ sono varietà integrali di $\Delta$.
+	Sia $X\in\chi(U)$ con $X(p)\ne 0$ per $p\in U$. Allora $\Delta_q=\spanrm \{X(q)\}$, $q\in\tilde U\Subset U$, è una distribuzione 1-dimensionale e curve integrali di $X$ sono varietà integrali di $\Delta$.
 \end{example}
 
 Invece per $k>1$ le distribuzioni $k$-dimensionali non sempre ammettono varietà integrali (tranne per $k=n$).
 
 \begin{example}
 	Sia $M=\R^3$ e $k=2$ e consideriamo la distribuzione $\Delta_p=\spanrm\{\DerParz{}{x}(p)+y\DerParz{}{z}(p),\DerParz{}{y}(p)\}$.
-	
-	Se $p_0=(x_0,y_0,z_0)$, $\Delta_{p_0}$ è il piano di equazione $\{z-z_0=y_0(x-x_0)\}$.
+	In particolare se $p_0=(x_0,y_0,z_0)$, $\Delta_{p_0}$ è il piano di equazione $\{z-z_0=y_0(x-x_0)\}$.
 	
 	Vogliamo mostrare che per questa distribuzione non esiste una varietà integrale.
 	
-	Supponiamo per assurdo che esista una varietà integrale $N$. Possiamo supporre $0\in N$.
-	
+	Supponiamo per assurdo che esista una varietà integrale $N$ e supponiamo inoltre $0\in N$.
 	Consideriamo la curva $\gamma_1(s)=(0,s,0)$, allora per ogni $s$ abbastanza piccolo $\dot\gamma_1(s)$ appartiene a $\Delta_{\gamma_1(s)}=T_{\gamma_1(s)}N$ e perciò $\gamma_1$ è una curva in $N$\footnote{Sottovarietà regolari sono gli zeri di funzioni regolari con gradiente non nullo sulla varietà, perciò $N=\{g=0\}$ con $\grad g(q)\ne 0$ per ogni $q\in N$.
 	
 	Se la velocità di una curva $\gamma$ sta nel tangente, allora $\frac\de{\de s}g(\gamma(s))=0$ (perché $T_pN=\{v\ : \ \langle\grad g(p),v\rangle =0\}$.}.
@@ -85,7 +76,7 @@ Siano $X,Y\in\chi(M)$ che appartengono a $\Delta$, allora per il \cref{lemma:Res
 Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$.
 Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$.
 
-\begin{definition}
+\begin{definition} \index{distribuzione!integrabile}
 	Una distribuzione $k$-dimensionale $\Delta$ è detta \emph{integrabile} se per ogni $X,Y\in\Delta$ vale che $[X,Y]\in\Delta$.
 \end{definition}
 
@@ -105,7 +96,7 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 
 \section{Teorema di Frobenius}
 
-\begin{theorem}[Frobenius]
+\begin{theorem}[Frobenius] \index{teorema!Frobenius}
 	Sia $\Delta$ una distribuzione (regolare) $k$-dimensionale in $M$. Allora, se $\Delta$ è integrabile, per ogni $p\in M$ esiste una carta $(U,\varphi)$ tale che
 	$\varphi(p) = 0\in\R^n$, $\varphi(U)=\oo{-\varepsilon}{\varepsilon}^n$ e tale che per ogni $a^{k+1},\ldots,a^n$ con $\abs{a^j}<\varepsilon$ l'insieme $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ è una varietà integrale di $\Delta$.
 	
