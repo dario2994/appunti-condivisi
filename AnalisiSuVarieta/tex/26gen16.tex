@@ -4,14 +4,17 @@
 Dati $V_1,\dots,V_k,W$ spazi vettoriali, denotiamo con $L^k(V_1,\dots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\dots\times V_k$ in $W$.
 
 Denotiamo inoltre $V^* = L(V,\R)$ lo spazio duale di $V$.
-Se $V$ è $n$-dimensionale e $e_1,\dots,e_n$ è una base di $V$, esiste una base $e^1,\dots,e^n$ di $V^*$ tale che $<e^i,e_j> = \delta_{ij}$.
+Se $V$ è $n$-dimensionale ed $e_1,\dots,e_n$ è una base di $V$, esiste una base $e^1,\dots,e^n$ di $V^*$ tale che $<e^i,e_j> = \delta_{ij}$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $<\alpha, v>$ l'elemento $\alpha$ applicato a $v$.}.
 
-Date $v\in V$ e $\alpha \in V^*$ abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\alpha= \sum_{i=1}^n <\alpha,e_i> e^i$.
+In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\alpha= \sum_{i=1}^n <\alpha,e_i> e^i$.
 
 \begin{definition}
-	Dato $V$ spazio vettoriale definiamo $T_s^r(V) = L^{r+s} (V^*,\dots,V^*,V,\dots,V,\R)$ ($V^*$ $r$ volte e $V$ $s$ volte).
+	Dato $V$ spazio vettoriale definiamo 
+	\begin{equation*}
+	T_s^r(V) = L^{r+s} (\underbrace{V^*,\dots,V^*}_{\text{$r$ copie}},\underbrace{V,\dots,V}_{\text{$s$ copie}},\R) \punto
+	\end{equation*}
 	
-	Gli elementi di $T_s^r(V)$ sono detti \emph{tensori} su $V$ \emph{controvarianti} di ordine $r$ e \emph{covarianti} di ordine $s$ (tensori di tipo $(r,s)$).
+	Gli elementi di $T_s^r(V)$ sono detti \emph{tensori} su $V$, \emph{controvarianti} di ordine $r$ e \emph{covarianti} di ordine $s$ (tensori di tipo $(r,s)$).
 \end{definition}
 
 \begin{remark}
@@ -23,7 +26,7 @@ Date $v\in V$ e $\alpha \in V^*$ abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\a
 	Dati $t_1\in T_{s_1}^{r_1}(V)$ e $t_2\in T_{s_2}^{r_2}(V)$, il \emph{prodotto tensore} di $t_1$ e $t_2$ è il tensore $t_1\otimes t_2 \in T_{s_1+s_2}^{r_1+r_2}(V)$ definito come 
 	\begin{multline*}
 		t_1\otimes t_2(\beta^1,\dots,\beta^{r_1},\gamma^1,\dots,\gamma^{r_2}, f_1,\dots,f_{s_1},g_1,\dots,g_{s_2}) =\\
-		=t_1(\beta^1,\dots,\beta^{r_1},f_1,\dots,f_{s_1})t_2(\gamma^1,\dots,\gamma^{r_2},g_1,\dots,g_{s_2})
+		=t_1(\beta^1,\dots,\beta^{r_1},f_1,\dots,f_{s_1})t_2(\gamma^1,\dots,\gamma^{r_2},g_1,\dots,g_{s_2}) \virgola
 	\end{multline*}
 	con $\beta^j,\gamma^j\in V^*$ e $f_i,g_i\in V$.
 \end{definition}
@@ -31,10 +34,10 @@ Date $v\in V$ e $\alpha \in V^*$ abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\a
 \begin{example}
 	Vediamo alcuni casi interessanti:
 	\begin{enumerate}
-		\item $T_0^1(V) = L(V^*,\R) \cong V$
-		\item $T_1^0(V^*) \cong V^*$
-		\item $T_2^0(V) \cong L(V,V^*)$ tramite $t(v,w) = <f(v),w>$, con $t\in T_2^0(V)$
-		\item $T_1^1(V) \cong L(V,V)$ tramite $t(\alpha,v) = <\alpha, \tilde f (v)>$, con $\tilde f\in L(V,V)$
+		\item $T_0^1(V) = L(V^*,\R) \cong V$;
+		\item $T_1^0(V^*) \cong V^*$;
+		\item $T_2^0(V) \cong L(V,V^*)$ tramite $t(v,w) = <f(v),w>$, con $t\in T_2^0(V)$;
+		\item $T_1^1(V) \cong L(V,V)$ tramite $t(\alpha,v) = <\alpha, \tilde f (v)>$, con $\tilde f\in L(V,V)$.
 	\end{enumerate}
 \end{example}
 
@@ -44,11 +47,11 @@ Date $v\in V$ e $\alpha \in V^*$ abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\a
 \begin{proof}
 	Dobbiamo dimostrare che elementi come sopra sono linearmente indipendenti e generano linearmente $T_s^r(V)$.
 	
-	Supponiamo che non valga la lineare indipendenza, allora:
+	Supponiamo che non valga la lineare indipendenza, allora esiste una loro combinazione lineare a coefficienti non nulli che si annulla:
 	\begin{equation*}
 		\sum t_{j_1\dots j_s}^{i_1\dots i_r} e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots \otimes e^{j_s} = 0\punto
 	\end{equation*}
-	Applichiamo il tensore a $(e^{k_1},\dots,e^{k_r},e_{l_1},\dots,e_{l_s})$, allora otteniamo $t_{l_1\dots l_s}^{k_1 \dots k_r} = 0$ e quindi un assurdo.
+	Applichiamo questo tensore a $(e^{k_1},\dots,e^{k_r},e_{l_1},\dots,e_{l_s})$, allora otteniamo $t_{l_1\dots l_s}^{k_1 \dots k_r} = 0$ e quindi un assurdo.
 	
 	Dato ora $t\in T_s^r(V)$, possiamo scrivere $t = \sum t(e^{i_1},\dots, e^{i_r},e_{j_1},\dots, e_{j_s})e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots \otimes e^{j_s}$, da cui abbiamo anche la ``generazione''.
 \end{proof}
