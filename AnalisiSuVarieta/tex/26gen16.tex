@@ -35,7 +35,7 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <
 	Vediamo alcuni casi interessanti:
 	\begin{enumerate}
 		\item $T_0^1(V) = L(V^*,\R) \cong V$;
-		\item $T_1^0(V^*) \cong V^*$;
+		\item $T_1^0(V) \cong V^*$;
 		\item $T_2^0(V) \cong L(V,V^*)$ tramite $t(v,w) = <f(v),w>$, con $t\in T_2^0(V)$;
 		\item $T_1^1(V) \cong L(V,V)$ tramite $t(\alpha,v) = <\alpha, \tilde f (v)>$, con $\tilde f\in L(V,V)$.
 	\end{enumerate}
@@ -62,7 +62,7 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <
 
 \begin{example}
 \begin{enumerate}
-	\item Se $t\in T_2^0(V)$, le componenti sono $t_{ij} = t(e_i,e_j)$ (matrice $n\times n$). A questa matrice associamo la forma bilineare 
+	\item Se $t\in T_2^0(V)$, le componenti sono $t_{ij} = t(e_i,e_j)$ (matrice $n\times n$). A questa matrice associamo la forma bilineare ovvia.
 	Nel caso di $\R^2$, se $t_{ij} = \left(\begin{matrix}
 	                                  A & B \\
 	                                  C & D 
@@ -89,10 +89,10 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <
 \end{definition}
 
 \begin{remark}
-	Le mappe $it:T_s^r(V)\to T_{s-1}^r(V)$ e $i^\beta:T_s^r(V)\to T_s^{r-1}(V)$ sono lineari, così come $v\mapsto i_v$ e $\beta\mapsto i^\beta$.
+	Le mappe $i_v:T_s^r(V)\to T_{s-1}^r(V)$ e $i^\beta:T_s^r(V)\to T_s^{r-1}(V)$ sono lineari, così come le mappe $v\mapsto i_v$ e $\beta\mapsto i^\beta$.
 \end{remark}
 
-In componenti (per linearità basta capirlo sui tensori della base)
+In componenti (per linearità, basta capirlo sui tensori della base)
 \begin{equation*}
 	i_{e_k} (e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes e^{j_s}) = \delta_k^{j_1} e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_2}\otimes \dots\otimes e^{j_s}\virgola
 \end{equation*}
