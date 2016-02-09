@@ -1,0 +1,169 @@
+\chapter{9 febbraio}
+
+\begin{remark} %TODO: da sistemare al posto giusto se già non c'è
+Se $t\in T_0^r(V)$ non serve avere $\varphi$ isomorfismo.
+Se $t\in T_s^0(W)$ è sempre possibile fare il pull-back.
+\end{remark}
+
+\section{Fibrati tensoriali}
+
+\begin{definition}
+	Sia $\pi:E\to B$ un fibrato vettoriale con fibra $E_b \coloneqq \pi^{-1}(b)$ per ogni $b\in B$. Definiamo
+	\begin{equation*}
+		T_s^r(E) = \bigcap_{b\in B} T_s^r(E_b)
+	\end{equation*}
+	e sia $\pi_s^r:T_s^r(E)\to B$ definito da $\pi_s^r(e) = b$ per ogni $e\in T_s^r(E_b)$.
+	Inoltre, dato $A\subseteq B$, sia $T_s^r(E)\restrict A = \bigcap_{b\in A} T_s^r(E_b)$.
+
+	Se $\pi':E'\to B'$ è un altro fibrato vettoriale e se $(\varphi,\varphi_0):E\to E'$ è una mappa fra fibrati vettoriali tale che $\varphi_b \coloneqq \varphi\restrict{E_b}$ è un isomorfismo per ogni $b\in B$, sia $\varphi_*:T_s^r(E)\to T_s^r(E')$ definita da $\varphi_*\restrict{T_s^r(E_b)} = (\varphi_b)_*$.
+\end{definition}
+
+Sia $(E\restrict U,\varphi)$ una carta locale di $\pi$, con $U\subseteq B$ aperto. Allora $\varphi_* \restrict{T_s^r(E)\restrict U}$ è una biezione su un fibrato locale e quindi è una carta locale.
+Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la carta preserva la struttura lineare di ogni fibra. Queste carte sono dette \emph{carte naturali} di $T_s^r(E)$.
+
+\begin{theorem}
+	Se $\pi: E \to B$ è un fibrato vettoriale, l'insieme delle carte naturali di $\pi_s^r(E):T_s^r(E) \to B$ è un atlante sul fibrato tensoriale.
+\end{theorem}
+\begin{proof}
+	Perché il teorema sia vero deve valere che:
+	\begin{enumerate}
+		\item l'atlante ricopre il fibrato;
+		\item date carte di fibrato $(U_i,\tilde\varphi_i)$, $(U_j,\tilde\varphi_j)$ con $U_i\cap U_j\not=\emptyset$, allora $\tilde\varphi_i( (U_i\times V) \cap (U_j\times V) )$ è un fibrato locale (dove $V\cong E_b$) e $\tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati vettoriali.
+	\end{enumerate}
+	La 1 segue dal fatto che partiano da un atlante per $E$.
+	Per la 2, abbiamo che $\alpha \coloneqq \tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati. Per la proposizione $\alpha_* = (\tilde\varphi_j)_*\circ (\tilde\varphi_i)_*^{-1}$ è anche un isomorfismo locale di fibrati. %TODO: aggiungere cref
+\end{proof}
+
+\begin{remark}
+	Si vede che se $E$ ha una base numerabile, allora anche $T_s^r(E)$ ha una base numerabile. 
+\end{remark}
+
+\begin{proposition}
+	Sia $f:E\to E'$ una mappa tra fibrati che sia un isomorfismo su ogni fibra. Allora anche $f_*:T_s^r(E) \to T_s^r(E')$ è una mappa fra fibratiche è un isomorfismo su ogni fibra.
+\end{proposition}
+\begin{proof}
+	Siano $(U,\tilde\varphi)$ e $(V,\tilde\psi)$ carte di fibrato su $E$ ed $E'$ tali che $f(U) \subseteq V$ e sia $f_{\tilde\varphi\tilde\psi} \coloneqq \tilde\psi \circ f \circ \tilde\varphi^{-1}$ la mappa locale di fibrato corrispondente. Allora, usando l'atlante naturale, $(f_*)_{\tilde\varphi_*\tilde\psi_*} = (f_{\tilde\varphi\tilde\psi})_*$.
+\end{proof}
+
+\begin{proposition}
+	Siano $f:E\to E'$ e $g:E' \to E''$ mappe tra fibrati che sono isomorfismi su ogni fibra. Allora lo è anche $g \circ f$ e
+	\begin{enumerate}
+		\item $(g\circ f)_* = g_* \circ f_*$;
+		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità;
+		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof} %TODO: aggiungere cref
+	Per la 1 basta verificare la proprietà sui rappresentanti locali. La 2 è ovvia e insieme alle 1 implica la 3.
+\end{proof}
+
+Vogliamo ora studiare un caso particolarmente interessante, cioè quello in cui $E = TM$ con $M$ varietà differenziabile. %TODO: verificare se T era definito
+
+\begin{definition}
+	Sia $M$ una varietà e sia $\tau_M : TM \to M$ il fibrato tangente. Allora $T_s^r(M) \coloneqq T_s^r(TM)$ è detto \emph{fibrato dei tensori} su $M$ controvarianti di ordine $r$ e covarianti di ordine $s$ (o di tipo $(r,s)$).
+\end{definition}
+
+Quindi in particolare $T_0^1(M)$ si identifica con lo stesso $TM$ e $T_1^0(M)$ con il fibrato cotangente, cioè le mappa lineari su vettori di $TM$.
+In particolare il fibrato cotangente si denota con $\tau_M^* : T^*M \to M$.
+
+\section{Campi tensoriali}
+
+Ricordiamo che una sezione $\gamma$ di un fibrato $\pi : E \to B$ associa ad ogni $b \in B$ un elemento $\gamma(b) \in E$ tale che $\pi(\gamma(b)) = b$.
+Indichiamo con $\Gamma^\infty(E)$ (o $\Gamma^\infty(\pi)$) le sezione di classe $C^\infty$.
+Quando $E = T_s^r(M)$ parleremo di \emph{campi tensoriali}.
+
+\begin{definition}
+	Un \emph{campo tensoriale} di tipo $(r,s)$ su una varietà $M$ è una sezione di $T_s^r(M)$. Indicheremo $\Gamma^\infty(T_s^r(M))$ con $\tau_s^r(M)$. %TODO: la tau dovrebbe essere grande
+	
+	Elementi di $\tau_0^1(M)$ sono campi vettoriali ($\chi(M)$), mentre elmenti di $\tau_1^0(M)$ sono detti 1-forme differenziali (denotate $\chi^*(M)$).
+\end{definition}
+
+Vediamo ora le operazioni.
+
+Se $f \in C^\infty(M)$ e $t \in \tau_s^r(M)$, allora $ft \in \tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
+
+Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \tau_s^r(M)$ e $t' \in \tau_{s'}^{r'}(M)$, possiamo definire $t(\alpha^1,\ldots,\alpha^r,X_1,\ldots, X_s) \in C^\infty(M)$ come $p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(q),\ldots, X_s(q))$ e $t\otimes t' \in \tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
+
+Lo stesso possiamo fare per contrazioni e prodotti interni. %TODO: sistemare, fa schifo
+
+Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$ dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$.
+\footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}
+
+Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$.
+
+Dato $t\in \tau_s^r(M)$, poniamo $t_{j_1\ldots j_s}^{i_1 \ldots i_r} = t(\de x^{i_1}, \ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, \DerParz{}{x^{j_r}})$.
+Per linearià $t = t_{j_1\ldots j_s}^{i_1 \ldots i_r} \DerParz{}{x^{j_1}} \otimes \ldots \otimes \DerParz{}{x^{j_r}} \otimes \de x^{i_1}\otimes \ldots \otimes \de x^{i_r}$.
+
+Vediamo quindi i cambi di coordinate.
+Sia quindi $(y^1,\ldots, y^n): U \to \R^n$ un altro sistema di coordinate. Allora $\DerParz{}{x^i} = a_i^j \DerParz{}{y^j}$. Applichiamo il campo vettoriale alla funzione coordinata $y^k$, per ottenere $\DerParz{y^k}{x^i} = a_i^j \DerParz{y^k}{y^j} = a_i^j \delta_j^k = a_i^k$ e quindi $\DerParz{}{x^i} = \DerParz{y^j}{x^i} \DerParz{}{y^j}$.
+Allo stesso modo $\de x^i = \DerParz{x^i}{y^j} \de y^j$.
+
+Per le componenti di un tensore $t_{l_1\ldots l_s}^{k_1\ldots k_r} (in y) = \DerParz{y^{k_1}}{x^{i_1}} \ldots \DerParz{y^{k_r}}{x^{i_r}} \DerParz{x^{j_1}}{y^{l_1}}\ldots \DerParz{x^{j_s}}{y^{l_s}} t_{j_1\ldots j_s}^{i_1\ldots i_r}$ (criterio di tensorialità). %TODO: sistema ``in y''
+
+Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare e abbassare gli indici serviva un prodotto scalare.
+
+\begin{definition}
+	Una \emph{metrica} (o \emph{tensore metrico}) su una varietà $M$ è un campo tensoriale $g \in \tau_2^0(M)$ che sia simmetrico e definito positivo, cioè $g(p)(v,v)>0$ per ogni $v\in T_pM$ diverso da 0.
+\end{definition}
+
+Un tensore metrico permette di abbassare e alzare gli indici di un campo tensoriale, tramite per esempio $t^{ij} \mapsto t^{ij}g_{jk}$ che è una mappa $\tau_0^2(M) \to \tau_1^1(M)$.
+
+Data $f\in C^\infty(M)$, con $f \mapsto \de f \in \chi^*(M)$, abbiamo che $\de f(v) = v(f)$ con $v \in T_pM$. Quindi tale funzione $f$ ci dà in modo naturale una 1-forma.
+Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma.
+
+\begin{definition}
+	Sia $M$ una varietà con metrica $g$ e sia $f \in C^\infty(M)$. Il campo vettoriale $(\de f)^d$ è detto il \emph{gradiente} di $f$, che denoteremo $\grad f$. %diesis \sharp e \flat
+\end{definition}
+
+In coordinate $g_{ij} = g(\DerParz{}{x^i}, \DerParz{}{x^j})$. Siano $X = X^i\DerParz{}{x^i}$ e $Y = Y^j\DerParz{}{x^j}$ elementi di $\chi(M)$, allora
+\begin{equation*}
+	<X^b, Y> \coloneqq g(X,Y) = X^iY^j g(\DerParz{}{x^i}, \DerParz{}{x^j}) = X^iY^j g_{ij} \virgola
+\end{equation*}
+perciò $X^b = X_{g_{ij}}^i \de x^j$.
+
+Viceversa, data $\alpha \in \tau_1^0(M)$ con $\alpha = \alpha_i\de x^i$, allora
+\begin{equation*}
+	(\alpha^\sharp)^i = g^{ij} \alpha_j \implies \alpha^\sharp = g^{ij} \alpha_j\DerParz{}{x^i} \punto
+\end{equation*}
+Perciò, se $\alpha = \de f = \DerParz{f}{x^i}\de x^i$, abbiamo che
+\begin{equation*}
+	\grad f = g^{ij} \DerParz{f}{x^j} \DerParz{}{x^i} \punto
+\end{equation*}
+
+
+\section{Pull-back e push-forward di campi tensoriali}
+
+\begin{definition}
+	Sia $\varphi : M \to N$ diffeomorfismo fra varietà e sia $t \in \tau_s^r(M)$. Il \emph{push-forward} di $t$ tramite $\varphi$ è $\varphi_*t \coloneqq (T\varphi)_* \circ t \circ \varphi^{-1} \in \tau_s^r(N)$.
+	
+	Se invece $t \in \tau_s^r(N)$, definiamo il suo \emph{pull-back} come $\varphi^*t \coloneqq (\varphi^{-1})_* t$.
+\end{definition}
+
+\begin{proposition}
+	Sia $\varphi: M \to N$ un diffeomorfismo e $t\in \tau_s^r(M)$. Allora
+	\begin{enumerate}
+		\item $\varphi_*t \in \tau_s^r(N)$;
+		\item $\varphi_* : \tau_s^r(M) \to \tau_s^r(N)$ è un isomorfismo lineare;
+		\item se $\psi: N \to P$ è un diffeomorfismo, allora $(\psi\circ \varphi)_* = \psi* \circ \varphi_*$;
+		\item $\varphi_*(t\otimes t' = \varphi_* t\otimes \varphi_* t'$, con $t\in \tau_s^r(M)$ e $t'\in \tau_{s'}^{r'}(M)$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+	Se $t\in\tau_0^r(M)$, $\varphi_*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo. Analogamente, se $t \in \tau_r^0(N)$, $\varphi^*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
