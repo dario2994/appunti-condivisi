@@ -4,30 +4,29 @@
 	\begin{enumerate}
 		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, consideriamo il prodotto interno 
 		\begin{align*}
-		i_xt = x^pe_{e_p}(t_j^{kl} e_k\otimes e_l\otimes e^j) = x^p t_j^{kl} (e_k\otimes e_l\otimes e^j) = x^pt_j^{kl} e_k\otimes e_l = x^j t_j^{kl} e_k\otimes e_l
+		i_xt = x^pi_{e_p}(t_j^{kl} e_k\otimes e_l\otimes e^j) = x^p t_j^{kl}i_{e_p} (e_k\otimes e_l\otimes e^j) = x^pt_j^{kl}\delta_p^j e_k\otimes e_l = x^j t_j^{kl} e_k\otimes e_l
 		\end{align*}
 		Mentre il prodotto interno con $\alpha = \alpha_pe^p$ è
 		\begin{align*}
 		i^\alpha t = \alpha_p t_j^{kl} i^{e^p}(e_k\otimes e_l\otimes e^j) = \alpha_k t_j^{kl} e_l\otimes e^j
-		\end{align*} %TODO: mi sono un po' persa
+		\end{align*}
 		
 		\item Se $t\in T_3^2(V)$ e faccio una contrazione $(2,1)$
 		\begin{equation*}
 			C_1^2 (t_{klm}^{ij} e_i\otimes e_j\otimes e^k\otimes e^l\otimes e^m ) = t_{klm}^{ij} \delta_j^k e_i\otimes e^l\otimes e^m = t_{klm}^{ik} e_i\otimes e^l\otimes e^m
 		\end{equation*}
 		
-		\item S $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
+		\item Se $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
 
 		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$ con inversi $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^k$ e $g_{jk}g^{kl} = \delta_j^l$.
 		
-		%TODO: Finora ha scambiato covarianti e controvarianti
 		Tramite un prodotto, si può definire anche la traccia di $t\in T_0^2(V)$ dalla traccia del tensore $(1,1)$ associato. Se $t=t^{ij}e_i\otimes e_j$, possiamo perciò definire $\tr (t) = \tr (g_{ij}t^{jk}) = g_{ik}t^{ik}$.
 	\end{enumerate}
 \end{example}
 
 Definiamo il duale di una trasformazione lineare.
 \begin{definition}
-	Siano $V,W$ spazi vettoriali e $\varphi \in L(V,W)$. Il \emph{duale} (o trasporto) di $\varphi$ è $\varphi^*(W^*,V^*$ definita come 
+	Siano $V,W$ spazi vettoriali e $\varphi \in L(V,W)$. Il \emph{duale} (o trasporto) di $\varphi$ è $\varphi^* \in L(W^*,V^*)$ definita come 
 	\begin{equation*} %TODO: il prodotto scalare così fa un po' schifo
 		<\varphi^*(\beta), e>_V = < \beta, \varphi(e) >_W \virgola 
 	\end{equation*}
@@ -46,9 +45,9 @@ Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplic
 \begin{definition}
 	Se $\varphi \in L(V,W)$ è un isomorfismo, il push-forward $\varphi_* = T_s^r(\varphi)$ è la mappa in $L(T_s^r(V), T_s^r(W))$ definita da
 	\begin{equation*}
-		\varphi_*(t) (\beta^1,\dots,\beta^r,f_1,\dots,f_s) = t(\varphi^*(\beta^1),\dots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\dots, \varphi^{-1}(F_s))
+		\varphi_*(t) (\beta^1,\dots,\beta^r,f_1,\dots,f_s) = t(\varphi^*(\beta^1),\dots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\dots, \varphi^{-1}(f_s))
 	\end{equation*}
-	con $\beta^i\in W$ e $f_j\in W^*$.
+	con $\beta^i\in W^*$ e $f_j\in W$.
 \end{definition}
 
 Si verifica che $\varphi_*$ è continua
@@ -88,11 +87,11 @@ Si verifica che $\varphi_*$ è continua
 	Sia $A_i^a$ la matrice dei coefficienti di $\varphi$ rispetto alle basi ($\varphi(e_i) = A_i^af_a$).
 	Sia $B_a^i$ la matrice dei coefficienti di $\varphi^{-1}$.
 	Allora $[B_a^i]$ è l'inversa di $[A_i^a]$. Inoltre, siano $t\in T_s^r(V)$, $q\in T_s^r(W)$ tensore con componenti $t_{j_1,\dots,j_s}^{i_1,\dots,i_r}$ e $q_{b_1,\dots,b_s}^{a_1,\dots,a_r}$, allora:
-	\begin{equation*} %TODO: non ho scritto tutte le seguenti formule
-		(\varphi_*t)_{b_1,\dots,b_s}^{a_1,\dots,a_r} = A_{i_1}^{a_1}\dots A_{i_r}^{a_r} t_{j_1,\dots,j_s}^{i_1,\dots,i_r} B_{l_1}^{j_1}\dots B
+	\begin{equation*} 
+		(\varphi_*t)_{b_1,\dots,b_s}^{a_1,\dots,a_r} = A_{i_1}^{a_1}\dots A_{i_r}^{a_r} t_{j_1,\dots,j_s}^{i_1,\dots,i_r} B_{b_1}^{j_1}\dots B_{b_s}^{j_s}
 	\end{equation*}
 	\begin{equation*}
-		(\varphi^*q)_{j_1,\dots,j_s}^{i_1,\dots,i_r}
+		(\varphi^*q)_{j_1,\dots,j_s}^{i_1,\dots,i_r} =B_{a_1}^{i_1}\dots B_{a_r}^{i_r} q_{b_1,\dots,b_s}^{a_1,\dots,a_r} A_{j_1}^{b_1}\dots A_{j_s}^{b_s}
 	\end{equation*}
 \end{proposition}
 
@@ -106,13 +105,13 @@ Si verifica che $\varphi_*$ è continua
 		&= t(\varphi^*(f^{a_1}),\dots, \varphi^*(f^{a_r}),\varphi^{-1}(f_{b_1}),\dots,\varphi^{-1}(f_{b_s})) =\\
 		&=t (A_{i_1}^{a_1} e^{i_1}\dots A_{i_s}^{a_s} e^{i_s},B_{l_1}^{j_1}e_{j_1}\dots B_{l_s}^{j_s}e_{j_s})
 	\end{align*}
-	Uguale l'ultima
+	E per linearità ottengo l'enunciato, l'altra formule si ottiene nello stesso modo.
 
 
 \end{proof}
 
 \begin{definition}
-	Sia $\varphi\in L(V,W)$ (non necessariamente invertibile). Definiamo $\varphi^*\in L(T_s^0(W),T_s^0(V)$ tramite $\varphi^*t(e_1,\dots,e_s) = t(\varphi(e_1),\dots,\varphi(e_s))$ con $t\in T_s^0(V)$.
+	Sia $\varphi\in L(V,W)$ (non necessariamente invertibile). Definiamo $\varphi^*\in L(T_s^0(W),T_s^0(V))$ tramite $\varphi^*t(e_1,\dots,e_s) = t(\varphi(e_1),\dots,\varphi(e_s))$ con $t\in T_s^0(V)$.
 	
 	Allo stesso modo si definisce il push-forward per tensori che siano solo controvarianti.
 \end{definition}
@@ -130,7 +129,7 @@ Si verifica che $\varphi_*$ è continua
 \begin{exercise}
 	\begin{enumerate}
 		\item Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$ ($V=\R^2$)
-		\item Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $(mn)^{r+s}$. %TODO: controllare se è giusto
+		\item Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $mn^{r+s}$.
 	\end{enumerate}
 \end{exercise}
 
