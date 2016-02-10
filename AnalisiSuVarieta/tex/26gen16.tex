@@ -1,32 +1,29 @@
-\chapter{26 gennaio 2016}
+\chapter{Calcolo tensoriale}
 
-\section{Tensori}
-Dati $V_1,\dots,V_k,W$ spazi vettoriali \footnote{Considereremo sempre spazi vettoriali di dimensione finita.}, denotiamo con $L^k(V_1,\dots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\dots\times V_k$ in $W$.
+\section{Definizione e operazioni}
+Dati $V_1,\ldots,V_k,W$ spazi vettoriali, denotiamo con $\Lin^k(V_1,\ldots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\ldots\times V_k$ in $W$. In tutta la trattazione considereremo spazi vettoriali di dimensione finita.
+Denotiamo inoltre $V^* = \Lin(V,\R)$ lo spazio duale di $V$.
+Se $V$ è $n$-dimensionale ed $e_1,\ldots,e_n$ è una sua base, esiste una base $e^1,\ldots,e^n$ di $V^*$ tale che $\Scal{e^i}{e_j} = \delta_{ij}$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $\Scal{\alpha}{v}$ l'elemento $\alpha$ applicato a $v$.}.
+In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \Scal{e^i}{v} e_i$ e $\alpha= \sum_{i=1}^n \Scal{\alpha}{e_i} e^i$.
 
-Denotiamo inoltre $V^* = L(V,\R)$ lo spazio duale di $V$.
-Se $V$ è $n$-dimensionale ed $e_1,\dots,e_n$ è una base di $V$, esiste una base $e^1,\dots,e^n$ di $V^*$ tale che $<e^i,e_j> = \delta_{ij}$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $<\alpha, v>$ l'elemento $\alpha$ applicato a $v$.}.
-
-In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <e^i,v> e_i$ e $\alpha= \sum_{i=1}^n <\alpha,e_i> e^i$.
-
-\begin{definition}
+\begin{definition} \index{tensore} \index{tensore!covariante} \index{tensore!controvariante}
 	Dato $V$ spazio vettoriale definiamo 
 	\begin{equation*}
-	T_s^r(V) = L^{r+s} (\underbrace{V^*,\dots,V^*}_{\text{$r$ copie}},\underbrace{V,\dots,V}_{\text{$s$ copie}},\R) \punto
+	T_s^r(V) = \Lin^{r+s} (\underbrace{V^*,\ldots,V^*}_{\text{$r$ copie}},\underbrace{V,\ldots,V}_{\text{$s$ copie}},\R) \punto
 	\end{equation*}
-	
-	Gli elementi di $T_s^r(V)$ sono detti \emph{tensori} su $V$, \emph{controvarianti} di ordine $r$ e \emph{covarianti} di ordine $s$ (tensori di tipo $(r,s)$).
+	Gli elementi di $T_s^r(V)$ sono detti \emph{tensori} su $V$, \emph{controvarianti} di ordine $r$ e \emph{covarianti} di ordine $s$ (oppure tensori di tipo $(r,s)$).
 \end{definition}
 
 \begin{remark}
-	Allo stesso modo possiamo definire $T_s^r(V,W) = L^{r+s} (V^*,\dots,V^*,V,\dots,V,W)$.
+	Allo stesso modo possiamo definire $T_s^r(V,W) = \Lin^{r+s} (V^*,\ldots,V^*,V,\ldots,V,W)$.
 \end{remark}
 
 
-\begin{definition}
+\begin{definition} \index{prodotto!tensore}
 	Dati $t_1\in T_{s_1}^{r_1}(V)$ e $t_2\in T_{s_2}^{r_2}(V)$, il \emph{prodotto tensore} di $t_1$ e $t_2$ è il tensore $t_1\otimes t_2 \in T_{s_1+s_2}^{r_1+r_2}(V)$ definito come 
 	\begin{multline*}
-		t_1\otimes t_2(\beta^1,\dots,\beta^{r_1},\gamma^1,\dots,\gamma^{r_2}, f_1,\dots,f_{s_1},g_1,\dots,g_{s_2}) =\\
-		=t_1(\beta^1,\dots,\beta^{r_1},f_1,\dots,f_{s_1})t_2(\gamma^1,\dots,\gamma^{r_2},g_1,\dots,g_{s_2}) \virgola
+		t_1\otimes t_2(\beta^1,\ldots,\beta^{r_1},\gamma^1,\ldots,\gamma^{r_2}, f_1,\ldots,f_{s_1},g_1,\ldots,g_{s_2}) \coloneqq\\
+		t_1(\beta^1,\ldots,\beta^{r_1},f_1,\ldots,f_{s_1})t_2(\gamma^1,\ldots,\gamma^{r_2},g_1,\ldots,g_{s_2}) \virgola
 	\end{multline*}
 	con $\beta^j,\gamma^j\in V^*$ e $f_i,g_i\in V$.
 \end{definition}
@@ -34,57 +31,66 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <
 \begin{example}
 	Vediamo alcuni casi interessanti:
 	\begin{enumerate}
-		\item $T_0^1(V) = L(V^*,\R) \cong V$;
+		\item $T_0^1(V) = \Lin(V^*,\R) \cong V$;
 		\item $T_1^0(V) \cong V^*$;
-		\item $T_2^0(V) \cong L(V,V^*)$ tramite $t(v,w) = <f(v),w>$, con $t\in T_2^0(V)$;
-		\item $T_1^1(V) \cong L(V,V)$ tramite $t(\alpha,v) = <\alpha, \tilde f (v)>$, con $\tilde f\in L(V,V)$.
+		\item $T_2^0(V) \cong \Lin(V,V^*)$, tramite l'isomorfismo dato dalla relazione $t(v,w) = \Scal{f(v)}{w}$, con $t\in T_2^0(V)$ ed $f\in\Lin(V,V^*)$;
+		\item $T_1^1(V) \cong \Lin(V,V)$, tramite la relazione $t(\alpha,v) = \Scal{\alpha}{\tilde f (v)}$, con $t\in T_1^1(V)$ e $\tilde f\in \Lin(V,V)$.
 	\end{enumerate}
 \end{example}
 
 \begin{proposition}
-	Sia $V$ uno spazio vettoriale $n$-dimensionale con base $e_1,\dots,e_n$. Sia $e^1,\dots,e^n$ la base duale di $V^*$. Allora elementi del tipo $e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots \otimes e^{j_s}$ formano una base di $T_s^r(V)$
+	Sia $V$ uno spazio vettoriale $n$-dimensionale con base $e_1,\ldots,e_n$. Sia $e^1,\ldots,e^n$ la base duale di $V^*$. Allora elementi del tipo $e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots \otimes e^{j_s}$ formano una base di $T_s^r(V)$.
 \end{proposition}
 \begin{proof}
 	Dobbiamo dimostrare che elementi come sopra sono linearmente indipendenti e generano linearmente $T_s^r(V)$.
 	
 	Supponiamo che non valga la lineare indipendenza, allora esiste una loro combinazione lineare a coefficienti non nulli che si annulla:
 	\begin{equation*}
-		\sum t_{j_1\dots j_s}^{i_1\dots i_r} e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots \otimes e^{j_s} = 0\punto
+		\sum t_{j_1\ldots j_s}^{i_1\ldots i_r}\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots \otimes e^{j_s} = 0\punto
 	\end{equation*}
-	Applichiamo questo tensore a $(e^{k_1},\dots,e^{k_r},e_{l_1},\dots,e_{l_s})$, allora otteniamo $t_{l_1\dots l_s}^{k_1 \dots k_r} = 0$ e quindi un assurdo.
+	Applichiamo questo tensore a $(e^{k_1},\ldots,e^{k_r},e_{l_1},\ldots,e_{l_s})$, allora otteniamo $t_{l_1\ldots l_s}^{k_1 \ldots k_r} = 0$. Questo per ogni $(k_1,\ldots, k_r)$ e $(l_1,\ldots,l_s)$, il che quindi un assurdo.
 	
-	Dato ora $t\in T_s^r(V)$, possiamo scrivere $t = \sum t(e^{i_1},\dots, e^{i_r},e_{j_1},\dots, e_{j_s})e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots \otimes e^{j_s}$, da cui abbiamo anche la ``generazione''.
+	Dato ora $t\in T_s^r(V)$, possiamo scrivere
+	\begin{equation*}
+		t = \sum t(e^{i_1},\ldots, e^{i_r},e_{j_1},\ldots, e_{j_s})\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots \otimes e^{j_s}\virgola
+	\end{equation*}	
+	da cui abbiamo anche che gli elementi cercati generano $T_s^r(V)$.
 \end{proof}
 
-\begin{definition}
-	I coefficienti $t_{j_1\dots j_s}^{i_1\dots i_r}$ sono detti \emph{componenti} di $t$ rispetto alla base $e_1,\dots,e_n$.
+\begin{definition} \index{tensore!componenti}
+	I coefficienti $t_{j_1\ldots j_s}^{i_1\ldots i_r}$ sono detti \emph{componenti} di $t$ rispetto alla base $e_1,\ldots,e_n$ di $V$.
 \end{definition}
 
-\begin{example}
+\begin{example} \index{tensore!simmetrico}
 \begin{enumerate}
-	\item Se $t\in T_2^0(V)$, le componenti sono $t_{ij} = t(e_i,e_j)$ (matrice $n\times n$). A questa matrice associamo la forma bilineare ovvia.
+	\item Se $t\in T_2^0(V)$, le sue componenti sono $t_{ij} = t(e_i,e_j)$, che formano una matrice $n\times n$. A questa matrice associamo la forma bilineare ovvia.
 	Nel caso di $\R^2$, se $t_{ij} = \left(\begin{matrix}
 	                                  A & B \\
 	                                  C & D 
 	                                 \end{matrix}\right)$
-	, associamo la forma $t(x,y) = Ax_1y_1+Bx_1y_2+Cx_2y_1+Dx_2y_2$.
-	$t$ è detto \emph{simmetrico} se $t(e_i,e_j) =t(e_j,e_i)$. In questo caso anche la matrice associata è simmetrica. Questo genera la forma quadratica $Q(e) = t(e,e)$, dalla polarizzata $t(e_i,e_j) = \frac 14 [Q(e_i+e_j)-Q(e_i-e_j)]$.
-	\item In generale $t\in T_0^r(V)$ è detto \emph{simmetrico} se $t(\alpha^1,\dots,\alpha^r) = t(\alpha^{\sigma(1)},\dots,\alpha^{\sigma(r)})$ per ogni permutazione $\sigma$ e per tutti gli $\alpha^1,\dots,\alpha^r \in V^*$.
+	, associamo quindi la forma 
+	\begin{equation*}
+		t(x,y) = Ax_1y_1+Bx_1y_2+Cx_2y_1+Dx_2y_2\punto
+	\end{equation*}
+	Il tensore $t$ è detto \emph{simmetrico} se $t(e_i,e_j) =t(e_j,e_i)$. In questo caso anche la matrice associata è simmetrica. Questo genera la forma quadratica $Q(e) = t(e,e)$, dalla polarizzata $t(e_i,e_j) = \frac 14 [Q(e_i+e_j)-Q(e_i-e_j)]$.
 	
-	A $t$ possiamo ancora associare il polinomio $P(\alpha) = t(\alpha,\dots,\alpha)$, omogeneo di grado $r$.
-	\item Data $\sigma$ permutazione dei $\{1,\dots,k\}$, lo spazio $L^k(V_1,\dots,V_k,W)$ è isomorfo allo spazio $L^k(V_{\sigma(1)},\dots,V_{\sigma(k)},W)$.
-	Tale isomorfismo si vede come $A \in L^k(V_1,\dots,V_k,W) \mapsto A'\in L^k(V_{\sigma(1)},\dots,V_{\sigma(k)},W)$ tale che $A'(e_{\sigma(1)},\dots,e_{\sigma(k)}) = A(e_1,\dots,e_k)$.
+	\item In generale $t\in T_0^r(V)$ è detto \emph{simmetrico} se $t(\alpha^1,\ldots,\alpha^r) = t(\alpha^{\sigma(1)},\ldots,\alpha^{\sigma(r)})$ per ogni permutazione $\sigma$ e per tutti gli $\alpha^1,\ldots,\alpha^r \in V^*$.
+	
+	Inoltre possiamo ancora associare al tensore $t$ il polinomio $P(\alpha) = t(\alpha,\ldots,\alpha)$, omogeneo di grado $r$.
+	
+	\item Data $\sigma$ permutazione di $\{1,\ldots,k\}$, lo spazio $\Lin^k(V_1,\ldots,V_k,W)$ è isomorfo allo spazio $\Lin^k(V_{\sigma(1)},\ldots,V_{\sigma(k)},W)$.
+	Tale isomorfismo si vede come $A \in \Lin^k(V_1,\ldots,V_k,W) \mapsto A'\in \Lin^k(V_{\sigma(1)},\ldots,V_{\sigma(k)},W)$ tale che $A'(e_{\sigma(1)},\ldots,e_{\sigma(k)}) = A(e_1,\ldots,e_k)$.
 \end{enumerate}
 \end{example}
 
 \begin{definition} \index{prodotto!interno}
-	Definiamo il \emph{prodotto interno} di un tensore con un vettore $v\in V$, che è una mappa $T_s^r(V)\to T_{s-1}^r(V)$ tale che
+	Il \emph{prodotto interno} di un tensore con un vettore $v\in V$  è una mappa $i_v:T_s^r(V)\to T_{s-1}^r(V)$ tale che
 	\begin{equation*}
-		i_vt(\beta^1,\dots,\beta^r,v_1,\dots,v_{s-1}) = t(\beta^1,\dots,\beta^r,v,v_1,\dots,v_{s-1})\punto
+		i_vt(\beta^1,\ldots,\beta^r,v_1,\ldots,v_{s-1}) = t(\beta^1,\ldots,\beta^r,v,v_1,\ldots,v_{s-1})\punto
 	\end{equation*}
-	Analogamente possiamo definire il prodotto interno con un vettore $\beta \in V^*$ come una mappa $T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
+	Analogamente possiamo definire il \emph{prodotto interno} con un vettore $\beta \in V^*$ come una mappa $i^\beta:T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
 	\begin{equation*}
-		i^\beta t(\beta^1,\dots,\beta^{r-1},v_1,\dots,v_s) = t(\beta,\beta^1,\dots,\beta^r,v_1,\dots,v_{s-1})\punto
+		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) = t(\beta,\beta^1,\ldots,\beta^r,v_1,\ldots,v_s)\punto
 	\end{equation*}
 \end{definition}
 
@@ -92,47 +98,55 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n <
 	Le mappe $i_v:T_s^r(V)\to T_{s-1}^r(V)$ e $i^\beta:T_s^r(V)\to T_s^{r-1}(V)$ sono lineari, così come le mappe $v\mapsto i_v$ e $\beta\mapsto i^\beta$.
 \end{remark}
 
-In componenti (per linearità, basta capirlo sui tensori della base)
+Vediamo ora i prodotti interni in componenti. Per linearità, ci basta esplicitarli per i tensori della base.
 \begin{equation*}
-	i_{e_k} (e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes e^{j_s}) = \delta_k^{j_1} e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_2}\otimes \dots\otimes e^{j_s}\virgola
+	i_{e_k} (e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}) = \delta_k^{j_1}\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_2}\otimes \ldots\otimes e^{j_s}\virgola
 \end{equation*}
 \begin{equation*}
-	i^{e^k} (e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes e^{j_s}) = \delta_{i_1}^k e_{i_2}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes e^{j_s}\punto
+	i^{e^k} (e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}) = \delta_{i_1}^k\ e_{i_2}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}\punto
 \end{equation*}
 
 \begin{definition} \index{contrazione}
-	La \emph{contrazione} del $k$-esimo indice controvariante con l'$l$-esimo indice covariante (contrazione di tipo $(k,l)$) è la mappa lineare $C_l^k:T_s^r(V)\to T_{s-1}^{r-1}(V)$ definita da \footnote{ Per convenzione quando si scrivono indici alti e bassi ripetuti  si intende che si somma da $1$ ad $n$ (notazione di Einstein).}
+	La \emph{contrazione} del $k$-esimo indice controvariante con l'$l$-esimo indice covariante (contrazione di tipo $(k,l)$) è la mappa lineare $C_l^k:T_s^r(V)\to T_{s-1}^{r-1}(V)$ definita da 
 	\begin{multline*}
-		C_l^k(t_{j_1\dots j_s}^{i_1\dots i_r} e_{i_1}\otimes \dots \otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes e^{j_s}) =\\
-		=t_{j_1\dots j_{l-1}Pj_{l+1}\dots j_s}^{i_1\dots i_{k-1}Pi_{k+1}\dots i_r}e_{i_1}\otimes \dots \otimes\hat e_{i_k}\otimes \dots\otimes e_{i_r}\otimes e^{j_1}\otimes \dots\otimes \hat e^{j_l}\otimes \dots \otimes e^{j_s}\punto
+		C_l^k(t_{j_1\ldots j_s}^{i_1\ldots i_r}\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}) =\\
+		=t_{j_1\ldots j_{l-1}pj_{l+1}\ldots j_s}^{i_1\ldots i_{k-1}pi_{k+1}\ldots i_r}\ e_{i_1}\otimes \ldots \otimes\hat e_{i_k}\otimes \ldots\otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes \hat e^{j_l}\otimes \ldots \otimes e^{j_s} \virgola
 	\end{multline*}
+	dove per convenzione quando si scrivono indici alti e bassi ripetuti si intende che si somma da $1$ ad $n$ (notazione di Einstein). In questo particolare caso si sta quindi sommando su $p$.
 \end{definition}
 
 \begin{remark}
-	La contrazione $(k,l)$ è indipendente dalla base $e_1,\dots,e_n$ di $V$.
+	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$. %TODO: perché?
 \end{remark}
 
-\begin{definition}
-	La delta di Kronecker è il tensore $\delta \in T_1^1(V)$ definito come $\delta(\alpha,e) = <\alpha,e>$.
+\begin{definition} \index{delta di Kronecker}
+	La \emph{delta di Kronecker} è il tensore $\delta \in T_1^1(V)$ definito come
+	\begin{equation*}
+		\delta(\alpha,e) \coloneqq \Scal{\alpha}{e}\punto
+	\end{equation*}
 \end{definition}
 
 \begin{remark}
-	La $\delta$ corrisponde all'identità su $V$ quando consideriamo $T_1^1(V) \cong L(V,V)$.
+	La $\delta$ corrisponde all'identità su $V$ quando consideriamo $T_1^1(V) \cong \Lin(V,V)$.
 	
-	Fissando una base $\delta = \sum_{i,j}\delta_j^i e_i\otimes e^j$, con $\delta_j^i$ i classici simboli di Kronecker.
+	Inoltre, fissando una base, risulta che $\delta = \sum_{i,j}\delta_j^i\ e_i\otimes e^j$, dove $\delta_j^i$ sono i classici simboli di Kronecker.
 \end{remark}
 
-Supponiamo che $V$ sia dotato di un prodotto interno $\ll \cdot, \cdot \gg$ (simmetrico, definito positivo). Siano $e_1,\dots,e_n$ una base di $V$ e $e^1,\dots,e^n$ la base del duale $V^*$.
-Sia $g_{ij} = \ll e_i,e_j\gg$ la matrice dei coefficienti del prodotto interno.
+Supponiamo ora che $V$ sia dotato di un prodotto interno $\ll \cdot, \cdot \gg$ simmetrico e definito positivo. Siano $e_1,\ldots,e_n$ una base di $V$ e $e^1,\ldots,e^n$ la base del duale $V^*$.
+Sia inoltre $g_{ij} \coloneqq \ll e_i,e_j\gg$ la matrice dei coefficienti del prodotto interno.
 
-Allora abbiamo due isomorfismi (musicali) $b:V\to V^*$ (bemolle) tale che $x\mapsto \ll x,\cdot \gg$ e l'inverso $d:V^*\to V$ (diesis).
+Allora abbiamo due isomorfismi (musicali) che sono:
+\begin{enumerate}
+	\item $\flat:V\to V^*$ (\emph{bemolle}) tale che $x\mapsto \ll x,\cdot \gg$; \index{operatore!bemolle $\flat$}
+	\item $\sharp:V^*\to V$ (\emph{diesis}) che è il suo invevrso. \index{operatore!diesis $\sharp$}
+\end{enumerate}
 
-La matrice dei coefficienti di $b$ è $g_{ij}$ stessa ($(x^b)_i = g_{ij}x^j$).
-Invece la matrice dei coefficienti di $d$ è $g^{ij}$, cioè la matrice inversa di $g_{ij}$ ($(\alpha^d)^i = g^{ij}\alpha_j$).
+La matrice dei coefficienti di $\flat$ è $g_{ij}$ stessa, poiché $(x^\flat)_i = g_{ij}x^j$.
+Invece la matrice dei coefficienti di $\sharp$ è $g^{ij}$, cioè la matrice inversa di $g_{ij}$; infatti $(\alpha^\sharp)^i = g^{ij}\alpha_j$.
 
-$b$ è detto operatore di abbassamento di indice, mentre $d$ operatore di innalzamento. Questo perché permettono di passare da tensori del tipo $(r,s)$ a tensori del tipo $(r-1,s+1)$ e $(r+1,s-1)$ rispettivamente.
+L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre $\sharp$ \emph{operatore di innalzamento}. Questo perché permettono di passare da tensori del tipo $(r,s)$ a tensori del tipo $(r-1,s+1)$ e $(r+1,s-1)$ rispettivamente.
 
 \begin{example}
-	Se $t$ è di tipo $(0,2)$, possiamo definire $t'\in T_1^1(V)$ tramite $t'(\alpha, e) = t(\alpha^d, e)$ e avremo che $(t')_j^i = g^{ik}t_{kj}$.
+	Se $t$ è di tipo $(0,2)$, possiamo definire $t'\in T_1^1(V)$ tramite $t'(\alpha, e) = t(\alpha^\sharp, e)$ e avremo che $(t')_j^i = g^{ik}t_{kj}$.
 \end{example}
 
