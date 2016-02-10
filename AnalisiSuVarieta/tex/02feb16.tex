@@ -2,33 +2,34 @@
 
 \begin{example}
 	\begin{enumerate}
-		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, consideriamo il prodotto interno 
+		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, risulta che il prodotto interno di $t$ con $x$ è 
 		\begin{align*}
-		i_xt = x^pi_{e_p}(t_j^{kl} e_k\otimes e_l\otimes e^j) = x^p t_j^{kl}i_{e_p} (e_k\otimes e_l\otimes e^j) = x^pt_j^{kl}\delta_p^j e_k\otimes e_l = x^j t_j^{kl} e_k\otimes e_l
+		i_xt &= x^p\ i_{e_p}(t_j^{kl}\ e_k\otimes e_l\otimes e^j) = x^p\ t_j^{kl}\ i_{e_p} (e_k\otimes e_l\otimes e^j) =\\
+		&= x^p\ t_j^{kl}\ \delta_p^j\ e_k\otimes e_l = x^j\ t_j^{kl}\ e_k\otimes e_l \punto
 		\end{align*}
 		Mentre il prodotto interno con $\alpha = \alpha_pe^p$ è
 		\begin{align*}
-		i^\alpha t = \alpha_p t_j^{kl} i^{e^p}(e_k\otimes e_l\otimes e^j) = \alpha_k t_j^{kl} e_l\otimes e^j
+		i^\alpha t = \alpha_p\ t_j^{kl}\ i^{e^p}(e_k\otimes e_l\otimes e^j) = \alpha_k\ t_j^{kl}\ e_l\otimes e^j \punto
 		\end{align*}
 		
-		\item Se $t\in T_3^2(V)$ e faccio una contrazione $(2,1)$
+		\item Se $t\in T_3^2(V)$, facendo una contrazione $(2,1)$, ottengo
 		\begin{equation*}
-			C_1^2 (t_{klm}^{ij} e_i\otimes e_j\otimes e^k\otimes e^l\otimes e^m ) = t_{klm}^{ij} \delta_j^k e_i\otimes e^l\otimes e^m = t_{klm}^{ik} e_i\otimes e^l\otimes e^m
+			C_1^2 (t_{klm}^{ij}\ e_i\otimes e_j\otimes e^k\otimes e^l\otimes e^m ) = t_{klm}^{ij}\ \delta_j^k\ e_i\otimes e^l\otimes e^m = t_{klm}^{ik}\ e_i\otimes e^l\otimes e^m \punto
 		\end{equation*}
 		
 		\item Se $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
 
-		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$ con inversi $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^k$ e $g_{jk}g^{kl} = \delta_j^l$.
+		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$, con inversa $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^k$ e $g_{jk}g^{kl} = \delta_j^l$.
 		
-		Tramite un prodotto, si può definire anche la traccia di $t\in T_0^2(V)$ dalla traccia del tensore $(1,1)$ associato. Se $t=t^{ij}e_i\otimes e_j$, possiamo perciò definire $\tr (t) = \tr (g_{ij}t^{jk}) = g_{ik}t^{ik}$.
+		Tramite un prodotto, si può definire anche la traccia di $t\in T_0^2(V)$ dalla traccia del tensore $(1,1)$ associato. Se $t=t^{ij}\ e_i\otimes e_j$, possiamo perciò definire $\tr (t) = \tr (g_{ij}t^{jk}) = g_{ik}t^{ik}$.
 	\end{enumerate}
 \end{example}
 
-Definiamo il duale di una trasformazione lineare.
-\begin{definition}
-	Siano $V,W$ spazi vettoriali e $\varphi \in L(V,W)$. Il \emph{duale} (o trasporto) di $\varphi$ è $\varphi^* \in L(W^*,V^*)$ definita come 
+Definiamo ora il duale di una trasformazione lineare.
+\begin{definition} \index{duale} \index{trasporto}
+	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
 	\begin{equation*} %TODO: il prodotto scalare così fa un po' schifo
-		<\varphi^*(\beta), e>_V = < \beta, \varphi(e) >_W \virgola 
+		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola 
 	\end{equation*}
 	per ogni $\beta \in W^*$ ed $e\in V$.
 \end{definition}
