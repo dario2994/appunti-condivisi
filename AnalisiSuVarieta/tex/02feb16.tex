@@ -7,7 +7,7 @@
 		i_xt &= x^p\ i_{e_p}(t_j^{kl}\ e_k\otimes e_l\otimes e^j) = x^p\ t_j^{kl}\ i_{e_p} (e_k\otimes e_l\otimes e^j) =\\
 		&= x^p\ t_j^{kl}\ \delta_p^j\ e_k\otimes e_l = x^j\ t_j^{kl}\ e_k\otimes e_l \punto
 		\end{align*}
-		Mentre il prodotto interno con $\alpha = \alpha_pe^p$ è
+		Mentre il prodotto interno di $t$ con $\alpha = \alpha_pe^p$ è
 		\begin{align*}
 		i^\alpha t = \alpha_p\ t_j^{kl}\ i^{e^p}(e_k\otimes e_l\otimes e^j) = \alpha_k\ t_j^{kl}\ e_l\otimes e^j \punto
 		\end{align*}
@@ -28,40 +28,44 @@
 Definiamo ora il duale di una trasformazione lineare.
 \begin{definition} \index{duale} \index{trasporto}
 	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
-	\begin{equation*} %TODO: il prodotto scalare così fa un po' schifo
+	\begin{equation*}
 		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola 
 	\end{equation*}
 	per ogni $\beta \in W^*$ ed $e\in V$.
 \end{definition}
 
-Siano $\{e_1,\dots, e_n\}$ e $\{f_1,\dots, f_m\}$ basi di $V^n$ e $W^m$. Supponiamo $\varphi(e_i) = A_i^af_a$ e diciamo che $A_i^a$ \footnote{Supponiamo che il pedice sia la colonna e l'apice la riga.} è la matrice associata a $\varphi$. %TODO: la lettera a fa schifo
+Siano $\{e_1,\dots, e_n\}$ e $\{f_1,\dots, f_m\}$ basi di $V^n$ e $W^m$. Supponiamo $\varphi(e_i) = A_i^af_a$ e diciamo che $A_i^a$ \footnote{Supponiamo che il pedice sia la colonna e l'apice la riga.} è la matrice associata a $\varphi$.
 Dato $v = v^ie_i\in V$, vale che $\varphi(v)^a = A_i^a v^i$.
-La matrice moltiplica a sinistra, quindi $<\varphi^*(f^a), e_i>_V = <f^a, \varphi(e_i)>_W = <f^a, A_i^b f_b> = A_i^b\delta_b^a = A_i^a$. Perciò vale che $\varphi^*(f^a) = A_i^a e^i$.
+La matrice moltiplica a sinistra, quindi
+\begin{equation*}
+	\Scal{\varphi^*(f^a)}{e_i}_V = \Scal{f^a}{\varphi(e_i)}_W = \Scal{f^a}{A_i^b f_b} = A_i^b\delta_b^a = A_i^a\punto
+\end{equation*}
+Perciò vale che $\varphi^*(f^a) = A_i^a e^i$.
 
 Se $\beta = \beta_a f^a \in W^*$, allora $\varphi^*(\beta) = \beta_a \varphi^*(f^a) = \beta_aA_i^ae^i$.
 Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplica a destra.
 
 \section{Push-forward e pull-back}
 
-\begin{definition}
-	Se $\varphi \in L(V,W)$ è un isomorfismo, il push-forward $\varphi_* = T_s^r(\varphi)$ è la mappa in $L(T_s^r(V), T_s^r(W))$ definita da
+\begin{definition} \index{isomorfismo!push-forward}
+	Se $\varphi \in \Lin(V,W)$ è un isomorfismo, il push-forward $\varphi_* = T_s^r(\varphi)$ è la mappa in $\Lin(T_s^r(V), T_s^r(W))$ definita da
 	\begin{equation*}
-		\varphi_*(t) (\beta^1,\dots,\beta^r,f_1,\dots,f_s) = t(\varphi^*(\beta^1),\dots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\dots, \varphi^{-1}(f_s))
+		\varphi_*(t) (\beta^1,\dots,\beta^r,f_1,\dots,f_s) = t(\varphi^*(\beta^1),\dots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\dots, \varphi^{-1}(f_s)) \virgola
 	\end{equation*}
 	con $\beta^i\in W^*$ e $f_j\in W$.
 \end{definition}
 
 Si verifica che $\varphi_*$ è continua.
 
-\begin{remark}
+\begin{remark} %TODO: what?
 	$T_0^1(\varphi) = (\varphi^{-1})^*$, $T_0^1(V)\cong V$, $T_0^1(W)\cong W$, allora $T_0^1(\varphi)\cong\varphi$.
 \end{remark}
 
 \begin{proposition}
-	Siano $\varphi\in L(V,W)$, $\psi\in L(W,Z)$ isomorfismi. Allora
+	Siano $\varphi\in \Lin(V,W)$, $\psi\in \Lin(W,Z)$ isomorfismi. Allora
 	\begin{enumerate}
 	 \item $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$
-	 \item Se $i:V\to V$ è l'identità, allora $i_*:T_s^r(V) \to T_S^r(V)$ è l'identità
+	 \item Se $i:V\to V$ è l'identità, allora $i_*:T_s^r(V) \to T_s^r(V)$ è l'identità
 	 \item $\varphi_*:T_s^r(V) \to T_s^r(W)$ è un isomorfismo e $(\varphi_*)^{-1} = (\varphi^{-1})_*$
 	 \item Se $t_1\in T_{s_1}^{r_1}(V)$, $t_2\in T_{s_2}^{r_2}(V)$, allora $\varphi_*(t_1\otimes t_2) = \varphi_*(t_1)\otimes \varphi_*(t_2)$
 	\end{enumerate}
