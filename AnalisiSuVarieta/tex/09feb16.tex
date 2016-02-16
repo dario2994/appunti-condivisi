@@ -21,17 +21,17 @@ Se $t\in T_s^0(W)$ è sempre possibile fare il pull-back.
 Sia $(E\restrict U,\varphi)$ una carta locale di $\pi$, con $U\subseteq B$ aperto. Allora $\varphi_* \restrict{T_s^r(E)\restrict U}$ è una biezione su un fibrato locale e quindi è una carta locale.
 Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la carta preserva la struttura lineare di ogni fibra. Queste carte sono dette \emph{carte naturali} di $T_s^r(E)$.
 
-\begin{theorem}
+\begin{theorem} \label{thm:AtlanteFibratoTensoriale}
 	Se $\pi: E \to B$ è un fibrato vettoriale, l'insieme delle carte naturali di $\pi_s^r(E):T_s^r(E) \to B$ è un atlante sul fibrato tensoriale.
 \end{theorem}
 \begin{proof}
 	Perché il teorema sia vero deve valere che:
 	\begin{enumerate}
-		\item l'atlante ricopre il fibrato;
-		\item date carte di fibrato $(U_i,\tilde\varphi_i)$, $(U_j,\tilde\varphi_j)$ con $U_i\cap U_j\not=\emptyset$, allora $\tilde\varphi_i( (U_i\times V) \cap (U_j\times V) )$ è un fibrato locale (dove $V\cong E_b$) e $\tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati vettoriali.
+		\item l'atlante ricopre il fibrato; \label{aft:Ricopre}
+		\item date carte di fibrato $(U_i,\tilde\varphi_i)$, $(U_j,\tilde\varphi_j)$ con $U_i\cap U_j\not=\emptyset$, allora $\tilde\varphi_i( (U_i\times V) \cap (U_j\times V) )$ è un fibrato locale (dove $V\cong E_b$) e $\tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati vettoriali. \label{aft:CambiCarta}
 	\end{enumerate}
-	La 1 segue dal fatto che partiano da un atlante per $E$.
-	Per la 2, abbiamo che $\alpha \coloneqq \tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati. Per la proposizione $\alpha_* = (\tilde\varphi_j)_*\circ (\tilde\varphi_i)_*^{-1}$ è anche un isomorfismo locale di fibrati. %TODO: aggiungere cref
+	La \ref{aft:Ricopre} segue dal fatto che partiamo da un atlante per $E$.
+	Per la \ref{aft:CambiCarta}, abbiamo che $\alpha \coloneqq \tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati. Per la proposizione $\alpha_* = (\tilde\varphi_j)_*\circ (\tilde\varphi_i)_*^{-1}$ è anche un isomorfismo locale di fibrati. %TODO: aggiungere cref
 \end{proof}
 
 \begin{remark}
@@ -39,27 +39,27 @@ Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la ca
 \end{remark}
 
 \begin{proposition}
-	Sia $f:E\to E'$ una mappa tra fibrati che sia un isomorfismo su ogni fibra. Allora anche $f_*:T_s^r(E) \to T_s^r(E')$ è una mappa fra fibratiche è un isomorfismo su ogni fibra.
+	Sia $f:E\to E'$ una mappa tra fibrati che sia un isomorfismo su ogni fibra. Allora anche $f_*:T_s^r(E) \to T_s^r(E')$ è una mappa fra fibrati che è un isomorfismo su ogni fibra.
 \end{proposition}
 \begin{proof}
 	Siano $(U,\tilde\varphi)$ e $(V,\tilde\psi)$ carte di fibrato su $E$ ed $E'$ tali che $f(U) \subseteq V$ e sia $f_{\tilde\varphi\tilde\psi} \coloneqq \tilde\psi \circ f \circ \tilde\varphi^{-1}$ la mappa locale di fibrato corrispondente. Allora, usando l'atlante naturale, $(f_*)_{\tilde\varphi_*\tilde\psi_*} = (f_{\tilde\varphi\tilde\psi})_*$.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop:ProprietaMappeFibrati}
 	Siano $f:E\to E'$ e $g:E' \to E''$ mappe tra fibrati che sono isomorfismi su ogni fibra. Allora lo è anche $g \circ f$ e
 	\begin{enumerate}
-		\item $(g\circ f)_* = g_* \circ f_*$;
-		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità;
-		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$.
+		\item $(g\circ f)_* = g_* \circ f_*$; \label{pmf:Distributiva}
+		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità; \label{pmf:Identita}
+		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$. \label{pmf:Isomorfismo}
 	\end{enumerate}
 \end{proposition}
-\begin{proof} %TODO: aggiungere cref
-	Per la 1 basta verificare la proprietà sui rappresentanti locali. La 2 è ovvia e insieme alle 1 implica la 3.
+\begin{proof}
+	Per la \ref{pmf:Distributiva} basta verificare la proprietà sui rappresentanti locali. La \ref{pmf:Identita} è ovvia e insieme alla \ref{pmf:Distributiva} implica la \ref{pmf:Isomorfismo}.
 \end{proof}
 
 Vogliamo ora studiare un caso particolarmente interessante, cioè quello in cui $E = TM$ con $M$ varietà differenziabile. %TODO: verificare se T era definito
 
-\begin{definition}
+\begin{definition} \index{fibrato!dei tensori}
 	Sia $M$ una varietà e sia $\tau_M : TM \to M$ il fibrato tangente. Allora $T_s^r(M) \coloneqq T_s^r(TM)$ è detto \emph{fibrato dei tensori} su $M$ controvarianti di ordine $r$ e covarianti di ordine $s$ (o di tipo $(r,s)$).
 \end{definition}
 
@@ -70,21 +70,29 @@ In particolare il fibrato cotangente si denota con $\tau_M^* : T^*M \to M$.
 
 Ricordiamo che una sezione $\gamma$ di un fibrato $\pi : E \to B$ associa ad ogni $b \in B$ un elemento $\gamma(b) \in E$ tale che $\pi(\gamma(b)) = b$.
 Indichiamo con $\Gamma^\infty(E)$ (o $\Gamma^\infty(\pi)$) le sezione di classe $C^\infty$.
-Quando $E = T_s^r(M)$ parleremo di \emph{campi tensoriali}.
+Quando $E = T_s^r(M)$ parleremo di campi tensoriali.
 
-\begin{definition}
-	Un \emph{campo tensoriale} di tipo $(r,s)$ su una varietà $M$ è una sezione di $T_s^r(M)$. Indicheremo $\Gamma^\infty(T_s^r(M))$ con $\tau_s^r(M)$. %TODO: la tau dovrebbe essere grande
+\begin{definition} \index{campo!tensoriale}
+	Un \emph{campo tensoriale} di tipo $(r,s)$ su una varietà $M$ è una sezione di $T_s^r(M)$. Indicheremo $\Gamma^\infty(T_s^r(M))$ con $\Tau_s^r(M)$. %TODO: la tau dovrebbe essere grande, ho definito Tau (da sostituire)
 	
-	Elementi di $\tau_0^1(M)$ sono campi vettoriali ($\chi(M)$), mentre elmenti di $\tau_1^0(M)$ sono detti 1-forme differenziali (denotate $\chi^*(M)$).
+	Elementi di $\Tau_0^1(M)$ sono campi vettoriali (cioè $\chi(M)$), mentre elmenti di $\Tau_1^0(M)$ sono detti \emph{1-forme differenziali} (denotate $\chi^*(M)$).
 \end{definition}
 
-Vediamo ora le operazioni.
+Vediamo ora alcune operazioni.
 
-Se $f \in C^\infty(M)$ e $t \in \tau_s^r(M)$, allora $ft \in \tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
-
-Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \tau_s^r(M)$ e $t' \in \tau_{s'}^{r'}(M)$, possiamo definire $t(\alpha^1,\ldots,\alpha^r,X_1,\ldots, X_s) \in C^\infty(M)$ come $p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(q),\ldots, X_s(q))$ e $t\otimes t' \in \tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
-
-Lo stesso possiamo fare per contrazioni e prodotti interni. %TODO: sistemare, fa schifo
+\begin{itemize}
+	\item Se $f \in C^\infty(M)$ e $t \in \tau_s^r(M)$, allora $ft \in \tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
+\end{itemize}
+Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \tau_s^r(M)$ e $t' \in \tau_{s'}^{r'}(M)$, possiamo definire
+\begin{itemize}
+	\item $t(\alpha^1,\ldots,\alpha^r,X_1,\ldots, X_s)\in C^\infty(M)$ tale che
+	\begin{equation*}
+		p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(q),\ldots, X_s(q))
+	\end{equation*}
+	
+	\item $t\otimes t' \in \tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
+\end{itemize}
+Lo stesso possiamo fare per contrazioni e prodotti interni.
 
 Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$ dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$.
 \footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}

@@ -154,3 +154,173 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 	Se $t$ è di tipo $(0,2)$, possiamo definire $t'\in T_1^1(V)$ tramite $t'(\alpha, e) = t(\alpha^\sharp, e)$ e avremo che $(t')_j^i = g^{ik}t_{kj}$.
 \end{example}
 
+\begin{example}
+	\begin{enumerate}
+		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, risulta che il prodotto interno di $t$ con $x$ è 
+		\begin{align*}
+		i_xt &= x^p\ i_{e_p}(t_j^{kl}\ e_k\otimes e_l\otimes e^j) = x^p\ t_j^{kl}\ i_{e_p} (e_k\otimes e_l\otimes e^j) =\\
+		&= x^p\ t_j^{kl}\ \delta_p^j\ e_k\otimes e_l = x^j\ t_j^{kl}\ e_k\otimes e_l \punto
+		\end{align*}
+		Mentre il prodotto interno di $t$ con $\alpha = \alpha_pe^p$ è
+		\begin{align*}
+		i^\alpha t = \alpha_p\ t_j^{kl}\ i^{e^p}(e_k\otimes e_l\otimes e^j) = \alpha_k\ t_j^{kl}\ e_l\otimes e^j \punto
+		\end{align*}
+		
+		\item Se $t\in T_3^2(V)$, facendo una contrazione $(2,1)$, ottengo
+		\begin{equation*}
+			C_1^2 (t_{klm}^{ij}\ e_i\otimes e_j\otimes e^k\otimes e^l\otimes e^m ) = t_{klm}^{ij}\ \delta_j^k\ e_i\otimes e^l\otimes e^m = t_{klm}^{ik}\ e_i\otimes e^l\otimes e^m \punto
+		\end{equation*}
+		
+		\item Se $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
+
+		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$, con inversa $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^k$ e $g_{jk}g^{kl} = \delta_j^l$.
+		
+		Tramite un prodotto, si può definire anche la traccia di $t\in T_0^2(V)$ dalla traccia del tensore $(1,1)$ associato. Se $t=t^{ij}\ e_i\otimes e_j$, possiamo perciò definire $\tr (t) = \tr (g_{ij}t^{jk}) = g_{ik}t^{ik}$.
+	\end{enumerate}
+\end{example}
+
+Definiamo ora il duale di una trasformazione lineare.
+\begin{definition} \index{duale} \index{trasporto}
+	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
+	\begin{equation*}
+		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola 
+	\end{equation*}
+	per ogni $\beta \in W^*$ ed $e\in V$.
+\end{definition}
+
+Siano $\{e_1,\ldots, e_n\}$ e $\{f_1,\ldots, f_m\}$ basi di $V^n$ e $W^m$. Supponiamo $\varphi(e_i) = A_i^af_a$ e diciamo che $A_i^a$ \footnote{Supponiamo che il pedice sia la colonna e l'apice la riga.} è la matrice associata a $\varphi$.
+Dato $v = v^ie_i\in V$, vale che $\varphi(v)^a = A_i^a v^i$.
+La matrice moltiplica a sinistra, quindi
+\begin{equation*}
+	\Scal{\varphi^*(f^a)}{e_i}_V = \Scal{f^a}{\varphi(e_i)}_W = \Scal{f^a}{A_i^b f_b} = A_i^b\delta_b^a = A_i^a\punto
+\end{equation*}
+Perciò vale che $\varphi^*(f^a) = A_i^a e^i$.
+
+Se $\beta = \beta_a f^a \in W^*$, allora $\varphi^*(\beta) = \beta_a \varphi^*(f^a) = \beta_aA_i^ae^i$.
+Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplica a destra.
+
+\section{Push-forward e pull-back}
+
+\begin{definition} \index{isomorfismo!push-forward}
+	Se $\varphi \in \Lin(V,W)$ è un isomorfismo, il push-forward $\varphi_* = T_s^r(\varphi)$ è la mappa in $\Lin(T_s^r(V), T_s^r(W))$ definita da
+	\begin{equation*}
+		\varphi_*(t) (\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\ldots, \varphi^{-1}(f_s)) \virgola
+	\end{equation*}
+	con $\beta^i\in W^*$ e $f_j\in W$.
+\end{definition}
+
+Si verifica che $\varphi_*$ è continua.
+
+\begin{remark} %TODO: what?
+	$T_0^1(\varphi) = (\varphi^{-1})^*$, $T_0^1(V)\cong V$, $T_0^1(W)\cong W$, allora $T_0^1(\varphi)\cong\varphi$.
+\end{remark}
+
+\begin{proposition} \label{prop:ProprietaPushForward}
+	Siano $\varphi\in \Lin(V,W)$, $\psi\in \Lin(W,Z)$ isomorfismi. Allora
+	\begin{enumerate}
+	 \item $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$; \label{ppf:Distributiva}
+	 \item Se $i:V\to V$ è l'identità, allora $i_*:T_s^r(V) \to T_s^r(V)$ è l'identità; \label{ppf:Identita}
+	 \item $\varphi_*:T_s^r(V) \to T_s^r(W)$ è un isomorfismo e $(\varphi_*)^{-1} = (\varphi^{-1})_*$; \label{ppf:Isomorfismo}
+	 \item Se $t_1\in T_{s_1}^{r_1}(V)$, $t_2\in T_{s_2}^{r_2}(V)$, allora $\varphi_*(t_1\otimes t_2) = \varphi_*(t_1)\otimes \varphi_*(t_2)$. \label{ppf:ProdottoTensore}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Dimostriamo innanzitutto il punto \ref{ppf:Distributiva}. Abbiamo infatti che
+	\begin{multline*}
+		\psi_*(\varphi_*(t)) (\gamma^1,\ldots,\gamma^r,g_1,\ldots,g_s) = \varphi_*(t) (\psi^*(\gamma^1),\ldots,\psi^*(\gamma^r), \psi^{-1}(g_1),\ldots, \psi^{-1}(g_s)) =\\
+		= t(\varphi^*\circ \psi^*(\gamma^1),\ldots, \varphi^*\circ \psi^*(\gamma^r), \varphi^{-1}\circ \psi^{-1}(g_1), \ldots, \varphi^{-1}\circ \psi^{-1}(g_s) ) =\\
+		= t((\psi\circ\varphi)^*(\gamma^1),\ldots, (\psi\circ\varphi)^*(\gamma^r), (\psi\circ\varphi)^{-1}(g_1), \ldots, (\psi\circ\varphi)^{-1}(g_s) ) = \\
+		= (\psi\circ\varphi)_*\ t (\gamma^1,\ldots,\gamma^r,g_1,\ldots,g_s)\virgola
+	\end{multline*}
+	con $\gamma^i\in Z^*$ e $g_j\in Z$.
+	Poi la \ref{ppf:Identita} è ovvia, la \ref{ppf:Distributiva} implica la \ref{ppf:Isomorfismo} e la \ref{ppf:ProdottoTensore} segue dalla definizione di prodotto tensore.
+\end{proof}
+
+\begin{definition} \index{isomorfismo!pull-back}
+	$(\varphi^{-1})_*$ è detto \emph{pull-back} di $\varphi$ ed è indicata con $\varphi^*$.
+\end{definition}
+
+\begin{proposition}
+	Sia $\varphi\in \Lin(V,W)$ un isomorfismo e siano $e_1,\ldots,e_n,f_1,\ldots,f_n$ basi di $V$ e $W$.
+	Sia $A_i^a$ la matrice dei coefficienti di $\varphi$ rispetto alle basi (cioè $\varphi(e_i) = A_i^af_a$).
+	Sia $B_a^i$ la matrice dei coefficienti di $\varphi^{-1}$.
+	Allora $[B_a^i]$ è l'inversa di $[A_i^a]$. Inoltre, siano $t\in T_s^r(V)$, $q\in T_s^r(W)$ tensori con componenti $t_{j_1 \ldots j_s}^{i_1 \ldots i_r}$ e $q_{b_1 \ldots b_s}^{a_1 \ldots a_r}$, allora
+	\begin{equation*} 
+		(\varphi_*t)_{b_1 \ldots b_s}^{a_1 \ldots a_r} = A_{i_1}^{a_1}\ldots A_{i_r}^{a_r}\ t_{j_1\ldots j_s}^{i_1 \ldots i_r}\ B_{b_1}^{j_1}\ldots B_{b_s}^{j_s} \virgola
+	\end{equation*}
+	\begin{equation*}
+		(\varphi^*q)_{j_1 \ldots j_s}^{i_1 \ldots i_r} =B_{a_1}^{i_1}\ldots B_{a_r}^{i_r}\ q_{b_1 \ldots b_s}^{a_1 \ldots a_r}\ A_{j_1}^{b_1}\ldots A_{j_s}^{b_s} \punto
+	\end{equation*}
+\end{proposition}
+
+\begin{proof}
+	Facilmente vale che
+	\begin{equation*}
+		e_i = \varphi^{-1}(\varphi(e_i)) = \varphi^{-1}(A_i^af_a) = A_i^a\varphi^{-1}(f_a) = A_i^a B_a^j e_j \virgola
+	\end{equation*}
+	perciò $A_i^a B_a^j = \delta_i^j$. E analogamente si vede che $A_i^bB_a^i = \delta_a^b$. %TODO: da controllare (qual è l'ordine giusto)
+	Vediamo ora che
+	\begin{align*}
+		(\varphi_*t)_{b_1 \ldots b_s}^{a_1 \ldots a_r} &= (\varphi_*t)(f^{a_1},\ldots, f^{a_r},f_{b_1},\ldots,f_{b_s}) =\\
+		&= t(\varphi^*(f^{a_1}),\ldots, \varphi^*(f^{a_r}),\varphi^{-1}(f_{b_1}),\ldots,\varphi^{-1}(f_{b_s})) =\\
+		&=t (A_{i_1}^{a_1} e^{i_1}, \ldots, A_{i_s}^{a_s} e^{i_s},B_{l_1}^{j_1}e_{j_1}, \ldots, B_{l_s}^{j_s}e_{j_s})
+	\end{align*}
+	E per linearità otteniamo l'enunciato, mentre l'altra formula si ricava nello stesso modo.
+\end{proof}
+
+\begin{definition} \index{tensore!covariante!pull-back} \index{tensore!controvariante!push-forward}
+	Sia $\varphi\in \Lin(V,W)$ (non necessariamente invertibile). Definiamo $\varphi^*\in \Lin(T_s^0(W),T_s^0(V))$ tramite $\varphi^*t(e_1,\ldots,e_s) = t(\varphi(e_1),\ldots,\varphi(e_s))$ con $t\in T_s^0(V)$.
+	
+	Allo stesso modo si definisce il push-forward per tensori che siano solo controvarianti.
+\end{definition}
+
+Vediamo ora l'analogo della \cref{prop:ProprietaPushForward}, dove però il pull-back è definito per tensori solo covarianti.
+
+\begin{proposition}
+	Siano $\varphi\in \Lin(V,W)$ e $\psi\in \Lin(W,Z)$, allora
+	\begin{enumerate}
+		\item $(\psi\circ\varphi)^*=\varphi^*\circ\psi^*$;
+		\item $i^*:T_s^0(V) \to T_s^0(V)$ è l'identità;
+		\item se $\varphi$ è un isomorfismo, lo è $\varphi^*$ e $(\varphi^*)^{-1} = (\varphi^{-1})^*$;
+		\item Se $t_1\in T_{s_1}^0(V)$, $t_2\in T_{s_2}^0(V)$, allora $\varphi^*(t_1\otimes t_2) = \varphi^*(t_1)\otimes \varphi^*(t_2)$. %TODO: controllare se veramente lo * va in alto
+	\end{enumerate}
+\end{proposition}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$, dove in questo caso $V=\R^2$.
+		\item Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $(mn)^{r+s}$.
+	\end{enumerate}
+\end{exercise}
+
+\section{Fibrati e campi tensoriali}
+
+Lo scopo è estendere l'algebra tensoriale a fibrati vettoriali (locali e globali).
+
+Sia $M$ una varietà, $U\subseteq M$ un aperto e $V$ uno spazio vettoriale. Allora $U\times V$ e $U\times T_s^r(V)$ sono fibrati vettoriali locali.
+
+Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\varphi$ ristretta alle fibre è un isomorfismo, allora $\varphi$ induce una mappa di fibrato locale sui fibrati tensoriali corrispondenti.
+
+\begin{definition} %TODO: cos'è questa definizione? Aggiungere index
+	Sia $\varphi$ come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
+\end{definition}
+
+\begin{lemma} \label{lem:DualeEInversaRegolari}
+	Sia $\mathrm {GL} (V,W)$ l'insiemi degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$. %TODO: controllare che mathcal A e B non siano già usati per altro
+	Allora $\mathcal A$ e $\mathcal B$ sono di classe $C^\infty$ e $\Diff \mathcal B(\varphi)[\psi] = -\varphi^{-1}\ \circ\ \psi\ \circ\ \varphi^{-1}$.
+\end{lemma}
+
+\begin{proposition}
+	Se $\varphi:U\times V\to U'\times V'$ è una mappa locale di fibrato tale che $\varphi_u$ (restrizione alla fibra su $u$) è un isomorfismo per ogni $u\in U$, allora $\varphi_*: U\times T_s^r(V)\to U'\times T_s^r(V')$ è una mappa locale di fibrati e $(\varphi_u)_* = (\varphi_*)_u$ è un isomorfismo per ogni $u\in U$.
+	
+	Inoltre se $\varphi$ è un isomorfismo locale di fibrati, lo è anche $\varphi_*$.
+\end{proposition}
+
+\begin{proof}
+	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalle proposizioni precedenti. %TODO: citare la proposizione
+	Perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e per il \cref{lem:DualeEInversaRegolari} $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
+	%TODO aggiungere cref del lemma
+	Ricordiamo che $\varphi^*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. %TODO: mi sono persa
+\end{proof}
+
+
