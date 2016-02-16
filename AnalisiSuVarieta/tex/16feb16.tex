@@ -1,0 +1,244 @@
+\chapter{16 febbraio 2016}
+
+Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo.
+\begin{equation*}
+	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} (\DerParz{y^{i_1}}{a})
+\end{equation*}
+
+%TODO: persa completamente
+
+
+\begin{example}
+	Sia $\varphi:\R^3\to\R^2$ tale che $\varphi(x,y,z) = (2x+z,xyz)$ e sia $t\in \Tau_2^0(\R^2)$ tale che $t = (u+2v)\de u\otimes \de u + u^2 \de u \otimes \de v$.
+	
+	Allora $\varphi^*(\de u) = 2\de x +\de z$ e $\varphi^*(\de v) = yz \de x + xz \de y + xy \de z$.
+	Inoltre
+	\begin{align*}
+	\varphi^*(t) =& (2x+z + 2xyz) (2\de x + \de z) \otimes (2\de x + \de z) + (2x+z)^2 (2\de x + \de z) = \\
+	=& 2 [4x + 2z + 4xyz + (2x + z)^2 yz] \de x \otimes \de z + 2 (2x+z)^2 xz \de x \otimes \de y +\\
+	&+ xz (2x+z)^2 \de z \otimes \de y + [2x + z + 2xyz + xy (2x+z)^2] \de z \otimes \de z \punto
+	\end{align*}
+\end{example}
+
+\begin{remark}
+	I campi tensoriali possono essere definiti anche nel modo seguente.
+	$\chi^*(M)$ può essere definito come una mappa $\Lin_{C^\infty(M)} (\chi(M), C^\infty(M))$ \footnote{Si intende la linerità $C^\infty(M)$, cioè dato $\alpha\in\chi^*(M)$ vale che $\alpha(p)(f(p)X(p)) = f(p) \alpha(p) X(p)$ per ogni $X\in\chi(M)$ e $f\in C^\infty(M)$}.
+	
+	Allo stesso modo $\Tau_s^r(M)$ può essere definito come
+	\begin{equation*}
+	\Lin_{C^\infty(M)}^{r+s}(\chi^*(M),\ldots,\chi^*(M),\chi(M),\ldots,\chi(M),C^\infty(M))\punto %TODO: r volte ed s volte
+	\end{equation*}
+\end{remark}
+
+\begin{definition} \index{algebra dei tensori}
+	Sia $\Tau(M)$ la somma diretta dei $\Tau_s^r(M)$ per $r\ge 0$ ed $s\ge 0$. Risulta che $\Tau(M)$ è uno spazio vettoriale con prodotto $\otimes$ ed è detto \emph{algebra dei tensori} su $M$.
+\end{definition}
+
+Se $\varphi:M\to N$ è un diffeomorfismo, allora $\varphi_*: \Tau(M) \to \Tau(N)$ è un isomorfismo di algebre.
+
+\section{Derivata di Lie sui tensori}
+
+Ci sono due possibili approcci:
+\begin{enumerate}
+	\item approccio dinamico, che usa i flussi e che abbiamo usato per definire la derivata di Lie sui campi vettoriali;
+	\item approccio algebrico, che è invece quello che seguiremo noi e che utilizza la proprietà di Leibnitz delle derivate.
+\end{enumerate}
+
+\begin{example}
+	Vediamo come definire per esempio la derivata di Lie per 1-forme.
+	Se $Y\in\chi(M)$ e $\alpha\in\chi^*(M)$, richiediamo che $\Lie_X(\alpha \cdot Y) = (\Lie_X \alpha)\cdot Y + \alpha \cdot (\Lie_X Y)$, dove sappiamo cosa vuol dire la derivata di Lie su funzioni ($\alpha\cdot Y$) e su campi ($Y$), perciò la ricaviamo anche per le forme: $(\Lie_X\alpha)Y = \Lie_X(\alpha\cdot Y) - \alpha(\Lie_XY)$.
+\end{example}
+
+\begin{definition} \index{operatore!differenziale}
+	Un \emph{operatore differenziale} su $\Tau(M)$ è una famiglia di mappe $\mathcal D_s^r$ da $\Tau_s^r$ in sé tale che
+	\begin{description}
+	 \item [$\mathcal D_1$)] $\mathcal D$ è una derivazione tensoriale, cioè commuta con le contrazioni.
+	 Vogliamo che $\mathcal D$ sia $\R$-lineare e che, dati $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$, $X_1,\ldots,X_s\in\chi(M)$, valga
+	 \begin{multline*}
+	 	\mathcal D (t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = (\mathcal D t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) +\\
+	 	\sum_{j=1}^r t(\alpha_1,\ldots,\mathcal D \alpha_j,\ldots, \alpha_r, X_1,\ldots, X_s) +
+	 	\sum_{k=1}^s t(\alpha_1,\ldots, \alpha_r, X_1,\ldots, \mathcal D X_k,\ldots, X_s)
+	 \end{multline*}
+
+	\item [$\mathcal D_2$)] (Supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto) $\mathcal D$ è locale (naturale rispetto alle restrizioni). Se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal (t\restrict U)$, ovvero
+	$\Tau_s^r(V) \to (i_U) \Tau_s^r(U)$
+	$\mathcal D$ $\mathcal D$
+	$\Tau_j^r(V) \to (i_U) \Tau_s^r(U)$
+	\end{description}
+\end{definition}
+
+\begin{theorem}
+	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_u : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_u : \chi(U) \to \chi(U)$ che siano derivazioni (naturali rispetto alle restrizioni), cioè
+	\begin{enumerate}
+		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$;
+		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$;
+		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$
+		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$
+	\end{enumerate}
+	Allora esiste unico un operatore differenziale $\mathcal D$ che coincide con $\mathcal E_U$ su $C^\infty(M)$ e con $\mathcal F_U$ su $\chi(M)$ per ogni $U$ aperto di $M$.
+
+\end{theorem}
+
+\begin{proof}
+	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(M)$ e per ogni $\alpha \in \chi^*(M)$.
+	
+	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$.
+	Vale che
+	\begin{align*}
+		(\mathcal D\alpha) \cdot (fX) &= \mathcal D (\alpha(fX)) -\alpha(\mathcal D(fX)) = \mathcal E_U(\alpha(fX)) - \alpha\mathcal F_U(fX)=\\
+		&= \mathcal E_U(f(\alpha X)) - \alpha [(\mathcal E_Uf)\otimes X + f \otimes \mathcal F_UX] = \\
+		&= (\mathcal E_U f)\otimes (\alpha X) + f \otimes \mathcal E_U (\alpha X) - \alpha (\mathcal E_U f) \otimes X - \alpha f \otimes F_U X = \\
+		&= f((\mathcal D\alpha) X)
+	\end{align*}
+	[utilizzato le proprietà 3,1] %TODO: sistemare
+	
+	Perciò $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$.
+
+Estendiamo ora le definizione ai tensori, richiedendo la proprietà $\mathcal D_1$ (vedere sopra).
+
+Vogliamo quindi che
+\begin{align*}
+	(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) =& \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) -\\
+	&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
+	&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\punto
+\end{align*}
+Usando ancora 1 e 3 si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
+
+Per concludere, se $V\subseteq U$ aperto, da 2 e 4 $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per $t\in\Tau(U)$.
+Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ e vale $\mathcal D_2$.
+\end{proof}
+
+\begin{corollary}
+	Valgono
+	\begin{enumerate}
+		\item $\mathcal D(t_1\otimes t_2) = (\mathcal D t_1) \otimes t_2 + t_1\otimes \mathcal D t_2$
+		\item $\mathcal D\delta = 0$ ($\delta$ = Kronecker)
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	1 segue da $\mathcal D_1$.
+	
+	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$, allora 
+	\begin{align*}
+	(\mathcal D\delta)(\alpha X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\punto %TODO: sistemare
+	\end{align*}
+\end{proof}
+
+Trattiamo ora il caso particolare della derivata di Lie.
+Dati $X\in\chi(M)$ e $U\subseteq M$ aperto, definiamo $\mathcal E_U$ ed $\mathcal F_U$ come $\Lie_X\restrict U$.
+
+Per Leibnitz le ipotesi del teorema sono soddisfatte.
+
+\begin{definition}
+	Se $X\in\chi(M)$, definiamo $\Lie_X$ come l'unico operatore come sopra su $\Tau(M)$ (ancora detto \emph{derivata di Lie}), tale che $\Lie_X$ coincide con le derivate di Lie rispetto a $X$ su $C^\infty(M)$ e $\chi(M)$.
+\end{definition}
+
+\begin{proposition}
+	Sia $\varphi: M \to N$ un diffeomorfismo e sia $X\in\chi(M)$. Allora $\Lie_X$ è naturale rispetto al push-forward, cioè $\Lie_{\varphi_*X} (\varphi_*t) = \varphi_*(\Lie_Xt)$ dato $t\in\Tau_s^r(M)$.
+\end{proposition}
+\begin{proof}
+	Dato $U\subseteq M$ aperto, definiamo $\mathcal D: \Tau_s^r(U) \to \Tau_s^r(U)$ tale che $\mathcal Dt = \varphi^*\Lie_{\varphi_*X\restrict U}(\varphi_*t)$.
+	La derivata di Lie (su funzioni e campi vettoriali) è naturale rispetto ai push-forward, quindi $\mathcal D$ definita come sopra è una derivazione su funzioni $C^\infty(U)$ e su $\chi(U)$.
+	
+	\begin{description}
+	 \item [prova]
+
+	Mostriamo che $\mathcal D$ è un operatore differenziale, cioè vogliamo verificare $\mathcal D_1$.
+	Dati $X_1,\ldots,X_s\in\chi(U)$ e $\alpha_1,\ldots,\alpha_r\in\chi^*(U)$, allora
+	\begin{equation*}
+	\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) )= (\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)\punto
+	\end{equation*}
+	$\mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = 
+	\varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) =	$ %TODO: aiuto!!!! mi sono arresa
+	
+		\item [$\mathcal D_2$]
+		Sia $t\in\Tau_s^r(U)$, allora
+		\begin{equation*}
+			\mathcal Dt\restrict U = [(\varphi_*)^{-1} \Lie_{\varphi_*X}\varphi_*t]\restrict U 
+			= (\varphi_*)^{-1}[\Lie_{\varphi_*X}\varphi_*t]\restrict U 
+			= (\varphi_*)^{-1} \Lie_{\varphi_*X\restrict U}\varphi_*t \restrict U = \mathcal D(t\restrict U) \punto
+		\end{equation*}
+	\end{description}
+\end{proof}
+
+Vediamo ora le formule in coordinate.
+Dato $t\in\Tau_s^r(M)$, vogliamo le componenti di $\Lie_Xt$.
+Sia $\varphi: U \to \R^n$ una carta e sia $X\in\chi(M)$. Siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
+Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), allora
+$(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$.
+Quindi $\Lie_X f = X' \DerParz{}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+
+Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
+
+Dato $v\in\R^n$ fissato allora $\Lie_{X'}(\alpha'v) = (\Lie_{X'}\alpha')v + \alpha'\Lie_{X'}v$, $\Diff (\alpha'v)X' = (\Lie_{X'} \alpha') v - \alpha'(\Diff X'v)$
+$(\Lie_{X'}\alpha') v = (\Diff \alpha'X') v + \alpha (\Diff X', v)$ %TODO: non ci sto più capendo un cazzo
+
+$(\Lie_X\alpha)_iv^i = \DerParz{\alpha^i}{x^j}X^jv^i + \alpha_j\DerParz{X^j}{x^j}v^i$
+quindi $(\Lie_X\alpha)_i = X^j\DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
