@@ -1,0 +1,261 @@
+\chapter{18 febbraio 2016}
+
+Formule in coordinate per le derivate di Lie di tensori.
+
+$\varphi:U\subseteq M \to \R^n$ carta locale e $X'$, $t'$ coordinate di $\varphi_*X$ e $\varphi_*t$.
+
+$Y\in\chi(M)$ e $\Diff$ differenziale in $\R^n$.
+
+$(\Lie_Xf)'(x) = \Diff f'\cdot X'(x)$, $\Lie_X f = X'\DerParz{}{x'}$, per $f\in C^\infty(U)$.
+
+$(\Lie_XY)' = \Diff Y'(x) X'(x) -\Diff X'(x) Y'(x)$
+
+Da Leibnitz, se $\alpha\in\chi^*(M)$, $v$ vettore costante in $\R^n$:
+\begin{equation*}
+	(\Lie_{X'}\alpha')v = (\Diff \alpha'\cdot X) v + \alpha' (\Diff X' v)
+\end{equation*}
+perciò
+\begin{equation*}
+	(\Lie_X\alpha)_i = X^j \DerParz{\alpha^i}{x^j} + \alpha_j \DerParz{X^j}{x^i}
+\end{equation*}
+%Fino a qui fatto l'altra volta
+
+Dato $t\in\Tau_s^r(M)$, allora $t':\varphi(U)\to T_s^r(\R^n)$.
+Vogliamo trovare le componenti di $\Lie_Xt$.
+
+Siano $\alpha^1,\ldots,\alpha^r$ elementi costanti del duale di $\R^n$ e $\seq{v}{s}{,}$ vettori costanti di $\R^n$. Allora
+\begin{align*}
+	\Lie_{X'}[t'(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,})] =& (\Lie_{X'}t')(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,}) +\\
+	&+\sum_{i=1}^r t'(\alpha^1,\ldots, \Lie_{X'}\alpha^i,\ldots, \alpha^r, \seq{v}{s}{,}) +\\
+	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,\Lie_{X'}v_j,\ldots,v_s) \punto
+\end{align*}
+
+Dalle formule locali (le entrate sono costanti)
+\begin{align*}
+	(\Diff t'X') (\seqa{\alpha}{r}{,}, \seqb{v}{s}{,}) =& (\Lie_{X'}t')(\seqa{\alpha}{r}{,}, \seqb{v}{s}{,})+\\ 
+	&+ \sum_{i=1}^r t'(\alpha^1,\ldots, \alpha^i\cdot\Diff X',\ldots, \alpha^r, \seq{v}{s}{,}) +\\
+	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,-\Diff X'\cdot v_j,\ldots,v_s)
+\end{align*}
+\begin{equation*}
+	(\Lie_Xt)_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} = X^k \DerParz{}{x^k} t_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} - \DerParz{X^{i_1}}{x^l} t_{\seqb{j}{s}{}}^{li_2\ldots i_r} + \DerParz{X^m}{x^{j_1}} t^{\seqb{i}{r}{}}_{mj_2\ldots j_r} \virgola
+\end{equation*}
+dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
+
+\begin{example}
+	\begin{enumerate}
+		\item Calcoliamo in $\R^2$ $\Lie_Xt$, con $t=x\DerParz{}{y}\otimes \de x \otimes \de y + y\DerParz{}{y} \otimes \de y \otimes \de y$ e $X = \DerParz{}{x} + x \DerParz{}{y}$.
+		Per linearità in $X$, $\Lie_Xt = \Lie_{\DerParz{}{x}}t + \Lie_{\DerParz{}{y}}t$ e abbiamo che
+		\begin{equation*}
+			\Lie_{\DerParz{}{x}} t = \Lie_{\DerParz{}{x}} \left[x \DerParz{}{y}\otimes \de x \otimes \de y\right] + \Lie_{\DerParz{}{x}} \left[y \DerParz{}{y}\otimes \de y \otimes \de y\right]
+		\end{equation*}
+		Chiamiamo ora $\tilde t = x\DerParz{}{y}\otimes \de x \otimes \de y$ e $\hat t = y\DerParz{}{y} \otimes \de y \otimes \de y$. Visto che $\tilde t_{12}^2 = x$ e le altre componenti sono 0, abbiamo
+		\begin{equation*}
+			\left(\Lie_{\DerParz{}{x}}\tilde t\right)_{12}^2 = 1
+		\end{equation*}
+		e le altre componenti sono nulle. 
+		Dato che $\hat t_{22}^2$ è l'unica componente non nulla di $\hat t$, abbiamo che facendo il conto
+		\begin{equation*}
+			\left(\Lie_{\DerParz{}{x}}\hat t\right)_{22}^2 = 0
+		\end{equation*}
+		e per le altri componenti è 0. Di conseguenza
+		\begin{equation*}
+			\Lie_{\DerParz{}{x}} t = \DerParz{}{y} \otimes \de x \otimes y \punto
+		\end{equation*}
+		Vediamo quindi
+		\begin{align*}
+			\Lie_{x\DerParz{}{y}} \tilde t &= \left(\Lie_{x\DerParz{}{y}} \tilde t\right)_{j_1j_2}^i \DerParz{}{x^i}\otimes\de x^{j_1}\otimes \de x^{j_2} - \tilde t_{2j_2}^{i_1}\DerParz{}{x^{i_1}} \otimes \de y\otimes \de x^{j_2}
+			+ \tilde t_{j_12}^{i_1} \DerParz{}{x^{i_1}} \otimes x^{j_1}\otimes \de y\\
+			&= \DerParz{}{y}\otimes \de x \otimes \de y \punto
+		\end{align*}
+
+		
+		\item (Campi di Killing) Sia $M$ una varietà con metrica $g$. Una campo vettoriale $X\in\chi(M)$ è detto \emph{di Killing} se $\Lie_Xg \equiv 0$. Il significato geometrico è che una metrica da una lunghezza della curva e di conseguenza una metrica sulla varietà (prendendo l'inf delle lunghezze delle curve che collegano due punti) e un campo di Killing genera un flusso di isometrie sulla varietà.
+		
+		Vediamo che equazioni deve rispettare $X$. Siano $X = X^i\DerParz{}{x^i}$ e $g = g_{ij}\de x^i \otimes \de x^j$ in coordinate (dove $g_{ij} = g_{ji}$).
+		Allora
+		\begin{align*}
+		\Lie_Xg &= \Lie_x (g_{ij}\de x^i \otimes \de x^j) =\\
+		&=(\Lie_Xg_{ij})\otimes \de x^i\otimes x^j + g_{ij} \otimes (\Lie_X\de x^i) \otimes x^j + g_{ij}\otimes \de x^i \otimes (\Lie_X\de x^j) =\\
+		&= X^k \DerParz{g_{ij}}{x^k}\otimes \de x^i \otimes \de x^j + g_{ij}\DerParz{X^i}{x^k} \otimes \de x^k \otimes \de x^i + g_{ij} \DerParz{X^j}{x^k} \otimes \de x^i \otimes \de x^k =\\
+		&= \left[X^k \DerParz{g_{ij}}{x^k} + g_{kj} \DerParz{X^k}{x^i} + g_{ik} \DerParz{X^k}{x^j} \right] \de x^i \otimes x^j \virgola
+		\end{align*}
+		dove nell'ultima uguaglianza abbiamo semplicemente cambiato nome agli indici ripetuti. Le equazioni tra parentesi quadre sono dette equazioni di Killing. Si può vedere che $\Lie_Xg=0$ se e solo se $\Lie_X$ commuta con le operazioni $\sharp$ e $\flat$ (di alzamento e abbassamento di indici).
+	\end{enumerate}
+\end{example}
+
+\begin{exercise}
+	Sia $g$ una metrica su $M$ e sia $g^{\sharp}$ il tensore ottenuto alzando un indice. Sia $X$ un campo vettoriale. Calcolare in coordinate $(\Lie_X g^\sharp)^\flat - \Lie_X g$.
+	
+	[Sarà legato alle equazioni di Killing.]
+\end{exercise}
+
+
+Vediamo ora la seguente osservazione sull'approccio dinamico.
+\begin{remark}
+	Sia $\varphi_s$ il flusso generato da $X\in\chi(M)$. Allora, se $t\in\Tau_s^r(M)$, vale $\Lie_Xt = \frac{\de}{\de s} (\varphi_s^* t)$ \footnote{Ricordiamo che $\varphi_s$ è un diffeomorfismo e quindi è legale fare pull-back di tensori di ogni tipo.}.
+\end{remark}
+
+
+\chapter{Forme differenziali} %TODO: sarà un capitolo
+
+\begin{definition} \index{forma!differenziale}
+	Le \emph{forme differenziali} sono campi tensoriali di tipo $\Tau_k^0(M)$ totalmente antisimmetrici
+\end{definition}
+
+Hanno applicazioni per esempio in geometria perché possono dare informazioni sulla topologia delle varietà.
+
+\section{Algebre esterne}
+
+Dati $V,W$ spazi vettoriali (finito dimensionali), le \emph{mappe antisimmetriche} in $T^0_k(V,W)$ sono quelle per cui vale $t(\seqb{e}{k}{,}) = (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)})$ per ogni $\seqb{e}{k}{,} \in V$ e per ogni $\sigma\in S_k$.
+Si indicano con $\Lambda^k(V,W)$ (per brevità indicheremo anche $\Lambda^k(V,\R) = \Lambda^k(V)$) e vengono dette $k$-forme esterne.
+
+Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tramite antisimmetrizzazione. 
+\begin{example}
+	Se $k=2$, dato $t\in T^0_2(V,W)$, possiamo definire il suo antisimmetrizzato come $\underline{A}t(e_1,e_2) = \frac 12 [t(e_1,e_2) - t(e_2,e_1)]$.
+\end{example}
+
+\begin{definition}
+	La mappa alternante $\antisimm:T^0_k(V,W) \to \Lambda^k(V,W)$ è definita da
+	\begin{equation*}
+		\antisimm t(\seqb{e}{k}{,}) = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) \punto
+	\end{equation*}
+\end{definition}
+
+\begin{proposition}
+	%La mappa $\antisimm$ è lineare e suriettiva su $\Lambda^k(V,W)$, $\antisimm\restric{\Lambda^k(V,W)} = \id\restric$ e $\antisimm \circ \antisimm = \antisimm$.1
+\end{proposition}
+\begin{proof}
+	La linearità è ovvia. Sia $t\in\Lambda^k(V,W)$, allora
+	\begin{align*}
+		\antisimm t(\seqb{e}{k}{,}) &= \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) =\\
+		& = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(\seqb{e}{k}{,}) = t (\seqb{e}{k}{,}) \virgola
+	\end{align*}
+	dove abbiamo usato che $t\in\Lambda^k$ e $\mathrm{card} S_k = k!$.
+\end{proof}
+
+\begin{remark}
+	$\antisimm^2=\antisimm$ e quindi $\norm\antisimm \le \norm\antisimm^2$, da cui $\norm\antisimm \ge 1 $. %TODO: definire \norm
+	D'altronde, le permutazioni preservano la norma, quindi $\norm{\antisimm t} \le \norm{t}$ e perciò $\norm \antisimm \le 1$.
+	E unendo le due disuguaglianze otteniamo proprio $\norm\antisimm = 1$.
+\end{remark}
+
+Si chiamano algebre esterne perché si può fare un prodotto esterno.
+
+\begin{definition}
+	Se $\alpha \in T^0_k(V)$ e $\beta \in T^0_l(V)$. Il \emph{prodotto wedge} $\alpha \wedge \beta \in \Lambda^{k+l}(V)$ è definita da
+	\begin{equation*}
+		\alpha\wedge \beta \coloneqq \frac {(k+l)!}{k!l!} \antisimm(\alpha\otimes \beta)\punto
+	\end{equation*}
+\end{definition}
+
+\begin{example}
+	Se $\alpha,\beta\in\Lambda^1(V) \cong T^0_1(V)$, allora $(\alpha\wedge \beta)(e_1,e_2) = \alpha(e_1)\beta(e_2) - \alpha(e_2)\beta(e_1)$.
+\end{example}
+
+\begin{exercise}
+	Un \emph{mescolamento} di tipo $(k,l)$ è una permutazione $\sigma \in S_{k+l}$ tale che $\sigma(1) < \ldots < \sigma(k)$ e $\sigma(k+1) <\ldots < \sigma(k+l)$.
+	Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora $(\alpha\wedge\beta)(\seqb{e}{k+l}{,}) = \sum_{\sigma \in mescolamenti(k,l)} \alpha(e_{\sigma(1)},\ldots,e_{\sigma(k)}) \beta(e_{\sigma(k+1)},\ldots,e_{\sigma(k+l)})$.
+\end{exercise}
+
+\begin{proposition}
+	Se $\alpha \in T^0_k(V)$, $\beta \in T^0_l(V)$ e $\gamma \in T^0_m(V)$, si ha
+	\begin{enumerate}
+		\item $\alpha\wedge\beta = (\antisimm \alpha) \wedge \beta = \alpha\wedge (\antisimm \beta)$;
+		\item $\wedge$ è bilineare;
+		\item $\alpha\wedge \beta = (-1)^{kl} \beta \wedge \alpha$;
+		\item $\alpha\wedge(\beta\wedge \gamma) = (\alpha\wedge\beta)\wedge\gamma = \frac{(k+l+m)!}{k!l!m!}\antisimm(\alpha\otimes\beta\otimes\gamma)$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	1)
+	Siano $\sigma \in S_k$ e $t\in T^0_k(V)$. Definiamo $\sigma t(\seqb{e}{k}{,}) = t(e_{\sigma(1)}, \ldots, e_{\sigma(k)})$.
+	Claim: $\antisimm (\sigma t) = (\sgn \sigma) \antisimm t$.
+	Dimostriamolo:
+	\begin{align*}
+		\antisimm (\sigma t) &= \frac 1{k!} \sum_{\rho \in S_k} (\sgn \rho) t(e_{\rho\sigma (1)},\ldots,e_{\rho\sigma(k)}) =\\
+		&= \frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau)(\sgn\sigma) t(e_{\tau(1)}, \ldots, e_{\tau(k)}) = (\sgn\sigma) (\antisimm t)(\seqb{e}{k}{,})\punto
+	\end{align*}
+	
+	Quindi ora, con la nuova definizione, abbiamo
+	\begin{equation*}
+		\antisimm t = \frac 1{k!} \sum_{\sigma\in S_k} (\sgn\sigma) \sigma t \punto
+	\end{equation*}
+
+	\begin{equation*}
+		\antisimm(\antisimm \alpha \otimes \beta) = \antisimm(\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau) (\tau\alpha \otimes \beta) =
+		\frac 1{k!} \sum_{\tau\in S_k} \antisimm(\tau\alpha\otimes \beta)\punto
+	\end{equation*}
+	Sia $\tau'\in S_{k+l}$ tale che
+	\begin{equation*}
+		\tau'(1,\ldots,k,k+1,\ldots,k+l) = (\tau(1),\ldots,\tau(k),k+1,\ldots,k+l)
+	\end{equation*}
+	da cui $\sgn\tau'=\sgn\tau$.
+	Perciò la cosa sopra diventa
+	\begin{equation*}
+		\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau')\antisimm\tau'(\alpha\otimes \beta)\punto
+	\end{equation*}
+	Quindi $\antisimm(\antisimm\alpha\otimes \beta) = \frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau')(\sgn\tau')\antisimm(\alpha\otimes \beta)=\frac 1{k!} \sum_{\tau\in S_k} \antisimm(\alpha\otimes \beta)$
+
+	Perciò $\antisimm(\antisimm\alpha\otimes \beta) = \antisimm(\alpha\otimes\beta)$ e quindi $(\antisimm\alpha)\wedge\beta = \alpha\wedge\beta$.
+	
+	La 2 è ovvia.
+	
+	3) 
+	Sia $\sigma_0\in S_{k+l}$ data da $\sigma(1,\ldots,k+l) = (k+1,\ldots,k+l,1,\ldots,k)$. Allora $(\alpha\otimes \beta)(\seqb{e}{k+l}{,}) = (\beta\otimes \alpha)(e_{\sigma_0(1)},\ldots,e_{\sigma_0(k+l)})$.
+	Allora per il claim $\antisimm(\alpha\otimes\beta) = (\sgn\sigma_0) \antisimm(\beta\otimes\alpha)=(-1)^{kl} \beta \wedge \alpha$.
+
+	4)
+	$\alpha\wedge(\beta\wedge\gamma) = \frac{(k+l+m)!}{k!(l+m)!}\antisimm(\alpha\otimes(\beta\wedge\gamma)) = \frac{(k+l+m)!}{k!(l+m)!} \frac{(l+m)!}{l!m!} \antisimm(\alpha\otimes\antisimm(\beta\otimes\gamma))= \frac{(k+l+m)!}{k!l!m!}\antisimm(\alpha\otimes\beta\otimes\gamma)$
+	
+	Idem per la seconda.
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
