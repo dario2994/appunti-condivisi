@@ -73,20 +73,20 @@ Ci sono due possibili approcci:
 	\end{description}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem} \label{teo:EsistenzaOperatoriDifferenziali}
 	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_u : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_u : \chi(U) \to \chi(U)$ che siano derivazioni (naturali rispetto alle restrizioni), cioè
 	\begin{enumerate}
-		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$;
-		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$;
-		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$
-		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$
+		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$; \label{eod:LeibnitzPerE}
+		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$; \label{eod:LocalitaPerE}
+		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$ \label{eod:LeibnitzPerF}
+		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$ \label{eod:LocalitaPerF}
 	\end{enumerate}
-	Allora esiste unico un operatore differenziale $\mathcal D$ che coincide con $\mathcal E_U$ su $C^\infty(M)$ e con $\mathcal F_U$ su $\chi(M)$ per ogni $U$ aperto di $M$.
+	Allora esiste unico un operatore differenziale $\mathcal D$ che coincide con $\mathcal E_U$ su $C^\infty(U)$ e con $\mathcal F_U$ su $\chi(U)$ per ogni $U$ aperto di $M$.
 
 \end{theorem}
 
 \begin{proof}
-	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(M)$ e per ogni $\alpha \in \chi^*(M)$.
+	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
 	
 	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$.
 	Vale che
@@ -96,7 +96,7 @@ Ci sono due possibili approcci:
 		&= (\mathcal E_U f)\otimes (\alpha X) + f \otimes \mathcal E_U (\alpha X) - \alpha (\mathcal E_U f) \otimes X - \alpha f \otimes F_U X = \\
 		&= f((\mathcal D\alpha) X)
 	\end{align*}
-	[utilizzato le proprietà 3,1] %TODO: sistemare
+	[dove abbiamo utilizzato le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF}]
 	
 	Perciò $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$.
 
@@ -108,23 +108,23 @@ Vogliamo quindi che
 	&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
 	&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\punto
 \end{align*}
-Usando ancora 1 e 3 si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
+Usando ancora \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF} si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
 
-Per concludere, se $V\subseteq U$ aperto, da 2 e 4 $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per $t\in\Tau(U)$.
-Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ e vale $\mathcal D_2$.
+Per concludere, se $V\subseteq U$ aperto, da \ref{eod:LocalitaPerE} e \ref{eod:LocalitaPerF} $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per $t\in\Tau(U)$.
+Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ per un qualunque $U$ aperto che contiene $m$ e vale $\mathcal D_2$.
 \end{proof}
 
 \begin{corollary}
 	Valgono
 	\begin{enumerate}
-		\item $\mathcal D(t_1\otimes t_2) = (\mathcal D t_1) \otimes t_2 + t_1\otimes \mathcal D t_2$
+		\item $\mathcal D(t_1\otimes t_2) = (\mathcal D t_1) \otimes t_2 + t_1\otimes (\mathcal D t_2)$
 		\item $\mathcal D\delta = 0$ ($\delta$ = Kronecker)
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
 	1 segue da $\mathcal D_1$.
 	
-	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$, allora 
+	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$, allora: 
 	\begin{align*}
 	(\mathcal D\delta)(\alpha X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\punto %TODO: sistemare
 	\end{align*}
@@ -145,22 +145,30 @@ Per Leibnitz le ipotesi del teorema sono soddisfatte.
 \begin{proof}
 	Dato $U\subseteq M$ aperto, definiamo $\mathcal D: \Tau_s^r(U) \to \Tau_s^r(U)$ tale che $\mathcal Dt = \varphi^*\Lie_{\varphi_*X\restrict U}(\varphi_*t)$.
 	La derivata di Lie (su funzioni e campi vettoriali) è naturale rispetto ai push-forward, quindi $\mathcal D$ definita come sopra è una derivazione su funzioni $C^\infty(U)$ e su $\chi(U)$.
-	
+	Mostriamo che $\mathcal D$ è un operatore differenziale:
 	\begin{description}
-	 \item [prova]
+	 \item [$\mathcal D_1$]
 
-	Mostriamo che $\mathcal D$ è un operatore differenziale, cioè vogliamo verificare $\mathcal D_1$.
 	Dati $X_1,\ldots,X_s\in\chi(U)$ e $\alpha_1,\ldots,\alpha_r\in\chi^*(U)$, allora
 	\begin{equation*}
 	\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) )= (\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)\punto
 	\end{equation*}
-	$\mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = 
-	\varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) =	$ %TODO: aiuto!!!! mi sono arresa
 	
-		\item [$\mathcal D_2$]
-		Sia $t\in\Tau_s^r(U)$, allora
+	  $  \mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = $
+	  $  \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = $ \\
+	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)))] + $ \\
+	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))} +$ \\
+	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s))} $
+	Ma sapendo che $\varphi^*=(\varphi^{-1})_*$ l'ultima espressione diventa:
+	
+	  $ (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +$\\
+	  $ +\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)}$
+	  ed ho quindi la tesi.
+	
+	\item [$\mathcal D_2$]
+		Sia $t\in\Tau_s^r(M)$, allora
 		\begin{equation*}
-			\mathcal Dt\restrict U = [(\varphi_*)^{-1} \Lie_{\varphi_*X}\varphi_*t]\restrict U 
+			(\mathcal Dt)\restrict U = [(\varphi_*)^{-1} \Lie_{\varphi_*X}\varphi_*t]\restrict U 
 			= (\varphi_*)^{-1}[\Lie_{\varphi_*X}\varphi_*t]\restrict U 
 			= (\varphi_*)^{-1} \Lie_{\varphi_*X\restrict U}\varphi_*t \restrict U = \mathcal D(t\restrict U) \punto
 		\end{equation*}
@@ -172,14 +180,16 @@ Dato $t\in\Tau_s^r(M)$, vogliamo le componenti di $\Lie_Xt$.
 Sia $\varphi: U \to \R^n$ una carta e sia $X\in\chi(M)$. Siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
 Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), allora
 $(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$.
-Quindi $\Lie_X f = X' \DerParz{}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+
+Quindi $(\Lie_X f)' = X' \DerParz{}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
 
 Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
 
-Dato $v\in\R^n$ fissato allora $\Lie_{X'}(\alpha'v) = (\Lie_{X'}\alpha')v + \alpha'\Lie_{X'}v$, $\Diff (\alpha'v)X' = (\Lie_{X'} \alpha') v - \alpha'(\Diff X'v)$
-$(\Lie_{X'}\alpha') v = (\Diff \alpha'X') v + \alpha (\Diff X', v)$ %TODO: non ci sto più capendo un cazzo
+Dato $v\in\R^n$ fissato allora $\Lie_{X'}(\alpha'v) = (\Lie_{X'}\alpha')v + \alpha'\Lie_{X'}v$,
 
-$(\Lie_X\alpha)_iv^i = \DerParz{\alpha^i}{x^j}X^jv^i + \alpha_j\DerParz{X^j}{x^j}v^i$
+$\Diff (\alpha'v)X' = (\Lie_{X'} \alpha') v - \alpha'(\Diff X' \cdot v) \Rightarrow (\Lie_{X'}\alpha') v = (\Diff \alpha' \cdot X') v + \alpha' (\Diff X' \cdot v)$ 
+
+Allora $(\Lie_X\alpha)_iv^i = \DerParz{\alpha^i}{x^j}X^jv^i + \alpha_j\DerParz{X^i}{x^j}v^i$
 quindi $(\Lie_X\alpha)_i = X^j\DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i}$
 
 
