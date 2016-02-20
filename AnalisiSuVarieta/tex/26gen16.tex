@@ -211,8 +211,8 @@ Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplic
 
 Si verifica che $\varphi_*$ è continua.
 
-\begin{remark} %TODO: what?
-	$T_0^1(\varphi) = (\varphi^{-1})^*$, $T_0^1(V)\cong V$, $T_0^1(W)\cong W$, allora $T_0^1(\varphi)\cong\varphi$.
+\begin{remark}
+	$T_0^1(\varphi) = \varphi_*$, ma $T_0^1(V)\cong V$, $T_0^1(W)\cong W$, allora $T_0^1(\varphi) \in \Lin(V,W)$ ed è proprio $\varphi$.
 \end{remark}
 
 \begin{proposition} \label{prop:ProprietaPushForward}
@@ -258,12 +258,12 @@ Si verifica che $\varphi_*$ è continua.
 	\begin{equation*}
 		e_i = \varphi^{-1}(\varphi(e_i)) = \varphi^{-1}(A_i^af_a) = A_i^a\varphi^{-1}(f_a) = A_i^a B_a^j e_j \virgola
 	\end{equation*}
-	perciò $A_i^a B_a^j = \delta_i^j$. E analogamente si vede che $A_i^bB_a^i = \delta_a^b$. %TODO: da controllare (qual è l'ordine giusto)
+	perciò $A_i^a B_a^j = \delta_i^j$. E analogamente si vede che $A_i^bB_a^i = \delta_a^b$. 
 	Vediamo ora che
 	\begin{align*}
 		(\varphi_*t)_{b_1 \ldots b_s}^{a_1 \ldots a_r} &= (\varphi_*t)(f^{a_1},\ldots, f^{a_r},f_{b_1},\ldots,f_{b_s}) =\\
 		&= t(\varphi^*(f^{a_1}),\ldots, \varphi^*(f^{a_r}),\varphi^{-1}(f_{b_1}),\ldots,\varphi^{-1}(f_{b_s})) =\\
-		&=t (A_{i_1}^{a_1} e^{i_1}, \ldots, A_{i_s}^{a_s} e^{i_s},B_{l_1}^{j_1}e_{j_1}, \ldots, B_{l_s}^{j_s}e_{j_s})
+		&=t (A_{i_1}^{a_1} e^{i_1}, \ldots, A_{i_r}^{a_r} e^{i_r},B_{b_1}^{j_1}e_{j_1}, \ldots, B_{b_s}^{j_s}e_{j_s})
 	\end{align*}
 	E per linearità otteniamo l'enunciato, mentre l'altra formula si ricava nello stesso modo.
 \end{proof}
@@ -282,7 +282,7 @@ Vediamo ora l'analogo della \cref{prop:ProprietaPushForward}, dove però il pull
 		\item $(\psi\circ\varphi)^*=\varphi^*\circ\psi^*$;
 		\item $i^*:T_s^0(V) \to T_s^0(V)$ è l'identità;
 		\item se $\varphi$ è un isomorfismo, lo è $\varphi^*$ e $(\varphi^*)^{-1} = (\varphi^{-1})^*$;
-		\item Se $t_1\in T_{s_1}^0(V)$, $t_2\in T_{s_2}^0(V)$, allora $\varphi^*(t_1\otimes t_2) = \varphi^*(t_1)\otimes \varphi^*(t_2)$. %TODO: controllare se veramente lo * va in alto
+		\item Se $t_1\in T_{s_1}^0(V)$, $t_2\in T_{s_2}^0(V)$, allora $\varphi^*(t_1\otimes t_2) = \varphi^*(t_1)\otimes \varphi^*(t_2)$.
 	\end{enumerate}
 \end{proposition}
 
@@ -301,12 +301,12 @@ Sia $M$ una varietà, $U\subseteq M$ un aperto e $V$ uno spazio vettoriale. Allo
 
 Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\varphi$ ristretta alle fibre è un isomorfismo, allora $\varphi$ induce una mappa di fibrato locale sui fibrati tensoriali corrispondenti.
 
-\begin{definition} %TODO: cos'è questa definizione? Aggiungere index
+\begin{definition} \index{mappelocali!fibrati!tensoriali}
 	Sia $\varphi$ come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
 \end{definition}
 
 \begin{lemma} \label{lem:DualeEInversaRegolari}
-	Sia $\mathrm {GL} (V,W)$ l'insiemi degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$. %TODO: controllare che mathcal A e B non siano già usati per altro
+	Sia $\mathrm {GL} (V,W)$ l'insieme degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$. %TODO: controllare che mathcal A e B non siano già usati per altro
 	Allora $\mathcal A$ e $\mathcal B$ sono di classe $C^\infty$ e $\Diff \mathcal B(\varphi)[\psi] = -\varphi^{-1}\ \circ\ \psi\ \circ\ \varphi^{-1}$.
 \end{lemma}
 
@@ -317,10 +317,10 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 \end{proposition}
 
 \begin{proof}
-	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalle proposizioni precedenti. %TODO: citare la proposizione
+	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForward}.
 	Perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e per il \cref{lem:DualeEInversaRegolari} $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
-	%TODO aggiungere cref del lemma
-	Ricordiamo che $\varphi^*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. %TODO: mi sono persa
+	Ricordiamo che $\varphi_*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. Allora
+	segue immediatamente la regolarità di $(\varphi_u)_*$ valutando l'equazione precedente sulla fibra ed avendo a destra una funzione regolare.
 \end{proof}
 
 
