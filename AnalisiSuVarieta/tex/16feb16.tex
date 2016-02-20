@@ -2,10 +2,10 @@
 
 Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo.
 \begin{equation*}
-	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} (\DerParz{y^{i_1}}{a})
+	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} =(\DerParz{y^{i_1}}{x^{k_1}}\circ \varphi^{-1})\dots (\DerParz{y^{i_r}}{x^{k_r}} \circ \varphi^{-1}) \DerParz{x^{l_1}}{y^{j_1}} \dots \DerParz{x^{l_s}}{y^{j_s}} t_{l_1\ldots l_s}^{k_1\ldots k_r} \circ \varphi^{-1}
 \end{equation*}
+e similmente vale per $\varphi^*t$
 
-%TODO: persa completamente
 
 
 \begin{example}
@@ -14,9 +14,10 @@ Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo.
 	Allora $\varphi^*(\de u) = 2\de x +\de z$ e $\varphi^*(\de v) = yz \de x + xz \de y + xy \de z$.
 	Inoltre
 	\begin{align*}
-	\varphi^*(t) =& (2x+z + 2xyz) (2\de x + \de z) \otimes (2\de x + \de z) + (2x+z)^2 (2\de x + \de z) = \\
-	=& 2 [4x + 2z + 4xyz + (2x + z)^2 yz] \de x \otimes \de z + 2 (2x+z)^2 xz \de x \otimes \de y +\\
-	&+ xz (2x+z)^2 \de z \otimes \de y + [2x + z + 2xyz + xy (2x+z)^2] \de z \otimes \de z \punto
+	\varphi^*(t) =& (2x+z + 2xyz) (2\de x + \de z) \otimes (2\de x + \de z) + (2x+z)^2 (2\de x + \de z) \otimes (yz \de x + xz \de y + xy \de z) = \\
+	=&2 (2x+z)^2 yz \de x \otimes \de x +  2 [2x + z + 2xyz + (2x + z)^2 yz] \de x \otimes \de z  +\\
+	&+ 2 (2x+z)^2 xz \de x \otimes \de y + [4x + 2z + 4xyz + yz (2x+z)^2] \de z \otimes \de x +  \\
+        &+ xz (2x+z)^2 \de z \otimes \de y + [2x + z + 2xyz + xy (2x+z)^2] \de z \otimes \de z \punto
 	\end{align*}
 \end{example}
 
@@ -26,7 +27,7 @@ Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo.
 	
 	Allo stesso modo $\Tau_s^r(M)$ può essere definito come
 	\begin{equation*}
-	\Lin_{C^\infty(M)}^{r+s}(\chi^*(M),\ldots,\chi^*(M),\chi(M),\ldots,\chi(M),C^\infty(M))\punto %TODO: r volte ed s volte
+	\Lin_{C^\infty(M)}^{r+s}(\underbrace{\chi^*(M),\ldots,\chi^*(M)}_{\text{$r$ copie}},\underbrace{\chi(M),\ldots,\chi(M)}_{\text{$s$ copie}},C^\infty(M))\punto
 	\end{equation*}
 \end{remark}
 
@@ -40,7 +41,7 @@ Se $\varphi:M\to N$ è un diffeomorfismo, allora $\varphi_*: \Tau(M) \to \Tau(N)
 
 Ci sono due possibili approcci:
 \begin{enumerate}
-	\item approccio dinamico, che usa i flussi e che abbiamo usato per definire la derivata di Lie sui campi vettoriali;
+	\item approccio dinamico, che usa i flussi ed è quello che abbiamo usato per definire la derivata di Lie sui campi vettoriali;
 	\item approccio algebrico, che è invece quello che seguiremo noi e che utilizza la proprietà di Leibnitz delle derivate.
 \end{enumerate}
 
@@ -50,20 +51,25 @@ Ci sono due possibili approcci:
 \end{example}
 
 \begin{definition} \index{operatore!differenziale}
-	Un \emph{operatore differenziale} su $\Tau(M)$ è una famiglia di mappe $\mathcal D_s^r$ da $\Tau_s^r$ in sé tale che
+	Un \emph{operatore differenziale} su $\Tau(M)$ è una famiglia di mappe $\mathcal D_s^r$ da $\Tau_s^r(M)$ in sé tale che
 	\begin{description}
 	 \item [$\mathcal D_1$)] $\mathcal D$ è una derivazione tensoriale, cioè commuta con le contrazioni.
 	 Vogliamo che $\mathcal D$ sia $\R$-lineare e che, dati $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$, $X_1,\ldots,X_s\in\chi(M)$, valga
 	 \begin{multline*}
 	 	\mathcal D (t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = (\mathcal D t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) +\\
-	 	\sum_{j=1}^r t(\alpha_1,\ldots,\mathcal D \alpha_j,\ldots, \alpha_r, X_1,\ldots, X_s) +
+	 	+\sum_{j=1}^r t(\alpha_1,\ldots,\mathcal D \alpha_j,\ldots, \alpha_r, X_1,\ldots, X_s) +
 	 	\sum_{k=1}^s t(\alpha_1,\ldots, \alpha_r, X_1,\ldots, \mathcal D X_k,\ldots, X_s)
 	 \end{multline*}
 
-	\item [$\mathcal D_2$)] (Supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto) $\mathcal D$ è locale (naturale rispetto alle restrizioni). Se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal (t\restrict U)$, ovvero
-	$\Tau_s^r(V) \to (i_U) \Tau_s^r(U)$
-	$\mathcal D$ $\mathcal D$
-	$\Tau_j^r(V) \to (i_U) \Tau_s^r(U)$
+	\item [$\mathcal D_2$)] (Supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto) $\mathcal D$ è locale (naturale rispetto alle restrizioni).
+	Se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal (t\restrict U)$, ovvero che il seguente diagramma commuti:
+	$
+	\begin{CD} 
+	 \Tau_s^r(V) @>i_U>> \Tau_s^r(U) \\
+	 @V\mathcal{D}VV  @V\mathcal{D}VV \\
+	 \Tau_s^r(V) @>i_U>> \Tau_s^r(U) 
+	\end{CD} $
+
 	\end{description}
 \end{definition}
 
