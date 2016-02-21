@@ -46,9 +46,9 @@ Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la ca
 \end{proof}
 
 \begin{proposition} \label{prop:ProprietaMappeFibrati}
-	Siano $f:E\to E'$ e $g:E' \to E''$ mappe tra fibrati che sono isomorfismi su ogni fibra. Allora lo è anche $g \circ f$ e
+	Siano $f:E\to E'$ e $g:E' \to E''$ mappe tra fibrati che sono isomorfismi su ogni fibra. Allora
 	\begin{enumerate}
-		\item $(g\circ f)_* = g_* \circ f_*$; \label{pmf:Distributiva}
+		\item $g\circ f$ è ancora un isomorfismo su ogni fibra e $(g\circ f)_* = g_* \circ f_*$; \label{pmf:Distributiva}
 		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità; \label{pmf:Identita}
 		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$. \label{pmf:Isomorfismo}
 	\end{enumerate}
@@ -81,21 +81,21 @@ Quando $E = T_s^r(M)$ parleremo di campi tensoriali.
 Vediamo ora alcune operazioni.
 
 \begin{itemize}
-	\item Se $f \in C^\infty(M)$ e $t \in \tau_s^r(M)$, allora $ft \in \tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
+	\item Se $f \in C^\infty(M)$ e $t \in \Tau_s^r(M)$, allora $ft \in \Tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
 \end{itemize}
-Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \tau_s^r(M)$ e $t' \in \tau_{s'}^{r'}(M)$, possiamo definire
+Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \Tau_s^r(M)$ e $t' \in \Tau_{s'}^{r'}(M)$, possiamo definire
 \begin{itemize}
 	\item $t(\alpha^1,\ldots,\alpha^r,X_1,\ldots, X_s)\in C^\infty(M)$ tale che
 	\begin{equation*}
-		p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(q),\ldots, X_s(q))
+		p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(q),\ldots, X_s(q)) \puntovirgola
 	\end{equation*}
 	
-	\item $t\otimes t' \in \tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
+	\item $t\otimes t' \in \Tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
 \end{itemize}
 Lo stesso possiamo fare per contrazioni e prodotti interni.
 
-Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$ dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$.
-\footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}
+Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$ dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$
+\footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}.
 
 Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$.
 
