@@ -76,7 +76,7 @@ Possiamo indicare
 Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parallelepipedo generato da $\varphi(e_1),\ldots,\varphi(e_n)$}}{\text{volume del cubo unitario}}$.
 
 \begin{proposition}
-	Siano $\varphi\in\Lin(V,W)$ e $\psi\in\Lin(W,Z)$. Allora $\varphi^* : T^0_k(W) \to t^0_k(V)$ è lineare e 
+	Siano $\varphi\in\Lin(V,W)$ e $\psi\in\Lin(W,Z)$. Allora $\varphi^* : T^0_k(W) \to T^0_k(V)$ è lineare e 
 	\begin{enumerate}
 		\item $\varphi^*(\Lambda^k(W)) \subseteq \Lambda^k(V)$;
 		\item $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$;
@@ -134,7 +134,7 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
 	Sia $g\in T^0_2(V)$ simmetrico e definito positivo. Allora esiste una base $\{\seqb en,\}$ di $V$ (con base duale $\{\seqa en,\}$) tale che $g = \sum_{i=1}^n e^i\otimes e^i$. Questa base è detta \emph{ortogonale} rispetto a $g$.
 \end{proposition}
 \begin{proof}
-	La dimostrazione è analoga al caso di $\R^n$ utilizzando un processo di ortogonalizzazione di Graham-Schmidt.
+	La dimostrazione è analoga al caso di $\R^n$ utilizzando un processo di ortogonalizzazione di Gram-Schmidt.
 	
 	Dalla polarizzata $g(e,f) = \frac 14 [g(e+f,e+f) + g(e-f,e-f)]$.
 	Sia $e_1$ tale che $g(e_1,e_1) = 1$. Sia $V_1 = \spanrm \{e_1\}$ e sia $V_2 = \{e \suchthat g(e,e_1) = 0\}$.

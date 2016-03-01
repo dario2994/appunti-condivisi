@@ -1,0 +1,278 @@
+\chapter{1 marzo 2016}
+
+Un prodotto interno (simmetrico e definito positivo) in $V$ ne induce uno anche sui $\Lambda^k(V)$.
+
+Siano $\alpha = \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ e $\beta = \beta_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ elementi di $\Lambda^k(V)$.
+
+Sia $\beta^{\seqb ik{}} = g^{i_1j_1}\ldots g^{i_kj_k} \beta_{\seqb ik{}}$.
+
+Definisco
+\begin{equation*}
+	g^{(k)} (\alpha,\beta) = \sum_{\seqb ik<} \alpha_{\seqb ik{}} \beta^{\seqb ik{}} 
+	= \frac 1{k!} \sum_{\seqb ik{}} \alpha_{\seqb ik{}} \beta^{\seqb ik{}} \punto
+\end{equation*}
+
+Claim: $g^{(k)}$ è indipendente dalla base.
+Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\wedge\ldots\wedge f^{a_k}$ e $\beta = \beta'_{\seqb ak{}} f^{a_1}\wedge\ldots\wedge f^{a_k}$. Se $e_i =  A^a_i f_a$ e $B=A^{-1}$, allora
+\begin{align*}
+	\alpha'_{\seqb ak{}} \beta'^{\seqb ak{}} &= \alpha_{\seqb ik{}} B^{i_1}_{a_1}\ldots B^{i_k}_{a_k} A^{a_1}_{j_1}\ldots A^{a_k}_{j_k} \beta^{\seqb jk{}}= \\
+	&= \alpha_{\seqb ik{}} \delta^{i_1}_{j_1}\ldots \delta^{i_k}_{j_k}\beta^{\seqb jk{}} = \\
+	&=\alpha_{\seqb ik{}} \beta^{\seqb ik{}}
+\end{align*}
+
+\begin{proposition}
+	Sia $g$ un prodotto interno in $V$ (simmetrico e definito positivo). Allora $g$ induce il prodotto interno $g^{(k)}$ su $\Lambda^k(V)$. Inoltre, se $\seqb en,$ è ortonormale rispetto a $g$, allora la base $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik< \}$ è ortonormale rispetto a $g^{(k)}$.
+\end{proposition}
+
+\section{Operatore di Hodge *}
+
+\begin{proposition}
+	Sia $V$ uno spazio $n$-dimensionale orientato e sia $g\in T^0_2(V)$ un tensore simmetrico e definito positivo.
+	Sia $\mu=\mu(g)$ l'elemento di volume corrispondente.
+	Allora esiste un'unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$ che soddisfa
+	\begin{equation} \label{eq:star}
+	\alpha \wedge * \beta = \Scal \alpha\beta \mu
+	\end{equation}
+	per ogni $\alpha,\beta \in\Lambda^k(V)$.
+	
+	Se $\{\seqb en, \}$ è una base di $V$ orientata positivamente e ortornormale con base duale $\seqb en,$, allora
+	\begin{equation}\label{eq:triangolo}
+	*(e^{\sigma(1)}\wedge\ldots\wedge e^{\sigma(k)}) = \sgn(\sigma) (e^{\sigma(k+1)}\wedge\ldots\wedge e^{\sigma(n)})
+	\end{equation}
+	per ogni $\sigma$ $(k,l)$-mescolamento.
+\end{proposition}
+\begin{proof}
+	\begin{description}
+		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
+		
+		Dall'\cref{eq:star} per ogni $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta$. %TODO: aggiungere ref
+		
+		Quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
+		
+		\item [esistenza:] Usiamo l'\cref{eq:triangolo} ($e^{\sigma(1)}\wedge\ldots\wedge e^{\sigma(n)}$ è ortonormale). Quindi l'\cref{eq:star} si può verificare usando questa base ($*$ è un isomorfismo e manda basi ortonormali in basi ortonormali).
+	\end{description}
+\end{proof}
+
+\begin{proposition} \label{prop:ProprietaHodge}
+	Siano $V,g,\mu$ come sopra. Allora per ogni $\alpha,\beta\in\Lambda^k(V)$ $*$ soddisfa
+	\begin{enumerate}
+		\item $\alpha\wedge *\beta = \beta \wedge * \alpha = \Scal \alpha\beta \mu$; \label{ph:commutare}
+		\item $*1 = \mu$ e $*\mu=1$;
+		\item $**\alpha = (-1)^{k(n-k)} \alpha$;
+		\item $\Scal \alpha\beta = \Scal {*\alpha}{*\beta}$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	La \ref{ph:commutare} segue dall'\cref{eq:star} e dal fatto che $\Scal {}{}_k$ è simmetrico.
+	La 2 segue dall'\cref{eq:triangolo} e $\sigma = \id$.
+	
+	Per la 3, sia $\alpha = e^{\sigma(1)}\wedge \ldots \wedge e^{\sigma(k)}$, allora per l'\cref{eq:triangolo} vale $*(e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = b e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$. Per trovare $b$ usiamo l'\cref{eq:star} con $\alpha = \beta = e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$, da cui $b e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)} \wedge e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} = \mu$ e quindi $b = (-1)^{k(n-k)}\sgn(\sigma)$.
+	
+	Per la \ref{eq:triangolo} $**(e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}) = \sgn(\sigma) * (e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = \sgn(\sigma)^2 (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$.
+	
+	La 4 si può verificare usando una base ortonormale per $\Lambda^k(V)$, oppure usare la 1 e la 3 per trovare
+	\begin{equation*}
+		\Scal{*\alpha}{*\beta} \mu = (*\alpha) \wedge (**\beta) = (-1)^{k(n-k)} (*\alpha)\wedge\beta = \beta\wedge (*\alpha) = \Scal \alpha\beta \mu\punto
+	\end{equation*}
+\end{proof}
+
+
+\section{Forme differenziali}
+
+Estendiamo l'algebra esterna al fibrato tangente di una varietà.
+Se $\varphi: U \times V \to U' \times V'$ è un isomorfismo locale di fibrati, allora $\varphi_* : U\times \Lambda^k(V) \to U' \times \Lambda^k(V')$ è anch'esso un isomorfismo locale di fibrati.
+
+\begin{definition}
+	Sia $\pi : E\to B$ un fibrato vettoriale. Per ogni $A\subseteq B$ poniamo $\Lambda^k(E)\restrict{A} = \bigcup_{b\in A} \Lambda^k(E_b)$ e $\Lambda^k(E) = \Lambda^k(E) \restrict B$.
+	Chiamiamo l'ovvia proiezione $\Lambda^k(\pi) : \Lambda^k(E) \to B$.
+\end{definition}
+
+Quando $E = TM$ per $M$ varietà, poniamo $\Lambda^k(M) = \Lambda^k(TM)$. Inoltre poniamo $\Omega^1(M) = \Tau^0_1(M) = \chi^*(M)$ e $\Omega^k(M) = \Gamma^\infty(\Lambda^k(M))$.
+
+\begin{proposition}
+	Se $\alpha \in \Omega^k(M)$ e $\beta \in \Omega^l(M)$, sia $\alpha \wedge \beta : M \to \Lambda^{k+l}(M)$ definita da $(\alpha\wedge\beta)(m) = \alpha(m) \wedge \beta(m)$. Allora $\alpha\wedge\beta \in \Omega^{k+l}(M)$ e questo operatore è bilineare e associativo.
+\end{proposition}
+\begin{proof}
+	Bilinearità e associatività seguono da quella di $\wedge$ in $\Lambda(T_nM)$. La regolarità si mostra lavorando in carta.
+\end{proof}
+
+\begin{definition}
+	Elementi di $\Omega^k(M)$ sono detti \emph{$k$-forme} e $\Omega(M) = \oplus_{k=0}^n \Omega^k(M)$ è detta \emph{algebra delle forme differenziali esterne}.
+\end{definition}
+
+\begin{remark}
+In coordinate locali. Se $t\in\Tau^r_s(M)$, allora $t(x) = t^{\seqb ir{}}_{\seqb js{}} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1} \otimes \ldots \otimes \de x^{j_s}$.
+Dato $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}}(x) \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$ con $\seqb ik<$ e $\omega_{\seqb ik{}}(x) = \omega(\DerParz{}{x^{i_1}}, \ldots, \DerParz{}{x^{i_k}})$.
+\end{remark}
+
+\begin{remark}
+	Se $f:M\to N$ è regolare, è naturale considerare il pull-back $f^*: \Omega^k(N) \to \Omega^k(M)$.
+\end{remark}
+
+\section{Derivata esterna}
+
+La \emph{derivata esterna} è una mappa (interessante) $d:\Omega^k(M) \to \Omega^k(M)$. %TODO: d o \de ?
+
+\begin{theorem}
+	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $d \coloneqq d^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
+	\begin{enumerate}
+		\item $d$ è una $\wedge$-antiderivaione, cioè $d$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $d(\alpha\wedge\beta) = d\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
+		\item se $f\in C^\infty(M)$, allora $\de f$ coincide con il differenziale di $f$;
+		\item $d^2 = d\circ d = 0$;
+		\item $d$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $d(\alpha\restrict U) = (d\alpha)\restrict U$ ($d$ è locale).
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{description}
+		\item [unicità:] Sia $(U,\varphi)$ una carta di $M$ e consideriamo una $k$-forma $\alpha\in\Omega^k(U)$ con $\alpha = \alpha_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$.
+		Se $k=0$ e $f=x^i$, allora $d(x^i) = \de x^i$.
+		
+		Dalla 3 abbiamo $d(\de x^i) = 0$, quindi per la 1 $d(\de x^{i_1} \wedge \ldots \wedge \de x^{i_k}) = 0$.
+		
+		Perciò $d\alpha = (d \alpha_{\seqb ik{}}) \wedge \de x^{i_1} \wedge \ldots\wedge \de x^{i_k} = \DerParz{\alpha_{\seqb ik{}}} {x^i} \de x^i \wedge \de x^{i_1} \wedge\ldots \wedge \de x^{i_k}$, con $i=1,\ldots,n$ e $\seqb ik<$.
+		
+		Questa formula caratterizza $d$ su tutti gli aperti di un atlante (di $M$), quindi per la 4 su tutti gli aperti di $M$.
+		\item [esistenza:] Definiamo $d$ come dalla formula sopra e verifichiamo tutte le proprietà. $d$ è ovviamente $\R$-lineare.
+		
+		Sia $\beta\in\Omega^l(M)$ con $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$ con $\seqb kl<$. Allora
+		\begin{align*}
+			\de (\alpha \wedge \beta) &= d (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
+			&= \left(\DerParz{\alpha_{\seqb ik{}}}{x^i} \beta_{\seqb jl{}} + \alpha_{\seqb ik{}} \DerParz{\beta_{\seqb jl{}}}{x^i} \right) \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l} = \\
+			&=\DerParz{\alpha_{\seqb ik{}}}{x^i} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} \wedge \beta + (-1)^k \alpha \wedge d \beta \punto
+		\end{align*}
+		
+		Per la 3 usiamo il lemma di Schwartz $d(d\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
+		
+		Per verificare 4 mostriamo che non dipende dalle carte. Siano $(U,\varphi), (U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $d = d'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
+	\end{description}
+\end{proof}
+
+\begin{corollary}
+	Sia $\omega \in \Omega^k(U)$ con $U\subseteq \R^n$. Allora
+	\begin{equation*}
+		\de \omega (x) (v_0,\ldots,v_k) = \sum_{i=0}^k (-1)^i\ \Diff \omega (x) v_i\ (v_0,\ldots,\hat v_i, \ldots, v_k)\virgola
+	\end{equation*}
+	dove $\Diff \omega$ è il differenziale classico.
+\end{corollary}
+\begin{proof}
+	Sia $\omega(x) = \omega_{\seqb ik{}} (x) \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}$, allora
+	\begin{equation*}
+)		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}
+	\end{equation*}
+	\begin{align*}
+		\implies \de \omega (\seqb vk,) &= \DerParz{\omega_{\seqb iké}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
+		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_0^{\sigma(j)} v_1^{\sigma(i_1)} \ldots v_k^{\sigma(i_k)} %TODO: mi sono un po' persa, è da completare
+	\end{align*}
+	
+	Il membro di destra nell'enunciato è
+	\begin{equation*}
+		(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \sgn(\eta) v_0^{\eta(i_1)} \ldots \hat v_i^{\eta(i_j)} \ldots v_k^{\eta(i_k)}
+	\end{equation*}
+	Scriviamo $\sigma$ come prodotto di permutazioni che mandano $j$ in un indice dato e otteniamo la conclusione.
+\end{proof}
+
+\begin{example}
+	\begin{enumerate}
+	 \item In $\R^2$ sia $\alpha = f(x,y) \de x + g(x,y) \de y$, allora $d \alpha= d f\wedge \de x + d g \wedge \de y = (\DerParz{g}{x} - \DerParz fy) \de x\wedge \de y $
+	 \item In $\R^3$ data $f$ funzione regolare $d f = \DerParz fx \de x + \DerParz fy \de y + \DerParz fz \de z$ e $\grad f = (df)^\sharp$
+	\end{enumerate}
+\end{example}
+
+\begin{exercise}
+	In $\R^3$ sia $\underline F=(F_1,F_2,F_3)$ e sia $\underline F = F_1 \de x + F_2 \de y + F_3 \de z$
+	$*(E^\flat) = F_3\de x \de y - F_2 \de x \wedge \de z + F_1 \de y \wedge \de z$.
+	
+	Verificare che $\de \underline{F}^\flat = *(rot \underline{F})^\flat$
+	
+	Verificare che $\div \underline F = *d * \underline F^\flat$ e che $d^2 = 0$ e quindi che $\div (rot \underline F)=0$.
+	
+	Allo stesso modo, se $f:\R^3\to\R$ è reagolare $ddf=0$ equivale a $rot(\grad f)=0$
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
