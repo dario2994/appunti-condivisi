@@ -12,7 +12,7 @@ $(\Lie_XY)' = \Diff Y'(x) X'(x) -\Diff X'(x) Y'(x)$
 
 Da Leibnitz, se $\alpha\in\chi^*(M)$, $v$ vettore costante in $\R^n$:
 \begin{equation*}
-	(\Lie_{X'}\alpha')v = (\Diff \alpha'\cdot X) v + \alpha' (\Diff X' v)
+	(\Lie_{X'}\alpha')v = (\Diff \alpha'\cdot X') v + \alpha' (\Diff X' v)
 \end{equation*}
 perciò
 \begin{equation*}
@@ -37,7 +37,7 @@ Dalle formule locali (le entrate sono costanti)
 	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,-\Diff X'\cdot v_j,\ldots,v_s)
 \end{align*}
 \begin{equation*}
-	(\Lie_Xt)_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} = X^k \DerParz{}{x^k} t_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} - \DerParz{X^{i_1}}{x^l} t_{\seqb{j}{s}{}}^{li_2\ldots i_r} + \DerParz{X^m}{x^{j_1}} t^{\seqb{i}{r}{}}_{mj_2\ldots j_r} \virgola
+	(\Lie_Xt)_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} = X^k \DerParz{}{x^k} t_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} - \DerParz{X^{i_1}}{x^l} t_{\seqb{j}{s}{}}^{li_2\ldots i_r} + \DerParz{X^m}{x^{j_1}} t^{\seqb{i}{r}{}}_{mj_2\ldots j_s} \virgola
 \end{equation*}
 dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 
@@ -69,15 +69,15 @@ dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 		\end{align*}
 
 		
-		\item (Campi di Killing) Sia $M$ una varietà con metrica $g$. Una campo vettoriale $X\in\chi(M)$ è detto \emph{di Killing} se $\Lie_Xg \equiv 0$. Il significato geometrico è che una metrica da una lunghezza della curva e di conseguenza una metrica sulla varietà (prendendo l'inf delle lunghezze delle curve che collegano due punti) e un campo di Killing genera un flusso di isometrie sulla varietà.
+		\item (Campi di Killing) Sia $M$ una varietà con metrica $g$. Una campo vettoriale $X\in\chi(M)$ è detto \emph{di Killing} se $\Lie_Xg \equiv 0$. Il significato geometrico è che una metrica dà una lunghezza della curva e di conseguenza una metrica sulla varietà (prendendo l'inf delle lunghezze delle curve che collegano due punti) e un campo di Killing genera un flusso di isometrie sulla varietà.
 		
 		Vediamo che equazioni deve rispettare $X$. Siano $X = X^i\DerParz{}{x^i}$ e $g = g_{ij}\de x^i \otimes \de x^j$ in coordinate (dove $g_{ij} = g_{ji}$).
 		Allora
 		\begin{align*}
 		\Lie_Xg &= \Lie_x (g_{ij}\de x^i \otimes \de x^j) =\\
-		&=(\Lie_Xg_{ij})\otimes \de x^i\otimes x^j + g_{ij} \otimes (\Lie_X\de x^i) \otimes x^j + g_{ij}\otimes \de x^i \otimes (\Lie_X\de x^j) =\\
-		&= X^k \DerParz{g_{ij}}{x^k}\otimes \de x^i \otimes \de x^j + g_{ij}\DerParz{X^i}{x^k} \otimes \de x^k \otimes \de x^i + g_{ij} \DerParz{X^j}{x^k} \otimes \de x^i \otimes \de x^k =\\
-		&= \left[X^k \DerParz{g_{ij}}{x^k} + g_{kj} \DerParz{X^k}{x^i} + g_{ik} \DerParz{X^k}{x^j} \right] \de x^i \otimes x^j \virgola
+		&=(\Lie_Xg_{ij})\otimes \de x^i\otimes x^j + g_{ij} \otimes (\Lie_X\de x^i) \otimes \de x^j + g_{ij}\otimes \de x^i \otimes (\Lie_X\de x^j) =\\
+		&= X^k \DerParz{g_{ij}}{x^k}\otimes \de x^i \otimes \de x^j + g_{ij}\DerParz{X^i}{x^k} \otimes \de x^k \otimes \de x^j + g_{ij} \DerParz{X^j}{x^k} \otimes \de x^i \otimes \de x^k =\\
+		&= \left[X^k \DerParz{g_{ij}}{x^k} + g_{kj} \DerParz{X^k}{x^i} + g_{ik} \DerParz{X^k}{x^j} \right] \de x^i \otimes \de x^j \virgola
 		\end{align*}
 		dove nell'ultima uguaglianza abbiamo semplicemente cambiato nome agli indici ripetuti. Le equazioni tra parentesi quadre sono dette equazioni di Killing. Si può vedere che $\Lie_Xg=0$ se e solo se $\Lie_X$ commuta con le operazioni $\sharp$ e $\flat$ (di alzamento e abbassamento di indici).
 	\end{enumerate}
@@ -128,7 +128,7 @@ Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tra
 	La linearità è ovvia. Sia $t\in\Lambda^k(V,W)$, allora
 	\begin{align*}
 		\antisimm t(\seqb{e}{k}{,}) &= \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) =\\
-		& = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(\seqb{e}{k}{,}) = t (\seqb{e}{k}{,}) \virgola
+		& = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma)^2 t(\seqb{e}{k}{,}) = t (\seqb{e}{k}{,}) \virgola
 	\end{align*}
 	dove abbiamo usato che $t\in\Lambda^k$ e $\mathrm{card} S_k = k!$.
 \end{proof}
@@ -142,7 +142,7 @@ Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tra
 Si chiamano algebre esterne perché si può fare un prodotto esterno.
 
 \begin{definition}
-	Se $\alpha \in T^0_k(V)$ e $\beta \in T^0_l(V)$. Il \emph{prodotto wedge} $\alpha \wedge \beta \in \Lambda^{k+l}(V)$ è definita da
+	Se $\alpha \in T^0_k(V)$ e $\beta \in T^0_l(V)$. Il \emph{prodotto wedge} $\alpha \wedge \beta \in \Lambda^{k+l}(V)$ è definito da
 	\begin{equation*}
 		\alpha\wedge \beta \coloneqq \frac {(k+l)!}{k!\ l!} \antisimm(\alpha\otimes \beta)\punto
 	\end{equation*}
