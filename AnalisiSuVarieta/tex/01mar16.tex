@@ -111,39 +111,39 @@ Dato $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}}(x) \de x^{i_
 
 \section{Derivata esterna}
 
-La \emph{derivata esterna} è una mappa (interessante) $d:\Omega^k(M) \to \Omega^k(M)$. %TODO: d o \de ?
+La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Omega^k(M)$. %TODO: d o \de ?
 
 \begin{theorem}
-	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $d \coloneqq d^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
+	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $\de \coloneqq \de^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
 	\begin{enumerate}
-		\item $d$ è una $\wedge$-antiderivaione, cioè $d$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $d(\alpha\wedge\beta) = d\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
+		\item $\de$ è una $\wedge$-antiderivaione, cioè $\de$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $\de(\alpha\wedge\beta) = \de\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
 		\item se $f\in C^\infty(M)$, allora $\de f$ coincide con il differenziale di $f$;
-		\item $d^2 = d\circ d = 0$;
-		\item $d$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $d(\alpha\restrict U) = (d\alpha)\restrict U$ ($d$ è locale).
+		\item $\de^2 = \de\circ \de = 0$;
+		\item $\de$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $\de(\alpha\restrict U) = (\de\alpha)\restrict U$ ($\de$ è locale).
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	\begin{description}
+	\begin{description} %TODO: cambiare d in \de
 		\item [unicità:] Sia $(U,\varphi)$ una carta di $M$ e consideriamo una $k$-forma $\alpha\in\Omega^k(U)$ con $\alpha = \alpha_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$.
-		Se $k=0$ e $f=x^i$, allora $d(x^i) = \de x^i$.
+		Se $k=0$ e $f=x^i$, allora $\de(x^i) = \de x^i$.
 		
-		Dalla 3 abbiamo $d(\de x^i) = 0$, quindi per la 1 $d(\de x^{i_1} \wedge \ldots \wedge \de x^{i_k}) = 0$.
+		Dalla 3 abbiamo $\de(\de x^i) = 0$, quindi per la 1 $\de(\de x^{i_1} \wedge \ldots \wedge \de x^{i_k}) = 0$.
 		
-		Perciò $d\alpha = (d \alpha_{\seqb ik{}}) \wedge \de x^{i_1} \wedge \ldots\wedge \de x^{i_k} = \DerParz{\alpha_{\seqb ik{}}} {x^i} \de x^i \wedge \de x^{i_1} \wedge\ldots \wedge \de x^{i_k}$, con $i=1,\ldots,n$ e $\seqb ik<$.
+		Perciò $\de\alpha = (\de \alpha_{\seqb ik{}}) \wedge \de x^{i_1} \wedge \ldots\wedge \de x^{i_k} = \DerParz{\alpha_{\seqb ik{}}} {x^i} \de x^i \wedge \de x^{i_1} \wedge\ldots \wedge \de x^{i_k}$, con $i=1,\ldots,n$ e $\seqb ik<$.
 		
-		Questa formula caratterizza $d$ su tutti gli aperti di un atlante (di $M$), quindi per la 4 su tutti gli aperti di $M$.
-		\item [esistenza:] Definiamo $d$ come dalla formula sopra e verifichiamo tutte le proprietà. $d$ è ovviamente $\R$-lineare.
+		Questa formula caratterizza $\de$ su tutti gli aperti di un atlante (di $M$), quindi per la 4 su tutti gli aperti di $M$.
+		\item [esistenza:] Definiamo $\de$ come dalla formula sopra e verifichiamo tutte le proprietà. $\de$ è ovviamente $\R$-lineare.
 		
 		Sia $\beta\in\Omega^l(M)$ con $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$ con $\seqb kl<$. Allora
 		\begin{align*}
-			\de (\alpha \wedge \beta) &= d (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
+			\de (\alpha \wedge \beta) &= \de (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
 			&= \left(\DerParz{\alpha_{\seqb ik{}}}{x^i} \beta_{\seqb jl{}} + \alpha_{\seqb ik{}} \DerParz{\beta_{\seqb jl{}}}{x^i} \right) \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l} = \\
-			&=\DerParz{\alpha_{\seqb ik{}}}{x^i} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} \wedge \beta + (-1)^k \alpha \wedge d \beta \punto
+			&=\DerParz{\alpha_{\seqb ik{}}}{x^i} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} \wedge \beta + (-1)^k \alpha \wedge \de \beta \punto
 		\end{align*}
 		
-		Per la 3 usiamo il lemma di Schwartz $d(d\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
+		Per la 3 usiamo il lemma di Schwartz $\de(\de\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
 		
-		Per verificare 4 mostriamo che non dipende dalle carte. Siano $(U,\varphi), (U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $d = d'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
+		Per verificare 4 mostriamo che non dipende dalle carte. Siano $(U,\varphi), (U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $\de = \de'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
 	\end{description}
 \end{proof}
 
@@ -157,10 +157,10 @@ La \emph{derivata esterna} è una mappa (interessante) $d:\Omega^k(M) \to \Omega
 \begin{proof}
 	Sia $\omega(x) = \omega_{\seqb ik{}} (x) \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}$, allora
 	\begin{equation*}
-)		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}
+		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}
 	\end{equation*}
 	\begin{align*}
-		\implies \de \omega (\seqb vk,) &= \DerParz{\omega_{\seqb iké}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
+		\implies \de \omega (\seqb vk,) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
 		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_0^{\sigma(j)} v_1^{\sigma(i_1)} \ldots v_k^{\sigma(i_k)} %TODO: mi sono un po' persa, è da completare
 	\end{align*}
 	

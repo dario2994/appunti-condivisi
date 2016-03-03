@@ -1,0 +1,194 @@
+\chapter{3 marzo 2016}
+
+\begin{theorem}
+	Sia $f:M\to N$ regolare. Allora $f^*$ soddisfa:
+	\begin{enumerate}
+		\item $f^*(\psi \wedge \omega) = f^*(\psi) \wedge f^*(\omega)$;
+		\item $f^*(\de \omega) = \de (f^*\omega)$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	1 già vista, quindi vediamo la 2.
+	
+	Sia $(U,\varphi)$ carta di $M$ e $(V,\rho)$ carta di $N$ tali che $f(U)\subseteq V$. Sia $\omega\in\Omega^k(V)$, $\omega = \omega_{\seqb ik{}} \de x^{i_1}\wedge\ldots\wedge x^{i_k}$. Allora
+	\begin{equation*}
+		\de \omega = \DerParz{\omega_{\seqb ik{}}}{x_i} \de x^i \wedge \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}
+	\end{equation*}
+	quindi per la 1
+	\begin{equation*}
+		f^*\omega = f^*\omega_{\seqb ik{}} f^*\de x^{i_1} \wedge \ldots \wedge f^* \de x^{i_k}\punto
+	\end{equation*}
+	Se $\psi \in C^\infty(N)$, $\de (f^*\psi) = f^* (\de \psi)$. Quindi usando 1 e $\de\circ\de =0$, abbiamo
+	\begin{equation*}
+		\de (f^*\omega) = f^*(\de \omega_{\seqb ik{}})\wedge f^*\de x^{i_1} \wedge \ldots \wedge f^*\de x^{i_k} = f^*(\de\omega)\punto
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}
+	Se $f$ è un diffeomorfismo, allora $f*\de\omega = \de f * \omega$.
+\end{corollary}
+
+\begin{corollary}
+	Se $X\in\chi(M)$, $\omega \in \Omega^k(M)$, allora $\Lie_X\omega \in \Omega^k(M)$ e $\de \Lie_X\omega = \Lie_X \de \omega$.
+\end{corollary}
+
+$\Lie_X\omega(p) = \frac{\de}{\de t} \restrict{t=0} (F_t^*\omega)(p)$, dove $F_t$ è il flusso generato da $X$.
+
+$F_t^*\omega\in \Omega^k(M) \implies \Lie_X\omega \in \Omega^k(M)$.
+
+Ma $\de$ commuta con il pull-back, allora $F_t^* \de\omega = \de F_t^* \omega$ passando al limite nei rapporti incrementali otteniamo $\de \Lie_X = \Lie_X \de$.
+
+\section{Prodotto interno}
+\begin{definition}
+	Sia $M$ una varietà, $X\in\chi(M)$, $\omega\in\Omega^{k+1}(M)$. Sia $i_X\omega \in \Tau_k^0(M)$ tale che $i_X\omega(\seqb Xk,) = \omega(\seqb Xk,)$. Chiamiamo $i_X\omega$ \emph{prodotto interno} o \emph{contrazione} di $X$ e $\omega$.
+\end{definition}
+
+\begin{remark}
+	$i_X\omega = 0$ se $\omega\in C^\infty(M)$.
+\end{remark}
+
+\begin{theorem} \label{thm:ProprietaProdottoInterno}
+	$i_X$ manda $\Omega^{k+1}(M)$ in $\Omega^k(M)$. Se $\alpha\in\Omega^k(M)$, $\beta\in\Omega^l(M)$, $f\in C^\infty(M)$, allora
+	\begin{enumerate}
+		\item $i_X$ è $\R$-lineare e $i_X(\alpha\wedge\beta) = (i_X\alpha\wedge \beta) + (-1)^k \alpha \wedge (i_X\beta)$;
+		\item $i_{fX}\alpha = f i_X\alpha$;
+		\item $i_X\de f = \Lie_X f$;
+		\item $\Lie_X(\alpha\wedge\beta) = \Lie_X \alpha \wedge \beta + \alpha \wedge \Lie_X \beta$;
+		\item $\Lie_X \alpha = i_x \de\alpha + \de i_X\alpha$;
+		\item $\Lie_{fX}\alpha = f\Lie_X\alpha + \de f \wedge i_X\alpha$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	La 1 è ovvia.
+	
+	2) $i_X(\alpha \wedge \beta) (X_2,X_3,\ldots,X_{k+l}) = (\alpha\wedge\beta) (X, X_2,X_3,\ldots,X_{k+l})$.
+	D'altra parte
+	\begin{equation*}
+	(i_X\alpha\wedge \beta) + (-1)^k \alpha \wedge (i_X\beta) = \frac{(k+l-1)!}{(k-1)!\ l!}\ \antisimm (i_X\alpha \otimes \beta) + (-1)^k \frac{(k+l-1)!}{k!\ (l-1)!} \ \antisimm (\alpha \otimes i_X\beta) \punto
+	\end{equation*}
+	Scriviamo il secondo termine come somma di permutazioni $\sigma \in S_{k+l-1}$. Scriviamo $\sigma = \tau \circ \sigma_0$ con $\tau \in S_{k+l-1}$ e $\sigma_0(2,3,\ldots, k+1, 1, k+2, \ldots, k+l) = (1,2,3,\ldots, k+l)$.
+	
+	\begin{align*}
+		\antisimm (\alpha \otimes i_X\beta) (v_2,\ldots,v_{k+l}) &= \frac 1{(k+l-1)!} \sum_{\sigma\in S_{k-1}}\sgn(\sigma) (\alpha \otimes i_X\beta) (v_{\sigma(2)},\ldots,v_{\sigma(k+l)})=\\
+		&= \frac 1{(k+l-1)!} \sum_{\sigma\in S_{k-1}}\sgn(\sigma) \alpha(v_{\sigma(2)},\ldots,v_{\sigma(k+1)})\beta(X,v_{\sigma(k+2)},\ldots,v_{\sigma(k+l)})=
+	\end{align*}
+	e poi boh... continua la prossima volta.
+	
+	La 3 segue dalla definizione di $\de f$.
+	
+	La 4 segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante.
+	
+	Per la 5 si usa un'induzione in $k$. Il risultato è vero per $k=0$ per la 3. Supponiamo ora che valga per le $k$ forme e dimostriamolo per le $k+1$ forme. Ogni $k+1$ forma si scrive come $\sum \de f_i \wedge \omega_i$ dove $f_i \in C^\infty(M)$ e $\omega_i\in\Omega^k(M)$; infatti data $\omega$ $(k+1)$-forma, abbiamo
+	$\omega = \omega_{\seqb i{k+1}{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_{k+1}} = \de x^{i_1} \wedge \omega_{\seqb i{k+1}{}} \de x^{i_2} \wedge \ldots \wedge \de x^{i_{k+1}}$.
+	Per la 4 $\Lie_X(\de f\wedge\omega) = (\Lie_X\de f)\wedge \omega + \de f \wedge (\Lie_X\omega)$.
+	$i_X\de (\de f\wedge \omega) + \de i_X(\de f \wedge \omega) = -i_X(\de f\wedge \omega) + \de (i_X\de f \wedge \omega + \de f \wedge i_X\omega) =
+	-i_X\de f\wedge \de \omega + \de f\wedge i_X \de \omega + \de i_X \de f \wedge \omega + i_X \de f \wedge \de \omega + \de f \wedge \de i_X \omega
+	= \de f \wedge \Lie_X\omega + \de \Lie_Xf \wedge \omega$
+	dove l'ultima uguaglianza è 3+ induzione.
+	
+	6) Per la 5 $\Lie_{fX}\alpha = i_{fX} \de \alpha + \de i_{fX} \alpha = f i_X \de \alpha + \de (fi_X\alpha) = f i_X\de \alpha + \de f \wedge i_X\alpha + f \de i_X\alpha = f\Lie_X \alpha + \de f \wedge i_X\alpha$.
+\end{proof}
+
+La 5 è detta \emph{formula di Cartan}.
+
+\begin{proposition}
+	Sia $f:M\to N$. Siano $\omega \in \Omega^k(N)$, $X \in \chi(N)$ e $Y \in \chi(M)$ tali che $X = f_*Y$. Allora $i_Yf^*\omega = f^* i_X\omega$.
+\end{proposition}
+\begin{proof}
+	Siano $p\in M$, $q=f(p)\in N$ e $\seqb v{k-1}, \in T_pM$. Allora
+	\begin{align*}
+		i_Y(f^*\omega)(\seqb v{k-1},) &= f^* \omega (Y(p), \seqb v{k-1},) = \omega (f_*(Y(p)), f_*v_1,\ldots, f_*v_{k-1}) = \\
+		&= \omega_q((X\circ f)(p),f_*v_1,\ldots, f_*v_{k-1}) = (i_X\omega)_q (f_*v_1,\ldots, f_*v_{k-1}) =\\
+		& =(f^*i_X\omega)(\seqb v{k-1},) \punto 
+	\end{align*}
+\end{proof}
+
+\begin{proposition}
+	Siano $X_i\in\chi(M)$, per $i=0,\ldots,k$, e $\omega \in \Omega^k(M)$. Allora
+	\begin{enumerate}
+		\item $(\Lie_{X_0} \omega (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=0}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$;
+		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	La 1 è già vista. Per la 2 usiamo l'induzione su $k$.
+	Per $k=0$ $\de \omega (X_0) = \Lie_{X_0} \omega$.
+	
+	Supponiamo valga per $k-1$ e sia $\omega \in \Omega^k(M)$. Per la formula di Cartan
+	\begin{align*}
+		\de \omega (X_0,\seqb Xk,) &= (i_{X_0}\de \omega)(\seqb Xk,) = \Lie_{X_0}\omega(\seqb Xk,) - (\de i_{X_0} \omega) (\seqb Xk,) =\\
+		&= \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^k \omega (X_1,\ldots,\Lie_{X_0}X_l,\ldots, X_k) -(\de i_{X_0}\omega) (\seqb Xk,)
+	\end{align*}
+	ma visto che $i_{X_0}\omega \in \Omega^{k-1}(M)$
+	\begin{align*}
+		(\de i_{X_0}\omega) (\seqb Xk,) =& \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(i_{X_0}\omega (X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
+		&+\sum_{0\le i< j \le k-1} (-1)^{i+j} (i_{X_0}\omega)(\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k) = \\
+		=& \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega (X_0,X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
+		&+\sum_{0\le i< j \le k-1} (-1)^{i+j} \omega(X_0,\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k)
+	\end{align*}
+	Quindi
+	\begin{align*}
+		\de \omega (X_0,\seqb Xk,) =& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) -\\
+		&-\sum_{l=1}^k\omega(X_1,\ldots, \Lie_{X_0}X_l,\ldots,X_k)-\\
+		&-\sum_{0\le i<j \le k-1} (-1)^{i+j} \omega (X_0,\Lie_{X_i}(X_j),X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)=\\
+		=& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) +\\
+		&+\sum_{l=1}^k\omega(X_1,\ldots, \Lie_{X_l}X_0,\ldots,X_k)+\\
+		&+\sum_{0\le i<j \le k-1} (-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)
+	\end{align*}
+
+	
+\end{proof}
+
+\begin{corollary}
+	Siano $X,Y\in\chi(M)$, allora $\comm{\Lie_X}{i_Y} = i_{\comm XY}$ e $\comm{\Lie_X}{\Lie_Y} = \Lie_{\comm XY}$.
+	Quindi in particolare $i_X\Lie_X = \Lie_X i_X$.
+\end{corollary}
+\begin{proof}
+	Sia $\omega \in \Omega^k(U)$ e $\seqb X{k-1}, \in \chi(U)$, alolra
+	\begin{align*}
+		(i_Y\Lie_X\omega)(\seqb X{k-1},) =& (\Lie_X\omega)(Y,\seqb X{k-1},) =\\
+		=&\Lie_X(\omega(Y,\seqb X{k-1},)) -\\
+		&-\sum_{l=1}^{k-1}\omega(Y,X_1,\ldots,\comm{X}{X_l},\ldots X_{k-1}) -\\
+		&-\omega (\comm XY, \seqb X{k-1},)=\\
+		=& \Lie_X(i_Y\omega(\seqb X{k-1},) -\sum_{l=1}^{k-1} i_Y\omega(X_1,\ldots, \comm X{X_l}, \ldots, X_{k-1}) - i_{\comm XY} \omega (\seqb X{k-1},) =\\
+		=& (\Lie_X i_Y\omega)(\seqb X{k-1},) - (i_{\comm XY}\omega)(\seqb X{k-1},) \punto
+	\end{align*}
+
+	Per la seconda si usa la prima e la formula di Cartan.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
