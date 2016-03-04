@@ -3,9 +3,9 @@
 \begin{remark}
 	Dati $\seqa{\alpha}{k}{,}\in\Lambda^1(V)$, allora
 	\begin{equation*}
-		(\seqa{\alpha}{k}{\wedge})(\seqb{e}{k}{,}) = \sum_{\sigma\in S_k} \sgn(\sigma) \alpha^1(e_{\sigma(1)}) \ldots \alpha^k(e_{\sigma(k)}) = \det[\alpha^i(e_i)]
+		(\seqa{\alpha}{k}{\wedge})(\seqb{e}{k}{,}) = \sum_{\sigma\in S_k} \sgn(\sigma) \alpha^1(e_{\sigma(1)}) \ldots \alpha^k(e_{\sigma(k)}) = \det[\alpha^i(e_j)]
 	\end{equation*}
-	E dalla 4 $\seqa{\gamma}{k}{\wedge} = \frac{\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
+	E dalla 4 $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
 	
 	Applicando a 1-forme $\seqb{\alpha}{k}{\wedge} = k! \antisimm(\seqb{\alpha}{k}{\otimes})$.
 	Se $\seqb en,$ è una base di $V$ e se $\{\seqa en,\}$ è una base duale, allora $\{\seqa ek\wedge \}\cdot (\seqb en,) = 1$.
@@ -15,11 +15,11 @@
 Prodotto wedge in componenti
 
 Sia $\seqb en,$ una base di $V$. Le componenti $t_{\seqb ik{}}$ di $t\in T^0_k(V)$ sono date da $t(e_{i_1},\ldots,e_{i_k})$.
-Se $t\in\Lambda^k(V)$, c'è antisimmetria $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ simmetrizza le componenti.
+Se $t\in\Lambda^k(V)$, c'è antisimmetria e $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ antisimmetrizza le componenti.
 
 Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
 \begin{equation*}
-	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sigma_{\sigma\in(k,l) mescolamenti} \sgn(\sigma) \alpha_{\sigma(i_1)\ldots\sigma(i_k)} \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})}
+	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sum_{\sigma\in(k,l) mescolamenti} \sgn(\sigma) \alpha_{\sigma(i_1)\ldots\sigma(i_k)} \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})}
 \end{equation*}
 
 \begin{definition}
@@ -29,7 +29,7 @@ Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
 \begin{proposition}
 	Se $V$ ha dimensione $n$, $\Lambda^k(V)=0$ per $k>n$ e ha dimensione $\binom nk$ per $k=1,\ldots,n$. Quindi $\Lambda(V)$ ha dimensione $2^n$.
 	
-	Se $\seqb en,$ è una base di $V$, l'insieme $\{ e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat 1le i_i< \ldots < i_k\le n\}$ è una base di $\Lambda^k(V)$.
+	Se $\seqb en,$ è una base di $V$, l'insieme $\{ e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat 1\le i_i< \ldots < i_k\le n\}$ è una base di $\Lambda^k(V)$.
 \end{proposition}
 
 \begin{corollary}
@@ -61,13 +61,13 @@ Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
 \end{example}
 
 \begin{exercise}
-	Siano $\seqb vk, \in V$ linearmente indipendenti. Mostrare che $\alpha(\seqb vk,) = 0$ per $\alpha\in\Lambda^k(V)$. 
+	Siano $\seqb vk, \in V$ linearmente indipendenti. Mostrare che $\alpha(\seqb vk,) = 0$ qualsiasi $\alpha\in\Lambda^k(V)$. 
 \end{exercise}
 
 
 \section{Determinanti e volumi}
 
-Il determinante di una matrice è multilineare e simmetrico su righe e colonne di una matrice.
+Il determinante di una matrice è multilineare e antisimmetrico su righe e colonne di una matrice.
 Se $\seqb xn, \in\R^n$ con componenti $x_i^j$, allora il determinante di $(x_i^j)$ è il volume del parallelepipedo generato da $\seqb xn,$.
 Possiamo indicare
 \begin{equation*}
@@ -82,14 +82,14 @@ Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parall
 		\item $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$;
 		\item $\id^* = \id$;
 		\item se $\varphi\in \mathrm{inv}(V,W)$, $\varphi^*\in \mathrm{inv}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$.
-		Se anche $\psi\in\mathrm{inv}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$; %TODO: what?
-		\item se $\alpha\in\Lambda^k(V)$, $\beta\in\Lambda^k(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
+		Se anche $\psi\in\mathrm{inv}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
+		\item se $\alpha\in\Lambda^k(V)$, $\beta\in\Lambda^l(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
 	\end{enumerate}
 \end{proposition}
 
 Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
 \begin{definition}
-	Se $V$ ha dimensione $n$ e $\varphi\in\Lin(V,V)$, $\det(\varphi)$ è definito come l'unica costante tale che $\varphi^*\omega = \det(\varphi) \omega$, dove $\omega\in\Lambda^n(V)$.
+	Se $V$ ha dimensione $n$ e $\varphi\in\Lin(V,V)$, $\det(\varphi)$ è definito come l'unica costante tale che $\varphi^*\omega = \det(\varphi) \omega$, qualsiasi $\omega\in\Lambda^n(V)$.
 \end{definition}
 
 \begin{proposition}
@@ -112,10 +112,10 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	L'unica non ovvia è la freccia <= della 3.
+	L'unica non ovvia è la freccia $<=$ della 3.
 	
 	Basta dimostrare che se $\varphi$ non è un isomorfismo, allora $\det\varphi = 0$.
-	Se $\varphi$ non è un isomorismo, esiste $e=e_1\in\ker\varphi$. Completo $e_1$ a una base $\{\seqb en,\}$ di $V$. Data $\omega\in\Lambda^n(V)$, allora
+	Se $\varphi$ non è un isomorfismo, esiste $e=e_1\in\ker\varphi$. Completo $e_1$ a una base $\{\seqb en,\}$ di $V$. Data $\omega\in\Lambda^n(V)$, allora
 	\begin{equation*}
 		(\varphi^*\omega)(\seqb en,) = \omega(\varphi(e_1),\ldots,\varphi(e_n)) = \omega(0,\varphi(e_2),\ldots,\varphi(e_n)) = 0
 	\end{equation*}
