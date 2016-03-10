@@ -4,7 +4,7 @@ Un prodotto interno (simmetrico e definito positivo) in $V$ ne induce uno anche 
 
 Siano $\alpha = \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ e $\beta = \beta_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ elementi di $\Lambda^k(V)$.
 
-Sia $\beta^{\seqb ik{}} = g^{i_1j_1}\ldots g^{i_kj_k} \beta_{\seqb ik{}}$.
+Sia $\beta^{\seqb ik{}} = g^{i_1j_1}\ldots g^{i_kj_k} \beta_{\seqb jk{}}$.
 
 Definisco
 \begin{equation*}
@@ -35,7 +35,7 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 	\end{equation}
 	per ogni $\alpha,\beta \in\Lambda^k(V)$.
 	
-	Se $\{\seqb en, \}$ è una base di $V$ orientata positivamente e ortornormale con base duale $\seqb en,$, allora
+	Se $\{\seqb en, \}$ è una base di $V$ orientata positivamente e ortornormale con base duale $e^1, \dots ,e^n$, allora
 	\begin{equation}\label{eq:triangolo}
 	*(e^{\sigma(1)}\wedge\ldots\wedge e^{\sigma(k)}) = \sgn(\sigma) (e^{\sigma(k+1)}\wedge\ldots\wedge e^{\sigma(n)})
 	\end{equation}
@@ -45,7 +45,7 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 	\begin{description}
 		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
-		Dall'\cref{eq:star} per ogni $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta$. %TODO: aggiungere ref
+		Dall'\cref{eq:star} per ogni $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta$. %TODO: non capisco...
 		
 		Quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
 		
@@ -116,7 +116,7 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 \begin{theorem}
 	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $\de \coloneqq \de^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
 	\begin{enumerate}
-		\item $\de$ è una $\wedge$-antiderivaione, cioè $\de$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $\de(\alpha\wedge\beta) = \de\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
+		\item $\de$ è una $\wedge$-antiderivazione, cioè $\de$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $\de(\alpha\wedge\beta) = \de\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
 		\item se $f\in C^\infty(M)$, allora $\de f$ coincide con il differenziale di $f$;
 		\item $\de^2 = \de\circ \de = 0$;
 		\item $\de$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $\de(\alpha\restrict U) = (\de\alpha)\restrict U$ ($\de$ è locale).
@@ -179,14 +179,14 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 \end{example}
 
 \begin{exercise}
-	In $\R^3$ sia $\underline F=(F_1,F_2,F_3)$ e sia $\underline F = F_1 \de x + F_2 \de y + F_3 \de z$
-	$*(E^\flat) = F_3\de x \de y - F_2 \de x \wedge \de z + F_1 \de y \wedge \de z$.
+	In $\R^3$ sia $\underline F=(F_1,F_2,F_3)$ e sia $\underline F^\flat = F_1 \de x + F_2 \de y + F_3 \de z$
+	$*(\underline F^\flat) = F_3\de x \wedge \de y - F_2 \de x \wedge \de z + F_1 \de y \wedge \de z$.
 	
 	Verificare che $\de \underline{F}^\flat = *(rot \underline{F})^\flat$
 	
 	Verificare che $\div \underline F = *d * \underline F^\flat$ e che $d^2 = 0$ e quindi che $\div (rot \underline F)=0$.
 	
-	Allo stesso modo, se $f:\R^3\to\R$ è reagolare $ddf=0$ equivale a $rot(\grad f)=0$
+	Allo stesso modo, se $f:\R^3\to\R$ è regolare $ddf=0$ equivale a $rot(\grad f)=0$
 \end{exercise}
 
 
