@@ -31,7 +31,7 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 	Sia $\mu=\mu(g)$ l'elemento di volume corrispondente.
 	Allora esiste un'unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$ che soddisfa
 	\begin{equation} \label{eq:star}
-	\alpha \wedge * \beta = \Scal \alpha\beta \mu
+	 = \Scal \alpha\beta \mu
 	\end{equation}
 	per ogni $\alpha,\beta \in\Lambda^k(V)$.
 	
@@ -43,9 +43,10 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 \end{proposition}
 \begin{proof}
 	\begin{description}
-		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
+		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
-		Dall'\cref{eq:star} per ogni $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta$. %TODO: non capisco...
+		Dall'\cref{eq:star} $\alpha \wedge * \beta=0$ a meno che $(i_1, \ldots,i_k)=(\sigma(1),\ldots,\sigma(k))$
+		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta=1$.
 		
 		Quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
 		
@@ -160,10 +161,10 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}
 	\end{equation*}
 	\begin{align*}
-		\implies \de \omega (\seqb vk,) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
-		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_0^{\sigma(j)} v_1^{\sigma(i_1)} \ldots v_k^{\sigma(i_k)} %TODO: mi sono un po' persa, è da completare
+		\implies \de \omega (v_0,\ldots,v_k) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
+		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_0^{\sigma(j)} v_1^{\sigma(i_1)} \ldots v_k^{\sigma(i_k)}
 	\end{align*}
-	
+	Dove nell'equazione precedente sto sommando su $j=1, \ldots,n$ e $\sigma \in S_n$ tale che $\sigma(j)< \sigma(i_1)< \dots < \sigma(i_k)$.
 	Il membro di destra nell'enunciato è
 	\begin{equation*}
 		(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \sgn(\eta) v_0^{\eta(i_1)} \ldots \hat v_i^{\eta(i_j)} \ldots v_k^{\eta(i_k)}
