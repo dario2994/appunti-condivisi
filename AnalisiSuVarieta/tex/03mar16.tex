@@ -10,7 +10,7 @@
 \begin{proof}
 	1 già vista, quindi vediamo la 2.
 	
-	Sia $(U,\varphi)$ carta di $M$ e $(V,\rho)$ carta di $N$ tali che $f(U)\subseteq V$. Sia $\omega\in\Omega^k(V)$, $\omega = \omega_{\seqb ik{}} \de x^{i_1}\wedge\ldots\wedge x^{i_k}$. Allora
+	Sia $(U,\varphi)$ carta di $M$ e $(V,\rho)$ carta di $N$ tali che $f(U)\subseteq V$. Sia $\omega\in\Omega^k(V)$, $\omega = \omega_{\seqb ik{}} \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}$. Allora
 	\begin{equation*}
 		\de \omega = \DerParz{\omega_{\seqb ik{}}}{x_i} \de x^i \wedge \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}
 	\end{equation*}
@@ -25,22 +25,25 @@
 \end{proof}
 
 \begin{corollary}
-	Se $f$ è un diffeomorfismo, allora $f*\de\omega = \de f * \omega$.
+	Se $f$ è un diffeomorfismo, allora $f_*\de\omega = \de f_* \omega$.
 \end{corollary}
 
 \begin{corollary}
 	Se $X\in\chi(M)$, $\omega \in \Omega^k(M)$, allora $\Lie_X\omega \in \Omega^k(M)$ e $\de \Lie_X\omega = \Lie_X \de \omega$.
 \end{corollary}
 
+\begin{proof}
 $\Lie_X\omega(p) = \frac{\de}{\de t} \restrict{t=0} (F_t^*\omega)(p)$, dove $F_t$ è il flusso generato da $X$.
 
 $F_t^*\omega\in \Omega^k(M) \implies \Lie_X\omega \in \Omega^k(M)$.
 
 Ma $\de$ commuta con il pull-back, allora $F_t^* \de\omega = \de F_t^* \omega$ passando al limite nei rapporti incrementali otteniamo $\de \Lie_X = \Lie_X \de$.
+\end{proof}
+
 
 \section{Prodotto interno}
 \begin{definition}
-	Sia $M$ una varietà, $X\in\chi(M)$, $\omega\in\Omega^{k+1}(M)$. Sia $i_X\omega \in \Tau_k^0(M)$ tale che $i_X\omega(\seqb Xk,) = \omega(\seqb Xk,)$. Chiamiamo $i_X\omega$ \emph{prodotto interno} o \emph{contrazione} di $X$ e $\omega$.
+	Sia $M$ una varietà, $X\in\chi(M)$, $\omega\in\Omega^{k+1}(M)$. Sia $i_X\omega \in \Tau_k^0(M)$ tale che $i_X\omega(\seqb Xk,) = \omega(X,\seqb Xk,)$. Chiamiamo $i_X\omega$ \emph{prodotto interno} o \emph{contrazione} di $X$ e $\omega$.
 \end{definition}
 
 \begin{remark}
@@ -106,8 +109,9 @@ La 5 è detta \emph{formula di Cartan}.
 \begin{proposition}
 	Siano $X_i\in\chi(M)$, per $i=0,\ldots,k$, e $\omega \in \Omega^k(M)$. Allora
 	\begin{enumerate}
-		\item $(\Lie_{X_0} \omega (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=0}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$;
-		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
+		\item $(\Lie_{X_0} \omega) (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=1}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$;
+		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\
+		+\sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -117,22 +121,23 @@ La 5 è detta \emph{formula di Cartan}.
 	Supponiamo valga per $k-1$ e sia $\omega \in \Omega^k(M)$. Per la formula di Cartan
 	\begin{align*}
 		\de \omega (X_0,\seqb Xk,) &= (i_{X_0}\de \omega)(\seqb Xk,) = \Lie_{X_0}\omega(\seqb Xk,) - (\de i_{X_0} \omega) (\seqb Xk,) =\\
-		&= \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^k \omega (X_1,\ldots,\Lie_{X_0}X_l,\ldots, X_k) -(\de i_{X_0}\omega) (\seqb Xk,)
+		&= \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^k \omega (X_1,\ldots,\Lie_{X_0}X_l,\ldots, X_k)+ \\
+		&-(\de i_{X_0}\omega) (\seqb Xk,)
 	\end{align*}
 	ma visto che $i_{X_0}\omega \in \Omega^{k-1}(M)$
 	\begin{align*}
-		(\de i_{X_0}\omega) (\seqb Xk,) =& \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(i_{X_0}\omega (X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
-		&+\sum_{0\le i< j \le k-1} (-1)^{i+j} (i_{X_0}\omega)(\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k) = \\
-		=& \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega (X_0,X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
-		&+\sum_{0\le i< j \le k-1} (-1)^{i+j} \omega(X_0,\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k)
+		(\de i_{X_0}\omega) (\seqb Xk,) =& \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(i_{X_0}\omega (X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
+		&+\sum_{1\le i< j \le k} (-1)^{i+j-2} (i_{X_0}\omega)(\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k) = \\
+		=& \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(\omega (X_0,X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
+		&+\sum_{1\le i< j \le k} (-1)^{i+j-2} \omega(X_0,\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k)
 	\end{align*}
 	Quindi
 	\begin{align*}
-		\de \omega (X_0,\seqb Xk,) =& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) -\\
+		\de \omega (X_0,\seqb Xk,) =& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) -\\
 		&-\sum_{l=1}^k\omega(X_1,\ldots, \Lie_{X_0}X_l,\ldots,X_k)-\\
-		&-\sum_{0\le i<j \le k-1} (-1)^{i+j} \omega (X_0,\Lie_{X_i}(X_j),X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)=\\
-		=& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=0}^{k-1} (-1)^l \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) +\\
-		&+\sum_{l=1}^k\omega(X_1,\ldots, \Lie_{X_l}X_0,\ldots,X_k)+\\
+		&-\sum_{1\le i<j \le k} (-1)^{i+j-2} \omega (X_0,\Lie_{X_i}(X_j),X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)=\\
+		=&\sum_{l=0}^{k} (-1)^l \Lie_{X_l}(\omega(X_0, \ldots, \hat X_l,\ldots, X_k)) +\\
+		&+\sum_{l=1}^k(-1)^l\omega(\Lie_{X_0}X_l,\ldots X_1,\ldots,\hat X_l,\ldots ,X_k)+\\
 		&+\sum_{0\le i<j \le k-1} (-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)
 	\end{align*}
 
@@ -150,7 +155,8 @@ La 5 è detta \emph{formula di Cartan}.
 		=&\Lie_X(\omega(Y,\seqb X{k-1},)) -\\
 		&-\sum_{l=1}^{k-1}\omega(Y,X_1,\ldots,\comm{X}{X_l},\ldots X_{k-1}) -\\
 		&-\omega (\comm XY, \seqb X{k-1},)=\\
-		=& \Lie_X(i_Y\omega(\seqb X{k-1},) -\sum_{l=1}^{k-1} i_Y\omega(X_1,\ldots, \comm X{X_l}, \ldots, X_{k-1}) - i_{\comm XY} \omega (\seqb X{k-1},) =\\
+		=& \Lie_X(i_Y\omega(\seqb X{k-1},) -\sum_{l=1}^{k-1} i_Y\omega(X_1,\ldots, \comm X{X_l}, \ldots, X_{k-1}) -\\
+		&-i_{\comm XY} \omega (\seqb X{k-1},) =\\
 		=& (\Lie_X i_Y\omega)(\seqb X{k-1},) - (i_{\comm XY}\omega)(\seqb X{k-1},) \punto
 	\end{align*}
 
