@@ -77,6 +77,35 @@ Ma $\de$ commuta con il pull-back, allora $F_t^* \de\omega = \de F_t^* \omega$ p
 	\end{align*}
 	e poi boh... continua la prossima volta.
 	
+	Rivediamola bene:
+	
+	Sappiamo che:
+	\begin{equation*}
+		\alpha\wedge\beta (\seqb e{k+l},) = \sum_{\sigma \in (k,l)-mescolamenti} \sgn(\sigma) \alpha(e_{\sigma(1)}\ldots e_{\sigma(k)}) \beta(e_{\sigma(k+1)}\ldots e_{\sigma(k+l)})
+	\end{equation*}
+	
+	Notazione: $I,J$ multi-indici, indichiamo
+	\begin{equation*}
+		\delta_J^I = \begin{cases} %TODO: sistemare
+		             	1 & se J permutazione pari di I\\
+		             	-1 & se J permutaione dispari di I\\
+		             	0 & altrimenti
+		             \end{cases}
+	\end{equation*}
+	Con questa notazione
+	\begin{equation*}
+		(\alpha\wedge\beta)(v_I) = \sum_{\vec J, \vec K} \delta_I^{JK} \alpha(v_j)\beta(v_K)
+	\end{equation*}
+	con $\vec J,\vec K$ sottisiemi di $l$ e $k$ indici ordinati. Allora
+% 	\begin{align*}
+% 		i_{v_1}(\alpha\wedge\beta)(v_2,\ldots, v_{k+l}) &= (\alpha\wedge\beta) (\seqb v{k+l},) =\\
+% 		&= \sum_{\vec I,\vec J} \delta_{1,\ldots,k+l}^{IJ} \alpha(v_I)\beta(v_J) =\\
+% 		&= \sum_{\vec I,\vec J,1\in I} \ldots + \sum_{\vec I,\vec J,1\in J} \ldots =\\
+% 		&= \sum_{i_2<\ldots < i_k,\vec J} \delta_{1 \ldots k+l}^{1i_2 \lots i_kJ}\alpha(v_1,v_{i_2},\ldots,v_{i_k}) \beta(v_J) + 
+% 		\sum_{\vec I, j_2<\ldots < j_l} \delta_{1 \ldots k+l}^{I1j_2 \lots j_l}\alpha(v_I) \beta(v_1,v_{j_2},\ldots,v_{j_l}) =\\
+% 		& = \sum_{1<i_2<\ldots<i_k} \sum_{\vec J\setminus \{1\}} \delta_{2\ldots k+l}^{i_2\ldots i_kJ} (i_{v_1}\alpha)(v_{i_2},\ldots,v_{i_k}) \beta (v_J) +\sum_{\vec I\seminue \{1\}} \sum_{1<j_2<\ldots<j_l} %TODO:completare
+% 	\end{align*}
+	
 	La 3 segue dalla definizione di $\de f$.
 	
 	La 4 segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante.

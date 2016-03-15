@@ -1,0 +1,228 @@
+\chapter{15 marzo 2016}
+
+%Prossime lezioni: 17 marzo, 31 marzo
+%Esame: 20 maggio e settimana successiva 
+
+
+
+\section{Orientazione}
+
+Sia $M$ una varietà $n$-dimensionale connessa.
+
+\begin{definition}
+	$M$ è detta \emph{orientabile} se esiste $\mu\in\Omega^n(M)$ tale che $\mu(p)\not=0$ per ogni $p\in M$. Una tale forma è detta una \emph{forma di volume} su $M$.
+\end{definition}
+
+\begin{proposition}
+	Sia $M$ una $n$-varieta connessa e paracompatta. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione è positivo.
+\end{proposition}
+
+\begin{definition}
+	Sia $M$ varietà orientabile. Due forme di volume $\mu_1,\mu_2$ sono dette equivalenti se esiste $f\in C^\infty(M)$, $f>0$ tale che $\mu_1= f \mu_2$.
+	
+	Una \emph{varietà orientata} è una varietà $M$ con un'orientazione $[\mu]$, dove per orientazione si intende una classe di equivalenza di forme di volume.
+\end{definition}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
+		
+		\item Sia $\sigma:M\to M$ tale che $\sigma^2=\id$. Supponiamo che esista $\pi:M\to N$ tale che $\de \pi$ sia invertibile (puntualmente) e $\pi^{-1}(n) = \{m,\sigma(m)\}$. Sia $\Omega_\pm(M) = \{ \alpha\in\Omega^n(M) \suchthat \sigma^*\alpha = \pm\alpha \}$. Mostrare che $\pi^* : \Omega^n(N) \to \Omega_+(M)$ è un isomorfismo.
+		
+		\item Mostrare che $\R \mathbb P^n$ è orientabile per $n$ dispari e non orientabile per $n$ pari.
+		(Prendere $M=S^n$, $N=\R\mathbb P^n$, $\sigma(x)=-x$. Mostrare che $\sigma^*\omega_{S^n} = (-1)^{n+1} \omega_{S^n}$.)
+		
+		\item (Nastro di Mobius) $\mathbb M$ si ottiene tramite la relazione di equivalenza in $\R^2$ tale che $(x,y) \equiv (x+k,(-1)^ky)$ per ogni $k\in\Z$. $\mathbb M$ è una varietà connessa non compatta. Definiamo $\sigma:\R^2\to\R^2$ tale che $\sigma(x,y) = (x+1,-y)$. Sia $\pi$ la proiezione da $\R^2$ in $\mathbb M$, allora $\pi\circ\sigma=\pi$.
+		Se $\nu\in\Omega^2(\mathbb M)$, sia $f\in C^\infty(\R^2)$ tale che $f\omega_{\R^2} = \pi^*\nu$.
+		Mostrare che $f(x+1,-y) = -f(x,y)$ e che $f$ si deve annullare in qualche punto.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proposition} [Criterio di orientabilità]
+	Sia $N$ una varietà $n$-dimensionale orientabile e sia $M$ una sottovarietà $k$-dimesionale con fibrato normale banale, cioè esistono $V_i:M\to TN$ per $i=1,\ldots,n-k$ tali che $\spanrm\{ T_pM,V_i(p) \} = T_pN$ per ogni $p\in M$.
+	Allora $M$ è orientabile.
+\end{proposition}
+
+\begin{corollary}
+	Sia $M$ orientabile e sia $f \in C^\infty(M)$. Sia $c\in\R$ regolare per $f$ (cioè $\grad f (p)\not=0$ per ogni $f(p)=c$). Allora $f^{-1}(c)$ è orientabile. 
+\end{corollary}
+
+\begin{remark}
+	Se $M$ non è orientabile, esiste un doppio rivestimento $\tilde M$ di $M$ orientabile.
+	
+	Sia $\tilde M = \{ (m,[\mu_m]), m\in M, \text{$[\mu_m]$ orientazione di $T_mM$ } \}$. Definiamo le carte come segue. Sia $[\omega]$ un'orientazione di $\R^n$ e sia $A\in\Lin(\R^n,\R^n)$ tale che $A(e_1) = -e_1$, $A(e_i) = e_i$ per $i=2,\ldots,n$, dove $\seqb en,$ è la base standard di $\R^n$. $A$ cambia l'orientazione di $\R^n$.
+	Se $\varphi:U\subseteq M \to V\subseteq \R^n$ è una carta di $M$, siano $U^\pm = \{ (u,[\mu_u]), u \in U, [\varphi_*(\mu_u)] = \pm[\omega] \}$ e poniamo $\varphi^+(u,[\mu_u]) = \varphi(u)$, $\varphi^-(u,[\mu_u]) = (A\circ\varphi)(u)$.
+	$(U^\pm,\varphi^\pm)$ sono carte di $\tilde M$ che la rendono una varietà.
+	
+	Allora $\pi:\tilde M\to M$ tale che $\pi(m, [\mu_m]) = m$ è un doppio rivestimento di $M$ e $\pi^{-1}(m) = \{ (m,[\mu_m] ), (m,-[\mu_m]) \}$. Inotre l'atlante di $\tilde M$ è orientabile.
+\end{remark}
+
+
+\section{Integrazione su varietà}
+
+\begin{definition}
+	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!} \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \de x^{i_n}$, definiamo
+	\begin{equation*}
+		\int_U \omega \coloneqq \int_{\R^n} \omega_{1 \ldots n} \seqa {\de x}n{} \punto 
+	\end{equation*}
+\end{definition}
+
+\begin{proposition} \label{prop:CambioVariabileRn}
+	Siano $U,V\in\R^n$ aperti e sia $f:U\to V$ diffeomorfismo. Supponiamo che $f$ preservi l'orientazione. Se $\omega \in \Omega^n(V)$ ha supporto compatto, allora $f^*\omega \in \Omega^n(U)$ ha supporto compatto e 
+	\begin{equation*}
+		\int_V \omega = \int_U f^*\omega \punto
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Sia $W$ uno spazio vettoriale $n$-dimensionale e sia $\varphi\in\Lin(W,W)$. Sia $\bar\omega \in \Lambda^n(W)$. Allora $\varphi^* \bar\omega = (\det A)\ \bar \omega$, dove $A$ è la matrice $n\times n$ tale che $\varphi(e_i) = A_i^j(e_j)$, dove $\seqb en,$ è una base di $W$.
+	
+	Applichiamo la formula allo jacobiano di $f$. Sia $e_i= \DerParz{}{x^i}$ in $p\in U$, allora $A_i^j = \DerParz{f^j}{x^i}(p)$. Quindi
+	\begin{align*}
+		\int_U f^*\omega &= \int_U (\det Jf)(\omega\circ f) = \int_U (\det Jf)(x)\ \omega_{1\ldots n}(f(x)) \seqa {\de x}n{} =\\
+		&= \int_V \omega_{1\ldots n}(y) \seqa {\de y}n{} = \int_V \omega \punto
+	\end{align*}
+\end{proof}
+
+\begin{definition}
+	Sia $M$ una varietà orientata con orientazione $[\Omega]$. Supponiamo che $\omega \in \Omega^n(M)$ abbia supporto compatto contenuto in $U$, dove $(U,\varphi)$ è una carta di $M$ orientata positivamente.
+	Definiamo
+	\begin{equation*}
+		\int_{(\varphi)} \omega \coloneqq \int_{\varphi(U)} \varphi_*(\omega \restrict U) \punto
+	\end{equation*}
+\end{definition}
+
+\begin{proposition}
+	Supponiamo che $\omega\in \Omega^n(M)$ abbia supporto compatto $C\subseteq U\cap V$, con $(U,\varphi)$, $(V,\psi)$ carte orientate positivamente in $M$ (orientata).
+	Allora $\int_{(\varphi)} \omega = \int_{(\psi)} \omega$.
+\end{proposition}
+\begin{proof}
+	Per la \cref{prop:CambioVariabileRn}, abbiamo
+	\begin{equation*}
+		\int_{(\varphi)} \omega = \int_{\varphi(U)} \varphi_*(\omega\restrict U) = \int_{\psi(U)} (\psi\circ \varphi^{-1})_* \varphi_*(\omega \restrict U) = \int_{(\psi)} \omega
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}
+	Se $\omega$ ha supporto compatto in $U$ (dominio di una carta), è ben definito
+	\begin{equation*}
+		\int_U \omega \coloneqq \int_{(\varphi)} \omega \punto
+	\end{equation*}
+\end{corollary}
+
+
+\begin{definition}
+	Sia $\omega \in \Omega^n(M)$ a supporto compatto. Sia $\mathcal A$ un atlante di $M$ orientabile composto da carte con orientazione positiva. Sia $(U_\alpha, \varphi_\alpha, \chi_\alpha)$ una partizione dell'unità subordinata ad $\mathcal A$. Sia $\omega_\alpha \coloneqq \chi_\alpha\omega$, allora $\omega_\alpha$ ha supporto compatto nella carta $U_\alpha\in\mathcal A$. %TODO: controllare
+	Definiamo allora
+	\begin{equation*}
+		\int_M \omega \coloneqq \sum_\alpha \int \omega_\alpha \punto
+	\end{equation*}
+\end{definition}
+
+\begin{proposition}
+	\begin{enumerate}
+		\item La sommatoria contiene solo un numero finito di termini.
+		\item La definizione è indipendente dalla scelta dell'atlante (orientato positivamente) e della partizione dell'unità.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item Per ogni $p\in M$, esiste $U$ intorno tale che solo un numero finito di $\chi_\alpha$ sono non nulle. Per compattezza, possiamo ricoprire il supporto di $\omega$ con un numero finito di tali intorni.
+		
+		\item Sia $(V_\beta, \psi_\beta, \tilde \chi_\beta)$ un'altra partizione dell'unità subordinata a $\mathcal B$ atlante orientato positivamente. Allora le funzioni $(\chi_\alpha \tilde\chi_\beta)_{\alpha\beta}$ soddisfano $\chi_\alpha \tilde\chi_\beta(p) = 0$ tranne che per un numero finito di indici. Inoltre $\sum_{\alpha\beta} \chi_\alpha \tilde\chi_\beta(p) = 1$ per  ogni $p$.
+		Abbiamo
+		\begin{equation*}
+			\int_\alpha \omega = \sum_\alpha \int \chi_\alpha \omega = \sum_{\alpha \beta} \int \tilde \chi_\beta \chi_\alpha \omega = \sum_{\alpha \beta} \int  \chi_\alpha \tilde \chi_\beta \omega = \sum_\beta \int \tilde\chi_\beta \omega = \int_\beta \omega \virgola
+		\end{equation*}
+		dove abbiamo usato $\sum \tilde \chi_\beta = 1$ e $\sum \chi_\alpha = 1$.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Siano $M,N$ orientate ed $f$ un diffeomorfismo che preserva l'orientazione. Mostrare che, se $\omega\in\Omega^n(N)$ ha supporto compatto, allora $\int_N \omega = \int_M f^*\omega$.
+		
+		\item (Fubini) Siano $M^m,N^n$ varietà orientate e si orienti il prodotto $M\times N$ con l'orientazione prodotto (tramite il prodotto wedge). Siano $p_M,p_N : M\times N \to M,N$ le proiezioni dal prodotto ai fattori.
+		Siano $\alpha \in \Omega^m(M)$ e $\beta \in \Omega^n(N)$ e definiamo
+		$\alpha \times \beta \coloneqq (p_M^*\alpha) \wedge (p_N^*\beta)$, che è a supporto compatto.
+		Mostrare che $\int_{M\times N} \alpha \times \beta = \int_M\alpha \int_N \beta$.
+	\end{enumerate}
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
