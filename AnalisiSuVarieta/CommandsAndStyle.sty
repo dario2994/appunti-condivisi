@@ -206,17 +206,19 @@
 \newcommand{\Scal}[2]{\ensuremath{\langle #1 , #2 \rangle}} %Prodotto scalare6
 \newcommand{\Tau}{\ensuremath{\mathcal T}} %Tau grande
 
+\DeclareMathOperator{\Int}{Int}
+
 % \makeatletter
 % \def\seq{\@ifnextchar[{\@with}{\@without}}
 % \def\@with[#1]#2{Hello #1, have you met #2?}
 % \def\@without#1{Goodbye #1.}
 % \makeatother
 
-\newcommand{\seq}[3]{\ensuremath #1_1#3 \dots #3 #1_#2}
-\newcommand{\seqb}[3]{\ensuremath #1_1#3 \dots #3 #1_#2}
+\newcommand{\seq}[3]{\ensuremath #1_1#3 \ldots #3 #1_{#2}}
+\newcommand{\seqb}[3]{\ensuremath #1_1#3 \ldots #3 #1_{#2}}
 
 
-\newcommand{\seqa}[3]{\ensuremath #1^1#3 \dots #3 #1^#2}
+\newcommand{\seqa}[3]{\ensuremath #1^1#3 \ldots #3 #1^{#2}}
 
 
 \newcommand{\antisimm}{\ensuremath{\underline{A}}} %Antisimmetrizzato
