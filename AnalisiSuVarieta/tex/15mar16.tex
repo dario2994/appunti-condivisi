@@ -14,7 +14,7 @@ Sia $M$ una varietà $n$-dimensionale connessa.
 \end{definition}
 
 \begin{proposition}
-	Sia $M$ una $n$-varieta connessa e paracompatta. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione è positivo.
+	Sia $M$ una $n$-varieta connessa e paracompatta. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione sia positivo.
 \end{proposition}
 
 \begin{definition}
@@ -61,7 +61,7 @@ Sia $M$ una varietà $n$-dimensionale connessa.
 \section{Integrazione su varietà}
 
 \begin{definition}
-	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!} \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \de x^{i_n}$, definiamo
+	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!} \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \wedge \de x^{i_n}$, definiamo
 	\begin{equation*}
 		\int_U \omega \coloneqq \int_{\R^n} \omega_{1 \ldots n} \seqa {\de x}n{} \punto 
 	\end{equation*}
@@ -81,6 +81,7 @@ Sia $M$ una varietà $n$-dimensionale connessa.
 		\int_U f^*\omega &= \int_U (\det Jf)(\omega\circ f) = \int_U (\det Jf)(x)\ \omega_{1\ldots n}(f(x)) \seqa {\de x}n{} =\\
 		&= \int_V \omega_{1\ldots n}(y) \seqa {\de y}n{} = \int_V \omega \punto
 	\end{align*}
+	dove $y=f(x)$.
 \end{proof}
 
 \begin{definition}
@@ -111,7 +112,7 @@ Sia $M$ una varietà $n$-dimensionale connessa.
 
 
 \begin{definition}
-	Sia $\omega \in \Omega^n(M)$ a supporto compatto. Sia $\mathcal A$ un atlante di $M$ orientabile composto da carte con orientazione positiva. Sia $(U_\alpha, \varphi_\alpha, \chi_\alpha)$ una partizione dell'unità subordinata ad $\mathcal A$. Sia $\omega_\alpha \coloneqq \chi_\alpha\omega$, allora $\omega_\alpha$ ha supporto compatto nella carta $U_\alpha\in\mathcal A$. %TODO: controllare
+	Sia $\omega \in \Omega^n(M)$ a supporto compatto. Sia $\mathcal A$ un atlante di $M$ orientabile composto da carte con orientazione positiva. Sia $(U_\alpha, \varphi_\alpha, \chi_\alpha)$ una partizione dell'unità subordinata ad $\mathcal A$. Sia $\omega_\alpha \coloneqq \chi_\alpha\omega$, allora $\omega_\alpha$ ha supporto compatto nella carta $U_\alpha\in\mathcal A$.
 	Definiamo allora
 	\begin{equation*}
 		\int_M \omega \coloneqq \sum_\alpha \int \omega_\alpha \punto
