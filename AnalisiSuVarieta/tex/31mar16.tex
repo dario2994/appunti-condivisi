@@ -1,0 +1,185 @@
+\chapter{31 marzo 2016}
+
+\section{Gruppi di Lie}
+
+\begin{definition}
+	Un \emph{gruppo topologico} è un insieme con struttura sia di gruppo che di spazio topologico tale che le operazioni di prodotto ed inverso siano continue.
+\end{definition}
+
+\begin{definition}
+	Un \emph{gruppo di Lie} è un gruppo che ha una struttura di varietà differenziabile (di classe $C^\infty$) tale che il prodotto e l'inverso sono $C^\infty$.
+\end{definition}
+
+\begin{example}
+	Sono gruppi di Lie $(\R^n,+)$, $(S^1\subseteq \C, \cdot)$, $(\C^*,\cdot)$, $(T^n, +)$, $\mathrm{GL}(n,\R)$.
+\end{example}
+
+\begin{proposition}
+	Sia $G$ un gruppo topologico. Allora la componente connessa $K$ contenente $e=\id_G$ è un sottogruppo normale e chiuso di $G$. Se $G$ è di Lie, allora $K$ è un sottogruppo di Lie aperto.
+\end{proposition}
+\begin{proof}
+	Sia $a\in K$, allora $a^{-1}K$ è connesso poiché $b\mapsto a^{-1}b$ è un omeomorfismo.
+	Inoltre se $e\in a^{-1}K$, allora $a^{-1}K\subseteq K$. Questo è vero per ogni $a\in K$, quindi $K^{-1}K\subseteq K$ e perciò $K$ è un sottogruppo.
+	
+	Sia $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb{-1}$, quindi $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
+	
+	Se $G$ è di Lie, allora è localmente connesso e quindi $K$ è aperto. Perciò $K$ è una sottovarietà e un sottogruppo e di conseguenza ha una struttura di gruppo di Lie.
+\end{proof}
+
+
+\begin{definition}
+	Dati $G$ gruppo di Lie ed $a\in G$, definiamo $L_a,R_a:G\to G$ come $L_a(b) = ab$ ed $R_a(b) = ba$.
+\end{definition}
+
+Le due funzioni $L_a,R_a$ sono diffeomorfismi con inverse $L_{a^{-1}}$ ed $R_{a^{-1}}$.
+In particolare $(L_a)_* : T_bG \to T_{ab} G$ e $(R_a)_* : T_bG \to T_{ba} G$ sono isomorfismi.
+
+
+\begin{definition}
+	Un campo $X\in\chi(G)$ è detto \emph{invariante a sinistra} se $(L_a)_*X=X$ per ogni $a\in G$.
+\end{definition}
+
+\begin{remark}
+	Per l'invarianza a sinistra basta verificare che $(L_a)_*(X(e)) = X(a)$ per ogni $a\in G$.
+\end{remark}
+
+Dato $X_e \in T_eG$, esiste $X\in\chi(G)$ invariante a sinistra definito dalla formula precedente tale che $X(e) = X_e$.
+
+
+\begin{proposition}
+	Sia $X \in \chi(G)$ invariante a sinistra, allora $X$ è di classe $C^\infty$.
+\end{proposition}
+\begin{proof}
+	Basta verificarlo in un intorno dell'identità. Sia $(U,\varphi)$ carta di $G$ tale che $e\in U$ e chiamiamo $x$ le sue funzioni coordinate. Scegliamo $V\subseteq U$ che contiene $e$ e tale che $a b, a^{-1}b \in U$ per ogni $a,b\in V$.
+	Dato $a\in V$, $(Xx^i)(a) = ((L_a)_* X_e) (x^i) = X_e (X^i\circ L_a)$.
+	Poiché $(a,b) \mapsto ab$ è $C^\infty$, allora $x^i(ab) = x^i( L_a(b) ) = f^i(x^1(a),\ldots, x^n(a), x^1(b), \ldots, x^n(b) )$ con $f^i$ funzioni di classe $C^\infty$.
+	
+	Ponendo $X_e = \sum_{j=1}^n c^j \DerParz{}{x^j}\restrict e$, abbiamo
+	\begin{equation*}
+	(X x^i) (a) = X_e (x^i \circ L_a) = \sum_{j=1}^n c^j \DerParz{(x^i\circ L_a)}{x^j} \restrict e = 
+	\sum_{j=1}^n c^j \Diff_{n+j} f^i(x(a), x(e))\punto
+	\end{equation*}
+	Quindi $Xx^i$ è $C^\infty$ e di conseguenza anche $X$.
+\end{proof}
+
+\begin{corollary}
+	Un gruppo di Lie $G$ ha sempre fibrato tangente banale e quindi è orientabile.
+\end{corollary}
+\begin{proof}
+	Sia $X_{1e},\ldots,X_{ne}$ base di $T_eG$ e siano $\seqb Xn,$ estensioni degli elementi della base a campi vettoriali invarianti a sinistra. Allora $\seqb Xn,$ sono ovunque linearmente indipendenti e possiamo definire $f:TG \to G\times \R^n$ tale che $f(\sum c^iX_i(a)) = (a,\seqa cn,)$.
+\end{proof}
+
+Dalle proprietà del push-forward $(L_a)_* \comm XY = \comm {(L_a)_*X}{(L_a)_*Y}$. Se $X,Y$ sono invarianti a sinistra, allora anche $\comm XY$ è invariante a sinistra.
+
+Dati $X,Y \in T_eG$, definiamo con $\tilde X,\tilde Y$ le estensioni invarianti a sinistra di $X_e,Y_e$.
+Definiamo un'operazione $\comm\cdot\cdot$ su $T_eG$ tramite $\comm XY \coloneqq \comm{\tilde X}{\tilde Y}(e)$.
+
+
+\begin{definition} \index{algebra di Lie}
+	Il tangente $T_eG$ con questa operazione è detto \emph{algebra di Lie} di $G$ ed è indicato $\Lie G$ o $\mathfrak g$.
+\end{definition}
+
+L'algebra di Lie di un gruppo di Lie è finito dimensionale e soddisfa $\comm XX = 0$ e $\comm {\comm XY} Z + \comm {\comm YZ} X + \comm {\comm ZX} Y = 0$ (identità di Jacobi).
+
+
+\begin{definition} \index{algebra di Lie!commutativa}
+	Un'algebra di Lie è detta \emph{commutativa} se $\comm XY = 0$ per ogni $X,Y \in T_eG$.
+\end{definition}
+
+
+Sia $H$ un sottogruppo di Lie di $G$ (gruppo di Lie) e sia $i: H \to G$ l'inclusione. Allora $T_eH$ si identifica con un sottospazio di $T_eG$.
+
+
+Ogni $X \in T_eH$ si estende a $\tilde X \in \chi(H)$ invariante a sinistra (in $H$) e a $\hat X \in \chi(G)$ invariante a sinistra (in $G$).
+
+Sia $a\in H$ e siano $L_a:H\to H$, $\hat L_a:G \to G$ le trasformazioni a sinistra, allora $\hat L_a \circ i = i \circ L_a$. Quindi $i_* \tilde X(a) = i_* (L_a)_* X = (\hat L_a)_* (i_* X) = \hat X(a)$, perciò $i_* \tilde X = \hat X$ in $H$.
+
+Dunque, se $Y \in T_eH$, allora $\comm {\hat X}{\hat Y} = i_*( \comm{\tilde X}{\tilde Y} \restrict e )$.
+
+Quindi $T_eH$ è una sottoalgebra $\mathfrak h$ di $\mathfrak g$, cioè $T_eH$ è chiuso rispetto a $\comm\cdot\cdot$.
+
+\begin{theorem}
+	Siano $G$ un gruppo di Lie e $\mathfrak h$ una sottoalgebra di $\mathfrak g$. Allora esiste unico un sottogruppo di Lie di $G$ connesso $H$ tale che $\Lie H = \mathfrak h$.
+\end{theorem}
+\begin{proof}
+	Dato $a \in G$, sia $\Delta_a$ il sottospazio di $T_aG$ generato da $\tilde X(a)$ con $X\in \mathfrak h$.
+	Poiché $\mathfrak h$ è una sottoalgebra, $\Delta$ è una distribuzione integrabile per la \cref{prop:IntegrabilitaDaCampi}.
+	Sia $H$ la varietà integrale massimale contenente $e$. Se $b \in G$, allora $(L_b)_* (\Delta a) = \Delta_b a$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
+	
+	Se $b\in H$, $L_{b^{-1}}$ porta $H$ nella varietà integrale massimale contenente $L_{b^{-1}} (b) =e$; di conseguenza $L_{b^{-1}} H = H$ e perciò $H$ è un sottogruppo di $G$.
+	Manca ora verificare che $(a,b) \mapsto ab$ e $a\mapsto a^{-1}$ sono operazioni $C^\infty$.
+	Però lo spazio tangente di $H$ è $\Delta$, che è di classe $C^\infty$ poiché generata da cambi vettoriali invarianti a sinistra e quindi $C^\infty$.
+	Come prima si dimostra la regolarità delle funzioni coordinate di prodotti.
+\end{proof}
+
+\begin{remark}
+	Una sottovarietà di un gruppo di Lie che è anche un sottogruppo è un sottogruppo di Lie.
+\end{remark}
+
+
+
+\section{Omomorfismi fra gruppi di Lie}
+
+Siano $G,H$ gruppi di Lie e $\phi : G\to H$ un omomorfismo di classe $C^\infty$.
+Allora $\phi_* : T_eG \to T_eH$.
+Per ogni $a \in G$, $\phi \circ L_a = L_{\phi(a)} \circ \phi$.
+
+Se $X \in T_eG$ e definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $(\phi_*)_eX $ che vale $\phi_*X$ in $e_H$.
+Allora $(\phi_*)_a \tilde X(a) = (\phi_*)_a (L_a)_*X = (L_{\phi(a)})_* (\phi_*)_eX = \tilde{\tilde X} (\phi(a))$ con $\tilde X\in\chi(G)$ invariante a sinistra tale che $\tilde X(e) = X$.
+
+Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to \mathfrak h$ è un omomorfismo di algebra di Lie, cioè una mappa lineare che soddisfa $(\phi_*)_e \comm XY _{\mathfrak g} = \comm{ (\phi_*)_eX, (\phi_*)_eY }{}_{\mathfrak h}$.
+
+\begin{theorem}
+	Siano $G,H$ gruppi di Lie e $\Phi: \mathfrak g \to \mathfrak h$ un omomorfismo di algebra di Lie. Allora esiste $U$ intorno di $e$ in $G$ e una mappa $\phi: U \to H$ di classe $C^\infty$ tale che $\phi(ab) = \phi(a) \phi(b)$ per ogni $a,b \in U$ con $ab \in U$ e tale che $(\phi_*)_e X = \Phi X$ per ogni $X\in\mathfrak g$.
+	Inoltre se esistono $\phi,\psi : G \to H$ omomorfismi $C^\infty$ tali che $(\phi_*)_e = (\psi_*)_e = \Psi$ e se $G$ è connesso, allora $\phi = \psi$.
+\end{theorem}
+
+
+\begin{corollary}
+	Se due gruppi di Lie hanno algebre di Lie isomorfe, allora sono localmente isomorfi.
+\end{corollary}
+
+\begin{corollary}
+	Sia $G$ un gruppo di Lie connesso con algebra di Lie commutativa, allora $G$ è abeliano.
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
