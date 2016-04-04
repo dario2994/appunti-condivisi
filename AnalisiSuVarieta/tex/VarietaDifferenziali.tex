@@ -49,12 +49,36 @@
    \item $\R^n$ con l'atlante formato da una sola carta (l'identità), o più in generale tutti gli aperti di $\R^n$.
    \item $S^n$ con un atlante formato da due carte: le proiezioni stereografiche.
    \item Lo spazio proiettivo $\R\mathbb P^n$ con l'atlante $(U_i,\varphi_i)_{i=0,\dots,n}$ tale che $U_i=\{ [x_0,\dots,x_n]\ :\ x_i\neq 0\}$ e $\varphi([x_0,\dots,x_n])=\frac 1{x_i}(x_0,\dots,\hat x_i,\dots,x_n)$.
-   \item La varietà grasmanniana $G_k(\R^n)$, formata dai sottospazi vettoriali $k$-dimensionali di $\R^n$ si può dotare di una struttura differenziabile naturale (si veda, ad esempio, il libro del Marsden citato in bibliografia, oppure il libro dell'Abate). %\TODO: Lui a lezione ha fatto più di così 
   \end{enumerate}
  \end{example}
  
+\begin{example}
+ Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia di sottospazi $n$-dimensionali di $\R^k$ essi si possono dotare 
+ di una struttura differenziabile naturale e si chiamano \emph{varietà grasmanniane}. 
+ 
+ Dato $F \in \R^k$ sottospazio $n$-dimensionale sia $G$ uno dei complementari lineari, cioè $\R^k=F \oplus G$.
+ Sia ora $U_g=\{H\in \R^k$ sottospazi $n$-dimensionali tali che $\R^k=H \oplus G\}$ e sia
+ $\phi_{F,G}:U_G \to L(F,G)$ tale che $\phi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$. Dove
+ $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$
+ e simmetricamente per l'altra. 
+ 
+ Per prima cosa dimostreremo che $\pi_G(H,F)$ è invertibile e quindi che ha senso la scrittura sopra.
+ Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una inversa dell'altra, infatti scrivendo
+ per $h \in H, h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$ quindi $(\pi_G(F,H) \circ \pi_G(H,F))(h)=h$ e 
+ $(\pi_G(H,F) \circ \pi_G(F,H)(f))=f$.
+ 
+ Inoltre vale anche il viceversa, ovvero che se $\pi_G(H,F)$ è un isomorfismo, allora $\R^k=H \oplus G$, infatti
+ è chiaro che $H \cap G=\{0\}$, e se $c \in \R^k$ allora $c=((\pi_G(H,F)^{-1} \circ \pi_G(F)(c))+(c-(\pi_G(H,F)^{-1} \circ \pi_G(F)(c))$ e la prima parentesi
+ è un elemento di $H$ mentre la seconda un elemento di $G$.
+ 
+ Usando questi fatti si può dimostrare che $\phi_{F,G}$ è biettiva e quindi che $\{(U-G,\phi_{F,G})$ tali che $\R^k=F \oplus G \}$ è 
+ un atlante sui sottospazi $n$-dimensionali.
+ 
+ \end{example}
+
+ 
  \begin{remark}
-  Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoperse il Milnor, ci sono ventotto varietà
+  Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoperse Milnor, ci sono ventotto varietà
   omeomorfe a $S^7$ ma tra di loro non diffeomorfe, dette \emph{sfere esotiche}. Su $S^1$, $S^2$, $S^3$, $S^5$
   ed $S^6$ questo non accade, mentre per $S^4$ il problema è tuttora aperto.
  \end{remark}
