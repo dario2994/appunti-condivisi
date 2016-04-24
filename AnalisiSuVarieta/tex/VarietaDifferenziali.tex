@@ -117,7 +117,7 @@
  \section{Prodotti e mappe}
  
 \begin{definition} \index{varietà!prodotto}
-	Date $(M_1,\mathcal F_1)$ e $(M_2,\mathcal F_2)$ varietà $C^k$, si può definire la \emph{varietà prodotto} $(M_1\times M_2,\mathcal F_1\times\mathcal F_2)$, che è lo spazio topologico prodotto con la struttura differenziale generate dall'atlante $\{(U_1\times U_2,\varphi_1\times\varphi_2)\ :\ \text{$(U_i,\varphi_i)$ sono carte di $\mathcal F_i$}\}$.
+	Date $(M_1,\mathcal F_1)$ e $(M_2,\mathcal F_2)$ varietà $C^k$, si può definire la \emph{varietà prodotto} $(M_1\times M_2,\mathcal F_1\times\mathcal F_2)$, che è lo spazio topologico prodotto con la struttura differenziale generata dall'atlante $\{(U_1\times U_2,\varphi_1\times\varphi_2)\ :\ \text{$(U_i,\varphi_i)$ sono carte di $\mathcal F_i$}\}$.
 \end{definition}
 
 \begin{remark}
@@ -173,7 +173,7 @@ Si può dunque dare la seguente definizione.
 Tutto ciò ci permette di definire il piano tangente.
  
 \begin{definition} \index{spazio!tangente} \index{fibrato!tangente}
-	Lo spazio tangente ad un punto $x\in M$, indicato con $T_xM$, è l'insieme delle classi di equivalenza delle curve $c:(-1,1)\to M$ di classe $C^1$ con $c(0)=x$ con la relazione ``essere tangenti in $x$''. L'unione degli spazi tangenti ad $M$ è detta \emph{spazio tangente}, o fibrato tangente, ed è indicata con $TM$.
+	Lo spazio tangente ad un punto $x\in M$, indicato con $T_xM$, è l'insieme delle classi di equivalenza delle curve $c:(-1,1)\to M$ di classe $C^1$ con $c(0)=x$ con la relazione ``essere tangenti in $x$''. L'unione degli spazi tangenti ad $M$ è detta \emph{spazio tangente}, o \emph{fibrato tangente}, ed è indicata con $TM$.
 \end{definition}
  
  \begin{remark}
@@ -187,7 +187,7 @@ Ora vediamo due definizioni alternative.
 Per definire il tangente si possono usare le proprietà di trasformazione dei vettori.
 
 Infatti, se $(U,\varphi)$ e $(\tilde{U},\tilde{\varphi})$ sono due carte e chiamiamo $(y^1,\dots,y^n)=(\varphi\circ c)(t)$ e $(\tilde{y}^1,\dots,\tilde{y}^n)=(\tilde{\varphi}\circ c)(t)$, allora il vettore tangente associato a $c'(0)$ si scrive nei due sistemi di coordinate come $(V^1,\dots,V^n)=(\frac{\de y^1}{\de t}(0),\dots,\frac{\de y^n}{\de t}(0))$ e $(\tilde{V}^1,\dots,\tilde{V}^n)=(\frac{\de\tilde{y}^1}{\de t}(0),\dots,\frac{\de\tilde{y}^n}{\de t}(0))$.
-Usando il cambio di carta si trova che la funzione $y\mapsto\tilde{y}$ è un diffeomorfismo locale, e la relazione tra le due coordinate è 
+Usando il cambio di carta si trova che la funzione $y\mapsto\tilde{y}$ è un diffeomorfismo locale e la relazione tra le due coordinate è 
 \begin{equation*}
 	\tilde{V}^i=\frac{\de\tilde{y}^i}{\de t}(0)=\sum_{j=1}^n\frac{\partial\tilde{y}^i}{\partial y^j}(\varphi(x)) \frac{\de y^j}{\de t}(0)=\sum_{j=1}^n\frac{\partial\tilde{y}^i}{\partial y^j}(\varphi(x))V^j\punto
 \end{equation*}
@@ -213,8 +213,8 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
   Basta passare in carta.
  \end{proof}
 
-\begin{definition} \index{mappa!tangente}
-	Data $f:M\to N$ di classe $C^1$ si definisce \emph{mappa tangente} (o differenziale) di $f$ la mappa $Tf:TM\to TN$ (indicata anche con $\de f$) tale che $Tf([c]_x)=[f\circ c]_{f(x)}$ (la definizione è ben posta per il lemma precedente).
+\begin{definition} \index{mappa!tangente} \index{differenziale}
+	Data $f:M\to N$ di classe $C^1$ si definisce \emph{mappa tangente} (o \emph{differenziale}) di $f$ la mappa $Tf:TM\to TN$ (indicata anche con $\de f$) tale che $Tf([c]_x)=[f\circ c]_{f(x)}$ (la definizione è ben posta per il lemma precedente).
 	La restrizione di $Tf$ allo spazio tangente ad un punto $x$ è indicata con $T_xf$.
 \end{definition}
 
@@ -230,9 +230,9 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
 \begin{theorem}[Mappe composte] \label{thm:MappeComposte} \index{teorema!mappe composte}
 	Valgono le seguenti proprietà:
 	\begin{enumerate}
-	\item Se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$;
-	\item $T(\id_M)=\id_{T_M}$;
-	\item Se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)^{-1}=T(f^{-1})$.
+	\item se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$;
+	\item $T(\id_M)=\id_{TM}$;
+	\item se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)^{-1}=T(f^{-1})$.
 	\end{enumerate}
 \end{theorem}
 
