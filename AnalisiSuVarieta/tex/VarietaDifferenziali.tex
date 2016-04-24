@@ -45,41 +45,52 @@
  
 \begin{example}
 	Di seguito alcuni esempi di varietà differenziabili: 
-  \begin{enumerate}
-   \item $\R^n$ con l'atlante formato da una sola carta (l'identità), o più in generale tutti gli aperti di $\R^n$.
-   \item $S^n$ con un atlante formato da due carte: le proiezioni stereografiche.
-   \item Lo spazio proiettivo $\R\mathbb P^n$ con l'atlante $(U_i,\varphi_i)_{i=0,\dots,n}$ tale che $U_i=\{ [x_0,\dots,x_n]\ :\ x_i\neq 0\}$ e $\varphi([x_0,\dots,x_n])=\frac 1{x_i}(x_0,\dots,\hat x_i,\dots,x_n)$.
+	\begin{enumerate}
+	\item $\R^n$ con l'atlante formato da una sola carta (l'identità), o più in generale tutti gli aperti di $\R^n$.
+	\item $S^n$ con un atlante formato da due carte: le proiezioni stereografiche da polo nord $N=(0,\ldots,0,1)$ e sud $S=(0,\ldots,0,-1)$, cioè \index{proiezioni stereografiche}
+	\begin{align*}
+		\pi_N(x_1,\ldots,x_{n+1}) = \left( \frac{x_1}{1-x_{n+1}},\ldots,\frac{x_n}{1-x_{n+1}} \right) &\quad \text{su $U_1=S^n\setminus \{N\}$} \virgola\\
+		\pi_S(x_1,\ldots,x_{n+1}) = \left( \frac{x_1}{1+x_{n+1}},\ldots,\frac{x_n}{1+x_{n+1}} \right) &\quad \text{su $U_2=S^n\setminus \{S\}$} \punto
+	\end{align*}
+	In particolare $\pi_S\circ \pi_N^{-1}:\R^n\setminus\{0\} \to \R^n$ è la mappa $z\mapsto \frac z{\abs{z}^2}$, chiamata \emph{inversione di Kelvin}.
+
+   \item Lo spazio proiettivo $\R\mathbb P^n$ con l'atlante $(U_i,\varphi_i)_{i=0,\dots,n}$ tale che $U_i=\{ [x_0,\dots,x_n]\ :\ x_i\neq 0\}$ e $\varphi_i([x_0,\dots,x_n])=\frac 1{x_i}(x_0,\dots,\hat x_i,\dots,x_n)$.
   \end{enumerate}
  \end{example}
  
-\begin{example}
- Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia di sottospazi $n$-dimensionali di $\R^k$ essi si possono dotare 
- di una struttura differenziabile naturale e si chiamano \emph{varietà grasmanniane}. 
+\begin{example} \index{grassmanniana}
+	Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia dei sottospazi $n$-dimensionali di $\R^k$, che si può dotare di una struttura differenziabile naturale con la quale viene detta \emph{varietà grassmanniana}. 
  
- Dato $F \in \R^k$ sottospazio $n$-dimensionale sia $G$ uno dei complementari lineari, cioè $\R^k=F \oplus G$.
- Sia ora $U_g=\{H\in \R^k$ sottospazi $n$-dimensionali tali che $\R^k=H \oplus G\}$ e sia
- $\phi_{F,G}:U_G \to L(F,G)$ tale che $\phi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$. Dove
- $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$
+ Dato $F \in \R^k$ sottospazio $n$-dimensionale, sia $G$ uno dei complementari lineari, cioè $\R^k=F \oplus G$.
+ Sia ora $U_G=\{H\in \R^k \text{ sottospazio $n$-dimensionale tali che }\R^k=H \oplus G\}$ e sia
+ $\varphi_{F,G}:U_G \to \Lin(F,G)$ tale che $\varphi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$; dove
+ $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni sui due sottospazi e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$
  e simmetricamente per l'altra. 
  
  Per prima cosa dimostreremo che $\pi_G(H,F)$ è invertibile e quindi che ha senso la scrittura sopra.
- Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una inversa dell'altra, infatti scrivendo
- per $h \in H, h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$ quindi $(\pi_G(F,H) \circ \pi_G(H,F))(h)=h$ e 
- $(\pi_G(H,F) \circ \pi_G(F,H)(f))=f$.
+ Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una l'inversa dell'altra. Infatti, data $h\in H$, scrivendo
+ $h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$; quindi
+ \begin{equation*}
+ \pi_G(F,H) \circ \pi_G(H,F)(h)=h \quad \text{e} \quad \pi_G(H,F) \circ \pi_G(F,H)(f))=f \punto
+ \end{equation*}
  
- Inoltre vale anche il viceversa, ovvero che se $\pi_G(H,F)$ è un isomorfismo, allora $\R^k=H \oplus G$, infatti
- è chiaro che $H \cap G=\{0\}$, e se $c \in \R^k$ allora $c=((\pi_G(H,F)^{-1} \circ \pi_G(F)(c))+(c-(\pi_G(H,F)^{-1} \circ \pi_G(F)(c))$ e la prima parentesi
+ Inoltre vale anche il viceversa, ovvero che se $\pi_G(H,F)$ è un isomorfismo, allora $\R^k=H \oplus G$. Infatti
+ è chiaro che $H \cap G=\{0\}$ e, se $c \in \R^k$, allora
+ \begin{equation*}
+ c=(\pi_G(H,F)^{-1} \circ \pi_G(F)(c))+(c-\pi_G(H,F)^{-1} \circ \pi_G(F)(c))
+ \end{equation*}
+ e la prima parentesi
  è un elemento di $H$ mentre la seconda un elemento di $G$.
  
- Usando questi fatti si può dimostrare che $\phi_{F,G}$ è biettiva e quindi che $\{(U-G,\phi_{F,G})$ tali che $\R^k=F \oplus G \}$ è 
+ Usando questi fatti si può dimostrare che $\varphi_{F,G}$ è biettiva e quindi che $\{(U-G,\varphi_{F,G}) \suchthat \R^k=F \oplus G \}$ è 
  un atlante sui sottospazi $n$-dimensionali.
  
  \end{example}
 
  
- \begin{remark}
+ \begin{remark} \index{sfere esotiche}
   Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoperse Milnor, ci sono ventotto varietà
-  omeomorfe a $S^7$ ma tra di loro non diffeomorfe, dette \emph{sfere esotiche}. Su $S^1$, $S^2$, $S^3$, $S^5$
+  omeomorfe a $S^7$ tra di loro non diffeomorfe, dette \emph{sfere esotiche}. Su $S^1$, $S^2$, $S^3$, $S^5$
   ed $S^6$ questo non accade, mentre per $S^4$ il problema è tuttora aperto.
  \end{remark}
  
@@ -88,16 +99,16 @@
   \begin{enumerate}
    \item le varietà sono metrizzabili;
    \item le varietà sono spazi topologici normali;
-   \item le varietà sono paracompatte, e dunque esistono le partizioni dell'unità;
+   \item le varietà sono paracompatte, dunque in particolare esistono partizioni dell'unità;
    \item le varietà sono $\sigma$-compatte, ossia sono un'unione numerabile di compatti.
   \end{enumerate}
  \end{remark}
 
 \begin{exercise}
-	Se $g:\R^n\to\R$ è di classe $C^k$, $M=g^{-1}(\{0\})$ e $\grad g\ne 0$ su $M$ allora $M$ è una varietà $C^k$ di dimensione $n-1$.
+	Se $g:\R^n\to\R$ è di classe $C^k$, $M=g^{-1}(\{0\})$ e $\grad g\ne 0$ su $M$, allora $M$ è una varietà $C^k$ di dimensione $n-1$.
 \end{exercise}
 \begin{exercise}
-	$\mathrm{SL}_n(\R)$ è una varietà di dimensione $n^2-1$.
+	Lo spazio $\mathrm{SL}_n(\R)$ delle matrici $n\times n$ a determinante 1 è una varietà di dimensione $n^2-1$.
 \end{exercise}
 \begin{exercise}
 	La funzione $t\mapsto t^3$ induce su $\R$ una struttura differenziabile diversa da quella ordinaria, ma le varietà ottenute sono diffeomorfe.
