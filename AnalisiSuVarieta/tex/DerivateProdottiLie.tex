@@ -9,7 +9,7 @@ Ora vogliamo studiare il caso generale su varietà.
 Siano $p\in M$ ed $f$ una funzione regolare definita in un intorno di $p$ e sia $v \in T_{p}M$. Osserviamo innanzitutto che per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
 
 \begin{definition} \index{derivata!direzionale}
-	Definiamo la \emph{derivata direzionale} di $f$ in $p$ lungo $v$ come $(v(f))(p)\coloneqq\frac \de {\de t} f(c(t))\restrict{t=0}$.
+	Definiamo la \emph{derivata direzionale} di $f$ in $p$ lungo $v$ come $v(f)(p)\coloneqq\frac \de {\de t} f(c(t))\restrict{t=0}$.
 \end{definition}
 
 Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, allora:
@@ -31,7 +31,7 @@ Sia $\Fl{X}{h}(p)=F_X(p,h)$ la sezione del flusso locale in $p$ generato da $X$.
 Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+$ abbastanza piccolo, abbiamo due vettori tangenti in $p$: $Y(p)$ e $(T\Fl{X}{h})(Y(\Fl{X}{-h}(p)))$.
 
 \begin{definition} \index{derivata!di Lie}
-	Definiamo la \emph{derivata di Lie} in $p$ di $Y$ rispetto a $X$ come \begin{equation*}(\Lie_X(Y))(p)=\lim_{h\to 0}\frac{Y(p)-((\Fl{X}{h})_*Y)(p)}h \punto
+	Definiamo la \emph{derivata di Lie} in $p$ di $Y$ rispetto a $X$ come \begin{equation*}\Lie_XY(p)=\lim_{h\to 0}\frac{Y(p)-(\Fl{X}{h})_*Y(p)}h \punto
 	\end{equation*}
 \end{definition}
 
@@ -48,10 +48,10 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \item [\ref{DLP:Prodotto}] Vale la seguente catena di uguaglianze
 	 \begin{equation*} %TODO: sistemare questa equazione
 	 \begin{split}
-	 (\Lie_X(fY))(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]\\
-	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]\\
-	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}\\
-	 = & f(p)(\Lie_XY)(p)+(X(f))(p)Y(p) \punto
+	 \Lie_X(fY)(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]=\\
+	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]=\\
+	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}=\\
+	 = & f(p)\cdot\Lie_XY(p)+X(f)(p)\cdot Y(p) \punto
 	 \end{split}
 	 \end{equation*}
 	 \end{description}
@@ -60,9 +60,9 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 
 \section{Parentesi di Lie}
 
-In coordinate: sia $p\in M$ e $(U,\varphi)$ una carta, $p\in U$. Sia $(x^i)_{i=1,\ldots,n}$ il sistema di coordinate corrispondente.
+In coordinate: siano $p\in M$ e $(U,\varphi)$ una carta con $p\in U$ e sia $(x^1,\ldots,x^n)$ il sistema di coordinate corrispondente.
 Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset B$, se $A\subset K \subset B$ con $K$ compatto.}, abbiamo che \begin{equation*}
-	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}(x)\frac\partial{\partial x^l}F(x)\punto
+	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}\frac\partial{\partial x^l}(F(x))\punto
 \end{equation*}
 
 Ci interessa $F=\Fl{X}{h}$ con $h$ piccolo. Abbiamo che $F(x)=x+hX(x)+\smallO(h)$, dove $\frac{\smallO(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
@@ -73,7 +73,7 @@ da cui
 	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
 \end{equation*}
 
-Se nelle coordinate $x^i$ indotte da $\varphi$, $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
+Se nelle coordinate $(x^i)$ indotte da $\varphi$, $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
 \begin{equation*}
 	\Lie_XY=\sum_{j=1}^n\sum_{i=1}^n \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac\partial{\partial x^j}
 \end{equation*}
