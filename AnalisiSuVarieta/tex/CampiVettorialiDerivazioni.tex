@@ -10,7 +10,7 @@ Se $(U,\varphi)$ è una carta con $(x^1,\dots,x^n)$ coordinate locali, allora po
 \begin{equation*}
 	X(x)=\sum_{i=1}^nX^i(x)\frac{\partial}{\partial x^i}\virgola
 \end{equation*}
-dove $(X_1,\dots,X_n)(x)=T\varphi(X(\varphi^{-1}(x)))$.
+dove $(X^1,\dots,X^n)(x)=T\varphi(X(\varphi^{-1}(x)))$.
 
 \index{campo vettoriale!$\chi^r(M)$} \index{campo vettoriale!$\chi(M)$}
 Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indichiamo $\chi(M)$ l'insieme dei campi $C^\infty$ su $M$.
@@ -23,25 +23,25 @@ Se $(U,\varphi)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le
  
 Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo per noti.
  
-\begin{theorem}[Cauchy-Lipschitz]  \index{Cauchy-Lipschitz}
-	Siano $U\subseteq\R^n$ aperto e $X:U\to\R^n$ di classe $C^1$. Allora per ogni $x_0\in U$ esiste $I\subseteq\R$ aperto con $0\in I$ e $c:I\to\R^n$ tali che $c(0)=x_0$ e $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to\R^n$ come sopra, allora esse coincidono su $I_1\cap I_1$.
+\begin{theorem}[Cauchy-Lipschitz]  \index{teorema!Cauchy-Lipschitz}
+	Siano $U\subseteq\R^n$ aperto e $X:U\to\R^n$ di classe $C^1$. Allora per ogni $x_0\in U$ esiste $I\subseteq\R$ aperto con $0\in I$ e $c:I\to\R^n$ tali che $c(0)=x_0$ e $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to\R^n$ come sopra, allora esse coincidono su $I_1\cap I_2$.
 \end{theorem}
 
 \begin{theorem}[Differenziabilità del flusso] \index{teorema!differenziabilità del flusso}
 	Se, nelle stesse ipotesi del teorema precedente, $X$ è di classe $C^k$, allora esistono un intorno aperto $U_0\subseteq U$, un numero $a>0$ ed una funzione $F:U_0\times (-a,a)\to\R^n$ di classe $C^k$ tali che per ogni $u\in U_0$ la curva $c_u(t)=F(u,t)$ sia una curva integrale di $X$ tale che $c_u(0)=u$.
 \end{theorem}
 
-\begin{definition}\label{def:FlussoLocale} \index{flusso locale}
+\section{Flusso locale di un campo vettoriale}
+
+\begin{definition}\label{def:FlussoLocale} \index{flusso!locale}
 	Sia $M$ una varietà e $X\in\chi^r(M)$. Allora un \emph{flusso locale} di $X$ in $p\in M$ è una tripla $(U_0,a,F)$ tale che:
 	\begin{enumerate}
 	\item $p\in U_0\subseteq M$, $U_0$ è aperto e $a>0$; \label{FL:aperto}
-	\item $F:U_0\times I\to M$ è di classe $C^r$, dove $I=(-a,a)$; \label{FL:Cr}
-	\item per ogni $u\in U_0$ si ha che $c_u=F(u,\cdot):I\to M$ è una curva integrale di $X$ con dato iniziale $u$; \label{FL:curvaintegrale}
-	\item se per $t\in I$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo}
+	\item $F:U_0\times I_a\to M$ è di classe $C^r$, dove $I_a=(-a,a)$; \label{FL:Cr}
+	\item per ogni $u\in U_0$ si ha che $c_u=F(u,\cdot):I_a\to M$ è una curva integrale di $X$ con dato iniziale $u$; \label{FL:curvaintegrale}
+	\item se per $t\in I_a$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo}
 	\end{enumerate}
 \end{definition}
-
-\section{Proprietà}
 
 Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà di unicità e di semigruppo.
  
@@ -52,7 +52,7 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \begin{proof}
 	Osserviamo che non si può applicare direttamente il teorema di Cauchy-Lipschitz perché la curva potrebbe non appartenere ad una sola carta.
 	
-	Sia $K=\{ t\in I\ : \ c_1(t)=c_2(t)\}\subseteq I$, dove $I$ è l'intersezione dei domini delle due curve (ed è dunque un intervallo di $\R$). L'insieme $K$ è chiuso perché $M$ è di Hausdorff, è aperto perché per ogni $t\in K$ si può prendere una carta che lo contiene ed applicare in carta il teorema di Cauchy-Lipschitz, ed è non vuoto perché per ipotesi $0\in K$. Dunque, dato che $I$ è connesso, $K=I$.
+	Siano $c_1,c_2$ le due curve considerate e sia $K=\{ t\in I\ : \ c_1(t)=c_2(t)\}\subseteq I$, dove $I$ è l'intersezione dei domini delle due curve (ed è dunque un intervallo di $\R$). L'insieme $K$ è chiuso perché $M$ è di Hausdorff, è aperto perché per ogni $t\in K$ si può prendere una carta che lo contiene ed applicare in carta il teorema di Cauchy-Lipschitz, ed è non vuoto perché per ipotesi $0\in K$. Dunque, dato che $I$ è connesso, $K=I$.
 \end{proof}
 
 \begin{proposition}
@@ -66,50 +66,53 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \end{proof}
 
 
-\begin{proposition}[Esistenza e unicità di flussi locali] \index{teorema!esistenza e unicità di flussi locali}
+\begin{proposition}[Esistenza e unicità di flussi locali] \index{teorema!esistenza e unicità di flussi locali} \label{prop:EsistenzaUnicitaFlussiLocali}
 	Sia $X$ campo vettoriale di classe $C^r$, allora per ogni $p\in M$ esiste un flusso locale di $X$ in $p$. Inoltre se $(U_0,a,F)$, $(U_0',a',F')$ sono flussi locali devono coincidere su $(U_0\cap U_0')\times (I_a\cap I_{a'})$.
 \end{proposition}
 \begin{proof}
 	\begin{description}
-	\item [unicità]
-	per ogni $u\in U_0\cap U_0'$, sia $I=I_a\cap I_{a'}$. Allora $F\restrict{{u}\times I}=F'\restrict{{u}\times I}$ per la \cref{prop:UnicitaCurveIntegrali}.
+	\item [unicità:]
+	Per ogni $u\in U_0\cap U_0'$, se $I=I_a\cap I_{a'}$, allora $F\restrict{\{u\}\times I}=F'\restrict{\{u\}\times I}$ per la \cref{prop:UnicitaCurveIntegrali}, da cui l'unicità.
 	
-	\item [esistenza]
-	Sia $(U,\varphi)$ carta di $M$, $u\in M$. Consideriamo il rappresentate locale $X_\varphi$ di $X$ (cioè $X_\varphi(\varphi(q))=T\varphi(x)(q)$), che genera un flusso locale $(U_\varphi,a_\varphi,F_\varphi)$ per $X_\varphi$.
-	Supponiamo $U_\varphi\subseteq \varphi(U)$ e $F_\varphi(U_\varphi\times I_{a\varphi})\subseteq \varphi(U)$, $\tilde U=\varphi^{-1}(U_\varphi)$.
-	Poniamo  $F:\tilde U\times I_{a\varphi}\to M$ tale che $F(u,t)=\varphi^{-1}(F_\varphi(\varphi(u),t))$.
-	Per continuità esiste $b\in(0,a_\varphi)$, $V\subseteq \tilde U$, $p\in V$ tale che $F(V\times I_b)\subseteq \tilde U$.
+	\item [esistenza:]
+	Sia $(U,\varphi)$ carta di $M$; %, $u\in M$. ??
+	consideriamo il rappresentate locale $X_\varphi$ di $X$ (cioè $X_\varphi(\varphi(q))=T\varphi(X(q))$), che genera un flusso locale $(U_\varphi,a_\varphi,F_\varphi)$.
+	Supponiamo $U_\varphi\subseteq \varphi(U)$ e $F_\varphi(U_\varphi\times I_{a_\varphi})\subseteq \varphi(U)$ e chiamiamo $\tilde U=\varphi^{-1}(U_\varphi)$.
 	
-	$F$ verifica \ref{FL:aperto}, \ref{FL:Cr}, \ref{FL:curvaintegrale}. Per avere \ref{FL:diffeo} notiamo che $F_t$ ha inversa $F_{-t}$ di classe $C^r$.
+	Poniamo  $F:\tilde U\times I_{a_\varphi}\to M$ tale che $F(u,t)=\varphi^{-1}(F_\varphi(\varphi(u),t))$.
+	Per continuità esistono $b\in(0,a_\varphi)$ e $V\subseteq \tilde U$ tali che $F(V\times I_b)\subseteq \tilde U$. %$p\in V$??
+	Allora $(V,b,F)$ verifica \ref{FL:aperto}, \ref{FL:Cr}, \ref{FL:curvaintegrale} della \cref{def:FlussoLocale}. Per avere \ref{FL:diffeo} notiamo che $F_t$ ha inversa $F_{-t}$ di classe $C^r$.
 	\end{description}
 \end{proof}
 
 \begin{exercise}
-	Sia $M$ varietà $C^k$, $X\in\chi^k(M)$. Sia $p\in M$ tale che $X(p)\not=0$. Dimostrare che esiste $(U,\varphi)$ carta tale che $X\restrict U=\frac{\partial}{\partial x'}\restrict U$.
+	Sia $M$ varietà $C^k$, $X\in\chi^k(M)$. Sia $p\in M$ tale che $X(p)\not=0$. Dimostrare che esiste $(U,\varphi)$ carta tale che $X\restrict U=\frac{\partial}{\partial x^1}\restrict U$, dove $\varphi=(\seqa xn,)$.
 \end{exercise}	
 
 \begin{exercise}
-	Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=Id_M$. Mostrare che esiste unico $X$ campo vettoriale tale che $F_t$ coincide con il flusso indotto da $X$.
+	Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=\id_M$. Mostrare che esiste unico $X$ campo vettoriale tale che $F_t$ coincide con il flusso indotto da $X$.
 \end{exercise}
 
+\section{Flusso di un campo vettoriale} %TODO: titolo migliore?
+
 \begin{definition} \index{campo vettoriale!$\mathcal D_X$} \index{campo vettoriale!completo}
-	Siano $M$ una varietà e $X$ un campo vettoriale. Sia $\mathcal D_X\subseteq M\times \R$ l'insieme degli $(x,t)$ tale che esiste $c:I\to M$ curva integrale, con $c(0)=x$ e $t \in I$.
+	Siano $M$ una varietà e $X$ un campo vettoriale. Sia $\mathcal D_X\subseteq M\times \R$ l'insieme degli $(x,t)$ tali che esiste $c:I\to M$ curva integrale, con $c(0)=x$ e $t \in I$.
 	
-	Il campo $X$ è detto completo se $\mathcal D_X=M\times \R$ e completo per tempi positivi (rispettivamente negativi) se $\mathcal D_X\supseteq M\times\R^+$ (rispettivamente $\R^-$).
+	Il campo $X$ è detto \emph{completo} se $\mathcal D_X=M\times \R$ e completo per tempi positivi (rispettivamente negativi) se $\mathcal D_X\supseteq M\times\R^+$ (rispettivamente $\R^-$).
 	
 	Chiamiamo $(T(x)^-,T(x)^+)$ l'intervallo massimale di una curva che passa per $x$ al tempo 0. 
 \end{definition}
 
 \begin{example}
 \begin{enumerate}
-	\item $M=\R^2$, allora $X=(1,0)$ è completo $(x,y)\to (x+t,y)$.
-	\item $M=\{(x,y):x>0\}$, allora $X=(1,0)$ è completo per tempi positivi.
-	\item $M=\R$ e $X(x)=1+x^2$, allora $c(t)=\tan t$ è una curva integrale, con $c(0)=0$, da cui $T^\pm(0)=\pm \frac \pi 2$.
+	\item Se $M=\R^2$, allora $X=(1,0)$ è completo, poiché $c_{(x,y)}(t)=(x+t,y)$ è una curva integrale definita su tutto $\R$ e passante per $(x,y)$ al tempo 0.
+	\item Se $M=\{(x,y) \in \R^2 \suchthat x>0\}$, allora $X=(1,0)$ è completo per tempi positivi.
+	\item Se $M=\R$ e $X(x)=1+x^2$, allora $c(t)=\tan t$ è una curva integrale con $c(0)=0$, da cui $T^\pm(0)=\pm \frac \pi 2$.
 \end{enumerate}
 \end{example}
 
 \begin{proposition} \label{prop:ProprietaDX}
-	Sia $M$ un varietà, $X\in \chi^r(M)$, $r\ge 1$. Allora:
+	Sia no$M$ un varietà e $X\in \chi^r(M)$, con $r\ge 1$. Allora:
 	\begin{enumerate}
 	 \item $M\times\{0\}\subseteq \mathcal D_X$; \label{PDX:ContieneM}
 	 \item $\mathcal D_X$ aperto; \label{PDX:Aperto}
@@ -119,13 +122,12 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \end{proposition}
 
 \begin{proof}
-	I punti \ref{PDX:ContieneM} e \ref{PDX:Aperto} seguono da esistenza e unicità delle curve integrali. L'esistenza di $F_X$, cioè il punto \ref{PDX:FunzioneSuDX}, si ottiene incollando curve integrali e il punto \ref{PDX:Composizione} segue dall'unicità globale.
-	
-	La regolarità $C^r$ globale, segue da quella locale ricoprendo una data traiettoria con un numero finito di piccoli intorni.
+	I punti \ref{PDX:ContieneM} e \ref{PDX:Aperto} seguono dalla \cref{prop:EsistenzaUnicitaFlussiLocali}. L'esistenza di $F_X$, cioè il punto \ref{PDX:FunzioneSuDX}, si ottiene incollando curve integrali e il punto \ref{PDX:Composizione} segue dall'unicità globale.
+	Infine la regolarità $C^r$ globale di $F_X$, segue da quella locale ricoprendo una data traiettoria con un numero finito di piccoli intorni.
 \end{proof}
 
-\begin{definition} \index{campo vettoriale!flusso generato}
-	Chiamiamo $t\mapsto F_X(p,t)$, con $(p,t)\in\mathcal D_X$, la curva integrale massimale passante per $p$ a tempo 0.
+\begin{definition} \index{campo vettoriale!flusso generato} \index{curva integrale!massimale}
+	Chiamiamo $t\mapsto F_X(p,t)$, con $(p,t)\in\mathcal D_X$, la \emph{curva integrale massimale} passante per $p$ a tempo 0.
 	
 	Se $X$ è completo, $F_X$ è detto il \emph{flusso generato da $X$}. In questo caso abbiamo una famiglia ad un parametro di diffeomorfismi.
 \end{definition}
@@ -150,5 +152,5 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 
 
 \begin{exercise}
-	Sia $X$ campo vettoriale di classe $C^r(\R^n)$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria. Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$ \footnote{Osservazione: $X(f)=\Diff_X(f)$}. Dimostrare che $X$ è completo.
+	Sia $X$ campo vettoriale su $\R^n$ di classe $C^r$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria (cioè controimmagine di compatti è compatta). Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$ \footnote{Osservazione: $X(f)=\Diff_X(f)$}. Dimostrare che $X$ è completo. %TODO: cosa vuol dire X(f)?
 \end{exercise}
