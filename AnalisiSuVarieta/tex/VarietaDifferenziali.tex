@@ -183,7 +183,7 @@ Tutto ciò ci permette di definire il piano tangente.
 
 Ora vediamo due definizioni alternative.
  
-\subsection{Controvarianza}
+\subsection*{Controvarianza}
 Per definire il tangente si possono usare le proprietà di trasformazione dei vettori.
 
 Infatti, se $(U,\varphi)$ e $(\tilde{U},\tilde{\varphi})$ sono due carte e chiamiamo $(y^1,\dots,y^n)=(\varphi\circ c)(t)$ e $(\tilde{y}^1,\dots,\tilde{y}^n)=(\tilde{\varphi}\circ c)(t)$, allora il vettore tangente associato a $c'(0)$ si scrive nei due sistemi di coordinate come $(V^1,\dots,V^n)=(\frac{\de y^1}{\de t}(0),\dots,\frac{\de y^n}{\de t}(0))$ e $(\tilde{V}^1,\dots,\tilde{V}^n)=(\frac{\de\tilde{y}^1}{\de t}(0),\dots,\frac{\de\tilde{y}^n}{\de t}(0))$.
@@ -199,7 +199,7 @@ Con questa notazione, dato un sistema di coordinate $(U,\varphi)$, un vettore $v
 \end{equation*}
 dove $\frac{\partial}{\partial y^i}(\varphi(x))=[\varphi(x)+te_i]_{\varphi(x)}$, essendo $e_i$ l'$i$-esimo vettore della base canonica.
 
-\subsection{Derivazioni} \index{derivazione}
+\subsection*{Derivazioni} \index{derivazione}
 Data $f:\R^n\to\R$ e $v\in\R^n$ sia $\Diff_vf$ la derivata direzionale lungo $v$ di $f$. Allora $\Diff_v$ è lineare in $f$ ed vale la regola di Leibniz $\Diff_v(fg)=f\Diff_vg+g\Diff_vf$. Si definiscono \emph{derivazioni} gli operatori lineari $A:C^r(U)\to\R$ che godono della regola di Leibniz. Si può dimostrare che in questo modo si ottiene una definizione equivalente di spazio tangente.
  
 \section{Mappe tangenti}
@@ -230,14 +230,14 @@ Una funzione regolare agisce sui vettori tangenti alla varietà, permettendo di 
 \begin{theorem}[Mappe composte] \label{thm:MappeComposte} \index{teorema!mappe composte}
 	Valgono le seguenti proprietà:
 	\begin{enumerate}
-	\item se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$;
-	\item $T(\id_M)=\id_{TM}$;
-	\item se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)^{-1}=T(f^{-1})$.
+	\item se $f:M\to N$ e $g:N\to P$ sono $C^r$, allora $g\circ f$ è $C^r$ e $T(g\circ f)=Tg\circ Tf$; \label{mp:composizione}
+	\item $T(\id_M)=\id_{TM}$; \label{mp:identita}
+	\item se $f:M\to N$ è un diffeomorfismo allora $Tf$ è invertibile e $(Tf)^{-1}=T(f^{-1})$. \label{mp:inverso}
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Il primo punto si dimostra passando in carta, il secondo è banale, il terzo è conseguenza immediata dei due precedenti.
+	Il punto \ref{mp:composizione} si dimostra passando in carta, il \ref{mp:identita} è banale, il \ref{mp:inverso} è conseguenza immediata dei due precedenti.
 \end{proof}
 
 \section{Struttura differenziabile sul tangente}
@@ -251,9 +251,10 @@ Data una carta $(U,\varphi)$ abbiamo le carte $T\varphi:TU\to T(\varphi(U))$ tal
 
 \begin{proof}
 	Dato che $\mathcal F$ ricopre $M$, $T\mathcal F$ ricopre $TM$. Inoltre per il \cref{thm:MappeComposte} abbiamo che  $T\varphi_i\circ(T\varphi_j)^{-1}=T(\varphi_i\circ\varphi_j)$, che è un diffeomorfismo $C^k$.
-	
 	Inoltre $TM$ è di Hausdorff e a base numerabile con la topologia indotta da $T\mathcal F$.
 \end{proof}
+
+Similmente si dimostra il seguente risultato.
 
 \begin{proposition}
 	Se $f:M\to N$ è un diffeomorfismo $C^{r+1}$, $Tf:TM\to TN$ è un diffeomorfismo $C^r$.
