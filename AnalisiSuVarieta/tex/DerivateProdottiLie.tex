@@ -1,12 +1,12 @@
 \chapter{Derivate e prodotti di Lie}
 
 \section{Derivata di Lie}
-La derivata di Lie è uno strumento che ci permette di calcolare variazioni di varie continuità (per esempio funzioni) quando ci muoviamo sulla varietà.
+La derivata di Lie è uno strumento che ci permette di calcolare variazioni di varie quantità (per esempio funzioni) quando ci muoviamo sulla varietà.
 
-Sia $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$. Questa si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
+Siano $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$. Questa si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
 
 Ora vogliamo studiare il caso generale su varietà.
-Sia $p\in M$ e $f$ una funzione regolare definita in un intorno di $p$, $v \in T_{p}M$. Osserviamo innanzitutto che per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
+Siano $p\in M$ ed $f$ una funzione regolare definita in un intorno di $p$ e sia $v \in T_{p}M$. Osserviamo innanzitutto che per definizione esiste $c$ curva $C^1$ tale che $[c]_p=v$.
 
 \begin{definition} \index{derivata!direzionale}
 	Definiamo la \emph{derivata direzionale} di $f$ in $p$ lungo $v$ come $(v(f))(p)\coloneqq\frac \de {\de t} f(c(t))\restrict{t=0}$.
@@ -14,7 +14,7 @@ Sia $p\in M$ e $f$ una funzione regolare definita in un intorno di $p$, $v \in T
 
 Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, allora:
 \begin{equation*}
-	\frac \de{\de t} (f\circ c)(t)\restrict{t=0}=\Diff_{[(c^1)'(0),\ldots(c^n)'(0)]}(f\circ\varphi^{-1})(\varphi(p)) \virgola
+	\frac \de{\de t} (f\circ c)(t)\restrict{t=0}=\Diff_{[(c^1)'(0),\ldots,(c^n)'(0)]}(f\circ\varphi^{-1})(\varphi(p)) \virgola
 \end{equation*}
 quindi la derivata direzionale non dipende dalla scelta di $c\in[c]_p$.
 
