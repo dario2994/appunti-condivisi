@@ -1,6 +1,6 @@
 \chapter{Derivate e prodotti di Lie}
 
-\section{Derivata di Lie}
+\section{Derivata e parentesi di Lie}
 La derivata di Lie è uno strumento che ci permette di calcolare variazioni di varie quantità (per esempio funzioni) quando ci muoviamo sulla varietà.
 
 Siano $f$ una funzione regolare su $\R^n$ e $p,v\in\R^n$. Allora $\Diff_vf(p)=\lim_{h\to 0} \frac{f(p+hv)-f(p)}h$ è la derivata direzionale in $p$ lungo $v$. Questa si può ritrovare considerando $\gamma(t)=p+tv$ e calcolando $\frac \de{\de t} f(\gamma(t))\restrict{t=0}$.
@@ -57,10 +57,7 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \end{description}
 \end{proof}
 
-
-\section{Parentesi di Lie}
-
-In coordinate: siano $p\in M$ e $(U,\varphi)$ una carta con $p\in U$ e sia $(x^1,\ldots,x^n)$ il sistema di coordinate corrispondente.
+Vediamo ora la scrittura della derivata di Lie in coordinate. Siano $p\in M$ e $(U,\varphi)$ una carta con $p\in U$ e sia $(x^1,\ldots,x^n)$ il sistema di coordinate corrispondente.
 Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset B$, se $A\subset K \subset B$ con $K$ compatto.}, abbiamo che \begin{equation*}
 	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}\frac\partial{\partial x^l}(F(x))\punto
 \end{equation*}
@@ -73,16 +70,16 @@ da cui
 	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
 \end{equation*}
 
-Se nelle coordinate $(x^i)$ indotte da $\varphi$, $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$, $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
+Se nelle coordinate $(x^i)$ indotte da $\varphi$ abbiamo $X=\sum_{i=1}^n X^i\frac\partial{\partial x^i}$ e $Y=\sum_{j=1}^n Y^j\frac\partial{\partial x^j}$, allora
 \begin{equation*}
-	\Lie_XY=\sum_{j=1}^n\sum_{i=1}^n \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac\partial{\partial x^j}
+	\Lie_XY=\sum_{j=1}^n\sum_{i=1}^n \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac\partial{\partial x^j} \punto
 \end{equation*}
 Questo campo vettoriale risulta essere il commutatore di $X,Y$.
 
 \begin{definition} \index{commutatore} \index{parentesi di Lie}
 Dati $X,Y\in\chi^r(M)$, definiamo $\comm{X}{Y}\in\chi^{r-1}(M)$ il campo vettoriale tale che $\comm{X}{Y}=XY-YX$, che si chiama \emph{commutatore} o \emph{parentesi di Lie}.
 
-Intendiamo che per ogni $f:M\to\R$ regolare, $\comm{X}{Y}(f)=X(Y(f))-Y(X(f))$.
+Intendiamo che, per ogni $f:M\to\R$ regolare, vale $\comm{X}{Y}(f)=X(Y(f))-Y(X(f))$.
 \end{definition}
 
 In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i}$, allora
@@ -103,7 +100,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{enumerate}
 \end{remark}
 
-\section{Proprietà}
+\section{Proprietà delle parentesi di Lie}
 
 \begin{proposition}\label{prop:ProprietaParentesiLie}
 	La parentesi di Lie soddisfa le seguenti proprietà:
@@ -116,9 +113,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proposition}
 
 \begin{proof}
-	Le proprietà \ref{PPL:bilineare} e \ref{PPL:antisimmetrica} sono ovvie.
-	
-	Vediamo allora la \ref{PPL:SommaCiclica}. Sia $f\in C^\infty(M)$:
+	Le proprietà \ref{PPL:bilineare} e \ref{PPL:antisimmetrica} sono ovvie; vediamo allora la \ref{PPL:SommaCiclica}. Data $f\in C^\infty(M)$, abbiamo che
 	\begin{align*}
 		\comm{X}{\comm{Y}{Z}}f&=X\comm{Y}{Z}f-\comm{Y}{Z}Xf=X(YZ-ZY)f-(YZ-ZY)Xf=\\
 		&= XYZf-XZYf-YZXf+ZYXf\punto
@@ -143,10 +138,10 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{lemma}
 
 \begin{proof}
-	Sia $n\in N$, allora
-	\begin{align*}
+	Dato $n\in N$, vale
+	\begin{align*} %TODO: capirci qualcosa
 		\Lie_{\varphi_*X}(f\circ \varphi^{-1})(n)&=\Diff_{(\varphi_*X)(n)}(f\circ \varphi^{-1})=\Diff_{(T\varphi \circ X \circ\varphi^{-1})(n)}(f\circ \varphi^{-1})=\\
-		&=D_{(X\circ \varphi^{-1})(n)} f(\varphi^{-1}(n))=\varphi_*(\Lie_Xf)(n)\punto
+		&=\Diff_{(X\circ \varphi^{-1})(n)} f(\varphi^{-1}(n))=\varphi_*(\Lie_Xf)(n)\punto
 	\end{align*}
 \end{proof}
 
