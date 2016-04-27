@@ -13,7 +13,7 @@ Se $(U,\varphi)$ è una carta con $(x^1,\dots,x^n)$ coordinate locali, allora po
 dove $(X^1,\dots,X^n)(x)=T\varphi(X(\varphi^{-1}(x)))$.
 
 \index{campo vettoriale!$\chi^r(M)$} \index{campo vettoriale!$\chi(M)$}
-Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indichiamo $\chi(M)$ l'insieme dei campi $C^\infty$ su $M$.
+Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indichiamo con $\chi(M)$ l'insieme dei campi $C^\infty$ su $M$.
  
 \begin{definition} \index{curva integrale}
 	Una \emph{curva integrale} di un campo vettoriale $X$ è una curva diffenziabile $c$ tale che $c'(t)=X(c(t))$ per ogni $t$.
@@ -90,7 +90,7 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \end{exercise}	
 
 \begin{exercise}
-	Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=\id_M$. Mostrare che esiste unico $X$ campo vettoriale tale che $F_t$ coincide con il flusso indotto da $X$.
+	Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=\id_M$. Mostrare che esiste un unico campo vettoriale $X$ tale che $F_t$ coincide con il flusso indotto da $X$.
 \end{exercise}
 
 \section{Flusso di un campo vettoriale} %TODO: titolo migliore?
@@ -116,7 +116,7 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 	\begin{enumerate}
 	 \item $M\times\{0\}\subseteq \mathcal D_X$; \label{PDX:ContieneM}
 	 \item $\mathcal D_X$ aperto; \label{PDX:Aperto}
-	 \item esiste unico $F_X:\mathcal D_X\to M$ di classe $C^r$ tale che $t\mapsto F_X(p,t)$ è una curva integrale che passa per $p$ a tempo 0; \label{PDX:FunzioneSuDX}
+	 \item esiste un'unica $F_X:\mathcal D_X\to M$ di classe $C^r$ tale che $t\mapsto F_X(p,t)$ è una curva integrale che passa per $p$ a tempo 0; \label{PDX:FunzioneSuDX}
 	 \item per $(p,t),(p,t+s)\in\mathcal D_X$ vale che $F_X(p,t+s)=F_X(F_X(p,t),s)$. \label{PDX:Composizione}
 	\end{enumerate}
 \end{proposition}

@@ -2,7 +2,7 @@
 
 \section{Definizione e operazioni}
 Dati $V_1,\ldots,V_k,W$ spazi vettoriali, denotiamo con $\Lin^k(V_1,\ldots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\ldots\times V_k$ in $W$. In tutta la trattazione considereremo spazi vettoriali di dimensione finita.
-Denotiamo inoltre $V^* = \Lin(V,\R)$ lo spazio duale di $V$.
+Denotiamo inoltre con $V^* = \Lin(V,\R)$ lo spazio duale di $V$.
 Se $V$ è $n$-dimensionale ed $e_1,\ldots,e_n$ è una sua base, esiste una base $e^1,\ldots,e^n$ di $V^*$ tale che $\Scal{e^i}{e_j} = \delta_{ij}$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $\Scal{\alpha}{v}$ l'elemento $\alpha$ applicato a $v$.}.
 In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \Scal{e^i}{v} e_i$ e $\alpha= \sum_{i=1}^n \Scal{\alpha}{e_i} e^i$.
 
@@ -94,7 +94,7 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 	\end{equation*}
 	Analogamente possiamo definire il \emph{prodotto interno} con un vettore $\beta \in V^*$ come una mappa $i^\beta:T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
 	\begin{equation*}
-		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) = t(\beta,\beta^1,\ldots,\beta^r,v_1,\ldots,v_s)\punto
+		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) = t(\beta,\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s)\punto
 	\end{equation*}
 \end{definition}
 
@@ -173,7 +173,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 		
 		\item Se $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
 
-		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$, con inversa $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^k$ e $g_{jk}g^{kl} = \delta_j^l$.
+		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$, con inversa $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^j$ e $g_{jk}g^{kl} = \delta_j^l$.
 		
 		Tramite un prodotto, si può definire anche la traccia di $t\in T_0^2(V)$ dalla traccia del tensore $(1,1)$ associato. Se $t=t^{ij}\ e_i\otimes e_j$, possiamo perciò definire $\tr (t) = \tr (g_{ij}t^{jk}) = g_{ik}t^{ik}$.
 	\end{enumerate}

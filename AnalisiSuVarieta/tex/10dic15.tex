@@ -7,7 +7,7 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 \begin{definition} \index{fibrato!vettoriale}
 	Un \emph{fibrato vettoriale} di rango $k\in\N$ consiste di uno spazio totale $E$, una base $M$ ($E$ ed $M$ varietà) ed una proiezione $\pi:E\to M$ (mappa regolare) tale che per ogni $x\in M$ la sua fibra $E_x\coloneqq \pi^{-1}(x)$ ha una struttura di spazio vettoriale.
 	
-	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeo $\tilde\varphi:\pi^{-1}(U)\to U\times R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
+	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeomorfismo $\tilde\varphi:\pi^{-1}(U)\to U\times R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
 	La coppia $(U,\tilde\varphi)$ è detta \emph{carta di fibrato}.
 \end{definition}
 
@@ -39,11 +39,11 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 \begin{remark}
 	È possibile ricostruire un fibrato vettoriale tramite relazioni di equivalenza in base alle funzioni di transizione.\footnote{Si può trovare nel libro di Husemoller.}
 	
-	In particolare si ottiene che $E = \sqcup_{\alpha\in A} U_\alpha \times \R^k / ~$ dove $(x,v)~(y,w)$ se e solo se $x=y$ e $w = \tilde\varphi_{\beta\alpha}v$.
+	In particolare si ottiene che $E = \sqcup_{\alpha\in A} U_\alpha \times \R^k / \sim$ dove $(x,v)\sim (y,w)$ se e solo se $x=y$ e $w = \tilde\varphi_{\beta\alpha}v$.
 \end{remark}
 
 \begin{example}
-	(Fibrato tangente di una varietà) Data $(U,\varphi)$ carta di $M$ un vettore di $T_pM$, con $p\in U$, si esprime come $v = \sum_{i=1}^n V^i\DerParz{}{x^i}(\varphi(p))$. Sia $(\hat U, \hat \varphi)$ una nuova carta, con $p\in \hat U$ e coordinate $(y^1,\dots, y^n)$.
+	(Fibrato tangente di una varietà) Dati $(U,\varphi)$ carta di $M$ e $p\in U$, un vettore di $T_pM$ si esprime come $v = \sum_{i=1}^n V^i\DerParz{}{x^i}(\varphi(p))$. Sia $(\hat U, \hat \varphi)$ una nuova carta, con $p\in \hat U$ e coordinate $(y^1,\dots, y^n)$.
 	 Se $\hat V^j$ sono le componenti di $v$ nella carta $(\hat U,\hat \varphi)$, abbiamo (per la controvarianza) che
 	 \begin{equation*}
 	 	\hat V^i = \sum_{j=1}^n \DerParz{y^i}{x^j}(\varphi(p))V^j\punto
@@ -87,7 +87,7 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 
 
 \begin{definition} \index{sezione!locale} \index{sezione!globale}
-	Sia $\pi:E\in B$ un fibrato vettoriale. Una \emph{sezione locale} di $\pi$ è una mappa (regolare) $\xi:U \to E$ ($U$ aperto in $B$) tale che $\pi(\xi(b)) = b$ per ogni $b\in U$.
+	Sia $\pi:E\to B$ un fibrato vettoriale. Una \emph{sezione locale} di $\pi$ è una mappa (regolare) $\xi:U \to E$ ($U$ aperto in $B$) tale che $\pi(\xi(b)) = b$ per ogni $b\in U$.
 	
 	Se $U = B$, $\xi$ è detta \emph{sezione globale}.
 \end{definition}

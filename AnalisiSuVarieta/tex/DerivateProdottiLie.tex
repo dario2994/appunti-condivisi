@@ -18,11 +18,11 @@ Se $(U,\varphi)$ è una carta e $(\varphi\circ c)(t)=(c^1(t),\ldots,c^n(t))$, al
 \end{equation*}
 quindi la derivata direzionale non dipende dalla scelta di $c\in[c]_p$.
 
-Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo allora come $c(t)$ una curva integrale di $X$, allora la formula precedente diventa:
+Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo allora come $c(t)$ una curva integrale di $X$, così la formula precedente diventa:
 \begin{equation*}
 	(X(p))(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right]
 \end{equation*}
-e si chiama derivata di Lie di $f$ rispetto ad $X$.
+e questa si chiama derivata di Lie di $f$ rispetto ad $X$.
 
 Questo approccio consente di estendere la definizione ai campi vettoriali, e non solo...
 
@@ -203,7 +203,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proof}
 
 
-\section{Commutazione di cambi vettoriali}
+\section{Commutazione di campi vettoriali}
 
 \begin{proposition} \label{prop:EquivalenzaParentesiZero}
 	Siano $X,Y\in\chi^r(M)$ e siano $\Fl{X}{t},\Fl{Y}{t}$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
@@ -227,7 +227,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 
 Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$ e $Y(p)$ è linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tale che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$. Se consideriamo il commutatore $\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, abbiamo che
 \begin{equation*}
-	\left[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}\right]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}-=0\punto
+	\left[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}\right]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}=0\punto
 \end{equation*}
 
 \begin{proposition}
@@ -285,7 +285,7 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{exercise}
 
 \begin{theorem}
-	Se $c(t)$ è nella \cref{prop:DefinizioneDerSeconda}, $c''(0)=2\comm{X}{Y}(p)$.
+	Se $c(t)$ è come nella \cref{prop:DefinizioneDerSeconda}, $c''(0)=2\comm{X}{Y}(p)$.
 \end{theorem}
 
 \begin{proof}
