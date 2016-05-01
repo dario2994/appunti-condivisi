@@ -78,18 +78,19 @@ Questo campo vettoriale risulta essere il commutatore di $X,Y$.
 
 \begin{definition} \index{commutatore} \index{parentesi di Lie}
 Dati $X,Y\in\chi^r(M)$, definiamo $\comm{X}{Y}\in\chi^{r-1}(M)$ il campo vettoriale tale che $\comm{X}{Y}=XY-YX$, che si chiama \emph{commutatore} o \emph{parentesi di Lie}.
-
 Intendiamo che, per ogni $f:M\to\R$ regolare, vale $\comm{X}{Y}(f)=X(Y(f))-Y(X(f))$.
 \end{definition}
 
+Dobbiamo però verificare che $\comm XY$, appena definito come un endomorfismo di $C^\infty(M)$ (vedi la \cref{nota:CampiVettEndomorfismiCinfinito}), sia effettivamente un campo vettoriale su $M$.  Per farlo mostriamo che $\Lie_XY$ agisce esattamente come $\comm XY$ su $C^\infty(M)$, da cui otterremo che $\comm XY$ è effettivamente un campo vettoriale che coincide con $\Lie_XY$.
+
 In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i}$, allora
 \begin{multline*}
-	Y(X(f))=\sum_{j=1}^nY^j(x)\frac\partial{\partial x^j}\left( \sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i} \right)\\
+	Y(X(f))=\sum_{j=1}^nY^j(x)\frac\partial{\partial x^j}\left( \sum_{i=1}^n X^i(x)\frac{\partial f}{\partial x^i} \right)=\\
 	= \sum_{j=1}^n \sum_{i=1}^n \left( Y^j(x) \left(\frac{\partial}{\partial x^j}X^i\right)\frac{\partial f}{\partial x^i} +Y^j(x)X^i(x)\frac{\partial^2 f}{\partial x^i\partial x^j} \right)
 \end{multline*}
 \begin{multline*}
-	\implies \comm{X}{Y} = (XY-YX)(f)=\\
-	\sum_{i,j=1}^n\left( \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial f}{\partial x^j} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY \punto
+	\implies \comm{X}{Y}(f) = (XY-YX)(f)=\\
+	\sum_{i,j=1}^n\left( \left(X^i\frac{\partial Y^j}{\partial x^i}-Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial f}{\partial x^j} +(X^iY^j-X^jY^i)\frac{\partial^2 f}{\partial x^i\partial x^j}  \right)=\Lie_XY(f) \punto
 \end{multline*}
 
 \begin{remark}

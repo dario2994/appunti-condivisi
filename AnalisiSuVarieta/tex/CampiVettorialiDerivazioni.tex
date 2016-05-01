@@ -15,6 +15,18 @@ dove $(X^1,\dots,X^n)(x)=T\varphi(X(\varphi^{-1}(x)))$.
 \index{campo vettoriale!$\chi^r(M)$} \index{campo vettoriale!$\chi(M)$}
 Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indichiamo con $\chi(M)$ l'insieme dei campi $C^\infty$ su $M$.
  
+
+\begin{remark} \label{nota:CampiVettEndomorfismiCinfinito}
+	Osserviamo che un campo vettoriale $X$ agisce linearmente sugli endomorfismi di $C^\infty(M)$. Infatti, data $f\in C^\infty(M)$, possiamo definire l'applicazione $X(f)\in C^\infty(M)$ tale che $X(f)(p)\coloneqq \de f(X(p))$.
+	
+	Tale applicazione dai campi vettoriali agli endomorfismi di $C^\infty(M)$ è facilmente iniettiva, ma non è surgettiva, poiché un endomorfismo indotto da un campo vettoriale deve rispettare la regola di Leibnitz; infatti date $f,g \in C^\infty(M)$ vale
+	\begin{equation*}
+		X(fg) (p) = \de (f g) (X(p)) = g \cdot \de f (X(p)) + f \cdot \de g(X(p)) = g \cdot X(f) + f \cdot X(g) \punto 
+	\end{equation*}
+
+\end{remark}
+
+ 
 \begin{definition} \index{curva integrale}
 	Una \emph{curva integrale} di un campo vettoriale $X$ è una curva diffenziabile $c$ tale che $c'(t)=X(c(t))$ per ogni $t$.
 \end{definition}
@@ -152,5 +164,6 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 
 
 \begin{exercise}
-	Sia $X$ campo vettoriale su $\R^n$ di classe $C^r$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria (cioè controimmagine di compatti è compatta). Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$ \footnote{Per definizione $X(f)(p)=\de f(X(p))$.}. Dimostrare che $X$ è completo. %TODO: cosa vuol dire X(f)? È giusto? Prima c'era scritto X(f) = \Diff_X (f)
+	Sia $X$ campo vettoriale su $\R^n$ di classe $C^r$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria (cioè controimmagine di compatti è compatta). Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$. % \footnote{Per definizione $X(f)(p)=\de f(X(p))$.}. 
+	Dimostrare che $X$ è completo. %TODO: cosa vuol dire X(f)? È giusto? Prima c'era scritto X(f) = \Diff_X (f)
 \end{exercise}
