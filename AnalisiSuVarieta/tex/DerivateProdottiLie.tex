@@ -158,7 +158,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{equation*}
 \end{proposition}
 
-\begin{proof}
+\begin{proof} %TODO: capire anche qui
 	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lem:PushFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
 	\begin{equation*}
 		((\varphi_*Z)[g])(n)=Z[g\circ \varphi](m)\virgola
@@ -178,7 +178,6 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	
 	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che \\
 	$\Fl{Y}{t}=\varphi\circ \Fl{X}{t}\circ \varphi^{-1}$.
-	
 	Inoltre $(\Fl{X}{t})_*X=X$ (dove i flussi sono definiti).
 \end{lemma}
 
@@ -198,9 +197,12 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\begin{equation*}
 		\frac \de{\de t}(\varphi\circ c)(t) = T\varphi \left(\frac{\de c}{\de t}\right) = T\varphi(X(c(t))) = Y((\varphi\circ c)(t))\punto
 	\end{equation*}
-	Perciò $\varphi\circ c$ è una curva integrale per $Y$ che passa per $\varphi(p)$ al tempo 0. Di conseguenza, per unicità, $(\varphi \circ c)(t) = F_Y(\varphi(p),t)$.
+	Perciò $\varphi\circ c$ è una curva integrale per $Y$ che passa per $\varphi(p)$ al tempo 0. Di conseguenza, per unicità, abbiamo
+	\begin{equation*}
+		\varphi \circ \Fl Xt (p) = (\varphi \circ c)(t) = F_Y(\varphi(p),t) = \Fl Yt \circ \varphi (p) \punto
+	\end{equation*}
 	
-	Per dimostrare che $(\Fl{X}{t})_*(X)=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $\Fl{X}{s}$ con $s$ fissato. Per la prima parta della proposizione $(\Fl{X}{t})_*(X)=X$ se e solo se $\Fl{X}{s}\circ \Fl{X}{t}=\Fl{X}{t}\circ \Fl{X}{s}$, ma questo è vero per la commutatività.
+	Per dimostrare che $(\Fl{X}{t})_*X=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $\Fl{X}{s}$ con $s$ fissato. Per la prima parta della proposizione $(\Fl{X}{t})_*X=X$ se e solo se $\Fl{X}{s}\circ \Fl{X}{t}=\Fl{X}{t}\circ \Fl{X}{s}$, ma questo è vero per la commutatività.
 \end{proof}
 
 
@@ -219,15 +221,15 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \begin{proof}
 	Abbiamo $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ se e solo se $\Fl{Y}{s}=\Fl{X}{t}\circ \Fl{Y}{s}\circ (\Fl{X}{t})^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
 	
-	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}\restrict{t=0}(\Fl{X}{t})_*Y=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
+	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
 	\begin{equation*}
-		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}\Fl{X}{t+s}Y=(\Fl{X}{t})_*\comm{X}{Y}=0\punto
+		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=(\Fl{X}{t})_*\comm{X}{Y}=0\punto %TODO: prima la cosa centrale era \frac{\de}{\de s}\Fl{X}{t+s}Y
 	\end{equation*}
 	Perciò  $(\Fl{X}{t})_*Y$ è costante in $t$ ed è uguale a Y, perché $(\Fl{X}{0})_*Y=Y$.
 \end{proof}
 
 Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$ e $Y(p)$ è linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tale che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$. Se consideriamo il commutatore $\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, abbiamo che
-\begin{equation*}
+\begin{equation*} %TODO: sbagliato
 	\left[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}\right]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}=0\punto
 \end{equation*}
 
