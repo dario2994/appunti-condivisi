@@ -140,7 +140,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 
 \begin{proof}
 	Dato $n\in N$, vale
-	\begin{align*} %TODO: capirci qualcosa
+	\begin{align*} %TODO: ok, ma magari evitare la notazione \Diff
 		\Lie_{\varphi_*X}(f\circ \varphi^{-1})(n)&=\Diff_{(\varphi_*X)(n)}(f\circ \varphi^{-1})=\Diff_{(T\varphi \circ X \circ\varphi^{-1})(n)}(f\circ \varphi^{-1})=\\
 		&=\Diff_{(X\circ \varphi^{-1})(n)} f(\varphi^{-1}(n))=\varphi_*(\Lie_Xf)(n)\punto
 	\end{align*}
@@ -161,20 +161,21 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \begin{proof} %TODO: capire anche qui
 	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lem:PushFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
 	\begin{equation*}
-		((\varphi_*Z)[g])(n)=Z[g\circ \varphi](m)\virgola
+		(\varphi_*Z)(g)(n)=Z(g\circ \varphi)(m)\virgola
 	\end{equation*}
-	dove $Z=X$ e $g=f\circ \varphi^{-1}$.
+	dove con la notazione del lemma abbiamo utilizzato $Z=X$ e $g=f\circ \varphi^{-1}$.
 	
-	Quindi, ponendo $Z=\comm{X}{Y}$:
+	Quindi, ponendo $Z=\comm{X}{Y}$, abbiamo
 	\begin{align*}
-	((\varphi_*\comm{X}{Y})[g])(n)&=\comm{X}{Y}[g\circ \varphi](m)=X[Y[g\circ \varphi]](m)-Y[X[g\circ \varphi]](m)=\\
-	&=X[(\varphi_*Y)[g]\circ \varphi](m)-Y[(\varphi_*X)[g]\circ \varphi](m) =\\
-	&= (\varphi_*X)[(\varphi_*Y)[g]](n)-(\varphi_*Y)[(\varphi_*X)[g]](n) = \comm{\varphi_* X}{\varphi_* Y}[g](n)\punto
+	(\varphi_*\comm{X}{Y})(g)(n)&=\comm{X}{Y}(g\circ \varphi)(m)=X(Y(g\circ \varphi))(m)-Y(X(g\circ \varphi))(m)=\\
+	&=X((\varphi_*Y)(g)\circ \varphi)(m)-Y((\varphi_*X)(g)\circ \varphi)(m) =\\
+	&= (\varphi_*X)((\varphi_*Y)(g))(n)-(\varphi_*Y)((\varphi_*X)(g))(n) = \comm{\varphi_* X}{\varphi_* Y}[g](n)\virgola
 	\end{align*}
+	da cui abbiamo concluso perché se due campi coincidono applicati a tutte le funzioni $C^\infty$, allora coincidono come campi vettoriali.
 \end{proof}
 
 \begin{lemma} \label{lemma:FlussiEMappe}
-	Sia $\varphi:M\to N$ mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M),Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ \Fl{X}{t}=\Fl{Y}{t}\circ\varphi$.
+	Sia $\varphi:M\to N$ una mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M)$, $Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ \Fl{X}{t}=\Fl{Y}{t}\circ\varphi$.
 	
 	In particolare, se $\varphi$ è un diffeomorfismo (e se $(T\varphi)X=Y\circ \varphi$), abbiamo che \\
 	$\Fl{Y}{t}=\varphi\circ \Fl{X}{t}\circ \varphi^{-1}$.
@@ -229,8 +230,8 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proof}
 
 Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale che $X=\frac{\partial}{\partial x^1}$ in un intorno di $p$. Consideriamo $Y$ tale che $Y(p)\neq 0$ e $Y(p)$ è linearmente indipendente da $X(p)$. Ci chiediamo se esiste $(U,\varphi)$ tale che $X=\frac{\partial}{\partial x^1}$ e $Y=\frac{\partial}{\partial x^2}$ in $U$. Se consideriamo il commutatore $\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}$, questo è identicamente nullo per il teorema di Schwarz, infatti data $f\in C^\infty(U)$, abbiamo che
-\begin{equation*} %TODO: sbagliato
-	\left[\frac{\partial}{\partial x^1}-\frac{\partial}{\partial x^2}\right]f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}=0\punto
+\begin{equation*}
+	\comm{\frac{\partial}{\partial x^1}}{\frac{\partial}{\partial x^2}}f=\frac{\partial^2f}{\partial x^1\partial x^2}-\frac{\partial^2f}{\partial x^2\partial x^1}=0\punto
 \end{equation*}
 
 \begin{proposition}
@@ -238,12 +239,12 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 \end{proposition}
 
 \begin{proof}
-	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$, e sia 
+	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$ e sia 
 	\begin{equation*}
-		\Psi(a^1,\dots, a^n)=\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
+		\Psi(a^1,\dots, a^n)\coloneqq\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
 	\end{equation*}
 	Vale allora che
-	\begin{equation*}
+	\begin{equation*} %TODO: capire
 		\Psi_*\left(\frac{\partial}{\partial a^\alpha}\restrict{0}\right) = 
 		\begin{cases}
 			\frac{\partial}{\partial y^\alpha}\restrict{0}, &\text{per $\alpha=k+1,\dots,n$}\\
@@ -265,8 +266,15 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{proposition}
 
 \begin{proof}
-	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)\alpha_3(t,t)$, $\alpha_2(0,t)=\alpha_1(t,t)$ e $\alpha_3(0,t)=\alpha_2(t,t)$.
+	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)=\alpha_3(t,t)$, $\alpha_3(0,t)=\alpha_2(t,t)$ e $\alpha_2(0,t)=\alpha_1(t,t)$.
 	Inoltre data $f:M\to\R$ regolare, vale che  
+	\begin{equation*} %TODO: sistemare
+		\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1 \virgola
+		\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2 \virgola
+		\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3 \virgola
+		\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))
+	\end{equation*}
+
 	$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
 	
 	Utilizzando quanto detto abbiamo
