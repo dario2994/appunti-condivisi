@@ -261,30 +261,29 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 
 Il commutatore dà una misura della non commutazione di due campi vettoriali. In particolare seguiamo in ordine $X$, $Y$, $-X$ e $-Y$ ciascuno per tempo $h$, allora il commutatore ci darà una stima di quanto il punto in cui arriviamo è lontano dal punto di partenza.
 
-\begin{proposition}
+\begin{proposition} \label{prop:DerivataComposizioneFlussi}
 	Dato $p\in M$, sia $c(h)=\Fl{Y}{-h}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}(p)$. Allora $c'(0)=0$.
 \end{proposition}
 
 \begin{proof}
 	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)=\alpha_3(t,t)$, $\alpha_3(0,t)=\alpha_2(t,t)$ e $\alpha_2(0,t)=\alpha_1(t,t)$.
-	Inoltre data $f:M\to\R$ regolare, vale che  
-	\begin{equation*} %TODO: sistemare
-		\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1 \virgola
-		\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2 \virgola
-		\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3 \virgola
-		\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))
-	\end{equation*}
-
-	$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
-	
+	Inoltre data $f:M\to\R$ regolare, vale che
+	\begin{alignat*}{2}
+		&\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1 \virgola \quad&&
+		\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2 \virgola\\
+		&\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3 \virgola \quad&&
+		\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h)) \punto
+	\end{alignat*}
+	%$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
 	Utilizzando quanto detto abbiamo
-	\begin{align*} 
-	(f\circ c)'(0)&=\frac{\de}{\de t}\restrict{t=0}f\circ\alpha_3(t,t) =\Diff_1(f\circ \alpha_3)(0,0)+\Diff_2(f\circ\alpha_3)(0,0) =
-	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\left[D_1(f\circ\alpha_2)(0,0)+\Diff_2(f\circ\alpha_2)(0,0) \right] =
+	\begin{align*} %TODO: valutare di cambiare \Diff
+	(f\circ c)'(0)&=\frac{\de}{\de t}[f\circ\alpha_3(t,t)]\restrict{t=0} =\Diff_1(f\circ \alpha_3)(0,0)+\Diff_2(f\circ\alpha_3)(0,0) =
+	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\left[\Diff_1(f\circ\alpha_2)(0,0)+\Diff_2(f\circ\alpha_2)(0,0) \right] =
 	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\Diff_1(f\circ\alpha_2)(0,0)+\Diff_1(f\circ\alpha_1)(0,0)+\Diff_2(f\circ\alpha_1)(0,0) =
 	\\ &=-(Yf)\circ\alpha_3(0,0)-(Xf)\circ\alpha_2(0,0)+(Yf)\circ\alpha_1(0,0)+(Xf)\circ\alpha_1(0,0) =
-	\\ &=0 \punto
+	\\ &=0 \virgola
 	\end{align*}
+	che per l'arbitrarietà di $f$ ci dà la tesi $c'(0)=0$.
 \end{proof}
 
 \begin{proposition} \label{prop:DefinizioneDerSeconda}
@@ -296,11 +295,11 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{exercise}
 
 \begin{theorem}
-	Se $c(t)$ è come nella \cref{prop:DefinizioneDerSeconda}, $c''(0)=2\comm{X}{Y}(p)$.
+	Se $c(t)$ è come nella \cref{prop:DerivataComposizioneFlussi}, allora $c''(0)=2\comm{X}{Y}(p)$.
 \end{theorem}
 
 \begin{proof}
-	Ricordiamo che $(f\circ c)(t)=(f\circ\alpha_3)(t,t)$. Dunque 
+	Ricordiamo che, data $f:M\to\R$ regolare, vale $(f\circ c)(t)=(f\circ\alpha_3)(t,t)$. Dunque 
 	\begin{equation*}
 		(f\circ c)''(0)=\Diff_{1,1}(f\circ\alpha_3)(0,0)+2\Diff_{2,1}(f\circ\alpha_3)(0,0)+\Diff_{2,2}(f\circ\alpha_3)(0,0)\punto
 	\end{equation*}
@@ -312,9 +311,9 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 	\end{equation*}
 	\item il secondo termine invece
 	\begin{align*}
-		\Diff_{2,1}(f\circ\alpha_3)(0,0) &= D_2(-Yf\circ\alpha_3)(0,0) = \left[\Diff_1(Yf\circ\alpha_2)+D_2(Yf\circ\alpha_2)\right](0,0)
-		\\ &= XYf(p)-\Diff_2(Yf\circ\alpha_2)(0,0)
-		\\ &= XYf(p)-[\Diff_1(Yf\circ\alpha_1)(0,0)+D_2(Yf\circ\alpha_1)(0,0)]
+		\Diff_{2,1}(f\circ\alpha_3)(0,0) &= \Diff_2(-Yf\circ\alpha_3)(0,0) = \left[\Diff_1(Yf\circ\alpha_2)+\Diff_2(Yf\circ\alpha_2)\right](0,0)=
+		\\ &= XYf(p)-\Diff_2(Yf\circ\alpha_2)(0,0)=
+		\\ &= XYf(p)-[\Diff_1(Yf\circ\alpha_1)(0,0)+D_2(Yf\circ\alpha_1)(0,0)]=
 		\\ &= XY(p)-YYf(p)-XYf(p) \puntovirgola
 	\end{align*}
 	\item analogamente si dimostra che per il terzo termine vale
@@ -332,5 +331,5 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \begin{exercise}
 	Sia $f:M\to \R$ regolare e sia $p\in M$ tale che $\Lie_Xf(p)=0$ per ogni $X\in\chi(M)$ (cioè $p$ è un punto critico di $f$). Dati $X_p,Y_p\in T_pM$, siano $\tilde{X},\tilde{Y}\in\chi(M)$ tali che $\tilde{X}(p)=X_p$ e $\tilde{Y}(p)=Y_p$ (è facile costruirne). Definiamo $H_f(X_p,Y_p)\coloneqq\tilde{X}(\tilde{Y}(f))(p)$.
 	
-	Mostrare che $H_f$ è ben definita (ovvero non dipende dalla scelta delle estensioni $\tilde{X},\tilde{Y}$) ed è simmetrica: $H_f(X_p,Y_p)=H_f(Y_p,X_p)$.
+	Mostrare che $H_f$ è ben definita (ovvero non dipende dalla scelta delle estensioni $\tilde{X},\tilde{Y}$) ed è simmetrica, cioè $H_f(X_p,Y_p)=H_f(Y_p,X_p)$.
 \end{exercise}
