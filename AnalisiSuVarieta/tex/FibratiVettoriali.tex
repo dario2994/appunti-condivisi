@@ -99,11 +99,11 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 	La caratteristica di Eulero è un indicatore dell'esistenza di sezioni globali non nulle ovunque.
 \end{remark}
 
-\begin{proposition}
-	Sia $f:E \to E'$ una mappa di fibrato. Allora valgono le seguenti proprietà:
+\begin{proposition} \label{prop:ProprietaMappeFibratiVettoriali}
+	Sia $f:E \to E'$ una mappa di fibrati. Allora valgono le seguenti proprietà:
 	\begin{enumerate}
-	 \item $f$ preserva la sezione nulla (cioè, in modo improprio, $f(B)\subseteq B'$);
-	 \item $f$ induce univocamente una mappa $f_B:B \to B'$ tale che il seguente diagramma commuta: 
+	 \item $f$ preserva la sezione nulla (cioè, in modo improprio, $f(B)\subseteq B'$); \label{pmfv:SezioneNulla}
+	 \item $f$ induce univocamente una mappa $f_B:B \to B'$ tale che il seguente diagramma commuta:  \label{pmfv:InduceMappaBasi}
 	 $\begin{CD}
 	 	E	@>f>>	E' \\
 	 	@VV\pi V	@VV\pi' V \\
@@ -113,6 +113,10 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 	 \item Una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
 	\end{enumerate}
 \end{proposition}
+\begin{proof}
+	Sono tutte facili verifiche, eventualmente passando in carta.
+\end{proof}
+
 
 
 
