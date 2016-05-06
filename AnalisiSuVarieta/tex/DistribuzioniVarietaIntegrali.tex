@@ -102,13 +102,13 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 \end{theorem}
 
 \begin{proof} %TODO: decidere se usare T o \T per il tangente
-	Possiamo supporre $M=\R^n$ e $\Delta_0=\spanrm\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $\T\pi\restrict{\Delta_0}:\Delta_0\to \T_0\R^k\cong \R^k$ è un isomorfismo e per continuità $\T\pi\restrict{\Delta_q}:\Delta_q\to\R^k $ è un isomorfismo per $q$ vicino a 0.
-	Quindi per la \cref{prop:ParentesiZeroImplicaCoordinateLocali} possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(\T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
-	Perciò $(\T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$ e, poiché $\T\pi$ è un isomorfismo, $\comm{X_i}{X_j}(q)=0$ per ogni $q$ vicino a 0 e per ogni $i,j=1,...k$.
+	Possiamo supporre $M=\R^n$ e $\Delta_0=\spanrm\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $T\pi\restrict{\Delta_0}:\Delta_0\to T_0\R^k\cong \R^k$ è un isomorfismo e per continuità $T\pi\restrict{\Delta_q}:\Delta_q\to\R^k $ è un isomorfismo per $q$ vicino a 0.
+	Quindi per la \cref{prop:ParentesiZeroImplicaCoordinateLocali} possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
+	Perciò $(T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$ e, poiché $T\pi$ è un isomorfismo, $\comm{X_i}{X_j}(q)=0$ per ogni $q$ vicino a 0 e per ogni $i,j=1,...k$.
 	Quindi esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$.
 	Notiamo ora che gli insiemi $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ sono varietà integrali di $\Delta$, poiché i vettori tangenti sono combinazioni di $\DerParz{}{x^i}$ per $i=1,\ldots,k$ e quindi di $X_i$ con $i=1,\ldots,k$.
 	
-	Sia ora $N$ una varietà integrale connessa di $\Delta$ vicino a 0 e sia $i:N\to U$ la sua inclusione. Consideriamo (nelle coordinate $(x^i)$ definite sopra) la funzione $x^m\circ i:N\to \R$ per $m=k+1,\ldots,n$. Per ogni $v\in \T_qN$ vale $v(x^m\circ i) = (\T i)(v)(x^m)=0$, perché $\Delta_q$ è generata da $\DerParz{}{x^i}(q)$ per $i=1,\ldots,k$. Quindi, dato che $N$ è connessa, $x^m$ è costante su $N$ per $m=k+1,\ldots,n$.
+	Sia ora $N$ una varietà integrale connessa di $\Delta$ vicino a 0 e sia $i:N\to U$ la sua inclusione. Consideriamo (nelle coordinate $(x^i)$ definite sopra) la funzione $x^m\circ i:N\to \R$ per $m=k+1,\ldots,n$. Per ogni $v\in T_qN$ vale $v(x^m\circ i) = (T i)(v)(x^m)=0$, perché $\Delta_q$ è generata da $\DerParz{}{x^i}(q)$ per $i=1,\ldots,k$. Quindi, dato che $N$ è connessa, $x^m$ è costante su $N$ per $m=k+1,\ldots,n$.
 \end{proof}
 
 \begin{exercise} [Parcheggio]
