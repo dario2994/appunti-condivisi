@@ -79,22 +79,22 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 
 
 \begin{definition} \index{fibrato!vettoriale!mappa} \index{fibrato!vettoriale!isomorfismo}
-	Siano $E,E'$ due fibrati vettoriali. Una mappa $f:E \to E'$ è detta una \emph{mappa} (rispettivamente un \emph{isomorfismo locale}) di fibrati vettoriali se, per ogni $v \in E$ e per ogni banalizzazione locale $(W',\tilde\psi)$ di $E'$ tale che $\pi'(f(w))\in W'$, esiste una banalizzazione locale $(W,\tilde\varphi)$ con $\pi(f(W))\subseteq \pi'(W')$ tale che il rappresentante locale $f_{\tilde\psi\tilde\varphi}\coloneqq \tilde\psi\circ f \circ \tilde\varphi^{-1}$ è una mappa locale di fibrati vettoriali (rispettivamente un isomorfismo locale).
+	Siano $E,E'$ due fibrati vettoriali. Una mappa $f:E \to E'$ è detta una \emph{mappa} (rispettivamente un \emph{isomorfismo locale}) di fibrati vettoriali se, per ogni $v \in E$ e per ogni banalizzazione locale $(W',\tilde\psi)$ di $E'$ tale che $\pi'(f(v))\in W'$, esiste una banalizzazione locale $(W,\tilde\varphi)$ con $\pi(f(W))\subseteq \pi'(W')$ tale che il rappresentante locale $f_{\tilde\psi\tilde\varphi}\coloneqq \tilde\psi\circ f \circ \tilde\varphi^{-1}$ è una mappa locale di fibrati vettoriali (rispettivamente un isomorfismo locale).
 	
 	Se la mappa $f$ è biettiva, $f$ è detta un \emph{isomorfismo} di fibrati vettoriali.
 \end{definition}
 
 
 \begin{definition} \index{sezione!locale} \index{sezione!globale}
-	Sia $\pi:E\to B$ un fibrato vettoriale. Una \emph{sezione locale} di $\pi$ è una mappa (regolare) $\xi:U \to E$ ($U$ aperto in $B$) tale che $\pi(\xi(b)) = b$ per ogni $b\in U$.
+	Sia $\pi:E\to B$ un fibrato vettoriale. Una \emph{sezione locale} di $\pi$ è una mappa (regolare) $\xi:U \to E$ con $U$ aperto in $B$ tale che $\pi(\xi(b)) = b$ per ogni $b\in U$.
 	
-	Se $U = B$, $\xi$ è detta \emph{sezione globale}.
+	Se $U = B$, la mappa $\xi$ è detta \emph{sezione globale}.
 \end{definition}
 
 \begin{remark}
 	Le sezioni (diciamo $C^r$) formano uno spazio vettoriale. Usando carte di fibrato è possibile sommare nelle seconde componenti delle banalizzazioni locali.
 	
-	In particolare la sezione nulla (che esiste sempre) associa in ogni carta di fibrato il punto $b\in B$ al $(b,0)$ ed è in corrispondenza naturale con $B$.
+	In particolare la sezione nulla (che esiste sempre) associa in ogni carta di fibrato il punto $b\in B$ al punto $(b,0)$ ed è in corrispondenza naturale con $B$.
 	
 	La caratteristica di Eulero è un indicatore dell'esistenza di sezioni globali non nulle ovunque.
 \end{remark}
@@ -112,7 +112,6 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 	 (cioè $\pi'\circ f = f_B \circ \pi$);
 	 \item Una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
 	\end{enumerate}
-
 \end{proposition}
 
 
