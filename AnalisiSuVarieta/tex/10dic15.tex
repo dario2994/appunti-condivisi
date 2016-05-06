@@ -7,7 +7,7 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 \begin{definition} \index{fibrato!vettoriale}
 	Un \emph{fibrato vettoriale} di rango $k\in\N$ consiste di uno spazio totale $E$, una base $M$ ($E$ ed $M$ varietà) ed una proiezione $\pi:E\to M$ (mappa regolare) tale che per ogni $x\in M$ la sua fibra $E_x\coloneqq \pi^{-1}(x)$ ha una struttura di spazio vettoriale.
 	
-	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeomorfismo $\tilde\varphi:\pi^{-1}(U)\to U\times R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
+	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeomorfismo $\tilde\varphi:\pi^{-1}(U)\to U\times \R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
 	La coppia $(U,\tilde\varphi)$ è detta \emph{carta di fibrato}.
 \end{definition}
 
@@ -24,7 +24,7 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in A}$ un ricoprimento tramite aperti che banalizza localmente il fibrato e siano $\tilde\varphi_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times \R^k$ le banalizzazioni locali.
 
 \begin{definition} \index{mappa!di transizione}
-	Se $U_\alpha\cap U_\beta\ne \emptyset$ definiamo la \emph{mappa di transizione} $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k,\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha} = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
+	Se $U_\alpha\cap U_\beta\ne \emptyset$ definiamo la \emph{mappa di transizione} $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k,\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha}(x) = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
 \end{definition}
 	
 \begin{proposition}
@@ -39,23 +39,22 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 \begin{remark}
 	È possibile ricostruire un fibrato vettoriale tramite relazioni di equivalenza in base alle funzioni di transizione.\footnote{Si può trovare nel libro di Husemoller.}
 	
-	In particolare si ottiene che $E = \sqcup_{\alpha\in A} U_\alpha \times \R^k / \sim$ dove $(x,v)\sim (y,w)$ se e solo se $x=y$ e $w = \tilde\varphi_{\beta\alpha}v$.
+	In particolare si ottiene che $E = \bigsqcup_{\alpha\in A} U_\alpha \times \R^k / \sim$ dove $(x,v)\sim (y,w)$ se e solo se $x=y$ e $w = \tilde\varphi_{\beta\alpha}v$.
 \end{remark}
 
-\begin{example}
-	(Fibrato tangente di una varietà) Dati $(U,\varphi)$ carta di $M$ e $p\in U$, un vettore di $T_pM$ si esprime come $v = \sum_{i=1}^n V^i\DerParz{}{x^i}(\varphi(p))$. Sia $(\hat U, \hat \varphi)$ una nuova carta, con $p\in \hat U$ e coordinate $(y^1,\dots, y^n)$.
-	 Se $\hat V^j$ sono le componenti di $v$ nella carta $(\hat U,\hat \varphi)$, abbiamo (per la controvarianza) che
+\begin{example} %TODO: attenzione: potrei aver aggiunto dei typo
+	(Fibrato tangente di una varietà) Dati $(U_1,\varphi_1)$ carta di $M$ con coordinate $(\seqa xn,)$ e $p\in U$, un vettore $v$ di $T_pM$ si esprime come $v = \sum_{i=1}^n V^i_1\DerParz{}{x^i}(\varphi_1(p))$. Sia $(U_2, \varphi_2)$ una nuova carta, con $p\in U_2$ e coordinate $(y^1,\dots, y^n)$.
+	 Se $V^j_2$ sono le componenti di $v$ nella carta $(U_2,\varphi_2)$, abbiamo (per la controvarianza) che
 	 \begin{equation*}
-	 	\hat V^i = \sum_{j=1}^n \DerParz{y^i}{x^j}(\varphi(p))V^j\punto
+	 	V^i_2 = \sum_{j=1}^n \DerParz{y^i}{x^j}(\varphi_1(p))V^j_1\punto
 	 \end{equation*}
-	 La funzioni di transizione da $\varphi$ a $\hat \varphi$ è quindi
+	 La funzione di transizione da $\varphi_1$ a $\varphi_2$ è quindi
 	 \begin{equation*}
-	 \tilde\varphi_{21}(p)(V^1,\dots,V^n) = \left(\sum_{j=1}^n \DerParz{y^i}{x^j}(\varphi(p))V^j\right)_{j=1,\dots,n}\punto
+	 \tilde\varphi_{21}(p)(V^1,\dots,V^n) = \left(\sum_{j=1}^n \DerParz{y^i}{x^j}(\varphi_1(p))V^j\right)_{j=1,\dots,n}\punto
 	 \end{equation*}
-	 
-	 Se $(\check U, \check \varphi)$ è una terza carta, con $p\in \check U$ e con coordinate $(z^1,\dots,z^n)$, allora
+	 Se $(U_3, \varphi_3)$ è una terza carta, con $p\in U_3$ e con coordinate $(z^1,\dots,z^n)$, allora
 	 \begin{equation*}
-	 	\DerParz{z^i}{x^j}(\varphi(p)) = \sum_{l=1}^n \DerParz{z^i}{y^l}(\hat\varphi(p)) \DerParz{y^l}{x^j}(\varphi(p))  
+	 	\DerParz{z^i}{x^j}(\varphi_1(p)) = \sum_{l=1}^n \DerParz{z^i}{y^l}(\varphi_2(p)) \DerParz{y^l}{x^j}(\varphi_1(p))  
 	 \end{equation*}
 	e quindi $\tilde\varphi_{31}=\tilde\varphi_{32}\circ \tilde\varphi_{21}$.
 	
@@ -64,7 +63,7 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 \end{example}
 
 \begin{example}
-	Consideriamo la sfera $S^2$ come unione di $U_1 = S^2\setminus \{S\}$ e $U_2 = S^2\setminus \{N\}$. Usando le coordinate stereografiche, su $U_1\cap U_2\cong \R^2\setminus\{0\}$ definiamo in coordinate polari $\tilde\varphi_{21}(r,\theta) = r^k \left(\begin{matrix} \cos(k\theta)& -\sin(k\theta)\\ \sin(k\theta)& \cos(k\theta) \end{matrix}\right)$ con $k\in\N$.
+	Consideriamo la sfera $S^2$ come unione di $U_1 = S^2\setminus \{S\}$ e $U_2 = S^2\setminus \{N\}$, con $S$ ed $N$ polo sud e nord come già visti. Usando le coordinate stereografiche, su $U_1\cap U_2\cong \R^2\setminus\{0\}$ definiamo in coordinate polari $\tilde\varphi_{21}(r,\theta) = r^k \left(\begin{matrix} \cos(k\theta)& -\sin(k\theta)\\ \sin(k\theta)& \cos(k\theta) \end{matrix}\right)$ con $k\in\N$.
 	
 	Questa costruzione definisce un fibrato di rango 2 su $S^2$.
 \end{example}
