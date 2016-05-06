@@ -62,7 +62,7 @@ Ci sono due possibili approcci:
 	 \end{multline*}
 
 	\item [$\mathcal D_2$)] (Supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto) $\mathcal D$ è locale (naturale rispetto alle restrizioni).
-	Se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal (t\restrict U)$, ovvero che il seguente diagramma commuti:
+	Se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal D (t\restrict U)$, ovvero che il seguente diagramma commuti:
 	$
 	\begin{CD} 
 	 \Tau_s^r(V) @>i_U>> \Tau_s^r(U) \\
@@ -126,7 +126,7 @@ Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\math
 	
 	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$, allora: 
 	\begin{align*}
-	(\mathcal D\delta)(\alpha X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\punto %TODO: sistemare
+	(\mathcal D\delta)(\alpha, X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\punto %TODO: sistemare
 	\end{align*}
 \end{proof}
 
@@ -156,14 +156,16 @@ Per Leibnitz le ipotesi del teorema sono soddisfatte.
 	
 	  $  \mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = $
 	  $  \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = $ \\
-	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)))] + $ \\
-	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))} +$ \\
-	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s))} $
+	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) + $ \\
+	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +$ \\
+	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] $
+	
 	Ma sapendo che $\varphi^*=(\varphi^{-1})_*$ l'ultima espressione diventa:
 	
 	  $ (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +$\\
 	  $ +\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)}$
-	  ed ho quindi la tesi.
+	 
+	 ed ho quindi la tesi.
 	
 	\item [$\mathcal D_2$]
 		Sia $t\in\Tau_s^r(M)$, allora
@@ -181,7 +183,7 @@ Sia $\varphi: U \to \R^n$ una carta e sia $X\in\chi(M)$. Siano $X'$ e $t'$ le co
 Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), allora
 $(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$.
 
-Quindi $(\Lie_X f)' = X' \DerParz{}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+Quindi $(\Lie_X f)' = X' \DerParz{f'}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
 
 Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
 
