@@ -3,23 +3,23 @@
 \section{Omomorfismi fra gruppi di Lie}
 
 Siano $G,H$ gruppi di Lie e $\phi : G\to H$ un omomorfismo di classe $C^\infty$.
-Allora $\phi_* : T_eG \to T_eH$.
+Allora è definito $\phi_* : T_eG \to T_eH$.
 Per ogni $a \in G$, $\phi \circ L_a = L_{\phi(a)} \circ \phi$.
 
-Se $X \in T_eG$ e definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $(\phi_*)_eX $ che vale $\phi_*X$ in $e_H$.
+Se $X \in T_eG$ definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $(\phi_*)_eX $ che vale $\phi_*X$ in $e_H$.
 Allora $(\phi_*)_a \tilde X(a) = (\phi_*)_a (L_a)_*X = (L_{\phi(a)})_* (\phi_*)_eX = \tilde{\tilde X} (\phi(a))$ con $\tilde X\in\chi(G)$ invariante a sinistra tale che $\tilde X(e) = X$.
 
-Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to \mathfrak h$ è un omomorfismo di algebra di Lie, cioè una mappa lineare che soddisfa $(\phi_*)_e \comm XY _{\mathfrak g} = \comm{ (\phi_*)_eX, (\phi_*)_eY }{}_{\mathfrak h}$.
+Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to \mathfrak h$ è un omomorfismo di algebra di Lie, cioè una mappa lineare che soddisfa $(\phi_*)_e \comm XY _{\mathfrak g} = \comm{ (\phi_*)_eX}{ (\phi_*)_eY }_{\mathfrak h}$.
 
-\begin{theorem}
-	Siano $G,H$ gruppi di Lie e $\Phi: \mathfrak g \to \mathfrak h$ un omomorfismo di algebra di Lie. Allora esiste $U$ intorno di $e$ in $G$ e una mappa $\phi: U \to H$ di classe $C^\infty$ tale che $\phi(ab) = \phi(a) \phi(b)$ per ogni $a,b \in U$ con $ab \in U$ e tale che $(\phi_*)_e X = \Phi X$ per ogni $X\in\mathfrak g$.
-	Inoltre se esistono $\phi,\psi : G \to H$ omomorfismi $C^\infty$ tali che $(\phi_*)_e = (\psi_*)_e = \Psi$ e se $G$ è connesso, allora $\phi = \psi$.
+\begin{theorem}\label{Teo:OmomorfismiAlgebreLie}
+	Siano $G,H$ gruppi di Lie e $\Phi: \mathfrak g \to \mathfrak h$ un omomorfismo di algebre di Lie. Allora esiste $U$ intorno di $e$ in $G$ e una mappa $\phi: U \to H$ di classe $C^\infty$ tale che $\phi(ab) = \phi(a) \phi(b)$ per ogni $a,b \in U$ con $ab \in U$ e tale che $(\phi_*)_e X = \Phi X$ per ogni $X\in\mathfrak g$.
+	Inoltre se esistono $\phi,\psi : G \to H$ omomorfismi $C^\infty$ tali che $(\phi_*)_e = (\psi_*)_e = \Phi$ e se $G$ è connesso, allora $\phi = \psi$.
 \end{theorem}
 \begin{proof}
 	Sia $\mathfrak f \subseteq \mathfrak g \times \mathfrak h$ l'insieme $\mathfrak f = \{ (X,\Phi(X)), X \in \mathfrak g \}$.
 	Dato che $\Phi$ è un omomorfismo di algebre di Lie, allora $\mathfrak f$ è una sottoalgebra di $\mathfrak g \times \mathfrak h = \Lie(G\times H)$.
 	Quindi esiste $K$ sottogruppo di Lie di $G\times H$ tale che $\Lie(K) = \mathfrak f$.
-	Sia $\pi_1:G\times H \to G$ la proiezione e $\omega = \pi_1\restrict K$.
+	Sia $\pi_1:G\times H \to G$ la proiezione sul primo fattore e $\omega = \pi_1\restrict K$.
 	Allora $\omega: K \to G$ è un omomorfismo.
 	Dato $X\in \mathfrak g$, $\omega_*(X,\Phi(X)) = X$, quindi $\omega_*:T_{(e,e)}K\to T_e G$ è un isomorfismo.
 	Quindi esiste $V$ intorno di $(e,e) \in K$ tale che $\omega$ mappa $V$ diffeomorficamente su $U$ intorno di $e\in G$.
@@ -35,7 +35,7 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 	Se due gruppi di Lie hanno algebre di Lie isomorfe, allora sono localmente isomorfi.
 \end{corollary}
 \begin{proof}
-	Dato $\Phi: \mathfrak g \to \mathfrak h$ isomorfismo, sia $\phi$ la mappa data dal teorema. %TODO: aggiungere cref
+	Dato $\Phi: \mathfrak g \to \mathfrak h$ isomorfismo, sia $\phi$ la mappa data dal \cref{Teo:OmomorfismiAlgebreLie}
 	Questa soddisfa $(\phi_*)_e = \Phi$ isomorfismo, quindi $\phi$ è un diffeomorfismo in un intorno di $e \in G$.
 \end{proof}
 
@@ -56,15 +56,15 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 % Abbiamo visto che, dato $X \in T_eG \setminus \{0\}$, esiste unico un sottogruppo ad un parametro $\phi(t)$ tale che $\frac{\de\phi}{\de t} = \tilde X(\phi(t))$. 
 
 \begin{corollary}
-	Per ogni $X \in T_eG$, esiste unico un sottogruppo ad un parametro $\phi: \R \to G$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$.
+	Per ogni $X \in T_eG$, esiste un unico sottogruppo ad un parametro $\phi: \R \to G$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$.
 \end{corollary}
 \begin{proof}
-	Sia $f:G\to \R$ e sia $\phi: \R \to G$ un omomorfismo $C^\infty$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$. Abbiamo che
+	Sia $f:G\to \R$ e se $\phi: \R \to G$ è un omomorfismo $C^\infty$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$, abbiamo che
 	\begin{align*}
 		\frac{\de\phi}{\de t}(f) &= \lim_{h\to\infty} \frac{f(\phi(t+h))-f(\phi(t))}{h} = \lim_{h\to\infty} \frac{f(\phi(t)\phi(h))-f(\phi(t))}{h} =\\
 		&=\frac{\de}{\de s}\restrict{s=0} f\circ L_{\phi(t)} \circ \phi(s) = (L_{\phi(t)})_* \frac{\de\phi}{\de s}\restrict{s=0} (f) = (( L_{\phi(t)} )_* X) f = \tilde X(\phi(t)) (f) \punto
 	\end{align*}
-	Quindi se esiste un tale omomorfismo $\phi$, deve essere una curva integrale di $\tilde X$ (estensione di $X$ a $G$).
+	Quindi se esiste un tale omomorfismo $\phi$, deve essere una curva integrale di $\tilde X$ (estensione di $X$ a $G$), abbiamo quindi l'unicità.
 	
 	Viceversa, sia $\phi: \R \to G$ una curva integrale di $\tilde X$ e consideriamo (fissato $s$) la mappa $t\mapsto \phi(s)\cdot \phi(t)$.
 	Questa è una curva integrale di $\tilde X$ che passa per $\phi(s)$ al tempo 0.
@@ -72,7 +72,7 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 \end{proof}
 
 \begin{remark}
-	Le curve integrali esistono localmente, ma usando le proprietà di gruppo  si può mostrare esistenza globale.
+	Le curve integrali esistono localmente, ma usando le proprietà di gruppo  si può mostrare l'esistenza globale.
 \end{remark}
 
 
@@ -93,7 +93,7 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 	Allora $Y$ genera un flusso $\alpha: \R \times (T_eG \times G) \to T_eG \times G$ di classe $C^\infty$. Si ha che $\exp X$ è la proiezione su $G$ di $\alpha(1,0\oplus X)$, quindi $\exp$ è di classe $C^\infty$.
 	
 	Dato $v\in T_0(T_eG)$, questo si identifica con un vettore in $T_eG$ e la curva $c(t) = tv$ (in $T_eG$) ha vettore tangente $v$ in 0.
-	Quindi $(\exp_*)_0 (v) = \frac{\de \exp(c(t))}{\de t}\restrict {t=0} = \frac{\de}{\de t} \restrict {t=0} \exp(tu)$, perciò $(\exp_*)_0$ è l'identità e di conseguenza $\exp$ è un diffeomorfismo in un intorno di $0\in T_eG$.
+	Quindi $(\exp_*)_0 (v) = \frac{\de \exp(c(t))}{\de t}\restrict {t=0} = \frac{\de}{\de t} \restrict {t=0} \exp(tv)$, perciò $(\exp_*)_0$ è l'identità e di conseguenza $\exp$ è un diffeomorfismo in un intorno di $0\in T_eG$.
 	
 	Sia $\psi: G \to H$ un omomorfismo e sia $\phi: \R \to G$ omomorfismo tale che $\frac{\de \phi}{\de t}\restrict{t=0} = X \in \mathfrak g$.
 	Allora $\psi \circ \phi$ è un omomorfismo e 
@@ -132,7 +132,7 @@ Se $\seqa\omega n,$ sono 1-forme invarianti a sinistra e tali che $\omega^1(e),\
 Sia $\omega$ invariante a sinistra, allora $L_a^*\de\omega = \de L_a^*\omega = \de \omega$. Quindi $\de\omega$ è anch'essa invariante a sinistra. 
 Inoltre se $\omega$ è una 1-forma invariante a sinistra e $\tilde X,\tilde Y \in \chi(G)$ sono campi vettoriali invarianti a sinistra, allora le funzioni $\omega(\tilde X), \omega(\tilde Y)$ sono invarianti a sinistra e quindi costanti (perché $G$ è connesso).
 Abbiamo $\de \omega (\tilde X, \tilde Y) = \tilde X \omega (\tilde Y) - \tilde Y \omega(\tilde X) - \omega(\comm {\tilde X}{\tilde Y}) = - \omega (\comm{\tilde X}{\tilde Y})$, otteniamo quindi $\de \omega (e) (X,Y) = - \omega(e) (\comm XY)$.
-Perciò $\div(e)(X,Y) = -\omega(e)(\comm XY)$. %TODO: \label *
+Perciò $\div(e)(X,Y) = -\omega(e)(\comm XY)$. (*)
 
 Siano $\omega^1(e), \ldots, \omega^n(e)$ come sopra e consideriamo una base duale $\seqb Xn,$ di $T_eG$. Esistono delle costanti $c_{ij}^k$ tali che $\comm{X_i}{X_j} = \sum_{k=1}^n c_{ij}^k X_k$. Questo implica anche che $\comm{\tilde X_i}{\tilde X_j} = \sum_{k=1}^n c_{ij}^k \tilde X_k$.
 
@@ -166,7 +166,7 @@ Inoltre da * abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega
 	\begin{description}
 		\item [Integrabilità:] Siano $\seqb Yn,$ campi nella distribuzione. Allora
 		\begin{align*}
-			(\bar\theta^k - \bar\omega^k) (\comm{Y_\alpha, Y_\beta}) &= -\de (\bar\theta^k - \bar\omega^k)(Y_\alpha, Y_\beta) + Y_\alpha((\bar\theta^k - \bar\omega^k)(Y_\beta)) - Y_\beta ((\bar\theta^k - \bar\omega^k) ( Y_\alpha)) =\\
+			(\bar\theta^k - \bar\omega^k) (\comm{Y_\alpha}{ Y_\beta}) &= -\de (\bar\theta^k - \bar\omega^k)(Y_\alpha, Y_\beta) + Y_\alpha((\bar\theta^k - \bar\omega^k)(Y_\beta)) - Y_\beta ((\bar\theta^k - \bar\omega^k) ( Y_\alpha)) =\\
 			&= - \de (\bar\theta^k - \bar\omega^k) (Y_\alpha,Y_\beta) = 0\virgola
 		\end{align*}
 		dove l'ultima uguaglianza è data dall'\cref{eq:starstar}.
