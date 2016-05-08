@@ -16,7 +16,7 @@ Da Leibnitz, se $\alpha\in\chi^*(M)$, $v$ vettore costante in $\R^n$:
 \end{equation*}
 perciò
 \begin{equation*}
-	(\Lie_X\alpha)_i = X^j \DerParz{\alpha^i}{x^j} + \alpha_j \DerParz{X^j}{x^i}
+	(\Lie_X\alpha)_i = X^j \DerParz{\alpha_i}{x^j} + \alpha_j \DerParz{X^j}{x^i}
 \end{equation*}
 %Fino a qui fatto l'altra volta
 
@@ -44,7 +44,7 @@ dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 \begin{example}
 	\begin{enumerate}
 		\item Calcoliamo in $\R^2$ $\Lie_Xt$, con $t=x\DerParz{}{y}\otimes \de x \otimes \de y + y\DerParz{}{y} \otimes \de y \otimes \de y$ e $X = \DerParz{}{x} + x \DerParz{}{y}$.
-		Per linearità in $X$, $\Lie_Xt = \Lie_{\DerParz{}{x}}t + \Lie_{\DerParz{}{y}}t$ e abbiamo che
+		Per linearità in $X$, $\Lie_Xt = \Lie_{\DerParz{}{x}}t + \Lie_{x\DerParz{}{y}}t$ e abbiamo che
 		\begin{equation*}
 			\Lie_{\DerParz{}{x}} t = \Lie_{\DerParz{}{x}} \left[x \DerParz{}{y}\otimes \de x \otimes \de y\right] + \Lie_{\DerParz{}{x}} \left[y \DerParz{}{y}\otimes \de y \otimes \de y\right]
 		\end{equation*}
@@ -106,8 +106,12 @@ Hanno applicazioni per esempio in geometria perché possono dare informazioni su
 
 \section{Algebre esterne}
 
+\begin{definition}
+ 
 Dati $V,W$ spazi vettoriali (finito dimensionali), le \emph{mappe antisimmetriche} in $T^0_k(V,W)$ sono quelle per cui vale $t(\seqb{e}{k}{,}) = (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)})$ per ogni $\seqb{e}{k}{,} \in V$ e per ogni $\sigma\in S_k$.
 Si indicano con $\Lambda^k(V,W)$ (per brevità indicheremo anche $\Lambda^k(V,\R) = \Lambda^k(V)$) e vengono dette $k$-forme esterne.
+
+\end{definition}
 
 Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tramite antisimmetrizzazione. 
 \begin{example}
@@ -182,8 +186,8 @@ Si chiamano algebre esterne perché si può fare un prodotto esterno.
 	\end{equation*}
 
 	\begin{equation*}
-		\antisimm(\antisimm \alpha \otimes \beta) = \antisimm(\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau) (\tau\alpha \otimes \beta) =
-		\frac 1{k!} \sum_{\tau\in S_k} \antisimm(\tau\alpha\otimes \beta)\punto
+		\antisimm(\antisimm \alpha \otimes \beta) = \antisimm(\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau) (\tau\alpha \otimes \beta)) =
+		\frac 1{k!} \sum_{\tau\in S_k}(\sgn\tau) \antisimm(\tau\alpha\otimes \beta)\punto
 	\end{equation*}
 	Sia $\tau'\in S_{k+l}$ tale che
 	\begin{equation*}

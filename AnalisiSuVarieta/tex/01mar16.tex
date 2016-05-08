@@ -29,9 +29,9 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 \begin{proposition}
 	Sia $V$ uno spazio $n$-dimensionale orientato e sia $g\in T^0_2(V)$ un tensore simmetrico e definito positivo.
 	Sia $\mu=\mu(g)$ l'elemento di volume corrispondente.
-	Allora esiste un'unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$ che soddisfa
+	Allora esiste un unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$ che soddisfa
 	\begin{equation} \label{eq:star}
-	 = \Scal \alpha\beta \mu
+	 \alpha \wedge * \beta= \Scal \alpha\beta \mu
 	\end{equation}
 	per ogni $\alpha,\beta \in\Lambda^k(V)$.
 	
@@ -46,7 +46,7 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
 		Dall'\cref{eq:star} $\alpha \wedge * \beta=0$ a meno che $(i_1, \ldots,i_k)=(\sigma(1),\ldots,\sigma(k))$
-		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta=1$.
+		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta=1$.
 		
 		Quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
 		
@@ -94,7 +94,7 @@ Quando $E = TM$ per $M$ varietà, poniamo $\Lambda^k(M) = \Lambda^k(TM)$. Inoltr
 	Se $\alpha \in \Omega^k(M)$ e $\beta \in \Omega^l(M)$, sia $\alpha \wedge \beta : M \to \Lambda^{k+l}(M)$ definita da $(\alpha\wedge\beta)(m) = \alpha(m) \wedge \beta(m)$. Allora $\alpha\wedge\beta \in \Omega^{k+l}(M)$ e questo operatore è bilineare e associativo.
 \end{proposition}
 \begin{proof}
-	Bilinearità e associatività seguono da quella di $\wedge$ in $\Lambda(T_nM)$. La regolarità si mostra lavorando in carta.
+	Bilinearità e associatività seguono da quella di $\wedge$ in $\Lambda(T_mM)$. La regolarità si mostra lavorando in carta.
 \end{proof}
 
 \begin{definition}
@@ -112,7 +112,7 @@ Dato $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}}(x) \de x^{i_
 
 \section{Derivata esterna}
 
-La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Omega^k(M)$. %TODO: d o \de ?
+La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega(M) \to \Omega(M)$.
 
 \begin{theorem}
 	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $\de \coloneqq \de^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
@@ -124,7 +124,7 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	\begin{description} %TODO: cambiare d in \de
+	\begin{description}
 		\item [unicità:] Sia $(U,\varphi)$ una carta di $M$ e consideriamo una $k$-forma $\alpha\in\Omega^k(U)$ con $\alpha = \alpha_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$.
 		Se $k=0$ e $f=x^i$, allora $\de(x^i) = \de x^i$.
 		
@@ -135,14 +135,14 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 		Questa formula caratterizza $\de$ su tutti gli aperti di un atlante (di $M$), quindi per la 4 su tutti gli aperti di $M$.
 		\item [esistenza:] Definiamo $\de$ come dalla formula sopra e verifichiamo tutte le proprietà. $\de$ è ovviamente $\R$-lineare.
 		
-		Sia $\beta\in\Omega^l(M)$ con $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$ con $\seqb kl<$. Allora
+		Sia $\beta\in\Omega^l(M)$ con $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$ con $\seqb jl<$. Allora
 		\begin{align*}
 			\de (\alpha \wedge \beta) &= \de (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
 			&= \left(\DerParz{\alpha_{\seqb ik{}}}{x^i} \beta_{\seqb jl{}} + \alpha_{\seqb ik{}} \DerParz{\beta_{\seqb jl{}}}{x^i} \right) \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l} = \\
 			&=\DerParz{\alpha_{\seqb ik{}}}{x^i} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} \wedge \beta + (-1)^k \alpha \wedge \de \beta \punto
 		\end{align*}
 		
-		Per la 3 usiamo il lemma di Schwartz $\de(\de\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
+		Per la 3 usiamo il lemma di Schwartz $\de(\de\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^j \wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
 		
 		Per verificare 4 mostriamo che non dipende dalle carte. Siano $(U,\varphi), (U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $\de = \de'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
 	\end{description}
@@ -162,14 +162,15 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega^k(M) \to \Ome
 	\end{equation*}
 	\begin{align*}
 		\implies \de \omega (v_0,\ldots,v_k) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
-		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_0^{\sigma(j)} v_1^{\sigma(i_1)} \ldots v_k^{\sigma(i_k)}
+		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_{\sigma(0)}^{j} v_{\sigma(1)}^{i_1} \ldots v_{\sigma(k)}^{i_k}
 	\end{align*}
-	Dove nell'equazione precedente sto sommando su $j=1, \ldots,n$ e $\sigma \in S_n$ tale che $\sigma(j)< \sigma(i_1)< \dots < \sigma(i_k)$.
+	Dove nell'equazione precedente sto sommando su $j=1, \ldots,n$ e $\sigma \in S_{k+1}$.
 	Il membro di destra nell'enunciato è
 	\begin{equation*}
-		(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \sgn(\eta) v_0^{\eta(i_1)} \ldots \hat v_i^{\eta(i_j)} \ldots v_k^{\eta(i_k)}
+		(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j} v_{\eta(1)}^{i_1} \ldots v_{\eta(k)}^{i_k}
 	\end{equation*}
-	Scriviamo $\sigma$ come prodotto di permutazioni che mandano $j$ in un indice dato e otteniamo la conclusione.
+	Dove $\eta \in S_k$, ma quest'ultima equazione è uguale a quella scritta sopra dove otteniamo
+	$\sigma$ da $\eta$ componendo con la trasposizione che manda $0$ in $i$.
 \end{proof}
 
 \begin{example}
