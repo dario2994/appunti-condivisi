@@ -1,14 +1,14 @@
 \chapter{17 marzo 2016}
 
 \begin{remark}
-	Data una scelta di orientazione $[\mu]$ su una $m$-varietà $M$, diciamo che una base $\seqb vm,$ di $T_xM$ è orientata positivamente se $\mu(\seqb vm,)\ge 0$. %TODO: rivedere
+	Data una scelta di orientazione $[\mu]$ su una $m$-varietà $M$, diciamo che una base $\seqb vm,$ di $T_xM$ è orientata positivamente se $\mu(\seqb vm,)\ge 0$.
 \end{remark}
 
 
 \section{Varietà con bordo}
 
 \begin{definition}
-	Siano $E_1,E_2\subseteq \R^n$ semispazi chiusi. Siano $U,V$ aperti di $E_1,E_2$. Una mappa $f:U\to V$ è regolare se per ogni $x\in U$ esiste $U_1$ intorno di $x$ in $\R^n$ e $V_1$ intorno di $f(x)$ in $\R^n$ ed esiste $f_1:U_1\to V_1$ tale che $f\restrict{U\cap U_1} = f_1\restrict{U\cap U_1}$.
+	Siano $E_1,E_2\subseteq \R^n$ semispazi chiusi. Siano $U,V$ aperti di $E_1,E_2$. Una mappa $f:U\to V$ è regolare se per ogni $x\in U$ esiste $U_1$ intorno di $x$ in $\R^n$ e $V_1$ intorno di $f(x)$ in $\R^n$ ed esiste $f_1:U_1\to V_1$ regolare tale che $f\restrict{U\cap U_1} = f_1\restrict{U\cap U_1}$.
 	In questo caso definiamo il differenziale di $f$ in $x$ come $\Diff f(x) \coloneqq \Diff f_1(x)$.
 	
 	La mappa $f$ è detta diffeomorfismo se esiste $g:V\to U$ regolare che è l'inversa di $f$.
@@ -23,11 +23,11 @@
 \end{remark}
 
 \begin{definition}
-	Una \emph{varietà con bordo} è un insieme $M$ munito di un atlante di carte di bordo, cioè coppie $U,\varphi)$ con $u\subseteq M$ aperto, $\varphi(U)\subseteq E$, con $E$ semispazio chiuso di $\R^n$. Si richiede che valgano la proprietà di ricoprimento e la regolarità delle mappe di transizione (nel senso della definizione sopra). %TODO: aggiungere cref
+	Una \emph{varietà con bordo} è un insieme $M$ munito di un atlante di carte di bordo, cioè coppie $(U,\varphi)$ con $U\subseteq M$ aperto, $\varphi(U)\subseteq E$, con $E$ semispazio chiuso di $\R^n$. Si richiede che valgano la proprietà di ricoprimento e la regolarità delle mappe di transizione (nel senso della definizione sopra). %TODO: aggiungere cref
 \end{definition}
 
 \begin{definition}
-	Data $M$ varietà con bordo, definiamo $\Int M = \bigcup_{i} \varphi_i^{-1}(\Int (\varphi_i(U_i)))$ e $\partial M = \bigcup_i \varphi_i^{-1}(\partial (\varphi_i(U_i)))$.
+	Data $M$ varietà con bordo, definiamo $\Int M = \bigcup_{i} \varphi_i^{-1}(\Int (\varphi_i(U_i)))$ e $\partial M = \bigcup_i \varphi_i^{-1}(\partial (\varphi_i(U_i)))$ come parte interna e bordo di $M$.
 \end{definition}
 
 Estendiamo ora a varietà con bordo alcune definizioni date per varietà non con bordo, per definire infine l'orientazione.
@@ -100,7 +100,6 @@ Vediamo ora come possiamo orientare il bordo.
 			\int_{\partial U}\alpha = (-1)^{2n-1} \int_{\R^{n-1}} \alpha^n \seqa{\de x}{n-1}{} \punto
 		\end{equation*}
 
-		%TODO: ho messo i wedge dove non andavano
 
 	\end{enumerate}
 
@@ -114,7 +113,7 @@ Vediamo ora come possiamo orientare il bordo.
 
 La divergenza si interpreta come espansione o contrazione del volume.
 
-\begin{theorem} [Gauss]
+\begin{theorem} [Gauss]\label{Teo:Gauss}
 	Sia $M$ orientata, paracompatta e con bordo. Sia $X\in\chi(M)$ a supporto compatto e sia $\mu$ forma di volume su $M$. Allora
 	\begin{equation*}
 		\int_M (\div X) \mu = \int_{\partial M} i_X \mu \punto
@@ -138,16 +137,18 @@ Se $M$ ammette una metrica $g$ esiste un'unica normale unitaria (rispetto a $g$)
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	Localmente, scegliamo una carta $(U,\varphi)$ tale che $n_{\partial M} = - \DerParz{}{x^m}$. Se $\seqb v{n-1},$ è una base orientata di $T_x\partial M$, vale $\mu_{\partial M}(x) (\seqb v{m-1},) = \mu_m(x) (-\DerParz{}{x^m},\seqb v{m-1},)$
+	Localmente, scegliamo una carta $(U,\varphi)$ tale che $n_{\partial M} = - \DerParz{}{x^m}$. Se $\seqb v{m-1},$ è una base orientata di $T_x\partial M$, vale:
 	
-	\begin{equation*}
-		(i_X\mu_M)(x)(\seqb v{m-1},) = \mu_M (X^i(x)v_i + X^n\DerParz{}{x^n},\seqb v{n-1},) = X^n(x) \mu_{\partial M}(x) (\seqb v{n-1},) \punto
-	\end{equation*}
-	Inoltre $X^n = -g(X,n_{\partial M})$, quindi basta applicare il teorema di Gauss. %TODO: aggiungere cref
+	$\mu_{\partial M}(x) (\seqb v{m-1},) = \mu_m(x) (-\DerParz{}{x^m},\seqb v{m-1},)$. Segue allora che:
+	
+	\begin{align*}
+		(i_X\mu_M)(x)(\seqb v{m-1},) &= \mu_M (X^i(x)v_i + X^m\DerParz{}{x^m},\seqb v{m-1},) \\
+		&= X^m(x) \mu_{\partial M}(x) (\seqb v{m-1},) \punto
+	\end{align*}
+	Inoltre $X^m = -g(X,n_{\partial M})$, quindi basta applicare il \cref{Teo:Gauss}.
 
 \end{proof}
 
-%TODO: controllare che la normale n e la dimensione n di M non si chiamino uguale
 
 \begin{exercise}
 	\begin{enumerate}
@@ -163,13 +164,16 @@ Se $M$ ammette una metrica $g$ esiste un'unica normale unitaria (rispetto a $g$)
 
 \section{Formula di coarea}
 
-Sia $(M,g)$ varietà orientabile $(m+1)$-dimensionale. Sia $f:M \to \R$ una funzione regolare senza punti critici. Allora $M_t = f^{-1} (t)$ è una sottovarietà regolare $m$-dimensionale orientabile, che supponiamo compatta per ogni $t$.
+Sia $(M,g)$ una varietà orientabile $(m+1)$-dimensionale. Sia $f:M \to \R$ una funzione regolare senza punti critici. Allora $M_t = f^{-1} (t)$ è una sottovarietà regolare $m$-dimensionale orientabile, che supponiamo compatta per ogni $t$.
 Per ogni $t$ chiamiamo $\mu_t$ la forma di volume su $M_t$ indotta da $g$ e poniamo $n = \frac{\grad f}{\abs{\grad f}_g}$.
 
+\begin{proposition}
 Sia $F:M \to \R$ a supporto compatto, allora
 \begin{equation*}
 	\int_M F \mu = \int_\R \left( \int_{M_t} \frac F{\abs{\grad f}_g} \mu_t \right) \de t \punto
 \end{equation*}
+
+\end{proposition}
 
 \begin{proof}
 	Fissiamo $t_0$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate in un intorno di $p$.
@@ -180,10 +184,12 @@ Sia $F:M \to \R$ a supporto compatto, allora
 	e integrando abbiamo la conclusione.
 \end{proof}
 
+Consideriamo una prima applicazione per calcolare i volumi delle sfere.
+
 $S^n \hookrightarrow \R^{n+1} = \{(t,\seqa xn,)\}$, siano $p_\pm = S^n\cap\{t=\pm 1\} \in S^n$ i due poli. Sia $\pi:S^n \to \R$ la proiezione su $t$, allora $\de \pi \not=0$ se $t\not=\pm 1$.
 
 Abbiamo $\pi^{-1}(t) = S^{n-1}_{r(t)}$ con $r(t) = (1-t^2)^{\frac 12}$.
-Definisco $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$ con $p'$ la proiezione su $\{t\}\times \{0\}$. Allora $\abs{\de \pi(p)} = (1-t^2)^{\frac 12}$. %TODO: è giusto?
+Definisco $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$ con $p'$ la proiezione su $\{t\}\times \{0\}$. Allora $\abs{\grad \pi(p)} = (1-t^2)^{\frac 12}$.
 
 Per la formula di coarea
 \begin{equation*}
