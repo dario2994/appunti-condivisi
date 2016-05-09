@@ -136,7 +136,7 @@ Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerPa
 \footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}.
 %TODO: vedere se si parla prima di \DerParz{}{x^i} ed eventualmente parlarne prima
 
-Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$. %TODO: capire sta cosa
+Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$. %TODO: capire sta cosa e sistemare in generale quel che segue
 
 Dato $t\in \Tau_s^r(M)$, poniamo $t_{j_1\ldots j_s}^{i_1 \ldots i_r} = t(\de x^{i_1}, \ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, \DerParz{}{x^{j_s}})$.
 Per linearià $t = t_{j_1\ldots j_s}^{i_1 \ldots i_r} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1}\otimes \ldots \otimes \de x^{j_s}$.
@@ -149,11 +149,11 @@ Per le componenti di un tensore $t_{l_1\ldots l_s}^{k_1\ldots k_r} (\text{in } y
 
 Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare e abbassare gli indici serviva un prodotto scalare.
 
-\begin{definition}
+\begin{definition} \index{metrica} \index{tensore!metrico}
 	Una \emph{metrica} (o \emph{tensore metrico}) su una varietà $M$ è un campo tensoriale $g \in \Tau_2^0(M)$ che sia simmetrico e definito positivo, cioè $g(p)(v,v)>0$ per ogni $v\in T_pM$ diverso da 0.
 \end{definition}
 
-Un tensore metrico permette di abbassare e alzare gli indici di un campo tensoriale, tramite per esempio $t^{ik} \mapsto t^{ij}g_{jk}$ che è una mappa $\Tau_0^2(M) \to \Tau_1^1(M)$.
+Un tensore metrico permette di abbassare e alzare gli indici di un campo tensoriale, tramite per esempio $t^{ik} \mapsto t^{ij}g_{jk}$, che è una mappa $\Tau_0^2(M) \to \Tau_1^1(M)$.
 
 Data $f\in C^\infty(M)$, con $f \mapsto \de f \in \chi^*(M)$, abbiamo che $\de f(v) = v(f)$ con $v \in T_pM$. Quindi tale funzione $f$ ci dà in modo naturale una 1-forma.
 Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma.
