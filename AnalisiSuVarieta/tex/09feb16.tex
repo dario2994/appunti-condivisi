@@ -149,12 +149,18 @@ allora per linearità
 \end{equation*}
 
 Vediamo quindi i cambi di coordinate.
-Sia quindi $\psi=(y^1,\ldots, y^n): U \to \R^n$ un altro sistema di coordinate e supponiamo $\DerParz{}{x^i} = a_i^j \DerParz{}{y^j}$. Applichiamo il campo vettoriale alla funzione coordinata $y^k$, per ottenere $\DerParz{y^k}{x^i} = a_i^j \DerParz{y^k}{y^j} = a_i^j \delta_j^k = a_i^k$ e quindi $\DerParz{}{x^i} = \DerParz{y^j}{x^i} \DerParz{}{y^j}$.
-Allo stesso modo $\de x^i = \DerParz{x^i}{y^j} \de y^j$.
+Sia quindi $\psi=(y^1,\ldots, y^n): U \to \R^n$ un altro sistema di coordinate e supponiamo $\DerParz{}{y^i} = a_i^j \DerParz{}{x^j}$. Applichiamo il campo vettoriale alla funzione coordinata $x^k$, per ottenere $\DerParz{x^k}{y^i} = a_i^j \DerParz{x^k}{x^j} = a_i^j \delta_j^k = a_i^k$ e quindi $\DerParz{}{y^i} = \DerParz{x^j}{y^i} \DerParz{}{x^j}$.
+Allo stesso modo $\de y^i = \DerParz{y^i}{x^j} \de x^j$.
 
-Per le componenti di un tensore $t_{l_1\ldots l_s}^{k_1\ldots k_r} (\text{in } y) = \DerParz{y^{k_1}}{x^{i_1}} \ldots \DerParz{y^{k_r}}{x^{i_r}} \DerParz{x^{j_1}}{y^{l_1}}\ldots \DerParz{x^{j_s}}{y^{l_s}} t_{j_1\ldots j_s}^{i_1\ldots i_r}$ (criterio di tensorialità).
+Quindi se chiamiamo $\tilde t_{l_1\ldots l_s}^{k_1\ldots k_r} \coloneqq t(\de y^{k_1},\ldots,\de y^{k_r}, \DerParz{}{y^{l_1}},\ldots, \DerParz{}{y^{l_s}})$ le componenti del tensore $t$ rispetto alle coordinate $(\seqa yn,)$, abbiamo che
+\begin{equation*}
+	\tilde t_{l_1\ldots l_s}^{k_1\ldots k_r} = t\left(\de y^{k_1},\ldots,\de y^{k_r}, \DerParz{}{y^{l_1}},\ldots, \DerParz{}{y^{l_s}}\right) = \DerParz{y^{k_1}}{x^{i_1}}\ldots\DerParz{y^{k_r}}{x^{i_r}}\cdot \DerParz{x^{j_1}}{y^{l_1}}\ldots\DerParz{x^{j_s}}{y^{l_s}}\ t_{j_1\ldots j_s}^{i_1\ldots i_r} \virgola
+\end{equation*}
+dove abbiamo utilizzato le proprietà di linearità del tensore.
 
-Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare e abbassare gli indici serviva un prodotto scalare.
+% Per le componenti di un tensore $t_{l_1\ldots l_s}^{k_1\ldots k_r} (\text{in } y) = \DerParz{y^{k_1}}{x^{i_1}} \ldots \DerParz{y^{k_r}}{x^{i_r}} \DerParz{x^{j_1}}{y^{l_1}}\ldots \DerParz{x^{j_s}}{y^{l_s}} t_{j_1\ldots j_s}^{i_1\ldots i_r}$ (criterio di tensorialità).
+
+Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare e abbassare gli indici serve un prodotto scalare.
 
 \begin{definition} \index{metrica} \index{tensore!metrico}
 	Una \emph{metrica} (o \emph{tensore metrico}) su una varietà $M$ è un campo tensoriale $g \in \Tau_2^0(M)$ che sia simmetrico e definito positivo, cioè $g(p)(v,v)>0$ per ogni $v\in T_pM$ diverso da 0.
