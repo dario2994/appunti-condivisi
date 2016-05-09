@@ -21,7 +21,7 @@
 	Sia $a\in K$, allora $a^{-1}K$ è connesso poiché $b\mapsto a^{-1}b$ è un omeomorfismo.
 	Inoltre se $e\in a^{-1}K$, allora $a^{-1}K\subseteq K$. Questo è vero per ogni $a\in K$, quindi $K^{-1}K\subseteq K$ e perciò $K$ è un sottogruppo.
 	
-	Sia $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb{-1}$, quindi $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
+	Sia $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb^{-1}$, quindi $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
 	
 	Se $G$ è di Lie, allora è localmente connesso e quindi $K$ è aperto. Perciò $K$ è una sottovarietà e un sottogruppo e di conseguenza ha una struttura di gruppo di Lie.
 \end{proof}
@@ -51,7 +51,7 @@ Dato $X_e \in T_eG$, esiste $X\in\chi(G)$ invariante a sinistra definito dalla f
 \end{proposition}
 \begin{proof}
 	Basta verificarlo in un intorno dell'identità. Sia $(U,\varphi)$ carta di $G$ tale che $e\in U$ e chiamiamo $x$ le sue funzioni coordinate. Scegliamo $V\subseteq U$ che contiene $e$ e tale che $a b, a^{-1}b \in U$ per ogni $a,b\in V$.
-	Dato $a\in V$, $(Xx^i)(a) = ((L_a)_* X_e) (x^i) = X_e (X^i\circ L_a)$.
+	Dato $a\in V$, $X^i(a) = (Xx^i)(a) = ((L_a)_* X_e) (x^i) = X_e (x^i\circ L_a)$.
 	Poiché $(a,b) \mapsto ab$ è $C^\infty$, allora $x^i(ab) = x^i( L_a(b) ) = f^i(x^1(a),\ldots, x^n(a), x^1(b), \ldots, x^n(b) )$ con $f^i$ funzioni di classe $C^\infty$.
 	
 	Ponendo $X_e = \sum_{j=1}^n c^j \DerParz{}{x^j}\restrict e$, abbiamo
@@ -104,11 +104,11 @@ Quindi $T_eH$ è una sottoalgebra $\mathfrak h$ di $\mathfrak g$, cioè $T_eH$ �
 \begin{proof}
 	Dato $a \in G$, sia $\Delta_a$ il sottospazio di $T_aG$ generato da $\tilde X(a)$ con $X\in \mathfrak h$.
 	Poiché $\mathfrak h$ è una sottoalgebra, $\Delta$ è una distribuzione integrabile per la \cref{prop:CondizioneIntegrabilitaDistribuzioniDaGeneratori}.
-	Sia $H$ la varietà integrale massimale contenente $e$. Se $b \in G$, allora $(L_b)_* (\Delta a) = \Delta_b a$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
+	Sia $H$ la varietà integrale massimale contenente $e$. Se $b \in G$, allora $(L_b)_* (\Delta_a) = \Delta_{ba}$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
 	
 	Se $b\in H$, $L_{b^{-1}}$ porta $H$ nella varietà integrale massimale contenente $L_{b^{-1}} (b) =e$; di conseguenza $L_{b^{-1}} H = H$ e perciò $H$ è un sottogruppo di $G$.
 	Manca ora verificare che $(a,b) \mapsto ab$ e $a\mapsto a^{-1}$ sono operazioni $C^\infty$.
-	Però lo spazio tangente di $H$ è $\Delta$, che è di classe $C^\infty$ poiché generata da cambi vettoriali invarianti a sinistra e quindi $C^\infty$.
+	Però lo spazio tangente di $H$ è $\Delta$, che è di classe $C^\infty$ poiché generata da campi vettoriali invarianti a sinistra e quindi $C^\infty$.
 	Come prima si dimostra la regolarità delle funzioni coordinate di prodotti.
 \end{proof}
 

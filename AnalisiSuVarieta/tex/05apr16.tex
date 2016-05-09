@@ -24,7 +24,7 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 	Dato $X\in \mathfrak g$, $\omega_*(X,\Phi(X)) = X$, quindi $\omega_*:T_{(e,e)}K\to T_e G$ è un isomorfismo.
 	Quindi esiste $V$ intorno di $(e,e) \in K$ tale che $\omega$ mappa $V$ diffeomorficamente su $U$ intorno di $e\in G$.
 	
-	Se $\pi_2 : G\times H \to H$ è la proiezione su $H$, definiamo $\phi \coloneqq \pi_2 \circ \omega^{-1}$ su $U$. Quindi $\phi$ realizza la prima condizione. Per la seconda, sia $X\in\mathfrak g$, abbiamo $\omega(X,\Phi(X)) = X$, allora $\phi_*X = (\pi_2)_*(X,\Phi(X)) =\Phi(X)$.
+	Se $\pi_2 : G\times H \to H$ è la proiezione su $H$, definiamo $\phi \coloneqq \pi_2 \circ \omega^{-1}$ su $U$. Quindi $\phi$ realizza la prima condizione. Per la seconda, sia $X\in\mathfrak g$, abbiamo $\omega_*(X,\Phi(X)) = X$, allora $\phi_*X = (\pi_2)_*(X,\Phi(X)) =\Phi(X)$.
 	
 	Dati $\phi,\psi:G\to H$ omomorfismi, definiamo $\theta:G \to G\times H$ iniettivo come $\theta(a) = (a,\psi(a))$. L'immagine $G'$ di $\theta$ è un sottogruppo di Lie di $G\times H$ e dato $X \in \mathfrak g$ vale $\theta_*(X) = (X,\Phi(X))$, allora $\Lie(G') = \mathfrak f$, perciò $G'=K$ e di conseguenza $\psi(a) = \phi(a)$ per ogni $a \in G$. 
 \end{proof}
@@ -89,7 +89,7 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 \end{proposition}
 \begin{proof}
 	Dati $X \in T_eG$ e $a \in G$, consideriamo $T_{(X,a)}(T_eG\times G)$ che si identifica con $T_eG \times T_a G$.
-	Definiamo un campo vettoriale $Y \in \chi(T_eG \times G)$ tramite $Y_{(X,a)} = 0 \oplus \tilde X(a)$.
+	Definiamo un campo vettoriale $Y \in \chi(T_eG \times G)$ tramite $Y(X,a) = 0 \oplus \tilde X(a)$.
 	Allora $Y$ genera un flusso $\alpha: \R \times (T_eG \times G) \to T_eG \times G$ di classe $C^\infty$. Si ha che $\exp X$ è la proiezione su $G$ di $\alpha(1,0\oplus X)$, quindi $\exp$ è di classe $C^\infty$.
 	
 	Dato $v\in T_0(T_eG)$, questo si identifica con un vettore in $T_eG$ e la curva $c(t) = tv$ (in $T_eG$) ha vettore tangente $v$ in 0.
@@ -98,7 +98,7 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 	Sia $\psi: G \to H$ un omomorfismo e sia $\phi: \R \to G$ omomorfismo tale che $\frac{\de \phi}{\de t}\restrict{t=0} = X \in \mathfrak g$.
 	Allora $\psi \circ \phi$ è un omomorfismo e 
 	\begin{equation*}
-		\frac{\de(\psi\circ \psi)}{\de t}\restrict{t=0} = \psi_*(\frac{\de \phi}{\de t}\restrict{t=0}) = \psi_*X\punto
+		\frac{\de(\psi\circ \phi)}{\de t}\restrict{t=0} = \psi_*(\frac{\de \phi}{\de t}\restrict{t=0}) = \psi_*X\punto
 	\end{equation*}
 	Quindi $\exp(\psi_*X) = (\psi\circ\phi)(1) = \psi(\phi(1)) = \psi(\exp(X))$.
 \end{proof}
@@ -150,7 +150,7 @@ Inoltre da * abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega
 
 
 \begin{theorem}
-	Sia $G$ gruppo di Lie con base di 1-forme invarianti a sinistra $\seqa \omega n,$ e costanti di struttura $c_{ij}^k$. Sia $M^n$ una varietà differenziabile con forme $\seqa \theta n,$ linearmente indipendenti tali che $\de \theta^k = - \sum_{i<j} c_{ij}^k \theta^i\wedge \theta^j$.
+	Sia $G$ gruppo di Lie con base di 1-forme invarianti a sinistra $\seqa \omega n,$ e costanti di struttura $c_{ij}^k$. Sia $M^n$ una varietà differenziabile con 1-forme $\seqa \theta n,$ linearmente indipendenti tali che $\de \theta^k = - \sum_{i<j} c_{ij}^k \theta^i\wedge \theta^j$.
 	Allora per ogni $p\in M$ esiste $U$ intorno di $p$ ed $f: U \to G$ diffeomorfismo tale che $\theta^i = f^*\omega^i$. 
 \end{theorem}
 \begin{proof}
