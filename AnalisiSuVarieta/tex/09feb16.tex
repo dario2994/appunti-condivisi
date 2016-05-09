@@ -1,15 +1,15 @@
-\chapter{9 febbraio}
+\chapter{Fibrati e campi tensoriali}
 
-\section{Fibrati e campi tensoriali}
+\section{Definizioni e risultati locali}
 
-Lo scopo è estendere l'algebra tensoriale a fibrati vettoriali (locali e globali).
+Lo scopo è estendere l'algebra tensoriale a fibrati vettoriali (locali e poi globali).
 
 Sia $M$ una varietà, $U\subseteq M$ un aperto e $V$ uno spazio vettoriale. Allora $U\times V$ e $U\times T_s^r(V)$ sono fibrati vettoriali locali.
 
 Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\varphi$ ristretta alle fibre è un isomorfismo, allora $\varphi$ induce una mappa di fibrato locale sui fibrati tensoriali corrispondenti.
 
-\begin{definition} \index{mappelocali!fibrati!tensoriali}
-	Sia $\varphi$ come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
+\begin{definition} \index{mappe locali!fibrati!tensoriali}
+	Sia $\varphi:U\times V \to U'\times V'$ una mappa locale di fibrato, come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
 \end{definition}
 
 \begin{lemma} \label{lem:DualeEInversaRegolari}
@@ -17,42 +17,45 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 	Allora $\mathcal A$ e $\mathcal B$ sono di classe $C^\infty$ e $\Diff \mathcal B(\varphi)[\psi] = -\varphi^{-1}\ \circ\ \psi\ \circ\ \varphi^{-1}$.
 \end{lemma}
 
-\begin{proposition}
+\begin{proposition} \label{prop:DaIsomorfismoLocaleFibratiVettAIsomorfismoLocaleFibratiTens}
 	Se $\varphi:U\times V\to U'\times V'$ è una mappa locale di fibrato tale che $\varphi_u$ (restrizione alla fibra su $u$) è un isomorfismo per ogni $u\in U$, allora $\varphi_*: U\times T_s^r(V)\to U'\times T_s^r(V')$ è una mappa locale di fibrati e $(\varphi_u)_* = (\varphi_*)_u$ è un isomorfismo per ogni $u\in U$.
 	
 	Inoltre se $\varphi$ è un isomorfismo locale di fibrati, lo è anche $\varphi_*$.
 \end{proposition}
 
 \begin{proof}
-	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForwardIsomorfismi}.
-	Perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e per il \cref{lem:DualeEInversaRegolari} $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
-	Ricordiamo che $\varphi_*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. Allora
+	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForwardIsomorfismi}, perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e, per il \cref{lem:DualeEInversaRegolari}, $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
+	Ricordiamo che $\varphi_*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$; allora
 	segue immediatamente la regolarità di $(\varphi_u)_*$ valutando l'equazione precedente sulla fibra ed avendo a destra una funzione regolare.
 \end{proof}
 
 
 %%%%%
 
-\begin{remark} %TODO: da sistemare al posto giusto se già non c'è
-Se $t\in T_0^r(V)$ non serve avere $\varphi$ isomorfismo.
-Se $t\in T_s^0(W)$ è sempre possibile fare il pull-back.
-\end{remark}
+% \begin{remark} %TODO: così com'è questa nota  c'è già, ma magari si può fare un cenno all'estensione a fibrati
+% Se $t\in T_0^r(V)$ non serve avere $\varphi$ isomorfismo.
+% Se $t\in T_s^0(W)$ è sempre possibile fare il pull-back.
+% \end{remark}
 
 \section{Fibrati tensoriali}
 
-\begin{definition}
-	Sia $\pi:E\to B$ un fibrato vettoriale con fibra $E_b \coloneqq \pi^{-1}(b)$ per ogni $b\in B$. Definiamo
+\begin{definition} \index{fibrato!tensoriale}
+	Sia $\pi:E\to B$ un fibrato vettoriale con fibra $E_b \coloneqq \pi^{-1}(b)$ per ogni $b\in B$. Definiamo il \emph{fibrato tensoriale} relativo come
 	\begin{equation*}
 		T_s^r(E) = \bigcup_{b\in B} T_s^r(E_b)
 	\end{equation*}
 	e sia $\pi_s^r:T_s^r(E)\to B$ definito da $\pi_s^r(e) = b$ per ogni $e\in T_s^r(E_b)$.
 	Inoltre, dato $A\subseteq B$, sia $T_s^r(E)\restrict A = \bigcup_{b\in A} T_s^r(E_b)$.
+\end{definition}
 
-	Se $\pi':E'\to B'$ è un altro fibrato vettoriale e se $(\varphi,\varphi_0):E\to E'$ è una mappa fra fibrati vettoriali tale che $\varphi_b \coloneqq \varphi\restrict{E_b}$ è un isomorfismo per ogni $b\in B$, sia $\varphi_*:T_s^r(E)\to T_s^r(E')$ definita da $\varphi_*\restrict{T_s^r(E_b)} = (\varphi_b)_*$.
+\begin{definition} \index{fibrato!tensoriale!push-forward}
+	Se $\pi':E'\to B'$ è un altro fibrato vettoriale e se $(\varphi,\varphi_0):E\to E'$ è una mappa fra fibrati vettoriali tale che $\varphi_b \coloneqq \varphi\restrict{E_b}$ è un isomorfismo per ogni $b\in B$, sia $\varphi_*:T_s^r(E)\to T_s^r(E')$ il \emph{push-forward} di $\varphi$ definito da $\varphi_*\restrict{T_s^r(E_b)} = (\varphi_b)_*$.
 \end{definition}
 
 Sia $(E\restrict U,\varphi)$ una carta locale di $\pi$, con $U\subseteq B$ aperto. Allora $\varphi_* \restrict{T_s^r(E)\restrict U}$ è una biezione su un fibrato locale e quindi è una carta locale.
 Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la carta preserva la struttura lineare di ogni fibra. Queste carte sono dette \emph{carte naturali} di $T_s^r(E)$.
+
+\index{fibrato!tensoriale!atlante}
 
 \begin{theorem} \label{thm:AtlanteFibratoTensoriale}
 	Se $\pi: E \to B$ è un fibrato vettoriale, l'insieme delle carte naturali di $\pi_s^r(E):T_s^r(E) \to B$ è un atlante sul fibrato tensoriale.
@@ -64,7 +67,7 @@ Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la ca
 		\item date carte di fibrato $(U_i,\tilde\varphi_i)$, $(U_j,\tilde\varphi_j)$ con $U_i\cap U_j\not=\emptyset$, allora $\tilde\varphi_i( (U_i\times V) \cap (U_j\times V) )$ è un fibrato locale (dove $V\cong E_b$) e $\tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati vettoriali. \label{aft:CambiCarta}
 	\end{enumerate}
 	La \ref{aft:Ricopre} segue dal fatto che partiamo da un atlante per $E$.
-	Per la \ref{aft:CambiCarta}, abbiamo che $\alpha \coloneqq \tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati. Per la proposizione $\alpha_* = (\tilde\varphi_j)_*\circ (\tilde\varphi_i)_*^{-1}$ è anche un isomorfismo locale di fibrati. %TODO: aggiungere cref
+	Per la \ref{aft:CambiCarta}, abbiamo che $\alpha \coloneqq \tilde\varphi_j\circ \tilde\varphi_i^{-1}$ è un isomorfismo locale di fibrati; perciò, per la \cref{prop:DaIsomorfismoLocaleFibratiVettAIsomorfismoLocaleFibratiTens}, anche $\alpha_* = (\tilde\varphi_j)_*\circ (\tilde\varphi_i)_*^{-1}$ è un isomorfismo locale di fibrati.
 \end{proof}
 
 \begin{remark}
@@ -78,26 +81,28 @@ Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la ca
 	Siano $(U,\tilde\varphi)$ e $(V,\tilde\psi)$ carte di fibrato su $E$ ed $E'$ tali che $f(U) \subseteq V$ e sia $f_{\tilde\varphi\tilde\psi} \coloneqq \tilde\psi \circ f \circ \tilde\varphi^{-1}$ la mappa locale di fibrato corrispondente. Allora, usando l'atlante naturale, $(f_*)_{\tilde\varphi_*\tilde\psi_*} = (f_{\tilde\varphi\tilde\psi})_*$.
 \end{proof}
 
-\begin{proposition} \label{prop:ProprietaMappeFibrati} %TODO: cambiare label
+Rivediamo ora le proprietà push-forward, già affrontate nella \cref{prop:ProprietaPushForwardIsomorfismi}, in questo nuovo contesto.
+
+\begin{proposition} \label{prop:ProprietaPushForwardIsomorfismiFraFibrati}
 	Siano $f:E\to E'$ e $g:E' \to E''$ mappe tra fibrati che sono isomorfismi su ogni fibra. Allora
 	\begin{enumerate}
-		\item $g\circ f$ è ancora un isomorfismo su ogni fibra e $(g\circ f)_* = g_* \circ f_*$; \label{pmf:Distributiva}
-		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità; \label{pmf:Identita}
-		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$. \label{pmf:Isomorfismo}
+		\item $g\circ f$ è ancora un isomorfismo su ogni fibra e $(g\circ f)_* = g_* \circ f_*$; \label{ppfiff:Distributiva}
+		\item se $i:E \to E$ è l'identità, allora $i_* : T_s^r(E) \to T_s^r(E)$ è l'identità; \label{ppfiff:Identita}
+		\item se $f:E \to E'$ è un isomorfismo tra fibrati, lo è anche $f^{-1}$ e $(f_*)^{-1} = (f^{-1})_*$. \label{ppfiff:Isomorfismo}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Per la \ref{pmf:Distributiva} basta verificare la proprietà sui rappresentanti locali. La \ref{pmf:Identita} è ovvia e insieme alla \ref{pmf:Distributiva} implica la \ref{pmf:Isomorfismo}.
+	Per la \ref{ppfiff:Distributiva} basta verificare la proprietà sui rappresentanti locali. La \ref{ppfiff:Identita} è ovvia e insieme alla \ref{ppfiff:Distributiva} implica la \ref{ppfiff:Isomorfismo}.
 \end{proof}
 
-Vogliamo ora studiare un caso particolarmente interessante, cioè quello in cui $E = TM$ con $M$ varietà differenziabile. %TODO: verificare se T era definito
+Vogliamo ora studiare un caso particolarmente interessante, cioè quello in cui $E = TM$ con $M$ varietà differenziabile.
 
 \begin{definition} \index{fibrato!dei tensori}
 	Sia $M$ una varietà e sia $\tau_M : TM \to M$ il fibrato tangente. Allora $T_s^r(M) \coloneqq T_s^r(TM)$ è detto \emph{fibrato dei tensori} su $M$ controvarianti di ordine $r$ e covarianti di ordine $s$ (o di tipo $(r,s)$).
 \end{definition}
 
 Quindi in particolare $T_0^1(M)$ si identifica con lo stesso $TM$ e $T_1^0(M)$ con il fibrato cotangente, cioè le mappe lineari su vettori di $TM$.
-In particolare il fibrato cotangente si denota con $\tau_M^* : T^*M \to M$.
+In particolare il fibrato cotangente si denota con $\tau_M^* : T^*M \to M$. \index{fibrato!cotangente}
 
 \section{Campi tensoriali}
 
@@ -108,29 +113,30 @@ Quando $E = T_s^r(M)$ parleremo di campi tensoriali.
 \begin{definition} \index{campo!tensoriale}
 	Un \emph{campo tensoriale} di tipo $(r,s)$ su una varietà $M$ è una sezione di $T_s^r(M)$. Indicheremo $\Gamma^\infty(T_s^r(M))$ con $\Tau_s^r(M)$. %TODO: la tau dovrebbe essere grande, ho definito Tau (da sostituire)
 	
-	Elementi di $\Tau_0^1(M)$ sono campi vettoriali (cioè $\chi(M)$), mentre elmenti di $\Tau_1^0(M)$ sono detti \emph{1-forme differenziali} (denotate $\chi^*(M)$).
+	Elementi di $\Tau_0^1(M)$ sono campi vettoriali (cioè $\chi(M)$), mentre elmenti di $\Tau_1^0(M)$ sono detti \emph{1-forme differenziali} (denotate $\chi^*(M)$). \index{forma!differenziale}
 \end{definition}
 
-Vediamo ora alcune operazioni.
+Vediamo ora alcune operazioni sui campi tensoriali, riportando in questo contesto le operazioni che abbiamo già visto sui tensori. \index{campo!tensoriale!operazioni}
 
+Se $f\in C^\infty(M)$, $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \Tau_s^r(M)$ e $t' \in \Tau_{s'}^{r'}(M)$, possiamo definire
 \begin{itemize}
-	\item Se $f \in C^\infty(M)$ e $t \in \Tau_s^r(M)$, allora $ft \in \Tau_s^r(M)$ è definita da $(ft)(p) \coloneqq f(p) t(p)$.
-\end{itemize}
-Se $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \Tau_s^r(M)$ e $t' \in \Tau_{s'}^{r'}(M)$, possiamo definire
-\begin{itemize}
+	\item $ft \in \Tau_s^r(M)$ come $(ft)(p) \coloneqq f(p) t(p)$;
+% \end{itemize}
+% \begin{itemize}
 	\item $t(\alpha^1,\ldots,\alpha^r,X_1,\ldots, X_s)\in C^\infty(M)$ tale che
 	\begin{equation*}
-		p \mapsto (t(p))(\alpha^1(p),\ldots,\alpha^r(p),X_1(p),\ldots, X_s(p)) \puntovirgola
+		p \mapsto t(p)(\alpha^1(p),\ldots,\alpha^r(p),X_1(p),\ldots, X_s(p)) \puntovirgola
 	\end{equation*}
 	
 	\item $t\otimes t' \in \Tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
 \end{itemize}
-Lo stesso possiamo fare per contrazioni e prodotti interni.
+Analogamente possiamo ridefinire contrazioni e prodotti interni.
 
 Vediamo ora in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$ dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$
 \footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}.
+%TODO: vedere se si parla prima di \DerParz{}{x^i} ed eventualmente parlarne prima
 
-Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$.
+Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$. %TODO: capire sta cosa
 
 Dato $t\in \Tau_s^r(M)$, poniamo $t_{j_1\ldots j_s}^{i_1 \ldots i_r} = t(\de x^{i_1}, \ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, \DerParz{}{x^{j_s}})$.
 Per linearià $t = t_{j_1\ldots j_s}^{i_1 \ldots i_r} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1}\otimes \ldots \otimes \de x^{j_s}$.
