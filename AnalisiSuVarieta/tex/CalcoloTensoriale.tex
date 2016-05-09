@@ -303,34 +303,4 @@ Vediamo ora l'analogo della \cref{prop:ProprietaPushForwardIsomorfismi}, dove pe
 	\end{enumerate}
 \end{proposition}
 
-\section{Fibrati e campi tensoriali}
-
-Lo scopo è estendere l'algebra tensoriale a fibrati vettoriali (locali e globali).
-
-Sia $M$ una varietà, $U\subseteq M$ un aperto e $V$ uno spazio vettoriale. Allora $U\times V$ e $U\times T_s^r(V)$ sono fibrati vettoriali locali.
-
-Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\varphi$ ristretta alle fibre è un isomorfismo, allora $\varphi$ induce una mappa di fibrato locale sui fibrati tensoriali corrispondenti.
-
-\begin{definition} \index{mappelocali!fibrati!tensoriali}
-	Sia $\varphi$ come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
-\end{definition}
-
-\begin{lemma} \label{lem:DualeEInversaRegolari}
-	Sia $\mathrm {GL} (V,W)$ l'insieme degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$. %TODO: controllare che mathcal A e B non siano già usati per altro
-	Allora $\mathcal A$ e $\mathcal B$ sono di classe $C^\infty$ e $\Diff \mathcal B(\varphi)[\psi] = -\varphi^{-1}\ \circ\ \psi\ \circ\ \varphi^{-1}$.
-\end{lemma}
-
-\begin{proposition}
-	Se $\varphi:U\times V\to U'\times V'$ è una mappa locale di fibrato tale che $\varphi_u$ (restrizione alla fibra su $u$) è un isomorfismo per ogni $u\in U$, allora $\varphi_*: U\times T_s^r(V)\to U'\times T_s^r(V')$ è una mappa locale di fibrati e $(\varphi_u)_* = (\varphi_*)_u$ è un isomorfismo per ogni $u\in U$.
-	
-	Inoltre se $\varphi$ è un isomorfismo locale di fibrati, lo è anche $\varphi_*$.
-\end{proposition}
-
-\begin{proof}
-	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForwardIsomorfismi}.
-	Perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e per il \cref{lem:DualeEInversaRegolari} $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
-	Ricordiamo che $\varphi_*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. Allora
-	segue immediatamente la regolarità di $(\varphi_u)_*$ valutando l'equazione precedente sulla fibra ed avendo a destra una funzione regolare.
-\end{proof}
-
 
