@@ -3,13 +3,13 @@
 \section{Definizione e operazioni}
 Dati $V_1,\ldots,V_k,W$ spazi vettoriali, denotiamo con $\Lin^k(V_1,\ldots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\ldots\times V_k$ in $W$. In tutta la trattazione considereremo spazi vettoriali di dimensione finita.
 Denotiamo inoltre con $V^* = \Lin(V,\R)$ lo spazio duale di $V$.
-Se $V$ è $n$-dimensionale ed $e_1,\ldots,e_n$ è una sua base, esiste una base $e^1,\ldots,e^n$ di $V^*$ tale che $\Scal{e^i}{e_j} = \delta_{ij}$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $\Scal{\alpha}{v}$ l'elemento $\alpha$ applicato a $v$.}.
+Se $V$ è $n$-dimensionale ed $e_1,\ldots,e_n$ è una sua base, esiste una base $e^1,\ldots,e^n$ di $V^*$ tale che $\Scal{e^i}{e_j} = \delta^i_j$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $\Scal{\alpha}{v}$ l'elemento $\alpha$ applicato a $v$.}.
 In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \Scal{e^i}{v} e_i$ e $\alpha= \sum_{i=1}^n \Scal{\alpha}{e_i} e^i$.
 
 \begin{definition} \index{tensore} \index{tensore!covariante} \index{tensore!controvariante}
 	Dato $V$ spazio vettoriale definiamo 
 	\begin{equation*}
-	T_s^r(V) = \Lin^{r+s} (\underbrace{V^*,\ldots,V^*}_{\text{$r$ copie}},\underbrace{V,\ldots,V}_{\text{$s$ copie}},\R) \punto
+	T_s^r(V) \coloneqq \Lin^{r+s} (\underbrace{V^*,\ldots,V^*}_{\text{$r$ copie}},\underbrace{V,\ldots,V}_{\text{$s$ copie}},\R) \punto
 	\end{equation*}
 	Gli elementi di $T_s^r(V)$ sono detti \emph{tensori} su $V$, \emph{controvarianti} di ordine $r$ e \emph{covarianti} di ordine $s$ (oppure tensori di tipo $(r,s)$).
 \end{definition}
@@ -31,9 +31,9 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 \begin{example}
 	Vediamo alcuni casi interessanti:
 	\begin{enumerate}
-		\item $T_0^1(V) = \Lin(V^*,\R) \cong V$;
-		\item $T_1^0(V) \cong V^*$;
-		\item $T_2^0(V) \cong \Lin(V,V^*)$, tramite l'isomorfismo dato dalla relazione $t(v,w) = \Scal{f(v)}{w}$, con $t\in T_2^0(V)$ ed $f\in\Lin(V,V^*)$;
+		\item $T_0^1(V) = \Lin(V^*,\R) \cong V$, infatti un elemento $v\in V$ agisce su $V^*$ tramite l'applicazione $\alpha \mapsto \Scal\alpha v$. In questo senso scriveremo $v \in T_0^1$ e in generale quando parleremo di elementi di $V$ come tensori sottoinderemo questa corrispondenza.
+		\item $T_1^0(V) \cong V^*$. Analogamente al caso precedente, nel seguito daremo per scontata questa corrispondenza e diremo $\alpha \in T_1^0$ per un elemento $\alpha \in V^*$.
+		\item $T_2^0(V) \cong \Lin(V,V^*)$, tramite l'isomorfismo dato dalla relazione $t(v,w) = \Scal{f(v)}{w}$, con $t\in T_2^0(V)$ ed $f\in\Lin(V,V^*)$.
 		\item $T_1^1(V) \cong \Lin(V,V)$, tramite la relazione $t(\alpha,v) = \Scal{\alpha}{\tilde f (v)}$, con $t\in T_1^1(V)$ e $\tilde f\in \Lin(V,V)$.
 	\end{enumerate}
 \end{example}
@@ -75,9 +75,9 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 	Il tensore $t$ è detto \emph{simmetrico} se $t(e_i,e_j) =t(e_j,e_i)$. In questo caso anche la matrice associata è simmetrica. Questo genera la forma quadratica $Q(e) = t(e,e)$, dalla polarizzata $t(e_i,e_j) = \frac 14 [Q(e_i+e_j)-Q(e_i-e_j)]$.
 	
 	\item In generale $t\in T_0^r(V)$ è detto \emph{simmetrico} se $t(\alpha^1,\ldots,\alpha^r) = t(\alpha^{\sigma(1)},\ldots,\alpha^{\sigma(r)})$ per ogni permutazione $\sigma$ e per tutti gli $\alpha^1,\ldots,\alpha^r \in V^*$.
-	
 	Inoltre possiamo ancora associare al tensore $t$ il polinomio $P(\alpha) = t(\alpha,\ldots,\alpha)$, omogeneo di grado $r$.
 	
+	Vale una definizione analoga per i tensori covarianti simmetrici.
 	\item Data $\sigma$ permutazione di $\{1,\ldots,k\}$, lo spazio $\Lin^k(V_1,\ldots,V_k,W)$ è isomorfo allo spazio $\Lin^k(V_{\sigma(1)},\ldots,V_{\sigma(k)},W)$.
 	Tale isomorfismo si vede come 
 	\begin{equation*}
@@ -90,11 +90,11 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 \begin{definition} \index{prodotto!interno}
 	Il \emph{prodotto interno} di un tensore con un vettore $v\in V$  è una mappa $i_v:T_s^r(V)\to T_{s-1}^r(V)$ tale che
 	\begin{equation*}
-		i_vt(\beta^1,\ldots,\beta^r,v_1,\ldots,v_{s-1}) = t(\beta^1,\ldots,\beta^r,v,v_1,\ldots,v_{s-1})\punto
+		i_vt(\beta^1,\ldots,\beta^r,v_1,\ldots,v_{s-1}) \coloneqq t(\beta^1,\ldots,\beta^r,v,v_1,\ldots,v_{s-1})\punto
 	\end{equation*}
 	Analogamente possiamo definire il \emph{prodotto interno} con un vettore $\beta \in V^*$ come una mappa $i^\beta:T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
 	\begin{equation*}
-		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) = t(\beta,\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s)\punto
+		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) \coloneqq t(\beta,\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s)\punto
 	\end{equation*}
 \end{definition}
 
@@ -113,7 +113,7 @@ Vediamo ora i prodotti interni in componenti. Per linearità, ci basta esplicita
 \begin{definition} \index{contrazione}
 	La \emph{contrazione} del $k$-esimo indice controvariante con l'$l$-esimo indice covariante (contrazione di tipo $(k,l)$) è la mappa lineare $C_l^k:T_s^r(V)\to T_{s-1}^{r-1}(V)$ definita da 
 	\begin{multline*}
-		C_l^k(t_{j_1\ldots j_s}^{i_1\ldots i_r}\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}) =\\
+		C_l^k(t_{j_1\ldots j_s}^{i_1\ldots i_r}\ e_{i_1}\otimes \ldots \otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes e^{j_s}) \coloneqq\\
 		=t_{j_1\ldots j_{l-1}pj_{l+1}\ldots j_s}^{i_1\ldots i_{k-1}pi_{k+1}\ldots i_r}\ e_{i_1}\otimes \ldots \otimes\hat e_{i_k}\otimes \ldots\otimes e_{i_r}\otimes e^{j_1}\otimes \ldots\otimes \hat e^{j_l}\otimes \ldots \otimes e^{j_s} \virgola
 	\end{multline*}
 	dove per convenzione quando si scrivono indici alti e bassi ripetuti si intende che si somma da $1$ ad $n$ (notazione di Einstein). In questo particolare caso si sta quindi sommando su $p$.
@@ -123,7 +123,7 @@ Vediamo ora i prodotti interni in componenti. Per linearità, ci basta esplicita
 	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$. %TODO: perché?
 \end{remark}
 
-\begin{definition} \index{delta di Kronecker}
+\begin{definition} \index{delta di Kronecker} %TODO: eventualmente spostare sopra.
 	La \emph{delta di Kronecker} è il tensore $\delta \in T_1^1(V)$ definito come
 	\begin{equation*}
 		\delta(\alpha,e) \coloneqq \Scal{\alpha}{e}\punto
@@ -148,13 +148,15 @@ Allora abbiamo due isomorfismi (musicali) che sono:
 La matrice dei coefficienti di $\flat$ è $g_{ij}$ stessa, poiché $(x^\flat)_i = g_{ij}x^j$.
 Invece la matrice dei coefficienti di $\sharp$ è $g^{ij}$, cioè la matrice inversa di $g_{ij}$; infatti $(\alpha^\sharp)^i = g^{ij}\alpha_j$.
 
-L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre $\sharp$ \emph{operatore di innalzamento}. Questo perché permettono di passare da tensori del tipo $(r,s)$ a tensori del tipo $(r-1,s+1)$ e $(r+1,s-1)$ rispettivamente.
+L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre $\sharp$ \emph{operatore di innalzamento}. Questo perché permettono di passare da tensori del tipo $(r,s)$ a tensori del tipo $(r-1,s+1)$ e $(r+1,s-1)$ rispettivamente. \index{operatore! di abbassamento} \index{operatore! di innalzamento}
 
 \begin{example}
 	Se $t$ è di tipo $(0,2)$, possiamo definire $t'\in T_1^1(V)$ tramite $t'(\alpha, e) = t(\alpha^\sharp, e)$ e avremo che $(t')_j^i = g^{ik}t_{kj}$.
 \end{example}
 
+
 \begin{example}
+	Vediamo ora vari esempi riguardanti le varie operazioni definite.
 	\begin{enumerate}
 		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, risulta che il prodotto interno di $t$ con $x$ è 
 		\begin{align*}
@@ -171,7 +173,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 			C_1^2 (t_{klm}^{ij}\ e_i\otimes e_j\otimes e^k\otimes e^l\otimes e^m ) = t_{klm}^{ij}\ \delta_j^k\ e_i\otimes e^l\otimes e^m = t_{klm}^{ik}\ e_i\otimes e^l\otimes e^m \punto
 		\end{equation*}
 		
-		\item Se $t\in T_1^1(V)$ la traccia è definita da $C_1^1(t) = t_i^i$.
+		\item Se $t\in T_1^1(V)$ la sua \emph{traccia} è definita da $C_1^1(t) = t_i^i$. \index{traccia}
 
 		\item Siano $g_{ij}$ i coefficienti di $\ll \cdot, \cdot \gg$, con inversa $g^{ij}$. Alzando e abbassando gli indici otteniamo $g^{jk}g_{kl} = \delta_l^j$ e $g_{jk}g^{kl} = \delta_j^l$.
 		
@@ -179,7 +181,16 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 	\end{enumerate}
 \end{example}
 
-Definiamo ora il duale di una trasformazione lineare.
+\begin{exercise}
+	Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$, dove in questo caso $V=\R^2$.
+\end{exercise}
+\begin{exercise}
+	Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $(mn)^{r+s}$.
+\end{exercise}
+
+\section{Push-forward e pull-back di trasformazioni lineari}
+
+Definiamo innanzitutto il duale di una trasformazione lineare.
 \begin{definition} \index{duale} \index{trasporto}
 	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
 	\begin{equation*}
@@ -188,6 +199,7 @@ Definiamo ora il duale di una trasformazione lineare.
 	per ogni $\beta \in W^*$ ed $e\in V$.
 \end{definition}
 
+Vediamo ora le relazioni fra i coefficienti di $\varphi$ e $\varphi^*$.
 Siano $\{e_1,\ldots, e_n\}$ e $\{f_1,\ldots, f_m\}$ basi di $V^n$ e $W^m$. Supponiamo $\varphi(e_i) = A_i^af_a$ e diciamo che $A_i^a$ \footnote{Supponiamo che il pedice sia la colonna e l'apice la riga.} è la matrice associata a $\varphi$.
 Dato $v = v^ie_i\in V$, vale che $\varphi(v)^a = A_i^a v^i$.
 La matrice moltiplica a sinistra, quindi
@@ -199,33 +211,36 @@ Perciò vale che $\varphi^*(f^a) = A_i^a e^i$.
 Se $\beta = \beta_a f^a \in W^*$, allora $\varphi^*(\beta) = \beta_a \varphi^*(f^a) = \beta_aA_i^ae^i$.
 Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplica a destra.
 
-\section{Push-forward e pull-back}
+
+Definiamo di seguito push-forward e pull-back di isomorfismi fra spazi vettoriali, vedendo poi che tale definizione si può estendere a tutte le trasformazioni nel caso di tensori solo controvarianati o solo covarianti rispettivamente.
 
 \begin{definition} \index{isomorfismo!push-forward}
-	Se $\varphi \in \Lin(V,W)$ è un isomorfismo, il push-forward $\varphi_* = T_s^r(\varphi)$ è la mappa in $\Lin(T_s^r(V), T_s^r(W))$ definita da
+	Se $\varphi \in \Lin(V,W)$ è un isomorfismo, il \emph{push-forward} $\varphi_* = T_s^r(\varphi)$ è la mappa in $\Lin(T_s^r(V), T_s^r(W))$ definita da
 	\begin{equation*}
 		\varphi_*(t) (\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\ldots, \varphi^{-1}(f_s)) \virgola
 	\end{equation*}
 	con $\beta^i\in W^*$ e $f_j\in W$.
 \end{definition}
 
-Si verifica che $\varphi_*$ è continua.
-
 \begin{remark}
-	$T_0^1(\varphi) = \varphi_*$, ma $T_0^1(V)\cong V$, $T_0^1(W)\cong W$, allora $T_0^1(\varphi) \in \Lin(V,W)$ ed è proprio $\varphi$.
+Si verifica che $\varphi_*$ è continua.
 \end{remark}
 
-\begin{proposition} \label{prop:ProprietaPushForward}
+\begin{remark}
+	Nel caso di tensori $(1,0)$, cioè $\varphi_*=T_0^1(\varphi)$, si ha $T_0^1(V)\cong V$ e $T_0^1(W)\cong W$, allora $T_0^1(\varphi) \in \Lin(V,W)$ ed è proprio $\varphi$.
+\end{remark}
+
+\begin{proposition} \label{prop:ProprietaPushForwardIsomorfismi}
 	Siano $\varphi\in \Lin(V,W)$, $\psi\in \Lin(W,Z)$ isomorfismi. Allora
 	\begin{enumerate}
-	 \item $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$; \label{ppf:Distributiva}
-	 \item Se $i:V\to V$ è l'identità, allora $i_*:T_s^r(V) \to T_s^r(V)$ è l'identità; \label{ppf:Identita}
-	 \item $\varphi_*:T_s^r(V) \to T_s^r(W)$ è un isomorfismo e $(\varphi_*)^{-1} = (\varphi^{-1})_*$; \label{ppf:Isomorfismo}
-	 \item Se $t_1\in T_{s_1}^{r_1}(V)$, $t_2\in T_{s_2}^{r_2}(V)$, allora $\varphi_*(t_1\otimes t_2) = \varphi_*(t_1)\otimes \varphi_*(t_2)$. \label{ppf:ProdottoTensore}
+	 \item $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$; \label{ppfi:Distributiva}
+	 \item se $i:V\to V$ è l'identità, allora $i_*:T_s^r(V) \to T_s^r(V)$ è l'identità; \label{ppfi:Identita}
+	 \item $\varphi_*:T_s^r(V) \to T_s^r(W)$ è un isomorfismo e $(\varphi_*)^{-1} = (\varphi^{-1})_*$; \label{ppfi:Isomorfismo}
+	 \item se $t_1\in T_{s_1}^{r_1}(V)$, $t_2\in T_{s_2}^{r_2}(V)$, allora $\varphi_*(t_1\otimes t_2) = \varphi_*(t_1)\otimes \varphi_*(t_2)$. \label{ppfi:ProdottoTensore}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	Dimostriamo innanzitutto il punto \ref{ppf:Distributiva}. Abbiamo infatti che
+	Dimostriamo innanzitutto il punto \ref{ppfi:Distributiva}. Abbiamo infatti che
 	\begin{multline*}
 		\psi_*(\varphi_*(t)) (\gamma^1,\ldots,\gamma^r,g_1,\ldots,g_s) = \varphi_*(t) (\psi^*(\gamma^1),\ldots,\psi^*(\gamma^r), \psi^{-1}(g_1),\ldots, \psi^{-1}(g_s)) =\\
 		= t(\varphi^*\circ \psi^*(\gamma^1),\ldots, \varphi^*\circ \psi^*(\gamma^r), \varphi^{-1}\circ \psi^{-1}(g_1), \ldots, \varphi^{-1}\circ \psi^{-1}(g_s) ) =\\
@@ -233,11 +248,11 @@ Si verifica che $\varphi_*$ è continua.
 		= (\psi\circ\varphi)_*\ t (\gamma^1,\ldots,\gamma^r,g_1,\ldots,g_s)\virgola
 	\end{multline*}
 	con $\gamma^i\in Z^*$ e $g_j\in Z$.
-	Poi la \ref{ppf:Identita} è ovvia, la \ref{ppf:Distributiva} implica la \ref{ppf:Isomorfismo} e la \ref{ppf:ProdottoTensore} segue dalla definizione di prodotto tensore.
+	Poi la \ref{ppfi:Identita} è ovvia, la \ref{ppfi:Distributiva} implica la \ref{ppfi:Isomorfismo} e la \ref{ppfi:ProdottoTensore} segue dalla definizione di prodotto tensore.
 \end{proof}
 
 \begin{definition} \index{isomorfismo!pull-back}
-	$(\varphi^{-1})_*$ è detto \emph{pull-back} di $\varphi$ ed è indicata con $\varphi^*$.
+	Dato $\varphi \in \Lin(V,W)$ isomorfismo, $(\varphi^{-1})_* \in \Lin(T_s^r(W), T_s^r(V))$ è detto \emph{pull-back} di $\varphi$ ed è indicata con $\varphi^*$.
 \end{definition}
 
 \begin{proposition}
@@ -268,30 +283,25 @@ Si verifica che $\varphi_*$ è continua.
 	E per linearità otteniamo l'enunciato, mentre l'altra formula si ricava nello stesso modo.
 \end{proof}
 
+A questo punto, come preannunciato, definiamo push-forward e pull-back per tutte le trasformazioni nel caso di tensori solo controvarianti o solo covarianti.
+
 \begin{definition} \index{tensore!covariante!pull-back} \index{tensore!controvariante!push-forward}
-	Sia $\varphi\in \Lin(V,W)$ (non necessariamente invertibile). Definiamo $\varphi^*\in \Lin(T_s^0(W),T_s^0(V))$ tramite $\varphi^*t(e_1,\ldots,e_s) = t(\varphi(e_1),\ldots,\varphi(e_s))$ con $t\in T_s^0(V)$.
+	Sia $\varphi\in \Lin(V,W)$ (non necessariamente invertibile). Definiamo il suo \emph{pull-back} $\varphi^*\in \Lin(T_s^0(W),T_s^0(V))$ tramite $\varphi^*t(e_1,\ldots,e_s) = t(\varphi(e_1),\ldots,\varphi(e_s))$ con $t\in T_s^0(W)$.
 	
-	Allo stesso modo si definisce il push-forward per tensori che siano solo controvarianti.
+	Analogamente si definisce il \emph{push-forward} per tensori che siano solo controvarianti.
 \end{definition}
 
-Vediamo ora l'analogo della \cref{prop:ProprietaPushForward}, dove però il pull-back è definito per tensori solo covarianti.
+Vediamo ora l'analogo della \cref{prop:ProprietaPushForwardIsomorfismi}, dove però il pull-back è definito per tensori solo covarianti. %TODO: tranne che la proposizione sopra lo faceva con il push-forward e così è un po' un casino
 
 \begin{proposition}
 	Siano $\varphi\in \Lin(V,W)$ e $\psi\in \Lin(W,Z)$, allora
 	\begin{enumerate}
 		\item $(\psi\circ\varphi)^*=\varphi^*\circ\psi^*$;
 		\item $i^*:T_s^0(V) \to T_s^0(V)$ è l'identità;
-		\item se $\varphi$ è un isomorfismo, lo è $\varphi^*$ e $(\varphi^*)^{-1} = (\varphi^{-1})^*$;
-		\item Se $t_1\in T_{s_1}^0(V)$, $t_2\in T_{s_2}^0(V)$, allora $\varphi^*(t_1\otimes t_2) = \varphi^*(t_1)\otimes \varphi^*(t_2)$.
+		\item se $\varphi$ è un isomorfismo, lo è anche $\varphi^*$ e $(\varphi^*)^{-1} = (\varphi^{-1})^*$;
+		\item se $t_1\in T_{s_1}^0(V)$, $t_2\in T_{s_2}^0(V)$, allora $\varphi^*(t_1\otimes t_2) = \varphi^*(t_1)\otimes \varphi^*(t_2)$.
 	\end{enumerate}
 \end{proposition}
-
-\begin{exercise}
-	\begin{enumerate}
-		\item Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$, dove in questo caso $V=\R^2$.
-		\item Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $(mn)^{r+s}$.
-	\end{enumerate}
-\end{exercise}
 
 \section{Fibrati e campi tensoriali}
 
@@ -317,7 +327,7 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 \end{proposition}
 
 \begin{proof}
-	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForward}.
+	Il fatto che $\varphi_*$ sia un isomorfismo sulle fibre segue dalla \cref{prop:ProprietaPushForwardIsomorfismi}.
 	Perciò bisogna solo verificare che $(\varphi_u)_*=(\varphi_*)_u$ è regolare. Però, $\varphi_u$ è regolare in $u$ per definizione e per il \cref{lem:DualeEInversaRegolari} $\varphi_u^*$ e $(\varphi_u)^{-1}$ sono regolari.
 	Ricordiamo che $\varphi_*t(\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^s),\varphi^{-1}(f_1),\ldots,\varphi^{-1}(f_s))$. Allora
 	segue immediatamente la regolarità di $(\varphi_u)_*$ valutando l'equazione precedente sulla fibra ed avendo a destra una funzione regolare.
