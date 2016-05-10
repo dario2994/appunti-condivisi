@@ -169,19 +169,18 @@ Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare
 Un tensore metrico permette di abbassare e alzare gli indici di un campo tensoriale, tramite per esempio $t^{ik} \mapsto t^{ij}g_{jk}$, che è una mappa $\Tau_0^2(M) \to \Tau_1^1(M)$.
 
 Data $f\in C^\infty(M)$, con $f \mapsto \de f \in \chi^*(M)$, abbiamo che $\de f(v) = v(f)$ con $v \in T_pM$. Quindi tale funzione $f$ ci dà in modo naturale una 1-forma.
-Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma.
+Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma. %TODO: riscrivere meglio
 
 \begin{definition}
 	Sia $M$ una varietà con metrica $g$ e sia $f \in C^\infty(M)$. Il campo vettoriale $(\de f)^\sharp$ è detto il \emph{gradiente} di $f$, che denoteremo $\grad f$. %diesis \sharp e \flat
 \end{definition}
 
-In coordinate $g_{ij} = g(\DerParz{}{x^i}, \DerParz{}{x^j})$. Siano $X = X^i\DerParz{}{x^i}$ e $Y = Y^j\DerParz{}{x^j}$ elementi di $\chi(M)$, allora
+Vediamo ora la scrittura di tale gradiente in coordinate. Sia $g_{ij} = g\left(\DerParz{}{x^i}, \DerParz{}{x^j}\right)$ e siano $X = X^i\DerParz{}{x^i}$ e $Y = Y^j\DerParz{}{x^j}$ elementi di $\chi(M)$, allora
 \begin{equation*}
-	<X^\flat, Y> \coloneqq g(X,Y) = X^iY^j g(\DerParz{}{x^i}, \DerParz{}{x^j}) = X^iY^j g_{ij} \virgola
+	\Scal{X^\flat}{Y} = g(X,Y) = X^iY^j g\left(\DerParz{}{x^i}, \DerParz{}{x^j}\right) = X^iY^j g_{ij} \virgola
 \end{equation*}
 perciò $X^\flat = X^i g_{ij} \de x^j$.
-
-Viceversa, data $\alpha \in \Tau_1^0(M)$ con $\alpha = \alpha_i\de x^i$, allora
+Analogamente, data $\alpha \in \Tau_1^0(M)$ con $\alpha = \alpha_i\de x^i$, allora
 \begin{equation*}
 	(\alpha^\sharp)^i = g^{ij} \alpha_j \implies \alpha^\sharp = g^{ij} \alpha_j\DerParz{}{x^i} \punto
 \end{equation*}
