@@ -192,7 +192,9 @@ Perciò, se $\alpha = \de f = \DerParz{f}{x^i}\de x^i$, abbiamo che
 
 \section{Pull-back e push-forward di campi tensoriali}
 
-\begin{definition}
+Ancora una volta possiamo rivedere i concetti di push-forward e pull-back, in questo caso di campi tensoriali, e riportarne le solite proprietà.
+
+\begin{definition} \index{campo!tensoriale!push-forward} \index{campo!tensoriale!pull-back}
 	Sia $\varphi : M \to N$ diffeomorfismo fra varietà e sia $t \in \Tau_s^r(M)$. Il \emph{push-forward} di $t$ tramite $\varphi$ è $\varphi_*t \coloneqq (T\varphi)_* \circ t \circ \varphi^{-1} \in \Tau_s^r(N)$.
 	
 	Se invece $t \in \Tau_s^r(N)$, definiamo il suo \emph{pull-back} come $\varphi^*t \coloneqq (\varphi^{-1})_* t$.
@@ -209,9 +211,28 @@ Perciò, se $\alpha = \de f = \DerParz{f}{x^i}\de x^i$, abbiamo che
 \end{proposition}
 
 \begin{remark}
-	Se $t\in\Tau_0^r(M)$, $\varphi_*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo. Analogamente, se $t \in \Tau_r^0(N)$, $\varphi^*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo.
+	Come abbiamo già avuto modo di osservare, se $t\in\Tau_0^r(M)$, il suo push-forward $\varphi_*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo. Analogamente, se $t \in \Tau_r^0(N)$, il suo pull-back $\varphi^*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo.
 \end{remark}
 
+Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo. %TODO: da capire e sistemare
+\begin{equation*}
+	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} =\left(\DerParz{y^{i_1}}{x^{k_1}}\circ \varphi^{-1}\right)\dots \left(\DerParz{y^{i_r}}{x^{k_r}} \circ \varphi^{-1}\right) \DerParz{x^{l_1}}{y^{j_1}} \dots \DerParz{x^{l_s}}{y^{j_s}} t_{l_1\ldots l_s}^{k_1\ldots k_r} \circ \varphi^{-1}
+\end{equation*}
+e similmente vale per $\varphi^*t$
+
+
+
+\begin{example}
+	Sia $\varphi:\R^3\to\R^2$ tale che $\varphi(x,y,z) = (2x+z,xyz)$ e sia $t\in \Tau_2^0(\R^2)$ tale che $t = (u+2v)\de u\otimes \de u + u^2 \de u \otimes \de v$.
+	Allora $\varphi^*(\de u) = 2\de x +\de z$ e $\varphi^*(\de v) = yz \de x + xz \de y + xy \de z$, da cui ricaviamo
+	\begin{align*}
+	\varphi^*(t) =& (2x+z + 2xyz) (2\de x + \de z) \otimes (2\de x + \de z)+ \\
+	&+ (2x+z)^2 (2\de x + \de z) \otimes (yz \de x + xz \de y + xy \de z) = \\
+	=&2 (2x+z)^2 yz \de x \otimes \de x +  2 [2x + z + 2xyz + (2x + z)^2 yz] \de x \otimes \de z  +\\
+	&+ 2 (2x+z)^2 xz \de x \otimes \de y + [4x + 2z + 4xyz + yz (2x+z)^2] \de z \otimes \de x +  \\
+        &+ xz (2x+z)^2 \de z \otimes \de y + [2x + z + 2xyz + xy (2x+z)^2] \de z \otimes \de z \punto
+	\end{align*}
+\end{example}
 
 
 

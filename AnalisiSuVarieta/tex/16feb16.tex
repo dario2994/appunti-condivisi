@@ -1,26 +1,5 @@
 \chapter{16 febbraio 2016}
 
-Dato $t\in \Tau_s^r(M)$ e $\varphi$ diffeomorfismo.
-\begin{equation*}
-	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} =(\DerParz{y^{i_1}}{x^{k_1}}\circ \varphi^{-1})\dots (\DerParz{y^{i_r}}{x^{k_r}} \circ \varphi^{-1}) \DerParz{x^{l_1}}{y^{j_1}} \dots \DerParz{x^{l_s}}{y^{j_s}} t_{l_1\ldots l_s}^{k_1\ldots k_r} \circ \varphi^{-1}
-\end{equation*}
-e similmente vale per $\varphi^*t$
-
-
-
-\begin{example}
-	Sia $\varphi:\R^3\to\R^2$ tale che $\varphi(x,y,z) = (2x+z,xyz)$ e sia $t\in \Tau_2^0(\R^2)$ tale che $t = (u+2v)\de u\otimes \de u + u^2 \de u \otimes \de v$.
-	
-	Allora $\varphi^*(\de u) = 2\de x +\de z$ e $\varphi^*(\de v) = yz \de x + xz \de y + xy \de z$.
-	Inoltre
-	\begin{align*}
-	\varphi^*(t) =& (2x+z + 2xyz) (2\de x + \de z) \otimes (2\de x + \de z) + (2x+z)^2 (2\de x + \de z) \otimes (yz \de x + xz \de y + xy \de z) = \\
-	=&2 (2x+z)^2 yz \de x \otimes \de x +  2 [2x + z + 2xyz + (2x + z)^2 yz] \de x \otimes \de z  +\\
-	&+ 2 (2x+z)^2 xz \de x \otimes \de y + [4x + 2z + 4xyz + yz (2x+z)^2] \de z \otimes \de x +  \\
-        &+ xz (2x+z)^2 \de z \otimes \de y + [2x + z + 2xyz + xy (2x+z)^2] \de z \otimes \de z \punto
-	\end{align*}
-\end{example}
-
 \begin{remark}
 	I campi tensoriali possono essere definiti anche nel modo seguente.
 	$\chi^*(M)$ può essere definito come una mappa $\Lin_{C^\infty(M)} (\chi(M), C^\infty(M))$ \footnote{Si intende la linerità $C^\infty(M)$, cioè dato $\alpha\in\chi^*(M)$ vale che $\alpha(p)(f(p)X(p)) = f(p) \alpha(p) X(p)$ per ogni $X\in\chi(M)$ e $f\in C^\infty(M)$}.
