@@ -29,10 +29,10 @@ Ci sono due possibili approcci:
 	Se $Y\in\chi(M)$ e $\alpha\in\chi^*(M)$, richiediamo che $\Lie_X(\alpha \cdot Y) = (\Lie_X \alpha)\cdot Y + \alpha \cdot (\Lie_X Y)$, dove sappiamo cosa vuol dire la derivata di Lie su funzioni ($\alpha\cdot Y$) e su campi ($Y$), perciò la ricaviamo anche per le forme: $(\Lie_X\alpha)Y = \Lie_X(\alpha\cdot Y) - \alpha(\Lie_XY)$.
 \end{example}
 
-\begin{definition} \index{operatore!differenziale}
+\begin{definition} \index{operatore!differenziale} \label{def:OperatoreDifferenziale}
 	Un \emph{operatore differenziale} sull'algebra dei tensori $\Tau(M)$ è una famiglia di mappe $\mathcal D_s^r$ da $\Tau_s^r(M)$ in sé tale che:
 	\begin{enumerate}
-	 \item $\mathcal D$ sia una derivazione tensoriale, cioè commuta con le contrazioni. %[$\mathcal D_1$)]
+	 \item $\mathcal D$ sia una derivazione tensoriale, cioè commuta con le contrazioni. \label{od:Derivazione} %[$\mathcal D_1$)] 
 	 
 	 Vogliamo quindi che $\mathcal D$ sia $\R$-lineare e che, dati $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$, valga
 	 \begin{multline*}
@@ -41,7 +41,7 @@ Ci sono due possibili approcci:
 	 	\sum_{k=1}^s t(\alpha_1,\ldots, \alpha_r, X_1,\ldots, \mathcal D X_k,\ldots, X_s) \punto
 	 \end{multline*}
 
-	\item $\mathcal D$ è locale (naturale rispetto alle restrizioni), dove supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto. %[$\mathcal D_2$)]
+	\item $\mathcal D$ è locale (naturale rispetto alle restrizioni), dove supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto. \label{od:Restrizioni} %[$\mathcal D_2$)]
 	
 	Chiediamo cioè che, se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal D (t\restrict U)$, ovvero che il seguente diagramma commuti
 	\begin{equation*}
@@ -55,19 +55,19 @@ Ci sono due possibili approcci:
 	\end{enumerate}
 \end{definition}
 
-\begin{theorem} \label{teo:EsistenzaOperatoriDifferenziali}
+\begin{theorem} \label{thm:EsistenzaOperatoriDifferenziali}
 	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_U : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_U : \chi(U) \to \chi(U)$ che siano derivazioni (naturali rispetto alle restrizioni), cioè
 	\begin{enumerate}
-		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$; \label{eod:LeibnitzPerE}
+		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$ per $f,g\in C^\infty(U)$; \label{eod:LeibnitzPerE}
 		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$; \label{eod:LocalitaPerE}
-		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$ \label{eod:LeibnitzPerF}
-		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$ \label{eod:LocalitaPerF}
+		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$; \label{eod:LeibnitzPerF}
+		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$. \label{eod:LocalitaPerF}
 	\end{enumerate}
 	Allora esiste unico un operatore differenziale $\mathcal D$ che coincide con $\mathcal E_U$ su $C^\infty(U)$ e con $\mathcal F_U$ su $\chi(U)$ per ogni $U$ aperto di $M$.
 
 \end{theorem}
 
-\begin{proof}
+\begin{proof} %TODO: capire e sistemare
 	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
 	
 	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$.
@@ -96,29 +96,30 @@ Per concludere, se $V\subseteq U$ aperto, da \ref{eod:LocalitaPerE} e \ref{eod:L
 Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ per un qualunque $U$ aperto che contiene $m$ e vale $\mathcal D_2$.
 \end{proof}
 
-\begin{corollary}
-	Valgono
+\begin{corollary} \label{cor:OperatoreDifferenzialeProdottoTensoreEDelta}
+	Dato $\mathcal D$ operatore differenziale sull'algebra dei tensori, valgono
 	\begin{enumerate}
-		\item $\mathcal D(t_1\otimes t_2) = (\mathcal D t_1) \otimes t_2 + t_1\otimes (\mathcal D t_2)$
-		\item $\mathcal D\delta = 0$ ($\delta$ = Kronecker)
+		\item $\mathcal D(t_1\otimes t_2) = (\mathcal D t_1) \otimes t_2 + t_1\otimes (\mathcal D t_2)$, con $t_1 \in \Tau^{r_1}_{s_1}(M)$ e $t_2 \in \Tau^{r_2}_{s_2}(M)$; \label{odptd:ProdottoTensore}
+		\item $\mathcal D\delta = 0$, dove $\delta$ è la delta di Kronecker. \label{odptd:Delta}
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
-	1 segue da $\mathcal D_1$.
+	Il punto \ref{odptd:ProdottoTensore} segue dalla proprietà \ref{od:Derivazione} richiesta all'operatore differenziale. 
 	
-	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$, allora: 
+	Verifichiamo quindi il punto \ref{odptd:Delta}.	
+	Siano $X\in\chi(U)$ e $\alpha\in\chi^*(U)$; allora, ancora per le proprietà di operatore differenziale, abbiamo
 	\begin{align*}
-	(\mathcal D\delta)(\alpha, X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\punto %TODO: sistemare
+	(\mathcal D\delta)(\alpha, X) = \mathcal D(\delta(\alpha,X)) - \delta(\mathcal D\alpha,X) - \delta(\alpha,\mathcal D X) = \mathcal D (\alpha X) - (\mathcal D\alpha)X - \alpha(\mathcal DX) = 0\virgola
 	\end{align*}
+	da cui $\mathcal D\delta = 0$ per l'arbitrarietà di $X$ ed $\alpha$.
 \end{proof}
 
 Trattiamo ora il caso particolare della derivata di Lie.
 Dati $X\in\chi(M)$ e $U\subseteq M$ aperto, definiamo $\mathcal E_U$ ed $\mathcal F_U$ come $\Lie_X\restrict U$.
-
-Per Leibnitz le ipotesi del teorema sono soddisfatte.
+Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} sono soddisfatte e possiamo dare quindi la seguente definizione.
 
 \begin{definition}
-	Se $X\in\chi(M)$, definiamo $\Lie_X$ come l'unico operatore come sopra su $\Tau(M)$ (ancora detto \emph{derivata di Lie}), tale che $\Lie_X$ coincide con le derivate di Lie rispetto a $X$ su $C^\infty(M)$ e $\chi(M)$.
+	Se $X\in\chi(M)$, definiamo $\Lie_X$ come l'unico operatore differenziale su $\Tau(M)$ (ancora detto \emph{derivata di Lie}), tale che $\Lie_X$ coincide con le derivate di Lie rispetto a $X$ su $C^\infty(M)$ e $\chi(M)$.
 \end{definition}
 
 \begin{proposition}
