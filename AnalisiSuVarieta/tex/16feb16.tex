@@ -118,39 +118,47 @@ Trattiamo ora il caso particolare della derivata di Lie.
 Dati $X\in\chi(M)$ e $U\subseteq M$ aperto, definiamo $\mathcal E_U$ ed $\mathcal F_U$ come $\Lie_X\restrict U$.
 Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} sono soddisfatte e possiamo dare quindi la seguente definizione.
 
-\begin{definition}
+\begin{definition} \index{derivata!di Lie!su tensori}
 	Se $X\in\chi(M)$, definiamo $\Lie_X$ come l'unico operatore differenziale su $\Tau(M)$ (ancora detto \emph{derivata di Lie}), tale che $\Lie_X$ coincide con le derivate di Lie rispetto a $X$ su $C^\infty(M)$ e $\chi(M)$.
 \end{definition}
 
 \begin{proposition}
-	Sia $\varphi: M \to N$ un diffeomorfismo e sia $X\in\chi(M)$. Allora $\Lie_X$ è naturale rispetto al push-forward, cioè $\Lie_{\varphi_*X} (\varphi_*t) = \varphi_*(\Lie_Xt)$ dato $t\in\Tau_s^r(M)$.
+	Sia $\varphi: M \to N$ un diffeomorfismo e sia $X\in\chi(M)$. Allora $\Lie_X$ è naturale rispetto al push-forward, cioè $\Lie_{\varphi_*X} (\varphi_*t) = \varphi_*(\Lie_Xt)$ per ogni $t\in\Tau_s^r(M)$.
 \end{proposition}
 \begin{proof}
 	Dato $U\subseteq M$ aperto, definiamo $\mathcal D: \Tau_s^r(U) \to \Tau_s^r(U)$ tale che $\mathcal Dt = \varphi^*\Lie_{\varphi_*X\restrict U}(\varphi_*t)$.
 	La derivata di Lie (su funzioni e campi vettoriali) è naturale rispetto ai push-forward, quindi $\mathcal D$ definita come sopra è una derivazione su funzioni $C^\infty(U)$ e su $\chi(U)$.
-	Mostriamo che $\mathcal D$ è un operatore differenziale:
+	Mostriamo che $\mathcal D$ è un operatore differenziale, verificandone le due proprietà:
 	\begin{description}
-	 \item [$\mathcal D_1$]
-
-	Dati $X_1,\ldots,X_s\in\chi(U)$ e $\alpha_1,\ldots,\alpha_r\in\chi^*(U)$, allora
+	 \item [\ref{od:Derivazione}]
+	Dati $X_1,\ldots,X_s\in\chi(U)$ e $\alpha_1,\ldots,\alpha_r\in\chi^*(U)$, ricordiamo che
 	\begin{equation*}
-	\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) )= (\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)\punto
+	\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) )= (\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)\virgola
 	\end{equation*}
+	perciò abbiamo
+	\begin{align*}
+		\mathcal D(t(\alpha_1,\ldots,\alpha_r&,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) =\\
+		=& \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = \\
+		=& \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) +\\
+		&+\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +\\
+		&+\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] \punto
+	\end{align*}	
+% 	  $  \mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = $\\
+% 	  $  \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = $ \\
+% 	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) + $ \\
+% 	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +$ \\
+% 	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] $
+	Sapendo che $\varphi^*=(\varphi^{-1})_*$, dall'ultima espressione ottengo
+	\begin{align*}
+		\mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) =& (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\\
+		&+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +\\
+		&+\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)} \virgola
+	\end{align*}
+	che è proprio la proprietà richiesta.
+% 	  $ (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +$\\
+% 	  $ +\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)}$
 	
-	  $  \mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = $
-	  $  \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = $ \\
-	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) + $ \\
-	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +$ \\
-	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] $
-	
-	Ma sapendo che $\varphi^*=(\varphi^{-1})_*$ l'ultima espressione diventa:
-	
-	  $ (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +$\\
-	  $ +\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)}$
-	 
-	 ed ho quindi la tesi.
-	
-	\item [$\mathcal D_2$]
+	\item [\ref{od:Restrizioni}]
 		Sia $t\in\Tau_s^r(M)$, allora
 		\begin{equation*}
 			(\mathcal Dt)\restrict U = [(\varphi_*)^{-1} \Lie_{\varphi_*X}\varphi_*t]\restrict U 
