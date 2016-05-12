@@ -190,6 +190,28 @@ Perciò, se $\alpha = \de f = \DerParz{f}{x^i}\de x^i$, abbiamo che
 \end{equation*}
 
 
+
+%TODO: c'è un posto più adeguato per quello che segue?
+\begin{remark}
+Osserviamo che i campi tensoriali possono essere definiti anche in un altro modo equivalente.
+
+Lo spazio $\chi^*(M)$ può essere visto come $\Lin_{C^\infty(M)} (\chi(M), C^\infty(M))$. Infatti gli elementi di $\chi^*(M)$ sono $C^\infty(M)$ lineari, cioè dato $\alpha\in\chi^*(M)$ vale che $\alpha(p)(f(p)X(p)) = f(p) \alpha(p) X(p)$ per ogni $X\in\chi(M)$ e $f\in C^\infty(M)$.
+
+Allo stesso modo $\Tau_s^r(M)$ può essere definito come
+\begin{equation*}
+	\Lin_{C^\infty(M)}^{r+s}(\underbrace{\chi^*(M),\ldots,\chi^*(M)}_{\text{$r$ copie}},\underbrace{\chi(M),\ldots,\chi(M)}_{\text{$s$ copie}},C^\infty(M))\punto
+\end{equation*}
+\end{remark}
+
+Definiamo infine l'algebra dei tensori su una varietà $M$.
+\begin{definition} \index{algebra dei tensori}
+	Sia $\Tau(M)$ la somma diretta dei $\Tau_s^r(M)$ per $r\ge 0$ ed $s\ge 0$. Risulta che $\Tau(M)$ è uno spazio vettoriale con prodotto $\otimes$ ed è detto \emph{algebra dei tensori} su $M$.
+\end{definition}
+
+\begin{remark}
+Se $\varphi:M\to N$ è un diffeomorfismo, allora $\varphi_*: \Tau(M) \to \Tau(N)$ è un isomorfismo di algebre.
+\end{remark}
+
 \section{Pull-back e push-forward di campi tensoriali}
 
 Ancora una volta possiamo rivedere i concetti di push-forward e pull-back, in questo caso di campi tensoriali, e riportarne le solite proprietà.

@@ -130,7 +130,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{remark}
 
 
-\begin{lemma}\label{lem:PushFunzioni}
+\begin{lemma}\label{lemma:DerivataLieNaturalePushForwardFunzioni}
 	Sia $\varphi:M\to N$ un diffeomorfismo e sia $X\in\chi(M)$, allora per $f\in C^\infty(M)$ vale che
 	\begin{equation*}
 		\Lie_{\varphi_*X}(f\circ \varphi^{-1})=\varphi_*(\Lie_Xf)\punto
@@ -147,7 +147,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proof}
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:DerivataLieNaturalePushForwardCampiVett}
 	Sia $\varphi:M\to N$ un diffeomorfismo e siano $X,Y\in\chi(M)$, allora $\Lie_X$ è naturale rispetto al push-forward, cioè
 	\begin{equation*}
 		\Lie_{\varphi_*X}(\varphi_*Y)=\varphi_*(\Lie_XY)\virgola
@@ -159,7 +159,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proposition}
 
 \begin{proof} %TODO: capire anche qui
-	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lem:PushFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
+	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lemma:DerivataLieNaturalePushForwardFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
 	\begin{equation*}
 		(\varphi_*Z)(g)(n)=Z(g\circ \varphi)(m)\virgola
 	\end{equation*}
