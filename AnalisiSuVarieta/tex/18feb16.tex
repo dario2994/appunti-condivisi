@@ -135,25 +135,25 @@ Parliamo di forme esterne e parleremo di algebre esterne perché si può fare un
 	\end{equation*}
 \end{remark}
 \begin{remark}
-	Dal punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, dati $\gamma^1\in \Lambda^{d_k}(V),\ldots, \gamma^1\in \Lambda^{d_k}(V)$, otteniamo $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
+	Dal punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, dati $\gamma^1\in \Lambda^{d_1}(V),\ldots, \gamma^1\in \Lambda^{d_k}(V)$, otteniamo $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
 	
 	In particolare, applicando questa formula a 1-forme, si ha $\seqb{\alpha}{k}{\wedge} = k!\ \antisimm(\seqb{\alpha}{k}{\otimes})$.
 	Perciò, se $\seqb en,$ è una base di $V$ e se $\seqa en,$ è la sua base duale, allora $(\seqa ek\wedge)(\seqb en,) = 1$.
 
 \end{remark}
 
-Prodotto wedge in componenti
+Vediamo ora la scrittura del prodotto wedge in componenti.
+Sia $\seqb en,$ una base di $V$, allora le componenti $t_{\seqb ik{}}$ di $t\in T^0_k(V)$ sono date da $t(e_{i_1},\ldots,e_{i_k})$.
+Abbiamo quindi $(\antisimm t)_{\seqb ik{}} = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma)\ t_{\sigma(i_1)\ldots\sigma(i_k)}$, cioè $\antisimm$ simmetrizza le componenti.
+% Se $t\in\Lambda^k(V)$, c'è antisimmetria e $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ antisimmetrizza le componenti.
 
-Sia $\seqb en,$ una base di $V$. Le componenti $t_{\seqb ik{}}$ di $t\in T^0_k(V)$ sono date da $t(e_{i_1},\ldots,e_{i_k})$.
-Se $t\in\Lambda^k(V)$, c'è antisimmetria e $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ antisimmetrizza le componenti.
-
-Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
+Perciò, se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, abbiamo
 \begin{equation*}
-	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sum_{\sigma\in(k,l) mescolamenti} \sgn(\sigma) \alpha_{\sigma(i_1)\ldots\sigma(i_k)} \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})}
+	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sum_{\sigma\in \mathrm{mesc}(k,l)} \sgn(\sigma)\ \alpha_{\sigma(i_1)\ldots\sigma(i_k)}\ \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})} \punto
 \end{equation*}
 
 \begin{definition}
-	Dato $V$ spazio vettoriale $\Lambda(V)=\bigoplus_k\Lambda^k(V)$, è detta \emph{algebra esterna} di $V$.
+	Dato $V$ spazio vettoriale, $\Lambda(V)=\bigoplus_k\Lambda^k(V)$ è detta \emph{algebra esterna} di $V$.
 \end{definition}
 
 \begin{proposition}
