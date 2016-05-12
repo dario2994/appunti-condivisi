@@ -52,32 +52,31 @@ Ci sono due possibili approcci:
 \end{theorem}
 
 \begin{proof} %TODO: capire e sistemare
-	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
+	Innanzitutto definiamo $\mathcal D$ su $\chi^*(U)$ come $(\mathcal D\alpha) (X) \coloneqq \mathcal E_U(\alpha(X)) - \alpha( \mathcal F_UX)$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$, ricordandoci che vogliamo che valga $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X)$. 
+% 	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
 	
-	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$.
-	Vale che
+	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$ e che quindi sia effettivamente un elemento di $\chi^*(U)$.
+	Abbiamo però che
 	\begin{align*}
-		(\mathcal D\alpha) \cdot (fX) &= \mathcal D (\alpha(fX)) -\alpha(\mathcal D(fX)) = \mathcal E_U(\alpha(fX)) - \alpha\mathcal F_U(fX)=\\
-		&= \mathcal E_U(f(\alpha X)) - \alpha [(\mathcal E_Uf)\otimes X + f \otimes \mathcal F_UX] = \\
-		&= (\mathcal E_U f)\otimes (\alpha X) + f \otimes \mathcal E_U (\alpha X) - \alpha (\mathcal E_U f) \otimes X - \alpha f \otimes F_U X = \\
-		&= f((\mathcal D\alpha) X)
+		(\mathcal D\alpha)(fX) &= \mathcal E_U(\alpha(fX)) - \alpha(\mathcal F_U(fX))= \mathcal E_U(f\alpha (X)) - \alpha [(\mathcal E_Uf)\otimes X + f \otimes \mathcal F_UX] = \\
+		&= (\mathcal E_U f)\otimes \alpha (X) + f \otimes \mathcal E_U (\alpha (X)) - \alpha [(\mathcal E_U f) \otimes X] - \alpha [f \otimes \mathcal F_U X] = \\
+		&= f [\mathcal E_U (\alpha (X))- \alpha( \mathcal F_UX)] = f(\mathcal D\alpha) (X) \virgola
 	\end{align*}
-	[dove abbiamo utilizzato le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF}]
+	dove abbiamo utilizzato le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF}.
 	
-	Perciò $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$.
+	Abbiamo perciò definito $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$. Possiamo quindi estendere la definizione in $U$ ai tensori, utilizzando la proprieta \ref{od:Derivazione}, tramite 
+	\begin{align*}
+		(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) \coloneqq\ & \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) -\\
+		&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
+		&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\virgola
+	\end{align*}
+	per ogni $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$.
+	
+	Usando ancora le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF} si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
 
-Estendiamo ora le definizione ai tensori, richiedendo la proprietà $\mathcal D_1$ (vedere sopra).
-
-Vogliamo quindi che
-\begin{align*}
-	(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) =& \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) -\\
-	&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
-	&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\punto
-\end{align*}
-Usando ancora \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF} si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
-
-Per concludere, se $V\subseteq U$ aperto, da \ref{eod:LocalitaPerE} e \ref{eod:LocalitaPerF} $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per $t\in\Tau(U)$.
-Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ per un qualunque $U$ aperto che contiene $m$ e vale $\mathcal D_2$.
+Per concludere, se $V\subseteq U$ aperto, per le proprietà \ref{eod:LocalitaPerE} e \ref{eod:LocalitaPerF} abbiamo $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per ogni $t\in\Tau(U)$.
+Quindi definiamo $\mathcal D$ su $\Tau_s^r(M)$ come $(\mathcal D t) (m) = (\mathcal D_U t) (m)$ per un qualunque $U$ aperto che contiene $m$.
+Per l'unicità di $\mathcal D_U$, si ha anche l'unicità di $\mathcal D$ e inoltre vale anche la proprietà \ref{od:Restrizioni} richiesta.
 \end{proof}
 
 \begin{corollary} \label{cor:OperatoreDifferenzialeProdottoTensoreEDelta}
@@ -156,12 +155,11 @@ Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} 
 	Allora, per l'unicità data dal \cref{thm:EsistenzaOperatoriDifferenziali}, abbiamo che gli operatori differenziali $\varphi^*\Lie_{\varphi_*X\restrict U}(\varphi_*t)$ e $\Lie_Xt$ coincidono e otteniamo perciò quanto cercato.
 \end{proof}
 
-Vediamo ora le formule in coordinate, cioè, dato $t\in\Tau_s^r(M)$, vogliamo le componenti di $\Lie_Xt$.
-Sia $\varphi: U \to \R^n$ una carta e sia $X\in\chi(M)$. Siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
-Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), allora
-$(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$.
-
-Quindi $(\Lie_X f)' = X' \DerParz{f'}{x^i}$ e $(\Lie_XY)' = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+Vediamo ora le formule in coordinate; cioè, dato $t\in\Tau_s^r(M)$ e $X\in\chi(M)$, vogliamo le componenti di $\Lie_Xt$.
+Sia $\varphi: U \to \R^n$ una carta e siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
+Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), ricordiamo che per $f\in C^\infty(M)$ e $Y\in \chi(M)$ abbiamo
+$(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$, cioè quindi
+$\Lie_X f = X^i \DerParz{f}{x^i}$ e $(\Lie_XY)^i = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
 
 Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
 
