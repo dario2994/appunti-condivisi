@@ -1,70 +1,8 @@
 \chapter{23 febbraio 2016}
 
-\begin{remark}
-	Dati $\seqa{\alpha}{k}{,}\in\Lambda^1(V)$, allora
-	\begin{equation*}
-		(\seqa{\alpha}{k}{\wedge})(\seqb{e}{k}{,}) = \sum_{\sigma\in S_k} \sgn(\sigma) \alpha^1(e_{\sigma(1)}) \ldots \alpha^k(e_{\sigma(k)}) = \det[\alpha^i(e_j)]
-	\end{equation*}
-	E dalla 4 $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
-	
-	Applicando a 1-forme $\seqb{\alpha}{k}{\wedge} = k! \antisimm(\seqb{\alpha}{k}{\otimes})$.
-	Se $\seqb en,$ è una base di $V$ e se $\{\seqa en,\}$ è una base duale, allora $\{\seqa ek\wedge \}\cdot (\seqb en,) = 1$.
 
-\end{remark}
 
-Prodotto wedge in componenti
 
-Sia $\seqb en,$ una base di $V$. Le componenti $t_{\seqb ik{}}$ di $t\in T^0_k(V)$ sono date da $t(e_{i_1},\ldots,e_{i_k})$.
-Se $t\in\Lambda^k(V)$, c'è antisimmetria e $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ antisimmetrizza le componenti.
-
-Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
-\begin{equation*}
-	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sum_{\sigma\in(k,l) mescolamenti} \sgn(\sigma) \alpha_{\sigma(i_1)\ldots\sigma(i_k)} \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})}
-\end{equation*}
-
-\begin{definition}
-	Dato $V$ spazio vettoriale $\Lambda(V)=\bigoplus_k\Lambda^k(V)$, è detta \emph{algebra esterna} di $V$.
-\end{definition}
-
-\begin{proposition}
-	Se $V$ ha dimensione $n$, $\Lambda^k(V)=0$ per $k>n$ e ha dimensione $\binom nk$ per $k=1,\ldots,n$. Quindi $\Lambda(V)$ ha dimensione $2^n$.
-	
-	Se $\seqb en,$ è una base di $V$, l'insieme $\{ e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat 1\le i_1< \ldots < i_k\le n\}$ è una base di $\Lambda^k(V)$.
-\end{proposition}
-
-\begin{corollary}
-	Sia $\theta\in\Lambda^1(V)$ e $\alpha\in\Lambda^k(V)$. Allora $\theta\wedge\alpha=0$ se e solo se esiste $\beta\in\Lambda^{k-1}(V)$ tale che $\alpha = \theta \wedge \beta$.
-\end{corollary}
-\begin{proof}
-	Si usa il fatto che, se $\theta\in\Lambda^1(V)$, allora $\theta\wedge\theta=0$ \footnote{Questo in generale è falso per $k$ pari: sia per esempio $\omega=e^1\wedge e^2+e^3\wedge e^4$ in $\R^4$, allora $\omega\wedge\omega = 2e^1\wedge e^2 \wedge e^3\wedge e^4 \not=0$} (per la 3).
-	Quindi se $\alpha=\theta\wedge\beta$, per la 4 $\theta\wedge\alpha=0$.
-	
-	Viceversa, sia $\theta\wedge\alpha=0$. Sia $\seqb en,$ base di $V$ tale che $e^n=\theta$. Se $\alpha=\sum_{i_1<\ldots<i_k} \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$, la condizione $\theta\wedge\alpha=0$ implica che i coefficienti in cui $e^n$ non compare sono nulli. Quindi $\alpha$ si fattorizza con $e^n$ e una $k-1$ forma $\beta$.
-\end{proof}
-
-\begin{example}
-	\begin{enumerate}
-		\item Sia $V = \R^2$, $\{e_1,e_2\}$ la base canonica e $\{e^1,e^2\}$ la base duale. Ogni $\omega\in\Lambda^1(\R^2)$ si scrive come $\omega = \omega_1e^1+\omega_2e^2$ e ogni $\omega\in\Lambda^2(\R^2)$ si scrive come $\omega = \omega_{12}\ e^1\wedge e^2$. 
-		
-		\item In $\R^3$, $\Lambda^1$ e $\Lambda^2$ hanno la stessa dimensione e dunque sono isomorfi. Data $\{e_i\}_{i=1,2,3}$ base canonica e $\{e^i\}$ base duale un isomorfismo è il seguente: $e^1\mapsto e^2\wedge e^3$ e cicliche.
-		Questo è detto \emph{operatore Hodge star} che indichiamo con $*$. L'isomorfismo standard di $\R^3$ con $\Lambda^1(\R^3)$ è l'operatore $\flat$: $^\flat(e_i) = e^i$.
-		
-		Allora $*\circ \flat:\R^3\to \Lambda^2(\R)$ soddisfa
-		\begin{equation*}
-			(*\circ \flat) (e\times f) = {^\flat e} \wedge {^\flat f}\punto 
-		\end{equation*}
-		Dove il $\times$ indica il prodotto tensore usale.
-		
-		Se $\alpha = \alpha_ie^i$ e $\beta = \beta_j e^j$, allora
-		\begin{equation*}
-			\alpha\wedge\beta = (\alpha_2\beta_3 - \beta_2\alpha_3)e^2\wedge e^3 + (\alpha_3\beta_1 - \alpha_1\beta_3)e^3\wedge e^1 + (\alpha_1\beta_2 - \alpha_2\beta_1) e^1\wedge e^2 \punto
-		\end{equation*}
-	\end{enumerate}
-\end{example}
-
-\begin{exercise}
-	Siano $\seqb vk, \in V$ linearmente dipendenti. Mostrare che $\alpha(\seqb vk,) = 0$ qualsiasi $\alpha\in\Lambda^k(V)$. 
-\end{exercise}
 
 
 \section{Determinanti e volumi}

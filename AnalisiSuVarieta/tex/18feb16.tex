@@ -8,49 +8,49 @@ Hanno applicazioni per esempio in geometria perché possono dare informazioni su
 
 \section{Algebre esterne}
 
-\begin{definition}
- 
+\begin{definition} \index{mappa!antisimmetrica} \index{forma!esterna}
 Dati $V,W$ spazi vettoriali (finito dimensionali), le \emph{mappe antisimmetriche} in $T^0_k(V,W)$ sono quelle per cui vale $t(\seqb{e}{k}{,}) = \sgn(\sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)})$ per ogni $\seqb{e}{k}{,} \in V$ e per ogni $\sigma\in S_k$.
-Si indicano con $\Lambda^k(V,W)$ (per brevità indicheremo anche $\Lambda^k(V,\R) = \Lambda^k(V)$) e vengono dette $k$-forme esterne.
+Si indicano con $\Lambda^k(V,W)$ (per brevità indicheremo anche $\Lambda^k(V,\R) = \Lambda^k(V)$) e vengono dette \emph{$k$-forme esterne}.
 
 \end{definition}
 
-Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tramite antisimmetrizzazione. 
-\begin{example}
-	Se $k=2$, dato $t\in T^0_2(V,W)$, possiamo definire il suo antisimmetrizzato come $\underline{A}t(e_1,e_2) = \frac 12 [t(e_1,e_2) - t(e_2,e_1)]$.
-\end{example}
+Dato $t\in T^0_k(V,W)$ è possibile ottenere un elemento di $\Lambda^k(V,W)$ tramite antisimmetrizzazione.
+Se per esempio $k=2$, dato $t\in T^0_2(V,W)$, possiamo definire il suo antisimmetrizzato come $\underline{A}t(e_1,e_2) = \frac 12 [t(e_1,e_2) - t(e_2,e_1)]$.
 
-\begin{definition}
-	La mappa alternante $\antisimm:T^0_k(V,W) \to \Lambda^k(V,W)$ è definita da
+Vediamo quindi la definizione generale.
+
+\begin{definition} \index{mappa!alternante}
+	La \emph{mappa alternante} $\antisimm:T^0_k(V,W) \to \Lambda^k(V,W)$ è definita da
 	\begin{equation*}
-		\antisimm t(\seqb{e}{k}{,}) = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) \punto
+		\antisimm t(\seqb{e}{k}{,}) \coloneqq \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) \virgola
 	\end{equation*}
+	per ogni $\seqb{e}{k}{,} \in V$.
 \end{definition}
 
 \begin{proposition}
-	La mappa $\antisimm$ è lineare e suriettiva su $\Lambda^k(V,W)$, $\antisimm\restrict{\Lambda^k(V,W)} = \id\restrict{\Lambda^k(V,W)}$ e $\antisimm \circ \antisimm = \antisimm$.
+	La mappa $\antisimm$ è lineare e suriettiva su $\Lambda^k(V,W)$. Inoltre è l'identità sulle $k$-forme, cioè $\antisimm\restrict{\Lambda^k(V,W)} = \id\restrict{\Lambda^k(V,W)}$, ed è idempotente, cioè $\antisimm \circ \antisimm = \antisimm$.
 \end{proposition}
 \begin{proof}
-	La linearità è ovvia. Sia $t\in\Lambda^k(V,W)$, allora
+	Mostriamo che $\antisimm$ è l'identità sulle $k$-forme. Sia $t\in\Lambda^k(V,W)$, allora
 	\begin{align*}
-		\antisimm t(\seqb{e}{k}{,}) &= \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) =\\
-		& = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn \sigma)^2 t(\seqb{e}{k}{,}) = t (\seqb{e}{k}{,}) \virgola
+		\antisimm t(\seqb{e}{k}{,}) &= \frac 1 {k!} \sum_{\sigma \in S_k} \sgn (\sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)}) =\\
+		& = \frac 1 {k!} \sum_{\sigma \in S_k} (\sgn (\sigma))^2 t(\seqb{e}{k}{,}) = t (\seqb{e}{k}{,}) \virgola
 	\end{align*}
-	dove abbiamo usato che $t\in\Lambda^k$ e $\mathrm{card} S_k = k!$.
+	dove abbiamo usato che $t\in\Lambda^k(V,W)$ e che $\mathrm{card} S_k = k!$.
 \end{proof}
 
 \begin{remark}
-	$\antisimm^2=\antisimm$ e quindi $\norm\antisimm \le \norm\antisimm^2$, da cui $\norm\antisimm \ge 1 $.
-	D'altronde, le permutazioni preservano la norma, quindi $\norm{\antisimm t} \le \norm{t}$ e perciò $\norm \antisimm \le 1$.
-	E unendo le due disuguaglianze otteniamo proprio $\norm\antisimm = 1$.
+	Visto che $\antisimm^2=\antisimm$, abbiamo $\norm\antisimm \le \norm\antisimm^2$ e quindi $\norm\antisimm \ge 1 $.
+	D'altronde, le permutazioni preservano la norma, perciò $\norm{\antisimm t} \le \norm{t}$ e di conseguenza $\norm \antisimm \le 1$.
+	Unendo le due disuguaglianze otteniamo proprio $\norm\antisimm = 1$.
 \end{remark}
 
-Si chiamano algebre esterne perché si può fare un prodotto esterno.
+Parliamo di forme esterne e parleremo di algebre esterne perché si può fare un prodotto esterno, detto wedge, che definiamo di seguito.
 
-\begin{definition}
+\begin{definition} \index{prodotto!wedge}
 	Se $\alpha \in T^0_k(V)$ e $\beta \in T^0_l(V)$. Il \emph{prodotto wedge} $\alpha \wedge \beta \in \Lambda^{k+l}(V)$ è definito da
 	\begin{equation*}
-		\alpha\wedge \beta \coloneqq \frac {(k+l)!}{k!\ l!} \antisimm(\alpha\otimes \beta)\punto
+		\alpha\wedge \beta \coloneqq \frac {(k+l)!}{k!\ l!}\ \antisimm(\alpha\otimes \beta)\punto
 	\end{equation*}
 \end{definition}
 
@@ -58,65 +58,142 @@ Si chiamano algebre esterne perché si può fare un prodotto esterno.
 	Se $\alpha,\beta\in\Lambda^1(V) \cong T^0_1(V)$, allora $(\alpha\wedge \beta)(e_1,e_2) = \alpha(e_1)\beta(e_2) - \alpha(e_2)\beta(e_1)$.
 \end{example}
 
-\begin{exercise}
+\begin{exercise} \index{mescolamento}
 	Un \emph{mescolamento} di tipo $(k,l)$ è una permutazione $\sigma \in S_{k+l}$ tale che $\sigma(1) < \ldots < \sigma(k)$ e $\sigma(k+1) <\ldots < \sigma(k+l)$.
-	Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora $(\alpha\wedge\beta)(\seqb{e}{k+l}{,}) = \sum_{\sigma \in mescolamenti(k,l)} \alpha(e_{\sigma(1)},\ldots,e_{\sigma(k)}) \beta(e_{\sigma(k+1)},\ldots,e_{\sigma(k+l)})$.
+	Indichiamo $\mathrm{mesc} (k,l)$ l'insieme dei mescolamenti di tipo $(k,l)$.
+	
+	Mostrare che, se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
+	\begin{equation*}
+	(\alpha\wedge\beta)(\seqb{e}{k+l}{,}) = \sum_{\sigma \in \mathrm{mesc}(k,l)} \alpha(e_{\sigma(1)},\ldots,e_{\sigma(k)}) \beta(e_{\sigma(k+1)},\ldots,e_{\sigma(k+l)})\punto
+	\end{equation*}
 \end{exercise}
 
-\begin{proposition}
+\begin{proposition} \label{prop:ProprietaWedge}
 	Se $\alpha \in T^0_k(V)$, $\beta \in T^0_l(V)$ e $\gamma \in T^0_m(V)$, si ha
 	\begin{enumerate}
-		\item $\alpha\wedge\beta = (\antisimm \alpha) \wedge \beta = \alpha\wedge (\antisimm \beta)$;
-		\item $\wedge$ è bilineare;
-		\item $\alpha\wedge \beta = (-1)^{kl} \beta \wedge \alpha$;
-		\item $\alpha\wedge(\beta\wedge \gamma) = (\alpha\wedge\beta)\wedge\gamma = \frac{(k+l+m)!}{k!\ l!\ m!}\antisimm(\alpha\otimes\beta\otimes\gamma)$.
+		\item $\alpha\wedge\beta = (\antisimm \alpha) \wedge \beta = \alpha\wedge (\antisimm \beta)$; \label{pw:Antisimmetrica}
+		\item $\wedge$ è bilineare; \label{pw:Bilineare}
+		\item $\alpha\wedge \beta = (-1)^{kl} \beta \wedge \alpha$; \label{pw:Anticommutativa}
+		\item $\alpha\wedge(\beta\wedge \gamma) = (\alpha\wedge\beta)\wedge\gamma = \frac{(k+l+m)!}{k!\ l!\ m!}\ \antisimm(\alpha\otimes\beta\otimes\gamma)$. \label{pw:Associativa}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	1)
-	Siano $\sigma \in S_k$ e $t\in T^0_k(V)$. Definiamo $\sigma t(\seqb{e}{k}{,}) = t(e_{\sigma(1)}, \ldots, e_{\sigma(k)})$.
-	Claim: $\antisimm (\sigma t) = (\sgn \sigma) \antisimm t$.
-	Dimostriamolo:
+\begin{description}
+ \item [\ref{pw:Antisimmetrica}]
+	Siano $\sigma \in S_k$ e $t\in T^0_k(V)$ e definiamo $\sigma t(\seqb{e}{k}{,}) \coloneqq t(e_{\sigma(1)}, \ldots, e_{\sigma(k)})$. Allora, con questa notazione, $\antisimm t =\frac 1{k!} \sum_{\sigma\in S_k} (\sgn\sigma) \sigma t$.
+	Abbiamo inoltre che 
 	\begin{align*}
-		\antisimm (\sigma t) &= \frac 1{k!} \sum_{\rho \in S_k} (\sgn \rho) t(e_{\rho\sigma (1)},\ldots,e_{\rho\sigma(k)}) =\\
-		&= \frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau)(\sgn\sigma) t(e_{\tau(1)}, \ldots, e_{\tau(k)}) = (\sgn\sigma) (\antisimm t)(\seqb{e}{k}{,})\punto
+		\antisimm (\sigma t)(\seqb ek,) &= \frac 1{k!} \sum_{\rho \in S_k} \sgn (\rho) t(e_{\rho\circ\sigma (1)},\ldots,e_{\rho\circ\sigma(k)}) =\\
+		&= \frac 1{k!} \sum_{\tau\in S_k} \sgn(\tau)\sgn(\sigma) t(e_{\tau(1)}, \ldots, e_{\tau(k)}) = \sgn(\sigma) (\antisimm t)(\seqb{e}{k}{,})\virgola
 	\end{align*}
-	
-	Quindi ora, con la nuova definizione, abbiamo
-	\begin{equation*}
-		\antisimm t = \frac 1{k!} \sum_{\sigma\in S_k} (\sgn\sigma) \sigma t \punto
-	\end{equation*}
+	cioè $\antisimm (\sigma t) = \sgn (\sigma) \antisimm t$.%, da cui 
+% 	\begin{equation*}
+% 		\antisimm t =\sgn (\sigma) \antisimm (\sigma t)= \frac 1{k!} \sum_{\sigma\in S_k} (\sgn\sigma) \sigma t \punto
+% 	\end{equation*}
 
+	Ora, grazie alla linearità di $\antisimm$, abbiamo
 	\begin{equation*}
-		\antisimm(\antisimm \alpha \otimes \beta) = \antisimm(\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau) (\tau\alpha \otimes \beta)) =
-		\frac 1{k!} \sum_{\tau\in S_k}(\sgn\tau) \antisimm(\tau\alpha\otimes \beta)\punto
+		\antisimm(\antisimm \alpha \otimes \beta) = \antisimm\left(\frac 1{k!} \sum_{\tau\in S_k} \sgn(\tau) (\tau\alpha \otimes \beta)\right) =
+		\frac 1{k!} \sum_{\tau\in S_k}\sgn(\tau) \antisimm(\tau\alpha\otimes \beta)\punto
 	\end{equation*}
-	Sia $\tau'\in S_{k+l}$ tale che
+	Sia quindi $\tau'\in S_{k+l}$ tale che
 	\begin{equation*}
-		\tau'(1,\ldots,k,k+1,\ldots,k+l) = (\tau(1),\ldots,\tau(k),k+1,\ldots,k+l)
+		\tau'(1,\ldots,k,k+1,\ldots,k+l) = (\tau(1),\ldots,\tau(k),k+1,\ldots,k+l) \virgola
 	\end{equation*}
-	da cui $\sgn\tau'=\sgn\tau$.
-	Perciò la cosa sopra diventa
-	\begin{equation*}
-		\frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau')\antisimm\tau'(\alpha\otimes \beta)\punto
-	\end{equation*}
-	Quindi $\antisimm(\antisimm\alpha\otimes \beta) = \frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau')(\sgn\tau')\antisimm(\alpha\otimes \beta)=\frac 1{k!} \sum_{\tau\in S_k} \antisimm(\alpha\otimes \beta)$
-
+	per cui in particolare $\sgn(\tau')=\sgn(\tau)$.
+	Allora otteniamo 
+	\begin{align*}
+		\antisimm(\antisimm \alpha \otimes \beta) &= \frac 1{k!} \sum_{\tau\in S_k} \sgn(\tau')\antisimm\tau'(\alpha\otimes \beta)= \frac 1{k!} \sum_{\tau\in S_k} (\sgn\tau')(\sgn\tau')\antisimm(\alpha\otimes \beta)=\\
+		&=\frac 1{k!} \sum_{\tau\in S_k} \antisimm(\alpha\otimes \beta)\virgola
+	\end{align*}
+	dove abbiamo utilizzato la relazione ricavata prima.
 	Perciò $\antisimm(\antisimm\alpha\otimes \beta) = \antisimm(\alpha\otimes\beta)$ e quindi $(\antisimm\alpha)\wedge\beta = \alpha\wedge\beta$.
 	
-	La 2 è ovvia.
-	
-	3) 
-	Sia $\sigma_0\in S_{k+l}$ data da $\sigma(1,\ldots,k+l) = (k+1,\ldots,k+l,1,\ldots,k)$. Allora $(\alpha\otimes \beta)(\seqb{e}{k+l}{,}) = (\beta\otimes \alpha)(e_{\sigma_0(1)},\ldots,e_{\sigma_0(k+l)})$.
-	Allora per il claim $\antisimm(\alpha\otimes\beta) = (\sgn\sigma_0) \antisimm(\beta\otimes\alpha)=(-1)^{kl} \beta \wedge \alpha$.
+	\item [\ref{pw:Bilineare}] Ovvia.
 
-	4)
-	$\alpha\wedge(\beta\wedge\gamma) = \frac{(k+l+m)!}{k!(l+m)!}\antisimm(\alpha\otimes(\beta\wedge\gamma)) = \frac{(k+l+m)!}{k!(l+m)!} \frac{(l+m)!}{l!m!} \antisimm(\alpha\otimes\antisimm(\beta\otimes\gamma))= \frac{(k+l+m)!}{k!l!m!}\antisimm(\alpha\otimes\beta\otimes\gamma)$
-	
-	Idem per la seconda.
+	\item [\ref{pw:Anticommutativa}]
+	Sia $\sigma_0\in S_{k+l}$ data da $\sigma_0(1,\ldots,k+l) = (k+1,\ldots,k+l,1,\ldots,k)$, allora $(\alpha\otimes \beta)(\seqb{e}{k+l}{,}) = (\beta\otimes \alpha)(e_{\sigma_0(1)},\ldots,e_{\sigma_0(k+l)})$.
+	Utilizzando la formula ottenuta nel punto \ref{pw:Antisimmetrica}, abbiamo $\antisimm(\alpha\otimes\beta) = \sgn(\sigma_0) \antisimm(\beta\otimes\alpha)=(-1)^{kl} \beta \wedge \alpha$.
 
+	\item [\ref{pw:Associativa}]
+	Applicando le definizioni e l'associatività del prodotto tensore, otteniamo
+	\begin{align*}
+	\alpha\wedge(\beta\wedge\gamma) &= \frac{(k+l+m)!}{k!\ (l+m)!}\ \antisimm(\alpha\otimes(\beta\wedge\gamma)) =\\
+	&=\frac{(k+l+m)!}{k!\ (l+m)!}\cdot \frac{(l+m)!}{l!\ m!}\ \antisimm(\alpha\otimes\antisimm(\beta\otimes\gamma))=\\
+	&=\frac{(k+l+m)!}{k!\ l!\ m!}\ \antisimm(\alpha\otimes\beta\otimes\gamma)
+	\end{align*}
+	e analogamente anche l'altra equazione.
+
+	\end{description}
 \end{proof}
 
 
+\begin{remark}
+	Dati $\seqa{\alpha}{k}{,}\in\Lambda^1(V)$, abbiamo
+	\begin{equation*}
+		(\seqa{\alpha}{k}{\wedge})(\seqb{e}{k}{,}) = \sum_{\sigma\in S_k} \sgn(\sigma) \alpha^1(e_{\sigma(1)}) \ldots \alpha^k(e_{\sigma(k)}) = \det[\alpha^i(e_j)] \punto
+	\end{equation*}
+\end{remark}
+\begin{remark}
+	Dal punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, dati $\gamma^1\in \Lambda^{d_k}(V),\ldots, \gamma^1\in \Lambda^{d_k}(V)$, otteniamo $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
+	
+	In particolare, applicando questa formula a 1-forme, si ha $\seqb{\alpha}{k}{\wedge} = k!\ \antisimm(\seqb{\alpha}{k}{\otimes})$.
+	Perciò, se $\seqb en,$ è una base di $V$ e se $\seqa en,$ è la sua base duale, allora $(\seqa ek\wedge)(\seqb en,) = 1$.
+
+\end{remark}
+
+Prodotto wedge in componenti
+
+Sia $\seqb en,$ una base di $V$. Le componenti $t_{\seqb ik{}}$ di $t\in T^0_k(V)$ sono date da $t(e_{i_1},\ldots,e_{i_k})$.
+Se $t\in\Lambda^k(V)$, c'è antisimmetria e $(\antisimm t) = \frac 1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) t_{\sigma(i_1)\ldots\sigma(i_k)}$. $\antisimm$ antisimmetrizza le componenti.
+
+Se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
+\begin{equation*}
+	(\alpha\wedge\beta)_{\seqb{i}{k+l}{}} = \sum_{\sigma\in(k,l) mescolamenti} \sgn(\sigma) \alpha_{\sigma(i_1)\ldots\sigma(i_k)} \beta_{\sigma(i_{k+1})\ldots\sigma(i_{k+l})}
+\end{equation*}
+
+\begin{definition}
+	Dato $V$ spazio vettoriale $\Lambda(V)=\bigoplus_k\Lambda^k(V)$, è detta \emph{algebra esterna} di $V$.
+\end{definition}
+
+\begin{proposition}
+	Se $V$ ha dimensione $n$, $\Lambda^k(V)=0$ per $k>n$ e ha dimensione $\binom nk$ per $k=1,\ldots,n$. Quindi $\Lambda(V)$ ha dimensione $2^n$.
+	
+	Se $\seqb en,$ è una base di $V$, l'insieme $\{ e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat 1\le i_1< \ldots < i_k\le n\}$ è una base di $\Lambda^k(V)$.
+\end{proposition}
+
+\begin{corollary}
+	Sia $\theta\in\Lambda^1(V)$ e $\alpha\in\Lambda^k(V)$. Allora $\theta\wedge\alpha=0$ se e solo se esiste $\beta\in\Lambda^{k-1}(V)$ tale che $\alpha = \theta \wedge \beta$.
+\end{corollary}
+\begin{proof}
+	Si usa il fatto che, se $\theta\in\Lambda^1(V)$, allora $\theta\wedge\theta=0$ \footnote{Questo in generale è falso per $k$ pari: sia per esempio $\omega=e^1\wedge e^2+e^3\wedge e^4$ in $\R^4$, allora $\omega\wedge\omega = 2e^1\wedge e^2 \wedge e^3\wedge e^4 \not=0$} (per la 3).
+	Quindi se $\alpha=\theta\wedge\beta$, per la 4 $\theta\wedge\alpha=0$.
+	
+	Viceversa, sia $\theta\wedge\alpha=0$. Sia $\seqb en,$ base di $V$ tale che $e^n=\theta$. Se $\alpha=\sum_{i_1<\ldots<i_k} \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$, la condizione $\theta\wedge\alpha=0$ implica che i coefficienti in cui $e^n$ non compare sono nulli. Quindi $\alpha$ si fattorizza con $e^n$ e una $k-1$ forma $\beta$.
+\end{proof}
+
+\begin{example}
+	\begin{enumerate}
+		\item Sia $V = \R^2$, $\{e_1,e_2\}$ la base canonica e $\{e^1,e^2\}$ la base duale. Ogni $\omega\in\Lambda^1(\R^2)$ si scrive come $\omega = \omega_1e^1+\omega_2e^2$ e ogni $\omega\in\Lambda^2(\R^2)$ si scrive come $\omega = \omega_{12}\ e^1\wedge e^2$. 
+		
+		\item In $\R^3$, $\Lambda^1$ e $\Lambda^2$ hanno la stessa dimensione e dunque sono isomorfi. Data $\{e_i\}_{i=1,2,3}$ base canonica e $\{e^i\}$ base duale un isomorfismo è il seguente: $e^1\mapsto e^2\wedge e^3$ e cicliche.
+		Questo è detto \emph{operatore Hodge star} che indichiamo con $*$. L'isomorfismo standard di $\R^3$ con $\Lambda^1(\R^3)$ è l'operatore $\flat$: $^\flat(e_i) = e^i$.
+		
+		Allora $*\circ \flat:\R^3\to \Lambda^2(\R)$ soddisfa
+		\begin{equation*}
+			(*\circ \flat) (e\times f) = {^\flat e} \wedge {^\flat f}\punto 
+		\end{equation*}
+		Dove il $\times$ indica il prodotto tensore usale.
+		
+		Se $\alpha = \alpha_ie^i$ e $\beta = \beta_j e^j$, allora
+		\begin{equation*}
+			\alpha\wedge\beta = (\alpha_2\beta_3 - \beta_2\alpha_3)e^2\wedge e^3 + (\alpha_3\beta_1 - \alpha_1\beta_3)e^3\wedge e^1 + (\alpha_1\beta_2 - \alpha_2\beta_1) e^1\wedge e^2 \punto
+		\end{equation*}
+	\end{enumerate}
+\end{example}
+
+\begin{exercise}
+	Siano $\seqb vk, \in V$ linearmente dipendenti. Mostrare che $\alpha(\seqb vk,) = 0$ qualsiasi $\alpha\in\Lambda^k(V)$. 
+\end{exercise}
 
 
