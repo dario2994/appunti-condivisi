@@ -10,7 +10,7 @@ Ci sono due possibili approcci:
 
 \begin{example}
 	Vediamo come definire per esempio la derivata di Lie per 1-forme.
-	Se $Y\in\chi(M)$ e $\alpha\in\chi^*(M)$, richiediamo che $\Lie_X(\alpha \cdot Y) = (\Lie_X \alpha)\cdot Y + \alpha \cdot (\Lie_X Y)$, dove sappiamo cosa vuol dire la derivata di Lie su funzioni ($\alpha\cdot Y$) e su campi ($Y$), perciò la ricaviamo anche per le forme: $(\Lie_X\alpha)Y = \Lie_X(\alpha\cdot Y) - \alpha(\Lie_XY)$.
+	Se $Y\in\chi(M)$ e $\alpha\in\chi^*(M)$, richiediamo che $\Lie_X(\alpha ( Y)) = (\Lie_X \alpha)(Y) + \alpha(\Lie_X Y)$, dove sappiamo cosa vuol dire la derivata di Lie su funzioni (in questo caso $\alpha(Y)$) e su campi (in questo caso $Y$), perciò la ricaviamo anche per le forme: $(\Lie_X\alpha)Y = \Lie_X(\alpha(Y)) - \alpha(\Lie_XY)$.
 \end{example}
 
 \begin{definition} \index{operatore!differenziale} \label{def:OperatoreDifferenziale}
@@ -43,9 +43,9 @@ Ci sono due possibili approcci:
 	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_U : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_U : \chi(U) \to \chi(U)$ che siano derivazioni (naturali rispetto alle restrizioni), cioè
 	\begin{enumerate}
 		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$ per $f,g\in C^\infty(U)$; \label{eod:LeibnitzPerE}
-		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$; \label{eod:LocalitaPerE}
 		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$; \label{eod:LeibnitzPerF}
-		\item per $X$ campo vettoriale su $M$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$. \label{eod:LocalitaPerF}
+		\item se $f\in C^\infty(M)$, allora $\mathcal E_U(f\restrict U) = (\mathcal E_M f)\restrict U$; \label{eod:LocalitaPerE}
+		\item per $X\in\chi(M)$, vale $\mathcal F_U(X\restrict U) = (\mathcal F_M X)\restrict U$. \label{eod:LocalitaPerF}
 	\end{enumerate}
 	Allora esiste unico un operatore differenziale $\mathcal D$ che coincide con $\mathcal E_U$ su $C^\infty(U)$ e con $\mathcal F_U$ su $\chi(U)$ per ogni $U$ aperto di $M$.
 
