@@ -8,7 +8,7 @@
 \section{Determinanti e volumi}
 
 Il determinante di una matrice è multilineare e antisimmetrico su righe e colonne di una matrice.
-Se $\seqb xn, \in\R^n$ con componenti $x_i^j$, allora il determinante di $(x_i^j)$ è il volume del parallelepipedo generato da $\seqb xn,$.
+Se $\seqb xn, \in\R^n$ hanno componenti $x_i^j$, allora il determinante di $(x_i^j)$ è il volume del parallelepipedo generato da $\seqb xn,$.
 Possiamo indicare
 \begin{equation*}
 	\det[\seqb xn,] = \sum_{\sigma\in S_n} \sgn(\sigma) x_{\sigma(1)}^1\ldots x_{\sigma(n)}^n \punto
@@ -16,13 +16,13 @@ Possiamo indicare
 Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parallelepipedo generato da $\varphi(e_1),\ldots,\varphi(e_n)$}}{\text{volume del cubo unitario}}$.
 
 \begin{proposition}
-	Siano $\varphi\in\Lin(V,W)$ e $\psi\in\Lin(W,Z)$. Allora $\varphi^* : T^0_k(W) \to T^0_k(V)$ è lineare e 
+	Sia $\varphi\in\Lin(V,W)$, allora $\varphi^* : T^0_k(W) \to T^0_k(V)$ è lineare e valgono 
 	\begin{enumerate}
 		\item $\varphi^*(\Lambda^k(W)) \subseteq \Lambda^k(V)$;
-		\item $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$;
-		\item $\id^* = \id$;
-		\item se $\varphi\in \mathrm{inv}(V,W)$, $\varphi^*\in \mathrm{inv}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$.
-		Se anche $\psi\in\mathrm{inv}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
+		\item se $\psi\in\Lin(W,Z)$, $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$;
+		\item $(\id_V)^* = \id_{T^0_k(V)}$;
+		\item se $\varphi\in \mathrm{GL}(V,W)$, allora $\varphi^*\in \mathrm{GL}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$. %TODO: GL era chiamato inv
+		Se anche $\psi\in\mathrm{GL}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
 		\item se $\alpha\in\Lambda^k(V)$, $\beta\in\Lambda^l(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
 	\end{enumerate}
 \end{proposition}
