@@ -74,7 +74,8 @@ da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ i
 	Perciò, riapplicando l'\cref{eq:triangolo}, abbiamo
 	\begin{align*}
 	**(e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}) &= \sgn(\sigma) * (e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) =\\
-	&=\sgn(\sigma)^2 (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} = (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} \virgola
+	&=\sgn(\sigma)^2 (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} =\\
+	&=(-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} \virgola
 	\end{align*}
 	da cui abbiamo quanto cercato poiché gli elementi del tipo $e^{\sigma(1)}\wedge \ldots \wedge e^{\sigma(k)}$ generano $\Lambda^k(V)$.
 	
@@ -95,22 +96,23 @@ Se $\varphi: U \times V \to U' \times V'$ è un isomorfismo locale di fibrati, a
 	Chiamiamo l'ovvia proiezione $\Lambda^k(\pi) : \Lambda^k(E) \to B$.
 \end{definition}
 
-Quando $E = TM$ per $M$ varietà, poniamo $\Lambda^k(M) = \Lambda^k(TM)$. Inoltre poniamo $\Omega^1(M) = \Tau^0_1(M) = \chi^*(M)$ e $\Omega^k(M) = \Gamma^\infty(\Lambda^k(M))$.
+Quando $E = TM$ per $M$ varietà, poniamo $\Lambda^k(M) = \Lambda^k(TM)$. Inoltre poniamo $\Omega^1(M) = \Tau^0_1(M) = \chi^*(M)$ e in generale $\Omega^k(M) = \Gamma^\infty(\Lambda^k(M))$ le sezioni $C^\infty$ su $\Lambda^k(M)$.
 
+Estendiamo ora il prodotto wedge alle forme definite su una varietà.
 \begin{proposition}
 	Se $\alpha \in \Omega^k(M)$ e $\beta \in \Omega^l(M)$, sia $\alpha \wedge \beta : M \to \Lambda^{k+l}(M)$ definita da $(\alpha\wedge\beta)(m) = \alpha(m) \wedge \beta(m)$. Allora $\alpha\wedge\beta \in \Omega^{k+l}(M)$ e questo operatore è bilineare e associativo.
 \end{proposition}
 \begin{proof}
-	Bilinearità e associatività seguono da quella di $\wedge$ in $\Lambda(T_mM)$. La regolarità si mostra lavorando in carta.
+	Bilinearità e associatività seguono dalle proprietà del prodotto wedge $\wedge$ in $\Lambda(T_mM)$. La regolarità si mostra lavorando in carta.
 \end{proof}
 
-\begin{definition}
+\begin{definition} \index{forma!differenziale} \index{algebra!delle forme differenziali}
 	Elementi di $\Omega^k(M)$ sono detti \emph{$k$-forme} e $\Omega(M) = \oplus_{k=0}^n \Omega^k(M)$ è detta \emph{algebra delle forme differenziali esterne}.
 \end{definition}
 
 \begin{remark}
-In coordinate locali. Se $t\in\Tau^r_s(M)$, allora $t(x) = t^{\seqb ir{}}_{\seqb js{}} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1} \otimes \ldots \otimes \de x^{j_s}$.
-Dato $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}}(x) \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$ con $\seqb ik<$ e $\omega_{\seqb ik{}}(x) = \omega(\DerParz{}{x^{i_1}}, \ldots, \DerParz{}{x^{i_k}})$.
+Vediamo la scrittura di una forma in coordinate locali. Se $t\in\Tau^r_s(M)$, abbiamo visto che $t = t^{\seqb ir{}}_{\seqb js{}} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1} \otimes \ldots \otimes \de x^{j_s}$.
+Data $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$ con $\seqb ik<$ e $\omega_{\seqb ik{}} = \omega\left(\DerParz{}{x^{i_1}}, \ldots, \DerParz{}{x^{i_k}}\right)$.
 \end{remark}
 
 \begin{remark}
@@ -119,39 +121,44 @@ Dato $\omega \in \Omega^k(M)$, allora $\omega = \omega_{\seqb ik{}}(x) \de x^{i_
 
 \section{Derivata esterna}
 
-La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega(M) \to \Omega(M)$.
+Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particolarmente interessanti.
 
-\begin{theorem}
-	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $\de \coloneqq \de^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta derivata esterna) tale che
+\begin{theorem} \index{derivata!esterna} \label{thm:CostruzioneDerivataEsterna}
+	sia $M$ una varietà $n$-dimensionale. Allora per ogni $k=0,\ldots,n$ e per ogni $U\subseteq M$ aperto esiste unico $\de = \de^k : \Omega^k(U) \to \Omega^{k+1}(U)$ (detta \emph{derivata esterna}) tale che
 	\begin{enumerate}
-		\item $\de$ è una $\wedge$-antiderivazione, cioè $\de$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $\de(\alpha\wedge\beta) = \de\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$;
-		\item se $f\in C^\infty(M)$, allora $\de f$ coincide con il differenziale di $f$;
-		\item $\de^2 = \de\circ \de = 0$;
-		\item $\de$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $\de(\alpha\restrict U) = (\de\alpha)\restrict U$ ($\de$ è locale).
+		\item $\de$ è una $\wedge$-antiderivazione, cioè $\de$ è $\R$-lineare e per ogni $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ si ha $\de(\alpha\wedge\beta) = \de\alpha \wedge \beta +(-1)^k \alpha\wedge \de \beta$; \label{cde:Antiderivazione}
+		\item se $f\in C^\infty(M)$, allora $\de f$ coincide con il differenziale di $f$; \label{cde:Cinfinito}
+		\item $\de^2 = \de\circ \de = 0$; \label{cde:DDUgualeAZero}
+		\item $\de$ è naturale rispetto alle restrizioni, cioè se $U\subseteq V \subseteq M$ con $U,V$ aperti e $\alpha\in\Omega^k(V)$, allora $\de(\alpha\restrict U) = (\de\alpha)\restrict U$ (quindi $\de$ è locale). \label{cde:Locale}
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	\begin{description}
 		\item [unicità:] Sia $(U,\varphi)$ una carta di $M$ e consideriamo una $k$-forma $\alpha\in\Omega^k(U)$ con $\alpha = \alpha_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$.
-		Se $k=0$ e $f=x^i$, allora $\de(x^i) = \de x^i$.
+		Se $k=0$ e $f=x^i$, allora $\de f = \de(x^i) = \de x^i$.
 		
-		Dalla 3 abbiamo $\de(\de x^i) = 0$, quindi per la 1 $\de(\de x^{i_1} \wedge \ldots \wedge \de x^{i_k}) = 0$.
+		Dalla \ref{cde:DDUgualeAZero} abbiamo $\de(\de x^i) = 0$, quindi per la \ref{cde:Antiderivazione} otteniamo $\de(\de x^{i_1} \wedge \ldots \wedge \de x^{i_k}) = 0$.
 		
 		Perciò $\de\alpha = (\de \alpha_{\seqb ik{}}) \wedge \de x^{i_1} \wedge \ldots\wedge \de x^{i_k} = \DerParz{\alpha_{\seqb ik{}}} {x^i} \de x^i \wedge \de x^{i_1} \wedge\ldots \wedge \de x^{i_k}$, con $i=1,\ldots,n$ e $\seqb ik<$.
 		
-		Questa formula caratterizza $\de$ su tutti gli aperti di un atlante (di $M$), quindi per la 4 su tutti gli aperti di $M$.
-		\item [esistenza:] Definiamo $\de$ come dalla formula sopra e verifichiamo tutte le proprietà. $\de$ è ovviamente $\R$-lineare.
+		Questa formula caratterizza $\de$ su tutti gli aperti di un atlante di $M$, quindi per la \ref{cde:Locale} su tutti gli aperti di $M$.
 		
-		Sia $\beta\in\Omega^l(M)$ con $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$ con $\seqb jl<$. Allora
+		\item [esistenza:] Definiamo $\de$ come dalla formula sopra e verifichiamo tutte le proprietà. Innanzitutto $\de$ è ovviamente $\R$-lineare.
+		
+		Siano ora $\alpha\in\Omega^k(U)$ e $\beta\in\Omega^l(U)$ con $\alpha = \alpha_{\seqb ik{}} \de x^{i_1} \wedge \ldots \wedge \de x^{i_k}$ e $\beta= \beta_{\seqb jl{}} \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}$. Allora
 		\begin{align*}
-			\de (\alpha \wedge \beta) &= \de (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
+			\de& (\alpha \wedge \beta) =\\ 
+			&= \de (\alpha_{\seqb ik{}} \beta_{\seqb jl{}} \de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l}) =\\
 			&= \left(\DerParz{\alpha_{\seqb ik{}}}{x^i} \beta_{\seqb jl{}} + \alpha_{\seqb ik{}} \DerParz{\beta_{\seqb jl{}}}{x^i} \right) \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k}\wedge \de x^{j_1} \wedge\ldots\wedge \de x^{j_l} = \\
-			&=\DerParz{\alpha_{\seqb ik{}}}{x^i} \de x^i\wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} \wedge \beta + (-1)^k \alpha \wedge \de \beta \punto
+			&=\de \alpha \wedge \beta + (-1)^k \alpha \wedge \de \beta \punto
 		\end{align*}
 		
-		Per la 3 usiamo il lemma di Schwartz $\de(\de\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^j \wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0$.
+		Per la \ref{cde:DDUgualeAZero}, utilizzando il lemma di Schwartz, abbiamo
+		\begin{equation*}
+		\de(\de\alpha) = \frac{\partial^2 \alpha_{\seqb ik{}}}{\partial x^i \partial x^j} \de x^i\wedge\de x^j \wedge\de x^{i_1} \wedge\ldots\wedge \de x^{i_k} =0 \punto
+		\end{equation*}
 		
-		Per verificare 4 mostriamo che non dipende dalle carte. Siano $(U,\varphi), (U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $\de = \de'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
+		Per verificare \ref{cde:Locale} mostriamo che la definizione non dipende dalle carte. Siano $(U,\varphi)$, $(U',\varphi')$ carte tali che $U\cap U' \not=\emptyset$. Per unicità locale $\de = \de'$ in $U\cap U'$ e quindi abbiamo anche l'unicità globale.
 	\end{description}
 \end{proof}
 
@@ -165,37 +172,34 @@ La \emph{derivata esterna} è una mappa (interessante) $\de:\Omega(M) \to \Omega
 \begin{proof}
 	Sia $\omega(x) = \omega_{\seqb ik{}} (x) \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}$, allora
 	\begin{equation*}
-		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j} v_i^j \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}
+		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} \virgola
 	\end{equation*}
-	\begin{align*}
-		\implies \de \omega (v_0,\ldots,v_k) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\
-		&=\DerParz{\omega_{\seqb ik{}}}{x^j} \sgn(\sigma) v_{\sigma(0)}^{j} v_{\sigma(1)}^{i_1} \ldots v_{\sigma(k)}^{i_k}
-	\end{align*}
-	Dove nell'equazione precedente sto sommando su $j=1, \ldots,n$ e $\sigma \in S_{k+1}$.
-	Il membro di destra nell'enunciato è
+	quindi il membro destro dell'enunciato è
 	\begin{equation*}
-		(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j} v_{\eta(1)}^{i_1} \ldots v_{\eta(k)}^{i_k}
+		\sum_{\eta\in S_k}(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \sgn(\eta)\ v_{\eta(1)}^{i_1} \ldots v_{\eta(k)}^{i_k} \punto
 	\end{equation*}
-	Dove $\eta \in S_k$, ma quest'ultima equazione è uguale a quella scritta sopra dove otteniamo
-	$\sigma$ da $\eta$ componendo con la trasposizione che manda $0$ in $i$.
+	D'altra parte
+	\begin{align*}
+		\de \omega (v_0,\ldots,v_k) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\ 
+		&=\sum_{\sigma \in S_{k+1}}\DerParz{\omega_{\seqb ik{}}}{x^j}\ \sgn(\sigma)\ v_{\sigma(0)}^{j} v_{\sigma(1)}^{i_1} \ldots v_{\sigma(k)}^{i_k} \punto
+	\end{align*}
+	A questo punto però è facile verificare che le due espressioni trovate coincidono, passando da una permutazione $\eta \in S_k$ ad una permutazione $\sigma \in S_{k+1}$ mandando lo 0 in $i$.
 \end{proof}
 
 \begin{example}
 	\begin{enumerate}
-	 \item In $\R^2$ sia $\alpha = f(x,y) \de x + g(x,y) \de y$, allora $d \alpha= d f\wedge \de x + d g \wedge \de y = (\DerParz{g}{x} - \DerParz fy) \de x\wedge \de y $
-	 \item In $\R^3$ data $f$ funzione regolare $d f = \DerParz fx \de x + \DerParz fy \de y + \DerParz fz \de z$ e $\grad f = (df)^\sharp$
+	 \item In $\R^2$, sia $\alpha = f(x,y) \de x + g(x,y) \de y$, allora $\de \alpha= \de f\wedge \de x + \de g \wedge \de y = \left(\DerParz{g}{x} - \DerParz fy\right) \de x\wedge \de y $.
+	 \item In $\R^3$, data $f$ funzione regolare, abbiamo $\de f = \DerParz fx \de x + \DerParz fy \de y + \DerParz fz \de z$ e $\grad f = (\de f)^\sharp$.
 	\end{enumerate}
 \end{example}
 
-\begin{exercise}
-	In $\R^3$ sia $\underline F=(F_1,F_2,F_3)$ e sia $\underline F^\flat = F_1 \de x + F_2 \de y + F_3 \de z$
+\begin{exercise} %TODO: verificare che l'esercizio abbia senso
+	In $\R^3$, sia $\underline F=(F_1,F_2,F_3)$, allora $\underline F^\flat = F_1 \de x + F_2 \de y + F_3 \de z$ e
 	$*(\underline F^\flat) = F_3\de x \wedge \de y - F_2 \de x \wedge \de z + F_1 \de y \wedge \de z$.
+	Mostrare che $\de \underline{F}^\flat = *(\mathrm{rot} \underline{F})^\flat$.	
+	Verificare che $\div \underline F = *\de(* \underline F^\flat)$ e $\de^2 = 0$ e quindi che $\div (\mathrm{rot} \underline F)=0$.
 	
-	Verificare che $\de \underline{F}^\flat = *(rot \underline{F})^\flat$
-	
-	Verificare che $\div \underline F = *d * \underline F^\flat$ e che $d^2 = 0$ e quindi che $\div (rot \underline F)=0$.
-	
-	Allo stesso modo, se $f:\R^3\to\R$ è regolare $ddf=0$ equivale a $rot(\grad f)=0$
+	Allo stesso modo, se $f:\R^3\to\R$ è regolare $\de\de f=0$ equivale a $\mathrm{rot}(\grad f)=0$.
 \end{exercise}
 
 
