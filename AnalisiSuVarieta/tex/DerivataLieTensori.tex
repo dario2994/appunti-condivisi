@@ -19,11 +19,11 @@ Ci sono due possibili approcci:
 	 \item $\mathcal D$ sia una derivazione tensoriale, cioè commuta con le contrazioni. \label{od:Derivazione} %[$\mathcal D_1$)] 
 	 
 	 Vogliamo quindi che $\mathcal D$ sia $\R$-lineare e che, dati $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$, valga
-	 \begin{multline*}
-	 	\mathcal D (t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = (\mathcal D t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) +\\
-	 	+\sum_{j=1}^r t(\alpha_1,\ldots,\mathcal D \alpha_j,\ldots, \alpha_r, X_1,\ldots, X_s) +
-	 	\sum_{k=1}^s t(\alpha_1,\ldots, \alpha_r, X_1,\ldots, \mathcal D X_k,\ldots, X_s) \punto
-	 \end{multline*}
+	 \begin{align*}
+	 	\mathcal D (t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) =\ & (\mathcal D t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) +\\
+	 	&+\sum_{j=1}^r t(\alpha_1,\ldots,\mathcal D \alpha_j,\ldots, \alpha_r, X_1,\ldots, X_s) +\\
+	 	&+\sum_{k=1}^s t(\alpha_1,\ldots, \alpha_r, X_1,\ldots, \mathcal D X_k,\ldots, X_s) \punto
+	 \end{align*}
 
 	\item $\mathcal D$ è locale (naturale rispetto alle restrizioni), dove supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto. \label{od:Restrizioni} %[$\mathcal D_2$)]
 	
@@ -52,7 +52,11 @@ Ci sono due possibili approcci:
 \end{theorem}
 
 \begin{proof} %TODO: capire e sistemare
-	Innanzitutto definiamo $\mathcal D$ su $\chi^*(U)$ come $(\mathcal D\alpha) (X) \coloneqq \mathcal E_U(\alpha(X)) - \alpha( \mathcal F_UX)$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$, ricordandoci che vogliamo che valga $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X)$. 
+	Innanzitutto definiamo $\mathcal D$ su $\chi^*(U)$ come 
+	\begin{equation*}
+	(\mathcal D\alpha) (X) \coloneqq \mathcal E_U(\alpha(X)) - \alpha( \mathcal F_UX)
+	\end{equation*}
+	per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$, ricordandoci che vogliamo che valga $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X)$. 
 % 	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
 	
 	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$ e che quindi sia effettivamente un elemento di $\chi^*(U)$.

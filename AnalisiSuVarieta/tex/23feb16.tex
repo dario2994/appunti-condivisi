@@ -15,6 +15,7 @@ Possiamo indicare
 \end{equation*}
 Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parallelepipedo generato da $\varphi(e_1),\ldots,\varphi(e_n)$}}{\text{volume del cubo unitario}}$.
 
+Rivediamo ora le proprietà del pull-back nel caso particolare di forme differenziali o più in generale di tensori solo covarianti.
 \begin{proposition}
 	Sia $\varphi\in\Lin(V,W)$, allora $\varphi^* : T^0_k(W) \to T^0_k(V)$ è lineare e valgono 
 	\begin{enumerate}
@@ -27,53 +28,60 @@ Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parall
 	\end{enumerate}
 \end{proposition}
 
-Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
-\begin{definition}
-	Se $V$ ha dimensione $n$ e $\varphi\in\Lin(V,V)$, $\det(\varphi)$ è definito come l'unica costante tale che $\varphi^*\omega = \det(\varphi) \omega$, qualsiasi $\omega\in\Lambda^n(V)$.
+Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la seguente definizione.
+\begin{definition} \index{determinante}
+	Se $V$ ha dimensione $n$ e $\varphi\in\Lin(V,V)$, il \emph{determinante} $\det(\varphi)$ di $\varphi$ è definito come l'unica costante tale che $\varphi^*\omega = \det(\varphi) \omega$, per qualsiasi $\omega\in\Lambda^n(V)$.
 \end{definition}
 
 \begin{proposition}
-	Sia $\seqb en,$ una base di $B$ con base duale $\seqa en,$. Sia $\varphi(e_i) = A_i^je_j$.
-	Dalla dimostrazione dell'associatività di $\Lambda$
+	Sia $\seqb en,$ una base di $B$ con base duale $\seqa en,$. Sia $\varphi \in \Lin(V,V)$ tale che $\varphi(e_i) = A_i^je_j$.
+	Allora
+	\begin{equation*}
+		\varphi^*(\seqa en\wedge) (\seqb en,) = \det A \punto %TODO: è questa la conclusione, giusto?
+	\end{equation*}
+\end{proposition}
+\begin{proof}	
+	Dalla dimostrazione del punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, abbiamo
 	\begin{align*}
 		\varphi^*(\seqa en\wedge) (\seqb en,) &= (\seqa en\wedge)(\varphi(e_1),\ldots, \varphi(e_n)) =\\
 		&=n!\ \antisimm (\seqa en\otimes)(\varphi(e_1),\ldots,\varphi(e_n)) = \det A
 		\punto
 	\end{align*}
-	(multilineare e normalizzata a 1 sulla mappa identica)
-\end{proposition}
+	%(multilineare e normalizzata a 1 sulla mappa identica) %TODO: che vuol dire questa frase?
+\end{proof}
 
 \begin{proposition}
 	Siano $\varphi,\psi \in\Lin(V,V)$. Allora
 	\begin{enumerate}
 		\item $\det(\varphi\circ\psi) = \det \varphi \cdot \det \psi$;
-		\item $\det \id = 1$;
-		\item $\varphi$ è un isomorfismo se e solo se $\det\varphi\not=0$. In tal caso $\det\varphi^{-1} = (\det \varphi)^{-1}$.
+		\item $\det (\id_V) = 1$;
+		\item $\varphi$ è un isomorfismo se e solo se $\det\varphi\not=0$ e in tal caso $\det(\varphi^{-1}) = (\det \varphi)^{-1}$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	L'unica non ovvia è la freccia $\Leftarrow$ della 3.
-	
+	L'unica dimostrazione non ovvia è quella del fatto che se $\det\varphi\not=0$, allora $\varphi$ è un isomorfismo.
+% 	L'unica non ovvia è la freccia $\Leftarrow$ della 3.
 	Basta dimostrare che se $\varphi$ non è un isomorfismo, allora $\det\varphi = 0$.
-	Se $\varphi$ non è un isomorfismo, esiste $e=e_1\in\ker\varphi$. Completo $e_1$ a una base $\{\seqb en,\}$ di $V$. Data $\omega\in\Lambda^n(V)$, allora
+	
+	Se $\varphi$ non è un isomorfismo, esiste $e=e_1\in\ker\varphi$. Completiamo $e_1$ ad una base $\{\seqb en,\}$ di $V$. Data $\omega\in\Lambda^n(V)$, allora
 	\begin{equation*}
-		(\varphi^*\omega)(\seqb en,) = \omega(\varphi(e_1),\ldots,\varphi(e_n)) = \omega(0,\varphi(e_2),\ldots,\varphi(e_n)) = 0
+		(\varphi^*\omega)(\seqb en,) = \omega(\varphi(e_1),\ldots,\varphi(e_n)) = \omega(0,\varphi(e_2),\ldots,\varphi(e_n)) = 0 \virgola
 	\end{equation*}
-	perché $\omega$ è multilineare. Perciò $\det\varphi = 0$.
+	perché $\omega$ è multilineare. Perciò $\det\varphi = 0$, come voluto.
 \end{proof}
 
-\begin{definition} \index{orientazione}
+\begin{definition} \index{elementi di volume}\index{orientazione} \index{spazio orientato}
 	Gli elementi di $\Lambda^n(V)$ sono detti \emph{elementi di volume}. Se $\omega_1,\omega_2$ sono elementi di volume diciamo che $\omega_1\sim \omega_2$ se esiste $c>0$ tale che $\omega_1 = c\omega_2$. Una classe di equivalenza di elementi di volume è detta un'\emph{orientazione} su $V$.
 	
 	Uno \emph{spazio orientato} $(V, [\omega])$ è uno spazio vettoriale con un'orientazione $[\omega]$. La classe $[-\omega]$ è detta \emph{orientazione inversa}.
 	
-	Una base $\{\seqb en,\}$ di $(V,[\omega])$ orientato è detta essere orientata positivamente se $\omega(\seqb en,)>0$ \footnote{Ovviamente tale definizione è indipendente dalla scelta di un elemento di $[\omega]$.}.
+	Una base $\{\seqb en,\}$ di $(V,[\omega])$ orientato è detta essere orientata positivamente se $\omega(\seqb en,)>0$. Ovviamente tale definizione è indipendente dalla scelta di un elemento di $[\omega]$.
 \end{definition}
 
-\begin{proposition}
-	Sia $g\in T^0_2(V)$ simmetrico e definito positivo. Allora esiste una base $\{\seqb en,\}$ di $V$ (con base duale $\{\seqa en,\}$) tale che $g = \sum_{i=1}^n e^i\otimes e^i$. Questa base è detta \emph{ortogonale} rispetto a $g$.
+\begin{proposition} \index{base!ortonormale} \label{prop:EsistenzaBaseOrtonormale}
+	Sia $g\in T^0_2(V)$ simmetrico e definito positivo. Allora esiste una base $\{\seqb en,\}$ di $V$ con base duale $\{\seqa en,\}$ tale che $g = \sum_{i=1}^n e^i\otimes e^i$. Questa base è detta \emph{ortonormale} rispetto a $g$.
 \end{proposition}
-\begin{proof}
+\begin{proof} %TODO: sistemare
 	La dimostrazione è analoga al caso di $\R^n$ utilizzando un processo di ortogonalizzazione di Gram-Schmidt.
 	
 	Dalla polarizzata $g(e,f) = \frac 14 [g(e+f,e+f) + g(e-f,e-f)]$.
@@ -83,8 +91,8 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
 \end{proof}
 
 
-\begin{proposition}
-	Sia $V$ uno spazio vettoriale $n$ dimensionale e sia $g\in T^0_2(V)$ simmetrico, definito positivo. Allora, se $[\omega]$ è un'orientazione in $V$, esiste un unico elemento di volume $\mu(g) \in [\omega]$ (detto $g$-volume) tale che $\mu(g)(\seqb en,) = 1$ per ogni base ortonormale e orientata $\seqb en,$ di $V$.
+\begin{proposition} \index{$g$-volume}
+	Sia $V$ uno spazio vettoriale $n$ dimensionale e sia $g\in T^0_2(V)$ simmetrico, definito positivo. Allora, se $[\omega]$ è un'orientazione in $V$, esiste un unico elemento di volume $\mu(g) \in [\omega]$, detto \emph{$g$-volume}, tale che $\mu(g)(\seqb en,) = 1$ per ogni base $\seqb en,$ di $V$ ortonormale rispetto a $g$ e orientata.
 	Se poi $\seqa en,$ è la base duale, allora $\mu(g) = \seqa en\wedge$.
 	
 	In generale, se $\seqb fn,$ è una base orientata positivamente e se $f^i$ è la base duale, allora
@@ -93,16 +101,19 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$.
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Per la proposizione precedente $g(f_i,f_j) = \sum_p e^p\otimes e^p (f_i,f_j)$. Esiste quindi $\varphi \in \mathrm{inv}(V,V)$ tale che $f_i = \varphi(e_i) = A_i^j(e_j)$.
-	Perciò $g(f_i,f_j) = \sum_p e^p\otimes e^p (A_i^k e_k, A_i^le_l) = \sum_p \delta_k^p \delta_l^p A_i^k A_j^l = \sum_pA_i^pA_j^p$.
-	Quindi $\det[g(f_i,f_j)] = (\det\varphi)^2\det[g(e_i,e_j)] = (\det\varphi)^2$.
-	Se $\{\seqb en,\}$ è orientata positivamente e $g$-ortogonale $\mu(\seqb en,) = 1$ determina $\mu$ univocamente.
+	Sia $\{\seqb en,\}$ una base ortonormale rispetto a $g$, che ci è garantita dalla \cref{prop:EsistenzaBaseOrtonormale}. Allora $g(f_i,f_j) = \sum_{p=1}^n e^p\otimes e^p (f_i,f_j)$.
 	
-	Se $\seqb fn,$ è un'altra base orientata positivamente e $g$-ortogonale e sia $\varphi$ come sopra. Allora $\abs{\det\varphi} = 1$. Ma $0<\mu(\seqb fn,) = (\varphi^*\mu)(\seqb en,)\det\varphi$, quindi $\det\varphi=1$.
+	Se $\varphi \in \mathrm{GL}(V,V)$ è tale che $f_i = \varphi(e_i) = A_i^j(e_j)$, allora
+	\begin{equation*}
+	g(f_i,f_j) = \sum_{p=1}^n e^p\otimes e^p (A_i^k e_k, A_j^le_l) = \sum_{p=1}^n \delta_k^p\ \delta_l^p\ A_i^k\ A_j^l = \sum_{p=1}^nA_i^pA_j^p \punto
+	\end{equation*}
+	Perciò abbiamo $\det[g(f_i,f_j)] = (\det\varphi)^2\det[g(e_i,e_j)] = (\det\varphi)^2$.
 	
-	La 3 implica la 2.
+	Se ora $\{\seqb en,\}$ è orientata positivamente e $g$-ortogonale, allora per la richiesta di multilinearità esiste un'unica $\mu(g)=\mu$ tale che $\mu(\seqb en,) = 1$. Mostriamo che $\mu(g)$ così definita rispetta le ipotesi richieste.
 	
-	Per la formula si usa $\mu(\seqb fn,) = \det\varphi = \abs{ \det[g(f_i,f_j)] }^\frac 12$.
+	Se $\seqb fn,$ è un'altra base orientata positivamente e $g$-ortogonale, sia $\varphi$ come sopra. Allora per quanto detto prima $\abs{\det\varphi} = 1$. Inoltre per la positività della base e la definizione di $\varphi$ abbiamo $0<\mu(\seqb fn,) = (\varphi^*\mu)(\seqb en,) = \det\varphi$, quindi $\det\varphi=1$ e in particolare $\mu(\seqb fn,)=1$, come voluto.
+	
+	La seconda affermazione è implicata dalla terza e per quest'ultima si usa la formula $\mu(\seqb fn,) = \det\varphi = \abs{ \det[g(f_i,f_j)] }^\frac 12$, con le notazioni date all'inizio.
 \end{proof}
 
 
