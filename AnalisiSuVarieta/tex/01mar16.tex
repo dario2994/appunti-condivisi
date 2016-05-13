@@ -1,47 +1,45 @@
 \chapter{1 marzo 2016}
 
-Un prodotto interno (simmetrico e definito positivo) in $V$ ne induce uno anche sui $\Lambda^k(V)$.
+Un prodotto interno (simmetrico e definito positivo) in $V$ ne induce uno anche sui $\Lambda^k(V)$, vediamo come.
 
-Siano $\alpha = \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ e $\beta = \beta_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ elementi di $\Lambda^k(V)$.
-
-Sia $\beta^{\seqb ik{}} = g^{i_1j_1}\ldots g^{i_kj_k} \beta_{\seqb jk{}}$.
+Siano $\alpha = \alpha_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ e $\beta = \beta_{\seqb ik{}} e^{i_1}\wedge\ldots\wedge e^{i_k}$ elementi di $\Lambda^k(V)$ e sia $\beta^{\seqb ik{}} = g^{i_1j_1}\ldots g^{i_kj_k} \beta_{\seqb jk{}}$.
 
 Definisco
 \begin{equation*}
-	g^{(k)} (\alpha,\beta) = \sum_{\seqb ik<} \alpha_{\seqb ik{}} \beta^{\seqb ik{}} 
+	g^{(k)} (\alpha,\beta) \coloneqq \sum_{\seqb ik<} \alpha_{\seqb ik{}} \beta^{\seqb ik{}} 
 	= \frac 1{k!} \sum_{\seqb ik{}} \alpha_{\seqb ik{}} \beta^{\seqb ik{}} \punto
 \end{equation*}
 
-Claim: $g^{(k)}$ è indipendente dalla base.
+Vediamo che $g^{(k)}$ è indipendente dalla base scelta.
 Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\wedge\ldots\wedge f^{a_k}$ e $\beta = \beta'_{\seqb ak{}} f^{a_1}\wedge\ldots\wedge f^{a_k}$. Se $e_i =  A^a_i f_a$ e $B=A^{-1}$, allora
 \begin{align*}
 	\alpha'_{\seqb ak{}} \beta'^{\seqb ak{}} &= \alpha_{\seqb ik{}} B^{i_1}_{a_1}\ldots B^{i_k}_{a_k} A^{a_1}_{j_1}\ldots A^{a_k}_{j_k} \beta^{\seqb jk{}}= \\
-	&= \alpha_{\seqb ik{}} \delta^{i_1}_{j_1}\ldots \delta^{i_k}_{j_k}\beta^{\seqb jk{}} = \\
-	&=\alpha_{\seqb ik{}} \beta^{\seqb ik{}}
+	&= \alpha_{\seqb ik{}} \delta^{i_1}_{j_1}\ldots \delta^{i_k}_{j_k}\beta^{\seqb jk{}} =\alpha_{\seqb ik{}} \beta^{\seqb ik{}} \virgola
 \end{align*}
+da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ indicheremo anche $\Scal\alpha\beta=g^{(k)}(\alpha,\beta)$.
 
 \begin{proposition}
 	Sia $g$ un prodotto interno in $V$ (simmetrico e definito positivo). Allora $g$ induce il prodotto interno $g^{(k)}$ su $\Lambda^k(V)$. Inoltre, se $\seqb en,$ è ortonormale rispetto a $g$, allora la base $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik< \}$ è ortonormale rispetto a $g^{(k)}$.
 \end{proposition}
 
-\section{Operatore di Hodge *}
+\section{Operatore di Hodge star}
 
-\begin{proposition}
+\begin{proposition} \index{operatore! di Hodge star}
 	Sia $V$ uno spazio $n$-dimensionale orientato e sia $g\in T^0_2(V)$ un tensore simmetrico e definito positivo.
 	Sia $\mu=\mu(g)$ l'elemento di volume corrispondente.
-	Allora esiste un unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$ che soddisfa
+	Allora esiste un unico isomorfismo $*:\Lambda^k(V) \to \Lambda^{n-k}(V)$, detto \emph{operatore di Hodge star}, che soddisfa
 	\begin{equation} \label{eq:star}
-	 \alpha \wedge * \beta= \Scal \alpha\beta \mu
+	 \alpha \wedge (* \beta)= \Scal \alpha\beta \mu
 	\end{equation}
 	per ogni $\alpha,\beta \in\Lambda^k(V)$.
 	
-	Se $\{\seqb en, \}$ è una base di $V$ orientata positivamente e ortornormale con base duale $e^1, \dots ,e^n$, allora
+	Inoltre, se $\{\seqb en, \}$ è una base di $V$ orientata positivamente e ortornormale con base duale $e^1, \dots ,e^n$, allora
 	\begin{equation}\label{eq:triangolo}
 	*(e^{\sigma(1)}\wedge\ldots\wedge e^{\sigma(k)}) = \sgn(\sigma) (e^{\sigma(k+1)}\wedge\ldots\wedge e^{\sigma(n)})
 	\end{equation}
-	per ogni $\sigma$ $(k,l)$-mescolamento.
+	per ogni $\sigma$ mescolamento di tipo $(k,n-k)$.
 \end{proposition}
-\begin{proof}
+\begin{proof} %TODO: capire e sistemare
 	\begin{description}
 		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
@@ -55,23 +53,32 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 \end{proof}
 
 \begin{proposition} \label{prop:ProprietaHodge}
-	Siano $V,g,\mu$ come sopra. Allora per ogni $\alpha,\beta\in\Lambda^k(V)$ $*$ soddisfa
+	Siano $V,g,\mu$ come sopra. Allora per ogni $\alpha,\beta\in\Lambda^k(V)$ l'operatore $*$ soddisfa le seguenti proprietà
 	\begin{enumerate}
 		\item $\alpha\wedge *\beta = \beta \wedge * \alpha = \Scal \alpha\beta \mu$; \label{ph:commutare}
-		\item $*1 = \mu$ e $*\mu=1$;
-		\item $**\alpha = (-1)^{k(n-k)} \alpha$;
-		\item $\Scal \alpha\beta = \Scal {*\alpha}{*\beta}$.
+		\item $*1 = \mu$ e $*\mu=1$; \label{ph:Identita}
+		\item $**\alpha = (-1)^{k(n-k)} \alpha$; \label{ph:StarStar}
+		\item $\Scal \alpha\beta = \Scal {*\alpha}{*\beta}$. \label{ph:ScalareDegliHodge}
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	La \ref{ph:commutare} segue dall'\cref{eq:star} e dal fatto che $\Scal {}{}_k$ è simmetrico.
-	La 2 segue dall'\cref{eq:triangolo} e $\sigma = \id$.
+	La \ref{ph:commutare} segue dall'\cref{eq:star} e dal fatto che $g^{(k)}(\cdot,\cdot)=\Scal {\cdot}{\cdot}$ è simmetrico.
+	Mentre la \ref{ph:Identita} segue dall'\cref{eq:triangolo} ponendo $\sigma = \id$.
 	
-	Per la 3, sia $\alpha = e^{\sigma(1)}\wedge \ldots \wedge e^{\sigma(k)}$, allora per l'\cref{eq:triangolo} vale $*(e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = b e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$. Per trovare $b$ usiamo l'\cref{eq:star} con $\alpha = \beta = e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$, da cui $b e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)} \wedge e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} = \mu$ e quindi $b = (-1)^{k(n-k)}\sgn(\sigma)$.
+	Vediamo ora il punto \ref{ph:StarStar}. Sia $\alpha = e^{\sigma(1)}\wedge \ldots \wedge e^{\sigma(k)}$, allora per l'\cref{eq:triangolo} applicata alla permutazione $(\sigma(k+1),\ldots,\sigma(n),\sigma(1),\ldots,\sigma(k))$ vale 
+	\begin{equation*}
+		*(e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = (-1)^{k(n-k)}\sgn(\sigma) \ e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}
+	\end{equation*}
+% 	$*(e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = b e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$. Per trovare $b$ usiamo l'\cref{eq:star} con $\alpha = \beta = e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$, da cui $b e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)} \wedge e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} = \mu$ e quindi $b = (-1)^{k(n-k)}\sgn(\sigma)$.
+% 	
+	Perciò, riapplicando l'\cref{eq:triangolo}, abbiamo
+	\begin{align*}
+	**(e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}) &= \sgn(\sigma) * (e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) =\\
+	&=\sgn(\sigma)^2 (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} = (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)} \virgola
+	\end{align*}
+	da cui abbiamo quanto cercato poiché gli elementi del tipo $e^{\sigma(1)}\wedge \ldots \wedge e^{\sigma(k)}$ generano $\Lambda^k(V)$.
 	
-	Per la \ref{eq:triangolo} $**(e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}) = \sgn(\sigma) * (e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}) = \sgn(\sigma)^2 (-1)^{k(n-k)} e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$.
-	
-	La 4 si può verificare usando una base ortonormale per $\Lambda^k(V)$, oppure usare la 1 e la 3 per trovare
+	La \ref{ph:ScalareDegliHodge} si può verificare usando una base ortonormale per $\Lambda^k(V)$, oppure usare la \ref{ph:commutare} e la \ref{ph:StarStar} per trovare
 	\begin{equation*}
 		\Scal{*\alpha}{*\beta} \mu = (*\alpha) \wedge (**\beta) = (-1)^{k(n-k)} (*\alpha)\wedge\beta = \beta\wedge (*\alpha) = \Scal \alpha\beta \mu\punto
 	\end{equation*}
