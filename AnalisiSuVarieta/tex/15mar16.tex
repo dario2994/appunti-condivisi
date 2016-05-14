@@ -22,20 +22,22 @@
 \end{definition}
 
 \begin{exercise}
+Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
+\end{exercise}
+\begin{exercise}
 	\begin{enumerate}
-		\item Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
-		
 		\item Sia $\sigma:M\to M$ tale che $\sigma^2=\id$. Supponiamo che esista $\pi:M\to N$ tale che $\de \pi$ sia invertibile puntualmente e $\pi^{-1}(n) = \{m,\sigma(m)\}$. Sia $\Omega_\pm(M) = \{ \alpha\in\Omega^n(M) \suchthat \sigma^*\alpha = \pm\alpha \}$. Mostrare che $\pi^* : \Omega^n(N) \to \Omega_+(M)$ è un isomorfismo.
 		
 		\item Mostrare che $\R \mathbb P^n$ è orientabile per $n$ dispari e non orientabile per $n$ pari.
 		
-		\emph{Suggerimento:} Prendere $M=S^n$, $N=\R\mathbb P^n$, $\sigma(x)=-x$ nell'esercizio precedente. Mostrare che $\sigma^*\omega_{S^n} = (-1)^{n+1} \omega_{S^n}$.
-		
-		\item \emph{(Nastro di M\"{o}bius)} Il nastro di M\"{o}bius $\mathbb M$ si ottiene quozientando $\R^2$ tramite la relazione di equivalenza data da $(x,y) \sim (x+k,(-1)^ky)$ per ogni $k\in\Z$. \index{nastro di M\"{o}bius} 
-		In particolare $\mathbb M$ risulta una varietà connessa non compatta. Definiamo $\sigma:\R^2\to\R^2$ tale che $\sigma(x,y) = (x+1,-y)$. Sia $\pi$ la proiezione da $\R^2$ in $\mathbb M$, allora $\pi\circ\sigma=\pi$.
-		Se $\nu\in\Omega^2(\mathbb M)$, sia $f\in C^\infty(\R^2)$ tale che $f\omega_{\R^2} = \pi^*\nu$.
-		Mostrare che $f(x+1,-y) = -f(x,y)$ e che $f$ si deve annullare in qualche punto.
+		\emph{Suggerimento:} Prendere $M=S^n$, $N=\R\mathbb P^n$, $\sigma(x)=-x$ nel punto precedente. Mostrare che $\sigma^*\omega_{S^n} = (-1)^{n+1} \omega_{S^n}$.
 	\end{enumerate}
+\end{exercise}
+\begin{exercise}
+	\emph{(Nastro di M\"{o}bius)} Il nastro di M\"{o}bius $\mathbb M$ si ottiene quozientando $\R^2$ tramite la relazione di equivalenza data da $(x,y) \sim (x+k,(-1)^ky)$ per ogni $k\in\Z$. \index{nastro di M\"{o}bius} 
+	In particolare $\mathbb M$ risulta una varietà connessa non compatta. Definiamo $\sigma:\R^2\to\R^2$ tale che $\sigma(x,y) = (x+1,-y)$. Sia $\pi$ la proiezione da $\R^2$ in $\mathbb M$, allora $\pi\circ\sigma=\pi$.
+	Se $\nu\in\Omega^2(\mathbb M)$, sia $f\in C^\infty(\R^2)$ tale che $f\omega_{\R^2} = \pi^*\nu$.
+	Mostrare che $f(x+1,-y) = -f(x,y)$ e che $f$ si deve annullare in qualche punto.
 \end{exercise}
 
 \begin{proposition} [Criterio di orientabilità]
@@ -91,33 +93,34 @@
 \end{definition}
 
 \begin{proposition}
-	Supponiamo che $\omega\in \Omega^n(M)$ abbia supporto compatto $C\subseteq U\cap V$, con $(U,\varphi)$, $(V,\psi)$ carte orientate positivamente in $M$ (orientata).
+	Supponiamo che $\omega\in \Omega^n(M)$ abbia supporto compatto $C\subseteq U\cap V$, con $(U,\varphi)$, $(V,\psi)$ carte orientate positivamente in $M$ varietà orientata.
 	Allora $\int_{(\varphi)} \omega = \int_{(\psi)} \omega$.
 \end{proposition}
 \begin{proof}
 	Per la \cref{prop:CambioVariabileRn}, abbiamo
 	\begin{equation*}
-		\int_{(\varphi)} \omega = \int_{\varphi(U)} \varphi_*(\omega\restrict U) = \int_{\psi(U)} (\psi\circ \varphi^{-1})_* \varphi_*(\omega \restrict U) = \int_{(\psi)} \omega
+		\int_{(\varphi)} \omega = \int_{\varphi(U)} \varphi_*(\omega\restrict U) = \int_{\varphi(U\cap V)} \varphi_*(\omega\restrict {U\cap V}) =\int_{\psi(U\cap V)} (\psi\circ \varphi^{-1})_* \varphi_*(\omega \restrict {U\cap V}) = \int_{(\psi)} \omega \punto
 	\end{equation*}
 \end{proof}
 
 \begin{corollary}
-	Se $\omega$ ha supporto compatto in $U$ (dominio di una carta), è ben definito
+	Se $\omega$ ha supporto compatto in $U$, dominio di una carta $(U,\varphi)$, è ben definito
 	\begin{equation*}
 		\int_U \omega \coloneqq \int_{(\varphi)} \omega \punto
 	\end{equation*}
 \end{corollary}
 
 
-\begin{definition}
+\begin{definition} \index{integrale} \label{def:IntegraleForma}
 	Sia $\omega \in \Omega^n(M)$ a supporto compatto. Sia $\mathcal A$ un atlante di $M$ orientabile composto da carte con orientazione positiva. Sia $(U_\alpha, \varphi_\alpha, \chi_\alpha)$ una partizione dell'unità subordinata ad $\mathcal A$. Sia $\omega_\alpha \coloneqq \chi_\alpha\omega$, allora $\omega_\alpha$ ha supporto compatto nella carta $U_\alpha\in\mathcal A$.
-	Definiamo allora
+	Definiamo allora l'\emph{integrale} della forma $\omega$ su $M$ come
 	\begin{equation*}
-		\int_M \omega \coloneqq \sum_\alpha \int \omega_\alpha \punto
+		\int_M \omega \coloneqq \sum_\alpha \int_{U_\alpha} \omega_\alpha \punto
 	\end{equation*}
 \end{definition}
 
 \begin{proposition}
+	Valgono i due seguenti fatti riferiti alla \cref{def:IntegraleForma}.
 	\begin{enumerate}
 		\item La sommatoria contiene solo un numero finito di termini.
 		\item La definizione è indipendente dalla scelta dell'atlante (orientato positivamente) e della partizione dell'unità.
@@ -125,26 +128,27 @@
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item Per ogni $p\in M$, esiste $U$ intorno tale che solo un numero finito di $\chi_\alpha$ sono non nulle. Per compattezza, possiamo ricoprire il supporto di $\omega$ con un numero finito di tali intorni.
+		\item Per ogni $p\in M$, esiste $U$ intorno tale che solo un numero finito di $\chi_\alpha$ sono non nulle. Inoltre, per compattezza, possiamo ricoprire il supporto di $\omega$ con un numero finito di tali intorni.
 		
-		\item Sia $(V_\beta, \psi_\beta, \tilde \chi_\beta)$ un'altra partizione dell'unità subordinata a $\mathcal B$ atlante orientato positivamente. Allora le funzioni $(\chi_\alpha \tilde\chi_\beta)_{\alpha\beta}$ soddisfano $\chi_\alpha \tilde\chi_\beta(p) = 0$ tranne che per un numero finito di indici. Inoltre $\sum_{\alpha\beta} \chi_\alpha \tilde\chi_\beta(p) = 1$ per  ogni $p$.
+		\item Sia $(V_\beta, \psi_\beta, \tilde \chi_\beta)$ un'altra partizione dell'unità subordinata a $\mathcal B$ atlante orientato positivamente. Allora le funzioni $(\chi_\alpha \tilde\chi_\beta)_{\alpha\beta}$ soddisfano $\chi_\alpha \tilde\chi_\beta(p) = 0$ tranne che per un numero finito di indici. Inoltre $\sum_{\alpha,\beta} \chi_\alpha \tilde\chi_\beta(p) = 1$ per  ogni $p$.
 		Abbiamo
-		\begin{equation*}
-			\int_\alpha \omega = \sum_\alpha \int \chi_\alpha \omega = \sum_{\alpha \beta} \int \tilde \chi_\beta \chi_\alpha \omega = \sum_{\alpha \beta} \int  \chi_\alpha \tilde \chi_\beta \omega = \sum_\beta \int \tilde\chi_\beta \omega = \int_\beta \omega \virgola
-		\end{equation*}
+		\begin{align*}
+			\int_\alpha \omega &= \sum_\alpha \int_{U_\alpha}\chi_\alpha \omega = \sum_{\alpha,\beta} \int_{U_\alpha \cap U_\beta} \tilde \chi_\beta \chi_\alpha \omega =\sum_{\alpha,\beta} \int_{U_\alpha\cap U_\beta}  \chi_\alpha \tilde \chi_\beta \omega =\\
+			&=\sum_\beta \int_{U_\beta} \tilde\chi_\beta \omega = \int_\beta \omega \virgola
+		\end{align*}
 		dove abbiamo usato $\sum \tilde \chi_\beta = 1$ e $\sum \chi_\alpha = 1$.
 	\end{enumerate}
 \end{proof}
 
 \begin{exercise}
-	\begin{enumerate}
-		\item Siano $M,N$ orientate ed $f$ un diffeomorfismo che preserva l'orientazione. Mostrare che, se $\omega\in\Omega^n(N)$ ha supporto compatto, allora $\int_N \omega = \int_M f^*\omega$.
-		
-		\item (Fubini) Siano $M^m,N^n$ varietà orientate e si orienti il prodotto $M\times N$ con l'orientazione prodotto (tramite il prodotto wedge). Siano $p_M,p_N : M\times N \to M,N$ le proiezioni dal prodotto ai fattori.
-		Siano $\alpha \in \Omega^m(M)$ e $\beta \in \Omega^n(N)$ e definiamo
-		$\alpha \times \beta \coloneqq (p_M^*\alpha) \wedge (p_N^*\beta)$, che è a supporto compatto.
-		Mostrare che $\int_{M\times N} \alpha \times \beta = \int_M\alpha \int_N \beta$.
-	\end{enumerate}
+	Siano $M,N$ orientate ed $f:M\to N$ un diffeomorfismo che preserva l'orientazione. Mostrare che, se $\omega\in\Omega^n(N)$ ha supporto compatto, allora $\int_N \omega = \int_M f^*\omega$.
+\end{exercise}
+
+\begin{exercise}
+	(Fubini) Siano $M^m,N^n$ varietà orientate e si orienti il prodotto $M\times N$ con l'orientazione prodotto (tramite il prodotto wedge). Siano $p_M,p_N : M\times N \to M,N$ le proiezioni dal prodotto ai fattori.
+	Siano $\alpha \in \Omega^m(M)$ e $\beta \in \Omega^n(N)$ e definiamo
+	$\alpha \times \beta \coloneqq (p_M^*\alpha) \wedge (p_N^*\beta)$, che è a supporto compatto.
+	Mostrare che $\int_{M\times N} \alpha \times \beta = (\int_M\alpha )( \int_N \beta)$.
 \end{exercise}
 
 

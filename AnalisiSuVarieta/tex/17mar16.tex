@@ -7,7 +7,7 @@
 
 \section{Varietà con bordo}
 
-\begin{definition}
+\begin{definition} \label{def:MappeSemispazi}
 	Siano $E_1,E_2\subseteq \R^n$ semispazi chiusi. Siano $U,V$ aperti di $E_1,E_2$. Una mappa $f:U\to V$ è regolare se per ogni $x\in U$ esiste $U_1$ intorno di $x$ in $\R^n$ e $V_1$ intorno di $f(x)$ in $\R^n$ ed esiste $f_1:U_1\to V_1$ regolare tale che $f\restrict{U\cap U_1} = f_1\restrict{U\cap U_1}$.
 	In questo caso definiamo il differenziale di $f$ in $x$ come $\Diff f(x) \coloneqq \Diff f_1(x)$.
 	
@@ -22,26 +22,26 @@
 	\end{enumerate}
 \end{remark}
 
-\begin{definition}
-	Una \emph{varietà con bordo} è un insieme $M$ munito di un atlante di carte di bordo, cioè coppie $(U,\varphi)$ con $U\subseteq M$ aperto, $\varphi(U)\subseteq E$, con $E$ semispazio chiuso di $\R^n$. Si richiede che valgano la proprietà di ricoprimento e la regolarità delle mappe di transizione (nel senso della definizione sopra). %TODO: aggiungere cref
+\begin{definition} \index{varietà!con bordo}
+	Una \emph{varietà con bordo} è un insieme $M$ munito di un atlante di carte di bordo, cioè coppie $(U,\varphi)$ tali che $U\subseteq M$ aperto e $\varphi(U)\subseteq E$, con $E$ semispazio chiuso di $\R^n$. Si richiede che valgano la proprietà di ricoprimento e la regolarità delle mappe di transizione (nel senso della \cref{def:MappeSemispazi}).
 \end{definition}
 
-\begin{definition}
-	Data $M$ varietà con bordo, definiamo $\Int M = \bigcup_{i} \varphi_i^{-1}(\Int (\varphi_i(U_i)))$ e $\partial M = \bigcup_i \varphi_i^{-1}(\partial (\varphi_i(U_i)))$ come parte interna e bordo di $M$.
+\begin{definition} \index{varietà!con bordo!parte interna} \index{varietà!con bordo!bordo}
+	Data $M$ varietà con bordo, definiamo la \emph{parte interna} $\Int M = \bigcup_{i} \varphi_i^{-1}(\Int (\varphi_i(U_i)))$ e il \emph{bordo} $\partial M = \bigcup_i \varphi_i^{-1}(\partial (\varphi_i(U_i)))$ di $M$.
 \end{definition}
 
-Estendiamo ora a varietà con bordo alcune definizioni date per varietà non con bordo, per definire infine l'orientazione.
+Estendiamo ora alle varietà con bordo alcune definizioni date per varietà non con bordo, per definire infine l'orientazione.
 
 Pensiamo al tangente come un sottospazio $n$-dimensionale anche per i punti sul bordo.
-Una forma di volume è una $n$-forma che non si annulla in nessun punto. Diciamo che $(U,\varphi)$ carta di bordo è orientata positivamente se $T_u\varphi$ preserva l'orientazione per ogni $u\in U$.
+Una forma di volume è una $n$-forma che non si annulla in nessun punto. Diciamo che $(U,\varphi)$ carta di bordo è orientata positivamente se $T\varphi(u)$ preserva l'orientazione per ogni $u\in U$.
 
 \begin{remark}
 	È stato conveniente poter scegliere semispazi arbitrari e non solo $\R_n^+ = \{x_n\ge 0\}$. Per esempio è comodo per orientare $M = \cc 01$.
 \end{remark}
 
-Vediamo ora come possiamo orientare il bordo.
+Vediamo quindi ora come possiamo orientare il bordo.
 \begin{definition}
-	Sia $M$ una $m$-varietà orientata con bordo. Siano $x\in \partial M$ e $\varphi:U \to E$ (con $x\in U$ ed $E$ semispazio chiuso) una carta orientata positivamente. Una base $\seqb v{m-1},$ di $T_x(\partial M)$ è detta orientata positivamente se $\{ (T_x\varphi)^{-1} (n), \seqb v{m-1}, \}$ è orientata positivamente in $M$ per ogni vettore $n$ (in $\R^m$) che punta all'esterno di $E$ in $\varphi(x)$.
+	Sia $M$ una $m$-varietà orientata con bordo. Siano $x\in \partial M$ e $\varphi:U \to E$ una carta orientata positivamente, con $x\in U$ ed $E$ semispazio chiuso. Una base $\seqb v{m-1},$ di $T_x(\partial M)$ è detta orientata positivamente se $\{ (T_x\varphi)^{-1} (n), \seqb v{m-1}, \}$ è orientata positivamente in $M$ per ogni vettore $n\in\R^m$ che punta all'esterno di $E$ in $\varphi(x)$.
 \end{definition}
 
 \begin{remark}
@@ -52,8 +52,8 @@ Vediamo ora come possiamo orientare il bordo.
 
 \section{Teorema di Stokes}
 
-\begin{theorem} [Stokes]
-	Sia $M$ una varietà $n$-dimensionale paracompatta e orientata. Sia $\alpha \in \Omega^{n-1}(M)$ una forma a supporto compatto. Sia $i:\partial M \to M$ l'inclusione. Allora
+\begin{theorem} [Stokes] \label{thm:Stokes} \index{teorema!di Stokes}
+	Sia $M$ una varietà $n$-dimensionale paracompatta e orientata. Sia $\alpha \in \Omega^{n-1}(M)$ una forma a supporto compatto e sia $i:\partial M \to M$ l'inclusione del bordo in $M$. Allora
 	\begin{equation*}
 		\int_{\partial M} i^*\alpha = \int_M \de \alpha \punto
 	\end{equation*}
@@ -61,11 +61,11 @@ Vediamo ora come possiamo orientare il bordo.
 \end{theorem}
 \begin{proof}
 	Per linearità in $\alpha$ e per l'esistenza di partizioni dell'unità possiamo supporre che $\alpha$ abbia supporto nel dominio $U$ di un'unica carta.
-	In coordinate
+	Allora in coordinate
 	\begin{equation*}
 		\alpha = \sum_{i=1}^n (-1)^{i-1} \alpha^i \de x^1 \wedge \ldots \wedge \hat{\de x^i} \wedge \ldots \wedge \de x^n \punto
 	\end{equation*}
-	Allora
+	Di conseguenza
 	\begin{equation*}
 		\de \alpha = \sum_{i=1}^n \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{\wedge} \virgola
 	\end{equation*}
@@ -75,13 +75,13 @@ Vediamo ora come possiamo orientare il bordo.
 	\end{equation*}
 	che è ben definito se $M$ è orientata.
 	
-	Distinguiamo ora in casi
+	Distinguiamo ora in casi a seconda che $U$ intersechi o no il bordo di $M$:
 	\begin{enumerate}
 		\item ($\partial U = \emptyset$) In questo caso l'$i$-esimo termine della sommatoria è
 		\begin{equation*}
 			\int_{\R^n} \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{} = \int_{\R^{n-1}} \left(\int_\R \DerParz{\alpha^i}{x^i} \de x^i \right) \de x^1  \ldots \hat{\de x^i} \ldots \de x^n = 0 \virgola
 		\end{equation*}
-		perché $\alpha^i$ ha supporto compatto.
+		perché $\alpha^i$ ha supporto compatto. Quindi in questo caso abbiamo quello che volevamo, perché ovviamente $\int_{\partial U} i^*\alpha = 0$.
 		
 		\item ($\partial U \not = \emptyset$) Possiamo supporre $E=\R^n_+$, allora l'integrale diventa
 		\begin{equation*}
@@ -89,15 +89,15 @@ Vediamo ora come possiamo orientare il bordo.
 		\end{equation*}
 		Se $i<n$ ragioniamo come prima, altrimenti se $i=n$ l'integrale diventa
 		\begin{equation*}
-			- \int_{\R^{n-1}} \alpha^n \seqa {\de x}{n-1}{}
+			- \int_{\R^{n-1}} \alpha^n \seqa {\de x}{n-1}{} \punto
 		\end{equation*}
-		Ma
+		D'altra parte abbiamo
 		\begin{equation*}
 			\int_{\partial U}\alpha = \int_{\partial \R^n_+} \alpha = \int_{\partial \R^n_+} (-1)^{n-1} \alpha^n(\seqa x{n-1}, ,0) \seqa {\de x}{n-1}{} \punto
 		\end{equation*}
-		L'orientazione di $\partial M$ non è quella standard, la normale esterna è $-e_n = -(0,\ldots,0,1)$. L'orientazione del bordo ha il segno di $\{-e_n, \seqb e{n-1},\}$ che è  $(-1)^n$, quindi
+		L'orientazione di $\partial M$ non è quella standard, infatti la normale esterna è $-e_n = -(0,\ldots,0,1)$. Perciò, l'orientazione del bordo ha il segno di $\{-e_n, \seqb e{n-1},\}$ che è  $(-1)^n$, quindi
 		\begin{equation*}
-			\int_{\partial U}\alpha = (-1)^{2n-1} \int_{\R^{n-1}} \alpha^n \seqa{\de x}{n-1}{} \punto
+			\int_{\partial U}\alpha = (-1)^{2n-1} \int_{\R^{n-1}} \alpha^n \seqa{\de x}{n-1}{} = - \int_{\R^{n-1}} \alpha^n \seqa {\de x}{n-1}{} = \int_U\de \alpha \punto
 		\end{equation*}
 
 
@@ -107,14 +107,14 @@ Vediamo ora come possiamo orientare il bordo.
 \end{proof}
 
 
-\begin{definition}
-	Sia $\mu$ una forma di volume su $M$ orientata. Sia $X\in \chi(M)$. La funzione $\div X \in C^\infty(M)$ è definita da $\Lie_X\mu = (\div X)\mu$.
+\begin{definition} \index{divergenza}
+	Sia $\mu$ una forma di volume su $M$ orientata e sia $X\in \chi(M)$. La \emph{divergenza} $\div X \in C^\infty(M)$ di $X$ è definita da $\Lie_X\mu = (\div X)\mu$.
 \end{definition}
 
 La divergenza si interpreta come espansione o contrazione del volume.
 
-\begin{theorem} [Gauss]\label{Teo:Gauss}
-	Sia $M$ orientata, paracompatta e con bordo. Sia $X\in\chi(M)$ a supporto compatto e sia $\mu$ forma di volume su $M$. Allora
+\begin{theorem} [Gauss]\label{thm:Gauss} \index{teorema!di Gauss}
+	Sia $M$ orientata, paracompatta e con bordo. Sia $X\in\chi(M)$ a supporto compatto e sia $\mu$ una forma di volume su $M$. Allora
 	\begin{equation*}
 		\int_M (\div X) \mu = \int_{\partial M} i_X \mu \punto
 	\end{equation*}
@@ -122,9 +122,9 @@ La divergenza si interpreta come espansione o contrazione del volume.
 \begin{proof}
 	Abbiamo che
 	\begin{equation*}
-		(\div X) \mu = \Lie_X \mu = \de i_X \mu + i_X \de \mu = \de i_X \mu
+		(\div X) \mu = \Lie_X \mu = \de (i_X \mu) + i_X \de \mu = \de (i_X \mu) %TODO: perché?
 	\end{equation*}
-	e di conseguenza la conclusione segue da Stokes.
+	e di conseguenza la conclusione segue dal \cref{thm:Stokes}.
 \end{proof}
 
 
@@ -137,59 +137,57 @@ Se $M$ ammette una metrica $g$ esiste un'unica normale unitaria (rispetto a $g$)
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	Localmente, scegliamo una carta $(U,\varphi)$ tale che $n_{\partial M} = - \DerParz{}{x^m}$. Se $\seqb v{m-1},$ è una base orientata di $T_x\partial M$, vale:
-	
-	$\mu_{\partial M}(x) (\seqb v{m-1},) = \mu_m(x) (-\DerParz{}{x^m},\seqb v{m-1},)$. Segue allora che:
-	
+	Localmente, scegliamo una carta $(U,\varphi)$ tale che $n_{\partial M} = - \DerParz{}{x^m}$. Perciò, se $\seqb v{m-1},$ è una base orientata di $T_x\partial M$, vale
+	\begin{equation*}
+	\mu_{\partial M}(x) (\seqb v{m-1},) = \mu_M(x) (-\DerParz{}{x^m},\seqb v{m-1},)\punto
+	\end{equation*}
+	Segue allora che
 	\begin{align*}
-		(i_X\mu_M)(x)(\seqb v{m-1},) &= \mu_M (X^i(x)v_i + X^m\DerParz{}{x^m},\seqb v{m-1},) \\
-		&= X^m(x) \mu_{\partial M}(x) (\seqb v{m-1},) \punto
+		(i_X\mu_M)(x)(\seqb v{m-1},) &= \mu_M (X^i(x)v_i + X^m\DerParz{}{x^m},\seqb v{m-1},) =\\
+		&= -X^m(x) \mu_{\partial M}(x) (\seqb v{m-1},) \punto
 	\end{align*}
-	Inoltre $X^m = -g(X,n_{\partial M})$, quindi basta applicare il \cref{Teo:Gauss}.
-
+	Inoltre $X^m = -g(X,n_{\partial M})$, quindi basta applicare il \cref{thm:Gauss}.
 \end{proof}
 
 
 \begin{exercise}
-	\begin{enumerate}
-		\item $M$ compatta, orientabile e senza bordo, $\mu$ forma di volume e $X\in\chi(M)$ con $\div X=0$. Mostrare che per ogni $f,g \in C^\infty(M)$ vale
-		\begin{equation*}
-			\int_M g(Xf)\mu = -\int_M f(Xg) \mu \punto
-		\end{equation*}
-
-		\item $M$ orientabile, $(n+1)$-dimensionale, $f:\partial M \to N^{n+1}$ mappa regolare, $\omega \in \Omega^n(N)$ con $\de \omega =0$. Mostrare che se $f$ si estende ad $M$, allora $\int_{\partial M} f^*\omega =0$.
-	\end{enumerate}
+	Sia $M$ una varietà compatta, orientabile e senza bordo, sia $\mu$ forma di volume e sia infine $X\in\chi(M)$ con $\div X=0$. Mostrare che per ogni $f,g \in C^\infty(M)$ vale
+	\begin{equation*}
+		\int_M gX(f)\mu = -\int_M fX(g) \mu \punto
+	\end{equation*}
+\end{exercise}
+\begin{exercise}
+	Sia $M$ una varietà orientabile $(n+1)$-dimensionale, sia $f:\partial M \to N^{n+1}$ una mappa regolare e sia $\omega \in \Omega^n(N)$ con $\de \omega =0$. Mostrare che se $f$ si estende ad $M$, allora $\int_{\partial M} f^*\omega =0$.
 \end{exercise}
 
 
 \section{Formula di coarea}
 
 Sia $(M,g)$ una varietà orientabile $(m+1)$-dimensionale. Sia $f:M \to \R$ una funzione regolare senza punti critici. Allora $M_t = f^{-1} (t)$ è una sottovarietà regolare $m$-dimensionale orientabile, che supponiamo compatta per ogni $t$.
-Per ogni $t$ chiamiamo $\mu_t$ la forma di volume su $M_t$ indotta da $g$ e poniamo $n = \frac{\grad f}{\abs{\grad f}_g}$.
+Inoltre per ogni $t$ chiamiamo $\mu_t$ la forma di volume su $M_t$ indotta da $g$, $\mu$ la forma di volume su $M$ sempre indotta da $g$ e poniamo $n = \frac{\grad f}{\abs{\grad f}_g}$.
 
-\begin{proposition}
-Sia $F:M \to \R$ a supporto compatto, allora
+\begin{theorem} [Formula di coarea] \label{thm:FormulaCoarea} 
+Sia $F:M \to \R$ a supporto compatto, allora con le notazione precedenti vale
 \begin{equation*}
 	\int_M F \mu = \int_\R \left( \int_{M_t} \frac F{\abs{\grad f}_g} \mu_t \right) \de t \punto
 \end{equation*}
-
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
-	Fissiamo $t_0$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate in un intorno di $p$.
+	Fissiamo $t_0\in\R$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate di $M$ in un intorno di $p$.
 	Quindi esiste $\rho$ funzione regolare positiva tale che $\mu = \rho \de f \wedge \seqa {\de x}m\wedge$. Allora
 	\begin{equation*}
-		\mu_{t_0} \restrict{M_{t_0}} = i_n \mu = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} = \rho \abs{\grad f}_g \seqa {\de x}m\wedge \restrict{M_{t_0}}
+		\mu_{t_0} \restrict{M_{t_0}} = i_n \mu \restrict{M_{t_0}} = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} = \rho \abs{\grad f}_g \seqa {\de x}m\wedge \restrict{M_{t_0}}
 	\end{equation*}
 	e integrando abbiamo la conclusione.
 \end{proof}
 
-Consideriamo una prima applicazione per calcolare i volumi delle sfere.
+Consideriamo come prima applicazione del \cref{thm:FormulaCoarea} il calcolo dei volumi delle sfere.
 
-$S^n \hookrightarrow \R^{n+1} = \{(t,\seqa xn,)\}$, siano $p_\pm = S^n\cap\{t=\pm 1\} \in S^n$ i due poli. Sia $\pi:S^n \to \R$ la proiezione su $t$, allora $\de \pi \not=0$ se $t\not=\pm 1$.
+Consideriamo l'immersione $S^n \hookrightarrow \R^{n+1} = \{(t,\seqa xn,)\}$ e siano $p_\pm = S^n\cap\{t=\pm 1\} \in S^n$ i due poli. Sia $\pi:S^n \to \R$ la proiezione su $t$, allora $\de \pi \not=0$ se $t\not=\pm 1$.
 
-Abbiamo $\pi^{-1}(t) = S^{n-1}_{r(t)}$ con $r(t) = (1-t^2)^{\frac 12}$.
-Definisco $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$ con $p'$ la proiezione su $\{t\}\times \{0\}$. Allora $\abs{\grad \pi(p)} = (1-t^2)^{\frac 12}$.
+Abbiamo $\pi^{-1}(t) \cong S^{n-1}_{r(t)}$ con $r(t) = (1-t^2)^{\frac 12}$, dove al pedice indichiamo il raggio della sfera.
+Definiamo $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$ con $p'$ la proiezione su $\{t\}\times \{0\}$. Allora $\abs{\grad \pi(p)} = (1-t^2)^{\frac 12}$.
 
 Per la formula di coarea
 \begin{equation*}
@@ -200,7 +198,7 @@ da cui
 	\sigma_n = \frac{2\Gamma(\frac 12)^{n+1}}{\Gamma(\frac{n+1}2)} \punto
 \end{equation*}
 
-Altre applicazioni includono
+Altre applicazioni includono:
 \begin{enumerate}
 	\item disuguaglianze ottimali di Sobolev, tipo $\int \abs u^{\frac n{n-1}} \le C_n \int \abs{\grad u}$;
 	
