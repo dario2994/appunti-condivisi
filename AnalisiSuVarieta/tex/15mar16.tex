@@ -74,14 +74,12 @@
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	Sia $W$ uno spazio vettoriale $n$-dimensionale e sia $\varphi\in\Lin(W,W)$. Sia $\bar\omega \in \Lambda^n(W)$. Allora $\varphi^* \bar\omega = (\det A)\ \bar \omega$, dove $A$ è la matrice $n\times n$ tale che $\varphi(e_i) = A_i^j(e_j)$, dove $\seqb en,$ è una base di $W$.
-	
-	Applichiamo la formula allo jacobiano di $f$. Sia $e_i= \DerParz{}{x^i}$ in $p\in U$, allora $A_i^j = \DerParz{f^j}{x^i}(p)$. Quindi
+	Applichiamo la \cref{prop:DeterminanteCoordinate} con $e_i= \DerParz{}{x^i}$, allora $A_i^j = \DerParz{f^j}{x^i}$ è la matrice jacobiana $Jf$ di $f$. Quindi
 	\begin{align*}
-		\int_U f^*\omega &= \int_U (\det Jf)(\omega\circ f) = \int_U (\det Jf)(x)\ \omega_{1\ldots n}(f(x)) \seqa {\de x}n{} =\\
-		&= \int_V \omega_{1\ldots n}(y) \seqa {\de y}n{} = \int_V \omega \punto
+		\int_U f^*\omega &= \int_U \det (Jf) \cdot (\omega\circ f) = \int_U \det (Jf)(x)\cdot \omega_{1\ldots n}(f(x)) \seqa {\de x}n{} =\\
+		&= \int_V \omega_{1\ldots n}(y) \seqa {\de y}n{} = \int_V \omega \virgola
 	\end{align*}
-	dove $y=f(x)$.
+	dove abbiamo sostituito $y=f(x)$ e abbiamo sfruttato che $f$ preserva l'orientazione per il cambio di variabile.
 \end{proof}
 
 \begin{definition}
