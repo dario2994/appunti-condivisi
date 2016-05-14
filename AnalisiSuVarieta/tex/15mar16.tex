@@ -7,17 +7,15 @@
 
 \section{Orientazione}
 
-Sia $M$ una varietà $n$-dimensionale connessa.
-
-\begin{definition}
-	$M$ è detta \emph{orientabile} se esiste $\mu\in\Omega^n(M)$ tale che $\mu(p)\not=0$ per ogni $p\in M$. Una tale forma è detta una \emph{forma di volume} su $M$.
+\begin{definition} \index{varietà!orientabile} \index{forma!di volume}
+	Una varietà $n$-dimensionale connessa $M$ è detta \emph{orientabile} se esiste $\mu\in\Omega^n(M)$ tale che $\mu(p)\not=0$ per ogni $p\in M$. Una tale forma è detta una \emph{forma di volume} su $M$.
 \end{definition}
 
 \begin{proposition}
 	Sia $M$ una $n$-varieta connessa e paracompatta. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione sia positivo.
 \end{proposition}
 
-\begin{definition}
+\begin{definition} \index{varietà!orientata}
 	Sia $M$ varietà orientabile. Due forme di volume $\mu_1,\mu_2$ sono dette equivalenti se esiste $f\in C^\infty(M)$, $f>0$ tale che $\mu_1= f \mu_2$.
 	
 	Una \emph{varietà orientata} è una varietà $M$ con un'orientazione $[\mu]$, dove per orientazione si intende una classe di equivalenza di forme di volume.
@@ -27,41 +25,43 @@ Sia $M$ una varietà $n$-dimensionale connessa.
 	\begin{enumerate}
 		\item Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
 		
-		\item Sia $\sigma:M\to M$ tale che $\sigma^2=\id$. Supponiamo che esista $\pi:M\to N$ tale che $\de \pi$ sia invertibile (puntualmente) e $\pi^{-1}(n) = \{m,\sigma(m)\}$. Sia $\Omega_\pm(M) = \{ \alpha\in\Omega^n(M) \suchthat \sigma^*\alpha = \pm\alpha \}$. Mostrare che $\pi^* : \Omega^n(N) \to \Omega_+(M)$ è un isomorfismo.
+		\item Sia $\sigma:M\to M$ tale che $\sigma^2=\id$. Supponiamo che esista $\pi:M\to N$ tale che $\de \pi$ sia invertibile puntualmente e $\pi^{-1}(n) = \{m,\sigma(m)\}$. Sia $\Omega_\pm(M) = \{ \alpha\in\Omega^n(M) \suchthat \sigma^*\alpha = \pm\alpha \}$. Mostrare che $\pi^* : \Omega^n(N) \to \Omega_+(M)$ è un isomorfismo.
 		
 		\item Mostrare che $\R \mathbb P^n$ è orientabile per $n$ dispari e non orientabile per $n$ pari.
-		(Prendere $M=S^n$, $N=\R\mathbb P^n$, $\sigma(x)=-x$. Mostrare che $\sigma^*\omega_{S^n} = (-1)^{n+1} \omega_{S^n}$.)
 		
-		\item (Nastro di Mobius) $\mathbb M$ si ottiene tramite la relazione di equivalenza in $\R^2$ tale che $(x,y) \equiv (x+k,(-1)^ky)$ per ogni $k\in\Z$. $\mathbb M$ è una varietà connessa non compatta. Definiamo $\sigma:\R^2\to\R^2$ tale che $\sigma(x,y) = (x+1,-y)$. Sia $\pi$ la proiezione da $\R^2$ in $\mathbb M$, allora $\pi\circ\sigma=\pi$.
+		\emph{Suggerimento:} Prendere $M=S^n$, $N=\R\mathbb P^n$, $\sigma(x)=-x$ nell'esercizio precedente. Mostrare che $\sigma^*\omega_{S^n} = (-1)^{n+1} \omega_{S^n}$.
+		
+		\item \emph{(Nastro di M\"{o}bius)} Il nastro di M\"{o}bius $\mathbb M$ si ottiene quozientando $\R^2$ tramite la relazione di equivalenza data da $(x,y) \sim (x+k,(-1)^ky)$ per ogni $k\in\Z$. \index{nastro di M\"{o}bius} 
+		In particolare $\mathbb M$ risulta una varietà connessa non compatta. Definiamo $\sigma:\R^2\to\R^2$ tale che $\sigma(x,y) = (x+1,-y)$. Sia $\pi$ la proiezione da $\R^2$ in $\mathbb M$, allora $\pi\circ\sigma=\pi$.
 		Se $\nu\in\Omega^2(\mathbb M)$, sia $f\in C^\infty(\R^2)$ tale che $f\omega_{\R^2} = \pi^*\nu$.
 		Mostrare che $f(x+1,-y) = -f(x,y)$ e che $f$ si deve annullare in qualche punto.
 	\end{enumerate}
 \end{exercise}
 
 \begin{proposition} [Criterio di orientabilità]
-	Sia $N$ una varietà $n$-dimensionale orientabile e sia $M$ una sottovarietà $k$-dimesionale con fibrato normale banale, cioè esistono $V_i:M\to TN$ per $i=1,\ldots,n-k$ tali che $\spanrm\{ T_pM,V_i(p) \} = T_pN$ per ogni $p\in M$.
+	Sia $N$ una varietà $n$-dimensionale orientabile e sia $M$ una sottovarietà $k$-dimesionale con fibrato normale banale, cioè esistono $V_i:M\to TN$ per $i=1,\ldots,n-k$ tali che $\spanrm\{ T_pM,V_1(p), \ldots, V_{n-k}(p) \} = T_pN$ per ogni $p\in M$.
 	Allora $M$ è orientabile.
 \end{proposition}
 
 \begin{corollary}
-	Sia $M$ orientabile e sia $f \in C^\infty(M)$. Sia $c\in\R$ regolare per $f$ (cioè $\grad f (p)\not=0$ per ogni $f(p)=c$). Allora $f^{-1}(c)$ è orientabile. 
+	Sia $M$ orientabile e sia $f \in C^\infty(M)$. Sia $c\in\R$ valore regolare per $f$ (cioè $\grad f (p)\not=0$ per ogni $f(p)=c$). Allora $f^{-1}(c)$ è orientabile. 
 \end{corollary}
 
 \begin{remark}
 	Se $M$ non è orientabile, esiste un doppio rivestimento $\tilde M$ di $M$ orientabile.
 	
-	Sia $\tilde M = \{ (m,[\mu_m]), m\in M, \text{$[\mu_m]$ orientazione di $T_mM$ } \}$. Definiamo le carte come segue. Sia $[\omega]$ un'orientazione di $\R^n$ e sia $A\in\Lin(\R^n,\R^n)$ tale che $A(e_1) = -e_1$, $A(e_i) = e_i$ per $i=2,\ldots,n$, dove $\seqb en,$ è la base standard di $\R^n$. $A$ cambia l'orientazione di $\R^n$.
-	Se $\varphi:U\subseteq M \to V\subseteq \R^n$ è una carta di $M$, siano $U^\pm = \{ (u,[\mu_u]), u \in U, [\varphi_*(\mu_u)] = \pm[\omega] \}$ e poniamo $\varphi^+(u,[\mu_u]) = \varphi(u)$, $\varphi^-(u,[\mu_u]) = (A\circ\varphi)(u)$.
-	$(U^\pm,\varphi^\pm)$ sono carte di $\tilde M$ che la rendono una varietà.
+	Sia $\tilde M \coloneqq \{ (m,[\mu_m]) \suchthat m\in M, \text{$[\mu_m]$ orientazione di $T_mM$ } \}$. Definiamo delle carte su $\tilde M$ come segue. Sia $[\omega]$ un'orientazione di $\R^n$ e sia $A\in\Lin(\R^n,\R^n)$ tale che $A(e_1) = -e_1$ e $A(e_i) = e_i$ per $i=2,\ldots,n$, dove $\seqb en,$ è la base standard di $\R^n$. Allora ovviamente $A$ cambia l'orientazione di $\R^n$.
+	Se $\varphi:U\subseteq M \to V\subseteq \R^n$ è una carta di $M$, siano $\tilde U^\pm = \{ (u,[\mu_u]) \suchthat u \in U, [\varphi_*(\mu_u)] = \pm[\omega] \}$ e poniamo $\tilde\varphi^+(u,[\mu_u]) = \varphi(u)$, $\tilde\varphi^-(u,[\mu_u]) = (A\circ\varphi)(u)$.
+	Allora $(\tilde U^\pm,\tilde\varphi^\pm)$ sono carte di $\tilde M$ che la rendono una varietà orientabile.
 	
-	Allora $\pi:\tilde M\to M$ tale che $\pi(m, [\mu_m]) = m$ è un doppio rivestimento di $M$ e $\pi^{-1}(m) = \{ (m,[\mu_m] ), (m,-[\mu_m]) \}$. Inotre l'atlante di $\tilde M$ è orientabile.
+	Inoltre $\pi:\tilde M\to M$ tale che $\pi(m, [\mu_m]) = m$ è un doppio rivestimento di $M$ con $\pi^{-1}(m) = \{ (m,[\mu_m] ), (m,-[\mu_m]) \}$.
 \end{remark}
 
 
 \section{Integrazione su varietà}
 
 \begin{definition}
-	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!} \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \wedge \de x^{i_n}$, definiamo
+	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!}\ \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \wedge \de x^{i_n} = \omega_{1\ldots n} \seqa{\de x}n\wedge$, definiamo
 	\begin{equation*}
 		\int_U \omega \coloneqq \int_{\R^n} \omega_{1 \ldots n} \seqa {\de x}n{} \punto 
 	\end{equation*}

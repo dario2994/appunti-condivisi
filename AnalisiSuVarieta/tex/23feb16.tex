@@ -16,11 +16,11 @@ Possiamo indicare
 Se $\varphi:\R^n\to\R^n$ è lineare $\det\varphi = \frac{\text{volume del parallelepipedo generato da $\varphi(e_1),\ldots,\varphi(e_n)$}}{\text{volume del cubo unitario}}$.
 
 Rivediamo ora le proprietà del pull-back nel caso particolare di forme differenziali o più in generale di tensori solo covarianti.
-\begin{proposition}
+\begin{proposition} \label{prop:PullBackForme}
 	Sia $\varphi\in\Lin(V,W)$, allora $\varphi^* : T^0_k(W) \to T^0_k(V)$ è lineare e valgono 
 	\begin{enumerate}
 		\item $\varphi^*(\Lambda^k(W)) \subseteq \Lambda^k(V)$;
-		\item se $\psi\in\Lin(W,Z)$, $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$;
+		\item se $\psi\in\Lin(W,Z)$, $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$; \label{pbf:Composizione}
 		\item $(\id_V)^* = \id_{T^0_k(V)}$;
 		\item se $\varphi\in \mathrm{GL}(V,W)$, allora $\varphi^*\in \mathrm{GL}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$. %TODO: GL era chiamato inv
 		Se anche $\psi\in\mathrm{GL}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
@@ -33,17 +33,17 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 	Se $V$ ha dimensione $n$ e $\varphi\in\Lin(V,V)$, il \emph{determinante} $\det(\varphi)$ di $\varphi$ è definito come l'unica costante tale che $\varphi^*\omega = \det(\varphi) \omega$, per qualsiasi $\omega\in\Lambda^n(V)$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition} \label{prop:DeterminanteCoordinate}
 	Sia $\seqb en,$ una base di $B$ con base duale $\seqa en,$. Sia $\varphi \in \Lin(V,V)$ tale che $\varphi(e_i) = A_i^je_j$.
-	Allora
-	\begin{equation*}
-		\varphi^*(\seqa en\wedge) (\seqb en,) = \det A \punto %TODO: è questa la conclusione, giusto?
-	\end{equation*}
+	Allora $\det(\varphi) = \det A$.
+% 	\begin{equation*}
+% 		\varphi^*(\seqa en\wedge) (\seqb en,) = \det A \punto %TODO: è questa la conclusione, giusto?
+% 	\end{equation*}
 \end{proposition}
 \begin{proof}	
 	Dalla dimostrazione del punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, abbiamo
 	\begin{align*}
-		\varphi^*(\seqa en\wedge) (\seqb en,) &= (\seqa en\wedge)(\varphi(e_1),\ldots, \varphi(e_n)) =\\
+		\det(\varphi) &=\varphi^*(\seqa en\wedge) (\seqb en,) = (\seqa en\wedge)(\varphi(e_1),\ldots, \varphi(e_n)) =\\
 		&=n!\ \antisimm (\seqa en\otimes)(\varphi(e_1),\ldots,\varphi(e_n)) = \det A
 		\punto
 	\end{align*}
