@@ -6,23 +6,26 @@ Siano $G,H$ gruppi di Lie e $\phi : G\to H$ un omomorfismo di classe $C^\infty$.
 Allora è definito $\phi_* : T_eG \to T_eH$.
 Per ogni $a \in G$, $\phi \circ L_a = L_{\phi(a)} \circ \phi$.
 
-Se $X \in T_eG$ definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $(\phi_*)_eX $ che vale $\phi_*X$ in $e_H$.
-Allora $(\phi_*)_a \tilde X(a) = (\phi_*)_a (L_a)_*X = (L_{\phi(a)})_* (\phi_*)_eX = \tilde{\tilde X} (\phi(a))$ con $\tilde X\in\chi(G)$ invariante a sinistra tale che $\tilde X(e) = X$.
+Se $X \in T_eG$ definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $\phi_*X $ che vale $\phi_*X$ in $e_H$.
+Allora, poiché per ogni $a \in G$ vale $\phi \circ L_a = L_{\phi(a)} \circ \phi$, abbiamo 
+\begin{equation*}
+\phi_* \tilde X(a) = \phi_* (L_a)_*X = (L_{\phi(a)})_* \phi_*X = \tilde{\tilde X} (\phi(a))
+\end{equation*}
+con $\tilde X\in\chi(G)$ invariante a sinistra tale che $\tilde X(e) = X$.
 
-Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to \mathfrak h$ è un omomorfismo di algebra di Lie, cioè una mappa lineare che soddisfa $(\phi_*)_e \comm XY _{\mathfrak g} = \comm{ (\phi_*)_eX}{ (\phi_*)_eY }_{\mathfrak h}$.
+Quindi $\tilde{\tilde X} \phi = \phi_*\tilde X$ e perciò $(\phi_*)_e\coloneqq \phi_*\restrict{T_eG}:\mathfrak g \to \mathfrak h$ è un omomorfismo di algebra di Lie, cioè una mappa lineare che soddisfa $(\phi_*)_e \comm XY _{\mathfrak g} = \comm{ (\phi_*)_eX}{ (\phi_*)_eY }_{\mathfrak h}$.
 
-\begin{theorem}\label{Teo:OmomorfismiAlgebreLie}
+\begin{theorem}\label{thm:OmomorfismiAlgebreLie}
 	Siano $G,H$ gruppi di Lie e $\Phi: \mathfrak g \to \mathfrak h$ un omomorfismo di algebre di Lie. Allora esiste $U$ intorno di $e$ in $G$ e una mappa $\phi: U \to H$ di classe $C^\infty$ tale che $\phi(ab) = \phi(a) \phi(b)$ per ogni $a,b \in U$ con $ab \in U$ e tale che $(\phi_*)_e X = \Phi X$ per ogni $X\in\mathfrak g$.
-	Inoltre se esistono $\phi,\psi : G \to H$ omomorfismi $C^\infty$ tali che $(\phi_*)_e = (\psi_*)_e = \Phi$ e se $G$ è connesso, allora $\phi = \psi$.
+	Inoltre, se esistono $\phi,\psi : G \to H$ omomorfismi $C^\infty$ tali che $(\phi_*)_e = (\psi_*)_e = \Phi$ e se $G$ è connesso, allora $\phi = \psi$.
 \end{theorem}
 \begin{proof}
-	Sia $\mathfrak f \subseteq \mathfrak g \times \mathfrak h$ l'insieme $\mathfrak f = \{ (X,\Phi(X)), X \in \mathfrak g \}$.
+	Sia $\mathfrak f \subseteq \mathfrak g \times \mathfrak h$ l'insieme $\mathfrak f = \{ (X,\Phi(X)) \suchthat X \in \mathfrak g \}$.
 	Dato che $\Phi$ è un omomorfismo di algebre di Lie, allora $\mathfrak f$ è una sottoalgebra di $\mathfrak g \times \mathfrak h = \Lie(G\times H)$.
 	Quindi esiste $K$ sottogruppo di Lie di $G\times H$ tale che $\Lie(K) = \mathfrak f$.
-	Sia $\pi_1:G\times H \to G$ la proiezione sul primo fattore e $\omega = \pi_1\restrict K$.
-	Allora $\omega: K \to G$ è un omomorfismo.
-	Dato $X\in \mathfrak g$, $\omega_*(X,\Phi(X)) = X$, quindi $\omega_*:T_{(e,e)}K\to T_e G$ è un isomorfismo.
-	Quindi esiste $V$ intorno di $(e,e) \in K$ tale che $\omega$ mappa $V$ diffeomorficamente su $U$ intorno di $e\in G$.
+	Sia $\pi_1:G\times H \to G$ la proiezione sul primo fattore e $\omega = \pi_1\restrict K$, allora $\omega: K \to G$ è un omomorfismo.
+	Dato $X\in \mathfrak g$, abbiamo $\omega_*(X,\Phi(X)) = X$, quindi $\omega_*:T_{(e,e)}K\to T_e G$ è un isomorfismo.
+	Perciò esiste $V$ intorno di $(e,e) \in K$ tale che $\omega$ mappa $V$ diffeomorficamente su $U$ intorno di $e\in G$.
 	
 	Se $\pi_2 : G\times H \to H$ è la proiezione su $H$, definiamo $\phi \coloneqq \pi_2 \circ \omega^{-1}$ su $U$. Quindi $\phi$ realizza la prima condizione. Per la seconda, sia $X\in\mathfrak g$, abbiamo $\omega_*(X,\Phi(X)) = X$, allora $\phi_*X = (\pi_2)_*(X,\Phi(X)) =\Phi(X)$.
 	
@@ -31,11 +34,11 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 
 
 
-\begin{corollary}
+\begin{corollary} \label{cor:AlgebreIsomorfeLocIsomorfi}
 	Se due gruppi di Lie hanno algebre di Lie isomorfe, allora sono localmente isomorfi.
 \end{corollary}
 \begin{proof}
-	Dato $\Phi: \mathfrak g \to \mathfrak h$ isomorfismo, sia $\phi$ la mappa data dal \cref{Teo:OmomorfismiAlgebreLie}
+	Dato $\Phi: \mathfrak g \to \mathfrak h$ isomorfismo, sia $\phi$ la mappa data dal \cref{thm:OmomorfismiAlgebreLie}
 	Questa soddisfa $(\phi_*)_e = \Phi$ isomorfismo, quindi $\phi$ è un diffeomorfismo in un intorno di $e \in G$.
 \end{proof}
 
@@ -45,12 +48,12 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 	Sia $G$ un gruppo di Lie connesso con algebra di Lie commutativa, allora $G$ è abeliano.
 \end{corollary}
 \begin{proof}
-	Per il corollario precedente, $G$ è localmente isomorfo ad $\R^n$ e quindi è commutativo in un intorno di $e \in G$. Si vede che, dalla connessione, ogni intorno $U$ di $e$ genera $G$ tramite le operazioni di gruppo; perciò anche $G$ è abeliano.
+	Per il \cref{cor:AlgebreIsomorfeLocIsomorfi}, $G$ è localmente isomorfo ad $\R^n$ e quindi è commutativo in un intorno di $e \in G$. Si vede che, dalla connessione, ogni intorno $U$ di $e$ genera $G$ tramite le operazioni di gruppo; perciò anche $G$ è abeliano.
 \end{proof}
 
 
-\begin{definition}
-	Sia $G$ un gruppo di Lie. Un omomorfismo $\phi : \R \to G$ è detto un \emph{sottogruppo ad un parametro} di $G$.
+\begin{definition} \index{sottogruppo ad un parametro}
+	Sia $G$ un gruppo di Lie, allora un omomorfismo $\phi : \R \to G$ è detto un \emph{sottogruppo ad un parametro} di $G$.
 \end{definition}
 
 % Abbiamo visto che, dato $X \in T_eG \setminus \{0\}$, esiste unico un sottogruppo ad un parametro $\phi(t)$ tale che $\frac{\de\phi}{\de t} = \tilde X(\phi(t))$. 
@@ -62,7 +65,7 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 	Sia $f:G\to \R$ e se $\phi: \R \to G$ è un omomorfismo $C^\infty$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$, abbiamo che
 	\begin{align*}
 		\frac{\de\phi}{\de t}(f) &= \lim_{h\to\infty} \frac{f(\phi(t+h))-f(\phi(t))}{h} = \lim_{h\to\infty} \frac{f(\phi(t)\phi(h))-f(\phi(t))}{h} =\\
-		&=\frac{\de}{\de s}\restrict{s=0} f\circ L_{\phi(t)} \circ \phi(s) = (L_{\phi(t)})_* \frac{\de\phi}{\de s}\restrict{s=0} (f) = (( L_{\phi(t)} )_* X) f = \tilde X(\phi(t)) (f) \punto
+		&=\frac{\de}{\de s} (f\circ L_{\phi(t)} \circ \phi(s)) \restrict{s=0} = (L_{\phi(t)})_* \frac{\de\phi}{\de s}\restrict{s=0} (f) = (( L_{\phi(t)} )_* X) f = \tilde X(\phi(t)) (f) \punto
 	\end{align*}
 	Quindi se esiste un tale omomorfismo $\phi$, deve essere una curva integrale di $\tilde X$ (estensione di $X$ a $G$), abbiamo quindi l'unicità.
 	
@@ -77,7 +80,7 @@ Quindi $\tilde{\tilde X} = \phi_*\tilde X$ e perciò $(\phi_*)_e:\mathfrak g \to
 
 
 \begin{definition}
-	Siano $G$ un gruppo di Lie e $\phi$ definita come sopra (cioè $\frac{\de\phi}{\de t}(0) =X$). Definiamo $\exp: \mathfrak g \to G$ tramite $\exp(X) \coloneqq \phi(1)$.
+	Siano $G$ un gruppo di Lie e $\phi$ definita come sopra (cioè $\frac{\de\phi}{\de t}\restrict{t=0} =X$). Definiamo $\exp: \mathfrak g \to G$ tramite $\exp(X) \coloneqq \phi(1)$.
 \end{definition}
 
 Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = \exp(tX)^{-1}$
@@ -182,64 +185,13 @@ Inoltre da * abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega
 
 
 \begin{exercise}
-	\begin{enumerate}
-		\item Mostrare che il fibrato tangente $TG$ di $G$ gruppo di Lie ammette struttura di gruppo di Lie.
-		\item Siano $X,Y \in T_eG$ tali che $\comm XY = 0$. Mostrare che
-		\begin{enumerate}
-			\item $\exp(sX) \exp (tY) = \exp(tY) \exp(sX)$;
-			\item $\exp(X+Y) = \exp X \exp Y$.
-		\end{enumerate}
-	\end{enumerate}
-
+	Mostrare che il fibrato tangente $TG$ di $G$ gruppo di Lie ammette struttura di gruppo di Lie.
 \end{exercise}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{exercise}
+	Siano $X,Y \in T_eG$ tali che $\comm XY = 0$. Mostrare che
+	\begin{enumerate}
+		\item $\exp(sX) \exp (tY) = \exp(tY) \exp(sX)$;
+		\item $\exp(X+Y) = \exp X \exp Y$.
+	\end{enumerate}
+\end{exercise}
 
