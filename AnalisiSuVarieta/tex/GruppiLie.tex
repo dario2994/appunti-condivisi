@@ -21,7 +21,7 @@
 	Sia $a\in K$, allora $a^{-1}K$ è connesso poiché $b\mapsto a^{-1}b$ è un omeomorfismo.
 	Inoltre se $e\in a^{-1}K$, allora $a^{-1}K\subseteq K$. Questo è vero per ogni $a\in K$, quindi $K^{-1}K\subseteq K$ e perciò $K$ è un sottogruppo.
 	
-	Sia ora $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb^{-1}$, quindi $bKb^{-1}\subseteq K$ per ogni $b\in G$ e perciò6 $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
+	Sia ora $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb^{-1}$, quindi $bKb^{-1}\subseteq K$ per ogni $b\in G$ e perciò $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
 	
 	Se $G$ è di Lie, allora è localmente connesso e quindi $K$ è aperto. Perciò $K$ è una sottovarietà e un sottogruppo e di conseguenza ha una struttura di gruppo di Lie.
 \end{proof}
@@ -221,12 +221,12 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 	Allora $Y$ genera un flusso $\alpha: \R \times (T_eG \times G) \to T_eG \times G$ di classe $C^\infty$. Si ha che $\exp X$ è la proiezione su $G$ di $\alpha(1,0\oplus X)$, quindi $\exp$ è di classe $C^\infty$.
 	
 	Dato $v\in T_0(T_eG)$, questo si identifica con un vettore in $T_eG$ e la curva $c(t) = tv$ (in $T_eG$) ha vettore tangente $v$ in 0.
-	Quindi $(\exp_*)_0 (v) = \frac{\de \exp(c(t))}{\de t}\restrict {t=0} = \frac{\de}{\de t} \restrict {t=0} \exp(tv)$, perciò $(\exp_*)_0$ è l'identità e di conseguenza $\exp$ è un diffeomorfismo in un intorno di $0\in T_eG$.
+	Quindi $(\exp_*)_0 (v) = \frac{\de \exp(c(t))}{\de t}\restrict {t=0} = \frac{\de}{\de t} \exp(tv)\restrict {t=0}$, perciò $(\exp_*)_0$ è l'identità e di conseguenza $\exp$ è un diffeomorfismo in un intorno di $0\in T_eG$.
 	
 	Sia $\psi: G \to H$ un omomorfismo e sia $\phi: \R \to G$ omomorfismo tale che $\frac{\de \phi}{\de t}\restrict{t=0} = X \in \mathfrak g$.
 	Allora $\psi \circ \phi$ è un omomorfismo e 
 	\begin{equation*}
-		\frac{\de(\psi\circ \phi)}{\de t}\restrict{t=0} = \psi_*(\frac{\de \phi}{\de t}\restrict{t=0}) = \psi_*X\punto
+		\frac{\de(\psi\circ \phi)}{\de t}\restrict{t=0} = \psi_*\left(\frac{\de \phi}{\de t}\restrict{t=0}\right) = \psi_*X\punto
 	\end{equation*}
 	Quindi $\exp(\psi_*X) = (\psi\circ\phi)(1) = \psi(\phi(1)) = \psi(\exp(X))$.
 \end{proof}
