@@ -21,7 +21,7 @@
 	Sia $a\in K$, allora $a^{-1}K$ è connesso poiché $b\mapsto a^{-1}b$ è un omeomorfismo.
 	Inoltre se $e\in a^{-1}K$, allora $a^{-1}K\subseteq K$. Questo è vero per ogni $a\in K$, quindi $K^{-1}K\subseteq K$ e perciò $K$ è un sottogruppo.
 	
-	Sia ora $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb^{-1}$, quindi $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
+	Sia ora $b\in G$, allora $bKb^{-1}$ è connesso ed $e\in bKb^{-1}$, quindi $bKb^{-1}\subseteq K$ per ogni $b\in G$ e perciò6 $K$ è normale. Inoltre $K$ è chiuso essendo una componente connessa.
 	
 	Se $G$ è di Lie, allora è localmente connesso e quindi $K$ è aperto. Perciò $K$ è una sottovarietà e un sottogruppo e di conseguenza ha una struttura di gruppo di Lie.
 \end{proof}
@@ -47,29 +47,29 @@ Dato $X_e \in T_eG$, esiste $X\in\chi(G)$ invariante a sinistra definito dalla f
 
 
 \begin{proposition}
-	Sia $X \in \chi(G)$ invariante a sinistra, allora $X$ è di classe $C^\infty$.
+	Sia $X$ un campo vettoriale (senza richieste di regolarità) invariante a sinistra, allora $X$ è di classe $C^\infty$.
 \end{proposition}
 \begin{proof}
 	Basta verificare la regolarità in un intorno dell'identità. Sia $(U,\varphi)$ carta di $G$ tale che $e\in U$ e chiamiamo $x$ le sue funzioni coordinate. Scegliamo $V\subseteq U$ che $V$ contiene $e$ e tale che $a b, a^{-1}b \in U$ per ogni $a,b\in V$.
 	Dato $a\in V$, abbiamo 
 	\begin{equation*}
-	X^i(a) = (Xx^i)(a) = ((L_a)_* X_e) (x^i) = X_e (x^i\circ L_a) \punto %TODO: cos'è Xx^i
+	X^i(a) = X(x^i)(a) = (L_a)_* X_e (x^i) = X_e (x^i\circ L_a) \punto
 	\end{equation*}
 	Poiché $(a,b) \mapsto ab$ è $C^\infty$, allora $x^i(ab) = x^i( L_a(b) ) = f^i(x^1(a),\ldots, x^n(a), x^1(b), \ldots, x^n(b) )$ con $f^i$ funzioni di classe $C^\infty$.
 	
 	Ponendo $X_e = \sum_{j=1}^n c^j \DerParz{}{x^j}\restrict e$, abbiamo
 	\begin{equation*}
-	(X x^i) (a) = X_e (x^i \circ L_a) = \sum_{j=1}^n c^j \DerParz{(x^i\circ L_a)}{x^j} \restrict e = 
-	\sum_{j=1}^n c^j \Diff_{n+j} f^i(x(a), x(e))\punto
+	X^i (a) = X_e (x^i \circ L_a) = \sum_{j=1}^n c^j \DerParz{(x^i\circ L_a)}{x^j} \restrict e = 
+	\sum_{j=1}^n c^j \DerParz{f^i}{x^{n+j}}(x(a), x(e))\virgola
 	\end{equation*}
-	Quindi $Xx^i$ è $C^\infty$ e di conseguenza anche $X$.
+	quindi $X^i$ è $C^\infty$ e di conseguenza anche $X$.
 \end{proof}
 
 \begin{corollary}
 	Un gruppo di Lie $G$ ha sempre fibrato tangente banale e quindi è orientabile.
 \end{corollary}
 \begin{proof}
-	Sia $X_{1,e},\ldots,X_{n,e}$ base di $T_eG$ e siano $\seqb Xn,$ estensioni degli elementi della base a campi vettoriali invarianti a sinistra. Allora $\seqb Xn,$ sono ovunque linearmente indipendenti e possiamo definire $f:TG \to G\times \R^n$ tale che $f(\sum c^iX_i(a)) = (a,\seqa cn,)$.
+	Sia $X_{1,e},\ldots,X_{n,e}$ base di $T_eG$ e siano $\seqb Xn,$ estensioni degli elementi della base a campi vettoriali invarianti a sinistra. Allora $\seqb Xn,$ sono ovunque linearmente indipendenti e possiamo definire $f:TG \to G\times \R^n$ tale che $f(\sum c^iX_i(a)) = (a,\seqa cn,)$, che risulta un diffeomorfismo.
 \end{proof}
 
 Dalle proprietà del push-forward $(L_a)_* \comm XY = \comm {(L_a)_*X}{(L_a)_*Y}$. In particolare, se $X,Y$ sono invarianti a sinistra, allora anche $\comm XY$ è invariante a sinistra.
@@ -78,7 +78,7 @@ Dati $X,Y \in T_eG$, definiamo con $\tilde X,\tilde Y$ le loro estensioni invari
 Definiamo quindi un'operazione $\comm\cdot\cdot$ su $T_eG$ tramite $\comm XY \coloneqq \comm{\tilde X}{\tilde Y}(e)$. %TODO: le parentesi intorno ai tilde escono enormi
 
 \begin{definition} \index{algebra!di Lie}
-	Il tangente $T_eG$ con questa operazione è detto \emph{algebra di Lie} di $G$ ed è indicato $\Lie G$ o $\mathfrak g$.
+	Il tangente $T_eG$ con questa operazione è detto \emph{algebra di Lie} di $G$ ed è indicato $\Lie(G)$ o $\mathfrak g$.
 \end{definition}
 
 L'algebra di Lie di un gruppo di Lie è finito dimensionale e soddisfa $\comm XX = 0$ e l'identità di Jacobi $\comm {\comm XY} Z + \comm {\comm YZ} X + \comm {\comm ZX} Y = 0$.
@@ -87,6 +87,10 @@ L'algebra di Lie di un gruppo di Lie è finito dimensionale e soddisfa $\comm XX
 \begin{definition} \index{algebra!di Lie!commutativa}
 	Un'algebra di Lie è detta \emph{commutativa} se $\comm XY = 0$ per ogni $X,Y \in T_eG$.
 \end{definition}
+
+\begin{remark}
+	L'algebra di Lie di $(\R^n,+)$ è commutativa.
+\end{remark}
 
 
 Sia $H$ un sottogruppo di Lie del gruppo di Lie $G$ e sia $i: H \hookrightarrow G$ l'inclusione. Allora $T_eH$ si identifica con un sottospazio di $T_eG$. Vediamo inoltre che $T_eH$ risulta una sottoalgebra $\mathfrak h$ di $\mathfrak g$, cioè $T_eH$ è chiuso rispetto a $\comm\cdot\cdot$.
@@ -102,12 +106,12 @@ Dunque, se $Y \in T_eH$, allora $\comm {\hat X}{\hat Y}(e) = i_*\left( \comm{\ti
 
 Vediamo ora che vale anche un viceversa, nella forma del seguente teorema.
 \begin{theorem}
-	Siano $G$ un gruppo di Lie e $\mathfrak h$ una sottoalgebra di $\mathfrak g$. Allora esiste unico un sottogruppo di Lie di $G$ connesso $H$ tale che $\Lie H = \mathfrak h$.
+	Siano $G$ un gruppo di Lie e $\mathfrak h$ una sottoalgebra di $\mathfrak g$. Allora esiste unico un sottogruppo di Lie $H$ di $G$ connesso tale che $\Lie (H) = \mathfrak h$.
 \end{theorem}
 \begin{proof}
 	Dato $a \in G$, sia $\Delta_a$ il sottospazio di $T_aG$ generato da $\tilde X(a)$ con $X\in \mathfrak h$.
 	Poiché $\mathfrak h$ è una sottoalgebra, $\Delta$ è una distribuzione integrabile per la \cref{prop:CondizioneIntegrabilitaDistribuzioniDaGeneratori}.
-	Sia $H$ la varietà integrale massimale contenente $e$. Se $b \in G$, allora $(L_b)_* (\Delta_a) = \Delta_{ba}$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
+	Sia $H$ una varietà integrale massimale contenente $e$, la cui esistenza ci à garantita dal \cref{thm:Frobenius}. Se $b \in G$, allora $(L_b)_* (\Delta_a) = \Delta_{ba}$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
 	
 	Se $b\in H$, $L_{b^{-1}}$ porta $H$ nella varietà integrale massimale contenente $L_{b^{-1}} (b) =e$; di conseguenza $L_{b^{-1}} H = H$ e perciò $H$ è un sottogruppo di $G$.
 	Manca ora verificare che $(a,b) \mapsto ab$ e $a\mapsto a^{-1}$ sono operazioni $C^\infty$.
@@ -116,14 +120,13 @@ Vediamo ora che vale anche un viceversa, nella forma del seguente teorema.
 \end{proof}
 
 \begin{remark}
-	Una sottovarietà di un gruppo di Lie che è anche un sottogruppo di Lie.
+	Una sottovarietà di un gruppo di Lie che è anche un sottogruppo è un sottogruppo di Lie.
 \end{remark}
 
 \section{Omomorfismi fra gruppi di Lie}
 
 Siano $G,H$ gruppi di Lie e $\phi : G\to H$ un omomorfismo di classe $C^\infty$.
 Allora è definito $\phi_* : T_eG \to T_eH$.
-Per ogni $a \in G$, $\phi \circ L_a = L_{\phi(a)} \circ \phi$.
 
 Se $X \in T_eG$ definiamo $\tilde{\tilde X}$ come l'estensione in $\chi(H)$ invariante a sinistra di $\phi_*X $ che vale $\phi_*X$ in $e_H$.
 Allora, poiché per ogni $a \in G$ vale $\phi \circ L_a = L_{\phi(a)} \circ \phi$, abbiamo 
@@ -154,7 +157,7 @@ Quindi $\tilde{\tilde X} \phi = \phi_*\tilde X$ e perciò $(\phi_*)_e\coloneqq \
 
 
 \begin{corollary} \label{cor:AlgebreIsomorfeLocIsomorfi}
-	Se due gruppi di Lie hanno algebre di Lie isomorfe, allora sono localmente isomorfi.
+	Se due gruppi di Lie hanno algebre di Lie isomorfe, allora sono localmente isomorfi (in un intorno dell'identità).
 \end{corollary}
 \begin{proof}
 	Dato $\Phi: \mathfrak g \to \mathfrak h$ isomorfismo, sia $\phi$ la mappa data dal \cref{thm:OmomorfismiAlgebreLie}
@@ -184,13 +187,14 @@ Quindi $\tilde{\tilde X} \phi = \phi_*\tilde X$ e perciò $(\phi_*)_e\coloneqq \
 	Sia $f:G\to \R$ e se $\phi: \R \to G$ è un omomorfismo $C^\infty$ tale che $\frac{\de\phi}{\de t}\restrict{t=0} = X$, abbiamo che
 	\begin{align*}
 		\frac{\de\phi}{\de t}(f) &= \lim_{h\to\infty} \frac{f(\phi(t+h))-f(\phi(t))}{h} = \lim_{h\to\infty} \frac{f(\phi(t)\phi(h))-f(\phi(t))}{h} =\\
-		&=\frac{\de}{\de s} (f\circ L_{\phi(t)} \circ \phi(s)) \restrict{s=0} = (L_{\phi(t)})_* \frac{\de\phi}{\de s}\restrict{s=0} (f) = (( L_{\phi(t)} )_* X) f = \tilde X(\phi(t)) (f) \punto
+		&=\frac{\de}{\de s} (f\circ L_{\phi(t)} \circ \phi(s)) \restrict{s=0} = (L_{\phi(t)})_* \frac{\de\phi}{\de s}\restrict{s=0} (f) = (( L_{\phi(t)} )_* X) (f) = \tilde X(\phi(t)) (f) \punto
 	\end{align*}
 	Quindi se esiste un tale omomorfismo $\phi$, deve essere una curva integrale di $\tilde X$ (estensione di $X$ a $G$), abbiamo quindi l'unicità.
 	
-	Viceversa, sia $\phi: \R \to G$ una curva integrale di $\tilde X$ e consideriamo (fissato $s$) la mappa $t\mapsto \phi(s)\cdot \phi(t)$.
+	Viceversa, sia $\phi: \R \to G$ una curva integrale di $\tilde X$ e consideriamo, fissato $s$, la mappa $t\mapsto \phi(s)\cdot \phi(t)$.
 	Questa è una curva integrale di $\tilde X$ che passa per $\phi(s)$ al tempo 0.
 	Però la cosa vale anche per $\phi(\cdot + s)$, perciò $\phi(t+s) = \phi(s) \phi(t)$ per unicità.
+	Di conseguenza $\phi$ è il sottogruppo ad un parametro cercato.
 \end{proof}
 
 \begin{remark}
@@ -198,13 +202,15 @@ Quindi $\tilde{\tilde X} \phi = \phi_*\tilde X$ e perciò $(\phi_*)_e\coloneqq \
 \end{remark}
 
 
-\begin{definition}
-	Siano $G$ un gruppo di Lie e $\phi$ definita come sopra (cioè $\frac{\de\phi}{\de t}\restrict{t=0} =X$). Definiamo $\exp: \mathfrak g \to G$ tramite $\exp(X) \coloneqq \phi(1)$.
+\begin{definition} \index{mappa!esponenziale}
+	Siano $G$ un gruppo di Lie, $X\in T_eG$ e $\phi$ definita come sopra (cioè $\frac{\de\phi}{\de t}\restrict{t=0} =X$). Definiamo la \emph{mappa esponenziale} $\exp: \mathfrak g \to G$ tramite $\exp(X) \coloneqq \phi(1)$.
 \end{definition}
 
-Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = \exp(tX)^{-1}$
+\begin{remark}
+Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = \exp(tX)^{-1}$.
+\end{remark}
 
-\begin{proposition}
+\begin{proposition} \label{prop:ProprietaExp}
 	La mappa $\exp: \mathfrak g \to G$ è di classe $C^\infty$ e 0 è un punto regolare, cioè esiste $U$ intorno di 0 in $T_eG$ tale che $\exp\restrict U$ è un diffeomorfismo su un intorno di $e\in G$.
 	
 	Inoltre, se $\psi : G \to H$ è un omomorfismo $C^\infty$, allora $\exp\circ \psi_* = \psi \circ \exp$.
@@ -230,7 +236,7 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 	Ogni omomorfismo iniettivo $\phi : G \to H$ è un'immersione fra varietà. In particolare l'immagine è un sottogruppo di Lie di $H$.
 \end{corollary}
 \begin{proof}
-	Per assurdo supponiamo che $(\phi_*)_p(\tilde X(p)) = 0$ per qualche $X \in \mathfrak g$, allora $(\phi_*)_e(X) = 0$ che contraddice l'iniettività.
+	Per assurdo supponiamo che $\phi_*\tilde X(p) = 0$ per qualche $X \in \mathfrak g$, allora $\phi_*X = 0$. Di conseguenza, per la \cref{prop:ProprietaExp}, abbiamo $\phi(\exp(X)) = \exp(\phi_*X) = \exp(0) = e$, che contraddice l'iniettività.
 \end{proof}
 
 
@@ -244,14 +250,14 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 \section{Forme invarianti}
 
 \begin{definition}
-	Una forma $\omega$ su $G$ gruppo di Lie è detta \emph{invariante a sinistra} se soddisfa $(L_a)^*\omega = \omega$ per ogni $a \in G$. ($\omega(b) = L_a^*(\omega(ab))$)
+	Una forma $\omega$ su $G$ gruppo di Lie è detta \emph{invariante a sinistra} se soddisfa $(L_a)^*\omega = \omega$ per ogni $a \in G$, cioè $\omega(b) = (L_a)^*(\omega(ab))$.
 \end{definition}
 
 Forme di questo tipo sono determinate dal loro valore nell'identità.
 
-Se $\seqa\omega n,$ sono 1-forme invarianti a sinistra e tali che $\omega^1(e),\ldots,\omega^n(e)$ generano $T_e^*G$, allora ogni $k$-forma $\omega$ invariante a sinistra si scrive come $\sum_{\seqb ik<} a_{\seqb ik{}} \omega^{i_1}\wedge \ldots \omega^{i_k}$ con coefficienti $a_{\seqb ik{}}$ costanti.
+Se $\seqa\omega n,$ sono 1-forme invarianti a sinistra e tali che $\omega^1(e),\ldots,\omega^n(e)$ generano $T_e^*G$, allora ogni $k$-forma $\omega$ invariante a sinistra si scrive come $\sum_{\seqb ik<} a_{\seqb ik{}}\ \omega^{i_1}\wedge \ldots \wedge\omega^{i_k}$ con coefficienti $a_{\seqb ik{}}$ costanti.
 
-Sia $\omega$ invariante a sinistra, allora $L_a^*\de\omega = \de L_a^*\omega = \de \omega$. Quindi $\de\omega$ è anch'essa invariante a sinistra. 
+Sia $\omega$ invariante a sinistra, allora $(L_a)^*\de\omega = \de ((L_a)^*\omega) = \de \omega$. Quindi $\de\omega$ è anch'essa invariante a sinistra. 
 Inoltre se $\omega$ è una 1-forma invariante a sinistra e $\tilde X,\tilde Y \in \chi(G)$ sono campi vettoriali invarianti a sinistra, allora le funzioni $\omega(\tilde X), \omega(\tilde Y)$ sono invarianti a sinistra e quindi costanti (perché $G$ è connesso).
 Abbiamo $\de \omega (\tilde X, \tilde Y) = \tilde X \omega (\tilde Y) - \tilde Y \omega(\tilde X) - \omega(\comm {\tilde X}{\tilde Y}) = - \omega (\comm{\tilde X}{\tilde Y})$, otteniamo quindi $\de \omega (e) (X,Y) = - \omega(e) (\comm XY)$.
 Perciò $\div(e)(X,Y) = -\omega(e)(\comm XY)$. (*)
