@@ -1,12 +1,12 @@
 \chapter{Forme differenziali} %TODO: sarà un capitolo
 
-\begin{definition} \index{forma!differenziale}
-	Le \emph{forme differenziali} sono campi tensoriali di tipo $\Tau_k^0(M)$ totalmente antisimmetrici.
-\end{definition}
-
+In questo capitolo tratteremo le forme differenziali su varietà, che sono campi tensoriali del tipo $(0,k)$ totalmente antisimmetrici.
+% \begin{definition} \index{forma!differenziale}
+% 	Le \emph{forme differenziali} sono campi tensoriali di tipo $\Tau_k^0(M)$ totalmente antisimmetrici.
+% \end{definition}
 Hanno applicazioni per esempio in geometria perché possono dare informazioni sulla topologia delle varietà.
 
-\section{Algebre esterne}
+\section{Forme esterne su spazi vettoriali}
 
 \begin{definition} \index{mappa!antisimmetrica} \index{forma!esterna}
 Dati $V,W$ spazi vettoriali (finito dimensionali), le \emph{mappe antisimmetriche} in $T^0_k(V,W)$ sono quelle per cui vale $t(\seqb{e}{k}{,}) = \sgn(\sigma) t(e_{\sigma(1)},\ldots, e_{\sigma(k)})$ per ogni $\seqb{e}{k}{,} \in V$ e per ogni $\sigma\in S_k$.
@@ -61,10 +61,9 @@ Parliamo di forme esterne e parleremo di algebre esterne perché si può fare un
 \begin{exercise} \index{mescolamento}
 	Un \emph{mescolamento} di tipo $(k,l)$ è una permutazione $\sigma \in S_{k+l}$ tale che $\sigma(1) < \ldots < \sigma(k)$ e $\sigma(k+1) <\ldots < \sigma(k+l)$.
 	Indichiamo $\mathrm{mesc} (k,l)$ l'insieme dei mescolamenti di tipo $(k,l)$.
-	
 	Mostrare che, se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, allora
 	\begin{equation*}
-	(\alpha\wedge\beta)(\seqb{e}{k+l}{,}) = \sum_{\sigma \in \mathrm{mesc}(k,l)} \alpha(e_{\sigma(1)},\ldots,e_{\sigma(k)}) \beta(e_{\sigma(k+1)},\ldots,e_{\sigma(k+l)})\punto
+	(\alpha\wedge\beta)(\seqb{e}{k+l}{,}) = \sum_{\sigma \in \mathrm{mesc}(k,l)} \sgn(\sigma) \alpha(e_{\sigma(1)},\ldots,e_{\sigma(k)}) \beta(e_{\sigma(k+1)},\ldots,e_{\sigma(k+l)})\punto
 	\end{equation*}
 \end{exercise}
 
@@ -135,7 +134,7 @@ Parliamo di forme esterne e parleremo di algebre esterne perché si può fare un
 	\end{equation*}
 \end{remark}
 \begin{remark}
-	Dal punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, dati $\gamma^1\in \Lambda^{d_1}(V),\ldots, \gamma^1\in \Lambda^{d_k}(V)$, otteniamo $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
+	Dal punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, dati $\gamma^1\in \Lambda^{d_1}(V),\ldots, \gamma^k\in \Lambda^{d_k}(V)$, otteniamo $\seqa{\gamma}{k}{\wedge} = \frac{(\seqb{d}{k}{+})!}{d_1!\ldots d_k!}\antisimm (\seqa{\gamma}{k}{\otimes})$.
 	
 	In particolare, applicando questa formula a 1-forme, si ha $\seqb{\alpha}{k}{\wedge} = k!\ \antisimm(\seqb{\alpha}{k}{\otimes})$.
 	Perciò, se $\seqb en,$ è una base di $V$ e se $\seqa en,$ è la sua base duale, allora $(\seqa ek\wedge)(\seqb en,) = 1$.
@@ -216,7 +215,7 @@ Rivediamo ora le proprietà del pull-back nel caso particolare di forme differen
 		\item $(\id_V)^* = \id_{T^0_k(V)}$;
 		\item se $\varphi\in \mathrm{GL}(V,W)$, allora $\varphi^*\in \mathrm{GL}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$. %TODO: GL era chiamato inv
 		Se anche $\psi\in\mathrm{GL}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
-		\item se $\alpha\in\Lambda^k(V)$, $\beta\in\Lambda^l(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
+		\item se $\alpha\in\Lambda^k(W)$, $\beta\in\Lambda^l(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
 	\end{enumerate}
 \end{proposition}
 
@@ -226,19 +225,19 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 \end{definition}
 
 \begin{proposition} \label{prop:DeterminanteCoordinate}
-	Sia $\seqb en,$ una base di $B$ con base duale $\seqa en,$. Sia $\varphi \in \Lin(V,V)$ tale che $\varphi(e_i) = A_i^je_j$.
+	Sia $\seqb en,$ una base di $V$ con base duale $\seqa en,$. Sia $\varphi \in \Lin(V,V)$ tale che $\varphi(e_i) = A_i^je_j$.
 	Allora $\det(\varphi) = \det A$.
-% 	\begin{equation*}
-% 		\varphi^*(\seqa en\wedge) (\seqb en,) = \det A \punto %TODO: è questa la conclusione, giusto?
-% 	\end{equation*}
 \end{proposition}
 \begin{proof}	
 	Dalla dimostrazione del punto \ref{pw:Associativa} della \cref{prop:ProprietaWedge}, abbiamo
 	\begin{align*}
 		\det(\varphi) &=\varphi^*(\seqa en\wedge) (\seqb en,) = (\seqa en\wedge)(\varphi(e_1),\ldots, \varphi(e_n)) =\\
-		&=n!\ \antisimm (\seqa en\otimes)(\varphi(e_1),\ldots,\varphi(e_n)) = \det A
-		\punto
+		&=n!\ \antisimm (\seqa en\otimes)(\varphi(e_1),\ldots,\varphi(e_n)) =\\
+		&= \sum_{\sigma \in S_n} \sgn(\sigma) e^1(\varphi(e_{\sigma(1)})) \ldots e^n(\varphi(e_{\sigma(n)})) = \sum_{\sigma \in S_n} \sgn(\sigma) A^1_{\sigma(1)} \ldots A^n_{\sigma(n)}\\
+		&=\det A
+		\virgola
 	\end{align*}
+	che è quanto cercato.
 	%(multilineare e normalizzata a 1 sulla mappa identica) %TODO: che vuol dire questa frase?
 \end{proof}
 
@@ -273,11 +272,10 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 \begin{proposition} \index{base!ortonormale} \label{prop:EsistenzaBaseOrtonormale}
 	Sia $g\in T^0_2(V)$ simmetrico e definito positivo. Allora esiste una base $\{\seqb en,\}$ di $V$ con base duale $\{\seqa en,\}$ tale che $g = \sum_{i=1}^n e^i\otimes e^i$. Questa base è detta \emph{ortonormale} rispetto a $g$.
 \end{proposition}
-\begin{proof} %TODO: sistemare
+\begin{proof}
 	La dimostrazione è analoga al caso di $\R^n$ utilizzando un processo di ortogonalizzazione di Gram-Schmidt.
 	
-	Dalla polarizzata $g(e,f) = \frac 14 [g(e+f,e+f) + g(e-f,e-f)]$.
-	Sia $e_1$ tale che $g(e_1,e_1) = 1$. Sia $V_1 = \spanrm \{e_1\}$ e sia $V_2 = \{e \suchthat g(e,e_1) = 0\}$.
+	Sia $e_1$ tale che $g(e_1,e_1) = 1$ e siano $V_1 = \spanrm \{e_1\}$ e $V_2 = \{e \suchthat g(e,e_1) = 0\}$.
 	Visto che $g$ è definita positiva, $V_1\cap V_2= \{0\}$. Dato $z\in V$, allora $z = g(e_1,z)e_1 + (z-g(e_1,z)e_1)$, dove il secondo termine appartiene a $V_2$. Quindi $V = V_1\oplus V_2$.
 	Scegliamo quindi $e_2\in V_2$ tale che $g(e_2,e_2)=1$ e così via fino a completare la base.
 \end{proof}
