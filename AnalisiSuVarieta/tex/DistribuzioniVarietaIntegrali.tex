@@ -1,7 +1,7 @@
 \chapter{Distribuzioni e varietà integrali}
 
 
-\section{Definizioni}
+\section{Definizioni} %TODO: cambiare titolo nell'ottica di un'unione di capitoli (distribuzioni e varietà integrali)
 
 Dato $X\in\chi(M)$ e $p\in M$, abbiamo chiamato $\Fl Xt(p)$ la curva integrale di $X$ passante per $p$ al tempo $0$. In particolare, se $X(p)\neq 0$, si ottiene una distribuzione.
 
@@ -42,7 +42,7 @@ Invece per $k>1$ le distribuzioni $k$-dimensionali non sempre ammettono varietà
 	Si ha che $\gamma_3(s)=(1,s,s)$; perciò $\dot\gamma_3(0)$ ha componente $z$ diversa da 0 e di conseguenza $\gamma_3(0)\ne \Delta_{\gamma_3(0)}$. %TODO: capire
 \end{example}
 
-\section{Condizioni necessarie per l'esistenza di varietà integrali}
+\section{Condizioni necessarie per l'esistenza di varietà integrali} %TODO: accorpare con la sezione Teorema di Frobenius?
 
 Vogliamo ora studiare quando una distribuzione proviene da una varietà integrale.
 Sia $\Delta$ una distribuzione $k$-dimensionale in $M$.
@@ -71,14 +71,14 @@ Se $X,Y\in\chi(M)$ appartengono a $\Delta$, possiamo definire campi vettoriali c
 \end{proof}
 
 Siano $X,Y\in\chi(M)$ che appartengono a $\Delta$, allora per il \cref{lemma:RestrizioneCampoVettoriale} esistono $\bar X,\bar Y\in\chi(N)$ tale che $(Ti)\bar X=X$ e $(Ti)\bar Y=Y$.
-Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$.
+Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$. %TODO: scrivere meglio il fatto che la parentesi di Lie passa a sottovarietà
 Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$.
 
 \begin{definition} \index{distribuzione!integrabile}
 	Una distribuzione $k$-dimensionale $\Delta$ è detta \emph{integrabile} se per ogni $X,Y\in\Delta$ vale che $[X,Y]\in\Delta$.
 \end{definition}
 
-\begin{proposition} \label{prop:CondizioneIntegrabilitaDistribuzioniDaGeneratori} %TODO: magari dare un label sensato
+\begin{proposition} \label{prop:CondizioneIntegrabilitaDistribuzioniDaGeneratori}
 	Se $X_1,\ldots,X_k\in\chi(M)$ generano $\Delta$, distribuzione $k$-dimensionale in un intorno di un certo punto $p\in M$, allora $\Delta$ è integrabile se e solo se $[X_i,X_j]$ è una combinazione lineare del tipo $\sum_{\alpha=1}^kc_{ij}^\alpha X_\alpha$, per ogni $i,j=1,\ldots,k$.
 \end{proposition}
 
@@ -101,11 +101,11 @@ Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$
 	Inoltre, localmente vicino a $p$, ogni varietà integrale di $\Delta$ è di questo tipo.
 \end{theorem}
 
-\begin{proof} %TODO: decidere se usare T o \T per il tangente
+\begin{proof}
 	Possiamo supporre $M=\R^n$ e $\Delta_0=\spanrm\{\DerParz{}{t^1}(0),\ldots,\DerParz{}{t^k}(0)\}$. Sia $\pi:\R^n\to\R^k$ la proiezione sulle prime $k$ coordinate. Allora $T\pi\restrict{\Delta_0}:\Delta_0\to T_0\R^k\cong \R^k$ è un isomorfismo e per continuità $T\pi\restrict{\Delta_q}:\Delta_q\to\R^k $ è un isomorfismo per $q$ vicino a 0.
-	Quindi per la \cref{prop:ParentesiZeroImplicaCoordinateLocali} possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
+	Quindi possiamo scegliere $X_1,\ldots,X_k\in\Delta$ (vicino a 0) tali che $(T\pi)X_i(q) = \DerParz{}{t^i}\restrict{\pi(q)}$ per $i=1,\ldots, k$.
 	Perciò $(T\pi)(\comm{X_i}{X_j})(q) = \comm{\DerParz{}{t^i}}{\DerParz{}{t^j}}(\pi(q))=0$ e, poiché $T\pi$ è un isomorfismo, $\comm{X_i}{X_j}(q)=0$ per ogni $q$ vicino a 0 e per ogni $i,j=1,...k$.
-	Quindi esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$.
+	Quindi per la \cref{prop:ParentesiZeroImplicaCoordinateLocali} esistono coordinate $(x^i)$ vicino a 0 tali che $X_i = \DerParz{}{x^i}$ vicino a 0, per $i=1,\ldots,k$.
 	Notiamo ora che gli insiemi $\{q\in U\ : \ x^j(q)=a^j, j=k+1,\ldots,n\}$ sono varietà integrali di $\Delta$, poiché i vettori tangenti sono combinazioni di $\DerParz{}{x^i}$ per $i=1,\ldots,k$ e quindi di $X_i$ con $i=1,\ldots,k$.
 	
 	Sia ora $N$ una varietà integrale connessa di $\Delta$ vicino a 0 e sia $i:N\to U$ la sua inclusione. Consideriamo (nelle coordinate $(x^i)$ definite sopra) la funzione $x^m\circ i:N\to \R$ per $m=k+1,\ldots,n$. Per ogni $v\in T_qN$ vale $v(x^m\circ i) = (T i)(v)(x^m)=0$, perché $\Delta_q$ è generata da $\DerParz{}{x^i}(q)$ per $i=1,\ldots,k$. Quindi, dato che $N$ è connessa, $x^m$ è costante su $N$ per $m=k+1,\ldots,n$.
