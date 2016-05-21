@@ -1,6 +1,6 @@
 \chapter{Campi vettoriali e derivazioni}
 
-\section{Definizioni e richiami}
+\section{Definizioni e richiami} %TODO: aggiungere ``di campi vettoriali e curve integrali``
 
 \begin{definition} \index{campo!vettoriale}
 	Sia $M$ una varietà $C^k$. Un \emph{campo vettoriale} su $M$ è una funzione $X:M\to TM$ tale che $X(p)\in T_pM$ per ogni $p\in M$. Un campo vettoriale è detto di classe $C^r$ (con $r\le k$) se le sue componenti sono di classe $C^r$.
@@ -35,7 +35,7 @@ Se $(U,\varphi)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le
  
 Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo per noti.
  
-\begin{theorem}[Cauchy-Lipschitz]  \index{teorema!Cauchy-Lipschitz}
+\begin{theorem}[Cauchy-Lipschitz]  \index{teorema!Cauchy-Lipschitz} \label{thm:CauchyLipschitz}
 	Siano $U\subseteq\R^n$ aperto e $X:U\to\R^n$ di classe $C^1$. Allora per ogni $x_0\in U$ esiste $I\subseteq\R$ aperto con $0\in I$ e $c:I\to\R^n$ tali che $c(0)=x_0$ e $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to\R^n$ come sopra, allora esse coincidono su $I_1\cap I_2$.
 \end{theorem}
 
@@ -51,7 +51,7 @@ Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo p
 	\item $p\in U_0\subseteq M$, $U_0$ è aperto e $a>0$; \label{FL:aperto}
 	\item $F:U_0\times I_a\to M$ è di classe $C^r$, dove $I_a=(-a,a)$; \label{FL:Cr}
 	\item per ogni $u\in U_0$ si ha che $c_u=F(u,\cdot):I_a\to M$ è una curva integrale di $X$ con dato iniziale $u$; \label{FL:curvaintegrale}
-	\item se per $t\in I_a$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo}
+	\item se per $t\in I_a$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo} %TODO: usare F^t invece di F_t per coerenza con il dopo
 	\end{enumerate}
 \end{definition}
 
@@ -64,7 +64,7 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \begin{proof}
 	Osserviamo che non si può applicare direttamente il teorema di Cauchy-Lipschitz perché la curva potrebbe non appartenere ad una sola carta.
 	
-	Siano $c_1,c_2$ le due curve considerate e sia $K=\{ t\in I\ : \ c_1(t)=c_2(t)\}\subseteq I$, dove $I$ è l'intersezione dei domini delle due curve (ed è dunque un intervallo di $\R$). L'insieme $K$ è chiuso perché $M$ è di Hausdorff, è aperto perché per ogni $t\in K$ si può prendere una carta che lo contiene ed applicare in carta il teorema di Cauchy-Lipschitz, ed è non vuoto perché per ipotesi $0\in K$. Dunque, dato che $I$ è connesso, $K=I$.
+	Siano $c_1,c_2$ le due curve considerate e sia $K=\{ t\in I\ : \ c_1(t)=c_2(t)\}\subseteq I$, dove $I$ è l'intersezione dei domini delle due curve (ed è dunque un intervallo di $\R$). L'insieme $K$ è chiuso perché $M$ è di Hausdorff, è aperto perché per ogni $t\in K$ si può prendere una carta che lo contiene ed applicare in carta il \cref{thm:CauchyLipschitz}, ed è non vuoto perché per ipotesi $0\in K$. Dunque, dato che $I$ è connesso, $K=I$.
 \end{proof}
 
 \begin{proposition}
@@ -164,6 +164,6 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 
 
 \begin{exercise}
-	Sia $X$ campo vettoriale su $\R^n$ di classe $C^r$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria (cioè controimmagine di compatti è compatta). Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$. % \footnote{Per definizione $X(f)(p)=\de f(X(p))$.}. 
-	Dimostrare che $X$ è completo. %TODO: cosa vuol dire X(f)? È giusto? Prima c'era scritto X(f) = \Diff_X (f)
+	Sia $X$ campo vettoriale su $\R^n$ di classe $C^r$ e sia $f:\R^n\to \R$ di classe $C^1$ e propria (cioè controimmagine di compatti è compatta). Supponiamo che esistano $K,L>0$ tali che $\abs{X(f)(p)}\le K\abs{f(p)}+L$ per ogni $p\in\R^n$.. 
+	Dimostrare che $X$ è completo.
 \end{exercise}
