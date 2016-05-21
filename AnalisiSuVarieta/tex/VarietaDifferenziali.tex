@@ -29,7 +29,7 @@
  di carte tale che i cambi di carta siano differenziabili.
  
 \begin{remark}
-	Data una carta $(U,\varphi)$, quando non specificato, sottoinderemo che $\varphi$ abbia componenti $\varphi=(\seqa xn,)$.
+	Data una carta $(U,\varphi)$, quando non specificato, sottintenderemo che $\varphi$ abbia componenti $\varphi=(\seqa xn,)$.
 \end{remark}
 
  
@@ -63,20 +63,16 @@
   \end{enumerate}
  \end{example}
  
-\begin{example} \index{grassmanniana}
-	Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia dei sottospazi $n$-dimensionali di $\R^k$, che si può dotare di una struttura differenziabile naturale con la quale viene detta \emph{varietà grassmanniana}. 
+\begin{example} \index{grassmanniana} %TODO: cambiare notazione \pi_G(H,F) -> \pi_G(F)\restrict H?
+	Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia dei sottospazi $n$-dimensionali di $\R^k$, che si può dotare di una struttura differenziabile naturale con la quale viene detta \emph{varietà grassmanniana}.
  
- Dato $F \in \R^k$ sottospazio $n$-dimensionale, sia $G$ uno dei complementari lineari, cioè $\R^k=F \oplus G$.
- Sia ora $U_G=\{H\in \R^k \text{ sottospazio $n$-dimensionale tali che }\R^k=H \oplus G\}$ e sia
- $\varphi_{F,G}:U_G \to \Lin(F,G)$ tale che $\varphi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$; dove
- $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni sui due sottospazi e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$
- e simmetricamente per l'altra. 
+	Dato $F \subseteq \R^k$ sottospazio $n$-dimensionale, sia $G$ uno dei supplementari lineari, cioè $\R^k=F \oplus G$.
+	Sia ora $U_G=\{H\in \R^k \text{ sottospazio $n$-dimensionale tali che }\R^k=H \oplus G\}$ e sia $\varphi_{F,G}:U_G \to \Lin(F,G)$ tale che $\varphi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$; dove $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni sui due sottospazi e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$ e simmetricamente per l'altra. 
  
- Per prima cosa dimostreremo che $\pi_G(H,F)$ è invertibile e quindi che ha senso la scrittura sopra.
- Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una l'inversa dell'altra. Infatti, data $h\in H$, scrivendo
- $h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$; quindi
+	Per prima cosa dimostriamo che $\pi_G(H,F)$ è invertibile e quindi che ha senso la scrittura sopra.
+	Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una l'inversa dell'altra. Infatti, data $h\in H$, scrivendo $h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$; quindi
  \begin{equation*}
- \pi_G(F,H) \circ \pi_G(H,F)(h)=h \quad \text{e} \quad \pi_G(H,F) \circ \pi_G(F,H)(f))=f \punto
+ \pi_G(F,H) \circ \pi_G(H,F)(h)=h \quad \text{e} \quad \pi_G(H,F) \circ \pi_G(F,H)(f)=f \punto
  \end{equation*}
  
  Inoltre vale anche il viceversa, ovvero che se $\pi_G(H,F)$ è un isomorfismo, allora $\R^k=H \oplus G$. Infatti
@@ -87,8 +83,8 @@
  e la prima parentesi
  è un elemento di $H$ mentre la seconda un elemento di $G$.
  
- Usando questi fatti si può dimostrare che $\varphi_{F,G}$ è biettiva e quindi che $\{(U-G,\varphi_{F,G}) \suchthat \R^k=F \oplus G \}$ è 
- un atlante sui sottospazi $n$-dimensionali.
+ Usando questi fatti si può dimostrare che $\varphi_{F,G}$ è biettiva e quindi che $\{(U_G,\varphi_{F,G}) \suchthat \R^k=F \oplus G \}$ è 
+ un atlante sui sottospazi $n$-dimensionali, con il quale risultano quindi una varietà $(n(k-n))$-dimensionale.
  
  \end{example}
 
@@ -103,7 +99,7 @@
   La richiesta che le varietà siano a base numerabile ha alcune importanti conseguenze:
   \begin{enumerate}
    \item le varietà sono metrizzabili;
-   \item le varietà sono spazi topologici normali;
+   \item le varietà sono spazi topologici normali; %TODO: aggiungere definizione?
    \item le varietà sono paracompatte\footnote{Uno spazio topologico $X$ si dice \emph{paracompatto} se ogni suo ricoprimento aperto ammette un raffinamento aperto localmente finito.}, dunque in particolare esistono partizioni dell'unità; \index{spazio topologico!paracompatto}
    \item le varietà sono $\sigma$-compatte, ossia sono un'unione numerabile di compatti.
   \end{enumerate}
@@ -255,7 +251,7 @@ Data una carta $(U,\varphi)$ abbiamo le carte $T\varphi:TU\to T(\varphi(U))$ tal
 \end{proposition}
 
 \begin{proof}
-	Dato che $\mathcal F$ ricopre $M$, $T\mathcal F$ ricopre $TM$. Inoltre per il \cref{thm:MappeComposte} abbiamo che  $T\varphi_i\circ(T\varphi_j)^{-1}=T(\varphi_i\circ\varphi_j)$, che è un diffeomorfismo $C^k$.
+	Dato che $\mathcal F$ ricopre $M$, $T\mathcal F$ ricopre $TM$. Inoltre per il \cref{thm:MappeComposte} abbiamo che  $T\varphi_i\circ(T\varphi_j)^{-1}=T(\varphi_i\circ\varphi_j^{-1})$, che è un diffeomorfismo $C^k$.
 	Inoltre $TM$ è di Hausdorff e a base numerabile con la topologia indotta da $T\mathcal F$.
 \end{proof}
 
@@ -271,7 +267,7 @@ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
 \begin{definition}
 	Sia $f:M\to N$ di classe $C^1$.
 	\begin{enumerate}
-	\item Se il diffenziale di $f$ è iniettivo in ogni punto, $f$ è detta \emph{immersione}. \index{immersione}
+	\item Se il differenziale di $f$ è iniettivo in ogni punto, $f$ è detta \emph{immersione}. \index{immersione}
 	\item Se $f$ è un'immersione iniettiva, $(M,f)$ è detta \emph{sottovarietà}. \index{sottovarietà}
 	\item Se $f$ è un'immersione ed un omeomorfismo con l'immagine, $f$ è detta \emph{embedding}. \index{embedding}
 	\end{enumerate}
