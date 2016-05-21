@@ -46,7 +46,7 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	\begin{description}
 	 \item [\ref{DLP:Lineare}] Ovvia.
 	 \item [\ref{DLP:Prodotto}] Vale la seguente catena di uguaglianze
-	 \begin{equation*} %TODO: sistemare questa equazione
+	 \begin{equation*} %TODO: questa equazione è un po' bruttina
 	 \begin{split}
 	 \Lie_X(fY)(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]=\\
 	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]=\\
@@ -57,6 +57,7 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \end{description}
 \end{proof}
 
+%TODO: sistemare bene questa scrittura in coordinate
 Vediamo ora la scrittura della derivata di Lie in coordinate. Siano $p\in M$ e $(U,\varphi)$ una carta con $p\in U$ e sia $(x^1,\ldots,x^n)$ il sistema di coordinate corrispondente.
 Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset B$, se $A\subset K \subset B$ con $K$ compatto.}, abbiamo che \begin{equation*}
 	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}\frac\partial{\partial x^l}(F(x))\punto
@@ -158,7 +159,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{equation*}
 \end{proposition}
 
-\begin{proof} %TODO: capire anche qui
+\begin{proof}
 	Sia $n\in N$ e sia $g\in C^\infty(V)$ con $V$ aperto di $N$ tale che $n\in V$. Sia inoltre $Z\in\chi(M)$, allora per il \cref{lemma:DerivataLieNaturalePushForwardFunzioni}, posto $m=\varphi^{-1}(n)$, vale che
 	\begin{equation*}
 		(\varphi_*Z)(g)(n)=Z(g\circ \varphi)(m)\virgola
@@ -173,6 +174,8 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{align*}
 	da cui abbiamo concluso perché se due campi coincidono applicati a tutte le funzioni $C^\infty$, allora coincidono come campi vettoriali.
 \end{proof}
+
+\section{Commutazione di campi vettoriali}
 
 \begin{lemma} \label{lemma:FlussiEMappe}
 	Sia $\varphi:M\to N$ una mappa di classe $C^r$ fra varietà e siano $X\in\chi^r(M)$, $Y\in\chi^r(N)$. Allora $(T\varphi)X=Y\circ \varphi$ se e solo se $\varphi\circ \Fl{X}{t}=\Fl{Y}{t}\circ\varphi$.
@@ -206,9 +209,6 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	Per dimostrare che $(\Fl{X}{t})_*X=X$, scegliamo come $\varphi$ il diffeomorfismo dato da $\Fl{X}{s}$ con $s$ fissato. Per la prima parta della proposizione $(\Fl{X}{t})_*X=X$ se e solo se $\Fl{X}{s}\circ \Fl{X}{t}=\Fl{X}{t}\circ \Fl{X}{s}$, ma questo è vero per la commutatività.
 \end{proof}
 
-
-\section{Commutazione di campi vettoriali}
-
 \begin{proposition} \label{prop:EquivalenzaParentesiZero}
 	Siano $X,Y\in\chi^r(M)$ e siano $\Fl{X}{t},\Fl{Y}{t}$ flussi (definiti localmente o globalmente) indotti da $X$ e $Y$. Allora sono equivalenti:
 	\begin{enumerate}
@@ -220,11 +220,11 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 \end{proposition}
 
 \begin{proof}
-	Abbiamo $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ se e solo se $\Fl{Y}{s}=\Fl{X}{t}\circ \Fl{Y}{s}\circ (\Fl{X}{t})^{-1}$. Per il \cref{lemma:FlussiEMappe} questo equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
+	Per il \cref{lemma:FlussiEMappe} la commutazione $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
 	
 	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
 	\begin{equation*}
-		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=(\Fl{X}{t})_*\comm{X}{Y}=0\punto %TODO: prima la cosa centrale era \frac{\de}{\de s}\Fl{X}{t+s}Y
+		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=(\Fl{X}{t})_*\comm{X}{Y}=0\punto
 	\end{equation*}
 	Perciò  $(\Fl{X}{t})_*Y$ è costante in $t$ ed è uguale a Y, perché $(\Fl{X}{0})_*Y=Y$.
 \end{proof}
@@ -238,17 +238,17 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 	Siano $X_1,\dots ,X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $\comm{X_\alpha}{X_\beta}=0$ per ogni $\alpha,\beta=1,\ldots ,k$, allora in $\tilde{U}\Subset U$, con $p\in \tilde{U}$, esistono coordinate $(\tilde{U},x)$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
 \end{proposition}
 
-\begin{proof}
+\begin{proof} %TODO: scrivere meglio perché così fa schifo, ma è giusto e si capisce
 	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$ e sia 
 	\begin{equation*}
 		\Psi(a^1,\dots, a^n)\coloneqq\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
 	\end{equation*}
 	Vale allora che
-	\begin{equation*} %TODO: capire
+	\begin{equation*}
 		\Psi_*\left(\frac{\partial}{\partial a^\alpha}\restrict{0}\right) = 
 		\begin{cases}
 			\frac{\partial}{\partial y^\alpha}\restrict{0}, &\text{per $\alpha=k+1,\dots,n$}\\
-			\frac{\de}{\de t}\restrict{t=0}\left(\Fl{X_\alpha}{t}(0)\right) = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
+			\frac{\de}{\de t}\left(\Fl{X_\alpha}{t}(0)\right)\restrict{t=0} = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
 		\end{cases}
 	\end{equation*}
 	
@@ -276,7 +276,7 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 	\end{alignat*}
 	%$\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1$, $\DerParz{f\circ \alpha_2}{t} = -(Xf)\circ \alpha_2$, $\DerParz{f\circ\alpha_3}{t}=-(Yf)\circ\alpha_3$ e $\DerParz{f\circ\alpha_1}{h}(0,h)=(Xf)(\alpha_1(0,h))$.
 	Utilizzando quanto detto abbiamo
-	\begin{align*} %TODO: valutare di cambiare \Diff
+	\begin{align*}
 	(f\circ c)'(0)&=\frac{\de}{\de t}[f\circ\alpha_3(t,t)]\restrict{t=0} =\Diff_1(f\circ \alpha_3)(0,0)+\Diff_2(f\circ\alpha_3)(0,0) =
 	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\left[\Diff_1(f\circ\alpha_2)(0,0)+\Diff_2(f\circ\alpha_2)(0,0) \right] =
 	\\ &=\Diff_1(f\circ\alpha_3)(0,0)+\Diff_1(f\circ\alpha_2)(0,0)+\Diff_1(f\circ\alpha_1)(0,0)+\Diff_2(f\circ\alpha_1)(0,0) =
