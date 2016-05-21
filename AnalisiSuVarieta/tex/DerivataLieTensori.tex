@@ -16,7 +16,7 @@ Ci sono due possibili approcci:
 \begin{definition} \index{operatore!differenziale} \label{def:OperatoreDifferenziale}
 	Un \emph{operatore differenziale} sull'algebra dei tensori $\Tau(M)$ è una famiglia di mappe $\mathcal D_s^r$ da $\Tau_s^r(M)$ in sé tale che:
 	\begin{enumerate}
-	 \item $\mathcal D$ sia una derivazione tensoriale, cioè commuta con le contrazioni. \label{od:Derivazione} %[$\mathcal D_1$)] 
+	 \item $\mathcal D$ sia una derivazione tensoriale, cioè commuta con le contrazioni. \label{od:Derivazione} %TODO: scrivere meglio che commuta con le contrazioni
 	 
 	 Vogliamo quindi che $\mathcal D$ sia $\R$-lineare e che, dati $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$, valga
 	 \begin{align*}
@@ -40,7 +40,7 @@ Ci sono due possibili approcci:
 \end{definition}
 
 \begin{theorem} \label{thm:EsistenzaOperatoriDifferenziali}
-	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_U : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_U : \chi(U) \to \chi(U)$ che siano derivazioni (naturali rispetto alle restrizioni), cioè
+	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_U : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_U : \chi(U) \to \chi(U)$ che siano $\R$-lineari e derivazioni (naturali rispetto alle restrizioni), cioè
 	\begin{enumerate}
 		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$ per $f,g\in C^\infty(U)$; \label{eod:LeibnitzPerE}
 		\item $\mathcal F_U(f\otimes X) = (\mathcal E_U f) \otimes X + f\otimes \mathcal F_U X$ per $f\in C^\infty(U)$ e $X\in\chi(U)$; \label{eod:LeibnitzPerF}
@@ -51,16 +51,15 @@ Ci sono due possibili approcci:
 
 \end{theorem}
 
-\begin{proof} %TODO: capire e sistemare
+\begin{proof}
 	Innanzitutto definiamo $\mathcal D$ su $\chi^*(U)$ come 
 	\begin{equation*}
 	(\mathcal D\alpha) (X) \coloneqq \mathcal E_U(\alpha(X)) - \alpha( \mathcal F_UX)
 	\end{equation*}
-	per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$, ricordandoci che vogliamo che valga $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X)$. 
-% 	Verifichiamo l'esistenza su $\chi^*(M)$. In $U$, usiamo la proprietà $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X) = \mathcal E_U(\alpha\cdot X) - \alpha \mathcal F_UX$ per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$.
+	per ogni $X\in\chi(U)$ e per ogni $\alpha \in \chi^*(U)$, ricordandoci che vogliamo che valga $(\mathcal D\alpha)\cdot X = \mathcal D(\alpha\cdot X) - \alpha\cdot(\mathcal D X)$.
 	
-	Vogliamo verificare che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$ e che quindi sia effettivamente un elemento di $\chi^*(U)$.
-	Abbiamo però che
+	Verifichiamo che $\mathcal D\alpha$ sia $C^\infty(M)$-lineare su $\chi(U)$ e che quindi sia effettivamente un elemento di $\chi^*(U)$.
+	Abbiamo infatti che
 	\begin{align*}
 		(\mathcal D\alpha)(fX) &= \mathcal E_U(\alpha(fX)) - \alpha(\mathcal F_U(fX))= \mathcal E_U(f\alpha (X)) - \alpha [(\mathcal E_Uf)\otimes X + f \otimes \mathcal F_UX] = \\
 		&= (\mathcal E_U f)\otimes \alpha (X) + f \otimes \mathcal E_U (\alpha (X)) - \alpha [(\mathcal E_U f) \otimes X] - \alpha [f \otimes \mathcal F_U X] = \\
@@ -68,14 +67,13 @@ Ci sono due possibili approcci:
 	\end{align*}
 	dove abbiamo utilizzato le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF}.
 	
-	Abbiamo perciò definito $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$. Possiamo quindi estendere la definizione in $U$ ai tensori, utilizzando la proprieta \ref{od:Derivazione}, tramite 
+	Abbiamo perciò definito $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$. Possiamo quindi estendere la definizione in $U$ ai tensori, utilizzando la proprietà \ref{od:Derivazione}, tramite 
 	\begin{align*}
 		(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) \coloneqq\ & \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) -\\
 		&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
 		&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\virgola
 	\end{align*}
 	per ogni $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$.
-	
 	Usando ancora le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF} si vede come prima che $\mathcal D_U$ su $\Tau_s^r(U)$ è $C^\infty(M)$-multilineare.
 
 Per concludere, se $V\subseteq U$ aperto, per le proprietà \ref{eod:LocalitaPerE} e \ref{eod:LocalitaPerF} abbiamo $\mathcal D_V(t\restrict U) = (\mathcal D_U t)\restrict V$, per ogni $t\in\Tau(U)$.
@@ -101,7 +99,7 @@ Per l'unicità di $\mathcal D_U$, si ha anche l'unicità di $\mathcal D$ e inolt
 	da cui $\mathcal D\delta = 0$ per l'arbitrarietà di $X$ ed $\alpha$.
 \end{proof}
 
-\section{Estensione della derivata di Lie}
+\section{Estensione della derivata di Lie} %TODO: aggiungere ``ai campi tensoriali''
 
 Trattiamo ora il caso particolare della derivata di Lie.
 Dati $X\in\chi(M)$ e $U\subseteq M$ aperto, definiamo $\mathcal E_U$ ed $\mathcal F_U$ come $\Lie_X\restrict U$.
@@ -131,12 +129,7 @@ Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} 
 		=& \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) +\\
 		&+\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +\\
 		&+\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] \punto
-	\end{align*}	
-% 	  $  \mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) = \varphi^*\Lie_{\varphi_*X}(\varphi_*(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s))) = $\\
-% 	  $  \varphi^*\Lie_{\varphi_*X}((\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s))) = $ \\
-% 	  $  \varphi^*[(\Lie_{\varphi_*X}\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s) + $ \\
-% 	  $  +\sum_{j=1}^r{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\Lie_{\varphi_*X}\varphi_*\alpha_j,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\varphi_*X_s)} +$ \\
-% 	  $  +\sum_{k=1}^s{(\varphi_*t)(\varphi_*\alpha_1,\ldots,\varphi_*\alpha_r,\varphi_*X_1,\ldots,\Lie_{\varphi_*X}\varphi_*X_k,\ldots,\varphi_*X_s)}] $
+	\end{align*}
 	Sapendo che $\varphi^*=(\varphi^{-1})_*$, dall'ultima espressione ottengo
 	\begin{align*}
 		\mathcal D(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) =& (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\\
@@ -144,8 +137,6 @@ Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} 
 		&+\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)} \virgola
 	\end{align*}
 	che è proprio la proprietà richiesta.
-% 	  $ (\mathcal D t)(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)+\sum_{j=1}^r{t(\alpha_1,\ldots,\mathcal D \alpha_j, \ldots \alpha_r,X_1,\ldots,X_s)} +$\\
-% 	  $ +\sum_{k=1}^s{t(\alpha_1,\ldots, \alpha_r,X_1,\ldots,\mathcal D X_k, \ldots,X_s)}$
 	
 	\item [\ref{od:Restrizioni}]
 		Sia $t\in\Tau_s^r(M)$, allora
@@ -160,67 +151,107 @@ Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} 
 \end{proof}
 
 Vediamo ora le formule in coordinate; cioè, dato $t\in\Tau_s^r(M)$ e $X\in\chi(M)$, vogliamo le componenti di $\Lie_Xt$.
-Sia $\varphi: U \to \R^n$ una carta e siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
-Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), ricordiamo che per $f\in C^\infty(M)$ e $Y\in \chi(M)$ abbiamo
-$(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$, cioè quindi
-$\Lie_X f = X^i \DerParz{f}{x^i}$ e $(\Lie_XY)^i = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+Sia $\varphi: U \to \R^n$ una carta con coordinate $\varphi=(\seqa xn,)$, rispetto alle quali $X= X^i\DerParz{}{x^i}$ e $t = t^{\seqb ir,}_{\seqb js,} \DerParz{}{x^{i_1}} \otimes \ldots \otimes \DerParz{}{x^{i_r}} \otimes \de x^{j_1} \otimes \ldots \otimes \de x^{j_s}$.
 
-Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
-
-Dato $v\in\R^n$ fissato allora $\Lie_{X'}(\alpha'v) = (\Lie_{X'}\alpha')v + \alpha'\Lie_{X'}v$,
-
-$\Diff (\alpha'v)X' = (\Lie_{X'} \alpha') v - \alpha'(\Diff X' \cdot v) \Rightarrow (\Lie_{X'}\alpha') v = (\Diff \alpha' \cdot X') v + \alpha' (\Diff X' \cdot v)$ 
-
-Allora $(\Lie_X\alpha)_iv^i = \DerParz{\alpha^i}{x^j}X^jv^i + \alpha_j\DerParz{X^i}{x^j}v^i$
-quindi $(\Lie_X\alpha)_i = X^j\DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i}$
-
-
-
-%%%%%%%%% aggiunta parte del 18 febbraio
-
-Formule in coordinate per le derivate di Lie di tensori.
-
-$\varphi:U\subseteq M \to \R^n$ carta locale e $X'$, $t'$ coordinate di $\varphi_*X$ e $\varphi_*t$.
-
-$Y\in\chi(M)$ e $\Diff$ differenziale in $\R^n$.
-
-$(\Lie_Xf)'(x) = \Diff f'\cdot X'(x)$, $\Lie_X f = X'\DerParz{}{x'}$, per $f\in C^\infty(U)$.
-
-$(\Lie_XY)' = \Diff Y'(x) X'(x) -\Diff X'(x) Y'(x)$
-
-Da Leibnitz, se $\alpha\in\chi^*(M)$, $v$ vettore costante in $\R^n$:
+Ricordiamo innanzitutto che per $f \in C^\infty(M)$ vale
 \begin{equation*}
-	(\Lie_{X'}\alpha')v = (\Diff \alpha'\cdot X') v + \alpha' (\Diff X' v)
+\Lie_X f = X^i \DerParz{f}{x^i} \virgola
 \end{equation*}
+mentre per $Y\in \chi(M)$ abbiamo
+\begin{equation*}
+\Lie_XY = \left( X^j\DerParz{Y^i}{x^j} - Y^j \DerParz{X^i}{x^j} \right) \DerParz{}{x^i}\punto
+\end{equation*}
+Calcoliamo quindi la formula in coordinate di $\Lie_X\alpha$ con $\alpha = \alpha_i \de x^i \in \chi^*(M)$, per poi ricavare la formula per qualsiasi tensore sfruttando la definizione. Sfruttando la definizione di $\Lie_X\alpha$ e quanto dett fino ad ora, abbiamo
+\begin{align*}
+	(\Lie_X\alpha)_i &= \Lie_X\alpha \left(\DerParz{}{x^i}\right) = \Lie_X \left(\alpha\left(\DerParz{}{x^i}\right)\right) - \alpha\left(\Lie_X\DerParz{}{x^i}\right) = \Lie_X(\alpha_i) - \alpha\left( - \DerParz{X^j}{x^i} \DerParz{}{x^j} \right) =  \\
+	& = X^j \DerParz{\alpha_i}{x^j} + \DerParz{X^j}{x^i} \alpha\left( \DerParz{}{x^j} \right) = X^j \DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i} \virgola
+\end{align*}
 perciò
 \begin{equation*}
-	(\Lie_X\alpha)_i = X^j \DerParz{\alpha_i}{x^j} + \alpha_j \DerParz{X^j}{x^i}
+	\Lie_X\alpha = \left( X^j \DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i} \right) \DerParz{}{x^i} \punto
 \end{equation*}
-%Fino a qui fatto l'altra volta
 
-Dato $t\in\Tau_s^r(M)$, allora $t':\varphi(U)\to T_s^r(\R^n)$.
-Vogliamo trovare le componenti di $\Lie_Xt$.
-
-Siano $\alpha^1,\ldots,\alpha^r$ elementi costanti del duale di $\R^n$ e $\seq{v}{s}{,}$ vettori costanti di $\R^n$. Allora
+Passiamo quindi al calcolo in coordinate di $\Lie_Xt$. Vale che
 \begin{align*}
-	\Lie_{X'}[t'(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,})] =& (\Lie_{X'}t')(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,}) +\\
-	&+\sum_{i=1}^r t'(\alpha^1,\ldots, \Lie_{X'}\alpha^i,\ldots, \alpha^r, \seq{v}{s}{,}) +\\
-	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,\Lie_{X'}v_j,\ldots,v_s) \punto
+	(\Lie_Xt)^{\seqb ir,}_{\seqb js,} =& \Lie_Xt \left(\de x^{i_1},\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots ,\DerParz{}{x^{j_s}}\right) = \\
+	=& \Lie_X \left(t\left(\de x^{i_1},\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots ,\DerParz{}{x^{j_s}} \right) \right) -  \\
+	&- \sum_{h=1}^r t\left(\de x^{i_1},\ldots, \Lie_X \de x^{i_h},\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots ,\DerParz{}{x^{j_s}} \right) -\\
+	&- \sum_{h=1}^s t\left(\de x^{i_1},\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, \Lie_X\DerParz{}{x^{j_h}},\ldots ,\DerParz{}{x^{j_s}} \right) = \\
+	= & \Lie_X t^{\seqb ir,}_{\seqb js,}- \sum_{h=1}^r t\left(\de x^{i_1},\ldots, \DerParz{X^{i_h}}{x^l} \de x^l,\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots ,\DerParz{}{x^{j_s}} \right) -\\
+	& - \sum_{h=1}^s t\left(\de x^{i_1},\ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, - \DerParz{X^m}{x^{j_h}} \DerParz{}{x^m},\ldots ,\DerParz{}{x^{j_s}} \right) = \\
+	= & X^k \DerParz{t^{\seqb ir,}_{\seqb js,}}{x^k} - \sum_{h=1}^r\DerParz{X^{i_h}}{x^l} t^{i_1\ldots i_{h-1} l i_{h+1},\ldots, i_r}_{\seqb js,} + \sum_{h=1}^s \DerParz{X^m}{x^{j_h}} t^{\seqb ir,} _{j_1 \ldots j_{h-1} m j_{h+1} \ldots j_s} \virgola
 \end{align*}
+che è la formula cercata.
 
-Dalle formule locali (le entrate sono costanti)
-\begin{align*}
-	(\Diff t'X') (\seqa{\alpha}{r}{,}, \seqb{v}{s}{,}) =& (\Lie_{X'}t')(\seqa{\alpha}{r}{,}, \seqb{v}{s}{,})+\\ 
-	&+ \sum_{i=1}^r t'(\alpha^1,\ldots, \alpha^i\cdot\Diff X',\ldots, \alpha^r, \seq{v}{s}{,}) +\\
-	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,-\Diff X'\cdot v_j,\ldots,v_s)
-\end{align*}
-\begin{equation*}
-	(\Lie_Xt)_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} = X^k \DerParz{}{x^k} t_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} - \DerParz{X^{i_1}}{x^l} t_{\seqb{j}{s}{}}^{li_2\ldots i_r} + \DerParz{X^m}{x^{j_1}} t^{\seqb{i}{r}{}}_{mj_2\ldots j_s} \virgola
-\end{equation*}
-dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
+
+%%%%%%%%%%%%%%%%%%%% parte sostituita dalla cosa sopra
+
+% Sia $\varphi: U \to \R^n$ una carta e siano $X'$ e $t'$ le coordinate di $\varphi_*X$ e $\varphi_*t$.
+% Se $\Diff$ è il differenziale in $\R^n$ (e $Y\in\chi(M)$), ricordiamo che per $f\in C^\infty(M)$ e $Y\in \chi(M)$ abbiamo
+% $(\Lie_Xf)' (x) = \Diff f'(x) X'(x)$ e $(\Lie_XY)'(x) = \Diff Y'(x)X'(x) - \Diff X'(x)Y'(x)$, cioè quindi
+% $\Lie_X f = X^i \DerParz{f}{x^i}$ e $(\Lie_XY)^i = X^j\DerParz{Y^i}{x^j} - Y^j\DerParz{X^i}{x^j}$.
+% 
+% Per l'ultima proposizione abbiamo che $\varphi_*(\Lie_X\alpha) = \Lie_{\varphi_*X}(\varphi_*\alpha) = \Lie_{X'}\alpha'$ per $\alpha\in\chi^*(M)$, dove $\alpha' : \varphi(U)\to\R^n$.
+% 
+% Dato $v\in\R^n$ fissato allora $\Lie_{X'}(\alpha'v) = (\Lie_{X'}\alpha')v + \alpha'\Lie_{X'}v$,
+% 
+% $\Diff (\alpha'v)X' = (\Lie_{X'} \alpha') v - \alpha'(\Diff X' \cdot v) \Rightarrow (\Lie_{X'}\alpha') v = (\Diff \alpha' \cdot X') v + \alpha' (\Diff X' \cdot v)$ 
+% 
+% Allora $(\Lie_X\alpha)_iv^i = \DerParz{\alpha^i}{x^j}X^jv^i + \alpha_j\DerParz{X^i}{x^j}v^i$
+% quindi $(\Lie_X\alpha)_i = X^j\DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i}$
+% 
+% 
+% 
+% %%%%%%%%% aggiunta parte del 18 febbraio
+% 
+% Formule in coordinate per le derivate di Lie di tensori.
+% 
+% $\varphi:U\subseteq M \to \R^n$ carta locale e $X'$, $t'$ coordinate di $\varphi_*X$ e $\varphi_*t$.
+% 
+% $Y\in\chi(M)$ e $\Diff$ differenziale in $\R^n$.
+% 
+% $(\Lie_Xf)'(x) = \Diff f'\cdot X'(x)$, $\Lie_X f = X'\DerParz{}{x'}$, per $f\in C^\infty(U)$.
+% 
+% $(\Lie_XY)' = \Diff Y'(x) X'(x) -\Diff X'(x) Y'(x)$
+% 
+% Da Leibnitz, se $\alpha\in\chi^*(M)$, $v$ vettore costante in $\R^n$:
+% \begin{equation*}
+% 	(\Lie_{X'}\alpha')v = (\Diff \alpha'\cdot X') v + \alpha' (\Diff X' v)
+% \end{equation*}
+% perciò
+% \begin{equation*}
+% 	(\Lie_X\alpha)_i = X^j \DerParz{\alpha_i}{x^j} + \alpha_j \DerParz{X^j}{x^i}
+% \end{equation*}
+% %Fino a qui fatto l'altra volta
+% 
+% Dato $t\in\Tau_s^r(M)$, allora $t':\varphi(U)\to T_s^r(\R^n)$.
+% Vogliamo trovare le componenti di $\Lie_Xt$.
+% 
+% Siano $\alpha^1,\ldots,\alpha^r$ elementi costanti del duale di $\R^n$ e $\seq{v}{s}{,}$ vettori costanti di $\R^n$. Allora
+% \begin{align*}
+% 	\Lie_{X'}[t'(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,})] =& (\Lie_{X'}t')(\alpha^1,\ldots,\alpha^r,\seq{v}{s}{,}) +\\
+% 	&+\sum_{i=1}^r t'(\alpha^1,\ldots, \Lie_{X'}\alpha^i,\ldots, \alpha^r, \seq{v}{s}{,}) +\\
+% 	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,\Lie_{X'}v_j,\ldots,v_s) \punto
+% \end{align*}
+% 
+% Dalle formule locali (le entrate sono costanti)
+% \begin{align*}
+% 	(\Diff t'X') (\seqa{\alpha}{r}{,}, \seqb{v}{s}{,}) =& (\Lie_{X'}t')(\seqa{\alpha}{r}{,}, \seqb{v}{s}{,})+\\ 
+% 	&+ \sum_{i=1}^r t'(\alpha^1,\ldots, \alpha^i\cdot\Diff X',\ldots, \alpha^r, \seq{v}{s}{,}) +\\
+% 	&+\sum_{j=1}^s t'(\alpha^1,\ldots,\alpha^r,v_1,\ldots,-\Diff X'\cdot v_j,\ldots,v_s)
+% \end{align*}
+% \begin{equation*}
+% 	(\Lie_Xt)_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} = X^k \DerParz{}{x^k} t_{\seqb{j}{s}{}}^{\seqb{i}{r}{}} - \DerParz{X^{i_1}}{x^l} t_{\seqb{j}{s}{}}^{li_2\ldots i_r} + \DerParz{X^m}{x^{j_1}} t^{\seqb{i}{r}{}}_{mj_2\ldots j_s} \virgola
+% \end{equation*}
+% dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% fine della parte sostituita
+
+
 
 \begin{example}
-	\begin{enumerate}
+	\begin{enumerate} %TODO: da controllare e magari migliorare
 		\item Calcoliamo in $\R^2$ $\Lie_Xt$, con $t=x\DerParz{}{y}\otimes \de x \otimes \de y + y\DerParz{}{y} \otimes \de y \otimes \de y$ e $X = \DerParz{}{x} + x \DerParz{}{y}$.
 		Per linearità in $X$, $\Lie_Xt = \Lie_{\DerParz{}{x}}t + \Lie_{x\DerParz{}{y}}t$ e abbiamo che
 		\begin{equation*}
@@ -228,26 +259,35 @@ dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 		\end{equation*}
 		Chiamiamo ora $\tilde t = x\DerParz{}{y}\otimes \de x \otimes \de y$ e $\hat t = y\DerParz{}{y} \otimes \de y \otimes \de y$. Visto che $\tilde t_{12}^2 = x$ e le altre componenti sono 0, abbiamo
 		\begin{equation*}
-			\left(\Lie_{\DerParz{}{x}}\tilde t\right)_{12}^2 = 1
+			\left(\Lie_{\DerParz{}{x}}\tilde t\right)_{12}^2 = \DerParz{}{x} \tilde t^2_{12}=1
 		\end{equation*}
 		e le altre componenti sono nulle. 
 		Dato che $\hat t_{22}^2$ è l'unica componente non nulla di $\hat t$, abbiamo che facendo il conto
 		\begin{equation*}
-			\left(\Lie_{\DerParz{}{x}}\hat t\right)_{22}^2 = 0
+			\left(\Lie_{\DerParz{}{x}}\hat t\right)_{22}^2 = \DerParz{}{x}\hat t^2_{22} =  0
 		\end{equation*}
 		e per le altri componenti è 0. Di conseguenza
 		\begin{equation*}
-			\Lie_{\DerParz{}{x}} t = \DerParz{}{y} \otimes \de x \otimes y \punto
+			\Lie_{\DerParz{}{x}} t = \DerParz{}{y} \otimes \de x \otimes \de y \punto
 		\end{equation*}
-		Vediamo quindi
+		Analogamente, sfruttando la formula in coordinate come appena fatto, abbiamo
 		\begin{align*}
-			\Lie_{x\DerParz{}{y}} \tilde t &= \left(\Lie_{x\DerParz{}{y}} \tilde t\right)_{j_1j_2}^i \DerParz{}{x^i}\otimes\de x^{j_1}\otimes \de x^{j_2} - \tilde t_{2j_2}^{i_1}\DerParz{}{x^{i_1}} \otimes \de y\otimes \de x^{j_2}
-			+ \tilde t_{j_12}^{i_1} \DerParz{}{x^{i_1}} \otimes x^{j_1}\otimes \de y\\
-			&= \DerParz{}{y}\otimes \de x \otimes \de y \punto
+			\Lie_{x\DerParz{}{y}} t &= \Lie_{x\DerParz{}{y}}\left[x \DerParz{}{y}\otimes \de x \otimes \de y\right] + \Lie_{x\DerParz{}{y}} \left[y \DerParz{}{y}\otimes \de y \otimes \de y\right] =\\
+			&=x \DerParz{}{y} \otimes \de x \otimes \de x + x \DerParz{}{y} \otimes \de y \otimes \de y + y \DerParz{}{y} \otimes \de x \otimes \de y + y \DerParz{}{y} \otimes \de y \otimes \de x \punto
 		\end{align*}
+		E unendo le due espressioni abbiamo quindi
+		\begin{equation*}
+			\Lie_X t = x \DerParz{}{y} \otimes \de x \otimes \de x + x \DerParz{}{y} \otimes \de y \otimes \de y + (y+1) \DerParz{}{y} \otimes \de x \otimes \de y + y \DerParz{}{y} \otimes \de y \otimes \de x \punto
+		\end{equation*}
+
+% 		\begin{align*}
+% 			\Lie_{x\DerParz{}{y}} \tilde t &= \left(\Lie_{x\DerParz{}{y}} \tilde t\right)_{j_1j_2}^i \DerParz{}{x^i}\otimes\de x^{j_1}\otimes \de x^{j_2} - \tilde t_{2j_2}^{i_1}\DerParz{}{x^{i_1}} \otimes \de y\otimes \de x^{j_2}
+% 			+ \tilde t_{j_12}^{i_1} \DerParz{}{x^{i_1}} \otimes x^{j_1}\otimes \de y\\
+% 			&= \DerParz{}{y}\otimes \de x \otimes \de y \punto
+% 		\end{align*}
 
 		
-		\item (Campi di Killing) Sia $M$ una varietà con metrica $g$. Una campo vettoriale $X\in\chi(M)$ è detto \emph{di Killing} se $\Lie_Xg \equiv 0$. Il significato geometrico è che una metrica dà una lunghezza della curva e di conseguenza una metrica sulla varietà (prendendo l'inf delle lunghezze delle curve che collegano due punti) e un campo di Killing genera un flusso di isometrie sulla varietà.
+		\item (Campi di Killing) Sia $M$ una varietà con metrica $g$. Una campo vettoriale $X\in\chi(M)$ è detto \emph{di Killing} se $\Lie_Xg \equiv 0$. Il significato geometrico è che una metrica dà una lunghezza della curva e di conseguenza una distanza sulla varietà (prendendo l'inf delle lunghezze delle curve che collegano due punti) e un campo di Killing genera un flusso di isometrie sulla varietà. %TODO: scrivere sensatamente
 		
 		Vediamo che equazioni deve rispettare $X$. Siano $X = X^i\DerParz{}{x^i}$ e $g = g_{ij}\de x^i \otimes \de x^j$ in coordinate (dove $g_{ij} = g_{ji}$).
 		Allora
@@ -257,7 +297,7 @@ dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 		&= X^k \DerParz{g_{ij}}{x^k}\otimes \de x^i \otimes \de x^j + g_{ij}\DerParz{X^i}{x^k} \otimes \de x^k \otimes \de x^j + g_{ij} \DerParz{X^j}{x^k} \otimes \de x^i \otimes \de x^k =\\
 		&= \left[X^k \DerParz{g_{ij}}{x^k} + g_{kj} \DerParz{X^k}{x^i} + g_{ik} \DerParz{X^k}{x^j} \right] \de x^i \otimes \de x^j \virgola
 		\end{align*}
-		dove nell'ultima uguaglianza abbiamo semplicemente cambiato nome agli indici ripetuti. Le equazioni tra parentesi quadre sono dette equazioni di Killing. Si può vedere che $\Lie_Xg=0$ se e solo se $\Lie_X$ commuta con le operazioni $\sharp$ e $\flat$ (di alzamento e abbassamento di indici).
+		dove nell'ultima uguaglianza abbiamo semplicemente cambiato nome agli indici ripetuti. Le equazioni tra parentesi quadre sono dette \emph{equazioni di Killing}. Si può vedere che $\Lie_Xg=0$ se e solo se $\Lie_X$ commuta con le operazioni $\sharp$ e $\flat$ (di alzamento e abbassamento di indici).
 	\end{enumerate}
 \end{example}
 
@@ -267,7 +307,7 @@ dove sommo su tutti gli indici alti per la prima e bassi per la seconda.
 	[Sarà legato alle equazioni di Killing.]
 \end{exercise}
 
-
+%TODO: spostare e dare un senso a quest'ultima parte
 Vediamo ora la seguente osservazione sull'approccio dinamico.
 \begin{remark}
 	Sia $\varphi_s$ il flusso generato da $X\in\chi(M)$. Allora, se $t\in\Tau_s^r(M)$, vale $\Lie_Xt = \frac{\de}{\de s} (\varphi_s^* t)$ \footnote{Ricordiamo che $\varphi_s$ è un diffeomorfismo e quindi è legale fare pull-back di tensori di ogni tipo.}.
