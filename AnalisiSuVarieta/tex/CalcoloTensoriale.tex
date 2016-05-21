@@ -1,6 +1,6 @@
-\chapter{Calcolo tensoriale}
+\chapter{Calcolo tensoriale} %TODO: unire a tutti i tensori
 
-\section{Definizione e operazioni}
+\section{Definizione e operazioni su spazi vettoriali}
 Dati $V_1,\ldots,V_k,W$ spazi vettoriali, denotiamo con $\Lin^k(V_1,\ldots,V_k,W)$ lo spazio delle mappe $k$-multilineari da $V_1\times\ldots\times V_k$ in $W$. In tutta la trattazione considereremo spazi vettoriali di dimensione finita.
 Denotiamo inoltre con $V^* = \Lin(V,\R)$ lo spazio duale di $V$.
 Se $V$ è $n$-dimensionale ed $e_1,\ldots,e_n$ è una sua base, esiste una base $e^1,\ldots,e^n$ di $V^*$ tale che $\Scal{e^i}{e_j} = \delta^i_j$ \footnote{Dati $\alpha \in V^*$ e $v\in V$, indichiamo con $\Scal{\alpha}{v}$ l'elemento $\alpha$ applicato a $v$.}.
@@ -92,7 +92,7 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 	\begin{equation*}
 		i_vt(\beta^1,\ldots,\beta^r,v_1,\ldots,v_{s-1}) \coloneqq t(\beta^1,\ldots,\beta^r,v,v_1,\ldots,v_{s-1})\punto
 	\end{equation*}
-	Analogamente possiamo definire il \emph{prodotto interno} con un vettore $\beta \in V^*$ come una mappa $i^\beta:T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
+	Analogamente possiamo definire il \emph{prodotto interno} con un covettore $\beta \in V^*$ come una mappa $i^\beta:T_s^r(V)\to T_{s}^{r-1}(V)$ tale che
 	\begin{equation*}
 		i^\beta t(\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s) \coloneqq t(\beta,\beta^1,\ldots,\beta^{r-1},v_1,\ldots,v_s)\punto
 	\end{equation*}
@@ -120,7 +120,7 @@ Vediamo ora i prodotti interni in componenti. Per linearità, ci basta esplicita
 \end{definition}
 
 \begin{remark}
-	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$. %TODO: perché?
+	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$. %TODO: perché? mettere la dimostrazione?
 \end{remark}
 
 \begin{definition} \index{delta di Kronecker} %TODO: eventualmente spostare sopra.
@@ -194,7 +194,7 @@ Definiamo innanzitutto il duale di una trasformazione lineare.
 \begin{definition} \index{duale} \index{trasporto}
 	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
 	\begin{equation*}
-		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola 
+		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola %TODO: cambiare notazione per non usare \Scal in questo caso?
 	\end{equation*}
 	per ogni $\beta \in W^*$ ed $e\in V$.
 \end{definition}
