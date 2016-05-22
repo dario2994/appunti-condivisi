@@ -567,7 +567,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 		\item $i_{fX}\alpha = f\ i_X\alpha$; \label{ppi:Cinfinito}
 		\item $i_X\de f = \Lie_X f$; \label{ppi:DeCinfinito}
 		\item $\Lie_X(\alpha\wedge\beta) = (\Lie_X \alpha) \wedge \beta + \alpha \wedge (\Lie_X \beta)$; \label{ppi:LieWedge}
-		\item $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$ \emph{(formula di Cartan)}; \label{ppi:DeForma}\index{formula di Cartan} %TODO: sarebbe bello linkare a lei direttamente, magari dargli la dignità di teorema
+		\item \emph{(formula di Cartan)} $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$; \label{ppi:DeForma}\index{formula di Cartan} %TODO: sarebbe bello linkare a lei direttamente, magari dargli la dignità di teorema
 		\item $\Lie_{fX}\alpha = f\Lie_X\alpha + \de f \wedge i_X\alpha$. \label{ppi:LiePerCinfinito}
 	\end{enumerate}
 \end{theorem}
@@ -653,7 +653,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 	\end{align*}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop:DeForma}
 	Siano $X_0,X_1,\ldots,X_k\in\chi(M)$ e $\omega \in \Omega^k(M)$. Allora
 	\begin{align*}
 		\de \omega (X_0,X_1,\ldots,X_k) =& \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\

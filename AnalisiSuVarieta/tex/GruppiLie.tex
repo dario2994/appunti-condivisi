@@ -1,6 +1,6 @@
 \chapter{Gruppi di Lie}
 
-\section{Gruppi di Lie}
+\section{Gruppi e algebre di Lie}
 
 \begin{definition} \index{gruppo!topologico}
 	Un \emph{gruppo topologico} è un insieme con struttura sia di gruppo che di spazio topologico tale che le operazioni di prodotto ed inverso siano continue.
@@ -175,7 +175,7 @@ Quindi $\tilde{\tilde X} \phi = \phi_*\tilde X$ e perciò $(\phi_*)_e\coloneqq \
 
 
 \begin{definition} \index{sottogruppo ad un parametro}
-	Sia $G$ un gruppo di Lie, allora un omomorfismo $\phi : \R \to G$ è detto un \emph{sottogruppo ad un parametro} di $G$.
+	Sia $G$ un gruppo di Lie, allora un omomorfismo $\phi : \R \to G$ di classe $C^\infty$ è detto un \emph{sottogruppo ad un parametro} di $G$.
 \end{definition}
 
 % Abbiamo visto che, dato $X \in T_eG \setminus \{0\}$, esiste unico un sottogruppo ad un parametro $\phi(t)$ tale che $\frac{\de\phi}{\de t} = \tilde X(\phi(t))$. 
@@ -233,7 +233,7 @@ Questa mappa soddisfa $\exp((t_1+t_2)X) = \exp(t_1X) \exp(t_2X)$ e $\exp(-tX) = 
 
 
 \begin{corollary}
-	Ogni omomorfismo iniettivo $\phi : G \to H$ è un'immersione fra varietà. In particolare l'immagine è un sottogruppo di Lie di $H$.
+	Ogni omomorfismo iniettivo $\phi : G \to H$ di classe $C^\infty$ è un'immersione fra varietà. In particolare l'immagine è un sottogruppo di Lie di $H$.
 \end{corollary}
 \begin{proof}
 	Per assurdo supponiamo che $\phi_*\tilde X(p) = 0$ per qualche $X \in \mathfrak g$, allora $\phi_*X = 0$. Di conseguenza, per la \cref{prop:ProprietaExp}, abbiamo $\phi(\exp(X)) = \exp(\phi_*X) = \exp(0) = e$, che contraddice l'iniettività.
@@ -259,8 +259,7 @@ Se $\seqa\omega n,$ sono 1-forme invarianti a sinistra e tali che $\omega^1(e),\
 
 Sia $\omega$ invariante a sinistra, allora $(L_a)^*\de\omega = \de ((L_a)^*\omega) = \de \omega$. Quindi $\de\omega$ è anch'essa invariante a sinistra. 
 Inoltre se $\omega$ è una 1-forma invariante a sinistra e $\tilde X,\tilde Y \in \chi(G)$ sono campi vettoriali invarianti a sinistra, allora le funzioni $\omega(\tilde X), \omega(\tilde Y)$ sono invarianti a sinistra e quindi costanti (perché $G$ è connesso).
-Abbiamo $\de \omega (\tilde X, \tilde Y) = \tilde X \omega (\tilde Y) - \tilde Y \omega(\tilde X) - \omega(\comm {\tilde X}{\tilde Y}) = - \omega (\comm{\tilde X}{\tilde Y})$, otteniamo quindi $\de \omega (e) (X,Y) = - \omega(e) (\comm XY)$.
-Perciò $\div(e)(X,Y) = -\omega(e)(\comm XY)$. (*)
+Sfruttando quanto appena detto e la \cref{prop:DeForma}, abbiamo dunque che $\de \omega (\tilde X, \tilde Y) = \tilde X \omega (\tilde Y) - \tilde Y \omega(\tilde X) - \omega(\comm {\tilde X}{\tilde Y}) = - \omega (\comm{\tilde X}{\tilde Y})$, otteniamo quindi $\de \omega (e) (X,Y) = - \omega(e) (\comm XY)$.
 
 Siano $\omega^1(e), \ldots, \omega^n(e)$ come sopra e consideriamo una base duale $\seqb Xn,$ di $T_eG$. Esistono delle costanti $c_{ij}^k$ tali che $\comm{X_i}{X_j} = \sum_{k=1}^n c_{ij}^k X_k$. Questo implica anche che $\comm{\tilde X_i}{\tilde X_j} = \sum_{k=1}^n c_{ij}^k \tilde X_k$.
 
@@ -268,13 +267,12 @@ Siano $\omega^1(e), \ldots, \omega^n(e)$ come sopra e consideriamo una base dual
 	I coefficienti $c_{ij}^k$ sono detti \emph{costanti di struttura} di $G$ rispetto alla base $\seqb Xn,$.
 \end{definition}
 
-Dall'antisimmetria della parentesi di Lie e da Jacobi, le costanti di struttura rispettano:
+Grazie all'antisimmetria della parentesi di Lie e Jacobi dati dalla \cref{prop:ProprietaParentesiLie}, le costanti di struttura rispettano:
 \begin{enumerate}
 	\item $c_{ij}^k = -c_{ji}^k$;
 	\item $\sum_{\alpha=1}^n c_{ij}^\alpha c_{\alpha k}^l + c_{jk}^\alpha c_{\alpha i}^l + c_{ki}^\alpha c_{\alpha j}^l = 0$.
 \end{enumerate}
-
-Inoltre da * abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega^j = -\frac 12 \sum_{i,j} c_{ij}^k \omega^i \wedge \omega^j$.
+Inoltre, per quanto detto prima, abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega^j = -\frac 12 \sum_{i,j} c_{ij}^k \omega^i \wedge \omega^j$.
 
 
 \begin{theorem}
@@ -285,25 +283,21 @@ Inoltre da * abbiamo $\de \omega^k = -\sum_{i<j} c_{ij}^k \omega^i \wedge \omega
 	Siano $\pi_i : M \times G\to M,G$ le proiezioni sui fattori e siano $\bar\theta^k = \pi_1^*\theta^k$ e $\bar \omega^k = \pi_2^* \omega^k$.
 	Allora
 	\begin{equation} \label{eq:starstar}
-		\de (\bar \theta^k - \bar \omega^k) = -\sum_{i<j} c_{ij}^k ([\bar \theta^i \wedge \bar \theta^j] - [\bar \omega^i \wedge \bar \omega^j]) = - \sum_{i<j} c_{ij}^k [\bar \theta^i \wedge (\bar\theta^j - \bar \omega^j) + (\bar\theta^i - \bar \omega^i)\wedge \bar \omega^j] \virgola
+		\de (\bar \theta^k - \bar \omega^k) = -\sum_{i<j} c_{ij}^k ([\bar \theta^i \wedge \bar \theta^j] - [\bar \omega^i \wedge \bar \omega^j]) = - \sum_{i<j} c_{ij}^k [\bar \theta^i \wedge (\bar\theta^j - \bar \omega^j) + (\bar\theta^i - \bar \omega^i)\wedge \bar \omega^j] \punto
 	\end{equation}
-	che è una condizione di integrabilità.
 	
-	Consideriamo la distribuzione in $M\times G$ (che si dimostra avere dimensione $n$) generata da tutti i campi vettoriali che sono annullati da ogni $\bar \theta^k - \bar \omega^k$.
+	Consideriamo la distribuzione in $M\times G$ (che si dimostra avere dimensione $n$) generata da tutti i campi vettoriali che sono annullati da ogni $\bar \theta^k - \bar \omega^k$. Vediamo che l'\cref{eq:starstar}, ci dà l'integrabilità di questa distribuzione.
 	
-	\begin{description}
-		\item [Integrabilità:] Siano $\seqb Yn,$ campi nella distribuzione. Allora
+	Infatti, siano $X,Y$ campi nella distribuzione, allora
 		\begin{align*}
-			(\bar\theta^k - \bar\omega^k) (\comm{Y_\alpha}{ Y_\beta}) &= -\de (\bar\theta^k - \bar\omega^k)(Y_\alpha, Y_\beta) + Y_\alpha((\bar\theta^k - \bar\omega^k)(Y_\beta)) - Y_\beta ((\bar\theta^k - \bar\omega^k) ( Y_\alpha)) =\\
-			&= - \de (\bar\theta^k - \bar\omega^k) (Y_\alpha,Y_\beta) = 0\virgola
+			(\bar\theta^k - \bar\omega^k) (\comm{X}{ Y}) &= -\de (\bar\theta^k - \bar\omega^k)(X, Y) + X((\bar\theta^k - \bar\omega^k)(Y)) - Y((\bar\theta^k - \bar\omega^k) (X)) =\\
+			&= - \de (\bar\theta^k - \bar\omega^k) (X,Y) = 0\virgola
 		\end{align*}
-		dove l'ultima uguaglianza è data dall'\cref{eq:starstar}.
-	\end{description}
-
-	Per Frobenius, dato $a \in G$ troviamo una varietà integrale $\Gamma$ che passa per $(p,a)$.
+		dove l'ultima uguaglianza è data proprio dall'\cref{eq:starstar}. Questo ci dice proprio che se $X,Y$ stanno nella distribuzione, anche $\comm XY$ appartiene a tale distribuzione.	
+	Quindi, per il \cref{thm:Frobenius}, dato $a \in G$ troviamo una varietà integrale $\Gamma$ che passa per $(p,a)$.
 	
-	Le $2n$ forme $\seqa {\bar \theta}n, , \seqa {\bar\omega}n,$ sono linearmente indipendenti in $M\times G$, quindi sia $\seqa{\bar\theta}n,$ che $\seqa {\bar\omega}n,$ sono linearmente indipendenti su $\Gamma$.
-	Quindi $\pi_1: \Gamma \to M$ e $\pi_2: \Gamma \to G$ sono diffeomorfismi locali, perciò $\Gamma$ è il grafico di un diffeomorfismo $f$ da $U$ in un intorno (in $G$) di $a$.
+	Le forme $\seqa {\bar \theta}n, , \seqa {\bar\omega}n,$ sono linearmente indipendenti in $M\times G$, quindi sia $\seqa{\bar\theta}n,$ che $\seqa {\bar\omega}n,$ sono linearmente indipendenti su $\Gamma$.
+	Di conseguenza $\pi_1: \Gamma \to M$ e $\pi_2: \Gamma \to G$ sono diffeomorfismi locali e perciò $\Gamma$ è il grafico di un diffeomorfismo $f$ da $U$ in un intorno di $a$ in $G$.
 	Sia $\tilde f: U \to M\times G$ tale che $\tilde f(q) = (q,f(q)) \subseteq \Gamma$.
 	Visto che $(\bar\theta^k - \bar\omega^k)\restrict \Gamma = 0$, allora $0 = \tilde f^*(\bar\theta^k - \bar\omega^k) = \tilde f^* \pi_1^*\theta^k - \tilde f^* \pi_2^*\omega^k = (\pi_1\circ \tilde f)^* \theta^k - (\pi_2 \circ \tilde f)^* \omega^k = \theta^k - f^* \omega^k$.
 \end{proof}
