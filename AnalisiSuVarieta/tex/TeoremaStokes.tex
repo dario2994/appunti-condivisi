@@ -272,9 +272,9 @@ La divergenza si interpreta come espansione o contrazione del volume.
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	Abbiamo che
+	Sfruttando il punto \ref{ppi:DeForma} del \cref{thm:ProprietaProdottoInterno} e il fatto che $\de \mu =0$ poiché è una $(n+1)$-forma, abbiamo che
 	\begin{equation*}
-		(\div X) \mu = \Lie_X \mu = \de (i_X \mu) + i_X \de \mu = \de (i_X \mu) %TODO: perché?
+		(\div X) \mu = \Lie_X \mu = \de (i_X \mu) + i_X \de \mu = \de (i_X \mu)
 	\end{equation*}
 	e di conseguenza la conclusione segue dal \cref{thm:Stokes}.
 \end{proof}
@@ -325,13 +325,16 @@ Sia $F:M \to \R$ a supporto compatto, allora con le notazione precedenti vale
 \end{equation*}
 \end{theorem}
 
-\begin{proof}
+\begin{proof} %TODO: magari sistemare meglio sia la dimostrazione che l'applicazione dopo
 	Fissiamo $t_0\in\R$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate di $M$ in un intorno di $p$.
 	Quindi esiste $\rho$ funzione regolare positiva tale che $\mu = \rho \de f \wedge \seqa {\de x}m\wedge$. Allora
-	\begin{equation*}
-		\mu_{t_0} \restrict{M_{t_0}} = i_n \mu \restrict{M_{t_0}} = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} = \rho \abs{\grad f}_g \seqa {\de x}m\wedge \restrict{M_{t_0}}
-	\end{equation*}
-	e integrando abbiamo la conclusione.
+	\begin{multline*}
+		\mu_{t_0} \restrict{M_{t_0}} = i_n \mu \restrict{M_{t_0}} = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} =\\
+		= \rho i_n(\de f) \wedge \seqa {\de x}m\wedge \restrict{M_{t_0}} + \rho \de f \wedge i_n (\seqa {\de x}m\wedge)\restrict{M_{t_0}} =\\
+		=\rho i_n(\de f) \wedge \seqa {\de x}m\wedge \restrict{M_{t_0}} =\rho \abs{\grad f}_g \seqa {\de x}m\wedge \restrict{M_{t_0}} \virgola
+	\end{multline*}
+	dove abbiamo utilizzato che $\de f\restrict {M_{t_0}} = 0$.
+	A questo punto integrando abbiamo la conclusione.
 \end{proof}
 
 Consideriamo come prima applicazione del \cref{thm:FormulaCoarea} il calcolo dei volumi delle sfere.
@@ -339,9 +342,9 @@ Consideriamo come prima applicazione del \cref{thm:FormulaCoarea} il calcolo dei
 Consideriamo l'immersione $S^n \hookrightarrow \R^{n+1} = \{(t,\seqa xn,)\}$ e siano $p_\pm = S^n\cap\{t=\pm 1\} \in S^n$ i due poli. Sia $\pi:S^n \to \R$ la proiezione su $t$, allora $\de \pi \not=0$ se $t\not=\pm 1$.
 
 Abbiamo $\pi^{-1}(t) \cong S^{n-1}_{r(t)}$ con $r(t) = (1-t^2)^{\frac 12}$, dove al pedice indichiamo il raggio della sfera.
-Definiamo $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$ con $p'$ la proiezione su $\{t\}\times \{0\}$. Allora $\abs{\grad \pi(p)} = (1-t^2)^{\frac 12}$.
+Se ora $\theta$ è l'angolo fra l'asse $t$ e $T_pS_n$, allora $\cos\theta = \abs{p-p'} = (1-t^2)^{\frac 12}$, dove $p'$ la proiezione su $\{t\}\times \{0\}$; perciò $\abs{\grad \pi(p)} = (1-t^2)^{\frac 12}$.
 
-Per la formula di coarea
+Per il \cref{thm:FormulaCoarea} vale
 \begin{equation*}
 	\sigma_n = 2\int_0^1 \frac 1{\abs{\grad \pi}} \int_{M_t} \mu_t = 2\sigma_{n-1} \int_0^1 (1-t^2)^{\frac{n-2}{2}} \de t = \sigma_{n-1} \int_0^1 (1-s)^{\frac{n-2}{2}} s^{-\frac 12} \de s \virgola
 \end{equation*}
