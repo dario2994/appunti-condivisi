@@ -191,7 +191,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 \section{Push-forward e pull-back di trasformazioni lineari}
 
 Definiamo innanzitutto il duale di una trasformazione lineare.
-\begin{definition} \index{duale} \index{trasporto}
+\begin{definition} \index{duale} \index{trasporto} \index{pull-back!covettore}
 	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
 	\begin{equation*}
 		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola %TODO: cambiare notazione per non usare \Scal in questo caso?
@@ -214,7 +214,7 @@ Di conseguenza $(\varphi^*(\beta))_i = \beta_aA_i^a$, cioè la matrice moltiplic
 
 Definiamo di seguito push-forward e pull-back di isomorfismi fra spazi vettoriali, vedendo poi che tale definizione si può estendere a tutte le trasformazioni nel caso di tensori solo controvarianati o solo covarianti rispettivamente.
 
-\begin{definition} \index{isomorfismo!push-forward}
+\begin{definition} \index{push-forward!tensore}
 	Se $\varphi \in \Lin(V,W)$ è un isomorfismo, il \emph{push-forward} $\varphi_* = T_s^r(\varphi)$ è la mappa in $\Lin(T_s^r(V), T_s^r(W))$ definita da
 	\begin{equation*}
 		\varphi_*(t) (\beta^1,\ldots,\beta^r,f_1,\ldots,f_s) = t(\varphi^*(\beta^1),\ldots,\varphi^*(\beta^r), \varphi^{-1}(f_1),\ldots, \varphi^{-1}(f_s)) \virgola
@@ -251,7 +251,7 @@ Si verifica che $\varphi_*$ è continua.
 	Poi la \ref{ppfi:Identita} è ovvia, la \ref{ppfi:Distributiva} implica la \ref{ppfi:Isomorfismo} e la \ref{ppfi:ProdottoTensore} segue dalla definizione di prodotto tensore.
 \end{proof}
 
-\begin{definition} \index{isomorfismo!pull-back}
+\begin{definition} \index{pull-back!tensore}
 	Dato $\varphi \in \Lin(V,W)$ isomorfismo, $(\varphi^{-1})_* \in \Lin(T_s^r(W), T_s^r(V))$ è detto \emph{pull-back} di $\varphi$ ed è indicata con $\varphi^*$.
 \end{definition}
 
@@ -285,7 +285,7 @@ Si verifica che $\varphi_*$ è continua.
 
 A questo punto, come preannunciato, definiamo push-forward e pull-back per tutte le trasformazioni nel caso di tensori solo controvarianti o solo covarianti.
 
-\begin{definition} \index{tensore!covariante!pull-back} \index{tensore!controvariante!push-forward}
+\begin{definition} \index{pull-back!tensore!covariante} \index{push-forward!tensore!controvariante}
 	Sia $\varphi\in \Lin(V,W)$ (non necessariamente invertibile). Definiamo il suo \emph{pull-back} $\varphi^*\in \Lin(T_s^0(W),T_s^0(V))$ tramite $\varphi^*t(e_1,\ldots,e_s) = t(\varphi(e_1),\ldots,\varphi(e_s))$ con $t\in T_s^0(W)$.
 	
 	Analogamente si definisce il \emph{push-forward} per tensori che siano solo controvarianti.

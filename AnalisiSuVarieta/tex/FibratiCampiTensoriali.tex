@@ -8,7 +8,7 @@ Sia $M$ una varietà, $U\subseteq M$ un aperto e $V$ uno spazio vettoriale. Allo
 
 Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\varphi$ ristretta alle fibre è un isomorfismo, allora $\varphi$ induce una mappa di fibrato locale sui fibrati tensoriali corrispondenti.
 
-\begin{definition} \index{mappa!locale!fibrati tensoriali}
+\begin{definition} \index{fibrato!tensoriale!mappa!locale}
 	Sia $\varphi:U\times V \to U'\times V'$ una mappa locale di fibrato, come sopra. Definiamo $\varphi_*: U \times T_s^r(V) \to U'\times T_s^r(V')$ come $\varphi_*(u,t) = (\varphi_0(u), \varphi_*(t))$, dove $\varphi_0$ è la mappa definita sulla sezione nulla.
 \end{definition}
 
@@ -41,7 +41,7 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 	Inoltre, dato $A\subseteq B$, sia $T_s^r(E)\restrict A = \bigcup_{b\in A} T_s^r(E_b)$.
 \end{definition}
 
-\begin{definition} \index{fibrato!tensoriale!push-forward}
+\begin{definition} \index{push-forward!fibrato tensoriale}
 	Se $\pi':E'\to B'$ è un altro fibrato vettoriale e se $(\varphi,\varphi_0):E\to E'$ è una mappa fra fibrati vettoriali tale che $\varphi_b \coloneqq \varphi\restrict{E_b}$ è un isomorfismo per ogni $b\in B$, sia $\varphi_*:T_s^r(E)\to T_s^r(E')$ il \emph{push-forward} di $\varphi$ definito da $\varphi_*\restrict{T_s^r(E_b)} = (\varphi_b)_*$.
 \end{definition}
 
@@ -68,7 +68,7 @@ Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la ca
 	Si vede che se $E$ ha una base numerabile, allora anche $T_s^r(E)$ ha una base numerabile. 
 \end{remark}
 
-\begin{proposition}
+\begin{proposition} \index{fibrato!tensoriale!mappa}
 	Sia $f:E\to E'$ una mappa tra fibrati che sia un isomorfismo su ogni fibra. Allora anche $f_*:T_s^r(E) \to T_s^r(E')$ è una mappa fra fibrati che è un isomorfismo su ogni fibra.
 \end{proposition}
 \begin{proof}
@@ -165,7 +165,7 @@ Allo stesso modo $\Tau_s^r(M)$ può essere definito come
 \end{remark}
 
 Definiamo infine l'algebra dei tensori su una varietà $M$.
-\begin{definition} \index{algebra dei tensori}
+\begin{definition} \index{algebra!dei tensori}
 	Sia $\Tau(M)$ la somma diretta dei $\Tau_s^r(M)$ per $r\ge 0$ ed $s\ge 0$. Risulta che $\Tau(M)$ è uno spazio vettoriale con prodotto $\otimes$ ed è detto \emph{algebra dei tensori} su $M$.
 \end{definition}
 
@@ -210,7 +210,7 @@ Perciò, se $\alpha = \de f = \DerParz{f}{x^i}\de x^i$, abbiamo che
 
 Ancora una volta possiamo rivedere i concetti di push-forward e pull-back, in questo caso di campi tensoriali, e riportarne le solite proprietà.
 
-\begin{definition} \index{campo!tensoriale!push-forward} \index{campo!tensoriale!pull-back}
+\begin{definition} \index{push-forward!campo tensoriale} \index{pull-back!campo tensoriale}
 	Sia $\varphi : M \to N$ diffeomorfismo fra varietà e sia $t \in \Tau_s^r(M)$. Il \emph{push-forward} di $t$ tramite $\varphi$ è $\varphi_*t \coloneqq (T\varphi)_* \circ t \circ \varphi^{-1} \in \Tau_s^r(N)$.
 	
 	Se invece $t \in \Tau_s^r(N)$, definiamo il suo \emph{pull-back} come $\varphi^*t \coloneqq (\varphi^{-1})_* t$.

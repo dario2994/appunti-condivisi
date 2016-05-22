@@ -269,7 +269,7 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 	Una base $\{\seqb en,\}$ di $(V,[\omega])$ orientato è detta essere orientata positivamente se $\omega(\seqb en,)>0$. Ovviamente tale definizione è indipendente dalla scelta di un elemento di $[\omega]$.
 \end{definition}
 
-\begin{proposition} \index{base!ortonormale} \label{prop:EsistenzaBaseOrtonormale}
+\begin{proposition} \index{metrica!base ortonormale} \label{prop:EsistenzaBaseOrtonormale}
 	Sia $g\in T^0_2(V)$ simmetrico e definito positivo. Allora esiste una base $\{\seqb en,\}$ di $V$ con base duale $\{\seqa en,\}$ tale che $g = \sum_{i=1}^n e^i\otimes e^i$. Questa base è detta \emph{ortonormale} rispetto a $g$.
 \end{proposition}
 \begin{proof}
@@ -281,7 +281,7 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 \end{proof}
 
 
-\begin{proposition} \index{$g$-volume}
+\begin{proposition} %\index{$g$-volume}
 	Sia $V$ uno spazio vettoriale $n$ dimensionale e sia $g\in T^0_2(V)$ simmetrico, definito positivo. Allora, se $[\omega]$ è un'orientazione in $V$, esiste un unico elemento di volume $\mu(g) \in [\omega]$, detto \emph{$g$-volume}, tale che $\mu(g)(\seqb en,) = 1$ per ogni base $\seqb en,$ di $V$ ortonormale rispetto a $g$ e orientata.
 	Se poi $\seqa en,$ è la base duale, allora $\mu(g) = \seqa en\wedge$.
 	
@@ -567,7 +567,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 		\item $i_{fX}\alpha = f\ i_X\alpha$; \label{ppi:Cinfinito}
 		\item $i_X\de f = \Lie_X f$; \label{ppi:DeCinfinito}
 		\item $\Lie_X(\alpha\wedge\beta) = (\Lie_X \alpha) \wedge \beta + \alpha \wedge (\Lie_X \beta)$; \label{ppi:LieWedge}
-		\item \emph{(formula di Cartan)} $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$; \label{ppi:DeForma}\index{formula di Cartan} %TODO: sarebbe bello linkare a lei direttamente, magari dargli la dignità di teorema
+		\item \emph{(formula di Cartan)} $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$; \label{ppi:DeForma}\index{formula!di Cartan} %TODO: sarebbe bello linkare a lei direttamente, magari dargli la dignità di teorema
 		\item $\Lie_{fX}\alpha = f\Lie_X\alpha + \de f \wedge i_X\alpha$. \label{ppi:LiePerCinfinito}
 	\end{enumerate}
 \end{theorem}
