@@ -1,4 +1,4 @@
-\chapter{Forme differenziali} %TODO: sarà un capitolo
+\chapter{Forme differenziali}
 
 In questo capitolo tratteremo le forme differenziali su varietà, che sono campi tensoriali del tipo $(0,k)$ totalmente antisimmetrici.
 % \begin{definition} \index{forma!differenziale}
@@ -293,11 +293,11 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 \begin{proof}
 	Sia $\{\seqb en,\}$ una base ortonormale rispetto a $g$, che ci è garantita dalla \cref{prop:EsistenzaBaseOrtonormale}. Allora $g(f_i,f_j) = \sum_{p=1}^n e^p\otimes e^p (f_i,f_j)$.
 	
-	Se $\varphi \in \mathrm{GL}(V,V)$ è tale che $f_i = \varphi(e_i) = A_i^j(e_j)$, allora
+	Se $\varphi \in \mathrm{GL}(V,V)$ è tale che $f_i = \varphi(e_i) = A_i^je_j$, allora
 	\begin{equation*}
-	g(f_i,f_j) = \sum_{p=1}^n e^p\otimes e^p (A_i^k e_k, A_j^le_l) = \sum_{p=1}^n \delta_k^p\ \delta_l^p\ A_i^k\ A_j^l = \sum_{p=1}^nA_i^pA_j^p \punto
+	g(f_i,f_j) = \sum_{p=1}^n e^p\otimes e^p (A_i^k e_k, A_j^le_l) = \sum_{p=1}^n \delta_k^p\ \delta_l^p\ A_i^k\ A_j^l = \sum_{p=1}^nA_i^pA_j^p = (A \cdot A^T)_i^j\puntovirgola
 	\end{equation*}
-	Perciò abbiamo $\det[g(f_i,f_j)] = (\det\varphi)^2\det[g(e_i,e_j)] = (\det\varphi)^2$.
+	perciò, sfruttando la \cref{prop:DeterminanteCoordinate}, abbiamo $\det[g(f_i,f_j)] = (\det A)^2 = (\det\varphi)^2$.
 	
 	Se ora $\{\seqb en,\}$ è orientata positivamente e $g$-ortogonale, allora per la richiesta di multilinearità esiste un'unica $\mu(g)=\mu$ tale che $\mu(\seqb en,) = 1$. Mostriamo che $\mu(g)$ così definita rispetta le ipotesi richieste.
 	
@@ -324,7 +324,7 @@ Se $\seqb fn,$ è un'altra base, siano $\alpha = \alpha'_{\seqb ak{}} f^{a_1}\we
 \end{align*}
 da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ indicheremo anche $\Scal\alpha\beta=g^{(k)}(\alpha,\beta)$.
 
-\begin{proposition}
+\begin{proposition} \label{prop:BaseOrtonormaleMetricaLambdaK}
 	Sia $g$ un prodotto interno in $V$ (simmetrico e definito positivo). Allora $g$ induce il prodotto interno $g^{(k)}$ su $\Lambda^k(V)$. Inoltre, se $\seqb en,$ è ortonormale rispetto a $g$, allora la base $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik< \}$ è ortonormale rispetto a $g^{(k)}$.
 \end{proposition}
 
@@ -345,16 +345,15 @@ da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ i
 	\end{equation}
 	per ogni $\sigma$ mescolamento di tipo $(k,n-k)$.
 \end{proposition}
-\begin{proof} %TODO: capire e sistemare
+\begin{proof} %TODO: prendendo alpha=beta diventa ovvio?
 	\begin{description}
-		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori ortonormali (in $\Lambda^k(V)$) del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
+		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori in $\Lambda^k(V)$ ortonormali del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
 		Dall'\cref{eq:star} $\alpha \wedge * \beta=0$ a meno che $(i_1, \ldots,i_k)=(\sigma(1),\ldots,\sigma(k))$
-		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$, per cui $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$ e la proposizione precedente implica $\Scal \beta\beta=1$.
+		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$.
+		Di conseguenza abbiamo $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$, ma la \cref{prop:BaseOrtonormaleMetricaLambdaK} implica $\Scal \beta\beta=1$, quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
 		
-		Quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
-		
-		\item [esistenza:] Usiamo l'\cref{eq:triangolo} ($e^{\sigma(1)}\wedge\ldots\wedge e^{\sigma(n)}$ è ortonormale). Quindi l'\cref{eq:star} si può verificare usando questa base ($*$ è un isomorfismo e manda basi ortonormali in basi ortonormali).
+		\item [esistenza:] Definiamo l'operatore sulla base ortonormale $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik <\}$, utilizzando l'\cref{eq:triangolo}. Possiamo verificare poi l'\cref{eq:star} usando questa base ($*$ è un isomorfismo e manda basi ortonormali in basi ortonormali). %TODO: questa frase non ha molto senso
 	\end{description}
 \end{proof}
 
@@ -468,7 +467,7 @@ Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particola
 	\end{description}
 \end{proof}
 
-\begin{corollary}
+\begin{corollary} %TODO: da rivedere
 	Sia $\omega \in \Omega^k(U)$ con $U\subseteq \R^n$. Allora
 	\begin{equation*}
 		\de \omega (x) (v_0,\ldots,v_k) = \sum_{i=0}^k (-1)^i\ \Diff \omega (x) v_i\ (v_0,\ldots,\hat v_i, \ldots, v_k)\virgola
@@ -511,7 +510,7 @@ Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particola
 
 
 \begin{theorem} \label{thm:PullBackDerivataEsterna}
-	Sia $f:M\to N$ regolare. Allora, per ogni $\omega \in \Omega^k(M)$ e $\psi \in \Omega^l(M)$, $f^*$ soddisfa:
+	Sia $f:M\to N$ regolare. Allora, per ogni $\omega \in \Omega^k(N)$ e $\psi \in \Omega^l(N)$, $f^*$ soddisfa:
 	\begin{enumerate}
 		\item $f^*(\omega \wedge \psi) = f^*(\omega) \wedge f^*(\psi)$; \label{pbde:Wedge}
 		\item $f^*(\de \omega) = \de (f^*\omega)$. \label{pbde:DerivataEsterna}
@@ -568,7 +567,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 		\item $i_{fX}\alpha = f\ i_X\alpha$; \label{ppi:Cinfinito}
 		\item $i_X\de f = \Lie_X f$; \label{ppi:DeCinfinito}
 		\item $\Lie_X(\alpha\wedge\beta) = (\Lie_X \alpha) \wedge \beta + \alpha \wedge (\Lie_X \beta)$; \label{ppi:LieWedge}
-		\item $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$ (\emph{formula di Cartan}); \label{ppi:DeForma}\index{formula di Cartan}
+		\item $\Lie_X \alpha = i_X \de\alpha + \de( i_X\alpha)$ \emph{(formula di Cartan)}; \label{ppi:DeForma}\index{formula di Cartan}
 		\item $\Lie_{fX}\alpha = f\Lie_X\alpha + \de f \wedge i_X\alpha$. \label{ppi:LiePerCinfinito}
 	\end{enumerate}
 \end{theorem}
@@ -620,7 +619,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
  	\end{align*}
  	
  	La \ref{ppi:Cinfinito} segue dal fatto che $\alpha$ è $C^\infty(M)$-multilineare.	
-	La \ref{ppi:DeCinfinito} segue dalla definizione di $\de f$, mentre la \ref{ppi:LieWedge} segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante.
+	La \ref{ppi:DeCinfinito} segue dalla definizione di $\de f$, mentre la \ref{ppi:LieWedge} segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante. %TODO: verificare se la ppi:LieWedge è effettivamente così facile
 	
 	Vediamo quindi la \ref{ppi:DeForma} tramite un'induzione in $k$. Il risultato è vero per $k=0$ per la \ref{ppi:DeCinfinito}, supponiamo ora che valga per le $k$ forme e dimostriamolo per le $k+1$ forme. Ogni $k+1$ forma si scrive come $\sum \de f_i \wedge \omega_i$ dove $f_i \in C^\infty(M)$ e $\omega_i\in\Omega^k(M)$; infatti data $\omega$ una $(k+1)$-forma, abbiamo
 	\begin{equation*}
@@ -647,7 +646,8 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 \begin{proof}
 	Chiamiamo $X = f_*Y \in \chi(N)$ e siano $p\in M$, $q=f(p)\in N$ e $\seqb v{k-1}, \in T_pM$. Allora
 	\begin{align*}
-		i_Y(f^*\omega)(p)(\seqb v{k-1},) &= f^* \omega (p) (Y(p), \seqb v{k-1},) = \omega (f_*(Y(p)), f_*v_1,\ldots, f_*v_{k-1}) = \\
+		i_Y(f^*\omega)(p)(\seqb v{k-1},) &= f^* \omega (p) (Y(p), \seqb v{k-1},) =\\
+		&=\omega(q) (f_*(Y(p)), f_*v_1,\ldots, f_*v_{k-1}) = \\
 		&= \omega(q)((X\circ f)(p),f_*v_1,\ldots, f_*v_{k-1}) =\\
 		&=(i_X\omega)(q) (f_*v_1,\ldots, f_*v_{k-1})  =(f^*i_X\omega) (p) (\seqb v{k-1},) \punto 
 	\end{align*}
@@ -655,58 +655,58 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 
 \begin{proposition}
 	Siano $X_0,X_1,\ldots,X_k\in\chi(M)$ e $\omega \in \Omega^k(M)$. Allora
-	\begin{enumerate}
-		\item $(\Lie_{X_0} \omega) (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=1}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$;
-		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\
-		+\sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
-	\end{enumerate}
-\end{proposition}
-\begin{proof} %TODO: ancora da sistemare
-	La 1 è già vista. Per la 2 usiamo l'induzione su $k$.
-	Per $k=0$ $\de \omega (X_0) = \Lie_{X_0} \omega$.
-	
-	Supponiamo valga per $k-1$ e sia $\omega \in \Omega^k(M)$. Per la formula di Cartan
 	\begin{align*}
-		\de \omega (X_0,\seqb Xk,) &= (i_{X_0}\de \omega)(\seqb Xk,) = \Lie_{X_0}\omega(\seqb Xk,) - (\de i_{X_0} \omega) (\seqb Xk,) =\\
-		&= \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^k \omega (X_1,\ldots,\Lie_{X_0}X_l,\ldots, X_k)+ \\
-		&-(\de i_{X_0}\omega) (\seqb Xk,)
+		\de \omega (X_0,X_1,\ldots,X_k) =& \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\
+		&+\sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k) \punto
 	\end{align*}
-	ma visto che $i_{X_0}\omega \in \Omega^{k-1}(M)$
+
+% 	\begin{enumerate}
+% 		\item $(\Lie_{X_0} \omega) (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=1}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$; %TODO: mettere una nota che nel caso delle forme la derivata di Lie viene con un pezzo in meno
+% 		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\
+% 		+\sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
+% 	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Procediamo per l'induzione su $k$.
+	Per $k=0$ abbiamo già visto nel \cref{thm:ProprietaProdottoInterno} che $\de \omega (X_0) = \Lie_{X_0} \omega$.
+	
+	Supponiamo quindi che la tesi valga per $k-1$ e sia $\omega \in \Omega^k(M)$. Per il punto \ref{ppi:DeForma} del \cref{thm:ProprietaProdottoInterno}, abbiamo
 	\begin{align*}
-		(\de i_{X_0}\omega) (\seqb Xk,) =& \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(i_{X_0}\omega (X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
-		&+\sum_{1\le i< j \le k} (-1)^{i+j-2} (i_{X_0}\omega)(\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k) = \\
+		\de \omega  (X_0, &\seqb Xk,) = (i_{X_0}\de \omega)(\seqb Xk,) =\\
+		=&\Lie_{X_0}\omega(\seqb Xk,) - \de (i_{X_0} \omega) (\seqb Xk,) =\\
+		=& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^k \omega (X_1,\ldots,\Lie_{X_0}X_l,\ldots, X_k)-\de (i_{X_0}\omega) (\seqb Xk,) \virgola
+	\end{align*}
+	ma, visto che $i_{X_0}\omega \in \Omega^{k-1}(M)$, per ipotesi induttiva vale
+	\begin{align*}
+		\de (i_{X_0}\omega) (X_1,\ldots & ,X_k) =\\
+		=&\sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(i_{X_0}\omega (X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
+		&+\sum_{1\le i< j \le k} (-1)^{i+j-2} (i_{X_0}\omega)(\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k) =\\
 		=& \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(\omega (X_0,X_1,\ldots, \hat X_l, \ldots, X_k)) +\\
 		&+\sum_{1\le i< j \le k} (-1)^{i+j-2} \omega(X_0,\Lie_{X_i}(X_j),X_1,\ldots, \hat X_i, \ldots, \hat X_j,\ldots, X_k)
 	\end{align*}
-	Quindi
+	Quindi sostituendo nell'equazione precedente
 	\begin{align*}
-		\de \omega (X_0,\seqb Xk,) =& \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{l=1}^{k} (-1)^{l-1} \Lie_{X_l}(\omega(X_0,X_1, \ldots, \hat X_l,\ldots, X_k)) -\\
-		&-\sum_{l=1}^k\omega(X_1,\ldots, \Lie_{X_0}X_l,\ldots,X_k)-\\
-		&-\sum_{1\le i<j \le k} (-1)^{i+j-2} \omega (X_0,\Lie_{X_i}(X_j),X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)=\\
-		=&\sum_{l=0}^{k} (-1)^l \Lie_{X_l}(\omega(X_0, \ldots, \hat X_l,\ldots, X_k)) +\\
+		\de \omega (X_0,\seqb Xk,) =&\sum_{l=0}^{k} (-1)^l \Lie_{X_l}(\omega(X_0, \ldots, \hat X_l,\ldots, X_k)) +\\
 		&+\sum_{l=1}^k(-1)^l\omega(\Lie_{X_0}X_l,\ldots X_1,\ldots,\hat X_l,\ldots ,X_k)+\\
-		&+\sum_{1\le i<j \le k} (-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k)
+		&+\sum_{1\le i<j \le k} (-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,X_1,\ldots,\hat X_i,\ldots,\hat X_j,\ldots,X_k) \virgola
 	\end{align*}
-
-	
+	da cui segue ovviamente quanto cercato.
 \end{proof}
 
 \begin{corollary}
-	Siano $X,Y\in\chi(M)$, allora $\comm{\Lie_X}{i_Y} = i_{\comm XY}$ e $\comm{\Lie_X}{\Lie_Y} = \Lie_{\comm XY}$.
+	Siano $X,Y\in\chi(M)$, allora $\comm{\Lie_X}{i_Y} \coloneqq \Lie_X i_Y - i_Y \Lie_X = i_{\comm XY}$ e $\comm{\Lie_X}{\Lie_Y}\coloneqq \Lie_X\Lie_Y - \Lie_Y\Lie_X = \Lie_{\comm XY}$.
 	Quindi in particolare $i_X\Lie_X = \Lie_X i_X$.
 \end{corollary}
 \begin{proof}
 	Sia $\omega \in \Omega^k(U)$ e $\seqb X{k-1}, \in \chi(U)$, allora
 	\begin{align*}
 		(i_Y\Lie_X\omega)(\seqb X{k-1},) =& (\Lie_X\omega)(Y,\seqb X{k-1},) =\\
-		=&\Lie_X(\omega(Y,\seqb X{k-1},)) -\\
-		&-\sum_{l=1}^{k-1}\omega(Y,X_1,\ldots,\comm{X}{X_l},\ldots X_{k-1}) -\\
-		&-\omega (\comm XY, \seqb X{k-1},)=\\
-		=& \Lie_X(i_Y\omega(\seqb X{k-1},)) -\sum_{l=1}^{k-1} i_Y\omega(X_1,\ldots, \comm X{X_l}, \ldots, X_{k-1}) -\\
-		&-i_{\comm XY} \omega (\seqb X{k-1},) =\\
+		=&\Lie_X(\omega(Y,\seqb X{k-1},)) -\omega (\comm XY, \seqb X{k-1},) - \\
+		&-\sum_{l=1}^{k-1}\omega(Y,X_1,\ldots,\comm{X}{X_l},\ldots X_{k-1}) =\\
+		=& \Lie_X(i_Y\omega(\seqb X{k-1},)) -i_{\comm XY} \omega (\seqb X{k-1},) - \\
+		&-\sum_{l=1}^{k-1} i_Y\omega(X_1,\ldots, \comm X{X_l}, \ldots, X_{k-1}) =\\
 		=& (\Lie_X i_Y\omega)(\seqb X{k-1},) - (i_{\comm XY}\omega)(\seqb X{k-1},) \punto
 	\end{align*}
-
-	Per la seconda si usa la prima e la formula di Cartan.
+	Per la seconda equazione si usa invece la prima e il punto \ref{ppi:DeForma} del \cref{thm:ProprietaProdottoInterno}.
 \end{proof}
 
