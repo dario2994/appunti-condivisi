@@ -5,7 +5,7 @@
 Ci sono due possibili approcci:
 \begin{enumerate}
 	\item approccio dinamico, che usa i flussi ed è quello che abbiamo usato per definire la derivata di Lie sui campi vettoriali;
-	\item approccio algebrico, che è invece quello che seguiremo noi e che utilizza la proprietà di Leibnitz delle derivate.
+	\item approccio algebrico, che è invece quello che seguiremo noi e che utilizza la proprietà di Leibniz delle derivate.
 \end{enumerate}
 
 \begin{example}
@@ -103,7 +103,7 @@ Per l'unicità di $\mathcal D_U$, si ha anche l'unicità di $\mathcal D$ e inolt
 
 Trattiamo ora il caso particolare della derivata di Lie.
 Dati $X\in\chi(M)$ e $U\subseteq M$ aperto, definiamo $\mathcal E_U$ ed $\mathcal F_U$ come $\Lie_X\restrict U$.
-Allora, per Leibnitz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} sono soddisfatte e possiamo dare quindi la seguente definizione.
+Allora, per Leibniz, le ipotesi del \cref{thm:EsistenzaOperatoriDifferenziali} sono soddisfatte e possiamo dare quindi la seguente definizione.
 
 \begin{definition} \index{derivata!di Lie!su tensori}
 	Se $X\in\chi(M)$, definiamo $\Lie_X$ come l'unico operatore differenziale su $\Tau(M)$ (ancora detto \emph{derivata di Lie}), tale che $\Lie_X$ coincide con le derivate di Lie rispetto a $X$ su $C^\infty(M)$ e $\chi(M)$.
@@ -161,7 +161,7 @@ mentre per $Y\in \chi(M)$ abbiamo
 \begin{equation*}
 \Lie_XY = \left( X^j\DerParz{Y^i}{x^j} - Y^j \DerParz{X^i}{x^j} \right) \DerParz{}{x^i}\punto
 \end{equation*}
-Calcoliamo quindi la formula in coordinate di $\Lie_X\alpha$ con $\alpha = \alpha_i \de x^i \in \chi^*(M)$, per poi ricavare la formula per qualsiasi tensore sfruttando la definizione. Sfruttando la definizione di $\Lie_X\alpha$ e quanto dett fino ad ora, abbiamo
+Calcoliamo quindi la formula in coordinate di $\Lie_X\alpha$ con $\alpha = \alpha_i \de x^i \in \chi^*(M)$, per poi ricavare la formula per qualsiasi tensore sfruttando la definizione. Sfruttando la definizione di $\Lie_X\alpha$ e quanto detto fino ad ora, abbiamo
 \begin{align*}
 	(\Lie_X\alpha)_i &= \Lie_X\alpha \left(\DerParz{}{x^i}\right) = \Lie_X \left(\alpha\left(\DerParz{}{x^i}\right)\right) - \alpha\left(\Lie_X\DerParz{}{x^i}\right) = \Lie_X(\alpha_i) - \alpha\left( - \DerParz{X^j}{x^i} \DerParz{}{x^j} \right) =  \\
 	& = X^j \DerParz{\alpha_i}{x^j} + \DerParz{X^j}{x^i} \alpha\left( \DerParz{}{x^j} \right) = X^j \DerParz{\alpha_i}{x^j} + \alpha_j\DerParz{X^j}{x^i} \virgola
