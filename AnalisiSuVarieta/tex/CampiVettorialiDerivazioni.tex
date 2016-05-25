@@ -19,7 +19,7 @@ Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indich
 \begin{remark} \label{nota:CampiVettEndomorfismiCinfinito}
 	Osserviamo che un campo vettoriale $X$ agisce linearmente sugli endomorfismi di $C^\infty(M)$. Infatti, data $f\in C^\infty(M)$, possiamo definire l'applicazione $X(f)\in C^\infty(M)$ tale che $X(f)(p)\coloneqq \de f(X(p))$.
 	
-	Tale applicazione dai campi vettoriali agli endomorfismi di $C^\infty(M)$ è facilmente iniettiva, ma non è surgettiva, poiché un endomorfismo indotto da un campo vettoriale deve rispettare la regola di Leibnitz; infatti date $f,g \in C^\infty(M)$ vale
+	Tale applicazione dai campi vettoriali agli endomorfismi di $C^\infty(M)$ è facilmente iniettiva, ma non è surgettiva, poiché un endomorfismo indotto da un campo vettoriale deve rispettare la regola di Leibniz; infatti date $f,g \in C^\infty(M)$ vale
 	\begin{equation*}
 		X(fg) (p) = \de (f g) (X(p)) = g \cdot \de f (X(p)) + f \cdot \de g(X(p)) = g \cdot X(f) + f \cdot X(g) \punto 
 	\end{equation*}
@@ -28,12 +28,12 @@ Chiamiamo $\chi^r(M)$ l'insieme dei campi vettoriali $C^r$ su $M$, mentre indich
 
  
 \begin{definition} \index{curva integrale}
-	Una \emph{curva integrale} di un campo vettoriale $X$ è una curva diffenziabile $c$ tale che $c'(t)=X(c(t))$ per ogni $t$.
+	Una \emph{curva integrale} di un campo vettoriale $X$ è una curva differenziabile $c$ tale che $c'(t)=X(c(t))$ per ogni $t$.
 \end{definition}
 
-Se $(U,\varphi)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le equazioni diffenziali $\frac{\de c^i}{\de t}=X^i(c^1(t),\dots,c^n(t))$ per $i=1,\dots,n$. Questo è un sistema autonomo, anche se in generale si possono considerare anche campi vettoriali dipendenti dal tempo.
+Se $(U,\varphi)$ è una carta allora le coordinate $c^i(t)$ di $c$ soddisfano le equazioni differenziali $\frac{\de c^i}{\de t}=X^i(c^1(t),\dots,c^n(t))$ per $i=1,\dots,n$. Questo è un sistema autonomo, anche se in generale si possono considerare anche campi vettoriali dipendenti dal tempo.
  
-Ora richiamiamo dei risultati sulle equazioni diffenziali ordinarie che daremo per noti.
+Ora richiamiamo dei risultati sulle equazioni differenziali ordinarie che daremo per noti.
  
 \begin{theorem}[Cauchy-Lipschitz]  \index{teorema!Cauchy-Lipschitz} \label{thm:CauchyLipschitz}
 	Siano $U\subseteq\R^n$ aperto e $X:U\to\R^n$ di classe $C^1$. Allora per ogni $x_0\in U$ esiste $I\subseteq\R$ aperto con $0\in I$ e $c:I\to\R^n$ tali che $c(0)=x_0$ e $c'(t)=X(c(t))$. Inoltre se esistono $c_1,c_2:I_1,I_2\to\R^n$ come sopra, allora esse coincidono su $I_1\cap I_2$.
