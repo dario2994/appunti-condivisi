@@ -6,7 +6,7 @@
 Dato $X\in\chi(M)$ e $p\in M$, abbiamo chiamato $\Fl Xt(p)$ la curva integrale di $X$ passante per $p$ al tempo $0$. In particolare, se $X(p)\neq 0$, si ottiene una distribuzione.
 
 \begin{definition} \index{distribuzione!unidimensionale}
-	Una \emph{distribuzione unidimensionale} $\Delta$ in un aperto $U$ di $M$ è una scelta regolare di un sottospazio 1-dimensionale $\Delta_p$ di $T_pM$ per ogni $p\in U$.
+	Una \emph{distribuzione unidimensionale} $\Delta$ in un aperto $U$ di $M$ è una scelta regolare di un sottospazio unidimensionale $\Delta_p$ di $T_pM$ per ogni $p\in U$.
 \end{definition}
 
 Più in generale possiamo definire distribuzioni $k$-dimensionali come segue.
@@ -60,19 +60,19 @@ Se $X,Y\in\chi(M)$ appartengono a $\Delta$, possiamo definire campi vettoriali c
 \end{lemma}
 
 \begin{proof}
-	Ricordiamo che $(Ti)(p)$ è iniettivo per ogni $p\in N$ e perciò $(Ti)(p)$ è un isomorfismo tra $T_pN$ e $(Ti)(T_pN)$. Quindi per ogni $p\in N$ esiste un unico $\bar X(p)$ tale che $(Ti)(\bar X(p)) = X(p)$. Basta perciò verificare che $\bar X(p)$ è regolare in $p\in N$.
+	Ricordiamo che $(Ti)(p)$ è iniettivo per ogni $p\in N$ e perciò $(Ti)(p)$ è un isomorfismo tra $T_pN$ e $(Ti)(T_pN)$. Quindi per ogni $p\in N$ esiste un unico $\bar X(p)$ tale che $(Ti)(\bar X(p)) = X(i(p))$. Basta perciò verificare che $\bar X(p)$ è regolare in $p\in N$.
 	
 	È facile vedere che esistono carte $(V,\psi)$ e $(U,\varphi)$ in $N$ ed $M$ rispettivamenete tali che
 	\begin{equation*}
 	\varphi\circ i \circ\psi^{-1}(a^1,\ldots, a^k) = (a^1,\ldots,a^k,0,\ldots,0)\punto
 	\end{equation*}
 	Questo mostra che $(Ti)(\DerParz{}{x^j}\restrict{p}) = \DerParz{}{y^j}\restrict{i(p)}$ per $j=1,\ldots,k$, dove $\psi = (\seqa xk,)$ e $\varphi = (\seqa yn,)$.
-	Allora, se $X=\sum_{j=1}^k\alpha_j\DerParz{}{y^j}$ con $\alpha_j\in C^\infty$ e $\bar X = \sum_{j=1}^n\beta^j\DerParz{}{x^j}$, allora per linearità di $Ti$ abbiamo $\beta^j=\alpha^j$ per $j=1,\ldots,k$. Quindi $\beta^j$ è regolare in $x$ e $\bar X\in\chi(N)$.
+	Allora, se $X=\sum_{j=1}^k\alpha_j\DerParz{}{y^j}$ con $\alpha_j\in C^\infty$ e $\bar X = \sum_{j=1}^k\beta^j\DerParz{}{x^j}$, allora per linearità di $Ti$ abbiamo $\beta^j=\alpha^j$ per $j=1,\ldots,k$. Quindi $\beta^j$ è regolare in $x$ e $\bar X\in\chi(N)$.
 \end{proof}
 
 Siano $X,Y\in\chi(M)$ che appartengono a $\Delta$, allora per il \cref{lemma:RestrizioneCampoVettoriale} esistono $\bar X,\bar Y\in\chi(N)$ tale che $(Ti)\bar X=X$ e $(Ti)\bar Y=Y$.
-Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$. %TODO: scrivere meglio il fatto che la parentesi di Lie passa a sottovarietà
-Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$.
+Notiamo che $Ti[\bar X,\bar Y](p) = [Ti\bar X,Ti\bar Y](i(p)) = [X,Y] (i(p))$ per ogni $p\in N$. Per ipotesi, dato $v\in T_pN$, allora $(Ti)v\in\Delta_{i(p)}$; di conseguenza $[X,Y](i(p))$ deve appartenere a $\Delta_{i(p)}$ per ogni $p\in N$. %TODO: scrivere meglio il fatto che la parentesi di Lie passa a sottovarietà
+%Quindi condizione necessaria per avere l'integrabilità è che se $X,Y\in\Delta$ allora $[X,Y]\in\Delta$. %TODO: attenzione, io ce l'ho solo sull'immagine di N, come si risolve la cosa?
 
 \begin{definition} \index{distribuzione!integrabile}
 	Una distribuzione $k$-dimensionale $\Delta$ è detta \emph{integrabile} se per ogni $X,Y\in\Delta$ vale che $[X,Y]\in\Delta$.

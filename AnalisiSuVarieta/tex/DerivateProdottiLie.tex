@@ -20,7 +20,7 @@ quindi la derivata direzionale non dipende dalla scelta di $c\in[c]_p$.
 
 Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo allora come $c(t)$ una curva integrale di $X$, così la formula precedente diventa:
 \begin{equation*}
-	(X(p))(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right]
+	X(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right] %TODO: qui c'era (X(p))f(p)
 \end{equation*}
 e questa si chiama derivata di Lie di $f$ rispetto ad $X$.
 
@@ -50,7 +50,7 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \begin{split}
 	 \Lie_X(fY)(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]=\\
 	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]=\\
-	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}=\\
+	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]+\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}=\\
 	 = & f(p)\cdot\Lie_XY(p)+X(f)(p)\cdot Y(p) \punto
 	 \end{split}
 	 \end{equation*}
@@ -65,7 +65,9 @@ Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset
 
 Ci interessa $F=\Fl{X}{h}$ con $h$ piccolo. Abbiamo che $F(x)=x+hX(x)+\smallO(h)$, dove $\frac{\smallO(h)}{h}\to 0$ in $C^1_{\text{loc}}$.
 Allora
-\begin{equation*}F_*\frac\partial{\partial x^j}(x)=h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+\smallO(h))+\smallO(h)\virgola\end{equation*}
+\begin{equation*}
+	F_*\frac\partial{\partial x^j}(x)=\DerParz{}{x^j}(x+hX(h)+\smallO(h))+h\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}(x+hX(x)+\smallO(h))+\smallO(h)\virgola
+\end{equation*}
 da cui
 \begin{equation*}
 	\Lie_X\frac\partial{\partial x^j}=-\sum_{l=1}^n \frac{\partial X^l}{\partial x^j}\frac\partial{\partial x^l}\punto
@@ -266,7 +268,7 @@ Il commutatore dà una misura della non commutazione di due campi vettoriali. In
 \end{proposition}
 
 \begin{proof}
-	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}$. Notiamo innanzitutto che $c(t)=\alpha_3(t,t)$, $\alpha_3(0,t)=\alpha_2(t,t)$ e $\alpha_2(0,t)=\alpha_1(t,t)$.
+	Definiamo $\alpha_1(t,h)=\Fl{Y}{t}\Fl{X}{h}(p)$, $\alpha_2(t,h)=\Fl{X}{-t}\Fl{Y}{h}\Fl{X}{h}(p)$ e $\alpha_3(t,h)=\Fl{Y}{-t}\Fl{X}{-h}\Fl{Y}{h}\Fl{X}{h}(p)$. Notiamo innanzitutto che $c(t)=\alpha_3(t,t)$, $\alpha_3(0,t)=\alpha_2(t,t)$ e $\alpha_2(0,t)=\alpha_1(t,t)$.
 	Inoltre data $f:M\to\R$ regolare, vale che
 	\begin{alignat*}{2}
 		&\DerParz{f\circ\alpha_1}{t}=(Yf)\circ\alpha_1 \virgola \quad&&
