@@ -12,7 +12,7 @@
 \end{definition}
 
 \begin{proposition}
-	Sia $M$ una $n$-varieta connessa e paracompatta. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione sia positivo.
+	Sia $M$ una $n$-varieta connessa. Allora $M$ è orientabile se e solo se esiste un atlante $(U_i,\varphi_i)$ con $\varphi_i:U_i\to V_i\subseteq \R^n$ tale che il determinante jacobiano delle mappe di transizione sia positivo.
 \end{proposition}
 
 \begin{definition} \index{varietà!orientata}
@@ -205,7 +205,7 @@ Vediamo quindi ora come possiamo orientare il bordo.
 \section{Teorema di Stokes}
 
 \begin{theorem} [Stokes] \label{thm:Stokes} \index{teorema!di Stokes}
-	Sia $M$ una varietà $n$-dimensionale paracompatta e orientata. Sia $\alpha \in \Omega^{n-1}(M)$ una forma a supporto compatto e sia $i:\partial M \to M$ l'inclusione del bordo in $M$. Allora
+	Sia $M$ una varietà $n$-dimensionale orientata. Inoltre sia $\alpha \in \Omega^{n-1}(M)$ una forma a supporto compatto e sia $i:\partial M \to M$ l'inclusione del bordo in $M$. Allora
 	\begin{equation*}
 		\int_{\partial M} i^*\alpha = \int_M \de \alpha \punto
 	\end{equation*}
@@ -266,7 +266,7 @@ Vediamo quindi ora come possiamo orientare il bordo.
 La divergenza si interpreta come espansione o contrazione del volume.
 
 \begin{theorem} [Gauss]\label{thm:Gauss} \index{teorema!di Gauss}
-	Sia $M$ orientata, paracompatta e con bordo. Sia $X\in\chi(M)$ a supporto compatto e sia $\mu$ una forma di volume su $M$. Allora
+	Sia $M$ orientata e con bordo. Sia $X\in\chi(M)$ a supporto compatto e sia $\mu$ una forma di volume su $M$. Allora
 	\begin{equation*}
 		\int_M (\div X) \mu = \int_{\partial M} i_X \mu \punto
 	\end{equation*}
@@ -329,7 +329,7 @@ Sia $F:M \to \R$ a supporto compatto, allora con le notazione precedenti vale
 	Fissiamo $t_0\in\R$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate di $M$ in un intorno di $p$.
 	Quindi esiste $\rho$ funzione regolare positiva tale che $\mu = \rho \de f \wedge \seqa {\de x}m\wedge$. Allora
 	\begin{multline*}
-		\mu_{t_0} \restrict{M_{t_0}} = i_n \mu \restrict{M_{t_0}} = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} =\\
+		\mu_{t_0} = i_n \mu \restrict{M_{t_0}} = \rho i_n (\de f \wedge \seqa {\de x}m\wedge)\restrict{M_{t_0}} =\\
 		= \rho i_n(\de f) \wedge \seqa {\de x}m\wedge \restrict{M_{t_0}} + \rho \de f \wedge i_n (\seqa {\de x}m\wedge)\restrict{M_{t_0}} =\\
 		=\rho i_n(\de f) \wedge \seqa {\de x}m\wedge \restrict{M_{t_0}} =\rho \abs{\grad f}_g \seqa {\de x}m\wedge \restrict{M_{t_0}} \virgola
 	\end{multline*}
