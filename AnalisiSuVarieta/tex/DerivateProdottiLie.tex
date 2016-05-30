@@ -221,12 +221,12 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{enumerate}
 \end{proposition}
 
-\begin{proof} %TODO: qui c'è un push-forward a cui andrebbe il meno o da sostituire con pull-back
+\begin{proof} %TODO: ho messo un - push-forward, che potrebbe anche essere un pull-back: decidere cos'è meglio
 	Per il \cref{lemma:FlussiEMappe} la commutazione $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
 	
-	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
+	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=-\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
 	\begin{equation*}
-		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=(\Fl{X}{t})_*\comm{X}{Y}=0\punto
+		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=-(\Fl{X}{t})_*\comm{X}{Y}=0\punto
 	\end{equation*}
 	Perciò  $(\Fl{X}{t})_*Y$ è costante in $t$ ed è uguale a Y, perché $(\Fl{X}{0})_*Y=Y$.
 \end{proof}
