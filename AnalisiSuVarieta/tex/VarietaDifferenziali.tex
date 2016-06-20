@@ -67,7 +67,7 @@
 	Dati $k \geq n$ interi sia $G_n(\R^k)$ la famiglia dei sottospazi $n$-dimensionali di $\R^k$, che si può dotare di una struttura differenziabile naturale con la quale viene detta \emph{varietà grassmanniana}.
  
 	Dato $F \subseteq \R^k$ sottospazio $n$-dimensionale, sia $G$ uno dei supplementari lineari, cioè $\R^k=F \oplus G$.
-	Sia ora $U_G=\{H\in \R^k \text{ sottospazio $n$-dimensionale tale che }\R^k=H \oplus G\}$ e sia $\varphi_{F,G}:U_G \to \Lin(F,G)$ tale che $\varphi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$; dove $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni sui due sottospazi e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$ e simmetricamente per l'altra. 
+	Sia ora $U_G=\{H\subseteq \R^k \text{ sottospazio $n$-dimensionale tale che }\R^k=H \oplus G\}$ e sia $\varphi_{F,G}:U_G \to \Lin(F,G)$ tale che $\varphi_{F,G}(H)=\pi_F(H,G) \circ \pi_G(H,F)^{-1}$; dove $\pi_F(G):\R^k \to G$ e $\pi_G(F):\R^k \to F$ sono le proiezioni sui due sottospazi e $\pi_F(H,G)$ è la restrizione di $\pi_F(G)$ ad $H$ e simmetricamente per l'altra. 
  
 	Per prima cosa dimostriamo che $\pi_G(H,F)$ è invertibile e quindi che ha senso la scrittura sopra.
 	Sia infatti $H \in U_G$ allora $\R^k=F \oplus G=H \oplus G$, quindi $\pi_G(H,F)$ e $\pi_G(F,H)$ sono una l'inversa dell'altra. Infatti, data $h\in H$, scrivendo $h=f+g$ con $f \in F$ e $g \in G$ si ha $f=h-g$; quindi
@@ -90,7 +90,7 @@
 
  
  \begin{remark} \index{sfere esotiche}
-  Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoperse Milnor, ci sono ventotto varietà
+  Esistono varietà omeomorfe ma non diffeomorfe. Ad esempio, come scoprì Milnor, ci sono ventotto varietà
   omeomorfe a $S^7$ tra di loro non diffeomorfe, dette \emph{sfere esotiche}. Su $S^1$, $S^2$, $S^3$, $S^5$
   ed $S^6$ questo non accade, mentre per $S^4$ il problema è tuttora aperto.
  \end{remark}
@@ -274,7 +274,7 @@ Ora definiamo alcuni tipi particolari di funzioni tra varietà.
 \end{definition}
 
 \begin{proposition}
-	Se $f:M\to N$ è di classe $C^1$ e $T_xf$ è invertibile allora $f$ è un diffeomorfismo in $x$.
+	Se $f:M\to N$ è di classe $C^1$ e $T_xf$ è invertibile allora $f$ è un diffeomorfismo in un intorno di $x$.
 \end{proposition}
 
  \begin{proof}
