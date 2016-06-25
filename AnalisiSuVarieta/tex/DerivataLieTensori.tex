@@ -27,7 +27,7 @@ Ci sono due possibili approcci:
 
 	\item $\mathcal D$ è locale (naturale rispetto alle restrizioni), dove supponiamo che $\mathcal D$ sia definito su $\Tau(U)$ in $\Tau(U)$ per ogni $U\subseteq M$ aperto. \label{od:Restrizioni} %[$\mathcal D_2$)]
 	
-	Chiediamo cioè che, se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(M)$, allora $(\mathcal D t)\restrict U = \mathcal D (t\restrict U)$, ovvero che il seguente diagramma commuti
+	Chiediamo cioè che, se $U\subseteq V \subseteq M$ sono aperti e $t\in\Tau_s^r(V)$, allora $(\mathcal D t)\restrict U = \mathcal D (t\restrict U)$, ovvero che il seguente diagramma commuti
 	\begin{equation*}
 	\begin{CD} 
 	 \Tau_s^r(V) @>i_U>> \Tau_s^r(U) \\
@@ -39,7 +39,7 @@ Ci sono due possibili approcci:
 	\end{enumerate}
 \end{definition}
 
-\begin{theorem} \label{thm:EsistenzaOperatoriDifferenziali}
+\begin{theorem} \label{thm:EsistenzaOperatoriDifferenziali} %TODO: uniformare fra \otimes, \cdot e prodotto sottinteso
 	Supponiamo che per ogni $U\subseteq M$ aperto esistano mappe $\mathcal E_U : C^\infty(U) \to C^\infty(U)$ e $\mathcal F_U : \chi(U) \to \chi(U)$ che siano $\R$-lineari e derivazioni (naturali rispetto alle restrizioni), cioè
 	\begin{enumerate}
 		\item $\mathcal E_U(f\otimes g) = (\mathcal E_U f) \otimes g + f \otimes (\mathcal E_U g)$ per $f,g\in C^\infty(U)$; \label{eod:LeibnitzPerE}
@@ -68,9 +68,9 @@ Ci sono due possibili approcci:
 	dove abbiamo utilizzato le proprietà \ref{eod:LeibnitzPerE} e \ref{eod:LeibnitzPerF}.
 	
 	Abbiamo perciò definito $\mathcal D\alpha \in \chi^*(U)$ per ogni $\alpha\in\chi^*(U)$. Possiamo quindi estendere la definizione in $U$ ai tensori, utilizzando la proprietà \ref{od:Derivazione}, tramite 
-	\begin{align*}
-		(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) \coloneqq\ & \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) -\\
-		&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) -\\
+	\begin{align*} %TODO: controllare se in altri posti si usava - - per andare a capo nelle formule
+		(\mathcal D_U t) (\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s) \coloneqq\ & \mathcal E_U(t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,X_s)) +\\
+		&-\sum_{j=1}^rt(\alpha_1,\ldots, \mathcal D\alpha_j,\ldots,\alpha_r,X_1,\ldots,X_s) +\\
 		&- \sum_{k=1}^s t(\alpha_1,\ldots,\alpha_r,X_1,\ldots,\mathcal F_UX_k,\ldots,X_s)\virgola
 	\end{align*}
 	per ogni $t\in\Tau_s^r(M)$, $\alpha_1,\ldots,\alpha_r\in\chi^*(M)$ e $X_1,\ldots,X_s\in\chi(M)$.
@@ -292,7 +292,7 @@ che è la formula cercata.
 		Vediamo che equazioni deve rispettare $X$. Siano $X = X^i\DerParz{}{x^i}$ e $g = g_{ij}\de x^i \otimes \de x^j$ in coordinate (dove $g_{ij} = g_{ji}$).
 		Allora
 		\begin{align*}
-		\Lie_Xg &= \Lie_x (g_{ij}\de x^i \otimes \de x^j) =\\
+		\Lie_Xg &= \Lie_X (g_{ij}\de x^i \otimes \de x^j) =\\
 		&=(\Lie_Xg_{ij})\otimes \de x^i\otimes x^j + g_{ij} \otimes (\Lie_X\de x^i) \otimes \de x^j + g_{ij}\otimes \de x^i \otimes (\Lie_X\de x^j) =\\
 		&= X^k \DerParz{g_{ij}}{x^k}\otimes \de x^i \otimes \de x^j + g_{ij}\DerParz{X^i}{x^k} \otimes \de x^k \otimes \de x^j + g_{ij} \DerParz{X^j}{x^k} \otimes \de x^i \otimes \de x^k =\\
 		&= \left[X^k \DerParz{g_{ij}}{x^k} + g_{kj} \DerParz{X^k}{x^i} + g_{ik} \DerParz{X^k}{x^j} \right] \de x^i \otimes \de x^j \virgola
@@ -310,5 +310,5 @@ che è la formula cercata.
 %TODO: spostare e dare un senso a quest'ultima parte
 Vediamo ora la seguente osservazione sull'approccio dinamico.
 \begin{remark}
-	Sia $\varphi_s$ il flusso generato da $X\in\chi(M)$. Allora, se $t\in\Tau_s^r(M)$, vale $\Lie_Xt = \frac{\de}{\de s} (\varphi_s^* t)$ \footnote{Ricordiamo che $\varphi_s$ è un diffeomorfismo e quindi è legale fare pull-back di tensori di ogni tipo.}.
+	Sia $\varphi_s$ il flusso generato da $X\in\chi(M)$. Allora, se $t\in\Tau_s^r(M)$, vale $\Lie_Xt = \frac{\de}{\de s} (\varphi_s^* t)$ \footnote{Ricordiamo che $\varphi_s$ è un diffeomorfismo e quindi è legale fare pull-back di tensori di ogni tipo.}. %TODO: la lettera s ha 2 significati, decidere se sistemare
 \end{remark}

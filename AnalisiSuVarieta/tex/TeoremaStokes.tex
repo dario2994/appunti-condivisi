@@ -62,7 +62,7 @@ Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
 
 \section{Integrazione su varietà}
 
-\begin{definition}
+\begin{definition} %TODO: un po' ambigua la prima parte con 1/n!
 	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!}\ \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \wedge \de x^{i_n} = \omega_{1\ldots n} \seqa{\de x}n\wedge$, definiamo
 	\begin{equation*}
 		\int_U \omega \coloneqq \int_{\R^n} \omega_{1 \ldots n} \seqa {\de x}n{} \punto 
@@ -133,8 +133,8 @@ Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
 		\item Sia $(V_\beta, \psi_\beta, \tilde \chi_\beta)$ un'altra partizione dell'unità subordinata a $\mathcal B$ atlante orientato positivamente. Allora le funzioni $(\chi_\alpha \tilde\chi_\beta)_{\alpha\beta}$ soddisfano $\chi_\alpha \tilde\chi_\beta(p) = 0$ tranne che per un numero finito di indici. Inoltre $\sum_{\alpha,\beta} \chi_\alpha \tilde\chi_\beta(p) = 1$ per  ogni $p$.
 		Abbiamo
 		\begin{align*}
-			\int_\alpha \omega &= \sum_\alpha \int_{U_\alpha}\chi_\alpha \omega = \sum_{\alpha,\beta} \int_{U_\alpha \cap U_\beta} \tilde \chi_\beta \chi_\alpha \omega =\sum_{\alpha,\beta} \int_{U_\alpha\cap U_\beta}  \chi_\alpha \tilde \chi_\beta \omega =\\
-			&=\sum_\beta \int_{U_\beta} \tilde\chi_\beta \omega = \int_\beta \omega \virgola
+			\int_{M,\alpha} \omega &= \sum_\alpha \int_{U_\alpha}\chi_\alpha \omega = \sum_{\alpha,\beta} \int_{U_\alpha \cap U_\beta} \tilde \chi_\beta \chi_\alpha \omega =\sum_{\alpha,\beta} \int_{U_\alpha\cap U_\beta}  \chi_\alpha \tilde \chi_\beta \omega =\\
+			&=\sum_\beta \int_{U_\beta} \tilde\chi_\beta \omega = \int_{M,\beta} \omega \virgola
 		\end{align*}
 		dove abbiamo usato $\sum \tilde \chi_\beta = 1$ e $\sum \chi_\alpha = 1$.
 	\end{enumerate}
@@ -215,15 +215,15 @@ Vediamo quindi ora come possiamo orientare il bordo.
 	Per linearità in $\alpha$ e per l'esistenza di partizioni dell'unità possiamo supporre che $\alpha$ abbia supporto nel dominio $U$ di un'unica carta.
 	Allora in coordinate
 	\begin{equation*}
-		\alpha = \sum_{i=1}^n (-1)^{i-1} \alpha^i \de x^1 \wedge \ldots \wedge \hat{\de x^i} \wedge \ldots \wedge \de x^n \punto
+		\alpha = \sum_{i=1}^n (-1)^{i-1} \alpha_i \de x^1 \wedge \ldots \wedge \hat{\de x^i} \wedge \ldots \wedge \de x^n \punto
 	\end{equation*}
 	Di conseguenza
 	\begin{equation*}
-		\de \alpha = \sum_{i=1}^n \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{\wedge} \virgola
+		\de \alpha = \sum_{i=1}^n \DerParz{\alpha_i}{x^i} \seqa {\de x}{n}{\wedge} \virgola
 	\end{equation*}
 	e quindi
 	\begin{equation*}
-		\int_U \de \alpha = \sum_{i=1}^n \int_{\varphi(U)} \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{} \virgola
+		\int_U \de \alpha = \sum_{i=1}^n \int_{\varphi(U)} \DerParz{\alpha_i}{x^i} \seqa {\de x}{n}{} \virgola
 	\end{equation*}
 	che è ben definito se $M$ è orientata.
 	
@@ -231,25 +231,25 @@ Vediamo quindi ora come possiamo orientare il bordo.
 	\begin{enumerate}
 		\item ($\partial U = \emptyset$) In questo caso l'$i$-esimo termine della sommatoria è
 		\begin{equation*}
-			\int_{\R^n} \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{} = \int_{\R^{n-1}} \left(\int_\R \DerParz{\alpha^i}{x^i} \de x^i \right) \de x^1  \ldots \hat{\de x^i} \ldots \de x^n = 0 \virgola
+			\int_{\R^n} \DerParz{\alpha_i}{x^i} \seqa {\de x}{n}{} = \int_{\R^{n-1}} \left(\int_\R \DerParz{\alpha_i}{x^i} \de x^i \right) \de x^1  \ldots \hat{\de x^i} \ldots \de x^n = 0 \virgola
 		\end{equation*}
-		perché $\alpha^i$ ha supporto compatto. Quindi in questo caso abbiamo quello che volevamo, perché ovviamente $\int_{\partial U} i^*\alpha = 0$.
+		perché $\alpha_i$ ha supporto compatto. Quindi in questo caso abbiamo quello che volevamo, perché ovviamente $\int_{\partial U} i^*\alpha = 0$.
 		
 		\item ($\partial U \not = \emptyset$) Possiamo supporre $E=\R^n_+$, allora l'integrale diventa
 		\begin{equation*}
-			\sum_{i=1}^n \int_{\R^n_+} \DerParz{\alpha^i}{x^i} \seqa {\de x}{n}{} \punto
+			\sum_{i=1}^n \int_{\R^n_+} \DerParz{\alpha_i}{x^i} \seqa {\de x}{n}{} \punto
 		\end{equation*}
 		Se $i<n$ ragioniamo come prima, altrimenti se $i=n$ l'integrale diventa
 		\begin{equation*}
-			- \int_{\R^{n-1}} \alpha^n \seqa {\de x}{n-1}{} \punto
+			- \int_{\R^{n-1}} \alpha_n \seqa {\de x}{n-1}{} \punto
 		\end{equation*}
 		D'altra parte abbiamo
 		\begin{equation*}
-			\int_{\partial U}\alpha = \int_{\partial \R^n_+} \alpha = \int_{\partial \R^n_+} (-1)^{n-1} \alpha^n(\seqa x{n-1}, ,0) \seqa {\de x}{n-1}{} \punto
+			\int_{\partial U}\alpha = \int_{\partial \R^n_+} \alpha = \int_{\partial \R^n_+} (-1)^{n-1} \alpha_n(\seqa x{n-1}, ,0) \seqa {\de x}{n-1}{} \punto
 		\end{equation*}
 		L'orientazione di $\partial M$ non è quella standard, infatti la normale esterna è $-e_n = -(0,\ldots,0,1)$. Perciò, l'orientazione del bordo ha il segno di $\{-e_n, \seqb e{n-1},\}$ che è  $(-1)^n$, quindi
 		\begin{equation*}
-			\int_{\partial U}\alpha = (-1)^{2n-1} \int_{\R^{n-1}} \alpha^n \seqa{\de x}{n-1}{} = - \int_{\R^{n-1}} \alpha^n \seqa {\de x}{n-1}{} = \int_U\de \alpha \punto
+			\int_{\partial U}\alpha = (-1)^{2n-1} \int_{\R^{n-1}} \alpha_n \seqa{\de x}{n-1}{} = - \int_{\R^{n-1}} \alpha_n \seqa {\de x}{n-1}{} = \int_U\de \alpha \punto
 		\end{equation*}
 
 
@@ -319,7 +319,7 @@ Sia $(M,g)$ una varietà orientabile $(m+1)$-dimensionale. Sia $f:M \to \R$ una 
 Inoltre per ogni $t$ chiamiamo $\mu_t$ la forma di volume su $M_t$ indotta da $g$, $\mu$ la forma di volume su $M$ sempre indotta da $g$ e poniamo $n = \frac{\grad f}{\abs{\grad f}_g}$.
 
 \begin{theorem} [Formula di coarea] \label{thm:FormulaCoarea} \index{formula!di coarea}
-Sia $F:M \to \R$ a supporto compatto, allora con le notazione precedenti vale
+Sia $F:M \to \R$ a supporto compatto, allora con le notazioni precedenti vale
 \begin{equation*}
 	\int_M F \mu = \int_\R \left( \int_{M_t} \frac F{\abs{\grad f}_g} \mu_t \right) \de t \punto
 \end{equation*}
