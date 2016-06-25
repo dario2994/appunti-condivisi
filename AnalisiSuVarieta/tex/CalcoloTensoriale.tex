@@ -72,7 +72,7 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 	\begin{equation*}
 		t(x,y) = Ax_1y_1+Bx_1y_2+Cx_2y_1+Dx_2y_2\punto
 	\end{equation*}
-	Il tensore $t$ è detto \emph{simmetrico} se $t(e_i,e_j) =t(e_j,e_i)$. In questo caso anche la matrice associata è simmetrica. Questo genera la forma quadratica $Q(e) = t(e,e)$, dalla polarizzata $t(e_i,e_j) = \frac 14 [Q(e_i+e_j)-Q(e_i-e_j)]$.
+	Il tensore $t$ è detto \emph{simmetrico} se $t(e_i,e_j) =t(e_j,e_i)$. In questo caso anche la matrice associata è simmetrica. Questo genera la forma quadratica $Q(e) = t(e,e)$, dalla quale possiamo riottenere $t$ come $t(e_i,e_j) = \frac 14 [Q(e_i+e_j)-Q(e_i-e_j)]$.
 	
 	\item In generale $t\in T_0^r(V)$ è detto \emph{simmetrico} se $t(\alpha^1,\ldots,\alpha^r) = t(\alpha^{\sigma(1)},\ldots,\alpha^{\sigma(r)})$ per ogni permutazione $\sigma$ e per tutti gli $\alpha^1,\ldots,\alpha^r \in V^*$.
 	Inoltre possiamo ancora associare al tensore $t$ il polinomio $P(\alpha) = t(\alpha,\ldots,\alpha)$, omogeneo di grado $r$.
@@ -156,7 +156,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 
 
 \begin{example}
-	Vediamo ora vari esempi riguardanti le varie operazioni definite.
+	Vediamo ora degli esempi riguardanti le varie operazioni definite.
 	\begin{enumerate}
 		\item Dati $t\in T_1^2(V)$ e $x=x^ie_i$, risulta che il prodotto interno di $t$ con $x$ è 
 		\begin{align*}
@@ -185,7 +185,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 	Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$, dove in questo caso $V=\R^2$.
 \end{exercise}
 \begin{exercise}
-	Sia $\dim(V) = n$ e $\dim(V) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $(mn)^{r+s}$.
+	Siano $V,W$ due spazi vettoriali con $\dim(V) = n$ e $\dim(W) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $n^{r+s}m$. %TODO: controllare che la dimesione sia giusta
 \end{exercise}
 
 \section{Push-forward e pull-back di trasformazioni lineari}
@@ -223,7 +223,7 @@ Definiamo di seguito push-forward e pull-back di isomorfismi fra spazi vettorial
 \end{definition}
 
 \begin{remark}
-Si verifica che $\varphi_*$ è continua.
+Si verifica che $\varphi_*$ è continua. %TODO: non capisco il senso di dire che \phi è continua, dato che è lineare tra spazi finito-dimensionali; forse si intendeva dire che la definizione data è effettivamente quella di una mappa lineare?
 \end{remark}
 
 \begin{remark}

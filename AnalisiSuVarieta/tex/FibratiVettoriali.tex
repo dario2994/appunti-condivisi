@@ -7,7 +7,7 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 \begin{definition} \index{fibrato!vettoriale}
 	Un \emph{fibrato vettoriale} di rango $k\in\N$ consiste di uno spazio totale $E$, una base $M$ ($E$ ed $M$ varietà) ed una proiezione $\pi:E\to M$ (mappa regolare) tale che per ogni $x\in M$ la sua fibra $E_x\coloneqq \pi^{-1}(x)$ ha una struttura di spazio vettoriale.
 	
-	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeomorfismo $\tilde\varphi:\pi^{-1}(U)\to U\times \R^k$ tale che per ogni $y\in U$ vale $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
+	Si richiede inoltre una ``banalità locale'', cioè che localmente $E$ sia un prodotto: per ogni $x\in M$ esiste $U$ intorno di $x$ e un diffeomorfismo $\tilde\varphi:\pi^{-1}(U)\to U\times \R^k$ tale che $\pi_1\circ \tilde\varphi = \pi$, dove $\pi_1:U\times \R^k\to U$ è la proiezione sulla prima coordinata, e per ogni $y\in U$ vale che $\tilde\varphi_y\coloneqq \tilde\varphi\restrict{E_y}:E_y\to \{y\}\times \R^k$ è un isomorfismo.
 	La coppia $(U,\tilde\varphi)$ è detta \emph{carta di fibrato}.
 \end{definition}
 
@@ -24,7 +24,7 @@ L'idea è associare (in modo ragionevole) ad ogni punto di $M$ varietà uno spaz
 Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in A}$ un ricoprimento tramite aperti che banalizza localmente il fibrato e siano $\tilde\varphi_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times \R^k$ le banalizzazioni locali.
 
 \begin{definition} \index{mappa!di transizione}
-	Se $U_\alpha\cap U_\beta\ne \emptyset$ definiamo la \emph{mappa di transizione} $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k,\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha}(x) = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
+	Se $U_\alpha\cap U_\beta\ne \emptyset$ definiamo la \emph{mappa di transizione} $\tilde\varphi_{\beta\alpha}:U_\alpha \cap U_\beta \to \mathrm{GL}(\R^k)$ tramite le formule $\tilde\varphi_\beta \circ \tilde\varphi_\alpha^{-1} (x,v) = (x, \tilde\varphi_{\beta\alpha}(x)v)$ con $x\in U_\alpha \cap U_\beta$, $v\in\R^k$. Oppure analogamente $\tilde\varphi_{\beta\alpha}(x) = (\tilde\varphi_\beta\restrict{E_x})(\tilde\varphi_\alpha\restrict{E_x})^{-1}$.
 \end{definition}
 	
 \begin{proposition}
@@ -110,8 +110,9 @@ Sia $(E,\pi, M)$ un fibrato vettoriale di rango $k$, sia $(U_\alpha)_{\alpha\in 
 	 	B	@> f_B >> B'
 	 \end{CD}\ \ $
 	 (cioè $\pi'\circ f = f_B \circ \pi$);
-	 \item Una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
+% 	 \item Una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
 	\end{enumerate}
+	Inoltre una mappa $g: E \to E'$ è una mappa di fibrato se e solo se esiste $g_B:B \to B'$ tale che $\pi'\circ g = g_B\circ \pi$ e $g$ ristretta ad ogni fibra è continua e lineare.
 \end{proposition}
 \begin{proof}
 	Sono tutte facili verifiche, eventualmente passando in carta.
