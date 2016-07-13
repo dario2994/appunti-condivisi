@@ -98,9 +98,9 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 
 \begin{remark}
 	C'è un modo intrinseco per vedere che $\Lie_XY=\comm{X}{Y}$:
-	\begin{enumerate} %TODO: mettere il pull-back o i segni meno
-	 \item $f\in C^\infty$ e $X\in\chi(M)$, allora $\frac \de{\de t} ((\Fl{X}{t})_*f)=(\Fl{X}{t})_*\Lie_Xf$;
-	 \item $\frac\de{\de t} (\Fl{X}{t})_*Y=(\Fl{X}{t})_*(\Lie_XY)$.
+	\begin{enumerate}
+	 \item $f\in C^\infty$ e $X\in\chi(M)$, allora $\frac \de{\de t} ((\Fl{X}{t})^*f)=(\Fl{X}{t})^*\Lie_Xf$;
+	 \item $\frac\de{\de t} (\Fl{X}{t})^*Y=(\Fl{X}{t})^*(\Lie_XY)$.
 	\end{enumerate}
 \end{remark}
 
@@ -143,7 +143,7 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 
 \begin{proof}
 	Dato $n\in N$, vale
-	\begin{align*} %TODO: ok, ma magari evitare la notazione \Diff
+	\begin{align*}
 		\Lie_{\varphi_*X}(f\circ \varphi^{-1})(n)&=\Diff_{(\varphi_*X)(n)}(f\circ \varphi^{-1})=\Diff_{(T\varphi \circ X \circ\varphi^{-1})(n)}(f\circ \varphi^{-1})=\\
 		&=\Diff_{(X\circ \varphi^{-1})(n)} f(\varphi^{-1}(n))=\varphi_*(\Lie_Xf)(n)\punto
 	\end{align*}
@@ -221,10 +221,10 @@ In una carta $(U,\varphi)$, se $X(f)=\sum_{i=1}^n X^i(x)\frac{\partial f}{\parti
 	\end{enumerate}
 \end{proposition}
 
-\begin{proof} %TODO: ho messo un - push-forward, che potrebbe anche essere un pull-back: decidere cos'è meglio
+\begin{proof}
 	Per il \cref{lemma:FlussiEMappe} la commutazione $\Fl{X}{t}\circ \Fl{Y}{s}=\Fl{Y}{s}\circ \Fl{X}{t}$ equivale a $Y=(\Fl{X}{t})_*Y$. Quindi abbiamo mostrato che \ref{EPZ:Commutazione} è equivalente a \ref{EPZ:FlussoY} e allo stesso modo che è equivalente anche a \ref{EPZ:FlussoX}.
 	
-	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=-\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
+	Se ora supponiamo $(\Fl{X}{t})_*Y=Y$, allora $\comm{X}{Y}=\frac{\de}{\de t}(\Fl{X}{t})^*Y\restrict{t=0}=-\frac{\de}{\de t}(\Fl{X}{t})_*Y\restrict{t=0}=0$. Viceversa, se $\comm{X}{Y}=0$ allora $\Lie_XY=0$, da cui
 	\begin{equation*}
 		\frac{\de}{\de t}(\Fl{X}{t})_*Y=\frac{\de}{\de s}(\Fl{X}{t+s})_*Y\restrict{s=0}=-(\Fl{X}{t})_*\comm{X}{Y}=0\punto
 	\end{equation*}
@@ -240,25 +240,24 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 	Siano $X_1,\dots ,X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $\comm{X_\alpha}{X_\beta}=0$ per ogni $\alpha,\beta=1,\ldots ,k$, allora in $\tilde{U}\Subset U$, con $p\in \tilde{U}$, esistono coordinate $(\tilde{U},x)$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
 \end{proposition}
 
-\begin{proof} %TODO: scrivere meglio perché così fa schifo, ma è giusto e si capisce
+\begin{proof} %TODO: fa ancora un po' schifo
 	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$ e sia 
 	\begin{equation*}
 		\Psi(a^1,\dots, a^n)\coloneqq\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 
 	\end{equation*}
 	Vale allora che
 	\begin{equation*}
-		\Psi_*\left(\frac{\partial}{\partial a^\alpha}\restrict{0}\right) = 
+		\Psi_*\left(\frac{\partial}{\partial a^\alpha}(0)\right) = 
 		\begin{cases}
-			\frac{\partial}{\partial y^\alpha}\restrict{0}, &\text{per $\alpha=k+1,\dots,n$}\\
-			\frac{\de}{\de t}\left(\Fl{X_\alpha}{t}(0)\right)\restrict{t=0} = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0), &\text{per $\alpha=1,\dots,k$}
+			\frac{\partial}{\partial y^\alpha}(0)\virgola &\text{per $\alpha=k+1,\dots,n$}\puntovirgola\\
+			\frac{\de}{\de t}\left(\Fl{X_\alpha}{t}(0)\right)\restrict{t=0} = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0)\virgola &\text{per $\alpha=1,\dots,k$}\punto
 		\end{cases}
 	\end{equation*}
-	
-	Poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per $\alpha=1,\dots, k$ possiamo scrivere
+	Inoltre, poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per $\alpha=1,\dots, k$ possiamo scrivere
 	\begin{equation*}
-		\Psi(a^1,\dots,a^n)=\Fl{X_\alpha}{a_\alpha}(\Fl{X_1}{a_1}(\dots (0\dots 0, a^{k+1},\dots a^n)))\virgola
+		\Psi(a^1,\dots,a^n)=\Fl{X_\alpha}{a_\alpha}(\Fl{X_1}{a_1}(\dots \widehat{ \Fl{X_\alpha}{a_\alpha}}(\dots(0\dots 0, a^{k+1},\dots a^n)))\virgola
 	\end{equation*}
-	da cui $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
+	quindi vale in generale $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
 \end{proof}
 
 Il commutatore dà una misura della non commutazione di due campi vettoriali. In particolare seguiamo in ordine $X$, $Y$, $-X$ e $-Y$ ciascuno per tempo $h$, allora il commutatore ci darà una stima di quanto il punto in cui arriviamo è lontano dal punto di partenza.
