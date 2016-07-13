@@ -1,6 +1,6 @@
 \chapter{Campi vettoriali e derivazioni}
 
-\section{Definizioni e richiami} %TODO: aggiungere ``di campi vettoriali e curve integrali``
+\section{Definizioni di campi vettoriali e curve integrali}
 
 \begin{definition} \index{campo!vettoriale}
 	Sia $M$ una varietà $C^k$. Un \emph{campo vettoriale} su $M$ è una funzione $X:M\to TM$ tale che $X(p)\in T_pM$ per ogni $p\in M$. Un campo vettoriale è detto di classe $C^r$ (con $r< k$) se le sue componenti sono di classe $C^r$.
@@ -51,7 +51,7 @@ Ora richiamiamo dei risultati sulle equazioni differenziali ordinarie che daremo
 	\item $p\in U_0\subseteq M$, $U_0$ è aperto e $a>0$; \label{FL:aperto}
 	\item $F:U_0\times I_a\to M$ è di classe $C^r$, dove $I_a=(-a,a)$; \label{FL:Cr}
 	\item per ogni $u\in U_0$ si ha che $c_u=F(u,\cdot):I_a\to M$ è una curva integrale di $X$ con dato iniziale $u$; \label{FL:curvaintegrale}
-	\item se per $t\in I_a$ chiamiamo $F_t(u)=F(u,t)$, allora $F_t(U_0)$ è aperto ed $F_t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo} %TODO: usare F^t invece di F_t per coerenza con il dopo
+	\item se per $t\in I_a$ chiamiamo $F^t(u)=F(u,t)$, allora $F^t(U_0)$ è aperto ed $F^t$ è un diffeomorfismo $C^r$ con l'immagine. \label{FL:diffeo}
 	\end{enumerate}
 \end{definition}
 
@@ -68,13 +68,13 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \end{proof}
 
 \begin{proposition}
-	Se la tripla $(U_0,a,F)$ soddisfa le ipotesi \ref{FL:aperto}, \ref{FL:Cr} e \ref{FL:curvaintegrale} nella \cref{def:FlussoLocale}, allora $F_{s+t}=F_s\circ F_t=F_t\circ F_s$ per ogni $t,s,t+s\in I_a$.
+	Se la tripla $(U_0,a,F)$ soddisfa le ipotesi \ref{FL:aperto}, \ref{FL:Cr} e \ref{FL:curvaintegrale} nella \cref{def:FlussoLocale}, allora $F^{s+t}=F^s\circ F^t=F^t\circ F^s$ per ogni $t,s,t+s\in I_a$.
 	
-	Inoltre $F_0$ è l'identità e, se $U_t=F_t(U_0)$ e $U_t\cap U_0\ne\emptyset$, si ha che $F_t\restrict{U_{-t}\cap U_0}:U_{-t}\cap U_0\to U_0\cap U_t$ è un diffeomorfismo con inverso $F_{-t}\restrict{U_0\cap U_t}$.
+	Inoltre $F^0$ è l'identità e, se $U_t=F^t(U_0)$ e $U_t\cap U_0\ne\emptyset$, si ha che $F^t\restrict{U_{-t}\cap U_0}:U_{-t}\cap U_0\to U_0\cap U_t$ è un diffeomorfismo con inverso $F^{-t}\restrict{U_0\cap U_t}$.
 \end{proposition}
 
 \begin{proof}
-	Abbiamo che $F_{s+t}(u)=c_u(s+t)$ e $F_t(F_s(u))=F_t(c_u(s))$ sono entrambe curve integrali che passano per $c_u(s)$ per $t=0$, dunque coincidono per la \cref{prop:UnicitaCurveIntegrali}, perciò $F_{s+t}=F_t\circ F_s$. Da ciò si deduce facilmente il resto.
+	Abbiamo che $F^{s+t}(u)=c_u(s+t)$ e $F^t(F^s(u))=F^t(c_u(s))$ sono entrambe curve integrali che passano per $c_u(s)$ per $t=0$, dunque coincidono per la \cref{prop:UnicitaCurveIntegrali}, perciò $F^{s+t}=F^t\circ F^s$. Da ciò si deduce facilmente il resto.
 \end{proof}
 
 
@@ -93,7 +93,7 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 	
 	Poniamo  $F:\tilde U\times I_{a_\varphi}\to M$ tale che $F(u,t)=\varphi^{-1}(F_\varphi(\varphi(u),t))$.
 	Per continuità esistono $b\in(0,a_\varphi)$ e $V\subseteq \tilde U$ tali che $F(V\times I_b)\subseteq \tilde U$. %$p\in V$??
-	Allora $(V,b,F)$ verifica \ref{FL:aperto}, \ref{FL:Cr}, \ref{FL:curvaintegrale} della \cref{def:FlussoLocale}. Per avere \ref{FL:diffeo} notiamo che $F_t$ ha inversa $F_{-t}$ di classe $C^r$.
+	Allora $(V,b,F)$ verifica \ref{FL:aperto}, \ref{FL:Cr}, \ref{FL:curvaintegrale} della \cref{def:FlussoLocale}. Per avere \ref{FL:diffeo} notiamo che $F^t$ ha inversa $F^{-t}$ di classe $C^r$.
 	\end{description}
 \end{proof}
 
@@ -102,10 +102,10 @@ Prima di dimostrare l'esistenza di un flusso locale, mostriamone le proprietà d
 \end{exercise}	
 
 \begin{exercise}
-	Sia $F:M\times\R\to M$ regolare tale che $F_{t+s}=F_t\circ F_s$ e $F_0=F(\cdot,0)=\id_M$. Mostrare che esiste un unico campo vettoriale $X$ tale che $F_t$ coincide con il flusso indotto da $X$.
+	Sia $F:M\times\R\to M$ regolare tale che $F^{t+s}=F^t\circ F^s$ e $F^0=F(\cdot,0)=\id_M$. Mostrare che esiste un unico campo vettoriale $X$ tale che $F^t$ coincide con il flusso indotto da $X$.
 \end{exercise}
 
-\section{Flusso di un campo vettoriale} %TODO: titolo migliore?
+\section{Flusso di un campo vettoriale}
 
 \begin{definition} \index{campo!vettoriale!$\mathscr D_X$} \index{campo!vettoriale!completo} \index{flusso}
 	Siano $M$ una varietà e $X$ un campo vettoriale. Sia $\mathscr D_X\subseteq M\times \R$ l'insieme degli $(x,t)$ tali che esiste $c:I\to M$ curva integrale, con $c(0)=x$ e $t \in I$.

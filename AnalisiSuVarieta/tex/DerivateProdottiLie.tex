@@ -20,7 +20,7 @@ quindi la derivata direzionale non dipende dalla scelta di $c\in[c]_p$.
 
 Una curva integrale di un campo vettoriale $X$ ha velocità $X(p)$ in $p$. Scegliamo allora come $c(t)$ una curva integrale di $X$, così la formula precedente diventa:
 \begin{equation*}
-	X(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right] %TODO: qui c'era (X(p))f(p)
+	X(f)(p)=\lim_{h\to 0} \frac 1h \left[ f(F_X(p,h))-f(p) \right]
 \end{equation*}
 e questa si chiama derivata di Lie di $f$ rispetto ad $X$.
 
@@ -46,11 +46,11 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	\begin{description}
 	 \item [\ref{DLP:Lineare}] Ovvia.
 	 \item [\ref{DLP:Prodotto}] Vale la seguente catena di uguaglianze
-	 \begin{equation*} %TODO: questa equazione è un po' bruttina
+	 \begin{equation*}
 	 \begin{split}
-	 \Lie_X(fY)(p)= & \lim_{h\to 0} \frac 1h \left[f(p)Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]=\\
-	 = & \lim_{h\to 0}\frac 1h \left[f(p)Y(p)-f(\Fl{X}{-h}(p)) ((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\right]=\\
-	 = & \lim_{h\to 0}\frac 1h \{f(p)[Y(p)-((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))]+\\ &+[f(p)-f(\Fl{X}{-h}(p))]((\Fl{X}{h})_*Y)(\Fl{X}{-h}(p))\}=\\
+	 \Lie_X(fY)(p)= & \lim_{h\to 0} \frac 1h \left[f(p)\cdot Y(p)-(\Fl{X}{h})_*(fY)(\Fl{X}{-h}(p))\right]=\\
+	 = & \lim_{h\to 0}\frac 1h \left[f(p)\cdot Y(p)-f(\Fl{X}{-h}(p)) \cdot (\Fl{X}{h})_*Y(\Fl{X}{-h}(p))\right]=\\
+	 = & \lim_{h\to 0}\frac 1h \big\{f(p)\cdot[Y(p)-(\Fl{X}{h})_*Y(\Fl{X}{-h}(p))]+\\ &+[f(p)-f(\Fl{X}{-h}(p))]\cdot(\Fl{X}{h})_*Y(\Fl{X}{-h}(p))\big\}=\\
 	 = & f(p)\cdot\Lie_XY(p)+X(f)(p)\cdot Y(p) \punto
 	 \end{split}
 	 \end{equation*}
