@@ -57,7 +57,6 @@ Sia $p\in M$ e $Y$ campo vettoriale definito in un intorno di $p$. Per $h\in\R^+
 	 \end{description}
 \end{proof}
 
-%TODO: sistemare bene questa scrittura in coordinate
 Vediamo ora la scrittura della derivata di Lie in coordinate. Siano $p\in M$ e $(U,\varphi)$ una carta con $p\in U$ e sia $(x^1,\ldots,x^n)$ il sistema di coordinate corrispondente.
 Data $F=(F^1,\ldots,F^n):\tilde U \Subset U \to U$\footnote{Indichiamo $A\Subset B$, se $A\subset K \subset B$ con $K$ compatto.}, abbiamo che \begin{equation*}
 	F_*\frac\partial{\partial x^j}(x)=\sum_{l=1}^n \frac{\partial F^l}{\partial x^j}\frac\partial{\partial x^l}(F(x))\punto
@@ -240,7 +239,7 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 	Siano $X_1,\dots ,X_k\in \chi(M)$ linearmente indipendenti in un intorno $U$ di $p\in M$. Se $\comm{X_\alpha}{X_\beta}=0$ per ogni $\alpha,\beta=1,\ldots ,k$, allora in $\tilde{U}\Subset U$, con $p\in \tilde{U}$, esistono coordinate $(\tilde{U},x)$ tali che $X_\alpha=\frac{\partial}{\partial x^{\alpha}}$.
 \end{proposition}
 
-\begin{proof} %TODO: fa ancora un po' schifo
+\begin{proof}
 	Possiamo supporre $M=\mathbb{R}^n$ con coordinate $(y^1,\dots, y^n)$, $p=0$ e $X_\alpha(0)=\frac{\partial}{\partial y^\alpha}(0)$ per $\alpha=1,\dots, k$. Sia $\Fl{X_\alpha}{t}$ il flusso generato da $X_\alpha$ e sia 
 	\begin{equation*}
 		\Psi(a^1,\dots, a^n)\coloneqq\Fl{X_1}{a_1}(\Fl{X_2}{a_2}(\dots (\Fl{X_k}{a_k}(0,\dots,0,a^{k+1},\dots, a^n))))\punto 

@@ -62,7 +62,7 @@ Mostrare che $S^n$ è orientabile per ogni $n\in\N$.
 
 \section{Integrazione su varietà}
 
-\begin{definition} %TODO: un po' ambigua la prima parte con 1/n!
+\begin{definition}
 	Sia $U$ un aperto di $\R^n$ e $\omega\in\Omega^n(U)$ a supporto compatto. Se $\omega(x) = \frac 1{n!}\ \omega_{\seqb in{}} \de x^{i_1}\wedge \ldots \wedge \de x^{i_n} = \omega_{1\ldots n} \seqa{\de x}n\wedge$, definiamo
 	\begin{equation*}
 		\int_U \omega \coloneqq \int_{\R^n} \omega_{1 \ldots n} \seqa {\de x}n{} \punto 
@@ -325,7 +325,7 @@ Sia $F:M \to \R$ a supporto compatto, allora con le notazioni precedenti vale
 \end{equation*}
 \end{theorem}
 
-\begin{proof} %TODO: magari sistemare meglio sia la dimostrazione che l'applicazione dopo
+\begin{proof}
 	Fissiamo $t_0\in\R$ e $p\in M_{t_0}$. Visto che $\de f(p) \not = 0$, per il teorema della funzione implicita esistono $\seqa xm,$ tali che $(f, \seqa xm,)$ sono coordinate di $M$ in un intorno di $p$.
 	Quindi esiste $\rho$ funzione regolare positiva tale che $\mu = \rho \de f \wedge \seqa {\de x}m\wedge$. Allora
 	\begin{multline*}
@@ -355,18 +355,12 @@ da cui
 
 Altre applicazioni includono:
 \begin{enumerate}
-	\item disuguaglianze ottimali di Sobolev, tipo $\int \abs u^{\frac n{n-1}} \le C_n \int \abs{\grad u}$;
+	\item Disuguaglianze ottimali di Sobolev, tipo $\int \abs u^{\frac n{n-1}} \le C_n \int \abs{\grad u}$.
 	
-	\item riarrangiamento sferico. Sia $u:\R^n\to \R$, sia $A_t = \{ u> t \}$, $u_*$ radiale decrescente tale che $\abs{A_t^*} = \abs{A_t}$ con $A_t^* = \{u^*>t\}$. Questa procedura serve a regolarizzare e conserva la normale $L^p$
-	\begin{equation*}
-		\int u^p = \int (u^*)^p \punto
-	\end{equation*}
-	Con la formula di coarea si può dimostrare
+	\item Riarrangiamento sferico. Sia $u:\R^n\to \R$ e sia $A_t = \{ u> t \}$. Sia inoltre $u_*$ radiale decrescente tale che $\abs{A_t^*} = \abs{A_t}$ con $A_t^* = \{u^*>t\}$. Questa procedura serve a regolarizzare e conserva la normale $L^p$ e poi con la formula di coarea si può dimostrare per esempio che
 	\begin{equation*}
 		\int \abs{\grad u^*}^2 \le \int \abs{\grad u}^2 \punto
 	\end{equation*}
-	
-	%TODO: scrivere meglio
 \end{enumerate}
 
 

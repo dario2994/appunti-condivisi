@@ -194,7 +194,7 @@ Definiamo innanzitutto il duale di una trasformazione lineare.
 \begin{definition} \index{duale} \index{trasporto} \index{pull-back!covettore}
 	Siano $V,W$ spazi vettoriali e $\varphi \in \Lin(V,W)$. Il \emph{duale}, o \emph{trasporto}, di $\varphi$ è $\varphi^* \in \Lin(W^*,V^*)$ definita come 
 	\begin{equation*}
-		\Scal{\varphi^*(\beta)}{e}_V = \Scal{\beta}{\varphi(e)}_W \virgola %TODO: cambiare notazione per non usare \Scal in questo caso?
+		\varphi^*\beta(e)= \beta(\varphi(e)) \virgola
 	\end{equation*}
 	per ogni $\beta \in W^*$ ed $e\in V$.
 \end{definition}
@@ -204,7 +204,7 @@ Siano $\{e_1,\ldots, e_n\}$ e $\{f_1,\ldots, f_m\}$ basi di $V^n$ e $W^m$. Suppo
 Dato $v = v^ie_i\in V$, vale che $\varphi(v)^a = A_i^a v^i$.
 La matrice moltiplica a sinistra, quindi
 \begin{equation*}
-	\Scal{\varphi^*(f^a)}{e_i}_V = \Scal{f^a}{\varphi(e_i)}_W = \Scal{f^a}{A_i^b f_b} = A_i^b\delta_b^a = A_i^a\punto
+	\varphi^*f^a(e_i) = f^a(\varphi(e_i)) = f^a(A_i^b f_b) = A_i^b\delta_b^a = A_i^a\punto
 \end{equation*}
 Perciò vale che $\varphi^*(f^a) = A_i^a e^i$.
 

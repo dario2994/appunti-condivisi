@@ -176,7 +176,7 @@ Perciò, se $\alpha\in\Lambda^k(V)$ e $\beta\in\Lambda^l(V)$, abbiamo
 		\item Sia $V = \R^2$, con $\{e_1,e_2\}$ la base canonica e $\{e^1,e^2\}$ la base duale. Ogni $\omega\in\Lambda^1(\R^2)$ si scrive come $\omega = \omega_1e^1+\omega_2e^2$ e ogni $\omega\in\Lambda^2(\R^2)$ si scrive come $\omega = \omega_{12}\ e^1\wedge e^2$. 
 		
 		\item In $\R^3$, gli spazi $\Lambda^1$ e $\Lambda^2$ hanno la stessa dimensione e dunque sono isomorfi. Data $\{e_1,e_2,e_3\}$ base canonica e $\{e^1,e^2,e^3\}$ base duale un isomorfismo è il seguente: $e^1\mapsto e^2\wedge e^3$ e cicliche.
-		Questo è detto \emph{operatore Hodge star} che indichiamo con $*$ e approfondiremo più avanti. L'isomorfismo standard di $\R^3$ con $\Lambda^1(\R^3)$ è l'operatore $\flat$ tale che $(e_i)^\flat = e^i$. %TODO: qui i bemolle lui li metteva prima
+		Questo è detto \emph{operatore Hodge star} che indichiamo con $*$ e approfondiremo più avanti. L'isomorfismo standard di $\R^3$ con $\Lambda^1(\R^3)$ è l'operatore $\flat$ tale che $(e_i)^\flat = e^i$.
 		
 		Allora $*\circ \flat:\R^3\to \Lambda^2(\R)$ soddisfa
 		\begin{equation*}
@@ -213,7 +213,7 @@ Rivediamo ora le proprietà del pull-back nel caso particolare di forme differen
 		\item $\varphi^*(\Lambda^k(W)) \subseteq \Lambda^k(V)$;
 		\item se $\psi\in\Lin(W,Z)$, $(\psi\circ\varphi)^* = \varphi^* \circ \psi^*$; \label{pbf:Composizione}
 		\item $(\id_V)^* = \id_{T^0_k(V)}$;
-		\item se $\varphi\in \mathrm{GL}(V,W)$, allora $\varphi^*\in \mathrm{GL}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$. %TODO: GL era chiamato inv
+		\item se $\varphi\in \mathrm{GL}(V,W)$, allora $\varphi^*\in \mathrm{GL}(T^0_k(W), T^0_k(V))$ e $(\varphi^*)^{-1} = (\varphi^{-1})^* = \varphi_*$.
 		Se anche $\psi\in\mathrm{GL}(W,Z)$, allora $(\psi\circ\varphi)_* = \psi_*\circ \varphi_*$;
 		\item se $\alpha\in\Lambda^k(W)$, $\beta\in\Lambda^l(W)$, allora $\varphi^*(\alpha\wedge\beta) = (\varphi^*\alpha) \wedge (\varphi^*\beta)$.
 	\end{enumerate}
@@ -238,7 +238,6 @@ Ricordiamo che $\dim(\Lambda^n(V)) = 1$, dove $\dim(V)=n$, per cui ha senso la s
 		\virgola
 	\end{align*}
 	che è quanto cercato.
-	%(multilineare e normalizzata a 1 sulla mappa identica) %TODO: che vuol dire questa frase?
 \end{proof}
 
 \begin{proposition}
@@ -345,7 +344,7 @@ da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ i
 	\end{equation}
 	per ogni $\sigma$ mescolamento di tipo $(k,n-k)$.
 \end{proposition}
-\begin{proof} %TODO: prendendo alpha=beta diventa ovvio?
+\begin{proof}
 	\begin{description}
 		\item [unicità:] Supponiamo che $*$ soddisfi l'\cref{eq:star}. Sia $\beta = e^{\sigma(1)} \wedge\ldots\wedge e^{\sigma(k)}$ e sia $\alpha$ uno dei vettori in $\Lambda^k(V)$ ortonormali del tipo $e^{i_1}\wedge\ldots\wedge e^{i_k}$ con $\seqb ik<$.
 		
@@ -353,7 +352,7 @@ da cui la buona definizione di $g^{(k)}$. Dati $\alpha,\beta \in \Lambda^k(V)$ i
 		quindi esiste $a\in\R$ tale che $*\beta = a e^{\sigma(k+1)} \wedge\ldots\wedge e^{\sigma(n)}$.
 		Di conseguenza abbiamo $\beta\wedge * \beta = a\ \sgn(\sigma) \mu$, ma la \cref{prop:BaseOrtonormaleMetricaLambdaK} implica $\Scal \beta\beta=1$, quindi deve valere $a = \sgn(\sigma)$ e perciò $*$ è unico.
 		
-		\item [esistenza:] Definiamo l'operatore sulla base ortonormale $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik <\}$, utilizzando l'\cref{eq:triangolo}. Possiamo verificare poi l'\cref{eq:star} usando questa base ($*$ è un isomorfismo e manda basi ortonormali in basi ortonormali). %TODO: questa frase non ha molto senso
+		\item [esistenza:] Definiamo l'operatore sulla base ortonormale $\{e^{i_1}\wedge\ldots\wedge e^{i_k} \suchthat \seqb ik <\}$, utilizzando l'\cref{eq:triangolo}. Possiamo verificare poi l'\cref{eq:star} usando questa base. In particolare $*$ è un isomorfismo e manda basi ortonormali in basi ortonormali.
 	\end{description}
 \end{proof}
 
@@ -467,26 +466,26 @@ Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particola
 	\end{description}
 \end{proof}
 
-\begin{corollary} %TODO: da rivedere
+\begin{corollary}
 	Sia $\omega \in \Omega^k(U)$ con $U\subseteq \R^n$. Allora
 	\begin{equation*}
-		\de \omega (x) (v_0,\ldots,v_k) = \sum_{i=0}^k (-1)^i\ \Diff \omega (x) v_i\ (v_0,\ldots,\hat v_i, \ldots, v_k)\virgola
+		\de \omega (x) (v_0,\ldots,v_k) = \sum_{i=0}^k (-1)^i\ \Diff \omega (x)\cdot v_i\ (v_0,\ldots,\hat v_i, \ldots, v_k)\virgola
 	\end{equation*}
 	dove $\Diff \omega$ è il differenziale classico.
 \end{corollary}
 \begin{proof}
 	Sia $\omega(x) = \omega_{\seqb ik{}} (x) \de x^{i_1}\wedge\ldots\wedge \de x^{i_k}$, allora
 	\begin{equation*}
-		\Diff \omega(x) v_i = \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} \virgola
+		\Diff \omega(x)\cdot v_i = \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} \virgola
 	\end{equation*}
 	quindi il membro destro dell'enunciato è
 	\begin{equation*}
-		\sum_{\eta\in S_k}(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \sgn(\eta)\ v_{\eta(1)}^{i_1} \ldots v_{\eta(k)}^{i_k} \punto
+		\sum_{\eta\in S_k}(-1)^i \DerParz{\omega_{\seqb ik{}}}{x^j}\ v_i^j\ \sgn(\eta)\ v_0^{\eta(i_1)}\ldots \hat v_i \ldots v_k^{\eta(i_k)} \punto
 	\end{equation*}
 	D'altra parte
 	\begin{align*}
 		\de \omega (v_0,\ldots,v_k) &= \DerParz{\omega_{\seqb ik{}}}{x^j} \de x^j \wedge \de x^{i_1}\wedge\ldots\wedge \de x^{i_k} (v_0,\ldots,v_k)= \\ 
-		&=\sum_{\sigma \in S_{k+1}}\DerParz{\omega_{\seqb ik{}}}{x^j}\ \sgn(\sigma)\ v_{\sigma(0)}^{j} v_{\sigma(1)}^{i_1} \ldots v_{\sigma(k)}^{i_k} \punto
+		&=\sum_{\sigma \in S_{k+1}}\DerParz{\omega_{\seqb ik{}}}{x^j}\ \sgn(\sigma)\ v_0^{\sigma(j)} v_1^{\sigma(i_1)}\ldots v_k^{\sigma(i_k)} \punto
 	\end{align*}
 	A questo punto però è facile verificare che le due espressioni trovate coincidono, passando da una permutazione $\eta \in S_k$ ad una permutazione $\sigma \in S_{k+1}$ mandando lo 0 in $i$.
 \end{proof}
@@ -498,7 +497,7 @@ Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particola
 	\end{enumerate}
 \end{example}
 
-\begin{exercise} %TODO: verificare che l'esercizio abbia senso
+\begin{exercise}
 	In $\R^3$, sia $\underline F=(F_1,F_2,F_3)$, allora $\underline F^\flat = F_1 \de x + F_2 \de y + F_3 \de z$ e
 	$*(\underline F^\flat) = F_3\de x \wedge \de y - F_2 \de x \wedge \de z + F_1 \de y \wedge \de z$.
 	Mostrare che $\de \underline{F}^\flat = *(\mathrm{rot} \underline{F})^\flat$.	
@@ -542,10 +541,10 @@ Studiamo ora una mappa $\de:\Omega(M) \to \Omega(M)$ che ha proprietà particola
 \end{corollary}
 
 \begin{proof}
-Per definizione $\Lie_X\omega(p) = \frac{\de}{\de t} (F_t^*\omega)(p)\restrict{t=0}$, dove $F_t$ è il flusso generato da $X$. %TODO: rivedere un attimo questa cosa
-Perciò, visto che $F_t^*\omega\in \Omega^k(M)$, otteniamo che $\Lie_X\omega \in \Omega^k(M)$.
+Per definizione $\Lie_X\omega(p) = \frac{\de}{\de t} ((\Fl Xt)^*\omega)(p)\restrict{t=0}$, dove $\Fl Xt$ è il flusso generato da $X$.
+Perciò, visto che $(\Fl Xt)^*\omega\in \Omega^k(M)$, otteniamo che $\Lie_X\omega \in \Omega^k(M)$.
 
-Inoltre $\de$ commuta con il pull-back, allora $F_t^* (\de\omega) = \de (F_t^* \omega)$ passando al limite nei rapporti incrementali otteniamo proprio $\de \Lie_X = \Lie_X \de$.
+Inoltre $\de$ commuta con il pull-back, allora $(\Fl Xt)^* (\de\omega) = \de ((\Fl Xt)^* \omega)$ e passando al limite nei rapporti incrementali otteniamo proprio $\de \Lie_X = \Lie_X \de$.
 \end{proof}
 
 
@@ -607,7 +606,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 		(\alpha\wedge\beta)(v_I) = \sum_{\vec J, \vec K} \delta_I^{JK} \alpha(v_J)\beta(v_K)
 	\end{equation*}
 	con $\vec J,\vec K$ sottoinsiemi rispettivamente di $k$ ed $l$ indici ordinati. Allora
- 	\begin{align*} %TODO: questa parte fa un po' schifo
+ 	\begin{align*}
  		i_{v_1}&(\alpha\wedge\beta)(v_2,\ldots, v_{k+l}) = (\alpha\wedge\beta) (\seqb v{k+l},) =
  		\sum_{\vec I,\vec J} \delta_{1\ldots k+l}^{IJ} \alpha(v_I)\beta(v_J) =\\
  		&= \sum_{\vec I,\vec J,1\in I} \delta_{1 \ldots k+l}^{IJ} \alpha(v_I)\beta(v_J) + \sum_{\vec I,\vec J,1\in J} \delta_{1\ldots k+l}^{IJ} \alpha(v_I)\beta(v_J) =\\
@@ -619,7 +618,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
  	\end{align*}
  	
  	La \ref{ppi:Cinfinito} segue dal fatto che $\alpha$ è $C^\infty(M)$-multilineare.	
-	La \ref{ppi:DeCinfinito} segue dalla definizione di $\de f$, mentre la \ref{ppi:LieWedge} segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante. %TODO: verificare se la ppi:LieWedge è effettivamente così facile
+	La \ref{ppi:DeCinfinito} segue dalla definizione di $\de f$, mentre la \ref{ppi:LieWedge} segue dal fatto che la derivata di Lie è una derivazione tensoriale e commuta con la mappa alternante.
 	
 	Vediamo quindi la \ref{ppi:DeForma} tramite un'induzione in $k$. Il risultato è vero per $k=0$ per la \ref{ppi:DeCinfinito}, supponiamo ora che valga per le $k$ forme e dimostriamolo per le $k+1$ forme. Ogni $k+1$ forma si scrive come $\sum \de f_i \wedge \omega_i$ dove $f_i \in C^\infty(M)$ e $\omega_i\in\Omega^k(M)$; infatti data $\omega$ una $(k+1)$-forma, abbiamo
 	\begin{equation*}
@@ -661,7 +660,7 @@ Ricalcando la \cref{def:ProdottoInternoTensore}, estendiamo il concetto di prodo
 	\end{align*}
 
 % 	\begin{enumerate}
-% 		\item $(\Lie_{X_0} \omega) (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=1}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$; %TODO: mettere una nota che nel caso delle forme la derivata di Lie viene con un pezzo in meno
+% 		\item $(\Lie_{X_0} \omega) (\seqb Xk,) = \Lie_{X_0}(\omega(\seqb Xk,)) - \sum_{i=1}^k \omega(X_1,\ldots, \Lie_{X_0}X_i, \ldots, X_k)$;
 % 		\item $\de \omega (X_0,X_1,\ldots,X_k) = \sum_{l=0}^k (-1)^l\Lie_{X_l}(\omega(X_0,\ldots, \hat X_l, \ldots, X_k)) + \\
 % 		+\sum_{0\le i<j\le k}(-1)^{i+j} \omega (\Lie_{X_i}(X_j),X_0,\ldots,\hat X_i,\ldots, \hat X_j,\ldots, X_k)$
 % 	\end{enumerate}

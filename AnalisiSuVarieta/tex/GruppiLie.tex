@@ -75,7 +75,7 @@ Dato $X_e \in T_eG$, esiste $X\in\chi(G)$ invariante a sinistra definito dalla f
 Dalle proprietà del push-forward $(L_a)_* \comm XY = \comm {(L_a)_*X}{(L_a)_*Y}$. In particolare, se $X,Y$ sono invarianti a sinistra, allora anche $\comm XY$ è invariante a sinistra.
 
 Dati $X,Y \in T_eG$, definiamo con $\tilde X,\tilde Y$ le loro estensioni invarianti a sinistra.
-Definiamo quindi un'operazione $\comm\cdot\cdot$ su $T_eG$ tramite $\comm XY \coloneqq \comm{\tilde X}{\tilde Y}(e)$. %TODO: le parentesi intorno ai tilde escono enormi
+Definiamo quindi un'operazione $\comm\cdot\cdot$ su $T_eG$ tramite $\comm XY \coloneqq \comm{\tilde X}{\tilde Y}(e)$.
 
 \begin{definition} \index{algebra!di Lie}
 	Il tangente $T_eG$ con questa operazione è detto \emph{algebra di Lie} di $G$ ed è indicato $\Lie(G)$ o $\mathfrak g$.
@@ -108,7 +108,8 @@ Vediamo ora che vale anche un viceversa, nella forma del seguente teorema.
 \begin{theorem}
 	Siano $G$ un gruppo di Lie e $\mathfrak h$ una sottoalgebra di $\mathfrak g$. Allora esiste unico un sottogruppo di Lie $H$ di $G$ connesso tale che $\Lie (H) = \mathfrak h$.
 \end{theorem}
-\begin{proof} %TODO: manca la dimostrazione dell'unicità di H?
+\begin{proof}
+	
 	Dato $a \in G$, sia $\Delta_a$ il sottospazio di $T_aG$ generato dagli $\tilde X(a)$ con $X\in \mathfrak h$.
 	Poiché $\mathfrak h$ è una sottoalgebra, $\Delta$ è una distribuzione integrabile per la \cref{prop:CondizioneIntegrabilitaDistribuzioniDaGeneratori}.
 	Sia $H$ una varietà integrale massimale contenente $e$, la cui esistenza ci è garantita dal \cref{thm:Frobenius}. Se $b \in G$, allora $(L_b)_* (\Delta_a) = \Delta_{ba}$. Quindi $(L_b)_*$ lascia invariante la distribuzione. Perciò $L_b$ permuta le varietà integrali massimali di $\Delta$.
@@ -117,6 +118,8 @@ Vediamo ora che vale anche un viceversa, nella forma del seguente teorema.
 	Manca ora verificare che $(a,b) \mapsto ab$ e $a\mapsto a^{-1}$ sono operazioni $C^\infty$.
 	Però lo spazio tangente di $H$ è $\Delta$, che è di classe $C^\infty$ poiché generata da campi vettoriali invarianti a sinistra e quindi $C^\infty$.
 	Come prima si dimostra la regolarità delle funzioni coordinate di prodotti.
+	
+	Tralasciamo la dimostrazione dell'unicità del sottogruppo.
 \end{proof}
 
 \begin{remark}
