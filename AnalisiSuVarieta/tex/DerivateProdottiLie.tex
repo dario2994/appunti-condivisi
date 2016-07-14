@@ -1,4 +1,4 @@
-\chapter{Derivate e prodotti di Lie}
+\chapter{Derivate e prodotti di Lie} \label{ch:DerivateProdottiLie}
 
 \section{Derivata e parentesi di Lie}
 La derivata di Lie è uno strumento che ci permette di calcolare variazioni di varie quantità (per esempio funzioni) quando ci muoviamo sulla varietà.
@@ -253,9 +253,9 @@ Abbiamo visto che se $X(p)\ne 0$, allora esiste $(U,\varphi)$ carta locale tale 
 			\frac{\de}{\de t}\left(\Fl{X_\alpha}{t}(0)\right)\restrict{t=0} = X_\alpha(0)=\frac{\partial}{\partial y^{\alpha}}(0)\virgola &\text{per $\alpha=1,\dots,k$}\punto
 		\end{cases}
 	\end{equation*}
-	Inoltre, poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per $\alpha=1,\dots, k$ possiamo scrivere
+	Inoltre, poiché $\comm{X_i}{X_j}=0$ per ogni $i,j=1,\dots,k$, per la \cref{prop:EquivalenzaParentesiZero} per $\alpha=1,\dots, k$ possiamo scrivere
 	\begin{equation*}
-		\Psi(a^1,\dots,a^n)=\Fl{X_\alpha}{a_\alpha}(\Fl{X_1}{a_1}(\dots \widehat{ \Fl{X_\alpha}{a_\alpha}}(\dots(0\dots 0, a^{k+1},\dots a^n)))\virgola
+		\Psi(a^1,\dots,a^n)=\Fl{X_\alpha}{a_\alpha}(\Fl{X_1}{a_1}(\dots (\widehat{ \Fl{X_\alpha}{a_\alpha}}(\dots(0,\dots, 0, a^{k+1},\dots a^n)))\virgola
 	\end{equation*}
 	quindi vale in generale $X_{\alpha}=\frac{\partial}{\partial a^{\alpha}}$ in un intorno dell'origine.
 \end{proof}

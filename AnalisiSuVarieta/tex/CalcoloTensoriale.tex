@@ -87,6 +87,19 @@ In particolare, dati $v\in V$ e $\alpha \in V^*$, abbiamo che $v= \sum_{i=1}^n \
 \end{enumerate}
 \end{example}
 
+\begin{definition} \index{delta di Kronecker}
+	La \emph{delta di Kronecker} è il tensore $\delta \in T_1^1(V)$ definito come
+	\begin{equation*}
+		\delta(\alpha,e) \coloneqq \Scal{\alpha}{e}\punto
+	\end{equation*}
+\end{definition}
+
+\begin{remark}
+	La $\delta$ corrisponde all'identità su $V$ quando consideriamo $T_1^1(V) \cong \Lin(V,V)$.
+	
+	Inoltre, fissando una base, risulta che $\delta = \sum_{i,j}\delta_j^i\ e_i\otimes e^j$, dove $\delta_j^i$ sono i classici simboli di Kronecker.
+\end{remark}
+
 \begin{definition} \index{prodotto!interno} \label{def:ProdottoInternoTensore}
 	Il \emph{prodotto interno} di un tensore con un vettore $v\in V$  è una mappa $i_v:T_s^r(V)\to T_{s-1}^r(V)$ tale che
 	\begin{equation*}
@@ -119,22 +132,9 @@ Vediamo ora i prodotti interni in componenti. Per linearità, ci basta esplicita
 	dove per convenzione quando si scrivono indici alti e bassi ripetuti si intende che si somma da $1$ ad $n$ (notazione di Einstein). In questo particolare caso si sta quindi sommando su $p$.
 \end{definition}
 
-\begin{remark}
-	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$. %TODO: perché? mettere la dimostrazione?
-\end{remark}
-
-\begin{definition} \index{delta di Kronecker} %TODO: eventualmente spostare sopra.
-	La \emph{delta di Kronecker} è il tensore $\delta \in T_1^1(V)$ definito come
-	\begin{equation*}
-		\delta(\alpha,e) \coloneqq \Scal{\alpha}{e}\punto
-	\end{equation*}
-\end{definition}
-
-\begin{remark}
-	La $\delta$ corrisponde all'identità su $V$ quando consideriamo $T_1^1(V) \cong \Lin(V,V)$.
-	
-	Inoltre, fissando una base, risulta che $\delta = \sum_{i,j}\delta_j^i\ e_i\otimes e^j$, dove $\delta_j^i$ sono i classici simboli di Kronecker.
-\end{remark}
+\begin{exercise}
+	La contrazione $(k,l)$ è indipendente dalla base $e_1,\ldots,e_n$ di $V$.
+\end{exercise}
 
 Supponiamo ora che $V$ sia dotato di un prodotto interno $\ll \cdot, \cdot \gg$ simmetrico e definito positivo. Siano $e_1,\ldots,e_n$ una base di $V$ e $e^1,\ldots,e^n$ la base del duale $V^*$.
 Sia inoltre $g_{ij} \coloneqq \ll e_i,e_j\gg$ la matrice dei coefficienti del prodotto interno.
@@ -185,7 +185,7 @@ L'operatore $\flat$ è detto \emph{operatore di abbassamento di indice}, mentre 
 	Calcolare il prodotto interno di $t=e_1\otimes e_2\otimes e^2+3e_2\otimes e_2\otimes e^1$ con $e = -e_1+2e_2$ e $\alpha = 2e^1+e^2$, dove in questo caso $V=\R^2$.
 \end{exercise}
 \begin{exercise}
-	Siano $V,W$ due spazi vettoriali con $\dim(V) = n$ e $\dim(W) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $n^{r+s}m$. %TODO: controllare che la dimesione sia giusta
+	Siano $V,W$ due spazi vettoriali con $\dim(V) = n$ e $\dim(W) = m$. Dimostrare che $T_s^r(V,W)$ ha dimensione $n^{r+s}m$.
 \end{exercise}
 
 \section{Push-forward e pull-back di trasformazioni lineari}
@@ -223,7 +223,7 @@ Definiamo di seguito push-forward e pull-back di isomorfismi fra spazi vettorial
 \end{definition}
 
 \begin{remark}
-Si verifica che $\varphi_*$ è continua. %TODO: non capisco il senso di dire che \phi è continua, dato che è lineare tra spazi finito-dimensionali; forse si intendeva dire che la definizione data è effettivamente quella di una mappa lineare?
+Si verifica che $\varphi_*$ è effettivamenete una mappa lineare.
 \end{remark}
 
 \begin{remark}
@@ -291,7 +291,7 @@ A questo punto, come preannunciato, definiamo push-forward e pull-back per tutte
 	Analogamente si definisce il \emph{push-forward} per tensori che siano solo controvarianti.
 \end{definition}
 
-Vediamo ora l'analogo della \cref{prop:ProprietaPushForwardIsomorfismi}, dove però il pull-back è definito per tensori solo covarianti. %TODO: tranne che la proposizione sopra lo faceva con il push-forward e così è un po' un casino
+Vediamo ora l'analogo della \cref{prop:ProprietaPushForwardIsomorfismi} nel caso di pull-back fra tensori solo covarianti.
 
 \begin{proposition}
 	Siano $\varphi\in \Lin(V,W)$ e $\psi\in \Lin(W,Z)$, allora

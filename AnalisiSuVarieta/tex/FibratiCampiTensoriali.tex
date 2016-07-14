@@ -1,6 +1,6 @@
 \chapter{Fibrati e campi tensoriali}
 
-\section{Risultati locali su varietà} %TODO: eventualmente cambiare titolo6
+\section{Risultati locali su varietà} %TODO: eventualmente cambiare titolo
 
 Lo scopo è estendere l'algebra tensoriale a fibrati vettoriali (locali e poi globali).
 
@@ -13,7 +13,7 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 \end{definition}
 
 \begin{lemma} \label{lem:DualeEInversaRegolari}
-	Sia $\mathrm {GL} (V,W)$ l'insieme degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$. %TODO: cambiare nome a mathcal A e B?
+	Sia $\mathrm {GL} (V,W)$ l'insieme degli isomorfismi fra $V$ e $W$, che è un aperto in $\Lin(V,W)$. Sia $\mathcal A:\Lin(V,W)\to \Lin(W^*,V^*)$ tale che $\varphi\mapsto \varphi^*$ e $\mathcal B: \mathrm {GL} (V,W) \to \mathrm {GL} (W,V)$ tale che $\varphi \mapsto \varphi^{-1}$.
 	Allora $\mathcal A$ e $\mathcal B$ sono di classe $C^\infty$ e $\Diff \mathcal B(\varphi)[\psi] = -\varphi^{-1}\ \circ\ \psi\ \circ\ \varphi^{-1}$.
 \end{lemma}
 
@@ -45,7 +45,6 @@ Se $\varphi:U\times V \to U'\times V'$ è una mappa locale di fibrato e se $\var
 	Se $\pi':E'\to B'$ è un altro fibrato vettoriale e se $(\varphi,\varphi_0):E\to E'$ è una mappa fra fibrati vettoriali tale che $\varphi_b \coloneqq \varphi\restrict{E_b}$ è un isomorfismo per ogni $b\in B$, sia $\varphi_*:T_s^r(E)\to T_s^r(E')$ il \emph{push-forward} di $\varphi$ definito da $\varphi_*\restrict{T_s^r(E_b)} = (\varphi_b)_*$.
 \end{definition}
 
-%TODO: cambiare E\restrict U?
 Sia $(E\restrict U,\varphi)$ una carta locale di $\pi$, con $U\subseteq B$ aperto. Allora $\varphi_* \restrict{T_s^r(E)\restrict U}$ è una biezione su un fibrato locale e quindi è una carta locale.
 Inoltre $(\varphi_*)_b = (\varphi_b)_*$ è un isomorfismo lineare e quindi la carta preserva la struttura lineare di ogni fibra. Queste carte sono dette \emph{carte naturali} di $T_s^r(E)$.
 
@@ -122,17 +121,14 @@ Se $f\in C^\infty(M)$, $X_i \in \chi(M)$, $\alpha^i \in \chi^*(M)$, $t \in \Tau_
 	
 	\item $t\otimes t' \in \Tau_{s+s'}^{r+r'}(M)$ tale che $p \mapsto t(p)\otimes t'(p)$.
 \end{itemize}
+Osserviamo che $ft = f\otimes t$, poiché possiamo vedere $f\in C^\infty(M)$ come un tensore in $\Tau_0^0(M)$.
 Analogamente possiamo ridefinire contrazioni e prodotti interni.
 
-Vediamo ora la scrittura di un campo tensoriale in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$, dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$.
-% \footnote{Il campo vettoriale $\DerParz{}{x^i}$ corrisponde alla derivazione $f \mapsto \DerParz{f}{x^i}$. Abbiamo che $v = v^i\DerParz{}{x^i}$ e $\alpha = \alpha_j \de x^j$.}.
-%TODO: vedere se si parla prima di \DerParz{}{x^i} ed eventualmente parlarne prima
-In particolare $\DerParz{}{x^i} \in \chi(U)=\Tau_0^1(U)$ ed è il campo vettoriale corrispondente alla derivazione $f \mapsto \DerParz{f}{x^i}$. 
+Vediamo ora la scrittura di un campo tensoriale in coordinate. Data $(U,\varphi)$ carta di $M$, sappiamo che $\DerParz{}{x^i} = (T\varphi)^{-1}(e_i)$, dove $e_1,\ldots, e_n$ è la base canonica di $\R^n$; in particolare $\DerParz{}{x^i} \in \chi(U)=\Tau_0^1(U)$. 
 
 Sia ora $\de x^i\in \chi^*(U) = \Tau_1^0(U)$ tale che $\de x^i(\DerParz{}{x^j}) = \delta^i_j$, ovvero $\de x^i = \varphi^*(e^i)$ dove $\seqa en,$ è la base duale di $\seqb en,$.
 Notiamo che, come suggerisce la notazione, $\de x^i$ corrisponde al differenziale della funzione coordinata $x^i:U\to \R$.
 
-% Quindi $\de x^i = \varphi^*(e^i)$ dove $e^i$ è la base duale di $(e_j)_i$. %TODO: parlare di base duale ecc e sistemare in generale quel che segue
 
 Consideriamo ora $t\in \Tau_s^r(M)$ e poniamo $t_{j_1\ldots j_s}^{i_1 \ldots i_r} \coloneqq t(\de x^{i_1}, \ldots, \de x^{i_r}, \DerParz{}{x^{j_1}}, \ldots, \DerParz{}{x^{j_s}}) \in C^\infty(U)$,
 allora per linearità 
@@ -146,7 +142,7 @@ Allo stesso modo $\de y^i = \DerParz{y^i}{x^j} \de x^j$.
 
 Quindi se chiamiamo $\tilde t_{l_1\ldots l_s}^{k_1\ldots k_r} \coloneqq t(\de y^{k_1},\ldots,\de y^{k_r}, \DerParz{}{y^{l_1}},\ldots, \DerParz{}{y^{l_s}})$ le componenti del tensore $t$ rispetto alle coordinate $(\seqa yn,)$, abbiamo che
 \begin{equation*}
-	\tilde t_{l_1\ldots l_s}^{k_1\ldots k_r} = t\left(\de y^{k_1},\ldots,\de y^{k_r}, \DerParz{}{y^{l_1}},\ldots, \DerParz{}{y^{l_s}}\right) = \DerParz{y^{k_1}}{x^{i_1}}\ldots\DerParz{y^{k_r}}{x^{i_r}}\cdot \DerParz{x^{j_1}}{y^{l_1}}\ldots\DerParz{x^{j_s}}{y^{l_s}}\ t_{j_1\ldots j_s}^{i_1\ldots i_r} \virgola
+	\tilde t_{l_1\ldots l_s}^{k_1\ldots k_r} = t\left(\de y^{k_1},\ldots,\de y^{k_r}, \DerParz{}{y^{l_1}},\ldots, \DerParz{}{y^{l_s}}\right) = \DerParz{y^{k_1}}{x^{i_1}}\cdot\ldots\cdot\DerParz{y^{k_r}}{x^{i_r}}\cdot \DerParz{x^{j_1}}{y^{l_1}}\cdot\ldots\cdot\DerParz{x^{j_s}}{y^{l_s}}\ t_{j_1\ldots j_s}^{i_1\ldots i_r} \virgola
 \end{equation*}
 dove abbiamo utilizzato le proprietà di linearità del tensore.
 
@@ -156,7 +152,7 @@ dove abbiamo utilizzato le proprietà di linearità del tensore.
 \begin{remark}
 Osserviamo che i campi tensoriali possono essere definiti anche in un altro modo equivalente.
 
-Lo spazio $\chi^*(M)$ può essere visto come $\Lin_{C^\infty(M)} (\chi(M), C^\infty(M))$. Infatti gli elementi di $\chi^*(M)$ sono $C^\infty(M)$-lineari, cioè dato $\alpha\in\chi^*(M)$ vale che $\alpha(p)(f(p)X(p)) = f(p) \alpha(p) X(p)$ per ogni $X\in\chi(M)$ e $f\in C^\infty(M)$. %TODO: togliere il punto di valutazione?
+Lo spazio $\chi^*(M)$ può essere visto come $\Lin_{C^\infty(M)} (\chi(M), C^\infty(M))$. Infatti gli elementi di $\chi^*(M)$ sono $C^\infty(M)$-lineari, cioè dato $\alpha\in\chi^*(M)$ vale che $\alpha(fX) = f \alpha (X)$ per ogni $X\in\chi(M)$ e $f\in C^\infty(M)$.
 
 Allo stesso modo $\Tau_s^r(M)$ può essere definito come
 \begin{equation*}
@@ -184,7 +180,7 @@ Notiamo che contrazioni e prodotti interni si possono sempre fare, ma per alzare
 Un tensore metrico permette di abbassare e alzare gli indici di un campo tensoriale, tramite per esempio $t^{ik} \mapsto t^{ij}g_{jk}$, che è una mappa $\Tau_0^2(M) \to \Tau_1^1(M)$.
 
 Data $f\in C^\infty(M)$, con $f \mapsto \de f \in \chi^*(M)$, abbiamo che $\de f(v) = v(f)$ con $v \in T_pM$. Quindi tale funzione $f$ ci dà in modo naturale una 1-forma.
-Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma. %TODO: riscrivere meglio?
+Per avere un gradiente ci serve una metrica che faccia cambiare il tipo di un tensore e nel particolar caso della 1-forma.
 
 \begin{definition} \index{gradiente}
 	Sia $M$ una varietà con metrica $g$ e sia $f \in C^\infty(M)$. Il campo vettoriale $(\de f)^\sharp$ è detto il \emph{gradiente} di $f$, che denoteremo $\grad f$. %diesis \sharp e \flat
@@ -226,11 +222,11 @@ Ancora una volta possiamo rivedere i concetti di push-forward e pull-back, in qu
 	\end{enumerate}
 \end{proposition}
 
-\begin{remark} %TODO: si dice che serva anche la surgettività di \varphi e credo proprio sia vero
+\begin{remark}
 	Come abbiamo già avuto modo di osservare, se $t\in\Tau_0^r(M)$, il suo push-forward $\varphi_*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo. Analogamente, se $t \in \Tau_r^0(N)$, il suo pull-back $\varphi^*t$ è ben definito anche se $\varphi$ non è un diffeomorfismo.
 \end{remark}
 
-Vediamo ora la scrittura del push-forward in coordinate. Sia $t\in \Tau_s^r(M)$ e $\varphi:M\to N$ un diffeomorfismo tale che $x^j = y^j\circ \varphi$ per $j=1,\ldots,n$, con $x$ e $y$ sistemi di coordinate su $M$ ed $N$ rispettivamente. Allora abbiamo che %TODO: controllare che sia giusta la relazione fra x,y,\varphi
+Vediamo ora la scrittura del push-forward in coordinate. Sia $t\in \Tau_s^r(M)$ e $\varphi:M\to N$ un diffeomorfismo tale che $x^j = y^j\circ \varphi$ per $j=1,\ldots,n$, con $x$ e $y$ sistemi di coordinate su $M$ ed $N$ rispettivamente. Allora abbiamo che
 \begin{equation*}
 	(\varphi_*t)_{j_1\ldots j_s}^{i_1\ldots i_r} =\left(\DerParz{y^{i_1}}{x^{k_1}}\circ \varphi^{-1}\right)\dots \left(\DerParz{y^{i_r}}{x^{k_r}} \circ \varphi^{-1}\right) \DerParz{x^{l_1}}{y^{j_1}} \dots \DerParz{x^{l_s}}{y^{j_s}} t_{l_1\ldots l_s}^{k_1\ldots k_r} \circ \varphi^{-1} \virgola
 \end{equation*}
